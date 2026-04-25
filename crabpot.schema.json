@@ -35,10 +35,30 @@
             "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
             "uniqueItems": true
           },
+          "expect": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "hooks": {
+                "type": "array",
+                "items": { "type": "string", "pattern": "^[a-z0-9_:-]+$" },
+                "uniqueItems": true
+              },
+              "registrations": {
+                "type": "array",
+                "items": { "type": "string", "pattern": "^[A-Za-z][A-Za-z0-9]*$" },
+                "uniqueItems": true
+              },
+              "manifestContracts": {
+                "type": "array",
+                "items": { "type": "string", "pattern": "^[A-Za-z][A-Za-z0-9]*$" },
+                "uniqueItems": true
+              }
+            }
+          },
           "why": { "type": "string", "minLength": 1 }
         }
       }
     }
   }
 }
-

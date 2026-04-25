@@ -29,6 +29,7 @@ Use a cheap default workflow first:
 - validate the manifest
 - ensure `.gitmodules` agrees with `crabpot.config.json`
 - initialize pinned submodules
+- inspect expected hooks, registrations, and manifest contracts
 - run registration-capture smoke checks
 
 Add heavier lanes later for SDK compilation against specific OpenClaw refs:
@@ -36,4 +37,3 @@ Add heavier lanes later for SDK compilation against specific OpenClaw refs:
 - `openclaw@main`
 - latest stable release tag
 - active beta branch or release candidate
-

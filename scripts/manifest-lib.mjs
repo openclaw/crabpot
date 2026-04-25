@@ -54,10 +54,15 @@ export function validateManifest(manifest) {
     if (!Array.isArray(fixture.seams) || fixture.seams.length === 0) {
       errors.push(`${fixture.id}: seams must be non-empty`);
     }
+    for (const key of ["hooks", "registrations", "manifestContracts"]) {
+      const values = fixture.expect?.[key];
+      if (values !== undefined && (!Array.isArray(values) || values.length === 0)) {
+        errors.push(`${fixture.id}: expect.${key} must be a non-empty array when present`);
+      }
+    }
   }
 
   if (errors.length > 0) {
     throw new Error(errors.join("\n"));
   }
 }
-

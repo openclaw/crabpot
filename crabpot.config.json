@@ -15,6 +15,9 @@
       "subdir": "integrations/openclaw-channel",
       "priority": "high",
       "seams": ["channel", "prompt-mutation", "config-schema", "websocket", "backpressure"],
+      "expect": {
+        "registrations": ["defineChannelPluginEntry"]
+      },
       "why": "Production-shaped channel plugin with WebSocket auth, reconnect, prompt hints, and typed runtime contracts."
     },
     {
@@ -24,6 +27,16 @@
       "path": "plugins/wecom",
       "priority": "high",
       "seams": ["channel", "streaming", "dynamic-agent-routing", "message-policy", "media"],
+      "expect": {
+        "hooks": [
+          "before_prompt_build",
+          "subagent_delivery_target",
+          "subagent_spawned",
+          "subagent_ended",
+          "before_tool_call"
+        ],
+        "registrations": ["registerChannel", "registerTool", "registerHttpRoute"]
+      },
       "why": "Large community channel fixture covering WS streaming, group/DM policy, command allowlists, media, and dynamic agents."
     },
     {
@@ -33,6 +46,9 @@
       "path": "plugins/a2a-gateway",
       "priority": "high",
       "seams": ["gateway-service", "http-routes", "agent-routing", "async-job", "auth"],
+      "expect": {
+        "registrations": ["registerService", "registerTool"]
+      },
       "why": "Agent-to-agent server fixture with agent-card discovery, JSON-RPC/REST/gRPC transports, metrics, peer auth, and async task modes."
     },
     {
@@ -42,6 +58,10 @@
       "path": "plugins/hasdata",
       "priority": "high",
       "seams": ["tool", "tool-schema", "external-api", "cli", "config-schema"],
+      "expect": {
+        "manifestContracts": ["tools"],
+        "registrations": ["registerTool"]
+      },
       "why": "Single native tool backed by a large OpenAPI-derived action catalog and strict per-action schemas."
     },
     {
@@ -51,6 +71,9 @@
       "path": "plugins/mcp-adapter",
       "priority": "high",
       "seams": ["dynamic-tool", "json-schema", "stdio", "http", "reconnect"],
+      "expect": {
+        "registrations": ["registerService", "registerTool"]
+      },
       "why": "Dynamic tool discovery from MCP servers with stdio/http transports and schema passthrough."
     },
     {
@@ -60,6 +83,9 @@
       "path": "plugins/llm-trace-phoenix",
       "priority": "high",
       "seams": ["llm-observer", "conversation-access", "telemetry", "external-api"],
+      "expect": {
+        "hooks": ["llm_input", "llm_output"]
+      },
       "why": "Small sharp fixture for llm_input/llm_output access and raw prompt/output privacy boundaries."
     },
     {
@@ -69,6 +95,9 @@
       "path": "plugins/clawmetry",
       "priority": "medium",
       "seams": ["diagnostics", "log-transport", "gateway-service", "sidecar", "telemetry"],
+      "expect": {
+        "registrations": ["registerService"]
+      },
       "why": "Observability fixture for diagnostic events, log transport, telemetry buffering, and plugin-owned dashboard lifecycle."
     },
     {
@@ -78,6 +107,10 @@
       "path": "plugins/codex-app-server",
       "priority": "medium",
       "seams": ["process-spawn", "unsafe-install", "channel-bridge", "interactive-ui", "sdk-compat"],
+      "expect": {
+        "hooks": ["inbound_claim"],
+        "registrations": ["registerService"]
+      },
       "why": "Bridge fixture for process launch policy, install safety gates, and channel-specific SDK compatibility."
     },
     {
@@ -87,6 +120,9 @@
       "path": "plugins/web-search-plus",
       "priority": "medium",
       "seams": ["tool", "provider-routing", "external-api", "env-auth", "extraction"],
+      "expect": {
+        "registrations": ["registerTool"]
+      },
       "why": "Multi-provider search/extract tool fixture with several auth/config permutations."
     },
     {
@@ -96,6 +132,9 @@
       "path": "plugins/apify",
       "priority": "medium",
       "seams": ["tool", "async-job", "polling", "external-api", "catalog-discovery"],
+      "expect": {
+        "registrations": ["registerTool"]
+      },
       "why": "Async start/collect workflow fixture for remote jobs and huge third-party catalog discovery."
     },
     {
@@ -105,8 +144,11 @@
       "path": "plugins/inworld-tts",
       "priority": "medium",
       "seams": ["provider-capability", "speech", "tts", "env-auth", "runtime-overrides"],
+      "expect": {
+        "manifestContracts": ["speechProviders"],
+        "registrations": ["registerSpeechProvider"]
+      },
       "why": "Provider capability fixture for speech registration, config/env auth, and talk.speak request overrides."
     }
   ]
 }
-
