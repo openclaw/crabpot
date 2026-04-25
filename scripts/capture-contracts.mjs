@@ -22,6 +22,20 @@ const REGISTRATION_ASSERTIONS = {
   registerTool: ["tool name is stable", "input schema is captured", "result shape metadata is captured"],
 };
 
+const REGISTRATION_ARGUMENTS = {
+  defineChannelPluginEntry: [{ id: "fixture-channel", setup: "function", receive: "function" }],
+  definePluginEntry: [{ id: "fixture-plugin", register: "function" }],
+  registerChannel: [{ id: "fixture-channel", send: "function", receive: "function" }],
+  registerCli: [{ name: "fixture-command", args: [{ name: "input", type: "string" }] }],
+  registerCommand: [{ name: "fixture-command", handler: "function" }],
+  registerGatewayMethod: [{ name: "fixture.gateway.method", inputSchema: { type: "object" }, handler: "function" }],
+  registerHttpRoute: [{ method: "POST", path: "/fixture/probe", handler: "function" }],
+  registerInteractiveHandler: [{ id: "fixture-interaction", handler: "function" }],
+  registerService: [{ name: "fixture-service", start: "function", stop: "function" }],
+  registerSpeechProvider: [{ id: "fixture-speech", speak: "function" }],
+  registerTool: [{ name: "fixture_tool", inputSchema: { type: "object", properties: {} }, run: "function" }],
+};
+
 const HOOK_ASSERTIONS = {
   agent_end: ["final conversation payload is redacted as expected", "agent id and run metadata are present"],
   before_prompt_build: ["prompt mutation result is preserved", "agent and conversation metadata are present"],
@@ -32,6 +46,57 @@ const HOOK_ASSERTIONS = {
   subagent_delivery_target: ["target routing result is preserved", "parent/subagent metadata are present"],
   subagent_ended: ["subagent completion payload is preserved", "status metadata is present"],
   subagent_spawned: ["spawn payload is preserved", "parent/subagent metadata are present"],
+};
+
+const HOOK_EVENTS = {
+  agent_end: {
+    agentId: "agent-fixture",
+    conversationId: "conversation-fixture",
+    status: "completed",
+    transcript: [{ role: "assistant", content: "[redacted fixture output]" }],
+  },
+  before_prompt_build: {
+    agentId: "agent-fixture",
+    conversationId: "conversation-fixture",
+    messages: [{ role: "user", content: "fixture prompt" }],
+    metadata: { source: "crabpot" },
+  },
+  before_tool_call: {
+    agentId: "agent-fixture",
+    toolCall: { id: "call-fixture", name: "fixture_tool", args: {} },
+    approval: { required: true, state: "pending" },
+    terminal: false,
+  },
+  inbound_claim: {
+    channelId: "fixture-channel",
+    source: { type: "external", id: "fixture-source" },
+    message: { id: "message-fixture", text: "claim this message" },
+  },
+  llm_input: {
+    agentId: "agent-fixture",
+    model: "gpt-5.4",
+    messages: [{ role: "user", content: "[redacted fixture input]" }],
+  },
+  llm_output: {
+    agentId: "agent-fixture",
+    model: "gpt-5.4",
+    output: { role: "assistant", content: "[redacted fixture output]" },
+  },
+  subagent_delivery_target: {
+    parentAgentId: "agent-parent",
+    subagentId: "agent-child",
+    message: { id: "message-fixture", text: "route me" },
+  },
+  subagent_ended: {
+    parentAgentId: "agent-parent",
+    subagentId: "agent-child",
+    status: "completed",
+  },
+  subagent_spawned: {
+    parentAgentId: "agent-parent",
+    subagentId: "agent-child",
+    task: "fixture subtask",
+  },
 };
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
@@ -109,6 +174,7 @@ export async function buildContractCapture(options = {}) {
       ref: registration.ref,
       support: capturedRegistrars.has(registration.name) ? "target-captured" : "inspector-shim-required",
       assertions: REGISTRATION_ASSERTIONS[registration.name] ?? ["registration arguments are captured"],
+      syntheticArguments: REGISTRATION_ARGUMENTS[registration.name] ?? [{}],
     })),
     hooks: fixture.hookDetails.map((hook) => ({
       id: `hook.${hook.name}:${fixture.id}:${slugRef(hook.ref)}`,
@@ -117,6 +183,7 @@ export async function buildContractCapture(options = {}) {
       ref: hook.ref,
       support: "synthetic-event-required",
       assertions: HOOK_ASSERTIONS[hook.name] ?? ["hook payload and return value are captured"],
+      syntheticEvent: HOOK_EVENTS[hook.name] ?? { hook: hook.name, fixture: fixture.id },
     })),
     sdkImports: fixture.sdkImportDetails.map((sdkImport) => ({
       id: `sdk.${sdkImport.specifier}:${fixture.id}:${slugRef(sdkImport.ref)}`,
@@ -177,6 +244,12 @@ export function validateContractCapture(capture) {
         }
         if (!Array.isArray(item.assertions) || item.assertions.length === 0) {
           errors.push(`${item.id}: missing capture assertions`);
+        }
+        if (section === "registrations" && !Array.isArray(item.syntheticArguments)) {
+          errors.push(`${item.id}: missing synthetic registration arguments`);
+        }
+        if (section === "hooks" && (!item.syntheticEvent || typeof item.syntheticEvent !== "object")) {
+          errors.push(`${item.id}: missing synthetic hook event`);
         }
       }
     }

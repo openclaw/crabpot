@@ -54,7 +54,9 @@ test("contract capture turns observed seams into executable probe assertions", a
 function assertHasRegistrationCapture(capture, fixtureId, registrar, support) {
   const fixture = capture.fixtures.find((item) => item.id === fixtureId);
   assert.ok(
-    fixture?.registrations.some((item) => item.registrar === registrar && item.support === support),
+    fixture?.registrations.some(
+      (item) => item.registrar === registrar && item.support === support && item.syntheticArguments.length > 0,
+    ),
     `expected ${fixtureId} ${registrar} capture with ${support}`,
   );
 }
@@ -62,7 +64,9 @@ function assertHasRegistrationCapture(capture, fixtureId, registrar, support) {
 function assertHasHookProbe(capture, fixtureId, hook) {
   const fixture = capture.fixtures.find((item) => item.id === fixtureId);
   assert.ok(
-    fixture?.hooks.some((item) => item.hook === hook && item.assertions.length > 0),
+    fixture?.hooks.some(
+      (item) => item.hook === hook && item.assertions.length > 0 && item.syntheticEvent.toolCall?.name === "fixture_tool",
+    ),
     `expected ${fixtureId} ${hook} hook probe`,
   );
 }

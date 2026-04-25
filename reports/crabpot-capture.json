@@ -31,6 +31,13 @@
             "channel id is stable",
             "setup/config schema can be read",
             "message envelope metadata is preserved"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-channel",
+              "setup": "function",
+              "receive": "function"
+            }
           ]
         }
       ],
@@ -155,6 +162,13 @@
             "channel id is stable",
             "inbound/outbound envelope shape is captured",
             "sender metadata is preserved"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-channel",
+              "send": "function",
+              "receive": "function"
+            }
           ]
         },
         {
@@ -166,6 +180,13 @@
           "assertions": [
             "route method and path are captured",
             "auth policy metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "method": "POST",
+              "path": "/fixture/probe",
+              "handler": "function"
+            }
           ]
         },
         {
@@ -178,6 +199,16 @@
             "tool name is stable",
             "input schema is captured",
             "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
           ]
         },
         {
@@ -190,6 +221,16 @@
             "tool name is stable",
             "input schema is captured",
             "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
           ]
         },
         {
@@ -202,6 +243,16 @@
             "tool name is stable",
             "input schema is captured",
             "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
           ]
         }
       ],
@@ -215,7 +266,20 @@
           "assertions": [
             "prompt mutation result is preserved",
             "agent and conversation metadata are present"
-          ]
+          ],
+          "syntheticEvent": {
+            "agentId": "agent-fixture",
+            "conversationId": "conversation-fixture",
+            "messages": [
+              {
+                "role": "user",
+                "content": "fixture prompt"
+              }
+            ],
+            "metadata": {
+              "source": "crabpot"
+            }
+          }
         },
         {
           "id": "hook.before_tool_call:wecom:plugins-wecom-index-js-65",
@@ -226,7 +290,20 @@
           "assertions": [
             "block/allow return shapes are preserved",
             "terminal and approval metadata are present"
-          ]
+          ],
+          "syntheticEvent": {
+            "agentId": "agent-fixture",
+            "toolCall": {
+              "id": "call-fixture",
+              "name": "fixture_tool",
+              "args": {}
+            },
+            "approval": {
+              "required": true,
+              "state": "pending"
+            },
+            "terminal": false
+          }
         },
         {
           "id": "hook.subagent_delivery_target:wecom:plugins-wecom-index-js-61",
@@ -237,7 +314,15 @@
           "assertions": [
             "target routing result is preserved",
             "parent/subagent metadata are present"
-          ]
+          ],
+          "syntheticEvent": {
+            "parentAgentId": "agent-parent",
+            "subagentId": "agent-child",
+            "message": {
+              "id": "message-fixture",
+              "text": "route me"
+            }
+          }
         },
         {
           "id": "hook.subagent_ended:wecom:plugins-wecom-index-js-63",
@@ -248,7 +333,12 @@
           "assertions": [
             "subagent completion payload is preserved",
             "status metadata is present"
-          ]
+          ],
+          "syntheticEvent": {
+            "parentAgentId": "agent-parent",
+            "subagentId": "agent-child",
+            "status": "completed"
+          }
         },
         {
           "id": "hook.subagent_spawned:wecom:plugins-wecom-index-js-62",
@@ -259,7 +349,12 @@
           "assertions": [
             "spawn payload is preserved",
             "parent/subagent metadata are present"
-          ]
+          ],
+          "syntheticEvent": {
+            "parentAgentId": "agent-parent",
+            "subagentId": "agent-child",
+            "task": "fixture subtask"
+          }
         }
       ],
       "sdkImports": [
@@ -336,6 +431,15 @@
           "assertions": [
             "method name is stable",
             "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
           ]
         },
         {
@@ -347,6 +451,15 @@
           "assertions": [
             "method name is stable",
             "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
           ]
         },
         {
@@ -358,6 +471,15 @@
           "assertions": [
             "method name is stable",
             "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
           ]
         },
         {
@@ -369,6 +491,15 @@
           "assertions": [
             "method name is stable",
             "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
           ]
         },
         {
@@ -380,6 +511,15 @@
           "assertions": [
             "method name is stable",
             "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
           ]
         },
         {
@@ -391,6 +531,13 @@
           "assertions": [
             "service id is stable",
             "start/stop lifecycle handlers are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-service",
+              "start": "function",
+              "stop": "function"
+            }
           ]
         },
         {
@@ -403,6 +550,16 @@
             "tool name is stable",
             "input schema is captured",
             "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
           ]
         }
       ],
@@ -449,6 +606,16 @@
             "tool name is stable",
             "input schema is captured",
             "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
           ]
         }
       ],
@@ -482,6 +649,13 @@
           "assertions": [
             "service id is stable",
             "start/stop lifecycle handlers are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-service",
+              "start": "function",
+              "stop": "function"
+            }
           ]
         },
         {
@@ -494,6 +668,16 @@
             "tool name is stable",
             "input schema is captured",
             "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
           ]
         }
       ],
@@ -528,7 +712,17 @@
           "assertions": [
             "model input payload is redacted as expected",
             "model and agent metadata are present"
-          ]
+          ],
+          "syntheticEvent": {
+            "agentId": "agent-fixture",
+            "model": "gpt-5.4",
+            "messages": [
+              {
+                "role": "user",
+                "content": "[redacted fixture input]"
+              }
+            ]
+          }
         },
         {
           "id": "hook.llm_output:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts-168",
@@ -539,7 +733,15 @@
           "assertions": [
             "model output payload is redacted as expected",
             "model and agent metadata are present"
-          ]
+          ],
+          "syntheticEvent": {
+            "agentId": "agent-fixture",
+            "model": "gpt-5.4",
+            "output": {
+              "role": "assistant",
+              "content": "[redacted fixture output]"
+            }
+          }
         }
       ],
       "sdkImports": [
@@ -583,6 +785,12 @@
           "assertions": [
             "entrypoint register function is callable",
             "entrypoint metadata is preserved"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-plugin",
+              "register": "function"
+            }
           ]
         },
         {
@@ -594,6 +802,13 @@
           "assertions": [
             "service id is stable",
             "start/stop lifecycle handlers are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-service",
+              "start": "function",
+              "stop": "function"
+            }
           ]
         }
       ],
@@ -673,6 +888,12 @@
           "assertions": [
             "command id is stable",
             "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
           ]
         },
         {
@@ -684,6 +905,12 @@
           "assertions": [
             "handler id is stable",
             "interaction payload and response shape are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-interaction",
+              "handler": "function"
+            }
           ]
         },
         {
@@ -695,6 +922,12 @@
           "assertions": [
             "handler id is stable",
             "interaction payload and response shape are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-interaction",
+              "handler": "function"
+            }
           ]
         },
         {
@@ -706,6 +939,13 @@
           "assertions": [
             "service id is stable",
             "start/stop lifecycle handlers are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-service",
+              "start": "function",
+              "stop": "function"
+            }
           ]
         }
       ],
@@ -719,7 +959,18 @@
           "assertions": [
             "claim payload preserves channel/source identity",
             "routing metadata is present"
-          ]
+          ],
+          "syntheticEvent": {
+            "channelId": "fixture-channel",
+            "source": {
+              "type": "external",
+              "id": "fixture-source"
+            },
+            "message": {
+              "id": "message-fixture",
+              "text": "claim this message"
+            }
+          }
         }
       ],
       "sdkImports": [
@@ -830,6 +1081,16 @@
             "tool name is stable",
             "input schema is captured",
             "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
           ]
         },
         {
@@ -842,6 +1103,16 @@
             "tool name is stable",
             "input schema is captured",
             "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
           ]
         }
       ],
@@ -875,6 +1146,17 @@
           "assertions": [
             "command name is stable",
             "argument schema is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "args": [
+                {
+                  "name": "input",
+                  "type": "string"
+                }
+              ]
+            }
           ]
         },
         {
@@ -887,6 +1169,16 @@
             "tool name is stable",
             "input schema is captured",
             "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
           ]
         }
       ],
@@ -965,6 +1257,12 @@
           "assertions": [
             "entrypoint register function is callable",
             "entrypoint metadata is preserved"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-plugin",
+              "register": "function"
+            }
           ]
         },
         {
@@ -976,6 +1274,12 @@
           "assertions": [
             "provider id is stable",
             "speech request overrides are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-speech",
+              "speak": "function"
+            }
           ]
         }
       ],
