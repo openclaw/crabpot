@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { buildReport, renderMarkdownReport } from "../scripts/report-lib.mjs";
+import { buildReport, renderMarkdownReport, targetOpenClawPathCandidates } from "../scripts/report-lib.mjs";
 
 test("compatibility report classifies current fixture seams", async () => {
   const report = await buildReport({ generatedAt: "test" });
@@ -49,6 +49,13 @@ test("markdown report includes review sections", async () => {
   assert.match(markdown, /## Contract Probe Backlog/);
   assert.match(markdown, /## Decision Matrix/);
   assert.match(markdown, /provider-auth-env-vars/);
+});
+
+test("default OpenClaw target discovery covers local and CI checkout shapes", () => {
+  const manifest = { openclaw: { defaultCheckoutPath: "../openclaw" } };
+
+  assert.deepEqual(targetOpenClawPathCandidates(manifest), ["../openclaw", "./openclaw"]);
+  assert.deepEqual(targetOpenClawPathCandidates(manifest, "./custom-openclaw"), ["./custom-openclaw"]);
 });
 
 function assertHasFinding(findings, fixture, code) {

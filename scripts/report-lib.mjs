@@ -23,6 +23,7 @@ const CHANNEL_REGISTRATIONS = new Set([
   "defineChannelPluginEntry",
   "registerChannel",
 ]);
+const FALLBACK_OPENCLAW_CHECKOUT_PATHS = ["./openclaw", "../openclaw"];
 
 export async function buildReport(options = {}) {
   const generatedAt = options.generatedAt ?? process.env.CRABPOT_REPORT_GENERATED_AT ?? "deterministic";
@@ -1086,8 +1087,8 @@ async function readTargetOpenClaw(manifest, configuredPath) {
     };
   }
 
-  const requestedPath = configuredPath ?? manifest.openclaw?.defaultCheckoutPath ?? null;
-  if (!requestedPath) {
+  const requestedPaths = targetOpenClawPathCandidates(manifest, configuredPath);
+  if (requestedPaths.length === 0) {
     return {
       configuredPath: null,
       status: "not-configured",
@@ -1100,12 +1101,24 @@ async function readTargetOpenClaw(manifest, configuredPath) {
     };
   }
 
-  const resolvedPath = path.resolve(repoRoot, requestedPath);
-  const registryPath = path.join(resolvedPath, "src/plugins/compat/registry.ts");
-  const hookTypesPath = path.join(resolvedPath, "src/plugins/hook-types.ts");
+  let requestedPath = requestedPaths[0];
+  let resolvedPath = path.resolve(repoRoot, requestedPath);
+  let registryPath = path.join(resolvedPath, "src/plugins/compat/registry.ts");
+  for (const candidatePath of requestedPaths) {
+    const candidateResolvedPath = path.resolve(repoRoot, candidatePath);
+    const candidateRegistryPath = path.join(candidateResolvedPath, "src/plugins/compat/registry.ts");
+    if (existsSync(candidateRegistryPath)) {
+      requestedPath = candidatePath;
+      resolvedPath = candidateResolvedPath;
+      registryPath = candidateRegistryPath;
+      break;
+    }
+  }
+
   if (!existsSync(registryPath)) {
     return {
       configuredPath: requestedPath,
+      searchedPaths: requestedPaths,
       status: "missing",
       compatRecords: [],
       hookNames: [],
@@ -1116,6 +1129,7 @@ async function readTargetOpenClaw(manifest, configuredPath) {
     };
   }
 
+  const hookTypesPath = path.join(resolvedPath, "src/plugins/hook-types.ts");
   const registrySource = await readFile(registryPath, "utf8");
   const compatRecords = unique([...registrySource.matchAll(/\bcode:\s*["'`]([^"'`]+)["'`]/g)].map((match) => match[1])).sort();
   const hookNames = existsSync(hookTypesPath)
@@ -1140,6 +1154,7 @@ async function readTargetOpenClaw(manifest, configuredPath) {
 
   return {
     configuredPath: requestedPath,
+    searchedPaths: requestedPaths,
     status: "ok",
     compatRegistryPath: path.relative(repoRoot, registryPath),
     compatRecordCount: compatRecords.length,
@@ -1161,6 +1176,14 @@ async function readTargetOpenClaw(manifest, configuredPath) {
     manifestContractFieldCount: manifestContractFields.length,
     manifestContractFields,
   };
+}
+
+export function targetOpenClawPathCandidates(manifest, configuredPath) {
+  if (typeof configuredPath === "string") {
+    return [configuredPath];
+  }
+
+  return unique([manifest.openclaw?.defaultCheckoutPath, ...FALLBACK_OPENCLAW_CHECKOUT_PATHS].filter(Boolean));
 }
 
 async function readPackageSummaries(checkoutPath, sourceRoot) {

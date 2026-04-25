@@ -2,6 +2,10 @@
   "generatedAt": "deterministic",
   "targetOpenClaw": {
     "configuredPath": "../openclaw",
+    "searchedPaths": [
+      "../openclaw",
+      "./openclaw"
+    ],
     "status": "ok",
     "compatRegistryPath": "../openclaw/src/plugins/compat/registry.ts",
     "compatRecordCount": 19,
