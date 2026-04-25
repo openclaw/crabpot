@@ -98,3 +98,59 @@ test("contract coverage requires parsed target hook registry when OpenClaw is av
     "target OpenClaw manifest types were found but no PluginManifestContracts fields were parsed",
   ]);
 });
+
+test("contract coverage rejects duplicate issue ids", () => {
+  const report = {
+    breakages: [],
+    warnings: [],
+    suggestions: [],
+    logs: [],
+    targetOpenClaw: { status: "disabled" },
+    fixtures: [],
+    issues: [
+      { id: "CRABPOT-DUPE", fixture: "fixture", severity: "P2", code: "manifest-unknown-fields", evidence: ["one"] },
+      { id: "CRABPOT-DUPE", fixture: "fixture", severity: "P2", code: "manifest-unknown-fields", evidence: ["two"] },
+    ],
+    contractProbes: [],
+  };
+
+  assert.deepEqual(validateContractCoverage(report), ["duplicate issue id: CRABPOT-DUPE"]);
+});
+
+test("contract coverage requires compat record reconciliation evidence", () => {
+  const report = {
+    breakages: [],
+    warnings: [
+      {
+        fixture: "fixture",
+        code: "provider-auth-env-vars",
+        compatRecord: "fixture.provider-auth-env-vars",
+      },
+    ],
+    suggestions: [],
+    logs: [],
+    targetOpenClaw: {
+      status: "ok",
+      hookNames: ["before_tool_call"],
+      apiRegistrars: ["registerTool"],
+      capturedRegistrars: ["registerTool"],
+      sdkExports: ["openclaw/plugin-sdk"],
+      manifestFields: ["id"],
+      manifestContractFields: ["tools"],
+    },
+    fixtures: [],
+    issues: [],
+    contractProbes: [],
+  };
+
+  assert.deepEqual(validateContractCoverage(report), [
+    "fixture: compat record fixture.provider-auth-env-vars was not reconciled",
+  ]);
+
+  report.logs.push({
+    fixture: "fixture",
+    code: "compat-record-present",
+    compatRecord: "fixture.provider-auth-env-vars",
+  });
+  assert.deepEqual(validateContractCoverage(report), []);
+});

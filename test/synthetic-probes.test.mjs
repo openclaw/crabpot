@@ -125,6 +125,25 @@ test("synthetic probes mark captured handlers blocked when retention is disabled
   assert.match(result.results[0].reason, /retention/);
 });
 
+test("synthetic probes keep service lifecycle execution opt-in", async () => {
+  const capture = await captureLocalFixture([
+    "export function register(api) {",
+    "  api.registerService({",
+    "    name: 'fixture_service',",
+    "    start() { return { started: true }; },",
+    "  });",
+    "}",
+  ]);
+
+  const blocked = await runCapturedSyntheticProbes(capture);
+  assert.equal(blocked.summary.blockedCount, 1);
+  assert.match(blocked.results[0].reason, /includeLifecycle=true/);
+
+  const executed = await runCapturedSyntheticProbes(capture, { includeLifecycle: true });
+  assert.equal(executed.summary.passCount, 1);
+  assert.equal(executed.results[0].label, "registerService.start");
+});
+
 async function captureLocalFixture(lines) {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-probes-"));
   const entrypoint = path.join(dir, "fixture.mjs");

@@ -41,9 +41,35 @@ test("ref diff reports new P1 issues as hard regressions", async () => {
   assert.ok(validateRefDiff(diff).some((error) => error.includes("CRABPOT-NEWP1")));
 });
 
+test("ref diff strict mode escalates warning regressions", async () => {
+  const baseReport = reportFixture({
+    sdkExports: ["openclaw/plugin-sdk", "openclaw/plugin-sdk/speech", "openclaw/plugin-sdk/unused"],
+  });
+  const headReport = reportFixture({
+    sdkExports: ["openclaw/plugin-sdk", "openclaw/plugin-sdk/speech"],
+  });
+
+  const diff = await buildRefDiff({ baseReport, headReport });
+
+  assert.equal(diff.status, "pass");
+  assert.equal(diff.summary.warningRegressionCount, 1);
+  assert.deepEqual(validateRefDiff(diff), []);
+  assert.match(validateRefDiff(diff, { strict: true }).join("\n"), /sdkExports\.removed-unused/);
+});
+
+test("ref diff fails when target OpenClaw status regresses", async () => {
+  const baseReport = reportFixture();
+  const headReport = reportFixture({ targetStatus: "missing" });
+
+  const diff = await buildRefDiff({ baseReport, headReport });
+
+  assert.equal(diff.status, "fail");
+  assert.match(validateRefDiff(diff).join("\n"), /target\.status\.changed/);
+});
+
 function reportFixture(overrides = {}) {
   const targetOpenClaw = {
-    status: "ok",
+    status: overrides.targetStatus ?? "ok",
     configuredPath: "../openclaw",
     compatRecords: overrides.compatRecords ?? ["legacy-root-sdk-import"],
     hookNames: overrides.hookNames ?? ["llm_input", "llm_output"],

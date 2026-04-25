@@ -84,3 +84,30 @@ test("ci summary rolls up compatibility, policy, ref diff, and profile findings"
   assert.match(renderCiSummaryMarkdown(summary), /Crabpot CI Summary/);
   assert.match(renderCiSummaryMarkdown(summary), /openclaw\/openclaw@main/);
 });
+
+test("ci summary fails when strict runtime profile policy fails", async () => {
+  const summary = await buildCiSummary({
+    reports: {
+      profileDiff: {
+        summary: {
+          failCount: 1,
+          warnCount: 0,
+        },
+        checks: [
+          {
+            action: "fail",
+            id: "profile.peak-rss",
+            metric: "maxPeakRssMb",
+            baseline: 50,
+            current: 150,
+            message: "rss regressed",
+          },
+        ],
+      },
+    },
+  });
+
+  assert.equal(summary.status, "fail");
+  assert.equal(summary.summary.profileFailures, 1);
+  assert.match(renderCiSummaryMarkdown(summary), /Profile failures/);
+});

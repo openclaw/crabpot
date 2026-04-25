@@ -59,3 +59,26 @@ test("fixture set resolver rejects unknown explicit fixtures", async () => {
     /unknown fixture/,
   );
 });
+
+test("fixture set resolver excludes side-effect fixtures from all-known-safe", async () => {
+  const resolved = await resolveFixtureSet({ fixtureSet: "all-known-safe", manifest, policy, plan });
+
+  assert.deepEqual(resolved.fixtures.map((fixture) => fixture.id), [
+    "codex-app-server",
+    "opik-openclaw",
+    "wecom",
+  ]);
+  assert.ok(resolved.fixtures.every((fixture) => !fixture.capabilities.includes("side-effect-sandbox")));
+});
+
+test("fixture set resolver requires explicit allow-empty for none", async () => {
+  await assert.rejects(
+    () => resolveFixtureSet({ fixtureSet: "none", manifest, policy, plan }),
+    /selected no fixtures/,
+  );
+
+  const resolved = await resolveFixtureSet({ fixtureSet: "none", manifest, policy, plan, allowEmpty: true });
+
+  assert.equal(resolved.count, 0);
+  assert.deepEqual(resolved.fixtures, []);
+});

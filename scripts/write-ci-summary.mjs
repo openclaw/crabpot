@@ -113,6 +113,7 @@ export async function buildCiSummary(options = {}) {
       refDiffWarnings: reports.refDiff?.summary?.warningRegressionCount ?? 0,
       policyFailures: reports.ciPolicy?.summary?.failCount ?? 0,
       policyWarnings: reports.ciPolicy?.summary?.warnCount ?? 0,
+      profileFailures: reports.profileDiff?.summary?.failCount ?? 0,
       profileWarnings: reports.profileDiff?.summary?.warnCount ?? 0,
       executionPass: reports.execution?.summary?.passCount ?? 0,
       executionFail: reports.execution?.summary?.failCount ?? 0,
@@ -145,6 +146,9 @@ function deriveStatus(reports) {
     return "fail";
   }
   if ((reports.ciPolicy?.summary?.failCount ?? 0) > 0) {
+    return "fail";
+  }
+  if ((reports.profileDiff?.summary?.failCount ?? 0) > 0) {
     return "fail";
   }
   if ((reports.execution?.summary?.failCount ?? 0) > 0) {
@@ -198,6 +202,7 @@ export function renderCiSummaryMarkdown(summary) {
         ["Ref diff warnings", summary.summary.refDiffWarnings],
         ["Policy failures", summary.summary.policyFailures],
         ["Policy warnings", summary.summary.policyWarnings],
+        ["Profile failures", summary.summary.profileFailures],
         ["Profile warnings", summary.summary.profileWarnings],
         ["Execution pass", summary.summary.executionPass],
         ["Execution fail", summary.summary.executionFail],

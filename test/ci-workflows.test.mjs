@@ -51,9 +51,29 @@ test("workflows use Node 24 action majors", async () => {
     await readFile(".github/workflows/check.yml", "utf8"),
     await readFile(".github/workflows/openclaw-ref-compat.yml", "utf8"),
   ].join("\n");
+  const actionRefs = [
+    ...workflows.matchAll(/uses:\s+(actions\/(?:checkout|setup-node|upload-artifact)@[^\s]+)/g),
+  ].map((match) => match[1]);
 
-  assert.match(workflows, /actions\/checkout@v6/);
-  assert.match(workflows, /actions\/setup-node@v6/);
-  assert.match(workflows, /actions\/upload-artifact@v7/);
+  assert.deepEqual([...new Set(actionRefs)].sort(), [
+    "actions/checkout@v6",
+    "actions/setup-node@v6",
+    "actions/upload-artifact@v7",
+  ]);
   assert.doesNotMatch(workflows, /actions\/(checkout|setup-node|upload-artifact)@v4/);
+  assert.doesNotMatch(workflows, /FORCE_JAVASCRIPT_ACTIONS_TO_NODE24/);
+});
+
+test("manual workflow enforces strict runtime profile policy before best-effort summaries", async () => {
+  const workflow = await readFile(".github/workflows/openclaw-ref-compat.yml", "utf8");
+  const policySteps = [...workflow.matchAll(/- name: Run runtime profile policy\n(?<body>(?:        .*\n)+)/g)].map(
+    (match) => match.groups.body,
+  );
+
+  assert.equal(policySteps.length, 2);
+  for (const step of policySteps) {
+    assert.match(step, /node scripts\/compare-runtime-profile\.mjs \$\{\{ inputs\.strict_perf && '--strict' \|\| '' \}\}/);
+    assert.doesNotMatch(step, /continue-on-error/);
+  }
+  assert.ok(policySteps.some((step) => step.includes("node scripts/profile-contract-runtime.mjs --openclaw ./openclaw-head")));
 });

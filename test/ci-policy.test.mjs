@@ -104,6 +104,32 @@ test("ci policy reports package audit findings as warnings", async () => {
   assert.ok(report.checks.some((check) => check.action === "warn" && check.id === "execution-results.audit-findings"));
 });
 
+test("ci policy strict mode escalates classified blocked probes", async () => {
+  const report = await buildCiPolicyReport({
+    policy,
+    strict: true,
+    compatibilityReport: compatibilityReport(),
+    executionResults: executionResults([
+      {
+        seam: "registerChannel",
+        reason: "captured registration requires includeChannelRuntime=true",
+      },
+      {
+        seam: "registerTool",
+        reason: "factory had no object descriptor",
+      },
+    ]),
+  });
+
+  assert.equal(report.status, "fail");
+  assert.deepEqual(
+    report.checks.filter((check) => check.id.startsWith("execution-results.blocked.")).map((check) => check.action),
+    ["fail", "fail"],
+  );
+  assert.match(validateCiPolicyReport(report).join("\n"), /channel-runtime-harness/);
+  assert.match(validateCiPolicyReport(report).join("\n"), /tool-factory-descriptor/);
+});
+
 function compatibilityReport() {
   return {
     summary: {

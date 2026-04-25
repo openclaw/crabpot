@@ -109,7 +109,9 @@ jobs:
       - run: node scripts/synthetic-probes.mjs --check --openclaw ./openclaw
       - run: node scripts/cold-import-readiness.mjs --check --openclaw ./openclaw
       - run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
-      - run: node scripts/profile-contract-runtime.mjs --check --openclaw ./openclaw --runs "${PROFILE_RUNS}"
+      - run: node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs "${PROFILE_RUNS}"
+      - name: Run runtime profile policy
+        run: node scripts/compare-runtime-profile.mjs ${{ inputs.strict_perf && '--strict' || '' }}
       - run: node scripts/check-contract-coverage.mjs --openclaw ./openclaw
 
       - name: Write report artifacts
@@ -183,6 +185,10 @@ jobs:
             --base-label "${{ inputs.base_openclaw_repository }}@${{ inputs.base_openclaw_ref }}" \
             --head-label "${{ inputs.head_openclaw_repository }}@${{ inputs.head_openclaw_ref }}" \
             ${{ inputs.strict_contract && '--strict' || '' }}
+      - name: Run runtime profile policy
+        run: |
+          node scripts/profile-contract-runtime.mjs --openclaw ./openclaw-head --runs "${PROFILE_RUNS}"
+          node scripts/compare-runtime-profile.mjs ${{ inputs.strict_perf && '--strict' || '' }}
 
       - name: Write ref diff summary
         if: always()

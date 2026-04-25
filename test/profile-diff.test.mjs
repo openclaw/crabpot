@@ -1,4 +1,7 @@
 import assert from "node:assert/strict";
+import { mkdtemp } from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
 import { test } from "node:test";
 import {
   buildProfileDiff,
@@ -38,6 +41,21 @@ test("profile diff fails strict regressions after enough samples", async () => {
 
   assert.equal(diff.status, "fail");
   assert.ok(validateProfileDiff(diff).some((error) => error.includes("profile.wall-p95")));
+});
+
+test("profile diff warns but does not fail when baseline is missing", async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-profile-baseline-"));
+  const diff = await buildProfileDiff({
+    baselinePath: path.join(dir, "missing.json"),
+    current: profile({ p95WallMs: 100, maxPeakRssMb: 100, nodeBootMs: 50, runs: 3 }),
+    policy,
+    strict: true,
+  });
+
+  assert.equal(diff.status, "pass");
+  assert.equal(diff.summary.warnCount, 1);
+  assert.equal(diff.checks[0].id, "profile.baseline.missing");
+  assert.deepEqual(validateProfileDiff(diff), []);
 });
 
 function profile({ p95WallMs, maxPeakRssMb, nodeBootMs, runs }) {

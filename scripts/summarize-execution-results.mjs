@@ -258,9 +258,10 @@ export function renderExecutionResultsMarkdown(report) {
 function auditFindingCount(parsed) {
   const vulnerabilities = parsed.metadata?.vulnerabilities;
   if (vulnerabilities && typeof vulnerabilities === "object") {
-    return Object.entries(vulnerabilities)
+    const severityTotal = Object.entries(vulnerabilities)
       .filter(([key]) => key !== "total")
       .reduce((sum, [, value]) => sum + (Number(value) || 0), 0);
+    return severityTotal || Number(vulnerabilities.total) || 0;
   }
   if (Array.isArray(parsed.vulnerabilities)) {
     return parsed.vulnerabilities.length;

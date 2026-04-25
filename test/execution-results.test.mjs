@@ -65,3 +65,25 @@ test("execution results summarize capture and synthetic artifacts", async () => 
   assert.equal(report.artifacts.find((artifact) => artifact.kind === "synthetic").blocked[0].seam, "registerChannel");
   assert.equal(report.artifacts.find((artifact) => artifact.kind === "audit").findingCount, 6);
 });
+
+test("execution results count total-only audit metadata", async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-results-"));
+  const fixtureDir = path.join(dir, "minimal");
+  await mkdir(fixtureDir);
+  await writeFile(
+    path.join(fixtureDir, "package-audit.json"),
+    JSON.stringify({
+      metadata: {
+        vulnerabilities: {
+          total: 4,
+        },
+      },
+    }),
+    "utf8",
+  );
+
+  const report = await buildExecutionResultsReport({ resultsDir: dir });
+
+  assert.equal(report.summary.auditFindingCount, 4);
+  assert.equal(report.artifacts[0].findingCount, 4);
+});
