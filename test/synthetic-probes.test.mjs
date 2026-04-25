@@ -44,6 +44,34 @@ test("synthetic probe plan turns capture assertions into ready hook and registra
   assert.deepEqual(validateSyntheticProbePlan(plan), []);
   assert.equal(plan.summary.probeCount, 2);
   assert.equal(plan.summary.readyCount, 2);
+  assert.equal(plan.summary.directExecutionCount, 1);
+});
+
+test("synthetic probe plan blocks unclassified registrars before they silently pass", async () => {
+  const plan = await buildSyntheticProbePlan({
+    capture: {
+      generatedAt: "test",
+      summary: { fixtureCount: 1 },
+      fixtures: [
+        {
+          id: "fixture",
+          hooks: [],
+          registrations: [
+            {
+              id: "registration.registerMystery:fixture:src-index",
+              registrar: "registerMystery",
+              ref: "src/index.ts",
+              assertions: ["mystery registration is classified"],
+              syntheticArguments: [{}],
+            },
+          ],
+        },
+      ],
+    },
+  });
+
+  assert.equal(plan.summary.blockedCount, 1);
+  assert.match(validateSyntheticProbePlan(plan).join("\n"), /not been classified/);
 });
 
 test("synthetic probes invoke retained hook and tool handlers from a captured fixture", async () => {

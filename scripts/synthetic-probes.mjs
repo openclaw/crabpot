@@ -13,6 +13,58 @@ import { captureEntrypoint } from "./run-cold-import-capture.mjs";
 export const defaultSyntheticProbeJsonPath = path.join(repoRoot, "reports/crabpot-synthetic-probes.json");
 export const defaultSyntheticProbeMarkdownPath = path.join(repoRoot, "reports/crabpot-synthetic-probes.md");
 
+const REGISTRATION_EXECUTION_PROFILES = {
+  defineChannelPluginEntry: {
+    mode: "metadata-only",
+    callableProperties: [],
+    reason: "entry wrapper metadata is captured before channel runtime execution",
+  },
+  definePluginEntry: {
+    mode: "metadata-only",
+    callableProperties: [],
+    reason: "entry wrapper metadata is captured before plugin runtime execution",
+  },
+  registerChannel: {
+    mode: "channel-opt-in",
+    callableProperties: ["send", "receive"],
+    option: "includeChannelRuntime",
+  },
+  registerCli: {
+    mode: "direct",
+    callableProperties: ["handler", "run", "execute"],
+  },
+  registerCommand: {
+    mode: "direct",
+    callableProperties: ["handler", "run", "execute"],
+  },
+  registerGatewayMethod: {
+    mode: "direct",
+    callableProperties: ["handler", "run", "execute"],
+  },
+  registerHttpRoute: {
+    mode: "direct",
+    callableProperties: ["handler", "run", "execute"],
+  },
+  registerInteractiveHandler: {
+    mode: "direct",
+    callableProperties: ["handler", "run", "execute"],
+  },
+  registerService: {
+    mode: "lifecycle-opt-in",
+    callableProperties: ["start", "stop"],
+    option: "includeLifecycle",
+  },
+  registerSpeechProvider: {
+    mode: "provider-opt-in",
+    callableProperties: ["speak", "synthesize"],
+    option: "includeProviderCapabilities",
+  },
+  registerTool: {
+    mode: "direct",
+    callableProperties: ["run", "handler", "execute"],
+  },
+};
+
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   await main();
 }
@@ -117,18 +169,24 @@ export async function buildSyntheticProbePlan(options = {}) {
     })),
   );
   const registrations = capture.fixtures.flatMap((fixture) =>
-    fixture.registrations.map((registration) => ({
-      id: registration.id,
-      fixture: fixture.id,
-      kind: "registration",
-      seam: registration.registrar,
-      status: Array.isArray(registration.syntheticArguments) ? "ready" : "blocked",
-      blocker: Array.isArray(registration.syntheticArguments) ? null : "missing synthetic arguments",
-      assertions: registration.assertions,
-      syntheticArguments:
-        registration.syntheticArguments ?? REGISTRATION_ARGUMENTS[registration.registrar] ?? [{}],
-      source: registration.ref,
-    })),
+    fixture.registrations.map((registration) => {
+      const execution = registrationExecutionProfile(registration.registrar);
+      const hasSyntheticArguments = Array.isArray(registration.syntheticArguments);
+      const status = hasSyntheticArguments && execution.mode !== "unknown" ? "ready" : "blocked";
+      return {
+        id: registration.id,
+        fixture: fixture.id,
+        kind: "registration",
+        seam: registration.registrar,
+        status,
+        blocker: probeBlocker({ hasSyntheticArguments, execution }),
+        assertions: registration.assertions,
+        syntheticArguments:
+          registration.syntheticArguments ?? REGISTRATION_ARGUMENTS[registration.registrar] ?? [{}],
+        execution,
+        source: registration.ref,
+      };
+    }),
   );
   const probes = [...hooks, ...registrations];
 
@@ -141,6 +199,9 @@ export async function buildSyntheticProbePlan(options = {}) {
       registrationProbeCount: registrations.length,
       readyCount: probes.filter((probe) => probe.status === "ready").length,
       blockedCount: probes.filter((probe) => probe.status === "blocked").length,
+      directExecutionCount: registrations.filter((probe) => probe.execution.mode === "direct").length,
+      optInExecutionCount: registrations.filter((probe) => probe.execution.mode.endsWith("-opt-in")).length,
+      metadataOnlyCount: registrations.filter((probe) => probe.execution.mode === "metadata-only").length,
     },
     probes,
   };
@@ -225,7 +286,15 @@ async function runRegistrationProbes(entry, retainedEntry, captureIndex, options
     return [blockedResult(entry, captureIndex, "captured registration has no object descriptor")];
   }
 
-  const invocations = registrationInvocations(entry.name, descriptor, options);
+  const profile = registrationExecutionProfile(entry.name);
+  if (profile.mode === "unknown") {
+    return [blockedResult(entry, captureIndex, "captured registration has no execution profile")];
+  }
+  if (profile.option && options[profile.option] !== true) {
+    return [blockedResult(entry, captureIndex, `captured registration requires ${profile.option}=true`)];
+  }
+
+  const invocations = registrationInvocations(entry.name, descriptor, profile);
   if (invocations.length === 0) {
     return [blockedResult(entry, captureIndex, "captured registration has no supported callable probe")];
   }
@@ -243,14 +312,10 @@ async function runRegistrationProbes(entry, retainedEntry, captureIndex, options
   );
 }
 
-function registrationInvocations(registrar, descriptor, options) {
+function registrationInvocations(registrar, descriptor, profile) {
   const invocations = [];
-  const callableProperties = ["run", "handler", "execute"];
-  if (options.includeLifecycle === true) {
-    callableProperties.push("start", "stop");
-  }
 
-  for (const property of callableProperties) {
+  for (const property of profile.callableProperties) {
     if (typeof descriptor[property] === "function") {
       invocations.push({
         label: `${registrar}.${property}`,
@@ -259,6 +324,26 @@ function registrationInvocations(registrar, descriptor, options) {
     }
   }
   return invocations;
+}
+
+function registrationExecutionProfile(registrar) {
+  return (
+    REGISTRATION_EXECUTION_PROFILES[registrar] ?? {
+      mode: "unknown",
+      callableProperties: [],
+      reason: "registrar has not been classified for synthetic execution",
+    }
+  );
+}
+
+function probeBlocker({ hasSyntheticArguments, execution }) {
+  if (!hasSyntheticArguments) {
+    return "missing synthetic arguments";
+  }
+  if (execution.mode === "unknown") {
+    return execution.reason;
+  }
+  return null;
 }
 
 function syntheticRegistrationEvent(registrar, property) {
@@ -339,6 +424,9 @@ export function renderSyntheticProbeMarkdown(plan) {
         ["Registration probes", plan.summary.registrationProbeCount],
         ["Ready", plan.summary.readyCount],
         ["Blocked", plan.summary.blockedCount],
+        ["Direct execution", plan.summary.directExecutionCount],
+        ["Opt-in execution", plan.summary.optInExecutionCount],
+        ["Metadata-only", plan.summary.metadataOnlyCount],
       ],
       ["Metric", "Value"],
     ),
@@ -351,10 +439,11 @@ export function renderSyntheticProbeMarkdown(plan) {
         probe.kind,
         probe.seam,
         probe.status,
+        probe.execution?.mode ?? "hook-direct",
         probe.source,
         probe.assertions.join("; "),
       ]),
-      ["Fixture", "Kind", "Seam", "Status", "Evidence", "Assertions"],
+      ["Fixture", "Kind", "Seam", "Status", "Execution", "Evidence", "Assertions"],
     ),
   ].join("\n");
 }

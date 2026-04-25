@@ -6,7 +6,10 @@
     "hookProbeCount": 8,
     "registrationProbeCount": 28,
     "readyCount": 36,
-    "blockedCount": 0
+    "blockedCount": 0,
+    "directExecutionCount": 19,
+    "optInExecutionCount": 6,
+    "metadataOnlyCount": 3
   },
   "probes": [
     {
@@ -205,6 +208,11 @@
           "receive": "function"
         }
       ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "entry wrapper metadata is captured before channel runtime execution"
+      },
       "source": "plugins/agentchat/integrations/openclaw-channel/src/channel.ts:333"
     },
     {
@@ -226,6 +234,14 @@
           "receive": "function"
         }
       ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "receive"
+        ],
+        "option": "includeChannelRuntime"
+      },
       "source": "plugins/wecom/index.js:27"
     },
     {
@@ -246,6 +262,14 @@
           "handler": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
       "source": "plugins/wecom/index.js:45"
     },
     {
@@ -270,6 +294,14 @@
           "run": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
       "source": "plugins/wecom/index.js:28"
     },
     {
@@ -294,6 +326,14 @@
           "run": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
       "source": "plugins/wecom/index.js:29"
     },
     {
@@ -318,6 +358,14 @@
           "run": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
       "source": "plugins/wecom/index.js:33"
     },
     {
@@ -340,6 +388,14 @@
           "handler": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
       "source": "plugins/a2a-gateway/index.ts:616"
     },
     {
@@ -362,6 +418,14 @@
           "handler": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
       "source": "plugins/a2a-gateway/index.ts:622"
     },
     {
@@ -384,6 +448,14 @@
           "handler": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
       "source": "plugins/a2a-gateway/index.ts:631"
     },
     {
@@ -406,6 +478,14 @@
           "handler": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
       "source": "plugins/a2a-gateway/index.ts:657"
     },
     {
@@ -428,6 +508,14 @@
           "handler": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
       "source": "plugins/a2a-gateway/index.ts:669"
     },
     {
@@ -448,6 +536,14 @@
           "stop": "function"
         }
       ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop"
+        ],
+        "option": "includeLifecycle"
+      },
       "source": "plugins/a2a-gateway/index.ts:857"
     },
     {
@@ -472,6 +568,14 @@
           "run": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
       "source": "plugins/a2a-gateway/index.ts:777"
     },
     {
@@ -496,6 +600,14 @@
           "run": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
       "source": "plugins/hasdata/src/index.ts:43"
     },
     {
@@ -516,6 +628,14 @@
           "stop": "function"
         }
       ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop"
+        ],
+        "option": "includeLifecycle"
+      },
       "source": "plugins/mcp-adapter/index.ts:15"
     },
     {
@@ -540,6 +660,14 @@
           "run": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
       "source": "plugins/mcp-adapter/index.ts:30"
     },
     {
@@ -559,6 +687,11 @@
           "register": "function"
         }
       ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "entry wrapper metadata is captured before plugin runtime execution"
+      },
       "source": "plugins/clawmetry/clawhub-plugin/index.ts:4"
     },
     {
@@ -579,6 +712,14 @@
           "stop": "function"
         }
       ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop"
+        ],
+        "option": "includeLifecycle"
+      },
       "source": "plugins/clawmetry/clawhub-plugin/index.ts:9"
     },
     {
@@ -598,6 +739,14 @@
           "handler": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
       "source": "plugins/codex-app-server/index.ts:48"
     },
     {
@@ -617,6 +766,14 @@
           "handler": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
       "source": "plugins/codex-app-server/index.ts:29"
     },
     {
@@ -636,6 +793,14 @@
           "handler": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
       "source": "plugins/codex-app-server/index.ts:38"
     },
     {
@@ -656,6 +821,14 @@
           "stop": "function"
         }
       ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop"
+        ],
+        "option": "includeLifecycle"
+      },
       "source": "plugins/codex-app-server/index.ts:12"
     },
     {
@@ -680,6 +853,14 @@
           "run": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
       "source": "plugins/web-search-plus/index.ts:815"
     },
     {
@@ -704,6 +885,14 @@
           "run": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
       "source": "plugins/web-search-plus/index.ts:947"
     },
     {
@@ -728,6 +917,14 @@
           ]
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
       "source": "plugins/apify/src/cli.ts:35"
     },
     {
@@ -752,6 +949,14 @@
           "run": "function"
         }
       ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
       "source": "plugins/apify/src/index.ts:13"
     },
     {
@@ -771,6 +976,11 @@
           "register": "function"
         }
       ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "entry wrapper metadata is captured before plugin runtime execution"
+      },
       "source": "plugins/inworld-tts/index.ts:4"
     },
     {
@@ -790,6 +1000,14 @@
           "speak": "function"
         }
       ],
+      "execution": {
+        "mode": "provider-opt-in",
+        "callableProperties": [
+          "speak",
+          "synthesize"
+        ],
+        "option": "includeProviderCapabilities"
+      },
       "source": "plugins/inworld-tts/index.ts:9"
     }
   ]
