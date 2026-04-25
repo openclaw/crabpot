@@ -42,3 +42,7 @@
 	path = plugins/inworld-tts
 	url = https://github.com/livingghost/openclaw-inworld-tts.git
 	shallow = true
+[submodule "plugins/opik-openclaw"]
+	path = plugins/opik-openclaw
+	url = https://github.com/comet-ml/opik-openclaw.git
+	shallow = true

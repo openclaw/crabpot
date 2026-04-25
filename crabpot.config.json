@@ -89,6 +89,30 @@
       "why": "Small sharp fixture for llm_input/llm_output access and raw prompt/output privacy boundaries."
     },
     {
+      "id": "opik-openclaw",
+      "name": "Opik OpenClaw",
+      "repo": "https://github.com/comet-ml/opik-openclaw.git",
+      "path": "plugins/opik-openclaw",
+      "priority": "high",
+      "seams": ["llm-observer", "tool-runtime", "subagent-routing", "diagnostics", "cli"],
+      "expect": {
+        "hooks": [
+          "llm_input",
+          "llm_output",
+          "before_tool_call",
+          "after_tool_call",
+          "subagent_spawning",
+          "subagent_delivery_target",
+          "subagent_spawned",
+          "subagent_ended",
+          "tool_result_persist",
+          "agent_end"
+        ],
+        "registrations": ["registerService", "registerCli"]
+      },
+      "why": "Opik trace exporter covering LLM spans, tool spans, subagent spans, stale trace cleanup, CLI setup, and persisted tool-result sanitization."
+    },
+    {
       "id": "clawmetry",
       "name": "ClawMetry",
       "repo": "https://github.com/vivekchand/clawmetry.git",
