@@ -1,0 +1,221 @@
+{
+  "generatedAt": "deterministic",
+  "runs": 1,
+  "targetOpenClaw": {
+    "status": "ok",
+    "configuredPath": "../openclaw",
+    "compatRecords": 19,
+    "hookNames": 31,
+    "apiRegistrars": 40,
+    "capturedRegistrars": 18,
+    "sdkExports": 306,
+    "manifestFields": 32,
+    "manifestContractFields": 16
+  },
+  "fixtureInventory": {
+    "fixtures": 11,
+    "sourceFiles": 181,
+    "observedHooks": 8,
+    "observedRegistrations": 20,
+    "observedSdkImports": 19,
+    "contractProbes": 50,
+    "issueFindings": 51
+  },
+  "summary": {
+    "commandCount": 7,
+    "p50WallMs": 219,
+    "p95WallMs": 236,
+    "maxPeakRssMb": 66.7
+  },
+  "commands": [
+    {
+      "id": "node-boot",
+      "label": "Node boot",
+      "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node -e 0",
+      "samples": [
+        {
+          "wallMs": 130,
+          "peakRssMb": 2.5,
+          "exitCode": 0,
+          "stdoutPreview": "",
+          "stderrPreview": ""
+        }
+      ],
+      "wallMs": {
+        "min": 130,
+        "median": 130,
+        "max": 130
+      },
+      "peakRssMb": {
+        "min": 2.5,
+        "median": 2.5,
+        "max": 2.5
+      },
+      "exitCodes": [
+        0
+      ]
+    },
+    {
+      "id": "fixture-inspection",
+      "label": "Fixture inspection",
+      "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/inspect-fixtures.mjs --check",
+      "samples": [
+        {
+          "wallMs": 236,
+          "peakRssMb": 61.8,
+          "exitCode": 0,
+          "stdoutPreview": "│ 10      │ 'inworld-tts'       │ 'ok'   │ ''                                                                                              │ 'definePluginEntry,registerSpeechProvider'                   │ 'speechProviders' │\n└─────────┴─────────────────────┴────────┴─────────────────────────────────────────────────────────────────────────────────────────────────┴──────────────────────────────────────────────────────────────┴───────────────────┘",
+          "stderrPreview": ""
+        }
+      ],
+      "wallMs": {
+        "min": 236,
+        "median": 236,
+        "max": 236
+      },
+      "peakRssMb": {
+        "min": 61.8,
+        "median": 61.8,
+        "max": 61.8
+      },
+      "exitCodes": [
+        0
+      ]
+    },
+    {
+      "id": "compat-report-registry",
+      "label": "Compatibility report plus target registry parse",
+      "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/generate-report.mjs --check",
+      "samples": [
+        {
+          "wallMs": 226,
+          "peakRssMb": 60.5,
+          "exitCode": 0,
+          "stdoutPreview": "crabpot report check: pass; 0 breakages, 16 warnings, 35 suggestions, 51 issues\nreport targets: /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-report.md, /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-report.json, /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-issues.md",
+          "stderrPreview": ""
+        }
+      ],
+      "wallMs": {
+        "min": 226,
+        "median": 226,
+        "max": 226
+      },
+      "peakRssMb": {
+        "min": 60.5,
+        "median": 60.5,
+        "max": 60.5
+      },
+      "exitCodes": [
+        0
+      ]
+    },
+    {
+      "id": "contract-capture",
+      "label": "Contract capture inventory",
+      "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/capture-contracts.mjs --check",
+      "samples": [
+        {
+          "wallMs": 219,
+          "peakRssMb": 66.7,
+          "exitCode": 0,
+          "stdoutPreview": "contract capture: 28 registrations, 8 hooks, 32 sdk imports, 50 issue probes",
+          "stderrPreview": ""
+        }
+      ],
+      "wallMs": {
+        "min": 219,
+        "median": 219,
+        "max": 219
+      },
+      "peakRssMb": {
+        "min": 66.7,
+        "median": 66.7,
+        "max": 66.7
+      },
+      "exitCodes": [
+        0
+      ]
+    },
+    {
+      "id": "synthetic-probe-plan",
+      "label": "Synthetic probe plan",
+      "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/synthetic-probes.mjs --check",
+      "samples": [
+        {
+          "wallMs": 169,
+          "peakRssMb": 51.1,
+          "exitCode": 0,
+          "stdoutPreview": "synthetic probes: 36 ready, 0 blocked, 36 total",
+          "stderrPreview": ""
+        }
+      ],
+      "wallMs": {
+        "min": 169,
+        "median": 169,
+        "max": 169
+      },
+      "peakRssMb": {
+        "min": 51.1,
+        "median": 51.1,
+        "max": 51.1
+      },
+      "exitCodes": [
+        0
+      ]
+    },
+    {
+      "id": "cold-import-readiness",
+      "label": "Cold import readiness",
+      "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/cold-import-readiness.mjs --check",
+      "samples": [
+        {
+          "wallMs": 223,
+          "peakRssMb": 48,
+          "exitCode": 0,
+          "stdoutPreview": "cold import readiness: 13 entrypoints, 0 ready, 13 blocked",
+          "stderrPreview": ""
+        }
+      ],
+      "wallMs": {
+        "min": 223,
+        "median": 223,
+        "max": 223
+      },
+      "peakRssMb": {
+        "min": 48,
+        "median": 48,
+        "max": 48
+      },
+      "exitCodes": [
+        0
+      ]
+    },
+    {
+      "id": "workspace-plan",
+      "label": "Workspace execution plan",
+      "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/workspace-plan.mjs --check",
+      "samples": [
+        {
+          "wallMs": 184,
+          "peakRssMb": 66.3,
+          "exitCode": 0,
+          "stdoutPreview": "workspace plan: 13 entrypoints, 9 installs, 3 builds, 13 captures, 13 synthetic probes, 13 artifact dirs",
+          "stderrPreview": ""
+        }
+      ],
+      "wallMs": {
+        "min": 184,
+        "median": 184,
+        "max": 184
+      },
+      "peakRssMb": {
+        "min": 66.3,
+        "median": 66.3,
+        "max": 66.3
+      },
+      "exitCodes": [
+        0
+      ]
+    }
+  ]
+}

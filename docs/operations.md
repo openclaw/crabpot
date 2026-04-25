@@ -37,6 +37,7 @@ Use a cheap default workflow first:
 - generate the synthetic hook and registrar probe plan in check mode
 - generate the cold-import readiness report in check mode
 - generate the isolated workspace plan in check mode
+- profile CLI boot time, wall time, and peak RSS in check mode
 - gate issue evidence, P1 probe coverage, compat-record reconciliation, target
   hook/API/capture parsing, SDK export parsing, and manifest type parsing
 
@@ -77,6 +78,8 @@ synthetic handler probes. Opt-in runs write JSON artifacts under
 `.crabpot/results/<fixture>/`.
 Use `reports/crabpot-execution-results.md` after an opt-in run to review which
 capture and synthetic probe artifacts passed, failed, or stayed blocked.
+Use `reports/crabpot-runtime-profile.md` to compare command boot/wall/RSS costs
+against the selected OpenClaw registry surface.
 Use `npm run workspace:execute -- --fixture <id> --dry-run` to inspect the exact
 selected commands. Real execution additionally requires
 `CRABPOT_EXECUTE_ISOLATED=1`.
@@ -107,6 +110,7 @@ npm run contract:synthetic -- --check
 npm run cold-import -- --check
 npm run workspace:plan -- --check
 npm run execution:report -- --check
+npm run profile -- --check
 node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 

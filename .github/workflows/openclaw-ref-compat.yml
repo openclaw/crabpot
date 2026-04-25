@@ -59,6 +59,7 @@ jobs:
       - run: node scripts/synthetic-probes.mjs --check --openclaw ./openclaw
       - run: node scripts/cold-import-readiness.mjs --check --openclaw ./openclaw
       - run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
+      - run: node scripts/profile-contract-runtime.mjs --check --openclaw ./openclaw
       - run: node scripts/check-contract-coverage.mjs --openclaw ./openclaw
 
       - name: Write report artifacts
@@ -70,6 +71,7 @@ jobs:
           node scripts/synthetic-probes.mjs --openclaw ./openclaw
           node scripts/cold-import-readiness.mjs --openclaw ./openclaw
           node scripts/workspace-plan.mjs --openclaw ./openclaw
+          node scripts/profile-contract-runtime.mjs --openclaw ./openclaw
 
       - name: Upload compatibility reports
         if: always()

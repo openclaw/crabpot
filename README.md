@@ -41,6 +41,7 @@ npm run contract:synthetic
 npm run cold-import
 npm run workspace:plan
 npm run execution:report
+npm run profile
 npm run contract:coverage
 ```
 
@@ -87,6 +88,11 @@ you intentionally pin or update fixture revisions.
 - `reports/crabpot-execution-results.md`
 - `reports/crabpot-execution-results.json`
 
+`npm run profile` writes:
+
+- `reports/crabpot-runtime-profile.md`
+- `reports/crabpot-runtime-profile.json`
+
 The report is the local review surface for hard breakages, warnings, raw seam
 logs, OpenClaw compatibility-record coverage, suggestions for compat-layer work,
 issue findings, contract-probe backlog, and the decision matrix. It defaults to
@@ -120,6 +126,10 @@ for each entrypoint. Actual execution must be opt-in with
 The execution results report summarizes opt-in JSON artifacts from
 `.crabpot/results/`, including captured registrations/hooks and synthetic probe
 pass/fail/blocked counts.
+
+The runtime profile measures CLI boot time, wall time, and peak RSS for the
+default contract commands, then places those numbers next to the target OpenClaw
+registry surface counts.
 
 To preview a narrow execution lane without running install/build/import:
 
