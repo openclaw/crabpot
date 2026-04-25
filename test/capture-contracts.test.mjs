@@ -65,7 +65,11 @@ function assertHasHookProbe(capture, fixtureId, hook) {
   const fixture = capture.fixtures.find((item) => item.id === fixtureId);
   assert.ok(
     fixture?.hooks.some(
-      (item) => item.hook === hook && item.assertions.length > 0 && item.syntheticEvent.toolCall?.name === "fixture_tool",
+      (item) =>
+        item.hook === hook &&
+        item.assertions.length > 0 &&
+        item.syntheticEvent.toolName === "fixture_tool" &&
+        item.syntheticContext.toolName === "fixture_tool",
     ),
     `expected ${fixtureId} ${hook} hook probe`,
   );

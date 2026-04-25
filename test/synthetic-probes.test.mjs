@@ -77,11 +77,11 @@ test("synthetic probe plan blocks unclassified registrars before they silently p
 test("synthetic probes invoke retained hook and tool handlers from a captured fixture", async () => {
   const capture = await captureLocalFixture([
     "export function register(api) {",
-    "  api.on('before_tool_call', (event) => ({ seen: event.toolCall.name }));",
+    "  api.on('before_tool_call', (event, ctx) => ({ seen: event.toolName, ctxTool: ctx.toolName }));",
     "  api.registerTool({",
     "    name: 'fixture_tool',",
     "    inputSchema: { type: 'object' },",
-    "    run(event) { return { tool: event.toolCall.name }; },",
+    "    run(event) { return { tool: event.toolName }; },",
     "  });",
     "}",
   ]);

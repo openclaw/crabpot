@@ -24,6 +24,7 @@
         "agent and conversation metadata are present"
       ],
       "syntheticEvent": {
+        "runId": "run-fixture",
         "agentId": "agent-fixture",
         "conversationId": "conversation-fixture",
         "messages": [
@@ -35,6 +36,12 @@
         "metadata": {
           "source": "crabpot"
         }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
       },
       "source": "plugins/wecom/index.js:53"
     },
@@ -50,17 +57,17 @@
         "terminal and approval metadata are present"
       ],
       "syntheticEvent": {
+        "runId": "run-fixture",
+        "toolName": "fixture_tool",
+        "params": {},
+        "toolCallId": "call-fixture"
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
         "agentId": "agent-fixture",
-        "toolCall": {
-          "id": "call-fixture",
-          "name": "fixture_tool",
-          "args": {}
-        },
-        "approval": {
-          "required": true,
-          "state": "pending"
-        },
-        "terminal": false
+        "sessionId": "session-fixture",
+        "toolName": "fixture_tool",
+        "toolCallId": "call-fixture"
       },
       "source": "plugins/wecom/index.js:65"
     },
@@ -76,12 +83,19 @@
         "parent/subagent metadata are present"
       ],
       "syntheticEvent": {
-        "parentAgentId": "agent-parent",
-        "subagentId": "agent-child",
-        "message": {
-          "id": "message-fixture",
-          "text": "route me"
+        "childSessionKey": "child-session",
+        "agentId": "agent-child",
+        "label": "fixture child",
+        "mode": "run",
+        "requester": {
+          "channel": "fixture-channel",
+          "accountId": "fixture-account"
         }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "childSessionKey": "child-session",
+        "requesterSessionKey": "parent-session"
       },
       "source": "plugins/wecom/index.js:61"
     },
@@ -97,9 +111,14 @@
         "status metadata is present"
       ],
       "syntheticEvent": {
-        "parentAgentId": "agent-parent",
-        "subagentId": "agent-child",
+        "childSessionKey": "child-session",
+        "agentId": "agent-child",
         "status": "completed"
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "childSessionKey": "child-session",
+        "requesterSessionKey": "parent-session"
       },
       "source": "plugins/wecom/index.js:63"
     },
@@ -115,9 +134,15 @@
         "parent/subagent metadata are present"
       ],
       "syntheticEvent": {
-        "parentAgentId": "agent-parent",
-        "subagentId": "agent-child",
-        "task": "fixture subtask"
+        "childSessionKey": "child-session",
+        "agentId": "agent-child",
+        "label": "fixture child",
+        "mode": "run"
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "childSessionKey": "child-session",
+        "requesterSessionKey": "parent-session"
       },
       "source": "plugins/wecom/index.js:62"
     },
@@ -142,6 +167,12 @@
           }
         ]
       },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
       "source": "plugins/llm-trace-phoenix/index.ts:154"
     },
     {
@@ -162,6 +193,12 @@
           "role": "assistant",
           "content": "[redacted fixture output]"
         }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
       },
       "source": "plugins/llm-trace-phoenix/index.ts:168"
     },
@@ -186,6 +223,10 @@
           "id": "message-fixture",
           "text": "claim this message"
         }
+      },
+      "syntheticContext": {
+        "channelId": "fixture-channel",
+        "pluginId": "fixture-plugin"
       },
       "source": "plugins/codex-app-server/index.ts:25"
     },

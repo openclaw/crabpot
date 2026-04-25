@@ -4,6 +4,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import {
   buildContractCapture,
+  HOOK_CONTEXTS,
   HOOK_EVENTS,
   REGISTRATION_ARGUMENTS,
 } from "./capture-contracts.mjs";
@@ -165,6 +166,7 @@ export async function buildSyntheticProbePlan(options = {}) {
       blocker: hook.syntheticEvent && typeof hook.syntheticEvent === "object" ? null : "missing synthetic event",
       assertions: hook.assertions,
       syntheticEvent: hook.syntheticEvent ?? HOOK_EVENTS[hook.hook] ?? { hook: hook.hook },
+      syntheticContext: hook.syntheticContext ?? HOOK_CONTEXTS[hook.hook] ?? { hook: hook.hook },
       source: hook.ref,
     })),
   );
@@ -276,7 +278,11 @@ async function runHookProbe(entry, retainedEntry, captureIndex) {
     kind: "hook",
     seam: entry.name,
     label: entry.name,
-    invoke: () => retainedEntry.handler(HOOK_EVENTS[entry.name] ?? { hook: entry.name }),
+    invoke: () =>
+      retainedEntry.handler(
+        HOOK_EVENTS[entry.name] ?? { hook: entry.name },
+        HOOK_CONTEXTS[entry.name] ?? { hook: entry.name },
+      ),
   });
 }
 
@@ -354,7 +360,8 @@ function syntheticRegistrationEvent(registrar, property) {
     input: {},
     body: {},
     headers: {},
-    toolCall: HOOK_EVENTS.before_tool_call.toolCall,
+    toolName: HOOK_EVENTS.before_tool_call.toolName,
+    toolCall: { id: HOOK_EVENTS.before_tool_call.toolCallId, name: HOOK_EVENTS.before_tool_call.toolName },
   };
 }
 

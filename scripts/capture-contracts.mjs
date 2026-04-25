@@ -50,22 +50,24 @@ export const HOOK_ASSERTIONS = {
 
 export const HOOK_EVENTS = {
   agent_end: {
+    runId: "run-fixture",
     agentId: "agent-fixture",
     conversationId: "conversation-fixture",
     status: "completed",
     transcript: [{ role: "assistant", content: "[redacted fixture output]" }],
   },
   before_prompt_build: {
+    runId: "run-fixture",
     agentId: "agent-fixture",
     conversationId: "conversation-fixture",
     messages: [{ role: "user", content: "fixture prompt" }],
     metadata: { source: "crabpot" },
   },
   before_tool_call: {
-    agentId: "agent-fixture",
-    toolCall: { id: "call-fixture", name: "fixture_tool", args: {} },
-    approval: { required: true, state: "pending" },
-    terminal: false,
+    runId: "run-fixture",
+    toolName: "fixture_tool",
+    params: {},
+    toolCallId: "call-fixture",
   },
   inbound_claim: {
     channelId: "fixture-channel",
@@ -83,19 +85,75 @@ export const HOOK_EVENTS = {
     output: { role: "assistant", content: "[redacted fixture output]" },
   },
   subagent_delivery_target: {
-    parentAgentId: "agent-parent",
-    subagentId: "agent-child",
-    message: { id: "message-fixture", text: "route me" },
+    childSessionKey: "child-session",
+    agentId: "agent-child",
+    label: "fixture child",
+    mode: "run",
+    requester: { channel: "fixture-channel", accountId: "fixture-account" },
   },
   subagent_ended: {
-    parentAgentId: "agent-parent",
-    subagentId: "agent-child",
+    childSessionKey: "child-session",
+    agentId: "agent-child",
     status: "completed",
   },
   subagent_spawned: {
-    parentAgentId: "agent-parent",
-    subagentId: "agent-child",
-    task: "fixture subtask",
+    childSessionKey: "child-session",
+    agentId: "agent-child",
+    label: "fixture child",
+    mode: "run",
+  },
+};
+
+export const HOOK_CONTEXTS = {
+  agent_end: {
+    runId: "run-fixture",
+    agentId: "agent-fixture",
+    sessionId: "session-fixture",
+    channelId: "fixture-channel",
+  },
+  before_prompt_build: {
+    runId: "run-fixture",
+    agentId: "agent-fixture",
+    sessionId: "session-fixture",
+    channelId: "fixture-channel",
+  },
+  before_tool_call: {
+    runId: "run-fixture",
+    agentId: "agent-fixture",
+    sessionId: "session-fixture",
+    toolName: "fixture_tool",
+    toolCallId: "call-fixture",
+  },
+  inbound_claim: {
+    channelId: "fixture-channel",
+    pluginId: "fixture-plugin",
+  },
+  llm_input: {
+    runId: "run-fixture",
+    agentId: "agent-fixture",
+    sessionId: "session-fixture",
+    channelId: "fixture-channel",
+  },
+  llm_output: {
+    runId: "run-fixture",
+    agentId: "agent-fixture",
+    sessionId: "session-fixture",
+    channelId: "fixture-channel",
+  },
+  subagent_delivery_target: {
+    runId: "run-fixture",
+    childSessionKey: "child-session",
+    requesterSessionKey: "parent-session",
+  },
+  subagent_ended: {
+    runId: "run-fixture",
+    childSessionKey: "child-session",
+    requesterSessionKey: "parent-session",
+  },
+  subagent_spawned: {
+    runId: "run-fixture",
+    childSessionKey: "child-session",
+    requesterSessionKey: "parent-session",
   },
 };
 
@@ -184,6 +242,7 @@ export async function buildContractCapture(options = {}) {
       support: "synthetic-event-required",
       assertions: HOOK_ASSERTIONS[hook.name] ?? ["hook payload and return value are captured"],
       syntheticEvent: HOOK_EVENTS[hook.name] ?? { hook: hook.name, fixture: fixture.id },
+      syntheticContext: HOOK_CONTEXTS[hook.name] ?? { hook: hook.name, fixture: fixture.id },
     })),
     sdkImports: fixture.sdkImportDetails.map((sdkImport) => ({
       id: `sdk.${sdkImport.specifier}:${fixture.id}:${slugRef(sdkImport.ref)}`,
@@ -250,6 +309,9 @@ export function validateContractCapture(capture) {
         }
         if (section === "hooks" && (!item.syntheticEvent || typeof item.syntheticEvent !== "object")) {
           errors.push(`${item.id}: missing synthetic hook event`);
+        }
+        if (section === "hooks" && (!item.syntheticContext || typeof item.syntheticContext !== "object")) {
+          errors.push(`${item.id}: missing synthetic hook context`);
         }
       }
     }
