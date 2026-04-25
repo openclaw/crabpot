@@ -12,6 +12,7 @@
     "contract:capture": "node scripts/capture-contracts.mjs",
     "contract:coverage": "node scripts/check-contract-coverage.mjs",
     "contract:synthetic": "node scripts/synthetic-probes.mjs",
+    "execution:report": "node scripts/summarize-execution-results.mjs",
     "cold-import": "node scripts/cold-import-readiness.mjs",
     "workspace:plan": "node scripts/workspace-plan.mjs",
     "workspace:execute": "node scripts/execute-workspace-plan.mjs",

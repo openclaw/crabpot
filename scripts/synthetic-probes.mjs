@@ -82,7 +82,7 @@ async function main() {
       cwd: args.cwd,
     });
     const result = await runCapturedSyntheticProbes(capture);
-    console.log(JSON.stringify(result, null, 2));
+    await writeJsonResult(result, args.output);
     if (result.summary.failCount > 0) {
       throw new Error(`${result.summary.failCount} synthetic probes failed`);
     }
@@ -114,6 +114,7 @@ function parseArgs(argv) {
     entrypoint: null,
     json: false,
     openclawPath: undefined,
+    output: null,
     write: true,
   };
 
@@ -139,6 +140,11 @@ function parseArgs(argv) {
     }
     if (arg === "--openclaw") {
       args.openclawPath = argv[index + 1];
+      index += 1;
+      continue;
+    }
+    if (arg === "--output") {
+      args.output = argv[index + 1];
       index += 1;
       continue;
     }
@@ -325,11 +331,19 @@ function registrationInvocations(registrar, descriptor, profile) {
     if (typeof descriptor[property] === "function") {
       invocations.push({
         label: `${registrar}.${property}`,
-        invoke: () => descriptor[property](syntheticRegistrationEvent(registrar, property)),
+        invoke: () => invokeRegistrationCallable(descriptor[property], registrar, property),
       });
     }
   }
   return invocations;
+}
+
+function invokeRegistrationCallable(callable, registrar, property) {
+  const event = syntheticRegistrationEvent(registrar, property);
+  if (property === "execute") {
+    return callable("call-fixture", event.params, new AbortController().signal, () => undefined);
+  }
+  return callable(event);
 }
 
 function registrationExecutionProfile(registrar) {
@@ -357,6 +371,7 @@ function syntheticRegistrationEvent(registrar, property) {
     source: "crabpot.synthetic",
     registrar,
     property,
+    params: {},
     input: {},
     body: {},
     headers: {},
@@ -413,6 +428,16 @@ function summarizeValue(value) {
     };
   }
   return { type: typeof value, value };
+}
+
+async function writeJsonResult(result, outputPath) {
+  const json = `${JSON.stringify(result, null, 2)}\n`;
+  if (!outputPath) {
+    process.stdout.write(json);
+    return;
+  }
+  await mkdir(path.dirname(outputPath), { recursive: true });
+  await writeFile(outputPath, json, "utf8");
 }
 
 export function renderSyntheticProbeMarkdown(plan) {

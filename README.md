@@ -40,6 +40,7 @@ npm run contract:capture
 npm run contract:synthetic
 npm run cold-import
 npm run workspace:plan
+npm run execution:report
 npm run contract:coverage
 ```
 
@@ -81,6 +82,11 @@ you intentionally pin or update fixture revisions.
 - `reports/crabpot-workspace-plan.md`
 - `reports/crabpot-workspace-plan.json`
 
+`npm run execution:report` writes:
+
+- `reports/crabpot-execution-results.md`
+- `reports/crabpot-execution-results.json`
+
 The report is the local review surface for hard breakages, warnings, raw seam
 logs, OpenClaw compatibility-record coverage, suggestions for compat-layer work,
 issue findings, contract-probe backlog, and the decision matrix. It defaults to
@@ -110,6 +116,10 @@ The workspace plan is still plan-only by default. It lays out the isolated copy,
 dependency install, build, capture, synthetic-probe, and artifact-output commands
 for each entrypoint. Actual execution must be opt-in with
 `CRABPOT_EXECUTE_ISOLATED=1`.
+
+The execution results report summarizes opt-in JSON artifacts from
+`.crabpot/results/`, including captured registrations/hooks and synthetic probe
+pass/fail/blocked counts.
 
 To preview a narrow execution lane without running install/build/import:
 

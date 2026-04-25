@@ -309,12 +309,12 @@ function runCommand(packageManager, script) {
 
 function captureCommand(fixtureId, entrypoint) {
   const loader = entrypoint.blockers.some((blocker) => blocker.code === "ts-loader-required") ? " --import tsx" : "";
-  return `CRABPOT_EXECUTE_ISOLATED=1 node${loader} ../../../scripts/run-cold-import-capture.mjs ${entrypoint.specifier} > ${workspaceArtifactPath(fixtureId, entrypoint, "capture")}`;
+  return `CRABPOT_EXECUTE_ISOLATED=1 node${loader} ../../../scripts/run-cold-import-capture.mjs ${entrypoint.specifier} --output ${workspaceArtifactPath(fixtureId, entrypoint, "capture")}`;
 }
 
 function syntheticProbeCommand(fixtureId, entrypoint) {
   const loader = entrypoint.blockers.some((blocker) => blocker.code === "ts-loader-required") ? " --import tsx" : "";
-  return `CRABPOT_EXECUTE_ISOLATED=1 node${loader} ../../../scripts/synthetic-probes.mjs --entrypoint ${entrypoint.specifier} > ${workspaceArtifactPath(fixtureId, entrypoint, "synthetic")}`;
+  return `CRABPOT_EXECUTE_ISOLATED=1 node${loader} ../../../scripts/synthetic-probes.mjs --entrypoint ${entrypoint.specifier} --output ${workspaceArtifactPath(fixtureId, entrypoint, "synthetic")}`;
 }
 
 export function validateWorkspacePlan(plan) {

@@ -1,0 +1,48 @@
+import assert from "node:assert/strict";
+import { mkdir, mkdtemp, writeFile } from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
+import { test } from "node:test";
+import { buildExecutionResultsReport } from "../scripts/summarize-execution-results.mjs";
+
+test("execution results summarize capture and synthetic artifacts", async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-results-"));
+  const fixtureDir = path.join(dir, "wecom");
+  await mkdir(fixtureDir);
+  await writeFile(
+    path.join(fixtureDir, "entry.capture.json"),
+    JSON.stringify({
+      entrypoint: "/repo/.crabpot/workspaces/wecom/index.js",
+      status: "captured",
+      captured: [{ kind: "hook", name: "before_tool_call" }],
+    }),
+    "utf8",
+  );
+  await writeFile(
+    path.join(fixtureDir, "entry.synthetic.json"),
+    JSON.stringify({
+      entrypoint: "/repo/.crabpot/workspaces/wecom/index.js",
+      status: "captured",
+      summary: { probeCount: 2, passCount: 1, failCount: 0, blockedCount: 1 },
+      results: [
+        { kind: "hook", seam: "before_tool_call", label: "before_tool_call", status: "pass" },
+        {
+          kind: "registration",
+          seam: "registerChannel",
+          label: "registerChannel",
+          status: "blocked",
+          reason: "channel runtime opt-in",
+        },
+      ],
+    }),
+    "utf8",
+  );
+
+  const report = await buildExecutionResultsReport({ resultsDir: dir });
+
+  assert.equal(report.summary.artifactCount, 2);
+  assert.equal(report.summary.capturedRegistrationCount, 1);
+  assert.equal(report.summary.passCount, 1);
+  assert.equal(report.summary.blockedCount, 1);
+  assert.equal(report.artifacts.find((artifact) => artifact.kind === "synthetic").blocked[0].seam, "registerChannel");
+});

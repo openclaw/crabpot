@@ -81,7 +81,7 @@ test("synthetic probes invoke retained hook and tool handlers from a captured fi
     "  api.registerTool({",
     "    name: 'fixture_tool',",
     "    inputSchema: { type: 'object' },",
-    "    run(event) { return { tool: event.toolName }; },",
+    "    execute(toolCallId, params) { return { toolCallId, sawParams: typeof params === 'object' }; },",
     "  });",
     "}",
   ]);
@@ -92,7 +92,7 @@ test("synthetic probes invoke retained hook and tool handlers from a captured fi
   assert.equal(result.summary.blockedCount, 0);
   assert.deepEqual(
     result.results.map((item) => `${item.status}:${item.kind}:${item.label}`),
-    ["pass:hook:before_tool_call", "pass:registration:registerTool.run"],
+    ["pass:hook:before_tool_call", "pass:registration:registerTool.execute"],
   );
 });
 

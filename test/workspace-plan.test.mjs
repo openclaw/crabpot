@@ -29,7 +29,7 @@ test("workspace plan maps blocked entrypoints to opt-in install/build/capture st
   assert.ok(wecom.steps.some((step) => step.kind === "prepare-artifacts" && step.command.includes(".crabpot/results/wecom")));
   assert.ok(
     wecom.steps.some(
-      (step) => step.kind === "capture" && step.command.includes("> ../../results/wecom/") && step.artifactPath,
+      (step) => step.kind === "capture" && step.command.includes("--output ../../results/wecom/") && step.artifactPath,
     ),
   );
   assert.ok(
@@ -37,7 +37,7 @@ test("workspace plan maps blocked entrypoints to opt-in install/build/capture st
       (step) =>
         step.kind === "synthetic-probe" &&
         step.command.includes("synthetic-probes.mjs") &&
-        step.command.includes("> ../../results/wecom/") &&
+        step.command.includes("--output ../../results/wecom/") &&
         step.artifactPath,
     ),
   );

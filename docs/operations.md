@@ -63,6 +63,8 @@ Use `reports/crabpot-workspace-plan.md` when you need the concrete opt-in
 workspace commands for dependency install, build, capture execution, and
 synthetic handler probes. Opt-in runs write JSON artifacts under
 `.crabpot/results/<fixture>/`.
+Use `reports/crabpot-execution-results.md` after an opt-in run to review which
+capture and synthetic probe artifacts passed, failed, or stayed blocked.
 Use `npm run workspace:execute -- --fixture <id> --dry-run` to inspect the exact
 selected commands. Real execution additionally requires
 `CRABPOT_EXECUTE_ISOLATED=1`.
@@ -92,6 +94,7 @@ npm run contract:capture -- --check
 npm run contract:synthetic -- --check
 npm run cold-import -- --check
 npm run workspace:plan -- --check
+npm run execution:report -- --check
 node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
