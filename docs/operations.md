@@ -61,7 +61,8 @@ TypeScript loader support, dependency installation, SDK aliases, or side-effect
 review.
 Use `reports/crabpot-workspace-plan.md` when you need the concrete opt-in
 workspace commands for dependency install, build, capture execution, and
-synthetic handler probes.
+synthetic handler probes. Opt-in runs write JSON artifacts under
+`.crabpot/results/<fixture>/`.
 Use `npm run workspace:execute -- --fixture <id> --dry-run` to inspect the exact
 selected commands. Real execution additionally requires
 `CRABPOT_EXECUTE_ISOLATED=1`.

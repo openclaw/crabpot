@@ -107,8 +107,9 @@ entrypoint metadata, dependency installation, side-effect review, or SDK alias
 compatibility.
 
 The workspace plan is still plan-only by default. It lays out the isolated copy,
-dependency install, build, capture, and synthetic-probe commands for each
-entrypoint. Actual execution must be opt-in with `CRABPOT_EXECUTE_ISOLATED=1`.
+dependency install, build, capture, synthetic-probe, and artifact-output commands
+for each entrypoint. Actual execution must be opt-in with
+`CRABPOT_EXECUTE_ISOLATED=1`.
 
 To preview a narrow execution lane without running install/build/import:
 

@@ -27,7 +27,7 @@ async function main() {
     console.log(JSON.stringify(plan, null, 2));
   } else {
     console.log(
-      `workspace plan: ${plan.summary.entrypointCount} entrypoints, ${plan.summary.installStepCount} installs, ${plan.summary.buildStepCount} builds, ${plan.summary.captureStepCount} captures, ${plan.summary.syntheticProbeStepCount} synthetic probes`,
+      `workspace plan: ${plan.summary.entrypointCount} entrypoints, ${plan.summary.installStepCount} installs, ${plan.summary.buildStepCount} builds, ${plan.summary.captureStepCount} captures, ${plan.summary.syntheticProbeStepCount} synthetic probes, ${plan.summary.artifactStepCount} artifact dirs`,
     );
   }
 
@@ -120,6 +120,7 @@ export async function buildWorkspacePlan(options = {}) {
       entrypointCount: allEntries.length,
       installStepCount: allSteps.filter((step) => step.kind === "install").length,
       buildStepCount: allSteps.filter((step) => step.kind === "build").length,
+      artifactStepCount: allSteps.filter((step) => step.kind === "prepare-artifacts").length,
       captureStepCount: allSteps.filter((step) => step.kind === "capture").length,
       syntheticProbeStepCount: allSteps.filter((step) => step.kind === "synthetic-probe").length,
       targetOpenClawLinkStepCount: allSteps.filter((step) => step.kind === "link-openclaw").length,
@@ -148,6 +149,12 @@ async function buildEntrypointPlan({ fixtureId, entrypoint, packageSummary, pack
     command: `rsync -a --delete ${packageDir}/ .crabpot/workspaces/${fixtureId}/`,
     cwd: repoRelative("."),
     reason: "copy fixture package into an isolated mutable workspace",
+  });
+  steps.push({
+    kind: "prepare-artifacts",
+    command: `mkdir -p .crabpot/results/${fixtureId}`,
+    cwd: repoRelative("."),
+    reason: "create a stable result directory for capture and synthetic probe artifacts",
   });
 
   if (requiredCapabilities.includes("target-openclaw-link")) {
@@ -187,14 +194,16 @@ async function buildEntrypointPlan({ fixtureId, entrypoint, packageSummary, pack
 
   steps.push({
     kind: "capture",
-    command: captureCommand(entrypoint),
+    command: captureCommand(fixtureId, entrypoint),
     cwd: `.crabpot/workspaces/${fixtureId}`,
+    artifactPath: artifactPath(fixtureId, entrypoint, "capture"),
     reason: "cold import the entrypoint against the capture shim",
   });
   steps.push({
     kind: "synthetic-probe",
-    command: syntheticProbeCommand(entrypoint),
+    command: syntheticProbeCommand(fixtureId, entrypoint),
     cwd: `.crabpot/workspaces/${fixtureId}`,
+    artifactPath: artifactPath(fixtureId, entrypoint, "synthetic"),
     reason: "invoke retained hook and registration handlers with synthetic payloads",
   });
 
@@ -298,14 +307,14 @@ function runCommand(packageManager, script) {
   return `${packageManager} run ${script}`;
 }
 
-function captureCommand(entrypoint) {
+function captureCommand(fixtureId, entrypoint) {
   const loader = entrypoint.blockers.some((blocker) => blocker.code === "ts-loader-required") ? " --import tsx" : "";
-  return `CRABPOT_EXECUTE_ISOLATED=1 node${loader} ../../../scripts/run-cold-import-capture.mjs ${entrypoint.specifier}`;
+  return `CRABPOT_EXECUTE_ISOLATED=1 node${loader} ../../../scripts/run-cold-import-capture.mjs ${entrypoint.specifier} > ${workspaceArtifactPath(fixtureId, entrypoint, "capture")}`;
 }
 
-function syntheticProbeCommand(entrypoint) {
+function syntheticProbeCommand(fixtureId, entrypoint) {
   const loader = entrypoint.blockers.some((blocker) => blocker.code === "ts-loader-required") ? " --import tsx" : "";
-  return `CRABPOT_EXECUTE_ISOLATED=1 node${loader} ../../../scripts/synthetic-probes.mjs --entrypoint ${entrypoint.specifier}`;
+  return `CRABPOT_EXECUTE_ISOLATED=1 node${loader} ../../../scripts/synthetic-probes.mjs --entrypoint ${entrypoint.specifier} > ${workspaceArtifactPath(fixtureId, entrypoint, "synthetic")}`;
 }
 
 export function validateWorkspacePlan(plan) {
@@ -326,6 +335,9 @@ export function validateWorkspacePlan(plan) {
       }
       if (!entrypoint.steps.some((step) => step.kind === "prepare")) {
         errors.push(`${entrypoint.id}: missing prepare step`);
+      }
+      if (!entrypoint.steps.some((step) => step.kind === "prepare-artifacts")) {
+        errors.push(`${entrypoint.id}: missing prepare-artifacts step`);
       }
       if (!entrypoint.steps.some((step) => step.kind === "capture")) {
         errors.push(`${entrypoint.id}: missing capture step`);
@@ -376,6 +388,7 @@ export function renderWorkspacePlanMarkdown(plan) {
       [
         ["Fixtures", plan.summary.fixtureCount],
         ["Entrypoints", plan.summary.entrypointCount],
+        ["Artifact dirs", plan.summary.artifactStepCount],
         ["Install steps", plan.summary.installStepCount],
         ["Build steps", plan.summary.buildStepCount],
         ["Capture steps", plan.summary.captureStepCount],
@@ -397,7 +410,9 @@ export function renderWorkspacePlanMarkdown(plan) {
           entrypoint.status,
           entrypoint.entrypoint,
           entrypoint.requiredCapabilities.join(", "),
-          entrypoint.steps.map((step) => `${step.kind}: ${step.command}`).join("; "),
+          entrypoint.steps
+            .map((step) => `${step.kind}: ${step.command}${step.artifactPath ? ` -> ${step.artifactPath}` : ""}`)
+            .join("; "),
         ]),
       ),
       ["Fixture", "PM", "Status", "Entrypoint", "Capabilities", "Steps"],
@@ -415,6 +430,18 @@ function targetOpenClawWorkspacePath(fixtureId, targetOpenClawPath) {
 
 function repoRelative(value) {
   return value;
+}
+
+function artifactPath(fixtureId, entrypoint, kind) {
+  return `.crabpot/results/${fixtureId}/${artifactSlug(entrypoint.id)}.${kind}.json`;
+}
+
+function workspaceArtifactPath(fixtureId, entrypoint, kind) {
+  return `../../results/${fixtureId}/${artifactSlug(entrypoint.id)}.${kind}.json`;
+}
+
+function artifactSlug(value) {
+  return value.replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
 function markdownTable(rows, headers) {
