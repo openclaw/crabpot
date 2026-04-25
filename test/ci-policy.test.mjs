@@ -79,6 +79,31 @@ test("ci policy fails ref diff hard regressions", async () => {
   assert.ok(validateCiPolicyReport(report).some((error) => error.includes("hookNames.removed-used")));
 });
 
+test("ci policy reports package audit findings as warnings", async () => {
+  const report = await buildCiPolicyReport({
+    policy,
+    compatibilityReport: compatibilityReport(),
+    executionResults: {
+      summary: {
+        failCount: 0,
+        auditFindingCount: 2,
+      },
+      artifacts: [
+        {
+          fixture: "fixture",
+          kind: "audit",
+          findingCount: 2,
+          failures: [],
+          blocked: [],
+        },
+      ],
+    },
+  });
+
+  assert.equal(report.status, "pass");
+  assert.ok(report.checks.some((check) => check.action === "warn" && check.id === "execution-results.audit-findings"));
+});
+
 function compatibilityReport() {
   return {
     summary: {
@@ -100,6 +125,7 @@ function executionResults(blocked) {
   return {
     summary: {
       failCount: 0,
+      auditFindingCount: 0,
     },
     artifacts: [
       {

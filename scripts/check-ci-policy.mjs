@@ -202,6 +202,14 @@ function executionChecks(executionResults, policy, options) {
       message: `${executionResults.summary.failCount} failed synthetic probes`,
       evidence: failedExecutionEvidence(executionResults),
     },
+    {
+      id: "execution-results.audit-findings",
+      action: executionResults.summary.auditFindingCount > 0 ? "warn" : "pass",
+      message: `${executionResults.summary.auditFindingCount ?? 0} package audit findings`,
+      evidence: executionResults.artifacts
+        .filter((artifact) => artifact.kind === "audit" && artifact.findingCount > 0)
+        .map((artifact) => `${artifact.fixture}:${artifact.findingCount}`),
+    },
   ];
 
   const blocked = executionResults.artifacts.flatMap((artifact) =>
