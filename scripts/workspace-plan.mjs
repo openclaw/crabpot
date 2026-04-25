@@ -147,7 +147,7 @@ async function buildEntrypointPlan({ fixtureId, entrypoint, packageSummary, pack
 
   steps.push({
     kind: "prepare",
-    command: `rsync -a --delete ${packageDir}/ .crabpot/workspaces/${fixtureId}/`,
+    command: `mkdir -p .crabpot/workspaces/${fixtureId} && rsync -a --delete ${packageDir}/ .crabpot/workspaces/${fixtureId}/`,
     cwd: repoRelative("."),
     reason: "copy fixture package into an isolated mutable workspace",
   });

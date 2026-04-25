@@ -51,7 +51,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "rsync -a --delete plugins/agentchat/integrations/openclaw-channel/ .crabpot/workspaces/agentchat/",
+              "command": "mkdir -p .crabpot/workspaces/agentchat && rsync -a --delete plugins/agentchat/integrations/openclaw-channel/ .crabpot/workspaces/agentchat/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -114,7 +114,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "rsync -a --delete plugins/agentchat/integrations/openclaw-channel/ .crabpot/workspaces/agentchat/",
+              "command": "mkdir -p .crabpot/workspaces/agentchat && rsync -a --delete plugins/agentchat/integrations/openclaw-channel/ .crabpot/workspaces/agentchat/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -182,7 +182,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "rsync -a --delete plugins/wecom/ .crabpot/workspaces/wecom/",
+              "command": "mkdir -p .crabpot/workspaces/wecom && rsync -a --delete plugins/wecom/ .crabpot/workspaces/wecom/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -262,7 +262,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "rsync -a --delete plugins/a2a-gateway/ .crabpot/workspaces/a2a-gateway/",
+              "command": "mkdir -p .crabpot/workspaces/a2a-gateway && rsync -a --delete plugins/a2a-gateway/ .crabpot/workspaces/a2a-gateway/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -343,7 +343,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "rsync -a --delete plugins/hasdata/ .crabpot/workspaces/hasdata/",
+              "command": "mkdir -p .crabpot/workspaces/hasdata && rsync -a --delete plugins/hasdata/ .crabpot/workspaces/hasdata/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -423,7 +423,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "rsync -a --delete plugins/mcp-adapter/ .crabpot/workspaces/mcp-adapter/",
+              "command": "mkdir -p .crabpot/workspaces/mcp-adapter && rsync -a --delete plugins/mcp-adapter/ .crabpot/workspaces/mcp-adapter/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -497,7 +497,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "rsync -a --delete plugins/llm-trace-phoenix/ .crabpot/workspaces/llm-trace-phoenix/",
+              "command": "mkdir -p .crabpot/workspaces/llm-trace-phoenix && rsync -a --delete plugins/llm-trace-phoenix/ .crabpot/workspaces/llm-trace-phoenix/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -559,7 +559,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "rsync -a --delete plugins/opik-openclaw/ .crabpot/workspaces/opik-openclaw/",
+              "command": "mkdir -p .crabpot/workspaces/opik-openclaw && rsync -a --delete plugins/opik-openclaw/ .crabpot/workspaces/opik-openclaw/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -629,7 +629,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "rsync -a --delete plugins/opik-openclaw/ .crabpot/workspaces/opik-openclaw/",
+              "command": "mkdir -p .crabpot/workspaces/opik-openclaw && rsync -a --delete plugins/opik-openclaw/ .crabpot/workspaces/opik-openclaw/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -702,7 +702,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "rsync -a --delete plugins/clawmetry/clawhub-plugin/ .crabpot/workspaces/clawmetry/",
+              "command": "mkdir -p .crabpot/workspaces/clawmetry && rsync -a --delete plugins/clawmetry/clawhub-plugin/ .crabpot/workspaces/clawmetry/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -765,7 +765,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "rsync -a --delete plugins/clawmetry/clawhub-plugin/ .crabpot/workspaces/clawmetry/",
+              "command": "mkdir -p .crabpot/workspaces/clawmetry && rsync -a --delete plugins/clawmetry/clawhub-plugin/ .crabpot/workspaces/clawmetry/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -849,7 +849,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "rsync -a --delete plugins/codex-app-server/ .crabpot/workspaces/codex-app-server/",
+              "command": "mkdir -p .crabpot/workspaces/codex-app-server && rsync -a --delete plugins/codex-app-server/ .crabpot/workspaces/codex-app-server/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -936,7 +936,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "rsync -a --delete plugins/web-search-plus/ .crabpot/workspaces/web-search-plus/",
+              "command": "mkdir -p .crabpot/workspaces/web-search-plus && rsync -a --delete plugins/web-search-plus/ .crabpot/workspaces/web-search-plus/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -1017,7 +1017,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "rsync -a --delete plugins/apify/ .crabpot/workspaces/apify/",
+              "command": "mkdir -p .crabpot/workspaces/apify && rsync -a --delete plugins/apify/ .crabpot/workspaces/apify/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -1098,7 +1098,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "rsync -a --delete plugins/inworld-tts/ .crabpot/workspaces/inworld-tts/",
+              "command": "mkdir -p .crabpot/workspaces/inworld-tts && rsync -a --delete plugins/inworld-tts/ .crabpot/workspaces/inworld-tts/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },

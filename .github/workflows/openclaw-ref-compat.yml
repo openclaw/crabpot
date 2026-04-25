@@ -168,6 +168,7 @@ jobs:
           git -C openclaw-base rev-parse HEAD
           echo "head=${{ inputs.head_openclaw_repository }}@${{ inputs.head_openclaw_ref }}"
           git -C openclaw-head rev-parse HEAD
+          ln -s openclaw-head openclaw
 
       - uses: actions/setup-node@v4
         with:
