@@ -34,6 +34,7 @@ Use a cheap default workflow first:
 - run registration-capture smoke checks
 - generate the compatibility report in check mode
 - generate the contract capture plan in check mode
+- generate the cold-import readiness report in check mode
 - gate issue evidence, P1 probe coverage, compat-record reconciliation, target
   hook/API/capture parsing, SDK export parsing, and manifest type parsing
 
@@ -50,6 +51,9 @@ Use `reports/crabpot-report.md` for full human review,
 `reports/crabpot-issues.md` for the short issue/probe queue.
 Use `reports/crabpot-capture.md` when you need the concrete hook, registrar,
 SDK import, and package-entrypoint assertions the future inspector should run.
+Use `reports/crabpot-cold-import.md` when you need to see which fixture
+entrypoints are directly executable and which are blocked by build output,
+TypeScript loader support, SDK aliases, or side-effect review.
 
 Decision classes mean:
 
@@ -73,6 +77,7 @@ Run the quality gate directly when changing classifiers:
 ```bash
 npm run contract:coverage
 npm run contract:capture -- --check
+npm run cold-import -- --check
 node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 

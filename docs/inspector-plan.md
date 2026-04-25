@@ -78,6 +78,8 @@ Generated reports live in `reports/`:
 - `crabpot-issues.md`
 - `crabpot-capture.md`
 - `crabpot-capture.json`
+- `crabpot-cold-import.md`
+- `crabpot-cold-import.json`
 
 Later, replace the static scanner with the packaged inspector while keeping
 `crabpot.config.json` as the fixture manifest.
@@ -110,6 +112,8 @@ Crabpot currently classifies:
 - missing package `openclaw.compat.pluginApi` as plugin upstream fixes
 - package OpenClaw entrypoints that point at missing build artifacts as
   inspector build/cold-import follow-up
+- TypeScript source entrypoints that need a loader or compile step before cold
+  import as inspector follow-up
 - plugin SDK imports missing from target OpenClaw package exports as
   compat-adapter debt
 - legacy manifest env metadata and root SDK imports as compat-adapter debt

@@ -12,7 +12,7 @@
     "hookCount": 8,
     "sdkImportCount": 32,
     "packageEntrypointCount": 13,
-    "issueProbeCount": 31,
+    "issueProbeCount": 40,
     "inspectorShimRequiredCount": 17,
     "compatAliasRequiredCount": 3
   },
@@ -1608,6 +1608,58 @@
       ]
     },
     {
+      "id": "package.entrypoint.typescript-loader:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/a2a-gateway/index.ts"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:hasdata",
+      "fixture": "hasdata",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/hasdata/src/index.ts"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:llm-trace-phoenix",
+      "fixture": "llm-trace-phoenix",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/llm-trace-phoenix/index.ts"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:mcp-adapter",
+      "fixture": "mcp-adapter",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/mcp-adapter/index.ts"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.metadata.version-alignment:a2a-gateway",
       "fixture": "a2a-gateway",
       "priority": "P2",
@@ -1729,6 +1781,71 @@
       "target": "package-loader",
       "evidence": [
         "runtimeExtension:./dist/index.js -> plugins/clawmetry/clawhub-plugin/dist/index.js"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:apify",
+      "fixture": "apify",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/apify/src/index.ts"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:clawmetry",
+      "fixture": "clawmetry",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/clawmetry/clawhub-plugin/index.ts"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:codex-app-server",
+      "fixture": "codex-app-server",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/codex-app-server/index.ts"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:inworld-tts",
+      "fixture": "inworld-tts",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/inworld-tts/index.ts"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:web-search-plus",
+      "fixture": "web-search-plus",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/web-search-plus/index.ts"
       ],
       "assertions": [
         "entrypoint metadata resolves",

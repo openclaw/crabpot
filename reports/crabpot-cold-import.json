@@ -1,0 +1,363 @@
+{
+  "generatedAt": "deterministic",
+  "targetOpenClaw": {
+    "status": "ok",
+    "configuredPath": "../openclaw",
+    "sdkExportCount": 306
+  },
+  "summary": {
+    "fixtureCount": 11,
+    "entrypointCount": 13,
+    "readyCount": 1,
+    "blockedCount": 12,
+    "tsLoaderRequiredCount": 8,
+    "buildRequiredCount": 3,
+    "sdkAliasRequiredCount": 1
+  },
+  "fixtures": [
+    {
+      "id": "agentchat",
+      "priority": "high",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
+          "fixture": "agentchat",
+          "packagePath": "plugins/agentchat/integrations/openclaw-channel/package.json",
+          "kind": "extension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/agentchat/integrations/openclaw-channel/dist/index.js",
+          "status": "build-required",
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/agentchat/integrations/openclaw-channel/dist/index.js"
+            }
+          ],
+          "assertions": [
+            "plugin build or source alias resolution runs before cold import"
+          ]
+        },
+        {
+          "id": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
+          "fixture": "agentchat",
+          "packagePath": "plugins/agentchat/integrations/openclaw-channel/package.json",
+          "kind": "setupEntry",
+          "specifier": "./dist/setup-entry.js",
+          "path": "plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js",
+          "status": "build-required",
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js"
+            }
+          ],
+          "assertions": [
+            "plugin build or source alias resolution runs before cold import"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wecom",
+      "priority": "high",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:wecom:plugins-wecom-index-js",
+          "fixture": "wecom",
+          "packagePath": "plugins/wecom/package.json",
+          "kind": "extension",
+          "specifier": "./index.js",
+          "path": "plugins/wecom/index.js",
+          "status": "ready",
+          "blockers": [],
+          "assertions": [
+            "entrypoint can be imported by Node without fixture credentials",
+            "registration capture shim receives plugin registrations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2a-gateway",
+      "priority": "high",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:a2a-gateway:plugins-a2a-gateway-index-ts",
+          "fixture": "a2a-gateway",
+          "packagePath": "plugins/a2a-gateway/package.json",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "path": "plugins/a2a-gateway/index.ts",
+          "status": "ts-loader-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/a2a-gateway/index.ts"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hasdata",
+      "priority": "high",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:hasdata:plugins-hasdata-src-index-ts",
+          "fixture": "hasdata",
+          "packagePath": "plugins/hasdata/package.json",
+          "kind": "extension",
+          "specifier": "./src/index.ts",
+          "path": "plugins/hasdata/src/index.ts",
+          "status": "ts-loader-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/hasdata/src/index.ts"
+            },
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/hasdata/src/index.ts"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "cold import sandbox blocks network/process side effects before register capture"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mcp-adapter",
+      "priority": "high",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:mcp-adapter:plugins-mcp-adapter-index-ts",
+          "fixture": "mcp-adapter",
+          "packagePath": "plugins/mcp-adapter/package.json",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "path": "plugins/mcp-adapter/index.ts",
+          "status": "ts-loader-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/mcp-adapter/index.ts"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "llm-trace-phoenix",
+      "priority": "high",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
+          "fixture": "llm-trace-phoenix",
+          "packagePath": "plugins/llm-trace-phoenix/package.json",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "path": "plugins/llm-trace-phoenix/index.ts",
+          "status": "ts-loader-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/llm-trace-phoenix/index.ts"
+            },
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/llm-trace-phoenix/index.ts"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "cold import sandbox blocks network/process side effects before register capture"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clawmetry",
+      "priority": "medium",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts",
+          "fixture": "clawmetry",
+          "packagePath": "plugins/clawmetry/clawhub-plugin/package.json",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "path": "plugins/clawmetry/clawhub-plugin/index.ts",
+          "status": "ts-loader-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/clawmetry/clawhub-plugin/index.ts"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:clawmetry:plugins-clawmetry-clawhub-plugin-dist-index-js",
+          "fixture": "clawmetry",
+          "packagePath": "plugins/clawmetry/clawhub-plugin/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/clawmetry/clawhub-plugin/dist/index.js",
+          "status": "build-required",
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/clawmetry/clawhub-plugin/dist/index.js"
+            }
+          ],
+          "assertions": [
+            "plugin build or source alias resolution runs before cold import"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "codex-app-server",
+      "priority": "medium",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
+          "fixture": "codex-app-server",
+          "packagePath": "plugins/codex-app-server/package.json",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "path": "plugins/codex-app-server/index.ts",
+          "status": "sdk-alias-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/codex-app-server/index.ts"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "web-search-plus",
+      "priority": "medium",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:web-search-plus:plugins-web-search-plus-index-ts",
+          "fixture": "web-search-plus",
+          "packagePath": "plugins/web-search-plus/package.json",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "path": "plugins/web-search-plus/index.ts",
+          "status": "ts-loader-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/web-search-plus/index.ts"
+            },
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/web-search-plus/index.ts"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "cold import sandbox blocks network/process side effects before register capture"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apify",
+      "priority": "medium",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:apify:plugins-apify-src-index-ts",
+          "fixture": "apify",
+          "packagePath": "plugins/apify/package.json",
+          "kind": "extension",
+          "specifier": "./src/index.ts",
+          "path": "plugins/apify/src/index.ts",
+          "status": "ts-loader-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/apify/src/index.ts"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inworld-tts",
+      "priority": "medium",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
+          "fixture": "inworld-tts",
+          "packagePath": "plugins/inworld-tts/package.json",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "path": "plugins/inworld-tts/index.ts",
+          "status": "ts-loader-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/inworld-tts/index.ts"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import"
+          ]
+        }
+      ]
+    }
+  ]
+}

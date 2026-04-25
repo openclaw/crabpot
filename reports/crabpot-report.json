@@ -503,12 +503,12 @@
     "highPriorityFixtures": 6,
     "breakageCount": 0,
     "warningCount": 16,
-    "suggestionCount": 16,
-    "decisionCount": 34,
-    "issueCount": 32,
+    "suggestionCount": 25,
+    "decisionCount": 43,
+    "issueCount": 41,
     "p0IssueCount": 0,
     "p1IssueCount": 9,
-    "contractProbeCount": 31
+    "contractProbeCount": 40
   },
   "fixtures": [
     {
@@ -2637,6 +2637,15 @@
     },
     {
       "fixture": "a2a-gateway",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/a2a-gateway/index.ts"
+      ]
+    },
+    {
+      "fixture": "a2a-gateway",
       "code": "registration-capture-gap",
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
@@ -2659,6 +2668,24 @@
       ]
     },
     {
+      "fixture": "hasdata",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/hasdata/src/index.ts"
+      ]
+    },
+    {
+      "fixture": "mcp-adapter",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/mcp-adapter/index.ts"
+      ]
+    },
+    {
       "fixture": "mcp-adapter",
       "code": "registration-capture-gap",
       "level": "suggestion",
@@ -2677,6 +2704,15 @@
       ]
     },
     {
+      "fixture": "llm-trace-phoenix",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/llm-trace-phoenix/index.ts"
+      ]
+    },
+    {
       "fixture": "clawmetry",
       "code": "package-build-artifact-entrypoint",
       "level": "suggestion",
@@ -2687,11 +2723,29 @@
     },
     {
       "fixture": "clawmetry",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/clawmetry/clawhub-plugin/index.ts"
+      ]
+    },
+    {
+      "fixture": "clawmetry",
       "code": "registration-capture-gap",
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
         "registerService @ plugins/clawmetry/clawhub-plugin/index.ts:9"
+      ]
+    },
+    {
+      "fixture": "codex-app-server",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/codex-app-server/index.ts"
       ]
     },
     {
@@ -2708,6 +2762,15 @@
     },
     {
       "fixture": "web-search-plus",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/web-search-plus/index.ts"
+      ]
+    },
+    {
+      "fixture": "web-search-plus",
       "code": "runtime-tool-capture",
       "level": "suggestion",
       "message": "tool shape is only visible after runtime registration capture",
@@ -2718,11 +2781,29 @@
     },
     {
       "fixture": "apify",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/apify/src/index.ts"
+      ]
+    },
+    {
+      "fixture": "apify",
       "code": "runtime-tool-capture",
       "level": "suggestion",
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
         "registerTool @ plugins/apify/src/index.ts:13"
+      ]
+    },
+    {
+      "fixture": "inworld-tts",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/inworld-tts/index.ts"
       ]
     },
     {
@@ -2933,6 +3014,20 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-96D2E9F4",
+      "fixture": "a2a-gateway",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "a2a-gateway: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/a2a-gateway/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-654F01E7",
       "fixture": "a2a-gateway",
       "severity": "P2",
@@ -3022,6 +3117,20 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
+      "id": "CRABPOT-18D12186",
+      "fixture": "apify",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "apify: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/apify/src/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-93E9D53A",
       "fixture": "apify",
       "severity": "P2",
@@ -3050,6 +3159,20 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-EF6E7134",
+      "fixture": "clawmetry",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "clawmetry: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/clawmetry/clawhub-plugin/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-A36ECE8E",
       "fixture": "codex-app-server",
       "severity": "P2",
@@ -3067,6 +3190,34 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
+      "id": "CRABPOT-F8C8F1CD",
+      "fixture": "codex-app-server",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "codex-app-server: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/codex-app-server/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-1853BC94",
+      "fixture": "hasdata",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "hasdata: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/hasdata/src/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-1ABECD7E",
       "fixture": "hasdata",
       "severity": "P2",
@@ -3079,6 +3230,20 @@
         "hasdata"
       ],
       "compatRecord": "provider-auth-env-vars"
+    },
+    {
+      "id": "CRABPOT-7C59D06F",
+      "fixture": "inworld-tts",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "inworld-tts: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/inworld-tts/index.ts"
+      ],
+      "compatRecord": null
     },
     {
       "id": "CRABPOT-CCABE384",
@@ -3109,6 +3274,20 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
+      "id": "CRABPOT-15F8300A",
+      "fixture": "llm-trace-phoenix",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "llm-trace-phoenix: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/llm-trace-phoenix/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-4511EE11",
       "fixture": "mcp-adapter",
       "severity": "P2",
@@ -3123,6 +3302,20 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-6515DC5B",
+      "fixture": "mcp-adapter",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "mcp-adapter: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/mcp-adapter/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-B195BB7A",
       "fixture": "mcp-adapter",
       "severity": "P2",
@@ -3133,6 +3326,20 @@
       "title": "mcp-adapter: runtime tool schema needs registration capture",
       "evidence": [
         "registerTool @ plugins/mcp-adapter/index.ts:30"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-E55C4521",
+      "fixture": "web-search-plus",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "web-search-plus: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/web-search-plus/index.ts"
       ],
       "compatRecord": null
     },
@@ -3415,6 +3622,46 @@
       ]
     },
     {
+      "id": "package.entrypoint.typescript-loader:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/a2a-gateway/index.ts"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:hasdata",
+      "fixture": "hasdata",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/hasdata/src/index.ts"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:llm-trace-phoenix",
+      "fixture": "llm-trace-phoenix",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/llm-trace-phoenix/index.ts"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:mcp-adapter",
+      "fixture": "mcp-adapter",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/mcp-adapter/index.ts"
+      ]
+    },
+    {
       "id": "package.metadata.version-alignment:a2a-gateway",
       "fixture": "a2a-gateway",
       "priority": "P2",
@@ -3513,6 +3760,56 @@
       "contract": "Inspector can build or resolve source aliases before cold importing package entrypoints.",
       "evidence": [
         "runtimeExtension:./dist/index.js -> plugins/clawmetry/clawhub-plugin/dist/index.js"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:apify",
+      "fixture": "apify",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/apify/src/index.ts"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:clawmetry",
+      "fixture": "clawmetry",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/clawmetry/clawhub-plugin/index.ts"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:codex-app-server",
+      "fixture": "codex-app-server",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/codex-app-server/index.ts"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:inworld-tts",
+      "fixture": "inworld-tts",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/inworld-tts/index.ts"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:web-search-plus",
+      "fixture": "web-search-plus",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/web-search-plus/index.ts"
       ]
     },
     {
@@ -3748,15 +4045,6 @@
       ]
     },
     {
-      "fixture": "a2a-gateway",
-      "code": "typescript-source-entrypoint",
-      "level": "log",
-      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
-      "evidence": [
-        "extension:plugins/a2a-gateway/index.ts"
-      ]
-    },
-    {
       "fixture": "hasdata",
       "code": "seam-inventory",
       "level": "log",
@@ -3800,15 +4088,6 @@
         "plugins/hasdata/package.json",
         "@hasdata/hasdata-openclaw-plugin",
         "version:0.1.5"
-      ]
-    },
-    {
-      "fixture": "hasdata",
-      "code": "typescript-source-entrypoint",
-      "level": "log",
-      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
-      "evidence": [
-        "extension:plugins/hasdata/src/index.ts"
       ]
     },
     {
@@ -3868,15 +4147,6 @@
       ]
     },
     {
-      "fixture": "mcp-adapter",
-      "code": "typescript-source-entrypoint",
-      "level": "log",
-      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
-      "evidence": [
-        "extension:plugins/mcp-adapter/index.ts"
-      ]
-    },
-    {
       "fixture": "llm-trace-phoenix",
       "code": "seam-inventory",
       "level": "log",
@@ -3933,15 +4203,6 @@
       ]
     },
     {
-      "fixture": "llm-trace-phoenix",
-      "code": "typescript-source-entrypoint",
-      "level": "log",
-      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
-      "evidence": [
-        "extension:plugins/llm-trace-phoenix/index.ts"
-      ]
-    },
-    {
       "fixture": "clawmetry",
       "code": "seam-inventory",
       "level": "log",
@@ -3986,15 +4247,6 @@
         "plugins/clawmetry/clawhub-plugin/package.json",
         "@clawmetry/openclaw-plugin",
         "version:1.0.0"
-      ]
-    },
-    {
-      "fixture": "clawmetry",
-      "code": "typescript-source-entrypoint",
-      "level": "log",
-      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
-      "evidence": [
-        "extension:plugins/clawmetry/clawhub-plugin/index.ts"
       ]
     },
     {
@@ -4050,15 +4302,6 @@
       ]
     },
     {
-      "fixture": "codex-app-server",
-      "code": "typescript-source-entrypoint",
-      "level": "log",
-      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
-      "evidence": [
-        "extension:plugins/codex-app-server/index.ts"
-      ]
-    },
-    {
       "fixture": "web-search-plus",
       "code": "seam-inventory",
       "level": "log",
@@ -4101,15 +4344,6 @@
         "plugins/web-search-plus/package.json",
         "web-search-plus-plugin-v2",
         "version:2.2.0"
-      ]
-    },
-    {
-      "fixture": "web-search-plus",
-      "code": "typescript-source-entrypoint",
-      "level": "log",
-      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
-      "evidence": [
-        "extension:plugins/web-search-plus/index.ts"
       ]
     },
     {
@@ -4170,15 +4404,6 @@
       ]
     },
     {
-      "fixture": "apify",
-      "code": "typescript-source-entrypoint",
-      "level": "log",
-      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
-      "evidence": [
-        "extension:plugins/apify/src/index.ts"
-      ]
-    },
-    {
       "fixture": "inworld-tts",
       "code": "seam-inventory",
       "level": "log",
@@ -4234,15 +4459,6 @@
         "plugins/inworld-tts/package.json",
         "openclaw-inworld-tts",
         "version:1.0.2"
-      ]
-    },
-    {
-      "fixture": "inworld-tts",
-      "code": "typescript-source-entrypoint",
-      "level": "log",
-      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
-      "evidence": [
-        "extension:plugins/inworld-tts/index.ts"
       ]
     },
     {
@@ -4422,6 +4638,13 @@
     },
     {
       "fixture": "a2a-gateway",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/a2a-gateway/index.ts"
+    },
+    {
+      "fixture": "a2a-gateway",
       "decision": "core-compat-adapter",
       "seam": "sdk-import",
       "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
@@ -4440,6 +4663,13 @@
       "seam": "tool-schema",
       "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
       "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "hasdata",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/hasdata/src/index.ts"
     },
     {
       "fixture": "hasdata",
@@ -4465,6 +4695,13 @@
     {
       "fixture": "mcp-adapter",
       "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/mcp-adapter/index.ts"
+    },
+    {
+      "fixture": "mcp-adapter",
+      "decision": "inspector-follow-up",
       "seam": "registration-capture",
       "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
       "evidence": "registerService"
@@ -4475,6 +4712,13 @@
       "seam": "tool-schema",
       "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
       "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "llm-trace-phoenix",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/llm-trace-phoenix/index.ts"
     },
     {
       "fixture": "llm-trace-phoenix",
@@ -4500,6 +4744,13 @@
     {
       "fixture": "clawmetry",
       "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/clawmetry/clawhub-plugin/index.ts"
+    },
+    {
+      "fixture": "clawmetry",
+      "decision": "inspector-follow-up",
       "seam": "registration-capture",
       "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
       "evidence": "registerService"
@@ -4510,6 +4761,13 @@
       "seam": "sdk-alias",
       "action": "Restore the package export alias or publish a versioned migration map before cold-importing old plugins.",
       "evidence": "openclaw/plugin-sdk/discord, openclaw/plugin-sdk/telegram-account"
+    },
+    {
+      "fixture": "codex-app-server",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/codex-app-server/index.ts"
     },
     {
       "fixture": "codex-app-server",
@@ -4527,6 +4785,13 @@
     },
     {
       "fixture": "web-search-plus",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/web-search-plus/index.ts"
+    },
+    {
+      "fixture": "web-search-plus",
       "decision": "core-compat-adapter",
       "seam": "env-auth",
       "action": "Keep providerAuthEnvVars compatibility active while the inspector recommends manifest-schema migration upstream.",
@@ -4541,6 +4806,13 @@
     },
     {
       "fixture": "apify",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/apify/src/index.ts"
+    },
+    {
+      "fixture": "apify",
       "decision": "core-compat-adapter",
       "seam": "sdk-import",
       "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
@@ -4552,6 +4824,13 @@
       "seam": "tool-schema",
       "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
       "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "inworld-tts",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/inworld-tts/index.ts"
     },
     {
       "fixture": "inworld-tts",

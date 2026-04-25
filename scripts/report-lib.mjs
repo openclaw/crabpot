@@ -385,6 +385,12 @@ function issueMetadata(finding) {
       decision: "plugin-upstream-fix",
       title: "plugin API compatibility range is missing",
     },
+    "package-typescript-source-entrypoint": {
+      severity: "P2",
+      owner: "inspector",
+      decision: "inspector-follow-up",
+      title: "cold import needs TypeScript source entrypoint support",
+    },
     "provider-auth-env-vars": {
       severity: "P2",
       owner: "core",
@@ -497,6 +503,11 @@ function buildContractProbes({ warnings, suggestions, fixtures }) {
     "package-plugin-api-compat-missing": {
       id: "package.compat.plugin-api-range",
       contract: "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      target: "package-loader",
+    },
+    "package-typescript-source-entrypoint": {
+      id: "package.entrypoint.typescript-loader",
+      contract: "Inspector can compile or load TypeScript source entrypoints before registration capture.",
       target: "package-loader",
     },
     "runtime-tool-capture": {
@@ -1047,12 +1058,19 @@ function classifyPackageContracts({ fixture, inspection, fixtureReport, warnings
 
   const sourceEntrypoints = packageSummary.openclaw?.entrypoints.filter((entrypoint) => entrypoint.exists && entrypoint.relativePath.endsWith(".ts")) ?? [];
   if (sourceEntrypoints.length > 0) {
-    logs.push({
+    suggestions.push({
       fixture: fixture.id,
-      code: "typescript-source-entrypoint",
-      level: "log",
+      code: "package-typescript-source-entrypoint",
+      level: "suggestion",
       message: "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
       evidence: sourceEntrypoints.map((entrypoint) => `${entrypoint.kind}:${entrypoint.relativePath}`),
+    });
+    decisions.push({
+      fixture: fixture.id,
+      decision: "inspector-follow-up",
+      seam: "cold-import",
+      action: "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      evidence: sourceEntrypoints.map((entrypoint) => entrypoint.relativePath).join(", "),
     });
   }
 
