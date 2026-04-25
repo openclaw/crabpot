@@ -51,10 +51,64 @@
       "why": "Production-shaped channel plugin with WebSocket auth, reconnect, prompt hints, and typed runtime contracts.",
       "status": "ok",
       "hooks": [],
+      "hookDetails": [],
       "registrations": [
         "defineChannelPluginEntry"
       ],
+      "registrationDetails": [
+        {
+          "name": "defineChannelPluginEntry",
+          "file": "plugins/agentchat/integrations/openclaw-channel/src/channel.ts",
+          "line": 333,
+          "ref": "plugins/agentchat/integrations/openclaw-channel/src/channel.ts:333"
+        }
+      ],
       "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/agentchat/integrations/openclaw-channel/scripts/emit-manifest-schema.mjs",
+        "plugins/agentchat/integrations/openclaw-channel/scripts/fix-cjs-extensions.mjs",
+        "plugins/agentchat/integrations/openclaw-channel/src/binding/actions.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/binding/agent-prompt.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/binding/agent-tools.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/binding/directory.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/binding/gateway.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/binding/inbound-bridge.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/binding/index.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/binding/messaging.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/binding/openclaw-types.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/binding/outbound.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/binding/resolver.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/binding/runtime-registry.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/binding/sdk-client.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/binding/status.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/channel-account.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/channel.setup.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/channel.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/channel.wizard.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/config-schema.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/configured-state.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/credentials/read-env.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/errors.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/inbound.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/index.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/log.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/metrics.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/outbound.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/retry.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/runtime.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/setup-client.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/setup-entry.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/state-machine.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/types.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/types/message.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/version.ts",
+        "plugins/agentchat/integrations/openclaw-channel/src/ws-client.ts",
+        "plugins/agentchat/integrations/openclaw-channel/tsup.config.ts",
+        "plugins/agentchat/integrations/openclaw-channel/vitest.config.ts"
+      ],
       "pluginManifests": [
         {
           "path": "plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json",
@@ -82,6 +136,50 @@
         "openclaw/plugin-sdk/channel-contract",
         "openclaw/plugin-sdk/channel-core",
         "openclaw/plugin-sdk/setup"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk/channel-contract",
+          "file": "plugins/agentchat/integrations/openclaw-channel/src/binding/openclaw-types.ts",
+          "line": 35,
+          "ref": "plugins/agentchat/integrations/openclaw-channel/src/binding/openclaw-types.ts:35"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/channel-core",
+          "file": "plugins/agentchat/integrations/openclaw-channel/src/binding/openclaw-types.ts",
+          "line": 19,
+          "ref": "plugins/agentchat/integrations/openclaw-channel/src/binding/openclaw-types.ts:19"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/channel-core",
+          "file": "plugins/agentchat/integrations/openclaw-channel/src/binding/openclaw-types.ts",
+          "line": 37,
+          "ref": "plugins/agentchat/integrations/openclaw-channel/src/binding/openclaw-types.ts:37"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/channel-core",
+          "file": "plugins/agentchat/integrations/openclaw-channel/src/channel-account.ts",
+          "line": 20,
+          "ref": "plugins/agentchat/integrations/openclaw-channel/src/channel-account.ts:20"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/channel-core",
+          "file": "plugins/agentchat/integrations/openclaw-channel/src/channel.setup.ts",
+          "line": 18,
+          "ref": "plugins/agentchat/integrations/openclaw-channel/src/channel.setup.ts:18"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/channel-core",
+          "file": "plugins/agentchat/integrations/openclaw-channel/src/channel.ts",
+          "line": 21,
+          "ref": "plugins/agentchat/integrations/openclaw-channel/src/channel.ts:21"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/setup",
+          "file": "plugins/agentchat/integrations/openclaw-channel/src/channel.wizard.ts",
+          "line": 46,
+          "ref": "plugins/agentchat/integrations/openclaw-channel/src/channel.wizard.ts:46"
+        }
       ]
     },
     {
@@ -104,12 +202,120 @@
         "subagent_ended",
         "subagent_spawned"
       ],
+      "hookDetails": [
+        {
+          "name": "before_prompt_build",
+          "file": "plugins/wecom/index.js",
+          "line": 53,
+          "ref": "plugins/wecom/index.js:53"
+        },
+        {
+          "name": "before_tool_call",
+          "file": "plugins/wecom/index.js",
+          "line": 65,
+          "ref": "plugins/wecom/index.js:65"
+        },
+        {
+          "name": "subagent_delivery_target",
+          "file": "plugins/wecom/index.js",
+          "line": 61,
+          "ref": "plugins/wecom/index.js:61"
+        },
+        {
+          "name": "subagent_ended",
+          "file": "plugins/wecom/index.js",
+          "line": 63,
+          "ref": "plugins/wecom/index.js:63"
+        },
+        {
+          "name": "subagent_spawned",
+          "file": "plugins/wecom/index.js",
+          "line": 62,
+          "ref": "plugins/wecom/index.js:62"
+        }
+      ],
       "registrations": [
         "registerChannel",
         "registerHttpRoute",
         "registerTool"
       ],
+      "registrationDetails": [
+        {
+          "name": "registerChannel",
+          "file": "plugins/wecom/index.js",
+          "line": 27,
+          "ref": "plugins/wecom/index.js:27"
+        },
+        {
+          "name": "registerHttpRoute",
+          "file": "plugins/wecom/index.js",
+          "line": 45,
+          "ref": "plugins/wecom/index.js:45"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/wecom/index.js",
+          "line": 28,
+          "ref": "plugins/wecom/index.js:28"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/wecom/index.js",
+          "line": 29,
+          "ref": "plugins/wecom/index.js:29"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/wecom/index.js",
+          "line": 33,
+          "ref": "plugins/wecom/index.js:33"
+        }
+      ],
       "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/wecom/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/wecom/dynamic-agent.js",
+        "plugins/wecom/index.js",
+        "plugins/wecom/logger.js",
+        "plugins/wecom/scripts/set-reasoning-stream-remote.js",
+        "plugins/wecom/scripts/wecom-mcp-remote-call.js",
+        "plugins/wecom/scripts/wecom-mcp-remote-probe.js",
+        "plugins/wecom/think-parser.js",
+        "plugins/wecom/utils.js",
+        "plugins/wecom/wecom/accounts.js",
+        "plugins/wecom/wecom/agent-api.js",
+        "plugins/wecom/wecom/allow-from.js",
+        "plugins/wecom/wecom/browser-media-tool.js",
+        "plugins/wecom/wecom/callback-crypto.js",
+        "plugins/wecom/wecom/callback-inbound.js",
+        "plugins/wecom/wecom/callback-media.js",
+        "plugins/wecom/wecom/channel-plugin.js",
+        "plugins/wecom/wecom/commands.js",
+        "plugins/wecom/wecom/constants.js",
+        "plugins/wecom/wecom/dm-policy.js",
+        "plugins/wecom/wecom/group-policy.js",
+        "plugins/wecom/wecom/http.js",
+        "plugins/wecom/wecom/image-studio-tool.js",
+        "plugins/wecom/wecom/mcp-tool.js",
+        "plugins/wecom/wecom/media-uploader.js",
+        "plugins/wecom/wecom/onboarding.js",
+        "plugins/wecom/wecom/openclaw-compat.js",
+        "plugins/wecom/wecom/outbound-sender-protocol.js",
+        "plugins/wecom/wecom/parent-resolver.js",
+        "plugins/wecom/wecom/plugin-config.js",
+        "plugins/wecom/wecom/reqid-store.js",
+        "plugins/wecom/wecom/runtime-telemetry.js",
+        "plugins/wecom/wecom/sandbox.js",
+        "plugins/wecom/wecom/state.js",
+        "plugins/wecom/wecom/target.js",
+        "plugins/wecom/wecom/webhook-bot.js",
+        "plugins/wecom/wecom/welcome-messages-file.js",
+        "plugins/wecom/wecom/workspace-template.js",
+        "plugins/wecom/wecom/ws-monitor.js",
+        "plugins/wecom/wecom/ws-state.js"
+      ],
       "pluginManifests": [
         {
           "path": "plugins/wecom/openclaw.plugin.json",
@@ -133,6 +339,32 @@
         "openclaw/plugin-sdk/media-runtime",
         "openclaw/plugin-sdk/setup",
         "openclaw/plugin-sdk/status-helpers"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/wecom/wecom/channel-plugin.js",
+          "line": 7,
+          "ref": "plugins/wecom/wecom/channel-plugin.js:7"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/media-runtime",
+          "file": "plugins/wecom/wecom/openclaw-compat.js",
+          "line": 6,
+          "ref": "plugins/wecom/wecom/openclaw-compat.js:6"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/setup",
+          "file": "plugins/wecom/wecom/onboarding.js",
+          "line": 1,
+          "ref": "plugins/wecom/wecom/onboarding.js:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/status-helpers",
+          "file": "plugins/wecom/wecom/channel-plugin.js",
+          "line": 6,
+          "ref": "plugins/wecom/wecom/channel-plugin.js:6"
+        }
       ]
     },
     {
@@ -149,12 +381,108 @@
       "why": "Agent-to-agent server fixture with agent-card discovery, JSON-RPC/REST/gRPC transports, metrics, peer auth, and async task modes.",
       "status": "ok",
       "hooks": [],
+      "hookDetails": [],
       "registrations": [
         "registerGatewayMethod",
         "registerService",
         "registerTool"
       ],
+      "registrationDetails": [
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/a2a-gateway/index.ts",
+          "line": 616,
+          "ref": "plugins/a2a-gateway/index.ts:616"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/a2a-gateway/index.ts",
+          "line": 622,
+          "ref": "plugins/a2a-gateway/index.ts:622"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/a2a-gateway/index.ts",
+          "line": 631,
+          "ref": "plugins/a2a-gateway/index.ts:631"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/a2a-gateway/index.ts",
+          "line": 657,
+          "ref": "plugins/a2a-gateway/index.ts:657"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/a2a-gateway/index.ts",
+          "line": 669,
+          "ref": "plugins/a2a-gateway/index.ts:669"
+        },
+        {
+          "name": "registerService",
+          "file": "plugins/a2a-gateway/index.ts",
+          "line": 857,
+          "ref": "plugins/a2a-gateway/index.ts:857"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/a2a-gateway/index.ts",
+          "line": 777,
+          "ref": "plugins/a2a-gateway/index.ts:777"
+        }
+      ],
       "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/a2a-gateway/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/a2a-gateway/cli/bin/a2a.ts",
+        "plugins/a2a-gateway/cli/src/commands/bench.ts",
+        "plugins/a2a-gateway/cli/src/commands/card.ts",
+        "plugins/a2a-gateway/cli/src/commands/discover.ts",
+        "plugins/a2a-gateway/cli/src/commands/health.ts",
+        "plugins/a2a-gateway/cli/src/commands/send.ts",
+        "plugins/a2a-gateway/cli/src/commands/status.ts",
+        "plugins/a2a-gateway/cli/src/commands/stream.ts",
+        "plugins/a2a-gateway/cli/src/commands/trace.ts",
+        "plugins/a2a-gateway/cli/src/lib/client-factory.ts",
+        "plugins/a2a-gateway/cli/src/lib/format.ts",
+        "plugins/a2a-gateway/cli/src/lib/peers.ts",
+        "plugins/a2a-gateway/index.ts",
+        "plugins/a2a-gateway/skill/scripts/a2a-peers.mjs",
+        "plugins/a2a-gateway/skill/scripts/a2a-ping.mjs",
+        "plugins/a2a-gateway/skill/scripts/a2a-send.mjs",
+        "plugins/a2a-gateway/skill/scripts/a2a-status.mjs",
+        "plugins/a2a-gateway/src/agent-card.ts",
+        "plugins/a2a-gateway/src/audit.ts",
+        "plugins/a2a-gateway/src/client.ts",
+        "plugins/a2a-gateway/src/connection-pool.ts",
+        "plugins/a2a-gateway/src/dns-discovery.ts",
+        "plugins/a2a-gateway/src/dns-responder.ts",
+        "plugins/a2a-gateway/src/executor.ts",
+        "plugins/a2a-gateway/src/file-security.ts",
+        "plugins/a2a-gateway/src/internal/envelope.ts",
+        "plugins/a2a-gateway/src/internal/idempotency.ts",
+        "plugins/a2a-gateway/src/internal/metrics.ts",
+        "plugins/a2a-gateway/src/internal/outbox.ts",
+        "plugins/a2a-gateway/src/internal/routing.ts",
+        "plugins/a2a-gateway/src/internal/security.ts",
+        "plugins/a2a-gateway/src/internal/transport.ts",
+        "plugins/a2a-gateway/src/internal/types-internal.ts",
+        "plugins/a2a-gateway/src/peer-health.ts",
+        "plugins/a2a-gateway/src/peer-retry.ts",
+        "plugins/a2a-gateway/src/push-notifications.ts",
+        "plugins/a2a-gateway/src/queueing-executor.ts",
+        "plugins/a2a-gateway/src/quorum-discovery.ts",
+        "plugins/a2a-gateway/src/routing-rules.ts",
+        "plugins/a2a-gateway/src/saturation-model.ts",
+        "plugins/a2a-gateway/src/task-cleanup.ts",
+        "plugins/a2a-gateway/src/task-recovery.ts",
+        "plugins/a2a-gateway/src/task-store.ts",
+        "plugins/a2a-gateway/src/telemetry.ts",
+        "plugins/a2a-gateway/src/transport-fallback.ts",
+        "plugins/a2a-gateway/src/types.ts"
+      ],
       "pluginManifests": [
         {
           "path": "plugins/a2a-gateway/openclaw.plugin.json",
@@ -175,6 +503,14 @@
       },
       "sdkImports": [
         "openclaw/plugin-sdk"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/a2a-gateway/src/types.ts",
+          "line": 14,
+          "ref": "plugins/a2a-gateway/src/types.ts:14"
+        }
       ]
     },
     {
@@ -191,11 +527,33 @@
       "why": "Single native tool backed by a large OpenAPI-derived action catalog and strict per-action schemas.",
       "status": "ok",
       "hooks": [],
+      "hookDetails": [],
       "registrations": [
         "registerTool"
       ],
+      "registrationDetails": [
+        {
+          "name": "registerTool",
+          "file": "plugins/hasdata/src/index.ts",
+          "line": 43,
+          "ref": "plugins/hasdata/src/index.ts:43"
+        }
+      ],
       "manifestContracts": [
         "tools"
+      ],
+      "manifestFiles": [
+        "plugins/hasdata/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/hasdata/scripts/generate-endpoints.mjs",
+        "plugins/hasdata/scripts/try.ts",
+        "plugins/hasdata/src/cli.ts",
+        "plugins/hasdata/src/client.ts",
+        "plugins/hasdata/src/endpoints.generated.ts",
+        "plugins/hasdata/src/index.ts",
+        "plugins/hasdata/src/tools/hasdata-tool.ts",
+        "plugins/hasdata/vitest.config.ts"
       ],
       "pluginManifests": [
         {
@@ -221,7 +579,8 @@
         "version": "0.1.5",
         "type": "module"
       },
-      "sdkImports": []
+      "sdkImports": [],
+      "sdkImportDetails": []
     },
     {
       "id": "mcp-adapter",
@@ -237,11 +596,34 @@
       "why": "Dynamic tool discovery from MCP servers with stdio/http transports and schema passthrough.",
       "status": "ok",
       "hooks": [],
+      "hookDetails": [],
       "registrations": [
         "registerService",
         "registerTool"
       ],
+      "registrationDetails": [
+        {
+          "name": "registerService",
+          "file": "plugins/mcp-adapter/index.ts",
+          "line": 15,
+          "ref": "plugins/mcp-adapter/index.ts:15"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/mcp-adapter/index.ts",
+          "line": 30,
+          "ref": "plugins/mcp-adapter/index.ts:30"
+        }
+      ],
       "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/mcp-adapter/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/mcp-adapter/config.ts",
+        "plugins/mcp-adapter/index.ts",
+        "plugins/mcp-adapter/mcp-client.ts"
+      ],
       "pluginManifests": [
         {
           "path": "plugins/mcp-adapter/openclaw.plugin.json",
@@ -260,7 +642,8 @@
         "version": "0.1.1",
         "type": "module"
       },
-      "sdkImports": []
+      "sdkImports": [],
+      "sdkImportDetails": []
     },
     {
       "id": "llm-trace-phoenix",
@@ -278,8 +661,29 @@
         "llm_input",
         "llm_output"
       ],
+      "hookDetails": [
+        {
+          "name": "llm_input",
+          "file": "plugins/llm-trace-phoenix/index.ts",
+          "line": 154,
+          "ref": "plugins/llm-trace-phoenix/index.ts:154"
+        },
+        {
+          "name": "llm_output",
+          "file": "plugins/llm-trace-phoenix/index.ts",
+          "line": 168,
+          "ref": "plugins/llm-trace-phoenix/index.ts:168"
+        }
+      ],
       "registrations": [],
+      "registrationDetails": [],
       "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/llm-trace-phoenix/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/llm-trace-phoenix/index.ts"
+      ],
       "pluginManifests": [
         {
           "path": "plugins/llm-trace-phoenix/openclaw.plugin.json",
@@ -300,6 +704,14 @@
       },
       "sdkImports": [
         "openclaw/plugin-sdk"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/llm-trace-phoenix/index.ts",
+          "line": 12,
+          "ref": "plugins/llm-trace-phoenix/index.ts:12"
+        }
       ]
     },
     {
@@ -316,11 +728,36 @@
       "why": "Observability fixture for diagnostic events, log transport, telemetry buffering, and plugin-owned dashboard lifecycle.",
       "status": "ok",
       "hooks": [],
+      "hookDetails": [],
       "registrations": [
         "definePluginEntry",
         "registerService"
       ],
+      "registrationDetails": [
+        {
+          "name": "definePluginEntry",
+          "file": "plugins/clawmetry/clawhub-plugin/index.ts",
+          "line": 4,
+          "ref": "plugins/clawmetry/clawhub-plugin/index.ts:4"
+        },
+        {
+          "name": "registerService",
+          "file": "plugins/clawmetry/clawhub-plugin/index.ts",
+          "line": 9,
+          "ref": "plugins/clawmetry/clawhub-plugin/index.ts:9"
+        }
+      ],
       "manifestContracts": [],
+      "manifestFiles": [],
+      "sourceFiles": [
+        "plugins/clawmetry/clawhub-plugin/index.ts",
+        "plugins/clawmetry/clawhub-plugin/src/service.ts",
+        "plugins/clawmetry/clawmetry/static/js/alerts.js",
+        "plugins/clawmetry/clawmetry/static/js/app.js",
+        "plugins/clawmetry/clawmetry/static/js/auth-bootstrap.js",
+        "plugins/clawmetry/clawmetry/static/js/gw-setup.js",
+        "plugins/clawmetry/clawmetry/static/js/nav-dropdown.js"
+      ],
       "pluginManifests": [],
       "package": {
         "path": "plugins/clawmetry/package.json",
@@ -331,6 +768,26 @@
       "sdkImports": [
         "openclaw/plugin-sdk/diagnostics-otel",
         "openclaw/plugin-sdk/plugin-entry"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk/diagnostics-otel",
+          "file": "plugins/clawmetry/clawhub-plugin/src/service.ts",
+          "line": 2,
+          "ref": "plugins/clawmetry/clawhub-plugin/src/service.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/plugin-entry",
+          "file": "plugins/clawmetry/clawhub-plugin/index.ts",
+          "line": 1,
+          "ref": "plugins/clawmetry/clawhub-plugin/index.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/plugin-entry",
+          "file": "plugins/clawmetry/clawhub-plugin/src/service.ts",
+          "line": 1,
+          "ref": "plugins/clawmetry/clawhub-plugin/src/service.ts:1"
+        }
       ]
     },
     {
@@ -349,12 +806,73 @@
       "hooks": [
         "inbound_claim"
       ],
+      "hookDetails": [
+        {
+          "name": "inbound_claim",
+          "file": "plugins/codex-app-server/index.ts",
+          "line": 25,
+          "ref": "plugins/codex-app-server/index.ts:25"
+        }
+      ],
       "registrations": [
         "registerCommand",
         "registerInteractiveHandler",
         "registerService"
       ],
+      "registrationDetails": [
+        {
+          "name": "registerCommand",
+          "file": "plugins/codex-app-server/index.ts",
+          "line": 48,
+          "ref": "plugins/codex-app-server/index.ts:48"
+        },
+        {
+          "name": "registerInteractiveHandler",
+          "file": "plugins/codex-app-server/index.ts",
+          "line": 29,
+          "ref": "plugins/codex-app-server/index.ts:29"
+        },
+        {
+          "name": "registerInteractiveHandler",
+          "file": "plugins/codex-app-server/index.ts",
+          "line": 38,
+          "ref": "plugins/codex-app-server/index.ts:38"
+        },
+        {
+          "name": "registerService",
+          "file": "plugins/codex-app-server/index.ts",
+          "line": 12,
+          "ref": "plugins/codex-app-server/index.ts:12"
+        }
+      ],
       "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/codex-app-server/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/codex-app-server/.agents/skills/project-manager/scripts/sync-work-items.mjs",
+        "plugins/codex-app-server/index.ts",
+        "plugins/codex-app-server/scripts/app-server-permissions-smoke.mjs",
+        "plugins/codex-app-server/scripts/app-server-thread-permissions-smoke.mjs",
+        "plugins/codex-app-server/scripts/apply-release-version.mjs",
+        "plugins/codex-app-server/scripts/pack-smoke.mjs",
+        "plugins/codex-app-server/scripts/release-metadata.mjs",
+        "plugins/codex-app-server/scripts/release-tag.mjs",
+        "plugins/codex-app-server/src/client.ts",
+        "plugins/codex-app-server/src/commands.ts",
+        "plugins/codex-app-server/src/config.ts",
+        "plugins/codex-app-server/src/controller.ts",
+        "plugins/codex-app-server/src/format.ts",
+        "plugins/codex-app-server/src/help.ts",
+        "plugins/codex-app-server/src/model-capabilities.ts",
+        "plugins/codex-app-server/src/openclaw-sdk-compat.ts",
+        "plugins/codex-app-server/src/pending-input.ts",
+        "plugins/codex-app-server/src/state.ts",
+        "plugins/codex-app-server/src/thread-display.ts",
+        "plugins/codex-app-server/src/thread-picker.ts",
+        "plugins/codex-app-server/src/thread-selection.ts",
+        "plugins/codex-app-server/src/types.ts"
+      ],
       "pluginManifests": [
         {
           "path": "plugins/codex-app-server/openclaw.plugin.json",
@@ -377,6 +895,50 @@
         "openclaw/plugin-sdk",
         "openclaw/plugin-sdk/discord",
         "openclaw/plugin-sdk/telegram-account"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/codex-app-server/index.ts",
+          "line": 1,
+          "ref": "plugins/codex-app-server/index.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/codex-app-server/src/client.ts",
+          "line": 6,
+          "ref": "plugins/codex-app-server/src/client.ts:6"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/codex-app-server/src/controller.ts",
+          "line": 18,
+          "ref": "plugins/codex-app-server/src/controller.ts:18"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/codex-app-server/src/types.ts",
+          "line": 1,
+          "ref": "plugins/codex-app-server/src/types.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/discord",
+          "file": "plugins/codex-app-server/src/controller.ts",
+          "line": 104,
+          "ref": "plugins/codex-app-server/src/controller.ts:104"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/discord",
+          "file": "plugins/codex-app-server/src/controller.ts",
+          "line": 106,
+          "ref": "plugins/codex-app-server/src/controller.ts:106"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/telegram-account",
+          "file": "plugins/codex-app-server/src/controller.ts",
+          "line": 105,
+          "ref": "plugins/codex-app-server/src/controller.ts:105"
+        }
       ]
     },
     {
@@ -393,10 +955,35 @@
       "why": "Multi-provider search/extract tool fixture with several auth/config permutations.",
       "status": "ok",
       "hooks": [],
+      "hookDetails": [],
       "registrations": [
         "registerTool"
       ],
+      "registrationDetails": [
+        {
+          "name": "registerTool",
+          "file": "plugins/web-search-plus/index.ts",
+          "line": 815,
+          "ref": "plugins/web-search-plus/index.ts:815"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/web-search-plus/index.ts",
+          "line": 947,
+          "ref": "plugins/web-search-plus/index.ts:947"
+        }
+      ],
       "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/web-search-plus/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/web-search-plus/env.ts",
+        "plugins/web-search-plus/extract.ts",
+        "plugins/web-search-plus/index.ts",
+        "plugins/web-search-plus/paths.ts",
+        "plugins/web-search-plus/storage.ts"
+      ],
       "pluginManifests": [
         {
           "path": "plugins/web-search-plus/openclaw.plugin.json",
@@ -444,7 +1031,8 @@
         "version": "2.2.0",
         "type": "module"
       },
-      "sdkImports": []
+      "sdkImports": [],
+      "sdkImportDetails": []
     },
     {
       "id": "apify",
@@ -460,11 +1048,37 @@
       "why": "Async start/collect workflow fixture for remote jobs and huge third-party catalog discovery.",
       "status": "ok",
       "hooks": [],
+      "hookDetails": [],
       "registrations": [
         "registerCli",
         "registerTool"
       ],
+      "registrationDetails": [
+        {
+          "name": "registerCli",
+          "file": "plugins/apify/src/cli.ts",
+          "line": 35,
+          "ref": "plugins/apify/src/cli.ts:35"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/apify/src/index.ts",
+          "line": 13,
+          "ref": "plugins/apify/src/index.ts:13"
+        }
+      ],
       "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/apify/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/apify/src/apify-client.ts",
+        "plugins/apify/src/cli.ts",
+        "plugins/apify/src/index.ts",
+        "plugins/apify/src/tools/apify-scraper-tool.ts",
+        "plugins/apify/src/util.ts",
+        "plugins/apify/vitest.config.ts"
+      ],
       "pluginManifests": [
         {
           "path": "plugins/apify/openclaw.plugin.json",
@@ -486,6 +1100,32 @@
       "sdkImports": [
         "openclaw/plugin-sdk",
         "openclaw/plugin-sdk/core"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/apify/src/cli.ts",
+          "line": 2,
+          "ref": "plugins/apify/src/cli.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/apify/src/index.ts",
+          "line": 1,
+          "ref": "plugins/apify/src/index.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/apify/src/tools/apify-scraper-tool.ts",
+          "line": 4,
+          "ref": "plugins/apify/src/tools/apify-scraper-tool.ts:4"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/apify/src/tools/apify-scraper-tool.ts",
+          "line": 3,
+          "ref": "plugins/apify/src/tools/apify-scraper-tool.ts:3"
+        }
       ]
     },
     {
@@ -502,12 +1142,36 @@
       "why": "Provider capability fixture for speech registration, config/env auth, and talk.speak request overrides.",
       "status": "ok",
       "hooks": [],
+      "hookDetails": [],
       "registrations": [
         "definePluginEntry",
         "registerSpeechProvider"
       ],
+      "registrationDetails": [
+        {
+          "name": "definePluginEntry",
+          "file": "plugins/inworld-tts/index.ts",
+          "line": 4,
+          "ref": "plugins/inworld-tts/index.ts:4"
+        },
+        {
+          "name": "registerSpeechProvider",
+          "file": "plugins/inworld-tts/index.ts",
+          "line": 9,
+          "ref": "plugins/inworld-tts/index.ts:9"
+        }
+      ],
       "manifestContracts": [
         "speechProviders"
+      ],
+      "manifestFiles": [
+        "plugins/inworld-tts/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/inworld-tts/index.ts",
+        "plugins/inworld-tts/speech-provider.ts",
+        "plugins/inworld-tts/tts.ts",
+        "plugins/inworld-tts/vitest.config.ts"
       ],
       "pluginManifests": [
         {
@@ -537,6 +1201,38 @@
         "openclaw/plugin-sdk/plugin-entry",
         "openclaw/plugin-sdk/secret-input",
         "openclaw/plugin-sdk/speech"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk/plugin-entry",
+          "file": "plugins/inworld-tts/index.ts",
+          "line": 1,
+          "ref": "plugins/inworld-tts/index.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/secret-input",
+          "file": "plugins/inworld-tts/speech-provider.ts",
+          "line": 1,
+          "ref": "plugins/inworld-tts/speech-provider.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/speech",
+          "file": "plugins/inworld-tts/speech-provider.ts",
+          "line": 8,
+          "ref": "plugins/inworld-tts/speech-provider.ts:8"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/speech",
+          "file": "plugins/inworld-tts/speech-provider.ts",
+          "line": 9,
+          "ref": "plugins/inworld-tts/speech-provider.ts:9"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/speech",
+          "file": "plugins/inworld-tts/tts.ts",
+          "line": 7,
+          "ref": "plugins/inworld-tts/tts.ts:7"
+        }
       ]
     }
   ],
@@ -558,7 +1254,7 @@
       "level": "warning",
       "message": "fixture imports the root plugin SDK barrel",
       "evidence": [
-        "openclaw/plugin-sdk"
+        "openclaw/plugin-sdk @ plugins/a2a-gateway/src/types.ts:14"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
@@ -578,8 +1274,8 @@
       "level": "warning",
       "message": "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
       "evidence": [
-        "llm_input",
-        "llm_output"
+        "llm_input @ plugins/llm-trace-phoenix/index.ts:154",
+        "llm_output @ plugins/llm-trace-phoenix/index.ts:168"
       ]
     },
     {
@@ -588,7 +1284,7 @@
       "level": "warning",
       "message": "fixture imports the root plugin SDK barrel",
       "evidence": [
-        "openclaw/plugin-sdk"
+        "openclaw/plugin-sdk @ plugins/llm-trace-phoenix/index.ts:12"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
@@ -598,7 +1294,10 @@
       "level": "warning",
       "message": "fixture imports the root plugin SDK barrel",
       "evidence": [
-        "openclaw/plugin-sdk"
+        "openclaw/plugin-sdk @ plugins/codex-app-server/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/codex-app-server/src/client.ts:6",
+        "openclaw/plugin-sdk @ plugins/codex-app-server/src/controller.ts:18",
+        "openclaw/plugin-sdk @ plugins/codex-app-server/src/types.ts:1"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
@@ -626,7 +1325,9 @@
       "level": "warning",
       "message": "fixture imports the root plugin SDK barrel",
       "evidence": [
-        "openclaw/plugin-sdk"
+        "openclaw/plugin-sdk @ plugins/apify/src/cli.ts:2",
+        "openclaw/plugin-sdk @ plugins/apify/src/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/apify/src/tools/apify-scraper-tool.ts:4"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
@@ -648,7 +1349,7 @@
       "level": "suggestion",
       "message": "add channel envelope, config-schema, and runtime metadata probes",
       "evidence": [
-        "defineChannelPluginEntry"
+        "defineChannelPluginEntry @ plugins/agentchat/integrations/openclaw-channel/src/channel.ts:333"
       ]
     },
     {
@@ -657,7 +1358,7 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerHttpRoute"
+        "registerHttpRoute @ plugins/wecom/index.js:45"
       ]
     },
     {
@@ -666,7 +1367,7 @@
       "level": "suggestion",
       "message": "add contract probes for before_tool_call terminal, block, and approval semantics",
       "evidence": [
-        "before_tool_call"
+        "before_tool_call @ plugins/wecom/index.js:65"
       ]
     },
     {
@@ -675,7 +1376,7 @@
       "level": "suggestion",
       "message": "add channel envelope, config-schema, and runtime metadata probes",
       "evidence": [
-        "registerChannel"
+        "registerChannel @ plugins/wecom/index.js:27"
       ]
     },
     {
@@ -684,7 +1385,9 @@
       "level": "suggestion",
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
-        "registerTool"
+        "registerTool @ plugins/wecom/index.js:28",
+        "registerTool @ plugins/wecom/index.js:29",
+        "registerTool @ plugins/wecom/index.js:33"
       ]
     },
     {
@@ -693,8 +1396,12 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerGatewayMethod",
-        "registerService"
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:616",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:622",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:631",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:657",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:669",
+        "registerService @ plugins/a2a-gateway/index.ts:857"
       ]
     },
     {
@@ -703,7 +1410,7 @@
       "level": "suggestion",
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
-        "registerTool"
+        "registerTool @ plugins/a2a-gateway/index.ts:777"
       ]
     },
     {
@@ -712,7 +1419,7 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerService"
+        "registerService @ plugins/mcp-adapter/index.ts:15"
       ]
     },
     {
@@ -721,7 +1428,7 @@
       "level": "suggestion",
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
-        "registerTool"
+        "registerTool @ plugins/mcp-adapter/index.ts:30"
       ]
     },
     {
@@ -730,7 +1437,7 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerService"
+        "registerService @ plugins/clawmetry/clawhub-plugin/index.ts:9"
       ]
     },
     {
@@ -739,9 +1446,10 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerCommand",
-        "registerInteractiveHandler",
-        "registerService"
+        "registerCommand @ plugins/codex-app-server/index.ts:48",
+        "registerInteractiveHandler @ plugins/codex-app-server/index.ts:29",
+        "registerInteractiveHandler @ plugins/codex-app-server/index.ts:38",
+        "registerService @ plugins/codex-app-server/index.ts:12"
       ]
     },
     {
@@ -750,7 +1458,8 @@
       "level": "suggestion",
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
-        "registerTool"
+        "registerTool @ plugins/web-search-plus/index.ts:815",
+        "registerTool @ plugins/web-search-plus/index.ts:947"
       ]
     },
     {
@@ -759,7 +1468,7 @@
       "level": "suggestion",
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
-        "registerTool"
+        "registerTool @ plugins/apify/src/index.ts:13"
       ]
     }
   ],

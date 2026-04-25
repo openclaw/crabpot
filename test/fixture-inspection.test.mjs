@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { inspectFixture } from "../scripts/inspect-fixtures.mjs";
+import { inspectFixture, inspectSourceText } from "../scripts/inspect-fixtures.mjs";
 import { readManifest } from "../scripts/manifest-lib.mjs";
 
 test("fixture inspections satisfy expected hooks and registrations", async () => {
@@ -30,3 +30,40 @@ test("fixture inspections satisfy expected hooks and registrations", async () =>
   }
 });
 
+test("source inspection records exact hook, registrar, and SDK import evidence", () => {
+  const inspection = inspectSourceText(
+    [
+      'import type { OpenClawPluginApi } from "openclaw/plugin-sdk";',
+      "",
+      "export function register(api) {",
+      '  // api.on("llm_output", () => {});',
+      '  api.on("before_tool_call", () => {});',
+      "  /* api.registerHttpRoute({ path: '/ignored' }); */",
+      "  api.registerService({ name: 'svc', start() {} });",
+      "  return definePluginEntry({ register() {} });",
+      "}",
+    ].join("\n"),
+    "plugins/example/index.ts",
+  );
+
+  assert.deepEqual(inspection.hooks, [
+    {
+      name: "before_tool_call",
+      file: "plugins/example/index.ts",
+      line: 5,
+      ref: "plugins/example/index.ts:5",
+    },
+  ]);
+  assert.deepEqual(
+    inspection.registrations.map((registration) => `${registration.name}@${registration.ref}`),
+    ["registerService@plugins/example/index.ts:7", "definePluginEntry@plugins/example/index.ts:8"],
+  );
+  assert.deepEqual(inspection.sdkImports, [
+    {
+      specifier: "openclaw/plugin-sdk",
+      file: "plugins/example/index.ts",
+      line: 1,
+      ref: "plugins/example/index.ts:1",
+    },
+  ]);
+});

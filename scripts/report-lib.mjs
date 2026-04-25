@@ -1,5 +1,5 @@
 import { existsSync } from "node:fs";
-import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { inspectManifest } from "./inspect-fixtures.mjs";
 import { readManifest, repoRoot } from "./manifest-lib.mjs";
@@ -283,13 +283,14 @@ function classifyFixture({ fixture, inspection, fixtureReport, warnings, suggest
   }
 
   const conversationHooks = inspection.hooks.filter((hook) => CONVERSATION_ACCESS_HOOKS.has(hook));
+  const conversationHookDetails = inspection.hookDetails.filter((hook) => CONVERSATION_ACCESS_HOOKS.has(hook.name));
   if (conversationHooks.length > 0) {
     warnings.push({
       fixture: fixture.id,
       code: "conversation-access-hook",
       level: "warning",
       message: "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
-      evidence: conversationHooks,
+      evidence: detailEvidence(conversationHookDetails),
     });
     decisions.push({
       fixture: fixture.id,
@@ -301,13 +302,16 @@ function classifyFixture({ fixture, inspection, fixtureReport, warnings, suggest
   }
 
   const rootSdkImports = fixtureReport.sdkImports.filter((specifier) => specifier === "openclaw/plugin-sdk");
+  const rootSdkImportDetails = fixtureReport.sdkImportDetails.filter(
+    (sdkImport) => sdkImport.specifier === "openclaw/plugin-sdk",
+  );
   if (rootSdkImports.length > 0) {
     warnings.push({
       fixture: fixture.id,
       code: "legacy-root-sdk-import",
       level: "warning",
       message: "fixture imports the root plugin SDK barrel",
-      evidence: unique(rootSdkImports),
+      evidence: detailEvidence(rootSdkImportDetails, "specifier"),
       compatRecord: "legacy-root-sdk-import",
     });
     decisions.push({
@@ -322,13 +326,16 @@ function classifyFixture({ fixture, inspection, fixtureReport, warnings, suggest
   const captureGapRegistrations = inspection.registrations.filter((registration) =>
     CAPTURE_GAP_REGISTRATIONS.has(registration),
   );
+  const captureGapRegistrationDetails = inspection.registrationDetails.filter((registration) =>
+    CAPTURE_GAP_REGISTRATIONS.has(registration.name),
+  );
   if (captureGapRegistrations.length > 0) {
     suggestions.push({
       fixture: fixture.id,
       code: "registration-capture-gap",
       level: "suggestion",
       message: "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
-      evidence: captureGapRegistrations,
+      evidence: detailEvidence(captureGapRegistrationDetails),
     });
     decisions.push({
       fixture: fixture.id,
@@ -340,12 +347,13 @@ function classifyFixture({ fixture, inspection, fixtureReport, warnings, suggest
   }
 
   if (inspection.hooks.includes("before_tool_call")) {
+    const hookDetails = inspection.hookDetails.filter((hook) => hook.name === "before_tool_call");
     suggestions.push({
       fixture: fixture.id,
       code: "before-tool-call-probe",
       level: "suggestion",
       message: "add contract probes for before_tool_call terminal, block, and approval semantics",
-      evidence: ["before_tool_call"],
+      evidence: detailEvidence(hookDetails),
     });
     decisions.push({
       fixture: fixture.id,
@@ -359,13 +367,16 @@ function classifyFixture({ fixture, inspection, fixtureReport, warnings, suggest
   const channelRegistrations = inspection.registrations.filter((registration) =>
     CHANNEL_REGISTRATIONS.has(registration),
   );
+  const channelRegistrationDetails = inspection.registrationDetails.filter((registration) =>
+    CHANNEL_REGISTRATIONS.has(registration.name),
+  );
   if (channelRegistrations.length > 0) {
     suggestions.push({
       fixture: fixture.id,
       code: "channel-contract-probe",
       level: "suggestion",
       message: "add channel envelope, config-schema, and runtime metadata probes",
-      evidence: channelRegistrations,
+      evidence: detailEvidence(channelRegistrationDetails),
     });
     decisions.push({
       fixture: fixture.id,
@@ -378,12 +389,15 @@ function classifyFixture({ fixture, inspection, fixtureReport, warnings, suggest
 
   const runtimeToolOnly = inspection.registrations.includes("registerTool") && !inspection.manifestContracts.includes("tools");
   if (runtimeToolOnly) {
+    const toolRegistrationDetails = inspection.registrationDetails.filter(
+      (registration) => registration.name === "registerTool",
+    );
     suggestions.push({
       fixture: fixture.id,
       code: "runtime-tool-capture",
       level: "suggestion",
       message: "tool shape is only visible after runtime registration capture",
-      evidence: ["registerTool"],
+      evidence: detailEvidence(toolRegistrationDetails),
     });
     decisions.push({
       fixture: fixture.id,
@@ -415,14 +429,10 @@ function classifyFixture({ fixture, inspection, fixtureReport, warnings, suggest
 async function buildFixtureReport(fixture, inspection) {
   const checkoutPath = path.join(repoRoot, fixture.path);
   const sourceRoot = fixture.subdir ? path.join(checkoutPath, fixture.subdir) : checkoutPath;
-  const sourceFiles = await listSourceFiles(sourceRoot);
-  if (sourceRoot !== checkoutPath) {
-    sourceFiles.push(...(await listSourceFiles(checkoutPath, { shallowRootOnly: true })));
-  }
 
   const pluginManifests = await readPluginManifests(checkoutPath, sourceRoot);
   const packageJson = await readPackageSummary(checkoutPath, sourceRoot);
-  const sdkImports = await collectSdkImports(sourceFiles);
+  const sdkImports = unique((inspection.sdkImports ?? []).map((sdkImport) => sdkImport.specifier));
 
   return {
     id: fixture.id,
@@ -432,11 +442,16 @@ async function buildFixtureReport(fixture, inspection) {
     why: fixture.why,
     status: inspection.status,
     hooks: inspection.hooks,
+    hookDetails: inspection.hookDetails ?? [],
     registrations: inspection.registrations,
+    registrationDetails: inspection.registrationDetails ?? [],
     manifestContracts: inspection.manifestContracts,
+    manifestFiles: inspection.manifestFiles ?? [],
+    sourceFiles: inspection.sourceFiles ?? [],
     pluginManifests,
     package: packageJson,
-    sdkImports: unique(sdkImports),
+    sdkImports,
+    sdkImportDetails: inspection.sdkImports ?? [],
   };
 }
 
@@ -521,81 +536,19 @@ async function readPackageSummary(checkoutPath, sourceRoot) {
   };
 }
 
-async function collectSdkImports(sourceFiles) {
-  const imports = [];
-  const importRegex = /(?:from\s*["'`]|import\(\s*["'`])([^"'`]*openclaw\/plugin-sdk[^"'`]*)/g;
-
-  for (const filePath of sourceFiles) {
-    const text = await readFile(filePath, "utf8");
-    for (const match of text.matchAll(importRegex)) {
-      imports.push(match[1]);
-    }
-  }
-
-  return imports.sort();
-}
-
-async function listSourceFiles(root, options = {}) {
-  if (!existsSync(root)) {
-    return [];
-  }
-
-  const output = [];
-  await walk(root, output, options);
-  return output;
-}
-
-async function walk(dir, output, options) {
-  for (const entry of await readdir(dir, { withFileTypes: true })) {
-    const entryPath = path.join(dir, entry.name);
-    const normalized = entryPath.split(path.sep).join("/");
-
-    if (entry.isDirectory()) {
-      if (shouldSkipDir(entry.name, normalized)) {
-        continue;
-      }
-      if (options.shallowRootOnly) {
-        continue;
-      }
-      await walk(entryPath, output, options);
-      continue;
-    }
-
-    if (isSourceFile(entry.name, normalized)) {
-      output.push(entryPath);
-    }
-  }
-}
-
-function shouldSkipDir(name, normalizedPath) {
-  return (
-    name === "node_modules" ||
-    name === "dist" ||
-    name === "build" ||
-    name === "coverage" ||
-    name === ".git" ||
-    /\/tests?\//.test(`${normalizedPath}/`) ||
-    /\/test-shims\//.test(`${normalizedPath}/`)
-  );
-}
-
-function isSourceFile(name, normalizedPath) {
-  return (
-    /\.(cjs|mjs|js|ts)$/.test(name) &&
-    !name.endsWith(".d.ts") &&
-    !/\.test\./.test(name) &&
-    !/\.spec\./.test(name) &&
-    !/\/tests?\//.test(normalizedPath)
-  );
-}
-
 function emptyInspection(fixture) {
   return {
     id: fixture.id,
     status: "missing",
     hooks: [],
+    hookDetails: [],
     registrations: [],
+    registrationDetails: [],
     manifestContracts: [],
+    manifestFiles: [],
+    manifestErrors: [],
+    sdkImports: [],
+    sourceFiles: [],
   };
 }
 
@@ -649,6 +602,10 @@ function markdownTable(rows, headers) {
 
 function escapeCell(value) {
   return String(value).replaceAll("|", "\\|").replaceAll("\n", " ");
+}
+
+function detailEvidence(details, key = "name") {
+  return unique(details.map((detail) => `${detail[key]} @ ${detail.ref}`));
 }
 
 function unique(values) {

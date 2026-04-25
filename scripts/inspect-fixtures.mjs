@@ -75,29 +75,65 @@ export async function inspectFixture(fixture) {
 
   const hooks = new Set();
   const registrations = new Set();
+  const hookDetails = [];
+  const registrationDetails = [];
+  const sdkImportDetails = [];
 
   for (const filePath of files) {
     const text = await readFile(filePath, "utf8");
-    collectMatches(text, /\bapi\.on\(\s*["'`]([^"'`]+)["'`]/g, hooks);
-    collectMatches(text, /\bapi\.(register[A-Za-z0-9]+)\s*\(/g, registrations);
+    const relativePath = path.relative(repoRoot, filePath);
+    const sourceInspection = inspectSourceText(text, relativePath);
 
-    if (/\bdefineChannelPluginEntry\s*\(/.test(text)) {
-      registrations.add("defineChannelPluginEntry");
+    for (const hook of sourceInspection.hooks) {
+      hooks.add(hook.name);
+      hookDetails.push(hook);
     }
-    if (/\bcreateChatChannelPlugin\s*\(/.test(text)) {
-      registrations.add("createChatChannelPlugin");
+    for (const registration of sourceInspection.registrations) {
+      registrations.add(registration.name);
+      registrationDetails.push(registration);
     }
-    if (/\bdefinePluginEntry\s*\(/.test(text)) {
-      registrations.add("definePluginEntry");
+    for (const sdkImport of sourceInspection.sdkImports) {
+      sdkImportDetails.push(sdkImport);
     }
   }
+
+  const manifestInspection = await readManifestContracts(checkoutPath, sourceRoot);
 
   return {
     id: fixture.id,
     status: "ok",
     hooks: [...hooks].sort(),
+    hookDetails: sortDetails(hookDetails),
     registrations: [...registrations].sort(),
-    manifestContracts: await readManifestContracts(checkoutPath, sourceRoot),
+    registrationDetails: sortDetails(registrationDetails),
+    manifestContracts: manifestInspection.contracts,
+    manifestFiles: manifestInspection.files,
+    manifestErrors: manifestInspection.errors,
+    sdkImports: uniqueDetails(sdkImportDetails),
+    sourceFiles: files.map((filePath) => path.relative(repoRoot, filePath)).sort(),
+  };
+}
+
+export function inspectSourceText(text, filePath = "source.js") {
+  const searchableText = stripComments(text);
+  const hooks = collectDetailedMatches(searchableText, /\bapi\.on\(\s*["'`]([^"'`]+)["'`]/g, filePath, "name");
+  const registrations = [
+    ...collectDetailedMatches(searchableText, /\bapi\.(register[A-Za-z0-9]+)\s*\(/g, filePath, "name"),
+    ...collectDetailedMatches(searchableText, /\b(defineChannelPluginEntry)\s*\(/g, filePath, "name"),
+    ...collectDetailedMatches(searchableText, /\b(createChatChannelPlugin)\s*\(/g, filePath, "name"),
+    ...collectDetailedMatches(searchableText, /\b(definePluginEntry)\s*\(/g, filePath, "name"),
+  ];
+  const sdkImports = collectDetailedMatches(
+    searchableText,
+    /(?:from\s*["'`]|import\(\s*["'`])([^"'`]*openclaw\/plugin-sdk[^"'`]*)/g,
+    filePath,
+    "specifier",
+  );
+
+  return {
+    hooks,
+    registrations,
+    sdkImports,
   };
 }
 
@@ -106,15 +142,29 @@ function emptyInspection(fixture, status) {
     id: fixture.id,
     status,
     hooks: [],
+    hookDetails: [],
     registrations: [],
+    registrationDetails: [],
     manifestContracts: [],
+    manifestFiles: [],
+    manifestErrors: [],
+    sdkImports: [],
+    sourceFiles: [],
   };
 }
 
-function collectMatches(text, regex, target) {
+function collectDetailedMatches(text, regex, filePath, key) {
+  const details = [];
   for (const match of text.matchAll(regex)) {
-    target.add(match[1]);
+    const line = lineForOffset(text, match.index ?? 0);
+    details.push({
+      [key]: match[1],
+      file: filePath,
+      line,
+      ref: `${filePath}:${line}`,
+    });
   }
+  return details;
 }
 
 async function readManifestContracts(checkoutPath, sourceRoot) {
@@ -124,8 +174,12 @@ async function readManifestContracts(checkoutPath, sourceRoot) {
     ),
   );
   const contracts = new Set();
+  const files = [];
+  const errors = [];
 
   for (const manifestFile of manifests) {
+    const relativePath = path.relative(repoRoot, manifestFile);
+    files.push(relativePath);
     try {
       const manifest = JSON.parse(await readFile(manifestFile, "utf8"));
       for (const key of Object.keys(manifest.contracts ?? {})) {
@@ -133,10 +187,15 @@ async function readManifestContracts(checkoutPath, sourceRoot) {
       }
     } catch {
       contracts.add("invalidManifest");
+      errors.push(`${relativePath}: invalid JSON`);
     }
   }
 
-  return [...contracts].sort();
+  return {
+    contracts: [...contracts].sort(),
+    files: files.sort(),
+    errors,
+  };
 }
 
 async function listSourceFiles(root, options = {}) {
@@ -191,4 +250,37 @@ function isSourceFile(name, normalizedPath) {
     !/\.spec\./.test(name) &&
     !/\/tests?\//.test(normalizedPath)
   );
+}
+
+function lineForOffset(text, offset) {
+  let line = 1;
+  for (let index = 0; index < offset; index += 1) {
+    if (text.charCodeAt(index) === 10) {
+      line += 1;
+    }
+  }
+  return line;
+}
+
+function stripComments(text) {
+  return text
+    .replace(/\/\*[\s\S]*?\*\//g, (comment) => comment.replace(/[^\n]/g, " "))
+    .replace(/\/\/.*$/gm, (comment) => " ".repeat(comment.length));
+}
+
+function sortDetails(details) {
+  return [...details].sort((left, right) => {
+    const leftName = left.name ?? left.specifier ?? "";
+    const rightName = right.name ?? right.specifier ?? "";
+    return leftName.localeCompare(rightName) || left.ref.localeCompare(right.ref);
+  });
+}
+
+function uniqueDetails(details) {
+  const byKey = new Map();
+  for (const detail of sortDetails(details)) {
+    const key = `${detail.name ?? detail.specifier}:${detail.ref}`;
+    byKey.set(key, detail);
+  }
+  return [...byKey.values()];
 }
