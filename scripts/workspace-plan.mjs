@@ -119,6 +119,7 @@ export async function buildWorkspacePlan(options = {}) {
       fixtureCount: fixtures.length,
       entrypointCount: allEntries.length,
       installStepCount: allSteps.filter((step) => step.kind === "install").length,
+      auditStepCount: allSteps.filter((step) => step.kind === "audit").length,
       buildStepCount: allSteps.filter((step) => step.kind === "build").length,
       artifactStepCount: allSteps.filter((step) => step.kind === "prepare-artifacts").length,
       captureStepCount: allSteps.filter((step) => step.kind === "capture").length,
@@ -172,6 +173,13 @@ async function buildEntrypointPlan({ fixtureId, entrypoint, packageSummary, pack
       command: installCommand(packageManager),
       cwd: `.crabpot/workspaces/${fixtureId}`,
       reason: "install runtime dependencies without mutating the pinned submodule",
+    });
+    steps.push({
+      kind: "audit",
+      command: auditCommand(packageManager, fixtureId),
+      cwd: `.crabpot/workspaces/${fixtureId}`,
+      artifactPath: auditArtifactPath(fixtureId),
+      reason: "capture package-manager dependency audit metadata as warning-only plugin upstream risk",
     });
   }
 
@@ -300,6 +308,23 @@ function installCommand(packageManager) {
   return commands[packageManager] ?? `${packageManager} install --ignore-scripts`;
 }
 
+function auditCommand(packageManager, fixtureId) {
+  const output = `../../results/${fixtureId}/package-audit.json`;
+  if (packageManager === "npm") {
+    return `npm audit --json > ${output} || true`;
+  }
+  if (packageManager === "pnpm") {
+    return `pnpm audit --json > ${output} || true`;
+  }
+  if (packageManager === "yarn") {
+    return `yarn npm audit --json > ${output} || true`;
+  }
+  if (packageManager === "bun") {
+    return `bun audit --json > ${output} || true`;
+  }
+  return `${packageManager} audit --json > ${output} || true`;
+}
+
 function runCommand(packageManager, script) {
   if (packageManager === "npm") {
     return `npm run ${script}`;
@@ -348,6 +373,9 @@ export function validateWorkspacePlan(plan) {
       if (entrypoint.requiredCapabilities.includes("dependency-install") && !entrypoint.steps.some((step) => step.kind === "install")) {
         errors.push(`${entrypoint.id}: dependency install capability has no install step`);
       }
+      if (entrypoint.requiredCapabilities.includes("dependency-install") && !entrypoint.steps.some((step) => step.kind === "audit")) {
+        errors.push(`${entrypoint.id}: dependency install capability has no audit step`);
+      }
       if (entrypoint.requiredCapabilities.includes("target-openclaw-link") && !entrypoint.steps.some((step) => step.kind === "link-openclaw")) {
         errors.push(`${entrypoint.id}: target-openclaw-link capability has no link-openclaw step`);
       }
@@ -390,6 +418,7 @@ export function renderWorkspacePlanMarkdown(plan) {
         ["Entrypoints", plan.summary.entrypointCount],
         ["Artifact dirs", plan.summary.artifactStepCount],
         ["Install steps", plan.summary.installStepCount],
+        ["Audit steps", plan.summary.auditStepCount],
         ["Build steps", plan.summary.buildStepCount],
         ["Capture steps", plan.summary.captureStepCount],
         ["Synthetic probe steps", plan.summary.syntheticProbeStepCount],
@@ -438,6 +467,10 @@ function artifactPath(fixtureId, entrypoint, kind) {
 
 function workspaceArtifactPath(fixtureId, entrypoint, kind) {
   return `../../results/${fixtureId}/${artifactSlug(entrypoint.id)}.${kind}.json`;
+}
+
+function auditArtifactPath(fixtureId) {
+  return `.crabpot/results/${fixtureId}/package-audit.json`;
 }
 
 function artifactSlug(value) {

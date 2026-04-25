@@ -64,6 +64,7 @@ export async function buildExecutionResultsReport(options = {}) {
   const artifacts = existsSync(resultsDir) ? await readArtifacts(resultsDir) : [];
   const syntheticArtifacts = artifacts.filter((artifact) => artifact.kind === "synthetic");
   const captureArtifacts = artifacts.filter((artifact) => artifact.kind === "capture");
+  const auditArtifacts = artifacts.filter((artifact) => artifact.kind === "audit");
 
   return {
     generatedAt: "deterministic",
@@ -72,10 +73,12 @@ export async function buildExecutionResultsReport(options = {}) {
       artifactCount: artifacts.length,
       captureArtifactCount: captureArtifacts.length,
       syntheticArtifactCount: syntheticArtifacts.length,
+      auditArtifactCount: auditArtifacts.length,
       capturedRegistrationCount: captureArtifacts.reduce(
         (sum, artifact) => sum + (artifact.capturedCount ?? 0),
         0,
       ),
+      auditFindingCount: auditArtifacts.reduce((sum, artifact) => sum + artifact.findingCount, 0),
       passCount: syntheticArtifacts.reduce((sum, artifact) => sum + (artifact.summary?.passCount ?? 0), 0),
       failCount: syntheticArtifacts.reduce((sum, artifact) => sum + (artifact.summary?.failCount ?? 0), 0),
       blockedCount: syntheticArtifacts.reduce((sum, artifact) => sum + (artifact.summary?.blockedCount ?? 0), 0),
@@ -112,7 +115,11 @@ async function listJsonFiles(dir) {
 }
 
 function summarizeArtifact({ artifactPath, parsed }) {
-  const kind = artifactPath.endsWith(".synthetic.json") ? "synthetic" : "capture";
+  const kind = artifactPath.endsWith(".synthetic.json")
+    ? "synthetic"
+    : artifactPath.endsWith("package-audit.json")
+      ? "audit"
+      : "capture";
   const fixture = artifactPath.split("/").at(-2) ?? "unknown";
   if (kind === "synthetic") {
     return {
@@ -124,6 +131,17 @@ function summarizeArtifact({ artifactPath, parsed }) {
       summary: parsed.summary,
       failures: (parsed.results ?? []).filter((result) => result.status === "fail"),
       blocked: (parsed.results ?? []).filter((result) => result.status === "blocked"),
+    };
+  }
+  if (kind === "audit") {
+    return {
+      artifactPath,
+      fixture,
+      kind,
+      entrypoint: "-",
+      status: "warning",
+      findingCount: auditFindingCount(parsed),
+      vulnerabilities: parsed.metadata?.vulnerabilities ?? null,
     };
   }
   return {
@@ -161,7 +179,9 @@ export function renderExecutionResultsMarkdown(report) {
         ["Artifacts", report.summary.artifactCount],
         ["Capture artifacts", report.summary.captureArtifactCount],
         ["Synthetic artifacts", report.summary.syntheticArtifactCount],
+        ["Audit artifacts", report.summary.auditArtifactCount],
         ["Captured registrations/hooks", report.summary.capturedRegistrationCount],
+        ["Audit findings", report.summary.auditFindingCount],
         ["Pass", report.summary.passCount],
         ["Fail", report.summary.failCount],
         ["Blocked", report.summary.blockedCount],
@@ -179,6 +199,8 @@ export function renderExecutionResultsMarkdown(report) {
         artifact.entrypoint,
         artifact.summary
           ? `${artifact.summary.passCount} pass / ${artifact.summary.failCount} fail / ${artifact.summary.blockedCount} blocked`
+          : artifact.kind === "audit"
+            ? `${artifact.findingCount} audit findings`
           : `${artifact.capturedCount} captured`,
         artifact.artifactPath,
       ]),
@@ -216,7 +238,37 @@ export function renderExecutionResultsMarkdown(report) {
       ),
       ["Fixture", "Kind", "Seam", "Label", "Error", "Artifact"],
     ),
+    "",
+    "## Dependency Audit Artifacts",
+    "",
+    markdownTable(
+      report.artifacts
+        .filter((artifact) => artifact.kind === "audit")
+        .map((artifact) => [
+          artifact.fixture,
+          artifact.findingCount,
+          artifact.vulnerabilities ? JSON.stringify(artifact.vulnerabilities) : "-",
+          artifact.artifactPath,
+        ]),
+      ["Fixture", "Findings", "Vulnerabilities", "Artifact"],
+    ),
   ].join("\n");
+}
+
+function auditFindingCount(parsed) {
+  const vulnerabilities = parsed.metadata?.vulnerabilities;
+  if (vulnerabilities && typeof vulnerabilities === "object") {
+    return Object.entries(vulnerabilities)
+      .filter(([key]) => key !== "total")
+      .reduce((sum, [, value]) => sum + (Number(value) || 0), 0);
+  }
+  if (Array.isArray(parsed.vulnerabilities)) {
+    return parsed.vulnerabilities.length;
+  }
+  if (parsed.vulnerabilities && typeof parsed.vulnerabilities === "object") {
+    return Object.keys(parsed.vulnerabilities).length;
+  }
+  return 0;
 }
 
 function scrubPath(value) {

@@ -37,12 +37,31 @@ test("execution results summarize capture and synthetic artifacts", async () => 
     }),
     "utf8",
   );
+  await writeFile(
+    path.join(fixtureDir, "package-audit.json"),
+    JSON.stringify({
+      metadata: {
+        vulnerabilities: {
+          info: 0,
+          low: 1,
+          moderate: 2,
+          high: 3,
+          critical: 0,
+          total: 6,
+        },
+      },
+    }),
+    "utf8",
+  );
 
   const report = await buildExecutionResultsReport({ resultsDir: dir });
 
-  assert.equal(report.summary.artifactCount, 2);
+  assert.equal(report.summary.artifactCount, 3);
+  assert.equal(report.summary.auditArtifactCount, 1);
+  assert.equal(report.summary.auditFindingCount, 6);
   assert.equal(report.summary.capturedRegistrationCount, 1);
   assert.equal(report.summary.passCount, 1);
   assert.equal(report.summary.blockedCount, 1);
   assert.equal(report.artifacts.find((artifact) => artifact.kind === "synthetic").blocked[0].seam, "registerChannel");
+  assert.equal(report.artifacts.find((artifact) => artifact.kind === "audit").findingCount, 6);
 });

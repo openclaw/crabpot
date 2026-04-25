@@ -15,6 +15,7 @@ test("workspace plan maps blocked entrypoints to opt-in install/build/capture st
   assert.ok(plan.summary.entrypointCount > 0);
   assert.equal(plan.summary.artifactStepCount, plan.summary.entrypointCount);
   assert.ok(plan.summary.installStepCount > 0);
+  assert.equal(plan.summary.auditStepCount, plan.summary.installStepCount);
   assert.ok(plan.summary.buildStepCount > 0);
   assert.ok(plan.summary.captureStepCount > 0);
   assert.equal(plan.summary.syntheticProbeStepCount, plan.summary.entrypointCount);
@@ -26,6 +27,11 @@ test("workspace plan maps blocked entrypoints to opt-in install/build/capture st
   assert.ok(wecom.requiredCapabilities.includes("target-openclaw-link"));
   assert.ok(wecom.steps.some((step) => step.kind === "link-openclaw" && step.command.includes("dependencies.openclaw")));
   assert.ok(wecom.steps.some((step) => step.kind === "install" && step.command === "npm install --ignore-scripts"));
+  assert.ok(
+    wecom.steps.some(
+      (step) => step.kind === "audit" && step.command.includes("npm audit --json") && step.artifactPath,
+    ),
+  );
   assert.ok(wecom.steps.some((step) => step.kind === "prepare-artifacts" && step.command.includes(".crabpot/results/wecom")));
   assert.ok(
     wecom.steps.some(
@@ -73,6 +79,7 @@ test("workspace plan validation keeps execution opt-in and explicit", () => {
   assert.ok(errors.some((error) => error.includes("CRABPOT_EXECUTE_ISOLATED")));
   assert.ok(errors.some((error) => error.includes("missing prepare step")));
   assert.ok(errors.some((error) => error.includes("dependency install capability has no install step")));
+  assert.ok(errors.some((error) => error.includes("dependency install capability has no audit step")));
 
   plan.fixtures[0].entrypoints[0].requiredCapabilities = ["target-openclaw-link"];
   const linkErrors = validateWorkspacePlan(plan);
