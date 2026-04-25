@@ -13,6 +13,7 @@
     "contract:coverage": "node scripts/check-contract-coverage.mjs",
     "cold-import": "node scripts/cold-import-readiness.mjs",
     "workspace:plan": "node scripts/workspace-plan.mjs",
+    "workspace:execute": "node scripts/execute-workspace-plan.mjs",
     "fixtures:list": "node scripts/list-fixtures.mjs",
     "fixtures:inspect": "node scripts/inspect-fixtures.mjs",
     "fixtures:sync": "node scripts/sync-fixtures.mjs --materialize",

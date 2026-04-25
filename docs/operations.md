@@ -58,6 +58,9 @@ TypeScript loader support, dependency installation, SDK aliases, or side-effect
 review.
 Use `reports/crabpot-workspace-plan.md` when you need the concrete opt-in
 workspace commands for dependency install, build, and capture execution.
+Use `npm run workspace:execute -- --fixture <id> --dry-run` to inspect the exact
+selected commands. Real execution additionally requires
+`CRABPOT_EXECUTE_ISOLATED=1`.
 
 Decision classes mean:
 

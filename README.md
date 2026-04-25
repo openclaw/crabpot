@@ -99,6 +99,12 @@ The workspace plan is still plan-only by default. It lays out the isolated copy,
 dependency install, build, and capture commands for each entrypoint. Actual
 execution must be opt-in with `CRABPOT_EXECUTE_ISOLATED=1`.
 
+To preview a narrow execution lane without running install/build/import:
+
+```bash
+npm run workspace:execute -- --fixture wecom --dry-run
+```
+
 ## Fixture policy
 
 Fixtures should earn their spot by covering a distinct seam. Popularity is a
