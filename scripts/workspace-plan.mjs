@@ -27,7 +27,7 @@ async function main() {
     console.log(JSON.stringify(plan, null, 2));
   } else {
     console.log(
-      `workspace plan: ${plan.summary.entrypointCount} entrypoints, ${plan.summary.installStepCount} installs, ${plan.summary.buildStepCount} builds, ${plan.summary.captureStepCount} captures`,
+      `workspace plan: ${plan.summary.entrypointCount} entrypoints, ${plan.summary.installStepCount} installs, ${plan.summary.buildStepCount} builds, ${plan.summary.captureStepCount} captures, ${plan.summary.syntheticProbeStepCount} synthetic probes`,
     );
   }
 
@@ -121,6 +121,7 @@ export async function buildWorkspacePlan(options = {}) {
       installStepCount: allSteps.filter((step) => step.kind === "install").length,
       buildStepCount: allSteps.filter((step) => step.kind === "build").length,
       captureStepCount: allSteps.filter((step) => step.kind === "capture").length,
+      syntheticProbeStepCount: allSteps.filter((step) => step.kind === "synthetic-probe").length,
       targetOpenClawLinkStepCount: allSteps.filter((step) => step.kind === "link-openclaw").length,
       missingBuildScriptCount: allEntries.filter((entrypoint) =>
         entrypoint.blockers.some((blocker) => blocker.code === "missing-build-script"),
@@ -190,6 +191,12 @@ async function buildEntrypointPlan({ fixtureId, entrypoint, packageSummary, pack
     cwd: `.crabpot/workspaces/${fixtureId}`,
     reason: "cold import the entrypoint against the capture shim",
   });
+  steps.push({
+    kind: "synthetic-probe",
+    command: syntheticProbeCommand(entrypoint),
+    cwd: `.crabpot/workspaces/${fixtureId}`,
+    reason: "invoke retained hook and registration handlers with synthetic payloads",
+  });
 
   return {
     id: entrypoint.id,
@@ -229,6 +236,7 @@ function requiredCapabilitiesFor(entrypoint) {
     capabilities.add("target-openclaw-link");
   }
   capabilities.add("capture-shim");
+  capabilities.add("synthetic-probes");
   return [...capabilities].sort();
 }
 
@@ -295,6 +303,11 @@ function captureCommand(entrypoint) {
   return `CRABPOT_EXECUTE_ISOLATED=1 node${loader} ../../../scripts/run-cold-import-capture.mjs ${entrypoint.specifier}`;
 }
 
+function syntheticProbeCommand(entrypoint) {
+  const loader = entrypoint.blockers.some((blocker) => blocker.code === "ts-loader-required") ? " --import tsx" : "";
+  return `CRABPOT_EXECUTE_ISOLATED=1 node${loader} ../../../scripts/synthetic-probes.mjs --entrypoint ${entrypoint.specifier}`;
+}
+
 export function validateWorkspacePlan(plan) {
   const errors = [];
   if (plan.mode !== "plan-only") {
@@ -316,6 +329,9 @@ export function validateWorkspacePlan(plan) {
       }
       if (!entrypoint.steps.some((step) => step.kind === "capture")) {
         errors.push(`${entrypoint.id}: missing capture step`);
+      }
+      if (!entrypoint.steps.some((step) => step.kind === "synthetic-probe")) {
+        errors.push(`${entrypoint.id}: missing synthetic-probe step`);
       }
       if (entrypoint.requiredCapabilities.includes("dependency-install") && !entrypoint.steps.some((step) => step.kind === "install")) {
         errors.push(`${entrypoint.id}: dependency install capability has no install step`);
@@ -363,6 +379,7 @@ export function renderWorkspacePlanMarkdown(plan) {
         ["Install steps", plan.summary.installStepCount],
         ["Build steps", plan.summary.buildStepCount],
         ["Capture steps", plan.summary.captureStepCount],
+        ["Synthetic probe steps", plan.summary.syntheticProbeStepCount],
         ["Target OpenClaw link steps", plan.summary.targetOpenClawLinkStepCount],
         ["Missing build scripts", plan.summary.missingBuildScriptCount],
         ["SDK alias required", plan.summary.sdkAliasRequiredCount],

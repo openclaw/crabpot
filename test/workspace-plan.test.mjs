@@ -16,6 +16,7 @@ test("workspace plan maps blocked entrypoints to opt-in install/build/capture st
   assert.ok(plan.summary.installStepCount > 0);
   assert.ok(plan.summary.buildStepCount > 0);
   assert.ok(plan.summary.captureStepCount > 0);
+  assert.equal(plan.summary.syntheticProbeStepCount, plan.summary.entrypointCount);
   assert.ok(plan.summary.targetOpenClawLinkStepCount > 0);
 
   const wecom = entrypointFor(plan, "wecom");
@@ -25,6 +26,7 @@ test("workspace plan maps blocked entrypoints to opt-in install/build/capture st
   assert.ok(wecom.steps.some((step) => step.kind === "link-openclaw" && step.command.includes("dependencies.openclaw")));
   assert.ok(wecom.steps.some((step) => step.kind === "install" && step.command === "npm install --ignore-scripts"));
   assert.ok(wecom.steps.some((step) => step.kind === "capture"));
+  assert.ok(wecom.steps.some((step) => step.kind === "synthetic-probe" && step.command.includes("synthetic-probes.mjs")));
 
   const codex = entrypointFor(plan, "codex-app-server");
   assert.ok(codex.requiredCapabilities.includes("sdk-alias-compat"));
