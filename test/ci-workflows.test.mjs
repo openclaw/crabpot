@@ -7,8 +7,10 @@ test("manual OpenClaw ref workflow accepts branch tag or SHA inputs", async () =
 
   assert.match(workflow, /openclaw_repository:/);
   assert.match(workflow, /openclaw_ref:/);
-  assert.match(workflow, /ref: \$\{\{ inputs\.openclaw_ref \}\}/);
-  assert.match(workflow, /repository: \$\{\{ inputs\.openclaw_repository \}\}/);
+  assert.match(workflow, /base_openclaw_ref:/);
+  assert.match(workflow, /head_openclaw_ref:/);
+  assert.match(workflow, /TARGET_REF:/);
+  assert.match(workflow, /ref: \$\{\{ env\.TARGET_REF \}\}/);
   assert.match(workflow, /node scripts\/check-contract-coverage\.mjs --openclaw \.\/openclaw/);
 });
 
@@ -17,8 +19,29 @@ test("manual OpenClaw ref workflow keeps isolated fixture execution opt-in", asy
 
   assert.match(workflow, /run_isolated_fixture:/);
   assert.match(workflow, /fixture:/);
-  assert.match(workflow, /if: \$\{\{ inputs\.run_isolated_fixture && inputs\.fixture != '' \}\}/);
+  assert.match(workflow, /fixture_set:/);
+  assert.match(workflow, /Resolve fixture matrix/);
   assert.match(workflow, /CRABPOT_EXECUTE_ISOLATED: "1"/);
   assert.match(workflow, /npm run workspace:execute -- --fixture/);
   assert.match(workflow, /npm run execution:report/);
+});
+
+test("manual OpenClaw ref workflow has diff and profile modes", async () => {
+  const workflow = await readFile(".github/workflows/openclaw-ref-compat.yml", "utf8");
+
+  assert.match(workflow, /mode:/);
+  assert.match(workflow, /Compare base and head OpenClaw refs/);
+  assert.match(workflow, /node scripts\/compare-openclaw-refs\.mjs/);
+  assert.match(workflow, /node scripts\/compare-runtime-profile\.mjs/);
+  assert.match(workflow, /node scripts\/check-ci-policy\.mjs/);
+  assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
+});
+
+test("default check workflow uploads policy and summary reports", async () => {
+  const workflow = await readFile(".github/workflows/check.yml", "utf8");
+
+  assert.match(workflow, /node scripts\/compare-runtime-profile\.mjs/);
+  assert.match(workflow, /node scripts\/check-ci-policy\.mjs/);
+  assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
+  assert.match(workflow, /actions\/upload-artifact@v4/);
 });

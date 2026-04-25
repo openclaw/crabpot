@@ -31,3 +31,23 @@ jobs:
       - run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
       - run: node scripts/profile-contract-runtime.mjs --check --openclaw ./openclaw
       - run: node scripts/check-contract-coverage.mjs --openclaw ./openclaw
+      - name: Write CI summary artifacts
+        if: always()
+        continue-on-error: true
+        run: |
+          node scripts/generate-report.mjs --openclaw ./openclaw
+          node scripts/capture-contracts.mjs --openclaw ./openclaw
+          node scripts/synthetic-probes.mjs --openclaw ./openclaw
+          node scripts/cold-import-readiness.mjs --openclaw ./openclaw
+          node scripts/workspace-plan.mjs --openclaw ./openclaw
+          node scripts/profile-contract-runtime.mjs --openclaw ./openclaw
+          node scripts/compare-runtime-profile.mjs
+          node scripts/check-ci-policy.mjs
+          node scripts/write-ci-summary.mjs --mode check --openclaw-label openclaw/openclaw@main --github-step-summary
+      - name: Upload CI reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crabpot-check-reports
+          path: reports/
+          if-no-files-found: warn
