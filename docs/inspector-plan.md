@@ -80,6 +80,8 @@ Generated reports live in `reports/`:
 - `crabpot-capture.json`
 - `crabpot-cold-import.md`
 - `crabpot-cold-import.json`
+- `crabpot-workspace-plan.md`
+- `crabpot-workspace-plan.json`
 
 Later, replace the static scanner with the packaged inspector while keeping
 `crabpot.config.json` as the fixture manifest.
@@ -116,6 +118,8 @@ Crabpot currently classifies:
   import as inspector follow-up
 - package runtime dependencies that need isolated installation before direct
   cold import
+- opt-in isolated workspace commands for package copy, dependency install,
+  build, and capture execution
 - plugin SDK imports missing from target OpenClaw package exports as
   compat-adapter debt
 - legacy manifest env metadata and root SDK imports as compat-adapter debt

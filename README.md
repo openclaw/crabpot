@@ -38,6 +38,7 @@ node scripts/sync-fixtures.mjs --check
 npm run report
 npm run contract:capture
 npm run cold-import
+npm run workspace:plan
 npm run contract:coverage
 ```
 
@@ -69,6 +70,11 @@ you intentionally pin or update fixture revisions.
 - `reports/crabpot-cold-import.md`
 - `reports/crabpot-cold-import.json`
 
+`npm run workspace:plan` writes:
+
+- `reports/crabpot-workspace-plan.md`
+- `reports/crabpot-workspace-plan.json`
+
 The report is the local review surface for hard breakages, warnings, raw seam
 logs, OpenClaw compatibility-record coverage, suggestions for compat-layer work,
 issue findings, contract-probe backlog, and the decision matrix. It defaults to
@@ -88,6 +94,10 @@ The cold-import readiness report classifies each package OpenClaw entrypoint as
 ready or blocked by TypeScript loader support, missing build output, missing
 entrypoint metadata, dependency installation, side-effect review, or SDK alias
 compatibility.
+
+The workspace plan is still plan-only by default. It lays out the isolated copy,
+dependency install, build, and capture commands for each entrypoint. Actual
+execution must be opt-in with `CRABPOT_EXECUTE_ISOLATED=1`.
 
 ## Fixture policy
 

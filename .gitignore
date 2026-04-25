@@ -6,4 +6,4 @@ node_modules/
 coverage/
 dist/
 tmp/
-
+.crabpot/

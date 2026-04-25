@@ -1,0 +1,744 @@
+{
+  "generatedAt": "deterministic",
+  "mode": "plan-only",
+  "optIn": {
+    "env": "CRABPOT_EXECUTE_ISOLATED=1",
+    "reason": "Dependency install, build scripts, and plugin import execution are intentionally outside default CI."
+  },
+  "targetOpenClaw": {
+    "status": "ok",
+    "configuredPath": "../openclaw"
+  },
+  "summary": {
+    "fixtureCount": 11,
+    "entrypointCount": 13,
+    "installStepCount": 9,
+    "buildStepCount": 3,
+    "captureStepCount": 13,
+    "targetOpenClawLinkStepCount": 8,
+    "missingBuildScriptCount": 0,
+    "sdkAliasRequiredCount": 1
+  },
+  "fixtures": [
+    {
+      "id": "agentchat",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
+          "fixture": "agentchat",
+          "packagePath": "plugins/agentchat/integrations/openclaw-channel/package.json",
+          "packageName": "@agentchatme/openclaw",
+          "entrypoint": "plugins/agentchat/integrations/openclaw-channel/dist/index.js",
+          "status": "build-required",
+          "packageManager": "pnpm",
+          "lockfile": "plugins/agentchat/pnpm-lock.yaml",
+          "requiredCapabilities": [
+            "build",
+            "capture-shim",
+            "target-openclaw-link"
+          ],
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/agentchat/integrations/openclaw-channel/dist/index.js"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "rsync -a --delete plugins/agentchat/integrations/openclaw-channel/ .crabpot/workspaces/agentchat/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/agentchat",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "build",
+              "command": "pnpm run build",
+              "cwd": ".crabpot/workspaces/agentchat",
+              "reason": "produce missing OpenClaw build entrypoint"
+            },
+            {
+              "kind": "capture",
+              "command": "node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js",
+              "cwd": ".crabpot/workspaces/agentchat",
+              "reason": "cold import the entrypoint against the capture shim"
+            }
+          ]
+        },
+        {
+          "id": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
+          "fixture": "agentchat",
+          "packagePath": "plugins/agentchat/integrations/openclaw-channel/package.json",
+          "packageName": "@agentchatme/openclaw",
+          "entrypoint": "plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js",
+          "status": "build-required",
+          "packageManager": "pnpm",
+          "lockfile": "plugins/agentchat/pnpm-lock.yaml",
+          "requiredCapabilities": [
+            "build",
+            "capture-shim",
+            "target-openclaw-link"
+          ],
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "rsync -a --delete plugins/agentchat/integrations/openclaw-channel/ .crabpot/workspaces/agentchat/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/agentchat",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "build",
+              "command": "pnpm run build",
+              "cwd": ".crabpot/workspaces/agentchat",
+              "reason": "produce missing OpenClaw build entrypoint"
+            },
+            {
+              "kind": "capture",
+              "command": "node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js",
+              "cwd": ".crabpot/workspaces/agentchat",
+              "reason": "cold import the entrypoint against the capture shim"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wecom",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:wecom:plugins-wecom-index-js",
+          "fixture": "wecom",
+          "packagePath": "plugins/wecom/package.json",
+          "packageName": "@sunnoy/wecom",
+          "entrypoint": "plugins/wecom/index.js",
+          "status": "dependency-install-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/wecom/package-lock.json",
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "target-openclaw-link"
+          ],
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@wecom/aibot-node-sdk, file-type, pinyin-pro, openclaw, undici"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "rsync -a --delete plugins/wecom/ .crabpot/workspaces/wecom/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/wecom",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/wecom",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "capture",
+              "command": "node ../../../scripts/run-cold-import-capture.mjs ./index.js",
+              "cwd": ".crabpot/workspaces/wecom",
+              "reason": "cold import the entrypoint against the capture shim"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2a-gateway",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:a2a-gateway:plugins-a2a-gateway-index-ts",
+          "fixture": "a2a-gateway",
+          "packagePath": "plugins/a2a-gateway/package.json",
+          "packageName": "openclaw-a2a-gateway",
+          "entrypoint": "plugins/a2a-gateway/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/a2a-gateway/package-lock.json",
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/a2a-gateway/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@a2a-js/sdk, @bufbuild/protobuf, @grpc/grpc-js, express, multicast-dns, uuid, ws"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "rsync -a --delete plugins/a2a-gateway/ .crabpot/workspaces/a2a-gateway/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/a2a-gateway",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "capture",
+              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
+              "cwd": ".crabpot/workspaces/a2a-gateway",
+              "reason": "cold import the entrypoint against the capture shim"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hasdata",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:hasdata:plugins-hasdata-src-index-ts",
+          "fixture": "hasdata",
+          "packagePath": "plugins/hasdata/package.json",
+          "packageName": "@hasdata/hasdata-openclaw-plugin",
+          "entrypoint": "plugins/hasdata/src/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/hasdata/package-lock.json",
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "side-effect-sandbox",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/hasdata/src/index.ts"
+            },
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/hasdata/src/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@sinclair/typebox, openclaw"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "rsync -a --delete plugins/hasdata/ .crabpot/workspaces/hasdata/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/hasdata",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/hasdata",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "capture",
+              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts",
+              "cwd": ".crabpot/workspaces/hasdata",
+              "reason": "cold import the entrypoint against the capture shim"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mcp-adapter",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:mcp-adapter:plugins-mcp-adapter-index-ts",
+          "fixture": "mcp-adapter",
+          "packagePath": "plugins/mcp-adapter/package.json",
+          "packageName": "openclaw-mcp-adapter",
+          "entrypoint": "plugins/mcp-adapter/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": null,
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/mcp-adapter/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@modelcontextprotocol/sdk"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "rsync -a --delete plugins/mcp-adapter/ .crabpot/workspaces/mcp-adapter/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/mcp-adapter",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "capture",
+              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
+              "cwd": ".crabpot/workspaces/mcp-adapter",
+              "reason": "cold import the entrypoint against the capture shim"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "llm-trace-phoenix",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
+          "fixture": "llm-trace-phoenix",
+          "packagePath": "plugins/llm-trace-phoenix/package.json",
+          "packageName": "llm-trace-phoenix",
+          "entrypoint": "plugins/llm-trace-phoenix/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": null,
+          "requiredCapabilities": [
+            "capture-shim",
+            "side-effect-sandbox",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/llm-trace-phoenix/index.ts"
+            },
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/llm-trace-phoenix/index.ts"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "rsync -a --delete plugins/llm-trace-phoenix/ .crabpot/workspaces/llm-trace-phoenix/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "capture",
+              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
+              "cwd": ".crabpot/workspaces/llm-trace-phoenix",
+              "reason": "cold import the entrypoint against the capture shim"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clawmetry",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts",
+          "fixture": "clawmetry",
+          "packagePath": "plugins/clawmetry/clawhub-plugin/package.json",
+          "packageName": "@clawmetry/openclaw-plugin",
+          "entrypoint": "plugins/clawmetry/clawhub-plugin/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": null,
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/clawmetry/clawhub-plugin/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "node-fetch"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "rsync -a --delete plugins/clawmetry/clawhub-plugin/ .crabpot/workspaces/clawmetry/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/clawmetry",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "capture",
+              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
+              "cwd": ".crabpot/workspaces/clawmetry",
+              "reason": "cold import the entrypoint against the capture shim"
+            }
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:clawmetry:plugins-clawmetry-clawhub-plugin-dist-index-js",
+          "fixture": "clawmetry",
+          "packagePath": "plugins/clawmetry/clawhub-plugin/package.json",
+          "packageName": "@clawmetry/openclaw-plugin",
+          "entrypoint": "plugins/clawmetry/clawhub-plugin/dist/index.js",
+          "status": "build-required",
+          "packageManager": "npm",
+          "lockfile": null,
+          "requiredCapabilities": [
+            "build",
+            "capture-shim"
+          ],
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/clawmetry/clawhub-plugin/dist/index.js"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "rsync -a --delete plugins/clawmetry/clawhub-plugin/ .crabpot/workspaces/clawmetry/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "build",
+              "command": "npm run build",
+              "cwd": ".crabpot/workspaces/clawmetry",
+              "reason": "produce missing OpenClaw build entrypoint"
+            },
+            {
+              "kind": "capture",
+              "command": "node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js",
+              "cwd": ".crabpot/workspaces/clawmetry",
+              "reason": "cold import the entrypoint against the capture shim"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "codex-app-server",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
+          "fixture": "codex-app-server",
+          "packagePath": "plugins/codex-app-server/package.json",
+          "packageName": "openclaw-codex-app-server",
+          "entrypoint": "plugins/codex-app-server/index.ts",
+          "status": "sdk-alias-required",
+          "packageManager": "pnpm",
+          "lockfile": "plugins/codex-app-server/pnpm-lock.yaml",
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "sdk-alias-compat",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/codex-app-server/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "ws, openclaw"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "rsync -a --delete plugins/codex-app-server/ .crabpot/workspaces/codex-app-server/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/codex-app-server",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "pnpm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/codex-app-server",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "capture",
+              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
+              "cwd": ".crabpot/workspaces/codex-app-server",
+              "reason": "cold import the entrypoint against the capture shim"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "web-search-plus",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:web-search-plus:plugins-web-search-plus-index-ts",
+          "fixture": "web-search-plus",
+          "packagePath": "plugins/web-search-plus/package.json",
+          "packageName": "web-search-plus-plugin-v2",
+          "entrypoint": "plugins/web-search-plus/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": null,
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "side-effect-sandbox",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/web-search-plus/index.ts"
+            },
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/web-search-plus/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "openclaw"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "rsync -a --delete plugins/web-search-plus/ .crabpot/workspaces/web-search-plus/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/web-search-plus",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/web-search-plus",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "capture",
+              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
+              "cwd": ".crabpot/workspaces/web-search-plus",
+              "reason": "cold import the entrypoint against the capture shim"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apify",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:apify:plugins-apify-src-index-ts",
+          "fixture": "apify",
+          "packagePath": "plugins/apify/package.json",
+          "packageName": "@apify/apify-openclaw-plugin",
+          "entrypoint": "plugins/apify/src/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/apify/package-lock.json",
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/apify/src/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@sinclair/typebox, apify-client, openclaw"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "rsync -a --delete plugins/apify/ .crabpot/workspaces/apify/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/apify",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/apify",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "capture",
+              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts",
+              "cwd": ".crabpot/workspaces/apify",
+              "reason": "cold import the entrypoint against the capture shim"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inworld-tts",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
+          "fixture": "inworld-tts",
+          "packagePath": "plugins/inworld-tts/package.json",
+          "packageName": "openclaw-inworld-tts",
+          "entrypoint": "plugins/inworld-tts/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "pnpm",
+          "lockfile": "plugins/inworld-tts/pnpm-lock.yaml",
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/inworld-tts/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "openclaw"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "rsync -a --delete plugins/inworld-tts/ .crabpot/workspaces/inworld-tts/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/inworld-tts",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "pnpm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/inworld-tts",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "capture",
+              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
+              "cwd": ".crabpot/workspaces/inworld-tts",
+              "reason": "cold import the entrypoint against the capture shim"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

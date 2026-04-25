@@ -35,6 +35,7 @@ Use a cheap default workflow first:
 - generate the compatibility report in check mode
 - generate the contract capture plan in check mode
 - generate the cold-import readiness report in check mode
+- generate the isolated workspace plan in check mode
 - gate issue evidence, P1 probe coverage, compat-record reconciliation, target
   hook/API/capture parsing, SDK export parsing, and manifest type parsing
 
@@ -55,6 +56,8 @@ Use `reports/crabpot-cold-import.md` when you need to see which fixture
 entrypoints are directly executable and which are blocked by build output,
 TypeScript loader support, dependency installation, SDK aliases, or side-effect
 review.
+Use `reports/crabpot-workspace-plan.md` when you need the concrete opt-in
+workspace commands for dependency install, build, and capture execution.
 
 Decision classes mean:
 
@@ -79,6 +82,7 @@ Run the quality gate directly when changing classifiers:
 npm run contract:coverage
 npm run contract:capture -- --check
 npm run cold-import -- --check
+npm run workspace:plan -- --check
 node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 

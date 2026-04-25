@@ -27,4 +27,5 @@ jobs:
       - run: node scripts/generate-report.mjs --check --openclaw ./openclaw
       - run: node scripts/capture-contracts.mjs --check --openclaw ./openclaw
       - run: node scripts/cold-import-readiness.mjs --check --openclaw ./openclaw
+      - run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
       - run: node scripts/check-contract-coverage.mjs --openclaw ./openclaw
