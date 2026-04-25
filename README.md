@@ -36,6 +36,7 @@ npm test
 node scripts/list-fixtures.mjs
 node scripts/sync-fixtures.mjs --check
 npm run report
+npm run contract:coverage
 ```
 
 To materialize the fixture repos as submodules:

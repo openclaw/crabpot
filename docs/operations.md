@@ -33,6 +33,7 @@ Use a cheap default workflow first:
 - inspect expected hooks, registrations, and manifest contracts
 - run registration-capture smoke checks
 - generate the compatibility report in check mode
+- gate issue evidence, P1 probe coverage, and compat-record reconciliation
 
 Add heavier lanes later for SDK compilation against specific OpenClaw refs:
 
@@ -57,6 +58,13 @@ Decision classes mean:
 Hard breakages should block contract changes. Warnings are old or sensitive
 seams that currently still work but need compat coverage before OpenClaw changes
 the relevant API.
+
+Run the quality gate directly when changing classifiers:
+
+```bash
+npm run contract:coverage
+node scripts/check-contract-coverage.mjs --openclaw ../openclaw
+```
 
 Issue severity means:
 
