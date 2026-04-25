@@ -37,6 +37,7 @@ node scripts/list-fixtures.mjs
 node scripts/sync-fixtures.mjs --check
 npm run report
 npm run contract:capture
+npm run contract:synthetic
 npm run cold-import
 npm run workspace:plan
 npm run contract:coverage
@@ -65,6 +66,11 @@ you intentionally pin or update fixture revisions.
 - `reports/crabpot-capture.md`
 - `reports/crabpot-capture.json`
 
+`npm run contract:synthetic` writes:
+
+- `reports/crabpot-synthetic-probes.md`
+- `reports/crabpot-synthetic-probes.json`
+
 `npm run cold-import` writes:
 
 - `reports/crabpot-cold-import.md`
@@ -89,6 +95,11 @@ node scripts/generate-report.mjs --check --openclaw ../openclaw
 The capture report is the lower-level inspector backlog. It records every
 observed hook, runtime registration, SDK import, and OpenClaw package entrypoint
 with the assertions a future capture runner must execute.
+
+The synthetic probe report narrows that backlog to hook and registrar probes
+with concrete payloads. Real handler invocation stays guarded behind
+`CRABPOT_EXECUTE_ISOLATED=1` because cold-importing third-party plugin code can
+run package side effects.
 
 The cold-import readiness report classifies each package OpenClaw entrypoint as
 ready or blocked by TypeScript loader support, missing build output, missing

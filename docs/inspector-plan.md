@@ -78,6 +78,8 @@ Generated reports live in `reports/`:
 - `crabpot-issues.md`
 - `crabpot-capture.md`
 - `crabpot-capture.json`
+- `crabpot-synthetic-probes.md`
+- `crabpot-synthetic-probes.json`
 - `crabpot-cold-import.md`
 - `crabpot-cold-import.json`
 - `crabpot-workspace-plan.md`

@@ -1,0 +1,796 @@
+{
+  "generatedAt": "deterministic",
+  "summary": {
+    "fixtureCount": 11,
+    "probeCount": 36,
+    "hookProbeCount": 8,
+    "registrationProbeCount": 28,
+    "readyCount": 36,
+    "blockedCount": 0
+  },
+  "probes": [
+    {
+      "id": "hook.before_prompt_build:wecom:plugins-wecom-index-js-53",
+      "fixture": "wecom",
+      "kind": "hook",
+      "seam": "before_prompt_build",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "prompt mutation result is preserved",
+        "agent and conversation metadata are present"
+      ],
+      "syntheticEvent": {
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "messages": [
+          {
+            "role": "user",
+            "content": "fixture prompt"
+          }
+        ],
+        "metadata": {
+          "source": "crabpot"
+        }
+      },
+      "source": "plugins/wecom/index.js:53"
+    },
+    {
+      "id": "hook.before_tool_call:wecom:plugins-wecom-index-js-65",
+      "fixture": "wecom",
+      "kind": "hook",
+      "seam": "before_tool_call",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "block/allow return shapes are preserved",
+        "terminal and approval metadata are present"
+      ],
+      "syntheticEvent": {
+        "agentId": "agent-fixture",
+        "toolCall": {
+          "id": "call-fixture",
+          "name": "fixture_tool",
+          "args": {}
+        },
+        "approval": {
+          "required": true,
+          "state": "pending"
+        },
+        "terminal": false
+      },
+      "source": "plugins/wecom/index.js:65"
+    },
+    {
+      "id": "hook.subagent_delivery_target:wecom:plugins-wecom-index-js-61",
+      "fixture": "wecom",
+      "kind": "hook",
+      "seam": "subagent_delivery_target",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "target routing result is preserved",
+        "parent/subagent metadata are present"
+      ],
+      "syntheticEvent": {
+        "parentAgentId": "agent-parent",
+        "subagentId": "agent-child",
+        "message": {
+          "id": "message-fixture",
+          "text": "route me"
+        }
+      },
+      "source": "plugins/wecom/index.js:61"
+    },
+    {
+      "id": "hook.subagent_ended:wecom:plugins-wecom-index-js-63",
+      "fixture": "wecom",
+      "kind": "hook",
+      "seam": "subagent_ended",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "subagent completion payload is preserved",
+        "status metadata is present"
+      ],
+      "syntheticEvent": {
+        "parentAgentId": "agent-parent",
+        "subagentId": "agent-child",
+        "status": "completed"
+      },
+      "source": "plugins/wecom/index.js:63"
+    },
+    {
+      "id": "hook.subagent_spawned:wecom:plugins-wecom-index-js-62",
+      "fixture": "wecom",
+      "kind": "hook",
+      "seam": "subagent_spawned",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "spawn payload is preserved",
+        "parent/subagent metadata are present"
+      ],
+      "syntheticEvent": {
+        "parentAgentId": "agent-parent",
+        "subagentId": "agent-child",
+        "task": "fixture subtask"
+      },
+      "source": "plugins/wecom/index.js:62"
+    },
+    {
+      "id": "hook.llm_input:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts-154",
+      "fixture": "llm-trace-phoenix",
+      "kind": "hook",
+      "seam": "llm_input",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "model input payload is redacted as expected",
+        "model and agent metadata are present"
+      ],
+      "syntheticEvent": {
+        "agentId": "agent-fixture",
+        "model": "gpt-5.4",
+        "messages": [
+          {
+            "role": "user",
+            "content": "[redacted fixture input]"
+          }
+        ]
+      },
+      "source": "plugins/llm-trace-phoenix/index.ts:154"
+    },
+    {
+      "id": "hook.llm_output:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts-168",
+      "fixture": "llm-trace-phoenix",
+      "kind": "hook",
+      "seam": "llm_output",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "model output payload is redacted as expected",
+        "model and agent metadata are present"
+      ],
+      "syntheticEvent": {
+        "agentId": "agent-fixture",
+        "model": "gpt-5.4",
+        "output": {
+          "role": "assistant",
+          "content": "[redacted fixture output]"
+        }
+      },
+      "source": "plugins/llm-trace-phoenix/index.ts:168"
+    },
+    {
+      "id": "hook.inbound_claim:codex-app-server:plugins-codex-app-server-index-ts-25",
+      "fixture": "codex-app-server",
+      "kind": "hook",
+      "seam": "inbound_claim",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "claim payload preserves channel/source identity",
+        "routing metadata is present"
+      ],
+      "syntheticEvent": {
+        "channelId": "fixture-channel",
+        "source": {
+          "type": "external",
+          "id": "fixture-source"
+        },
+        "message": {
+          "id": "message-fixture",
+          "text": "claim this message"
+        }
+      },
+      "source": "plugins/codex-app-server/index.ts:25"
+    },
+    {
+      "id": "registration.defineChannelPluginEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-src-channel-ts-333",
+      "fixture": "agentchat",
+      "kind": "registration",
+      "seam": "defineChannelPluginEntry",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "setup/config schema can be read",
+        "message envelope metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "setup": "function",
+          "receive": "function"
+        }
+      ],
+      "source": "plugins/agentchat/integrations/openclaw-channel/src/channel.ts:333"
+    },
+    {
+      "id": "registration.registerChannel:wecom:plugins-wecom-index-js-27",
+      "fixture": "wecom",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "source": "plugins/wecom/index.js:27"
+    },
+    {
+      "id": "registration.registerHttpRoute:wecom:plugins-wecom-index-js-45",
+      "fixture": "wecom",
+      "kind": "registration",
+      "seam": "registerHttpRoute",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "route method and path are captured",
+        "auth policy metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "method": "POST",
+          "path": "/fixture/probe",
+          "handler": "function"
+        }
+      ],
+      "source": "plugins/wecom/index.js:45"
+    },
+    {
+      "id": "registration.registerTool:wecom:plugins-wecom-index-js-28",
+      "fixture": "wecom",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "source": "plugins/wecom/index.js:28"
+    },
+    {
+      "id": "registration.registerTool:wecom:plugins-wecom-index-js-29",
+      "fixture": "wecom",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "source": "plugins/wecom/index.js:29"
+    },
+    {
+      "id": "registration.registerTool:wecom:plugins-wecom-index-js-33",
+      "fixture": "wecom",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "source": "plugins/wecom/index.js:33"
+    },
+    {
+      "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-616",
+      "fixture": "a2a-gateway",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "source": "plugins/a2a-gateway/index.ts:616"
+    },
+    {
+      "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-622",
+      "fixture": "a2a-gateway",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "source": "plugins/a2a-gateway/index.ts:622"
+    },
+    {
+      "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-631",
+      "fixture": "a2a-gateway",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "source": "plugins/a2a-gateway/index.ts:631"
+    },
+    {
+      "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-657",
+      "fixture": "a2a-gateway",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "source": "plugins/a2a-gateway/index.ts:657"
+    },
+    {
+      "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-669",
+      "fixture": "a2a-gateway",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "source": "plugins/a2a-gateway/index.ts:669"
+    },
+    {
+      "id": "registration.registerService:a2a-gateway:plugins-a2a-gateway-index-ts-857",
+      "fixture": "a2a-gateway",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "source": "plugins/a2a-gateway/index.ts:857"
+    },
+    {
+      "id": "registration.registerTool:a2a-gateway:plugins-a2a-gateway-index-ts-777",
+      "fixture": "a2a-gateway",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "source": "plugins/a2a-gateway/index.ts:777"
+    },
+    {
+      "id": "registration.registerTool:hasdata:plugins-hasdata-src-index-ts-43",
+      "fixture": "hasdata",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "source": "plugins/hasdata/src/index.ts:43"
+    },
+    {
+      "id": "registration.registerService:mcp-adapter:plugins-mcp-adapter-index-ts-15",
+      "fixture": "mcp-adapter",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "source": "plugins/mcp-adapter/index.ts:15"
+    },
+    {
+      "id": "registration.registerTool:mcp-adapter:plugins-mcp-adapter-index-ts-30",
+      "fixture": "mcp-adapter",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "source": "plugins/mcp-adapter/index.ts:30"
+    },
+    {
+      "id": "registration.definePluginEntry:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts-4",
+      "fixture": "clawmetry",
+      "kind": "registration",
+      "seam": "definePluginEntry",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "entrypoint register function is callable",
+        "entrypoint metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-plugin",
+          "register": "function"
+        }
+      ],
+      "source": "plugins/clawmetry/clawhub-plugin/index.ts:4"
+    },
+    {
+      "id": "registration.registerService:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts-9",
+      "fixture": "clawmetry",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "source": "plugins/clawmetry/clawhub-plugin/index.ts:9"
+    },
+    {
+      "id": "registration.registerCommand:codex-app-server:plugins-codex-app-server-index-ts-48",
+      "fixture": "codex-app-server",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "source": "plugins/codex-app-server/index.ts:48"
+    },
+    {
+      "id": "registration.registerInteractiveHandler:codex-app-server:plugins-codex-app-server-index-ts-29",
+      "fixture": "codex-app-server",
+      "kind": "registration",
+      "seam": "registerInteractiveHandler",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "handler id is stable",
+        "interaction payload and response shape are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-interaction",
+          "handler": "function"
+        }
+      ],
+      "source": "plugins/codex-app-server/index.ts:29"
+    },
+    {
+      "id": "registration.registerInteractiveHandler:codex-app-server:plugins-codex-app-server-index-ts-38",
+      "fixture": "codex-app-server",
+      "kind": "registration",
+      "seam": "registerInteractiveHandler",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "handler id is stable",
+        "interaction payload and response shape are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-interaction",
+          "handler": "function"
+        }
+      ],
+      "source": "plugins/codex-app-server/index.ts:38"
+    },
+    {
+      "id": "registration.registerService:codex-app-server:plugins-codex-app-server-index-ts-12",
+      "fixture": "codex-app-server",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "source": "plugins/codex-app-server/index.ts:12"
+    },
+    {
+      "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-815",
+      "fixture": "web-search-plus",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "source": "plugins/web-search-plus/index.ts:815"
+    },
+    {
+      "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-947",
+      "fixture": "web-search-plus",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "source": "plugins/web-search-plus/index.ts:947"
+    },
+    {
+      "id": "registration.registerCli:apify:plugins-apify-src-cli-ts-35",
+      "fixture": "apify",
+      "kind": "registration",
+      "seam": "registerCli",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command name is stable",
+        "argument schema is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "args": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "source": "plugins/apify/src/cli.ts:35"
+    },
+    {
+      "id": "registration.registerTool:apify:plugins-apify-src-index-ts-13",
+      "fixture": "apify",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "source": "plugins/apify/src/index.ts:13"
+    },
+    {
+      "id": "registration.definePluginEntry:inworld-tts:plugins-inworld-tts-index-ts-4",
+      "fixture": "inworld-tts",
+      "kind": "registration",
+      "seam": "definePluginEntry",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "entrypoint register function is callable",
+        "entrypoint metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-plugin",
+          "register": "function"
+        }
+      ],
+      "source": "plugins/inworld-tts/index.ts:4"
+    },
+    {
+      "id": "registration.registerSpeechProvider:inworld-tts:plugins-inworld-tts-index-ts-9",
+      "fixture": "inworld-tts",
+      "kind": "registration",
+      "seam": "registerSpeechProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "provider id is stable",
+        "speech request overrides are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-speech",
+          "speak": "function"
+        }
+      ],
+      "source": "plugins/inworld-tts/index.ts:9"
+    }
+  ]
+}
