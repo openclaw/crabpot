@@ -1,0 +1,336 @@
+#!/usr/bin/env node
+import { mkdir, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { pathToFileURL } from "node:url";
+import { buildReport } from "./report-lib.mjs";
+import { repoRoot } from "./manifest-lib.mjs";
+
+export const defaultCaptureJsonPath = path.join(repoRoot, "reports/crabpot-capture.json");
+export const defaultCaptureMarkdownPath = path.join(repoRoot, "reports/crabpot-capture.md");
+
+const REGISTRATION_ASSERTIONS = {
+  defineChannelPluginEntry: ["channel id is stable", "setup/config schema can be read", "message envelope metadata is preserved"],
+  definePluginEntry: ["entrypoint register function is callable", "entrypoint metadata is preserved"],
+  registerChannel: ["channel id is stable", "inbound/outbound envelope shape is captured", "sender metadata is preserved"],
+  registerCli: ["command name is stable", "argument schema is captured"],
+  registerCommand: ["command id is stable", "interactive command payload is captured"],
+  registerGatewayMethod: ["method name is stable", "request and response schema are captured"],
+  registerHttpRoute: ["route method and path are captured", "auth policy metadata is captured"],
+  registerInteractiveHandler: ["handler id is stable", "interaction payload and response shape are captured"],
+  registerService: ["service id is stable", "start/stop lifecycle handlers are captured"],
+  registerSpeechProvider: ["provider id is stable", "speech request overrides are captured"],
+  registerTool: ["tool name is stable", "input schema is captured", "result shape metadata is captured"],
+};
+
+const HOOK_ASSERTIONS = {
+  agent_end: ["final conversation payload is redacted as expected", "agent id and run metadata are present"],
+  before_prompt_build: ["prompt mutation result is preserved", "agent and conversation metadata are present"],
+  before_tool_call: ["block/allow return shapes are preserved", "terminal and approval metadata are present"],
+  inbound_claim: ["claim payload preserves channel/source identity", "routing metadata is present"],
+  llm_input: ["model input payload is redacted as expected", "model and agent metadata are present"],
+  llm_output: ["model output payload is redacted as expected", "model and agent metadata are present"],
+  subagent_delivery_target: ["target routing result is preserved", "parent/subagent metadata are present"],
+  subagent_ended: ["subagent completion payload is preserved", "status metadata is present"],
+  subagent_spawned: ["spawn payload is preserved", "parent/subagent metadata are present"],
+};
+
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  await main();
+}
+
+async function main() {
+  const parsedArgs = parseArgs(process.argv.slice(2));
+  const capture = await buildContractCapture({ openclawPath: parsedArgs.openclawPath });
+  const errors = validateContractCapture(capture);
+
+  if (parsedArgs.write) {
+    await writeContractCapture(capture);
+  }
+
+  if (parsedArgs.json) {
+    console.log(JSON.stringify(capture, null, 2));
+  } else {
+    console.log(
+      `contract capture: ${capture.summary.registrationCount} registrations, ${capture.summary.hookCount} hooks, ${capture.summary.sdkImportCount} sdk imports, ${capture.summary.issueProbeCount} issue probes`,
+    );
+  }
+
+  if (errors.length > 0) {
+    throw new Error(errors.join("\n"));
+  }
+}
+
+function parseArgs(argv) {
+  const parsed = {
+    json: false,
+    write: true,
+    openclawPath: undefined,
+  };
+
+  for (let index = 0; index < argv.length; index += 1) {
+    const arg = argv[index];
+    if (arg === "--check") {
+      parsed.write = false;
+      continue;
+    }
+    if (arg === "--json") {
+      parsed.json = true;
+      continue;
+    }
+    if (arg === "--write") {
+      parsed.write = true;
+      continue;
+    }
+    if (arg === "--openclaw") {
+      parsed.openclawPath = argv[index + 1];
+      index += 1;
+      continue;
+    }
+    if (arg === "--no-openclaw") {
+      parsed.openclawPath = false;
+    }
+  }
+
+  return parsed;
+}
+
+export async function buildContractCapture(options = {}) {
+  const report = options.report ?? (await buildReport({ openclawPath: options.openclawPath }));
+  const capturedRegistrars = new Set(report.targetOpenClaw.capturedRegistrars ?? []);
+  const sdkExports = new Set(report.targetOpenClaw.sdkExports ?? []);
+
+  const fixtures = report.fixtures.map((fixture) => ({
+    id: fixture.id,
+    priority: fixture.priority,
+    registrations: fixture.registrationDetails.map((registration) => ({
+      id: `registration.${registration.name}:${fixture.id}:${slugRef(registration.ref)}`,
+      fixture: fixture.id,
+      registrar: registration.name,
+      ref: registration.ref,
+      support: capturedRegistrars.has(registration.name) ? "target-captured" : "inspector-shim-required",
+      assertions: REGISTRATION_ASSERTIONS[registration.name] ?? ["registration arguments are captured"],
+    })),
+    hooks: fixture.hookDetails.map((hook) => ({
+      id: `hook.${hook.name}:${fixture.id}:${slugRef(hook.ref)}`,
+      fixture: fixture.id,
+      hook: hook.name,
+      ref: hook.ref,
+      support: "synthetic-event-required",
+      assertions: HOOK_ASSERTIONS[hook.name] ?? ["hook payload and return value are captured"],
+    })),
+    sdkImports: fixture.sdkImportDetails.map((sdkImport) => ({
+      id: `sdk.${sdkImport.specifier}:${fixture.id}:${slugRef(sdkImport.ref)}`,
+      fixture: fixture.id,
+      specifier: sdkImport.specifier,
+      ref: sdkImport.ref,
+      support: sdkExports.has(sdkImport.specifier) ? "target-exported" : "compat-alias-required",
+      assertions: ["package export exists", "cold import resolves without plugin credentials"],
+    })),
+    packageEntrypoints: packageEntrypoints(fixture),
+  }));
+
+  const issueProbes = report.contractProbes.map((probe) => ({
+    id: probe.id,
+    fixture: probe.fixture,
+    priority: probe.priority,
+    target: probe.target,
+    evidence: probe.evidence,
+    assertions: assertionsForProbeTarget(probe.target),
+  }));
+
+  const allRegistrations = fixtures.flatMap((fixture) => fixture.registrations);
+  const allHooks = fixtures.flatMap((fixture) => fixture.hooks);
+  const allSdkImports = fixtures.flatMap((fixture) => fixture.sdkImports);
+  const allPackageEntrypoints = fixtures.flatMap((fixture) => fixture.packageEntrypoints);
+
+  return {
+    generatedAt: report.generatedAt,
+    targetOpenClaw: {
+      status: report.targetOpenClaw.status,
+      configuredPath: report.targetOpenClaw.configuredPath,
+      capturedRegistrarCount: report.targetOpenClaw.capturedRegistrarCount ?? 0,
+      sdkExportCount: report.targetOpenClaw.sdkExportCount ?? 0,
+    },
+    summary: {
+      fixtureCount: fixtures.length,
+      registrationCount: allRegistrations.length,
+      hookCount: allHooks.length,
+      sdkImportCount: allSdkImports.length,
+      packageEntrypointCount: allPackageEntrypoints.length,
+      issueProbeCount: issueProbes.length,
+      inspectorShimRequiredCount: allRegistrations.filter((item) => item.support === "inspector-shim-required").length,
+      compatAliasRequiredCount: allSdkImports.filter((item) => item.support === "compat-alias-required").length,
+    },
+    fixtures,
+    issueProbes,
+  };
+}
+
+export function validateContractCapture(capture) {
+  const errors = [];
+
+  for (const fixture of capture.fixtures) {
+    for (const section of ["registrations", "hooks", "sdkImports", "packageEntrypoints"]) {
+      for (const item of fixture[section]) {
+        if (!item.ref && section !== "packageEntrypoints") {
+          errors.push(`${item.id}: missing source reference`);
+        }
+        if (!Array.isArray(item.assertions) || item.assertions.length === 0) {
+          errors.push(`${item.id}: missing capture assertions`);
+        }
+      }
+    }
+  }
+
+  for (const probe of capture.issueProbes) {
+    if (!Array.isArray(probe.evidence) || probe.evidence.length === 0) {
+      errors.push(`${probe.id}: missing probe evidence`);
+    }
+    if (!Array.isArray(probe.assertions) || probe.assertions.length === 0) {
+      errors.push(`${probe.id}: missing probe assertions`);
+    }
+  }
+
+  return errors;
+}
+
+export async function writeContractCapture(capture, options = {}) {
+  const jsonPath = options.jsonPath ?? defaultCaptureJsonPath;
+  const markdownPath = options.markdownPath ?? defaultCaptureMarkdownPath;
+  await mkdir(path.dirname(jsonPath), { recursive: true });
+  await mkdir(path.dirname(markdownPath), { recursive: true });
+  await writeFile(jsonPath, `${JSON.stringify(capture, null, 2)}\n`, "utf8");
+  await writeFile(markdownPath, `${renderContractCaptureMarkdown(capture)}\n`, "utf8");
+  return { jsonPath, markdownPath };
+}
+
+export function renderContractCaptureMarkdown(capture) {
+  return [
+    "# Crabpot Contract Capture",
+    "",
+    `Generated: ${capture.generatedAt}`,
+    "",
+    "## Summary",
+    "",
+    markdownTable(
+      [
+        ["Fixtures", capture.summary.fixtureCount],
+        ["Registrations", capture.summary.registrationCount],
+        ["Hooks", capture.summary.hookCount],
+        ["SDK imports", capture.summary.sdkImportCount],
+        ["Package entrypoints", capture.summary.packageEntrypointCount],
+        ["Issue probes", capture.summary.issueProbeCount],
+        ["Inspector shim required", capture.summary.inspectorShimRequiredCount],
+        ["Compat aliases required", capture.summary.compatAliasRequiredCount],
+      ],
+      ["Metric", "Value"],
+    ),
+    "",
+    "## Registration Capture",
+    "",
+    markdownTable(
+      capture.fixtures.flatMap((fixture) =>
+        fixture.registrations.map((item) => [
+          fixture.id,
+          item.registrar,
+          item.support,
+          item.ref,
+          item.assertions.join("; "),
+        ]),
+      ),
+      ["Fixture", "Registrar", "Support", "Evidence", "Assertions"],
+    ),
+    "",
+    "## Hook Probes",
+    "",
+    markdownTable(
+      capture.fixtures.flatMap((fixture) =>
+        fixture.hooks.map((item) => [
+          fixture.id,
+          item.hook,
+          item.support,
+          item.ref,
+          item.assertions.join("; "),
+        ]),
+      ),
+      ["Fixture", "Hook", "Support", "Evidence", "Assertions"],
+    ),
+    "",
+    "## SDK Import Probes",
+    "",
+    markdownTable(
+      capture.fixtures.flatMap((fixture) =>
+        fixture.sdkImports.map((item) => [
+          fixture.id,
+          item.specifier,
+          item.support,
+          item.ref,
+          item.assertions.join("; "),
+        ]),
+      ),
+      ["Fixture", "Specifier", "Support", "Evidence", "Assertions"],
+    ),
+    "",
+    "## Issue Probe Backlog",
+    "",
+    markdownTable(
+      capture.issueProbes.map((probe) => [
+        probe.id,
+        probe.priority,
+        probe.fixture,
+        probe.target,
+        probe.assertions.join("; "),
+        probe.evidence.join(", "),
+      ]),
+      ["ID", "Priority", "Fixture", "Target", "Assertions", "Evidence"],
+    ),
+  ].join("\n");
+}
+
+function packageEntrypoints(fixture) {
+  return fixture.packages.flatMap((packageSummary) =>
+    (packageSummary.openclaw?.entrypoints ?? []).map((entrypoint) => ({
+      id: `package.${entrypoint.kind}:${fixture.id}:${slugRef(entrypoint.relativePath)}`,
+      fixture: fixture.id,
+      kind: entrypoint.kind,
+      specifier: entrypoint.specifier,
+      ref: entrypoint.relativePath,
+      support: entrypoint.exists ? "source-present" : entrypoint.requiresBuild ? "build-required" : "missing",
+      assertions: ["entrypoint path resolves", "entrypoint can be cold-imported after required build step"],
+    })),
+  );
+}
+
+function assertionsForProbeTarget(target) {
+  const assertions = {
+    "channel-runtime": ["message envelope is stable", "sender/config metadata is preserved"],
+    "hook-runner": ["synthetic event payload is accepted", "return semantics are preserved"],
+    "inspector-capture-api": ["registration arguments are recorded", "registered handler metadata is retained"],
+    "manifest-loader": ["metadata key is accepted", "migration or compatibility mapping is visible"],
+    "package-loader": ["entrypoint metadata resolves", "cold import failure mode is classified"],
+    "sdk-alias": ["package export exists", "migration metadata is visible when alias is missing"],
+    "tool-runtime": ["tool schema is captured", "tool result metadata is retained"],
+  };
+  return assertions[target] ?? ["probe has fixture evidence and a target contract"];
+}
+
+function slugRef(ref) {
+  return ref.replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+function markdownTable(rows, headers) {
+  if (rows.length === 0) {
+    return "_none_";
+  }
+
+  const allRows = [headers, ...rows.map((row) => row.map(String))];
+  const widths = headers.map((_, columnIndex) =>
+    Math.max(...allRows.map((row) => row[columnIndex].length)),
+  );
+  const renderRow = (row) => `| ${row.map((cell, index) => cell.padEnd(widths[index])).join(" | ")} |`;
+  return [
+    renderRow(headers),
+    renderRow(widths.map((width) => "-".repeat(width))),
+    ...rows.map((row) => renderRow(row.map(String))),
+  ].join("\n");
+}

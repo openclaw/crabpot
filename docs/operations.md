@@ -33,8 +33,9 @@ Use a cheap default workflow first:
 - inspect expected hooks, registrations, and manifest contracts
 - run registration-capture smoke checks
 - generate the compatibility report in check mode
+- generate the contract capture plan in check mode
 - gate issue evidence, P1 probe coverage, compat-record reconciliation, target
-  hook/API/capture parsing, and manifest type parsing
+  hook/API/capture parsing, SDK export parsing, and manifest type parsing
 
 Add heavier lanes later for SDK compilation against specific OpenClaw refs:
 
@@ -47,6 +48,8 @@ Add heavier lanes later for SDK compilation against specific OpenClaw refs:
 Use `reports/crabpot-report.md` for full human review,
 `reports/crabpot-report.json` for downstream tooling, and
 `reports/crabpot-issues.md` for the short issue/probe queue.
+Use `reports/crabpot-capture.md` when you need the concrete hook, registrar,
+SDK import, and package-entrypoint assertions the future inspector should run.
 
 Decision classes mean:
 
@@ -62,12 +65,14 @@ the relevant API.
 
 The target OpenClaw checkout is not just context; it is part of the contract
 test. Crabpot compares fixture seams against target hook names, public
-registrars, captured-registration support, compat records, and manifest fields.
+registrars, captured-registration support, plugin SDK package exports, compat
+records, and manifest fields.
 
 Run the quality gate directly when changing classifiers:
 
 ```bash
 npm run contract:coverage
+npm run contract:capture -- --check
 node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 

@@ -36,6 +36,7 @@ npm test
 node scripts/list-fixtures.mjs
 node scripts/sync-fixtures.mjs --check
 npm run report
+npm run contract:capture
 npm run contract:coverage
 ```
 
@@ -57,6 +58,11 @@ you intentionally pin or update fixture revisions.
 - `reports/crabpot-report.json`
 - `reports/crabpot-issues.md`
 
+`npm run contract:capture` writes:
+
+- `reports/crabpot-capture.md`
+- `reports/crabpot-capture.json`
+
 The report is the local review surface for hard breakages, warnings, raw seam
 logs, OpenClaw compatibility-record coverage, suggestions for compat-layer work,
 issue findings, contract-probe backlog, and the decision matrix. It defaults to
@@ -67,6 +73,10 @@ elsewhere:
 node scripts/generate-report.mjs --openclaw ../openclaw
 node scripts/generate-report.mjs --check --openclaw ../openclaw
 ```
+
+The capture report is the lower-level inspector backlog. It records every
+observed hook, runtime registration, SDK import, and OpenClaw package entrypoint
+with the assertions a future capture runner must execute.
 
 ## Fixture policy
 

@@ -1,0 +1,1493 @@
+{
+  "generatedAt": "deterministic",
+  "targetOpenClaw": {
+    "status": "ok",
+    "configuredPath": "../openclaw",
+    "capturedRegistrarCount": 18,
+    "sdkExportCount": 306
+  },
+  "summary": {
+    "fixtureCount": 11,
+    "registrationCount": 28,
+    "hookCount": 8,
+    "sdkImportCount": 32,
+    "packageEntrypointCount": 13,
+    "issueProbeCount": 31,
+    "inspectorShimRequiredCount": 17,
+    "compatAliasRequiredCount": 3
+  },
+  "fixtures": [
+    {
+      "id": "agentchat",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.defineChannelPluginEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-src-channel-ts-333",
+          "fixture": "agentchat",
+          "registrar": "defineChannelPluginEntry",
+          "ref": "plugins/agentchat/integrations/openclaw-channel/src/channel.ts:333",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "channel id is stable",
+            "setup/config schema can be read",
+            "message envelope metadata is preserved"
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-contract:agentchat:plugins-agentchat-integrations-openclaw-channel-src-binding-openclaw-types-ts-35",
+          "fixture": "agentchat",
+          "specifier": "openclaw/plugin-sdk/channel-contract",
+          "ref": "plugins/agentchat/integrations/openclaw-channel/src/binding/openclaw-types.ts:35",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-core:agentchat:plugins-agentchat-integrations-openclaw-channel-src-binding-openclaw-types-ts-19",
+          "fixture": "agentchat",
+          "specifier": "openclaw/plugin-sdk/channel-core",
+          "ref": "plugins/agentchat/integrations/openclaw-channel/src/binding/openclaw-types.ts:19",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-core:agentchat:plugins-agentchat-integrations-openclaw-channel-src-binding-openclaw-types-ts-37",
+          "fixture": "agentchat",
+          "specifier": "openclaw/plugin-sdk/channel-core",
+          "ref": "plugins/agentchat/integrations/openclaw-channel/src/binding/openclaw-types.ts:37",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-core:agentchat:plugins-agentchat-integrations-openclaw-channel-src-channel-account-ts-20",
+          "fixture": "agentchat",
+          "specifier": "openclaw/plugin-sdk/channel-core",
+          "ref": "plugins/agentchat/integrations/openclaw-channel/src/channel-account.ts:20",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-core:agentchat:plugins-agentchat-integrations-openclaw-channel-src-channel-setup-ts-18",
+          "fixture": "agentchat",
+          "specifier": "openclaw/plugin-sdk/channel-core",
+          "ref": "plugins/agentchat/integrations/openclaw-channel/src/channel.setup.ts:18",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-core:agentchat:plugins-agentchat-integrations-openclaw-channel-src-channel-ts-21",
+          "fixture": "agentchat",
+          "specifier": "openclaw/plugin-sdk/channel-core",
+          "ref": "plugins/agentchat/integrations/openclaw-channel/src/channel.ts:21",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/setup:agentchat:plugins-agentchat-integrations-openclaw-channel-src-channel-wizard-ts-46",
+          "fixture": "agentchat",
+          "specifier": "openclaw/plugin-sdk/setup",
+          "ref": "plugins/agentchat/integrations/openclaw-channel/src/channel.wizard.ts:46",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
+          "fixture": "agentchat",
+          "kind": "extension",
+          "specifier": "./dist/index.js",
+          "ref": "plugins/agentchat/integrations/openclaw-channel/dist/index.js",
+          "support": "build-required",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        },
+        {
+          "id": "package.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
+          "fixture": "agentchat",
+          "kind": "setupEntry",
+          "specifier": "./dist/setup-entry.js",
+          "ref": "plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js",
+          "support": "build-required",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wecom",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.registerChannel:wecom:plugins-wecom-index-js-27",
+          "fixture": "wecom",
+          "registrar": "registerChannel",
+          "ref": "plugins/wecom/index.js:27",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "channel id is stable",
+            "inbound/outbound envelope shape is captured",
+            "sender metadata is preserved"
+          ]
+        },
+        {
+          "id": "registration.registerHttpRoute:wecom:plugins-wecom-index-js-45",
+          "fixture": "wecom",
+          "registrar": "registerHttpRoute",
+          "ref": "plugins/wecom/index.js:45",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "route method and path are captured",
+            "auth policy metadata is captured"
+          ]
+        },
+        {
+          "id": "registration.registerTool:wecom:plugins-wecom-index-js-28",
+          "fixture": "wecom",
+          "registrar": "registerTool",
+          "ref": "plugins/wecom/index.js:28",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ]
+        },
+        {
+          "id": "registration.registerTool:wecom:plugins-wecom-index-js-29",
+          "fixture": "wecom",
+          "registrar": "registerTool",
+          "ref": "plugins/wecom/index.js:29",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ]
+        },
+        {
+          "id": "registration.registerTool:wecom:plugins-wecom-index-js-33",
+          "fixture": "wecom",
+          "registrar": "registerTool",
+          "ref": "plugins/wecom/index.js:33",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ]
+        }
+      ],
+      "hooks": [
+        {
+          "id": "hook.before_prompt_build:wecom:plugins-wecom-index-js-53",
+          "fixture": "wecom",
+          "hook": "before_prompt_build",
+          "ref": "plugins/wecom/index.js:53",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "prompt mutation result is preserved",
+            "agent and conversation metadata are present"
+          ]
+        },
+        {
+          "id": "hook.before_tool_call:wecom:plugins-wecom-index-js-65",
+          "fixture": "wecom",
+          "hook": "before_tool_call",
+          "ref": "plugins/wecom/index.js:65",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "block/allow return shapes are preserved",
+            "terminal and approval metadata are present"
+          ]
+        },
+        {
+          "id": "hook.subagent_delivery_target:wecom:plugins-wecom-index-js-61",
+          "fixture": "wecom",
+          "hook": "subagent_delivery_target",
+          "ref": "plugins/wecom/index.js:61",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "target routing result is preserved",
+            "parent/subagent metadata are present"
+          ]
+        },
+        {
+          "id": "hook.subagent_ended:wecom:plugins-wecom-index-js-63",
+          "fixture": "wecom",
+          "hook": "subagent_ended",
+          "ref": "plugins/wecom/index.js:63",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "subagent completion payload is preserved",
+            "status metadata is present"
+          ]
+        },
+        {
+          "id": "hook.subagent_spawned:wecom:plugins-wecom-index-js-62",
+          "fixture": "wecom",
+          "hook": "subagent_spawned",
+          "ref": "plugins/wecom/index.js:62",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "spawn payload is preserved",
+            "parent/subagent metadata are present"
+          ]
+        }
+      ],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:wecom:plugins-wecom-wecom-channel-plugin-js-7",
+          "fixture": "wecom",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/wecom/wecom/channel-plugin.js:7",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/media-runtime:wecom:plugins-wecom-wecom-openclaw-compat-js-6",
+          "fixture": "wecom",
+          "specifier": "openclaw/plugin-sdk/media-runtime",
+          "ref": "plugins/wecom/wecom/openclaw-compat.js:6",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/setup:wecom:plugins-wecom-wecom-onboarding-js-1",
+          "fixture": "wecom",
+          "specifier": "openclaw/plugin-sdk/setup",
+          "ref": "plugins/wecom/wecom/onboarding.js:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/status-helpers:wecom:plugins-wecom-wecom-channel-plugin-js-6",
+          "fixture": "wecom",
+          "specifier": "openclaw/plugin-sdk/status-helpers",
+          "ref": "plugins/wecom/wecom/channel-plugin.js:6",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:wecom:plugins-wecom-index-js",
+          "fixture": "wecom",
+          "kind": "extension",
+          "specifier": "./index.js",
+          "ref": "plugins/wecom/index.js",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2a-gateway",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-616",
+          "fixture": "a2a-gateway",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/a2a-gateway/index.ts:616",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-622",
+          "fixture": "a2a-gateway",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/a2a-gateway/index.ts:622",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-631",
+          "fixture": "a2a-gateway",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/a2a-gateway/index.ts:631",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-657",
+          "fixture": "a2a-gateway",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/a2a-gateway/index.ts:657",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-669",
+          "fixture": "a2a-gateway",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/a2a-gateway/index.ts:669",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ]
+        },
+        {
+          "id": "registration.registerService:a2a-gateway:plugins-a2a-gateway-index-ts-857",
+          "fixture": "a2a-gateway",
+          "registrar": "registerService",
+          "ref": "plugins/a2a-gateway/index.ts:857",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "service id is stable",
+            "start/stop lifecycle handlers are captured"
+          ]
+        },
+        {
+          "id": "registration.registerTool:a2a-gateway:plugins-a2a-gateway-index-ts-777",
+          "fixture": "a2a-gateway",
+          "registrar": "registerTool",
+          "ref": "plugins/a2a-gateway/index.ts:777",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk:a2a-gateway:plugins-a2a-gateway-src-types-ts-14",
+          "fixture": "a2a-gateway",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/a2a-gateway/src/types.ts:14",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:a2a-gateway:plugins-a2a-gateway-index-ts",
+          "fixture": "a2a-gateway",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "ref": "plugins/a2a-gateway/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hasdata",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.registerTool:hasdata:plugins-hasdata-src-index-ts-43",
+          "fixture": "hasdata",
+          "registrar": "registerTool",
+          "ref": "plugins/hasdata/src/index.ts:43",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:hasdata:plugins-hasdata-src-index-ts",
+          "fixture": "hasdata",
+          "kind": "extension",
+          "specifier": "./src/index.ts",
+          "ref": "plugins/hasdata/src/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mcp-adapter",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.registerService:mcp-adapter:plugins-mcp-adapter-index-ts-15",
+          "fixture": "mcp-adapter",
+          "registrar": "registerService",
+          "ref": "plugins/mcp-adapter/index.ts:15",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "service id is stable",
+            "start/stop lifecycle handlers are captured"
+          ]
+        },
+        {
+          "id": "registration.registerTool:mcp-adapter:plugins-mcp-adapter-index-ts-30",
+          "fixture": "mcp-adapter",
+          "registrar": "registerTool",
+          "ref": "plugins/mcp-adapter/index.ts:30",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:mcp-adapter:plugins-mcp-adapter-index-ts",
+          "fixture": "mcp-adapter",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "ref": "plugins/mcp-adapter/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "llm-trace-phoenix",
+      "priority": "high",
+      "registrations": [],
+      "hooks": [
+        {
+          "id": "hook.llm_input:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts-154",
+          "fixture": "llm-trace-phoenix",
+          "hook": "llm_input",
+          "ref": "plugins/llm-trace-phoenix/index.ts:154",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "model input payload is redacted as expected",
+            "model and agent metadata are present"
+          ]
+        },
+        {
+          "id": "hook.llm_output:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts-168",
+          "fixture": "llm-trace-phoenix",
+          "hook": "llm_output",
+          "ref": "plugins/llm-trace-phoenix/index.ts:168",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "model output payload is redacted as expected",
+            "model and agent metadata are present"
+          ]
+        }
+      ],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts-12",
+          "fixture": "llm-trace-phoenix",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/llm-trace-phoenix/index.ts:12",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
+          "fixture": "llm-trace-phoenix",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "ref": "plugins/llm-trace-phoenix/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clawmetry",
+      "priority": "medium",
+      "registrations": [
+        {
+          "id": "registration.definePluginEntry:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts-4",
+          "fixture": "clawmetry",
+          "registrar": "definePluginEntry",
+          "ref": "plugins/clawmetry/clawhub-plugin/index.ts:4",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "entrypoint register function is callable",
+            "entrypoint metadata is preserved"
+          ]
+        },
+        {
+          "id": "registration.registerService:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts-9",
+          "fixture": "clawmetry",
+          "registrar": "registerService",
+          "ref": "plugins/clawmetry/clawhub-plugin/index.ts:9",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "service id is stable",
+            "start/stop lifecycle handlers are captured"
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk/diagnostics-otel:clawmetry:plugins-clawmetry-clawhub-plugin-src-service-ts-2",
+          "fixture": "clawmetry",
+          "specifier": "openclaw/plugin-sdk/diagnostics-otel",
+          "ref": "plugins/clawmetry/clawhub-plugin/src/service.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/plugin-entry:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts-1",
+          "fixture": "clawmetry",
+          "specifier": "openclaw/plugin-sdk/plugin-entry",
+          "ref": "plugins/clawmetry/clawhub-plugin/index.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/plugin-entry:clawmetry:plugins-clawmetry-clawhub-plugin-src-service-ts-1",
+          "fixture": "clawmetry",
+          "specifier": "openclaw/plugin-sdk/plugin-entry",
+          "ref": "plugins/clawmetry/clawhub-plugin/src/service.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts",
+          "fixture": "clawmetry",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "ref": "plugins/clawmetry/clawhub-plugin/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        },
+        {
+          "id": "package.runtimeExtension:clawmetry:plugins-clawmetry-clawhub-plugin-dist-index-js",
+          "fixture": "clawmetry",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "ref": "plugins/clawmetry/clawhub-plugin/dist/index.js",
+          "support": "build-required",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "codex-app-server",
+      "priority": "medium",
+      "registrations": [
+        {
+          "id": "registration.registerCommand:codex-app-server:plugins-codex-app-server-index-ts-48",
+          "fixture": "codex-app-server",
+          "registrar": "registerCommand",
+          "ref": "plugins/codex-app-server/index.ts:48",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ]
+        },
+        {
+          "id": "registration.registerInteractiveHandler:codex-app-server:plugins-codex-app-server-index-ts-29",
+          "fixture": "codex-app-server",
+          "registrar": "registerInteractiveHandler",
+          "ref": "plugins/codex-app-server/index.ts:29",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "handler id is stable",
+            "interaction payload and response shape are captured"
+          ]
+        },
+        {
+          "id": "registration.registerInteractiveHandler:codex-app-server:plugins-codex-app-server-index-ts-38",
+          "fixture": "codex-app-server",
+          "registrar": "registerInteractiveHandler",
+          "ref": "plugins/codex-app-server/index.ts:38",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "handler id is stable",
+            "interaction payload and response shape are captured"
+          ]
+        },
+        {
+          "id": "registration.registerService:codex-app-server:plugins-codex-app-server-index-ts-12",
+          "fixture": "codex-app-server",
+          "registrar": "registerService",
+          "ref": "plugins/codex-app-server/index.ts:12",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "service id is stable",
+            "start/stop lifecycle handlers are captured"
+          ]
+        }
+      ],
+      "hooks": [
+        {
+          "id": "hook.inbound_claim:codex-app-server:plugins-codex-app-server-index-ts-25",
+          "fixture": "codex-app-server",
+          "hook": "inbound_claim",
+          "ref": "plugins/codex-app-server/index.ts:25",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "claim payload preserves channel/source identity",
+            "routing metadata is present"
+          ]
+        }
+      ],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk:codex-app-server:plugins-codex-app-server-index-ts-1",
+          "fixture": "codex-app-server",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/codex-app-server/index.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:codex-app-server:plugins-codex-app-server-src-client-ts-6",
+          "fixture": "codex-app-server",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/codex-app-server/src/client.ts:6",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:codex-app-server:plugins-codex-app-server-src-controller-ts-18",
+          "fixture": "codex-app-server",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/codex-app-server/src/controller.ts:18",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:codex-app-server:plugins-codex-app-server-src-types-ts-1",
+          "fixture": "codex-app-server",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/codex-app-server/src/types.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/discord:codex-app-server:plugins-codex-app-server-src-controller-ts-104",
+          "fixture": "codex-app-server",
+          "specifier": "openclaw/plugin-sdk/discord",
+          "ref": "plugins/codex-app-server/src/controller.ts:104",
+          "support": "compat-alias-required",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/discord:codex-app-server:plugins-codex-app-server-src-controller-ts-106",
+          "fixture": "codex-app-server",
+          "specifier": "openclaw/plugin-sdk/discord",
+          "ref": "plugins/codex-app-server/src/controller.ts:106",
+          "support": "compat-alias-required",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/telegram-account:codex-app-server:plugins-codex-app-server-src-controller-ts-105",
+          "fixture": "codex-app-server",
+          "specifier": "openclaw/plugin-sdk/telegram-account",
+          "ref": "plugins/codex-app-server/src/controller.ts:105",
+          "support": "compat-alias-required",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:codex-app-server:plugins-codex-app-server-index-ts",
+          "fixture": "codex-app-server",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "ref": "plugins/codex-app-server/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "web-search-plus",
+      "priority": "medium",
+      "registrations": [
+        {
+          "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-815",
+          "fixture": "web-search-plus",
+          "registrar": "registerTool",
+          "ref": "plugins/web-search-plus/index.ts:815",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ]
+        },
+        {
+          "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-947",
+          "fixture": "web-search-plus",
+          "registrar": "registerTool",
+          "ref": "plugins/web-search-plus/index.ts:947",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:web-search-plus:plugins-web-search-plus-index-ts",
+          "fixture": "web-search-plus",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "ref": "plugins/web-search-plus/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apify",
+      "priority": "medium",
+      "registrations": [
+        {
+          "id": "registration.registerCli:apify:plugins-apify-src-cli-ts-35",
+          "fixture": "apify",
+          "registrar": "registerCli",
+          "ref": "plugins/apify/src/cli.ts:35",
+          "support": "target-captured",
+          "assertions": [
+            "command name is stable",
+            "argument schema is captured"
+          ]
+        },
+        {
+          "id": "registration.registerTool:apify:plugins-apify-src-index-ts-13",
+          "fixture": "apify",
+          "registrar": "registerTool",
+          "ref": "plugins/apify/src/index.ts:13",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk:apify:plugins-apify-src-cli-ts-2",
+          "fixture": "apify",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/apify/src/cli.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:apify:plugins-apify-src-index-ts-1",
+          "fixture": "apify",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/apify/src/index.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:apify:plugins-apify-src-tools-apify-scraper-tool-ts-4",
+          "fixture": "apify",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/apify/src/tools/apify-scraper-tool.ts:4",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:apify:plugins-apify-src-tools-apify-scraper-tool-ts-3",
+          "fixture": "apify",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/apify/src/tools/apify-scraper-tool.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:apify:plugins-apify-src-index-ts",
+          "fixture": "apify",
+          "kind": "extension",
+          "specifier": "./src/index.ts",
+          "ref": "plugins/apify/src/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inworld-tts",
+      "priority": "medium",
+      "registrations": [
+        {
+          "id": "registration.definePluginEntry:inworld-tts:plugins-inworld-tts-index-ts-4",
+          "fixture": "inworld-tts",
+          "registrar": "definePluginEntry",
+          "ref": "plugins/inworld-tts/index.ts:4",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "entrypoint register function is callable",
+            "entrypoint metadata is preserved"
+          ]
+        },
+        {
+          "id": "registration.registerSpeechProvider:inworld-tts:plugins-inworld-tts-index-ts-9",
+          "fixture": "inworld-tts",
+          "registrar": "registerSpeechProvider",
+          "ref": "plugins/inworld-tts/index.ts:9",
+          "support": "target-captured",
+          "assertions": [
+            "provider id is stable",
+            "speech request overrides are captured"
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk/plugin-entry:inworld-tts:plugins-inworld-tts-index-ts-1",
+          "fixture": "inworld-tts",
+          "specifier": "openclaw/plugin-sdk/plugin-entry",
+          "ref": "plugins/inworld-tts/index.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/secret-input:inworld-tts:plugins-inworld-tts-speech-provider-ts-1",
+          "fixture": "inworld-tts",
+          "specifier": "openclaw/plugin-sdk/secret-input",
+          "ref": "plugins/inworld-tts/speech-provider.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/speech:inworld-tts:plugins-inworld-tts-speech-provider-ts-8",
+          "fixture": "inworld-tts",
+          "specifier": "openclaw/plugin-sdk/speech",
+          "ref": "plugins/inworld-tts/speech-provider.ts:8",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/speech:inworld-tts:plugins-inworld-tts-speech-provider-ts-9",
+          "fixture": "inworld-tts",
+          "specifier": "openclaw/plugin-sdk/speech",
+          "ref": "plugins/inworld-tts/speech-provider.ts:9",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/speech:inworld-tts:plugins-inworld-tts-tts-ts-7",
+          "fixture": "inworld-tts",
+          "specifier": "openclaw/plugin-sdk/speech",
+          "ref": "plugins/inworld-tts/tts.ts:7",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:inworld-tts:plugins-inworld-tts-index-ts",
+          "fixture": "inworld-tts",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "ref": "plugins/inworld-tts/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    }
+  ],
+  "issueProbes": [
+    {
+      "id": "api.capture.runtime-registrars:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:616",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:622",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:631",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:657",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:669",
+        "registerService @ plugins/a2a-gateway/index.ts:857"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:clawmetry",
+      "fixture": "clawmetry",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerService @ plugins/clawmetry/clawhub-plugin/index.ts:9"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:codex-app-server",
+      "fixture": "codex-app-server",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerCommand @ plugins/codex-app-server/index.ts:48",
+        "registerInteractiveHandler @ plugins/codex-app-server/index.ts:29",
+        "registerInteractiveHandler @ plugins/codex-app-server/index.ts:38",
+        "registerService @ plugins/codex-app-server/index.ts:12"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:mcp-adapter",
+      "fixture": "mcp-adapter",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerService @ plugins/mcp-adapter/index.ts:15"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:wecom",
+      "fixture": "wecom",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerChannel @ plugins/wecom/index.js:27",
+        "registerHttpRoute @ plugins/wecom/index.js:45"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "hook.before_tool_call.terminal-block-approval:wecom",
+      "fixture": "wecom",
+      "priority": "P1",
+      "target": "hook-runner",
+      "evidence": [
+        "before_tool_call @ plugins/wecom/index.js:65"
+      ],
+      "assertions": [
+        "synthetic event payload is accepted",
+        "return semantics are preserved"
+      ]
+    },
+    {
+      "id": "hook.llm-observer.privacy-payload:llm-trace-phoenix",
+      "fixture": "llm-trace-phoenix",
+      "priority": "P1",
+      "target": "hook-runner",
+      "evidence": [
+        "llm_input @ plugins/llm-trace-phoenix/index.ts:154",
+        "llm_output @ plugins/llm-trace-phoenix/index.ts:168"
+      ],
+      "assertions": [
+        "synthetic event payload is accepted",
+        "return semantics are preserved"
+      ]
+    },
+    {
+      "id": "sdk.import.package-export-cold-import:codex-app-server",
+      "fixture": "codex-app-server",
+      "priority": "P1",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104",
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106",
+        "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "channel.runtime.envelope-config-metadata:agentchat",
+      "fixture": "agentchat",
+      "priority": "P2",
+      "target": "channel-runtime",
+      "evidence": [
+        "defineChannelPluginEntry @ plugins/agentchat/integrations/openclaw-channel/src/channel.ts:333"
+      ],
+      "assertions": [
+        "message envelope is stable",
+        "sender/config metadata is preserved"
+      ]
+    },
+    {
+      "id": "channel.runtime.envelope-config-metadata:wecom",
+      "fixture": "wecom",
+      "priority": "P2",
+      "target": "channel-runtime",
+      "evidence": [
+        "registerChannel @ plugins/wecom/index.js:27"
+      ],
+      "assertions": [
+        "message envelope is stable",
+        "sender/config metadata is preserved"
+      ]
+    },
+    {
+      "id": "manifest.compat.channel-env-vars:agentchat",
+      "fixture": "agentchat",
+      "priority": "P2",
+      "target": "manifest-loader",
+      "evidence": [
+        "agentchat"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.compat.provider-auth-env-vars:hasdata",
+      "fixture": "hasdata",
+      "priority": "P2",
+      "target": "manifest-loader",
+      "evidence": [
+        "hasdata"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P2",
+      "target": "manifest-loader",
+      "evidence": [
+        "defaultConfig @ plugins/a2a-gateway/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:agentchat",
+      "fixture": "agentchat",
+      "priority": "P2",
+      "target": "manifest-loader",
+      "evidence": [
+        "displayName @ plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json",
+        "homepage @ plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json",
+        "icon @ plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/a2a-gateway/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:mcp-adapter",
+      "fixture": "mcp-adapter",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/mcp-adapter/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:wecom",
+      "fixture": "wecom",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/wecom/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.build-before-cold-import:agentchat",
+      "fixture": "agentchat",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/agentchat/integrations/openclaw-channel/dist/index.js",
+        "setupEntry:./dist/setup-entry.js -> plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.metadata.version-alignment:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "package:1.4.0",
+        "manifest:1.3.0"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/a2a-gateway/src/types.ts:14"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:llm-trace-phoenix",
+      "fixture": "llm-trace-phoenix",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/llm-trace-phoenix/index.ts:12"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/a2a-gateway/index.ts:777"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:mcp-adapter",
+      "fixture": "mcp-adapter",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/mcp-adapter/index.ts:30"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:wecom",
+      "fixture": "wecom",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/wecom/index.js:28",
+        "registerTool @ plugins/wecom/index.js:29",
+        "registerTool @ plugins/wecom/index.js:33"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    },
+    {
+      "id": "manifest.compat.provider-auth-env-vars:inworld-tts",
+      "fixture": "inworld-tts",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "inworld"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.compat.provider-auth-env-vars:web-search-plus",
+      "fixture": "web-search-plus",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "serper",
+        "tavily",
+        "linkup",
+        "querit",
+        "exa",
+        "firecrawl",
+        "perplexity",
+        "you",
+        "searxng"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "package.entrypoint.build-before-cold-import:clawmetry",
+      "fixture": "clawmetry",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "runtimeExtension:./dist/index.js -> plugins/clawmetry/clawhub-plugin/dist/index.js"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:apify",
+      "fixture": "apify",
+      "priority": "P3",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/apify/src/cli.ts:2",
+        "openclaw/plugin-sdk @ plugins/apify/src/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/apify/src/tools/apify-scraper-tool.ts:4"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:codex-app-server",
+      "fixture": "codex-app-server",
+      "priority": "P3",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/codex-app-server/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/codex-app-server/src/client.ts:6",
+        "openclaw/plugin-sdk @ plugins/codex-app-server/src/controller.ts:18",
+        "openclaw/plugin-sdk @ plugins/codex-app-server/src/types.ts:1"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:apify",
+      "fixture": "apify",
+      "priority": "P3",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/apify/src/index.ts:13"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:web-search-plus",
+      "fixture": "web-search-plus",
+      "priority": "P3",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/web-search-plus/index.ts:815",
+        "registerTool @ plugins/web-search-plus/index.ts:947"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    }
+  ]
+}

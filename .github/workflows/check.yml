@@ -25,4 +25,5 @@ jobs:
       - run: node scripts/run-contract-smoke.mjs --strict --openclaw ./openclaw
       - run: node scripts/inspect-fixtures.mjs --check
       - run: node scripts/generate-report.mjs --check --openclaw ./openclaw
+      - run: node scripts/capture-contracts.mjs --check --openclaw ./openclaw
       - run: node scripts/check-contract-coverage.mjs --openclaw ./openclaw

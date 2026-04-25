@@ -36,6 +36,7 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasProbe(report.contractProbes, "hook.before_tool_call.terminal-block-approval:wecom");
   assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:agentchat");
   assertHasProbe(report.contractProbes, "sdk.import.package-export-cold-import:codex-app-server");
+  assertHasProbe(report.contractProbes, "sdk.import.package-export-cold-import:codex-app-server", "P1");
   assertHasProbe(report.contractProbes, "package.compat.plugin-api-range:mcp-adapter");
   assertHasProbe(report.contractProbes, "package.entrypoint.build-before-cold-import:agentchat");
 });
@@ -82,9 +83,9 @@ function assertHasIssue(issues, severity, code) {
   );
 }
 
-function assertHasProbe(probes, id) {
+function assertHasProbe(probes, id, priority) {
   assert.ok(
-    probes.some((probe) => probe.id === id),
-    `expected contract probe ${id}`,
+    probes.some((probe) => probe.id === id && (!priority || probe.priority === priority)),
+    `expected contract probe ${id}${priority ? ` with ${priority}` : ""}`,
   );
 }

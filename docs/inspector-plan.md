@@ -69,12 +69,15 @@ target OpenClaw checkout:
 - captured registration support from `src/plugins/captured-registration.ts`
 - compat records from `src/plugins/compat/registry.ts`
 - manifest fields and contract keys from `src/plugins/manifest.ts`
+- plugin SDK package exports from `package.json`
 
 Generated reports live in `reports/`:
 
 - `crabpot-report.md`
 - `crabpot-report.json`
 - `crabpot-issues.md`
+- `crabpot-capture.md`
+- `crabpot-capture.json`
 
 Later, replace the static scanner with the packaged inspector while keeping
 `crabpot.config.json` as the fixture manifest.
@@ -107,4 +110,6 @@ Crabpot currently classifies:
 - missing package `openclaw.compat.pluginApi` as plugin upstream fixes
 - package OpenClaw entrypoints that point at missing build artifacts as
   inspector build/cold-import follow-up
+- plugin SDK imports missing from target OpenClaw package exports as
+  compat-adapter debt
 - legacy manifest env metadata and root SDK imports as compat-adapter debt

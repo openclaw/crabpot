@@ -1,0 +1,81 @@
+export function createCaptureApi(options = {}) {
+  const captured = [];
+  const knownRegistrars = new Set(options.knownRegistrars ?? []);
+
+  const api = new Proxy(
+    {
+      on(name, handler) {
+        captured.push({
+          kind: "hook",
+          name,
+          handlerType: typeof handler,
+          arguments: summarizeArguments([name, handler]),
+        });
+        return api;
+      },
+    },
+    {
+      get(target, property) {
+        if (property === "getCapturedContracts") {
+          return () => captured.map((entry) => ({ ...entry }));
+        }
+        if (property in target) {
+          return target[property];
+        }
+        if (typeof property === "string" && property.startsWith("register")) {
+          return (...args) => {
+            captured.push({
+              kind: "registration",
+              name: property,
+              known: knownRegistrars.size === 0 ? null : knownRegistrars.has(property),
+              arguments: summarizeArguments(args),
+            });
+            return registrationReturnValue(property, args);
+          };
+        }
+        return undefined;
+      },
+    },
+  );
+
+  return api;
+}
+
+function registrationReturnValue(name, args) {
+  if (name === "registerService") {
+    return {
+      name: objectName(args[0]),
+      start: async () => undefined,
+      stop: async () => undefined,
+    };
+  }
+  return objectName(args[0]) ?? undefined;
+}
+
+function summarizeArguments(args) {
+  return args.map((arg) => summarizeValue(arg));
+}
+
+function summarizeValue(value) {
+  if (typeof value === "function") {
+    return { type: "function" };
+  }
+  if (Array.isArray(value)) {
+    return { type: "array", length: value.length };
+  }
+  if (value && typeof value === "object") {
+    return {
+      type: "object",
+      keys: Object.keys(value).sort(),
+      name: objectName(value),
+    };
+  }
+  return { type: typeof value, value };
+}
+
+function objectName(value) {
+  if (!value || typeof value !== "object") {
+    return null;
+  }
+  return typeof value.name === "string" ? value.name : null;
+}

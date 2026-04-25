@@ -3300,6 +3300,18 @@
       ]
     },
     {
+      "id": "sdk.import.package-export-cold-import:codex-app-server",
+      "fixture": "codex-app-server",
+      "priority": "P1",
+      "target": "sdk-alias",
+      "contract": "Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.",
+      "evidence": [
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104",
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106",
+        "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
+      ]
+    },
+    {
       "id": "channel.runtime.envelope-config-metadata:agentchat",
       "fixture": "agentchat",
       "priority": "P2",
@@ -3501,18 +3513,6 @@
       "contract": "Inspector can build or resolve source aliases before cold importing package entrypoints.",
       "evidence": [
         "runtimeExtension:./dist/index.js -> plugins/clawmetry/clawhub-plugin/dist/index.js"
-      ]
-    },
-    {
-      "id": "sdk.import.package-export-cold-import:codex-app-server",
-      "fixture": "codex-app-server",
-      "priority": "P3",
-      "target": "sdk-alias",
-      "contract": "Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.",
-      "evidence": [
-        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104",
-        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106",
-        "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
       ]
     },
     {

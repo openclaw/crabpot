@@ -1492,7 +1492,15 @@ function issueTitle(finding) {
 }
 
 function probePriority(code, fixturePriority) {
-  if (["before-tool-call-probe", "conversation-access-hook", "registration-capture-gap"].includes(code)) {
+  if (
+    [
+      "before-tool-call-probe",
+      "conversation-access-hook",
+      "missing-compat-record",
+      "registration-capture-gap",
+      "sdk-export-missing",
+    ].includes(code)
+  ) {
     return "P1";
   }
   if (fixturePriority === "high") {
