@@ -1,6 +1,8 @@
 export function createCaptureApi(options = {}) {
   const captured = [];
+  const retained = [];
   const knownRegistrars = new Set(options.knownRegistrars ?? []);
+  const retainHandlers = options.retainHandlers === true;
 
   const api = new Proxy(
     {
@@ -9,12 +11,21 @@ export function createCaptureApi(options = {}) {
       pluginConfig: options.pluginConfig ?? {},
       runtime: options.runtime ?? {},
       on(name, handler) {
-        captured.push({
-          kind: "hook",
-          name,
-          handlerType: typeof handler,
-          arguments: summarizeArguments([name, handler]),
-        });
+        const captureIndex =
+          captured.push({
+            kind: "hook",
+            name,
+            handlerType: typeof handler,
+            arguments: summarizeArguments([name, handler]),
+          }) - 1;
+        if (retainHandlers) {
+          retained.push({
+            kind: "hook",
+            name,
+            handler,
+            captureIndex,
+          });
+        }
         return api;
       },
     },
@@ -23,17 +34,29 @@ export function createCaptureApi(options = {}) {
         if (property === "getCapturedContracts") {
           return () => captured.map((entry) => ({ ...entry }));
         }
+        if (property === "getRetainedContracts") {
+          return () => retained.map((entry) => ({ ...entry }));
+        }
         if (property in target) {
           return target[property];
         }
         if (typeof property === "string" && property.startsWith("register")) {
           return (...args) => {
-            captured.push({
-              kind: "registration",
-              name: property,
-              known: knownRegistrars.size === 0 ? null : knownRegistrars.has(property),
-              arguments: summarizeArguments(args),
-            });
+            const captureIndex =
+              captured.push({
+                kind: "registration",
+                name: property,
+                known: knownRegistrars.size === 0 ? null : knownRegistrars.has(property),
+                arguments: summarizeArguments(args),
+              }) - 1;
+            if (retainHandlers) {
+              retained.push({
+                kind: "registration",
+                name: property,
+                arguments: args,
+                captureIndex,
+              });
+            }
             return registrationReturnValue(property, args);
           };
         }

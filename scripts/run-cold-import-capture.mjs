@@ -35,11 +35,15 @@ export async function captureEntrypoint(entrypoint, options = {}) {
   }
 
   await register(api);
-  return {
+  const result = {
     entrypoint: resolvedEntrypoint,
     status: "captured",
     captured: api.getCapturedContracts(),
   };
+  if (options.apiOptions?.retainHandlers === true) {
+    result.retained = api.getRetainedContracts();
+  }
+  return result;
 }
 
 function resolveRegister(imported) {

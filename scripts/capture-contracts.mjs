@@ -8,7 +8,7 @@ import { repoRoot } from "./manifest-lib.mjs";
 export const defaultCaptureJsonPath = path.join(repoRoot, "reports/crabpot-capture.json");
 export const defaultCaptureMarkdownPath = path.join(repoRoot, "reports/crabpot-capture.md");
 
-const REGISTRATION_ASSERTIONS = {
+export const REGISTRATION_ASSERTIONS = {
   defineChannelPluginEntry: ["channel id is stable", "setup/config schema can be read", "message envelope metadata is preserved"],
   definePluginEntry: ["entrypoint register function is callable", "entrypoint metadata is preserved"],
   registerChannel: ["channel id is stable", "inbound/outbound envelope shape is captured", "sender metadata is preserved"],
@@ -22,7 +22,7 @@ const REGISTRATION_ASSERTIONS = {
   registerTool: ["tool name is stable", "input schema is captured", "result shape metadata is captured"],
 };
 
-const REGISTRATION_ARGUMENTS = {
+export const REGISTRATION_ARGUMENTS = {
   defineChannelPluginEntry: [{ id: "fixture-channel", setup: "function", receive: "function" }],
   definePluginEntry: [{ id: "fixture-plugin", register: "function" }],
   registerChannel: [{ id: "fixture-channel", send: "function", receive: "function" }],
@@ -36,7 +36,7 @@ const REGISTRATION_ARGUMENTS = {
   registerTool: [{ name: "fixture_tool", inputSchema: { type: "object", properties: {} }, run: "function" }],
 };
 
-const HOOK_ASSERTIONS = {
+export const HOOK_ASSERTIONS = {
   agent_end: ["final conversation payload is redacted as expected", "agent id and run metadata are present"],
   before_prompt_build: ["prompt mutation result is preserved", "agent and conversation metadata are present"],
   before_tool_call: ["block/allow return shapes are preserved", "terminal and approval metadata are present"],
@@ -48,7 +48,7 @@ const HOOK_ASSERTIONS = {
   subagent_spawned: ["spawn payload is preserved", "parent/subagent metadata are present"],
 };
 
-const HOOK_EVENTS = {
+export const HOOK_EVENTS = {
   agent_end: {
     agentId: "agent-fixture",
     conversationId: "conversation-fixture",
