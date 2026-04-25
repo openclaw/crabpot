@@ -111,13 +111,13 @@
     "fixtureCount": 11,
     "highPriorityFixtures": 6,
     "breakageCount": 0,
-    "warningCount": 9,
-    "suggestionCount": 13,
-    "decisionCount": 24,
-    "issueCount": 22,
+    "warningCount": 13,
+    "suggestionCount": 15,
+    "decisionCount": 30,
+    "issueCount": 28,
     "p0IssueCount": 0,
     "p1IssueCount": 7,
-    "contractProbeCount": 22
+    "contractProbeCount": 28
   },
   "fixtures": [
     {
@@ -213,8 +213,94 @@
         "path": "plugins/agentchat/integrations/openclaw-channel/package.json",
         "name": "@agentchatme/openclaw",
         "version": "0.6.1",
-        "type": "module"
+        "type": "module",
+        "main": "./dist/index.cjs",
+        "openclaw": {
+          "extensions": [
+            "./dist/index.js"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": "./dist/setup-entry.js",
+          "compatPluginApi": ">=2026.4.0",
+          "buildOpenClawVersion": "2026.4.15",
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./dist/index.js",
+              "relativePath": "plugins/agentchat/integrations/openclaw-channel/dist/index.js",
+              "exists": false,
+              "requiresBuild": true
+            },
+            {
+              "kind": "setupEntry",
+              "specifier": "./dist/setup-entry.js",
+              "relativePath": "plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js",
+              "exists": false,
+              "requiresBuild": true
+            }
+          ]
+        }
       },
+      "packages": [
+        {
+          "path": "plugins/agentchat/integrations/openclaw-channel/package.json",
+          "name": "@agentchatme/openclaw",
+          "version": "0.6.1",
+          "type": "module",
+          "main": "./dist/index.cjs",
+          "openclaw": {
+            "extensions": [
+              "./dist/index.js"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": "./dist/setup-entry.js",
+            "compatPluginApi": ">=2026.4.0",
+            "buildOpenClawVersion": "2026.4.15",
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./dist/index.js",
+                "relativePath": "plugins/agentchat/integrations/openclaw-channel/dist/index.js",
+                "exists": false,
+                "requiresBuild": true
+              },
+              {
+                "kind": "setupEntry",
+                "specifier": "./dist/setup-entry.js",
+                "relativePath": "plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js",
+                "exists": false,
+                "requiresBuild": true
+              }
+            ]
+          }
+        },
+        {
+          "path": "plugins/agentchat/package.json",
+          "name": "agentchat-monorepo",
+          "version": "0.0.0",
+          "type": null,
+          "main": null,
+          "openclaw": null
+        },
+        {
+          "path": "plugins/agentchat/packages/config/package.json",
+          "name": "@agentchat/config",
+          "version": "0.1.0",
+          "type": null,
+          "main": null,
+          "openclaw": null
+        },
+        {
+          "path": "plugins/agentchat/packages/sdk-typescript/package.json",
+          "name": "@agentchatme/agentchat",
+          "version": "1.3.0",
+          "type": "module",
+          "main": "./dist/index.cjs",
+          "openclaw": null
+        }
+      ],
       "sdkImports": [
         "openclaw/plugin-sdk/channel-contract",
         "openclaw/plugin-sdk/channel-core",
@@ -415,8 +501,56 @@
         "path": "plugins/wecom/package.json",
         "name": "@sunnoy/wecom",
         "version": "3.0.1",
-        "type": "module"
+        "type": "module",
+        "main": "index.js",
+        "openclaw": {
+          "extensions": [
+            "./index.js"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": null,
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.js",
+              "relativePath": "plugins/wecom/index.js",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
       },
+      "packages": [
+        {
+          "path": "plugins/wecom/package.json",
+          "name": "@sunnoy/wecom",
+          "version": "3.0.1",
+          "type": "module",
+          "main": "index.js",
+          "openclaw": {
+            "extensions": [
+              "./index.js"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": null,
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.js",
+                "relativePath": "plugins/wecom/index.js",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        }
+      ],
       "sdkImports": [
         "openclaw/plugin-sdk/core",
         "openclaw/plugin-sdk/media-runtime",
@@ -582,8 +716,64 @@
         "path": "plugins/a2a-gateway/package.json",
         "name": "openclaw-a2a-gateway",
         "version": "1.4.0",
-        "type": "module"
+        "type": "module",
+        "main": "index.ts",
+        "openclaw": {
+          "extensions": [
+            "./index.ts"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": null,
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.ts",
+              "relativePath": "plugins/a2a-gateway/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
       },
+      "packages": [
+        {
+          "path": "plugins/a2a-gateway/package.json",
+          "name": "openclaw-a2a-gateway",
+          "version": "1.4.0",
+          "type": "module",
+          "main": "index.ts",
+          "openclaw": {
+            "extensions": [
+              "./index.ts"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": null,
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.ts",
+                "relativePath": "plugins/a2a-gateway/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        },
+        {
+          "path": "plugins/a2a-gateway/cli/package.json",
+          "name": "@openclaw/a2a-cli",
+          "version": "0.1.0",
+          "type": "module",
+          "main": null,
+          "openclaw": null
+        }
+      ],
       "sdkImports": [
         "openclaw/plugin-sdk"
       ],
@@ -660,8 +850,56 @@
         "path": "plugins/hasdata/package.json",
         "name": "@hasdata/hasdata-openclaw-plugin",
         "version": "0.1.5",
-        "type": "module"
+        "type": "module",
+        "main": null,
+        "openclaw": {
+          "extensions": [
+            "./src/index.ts"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": ">=2026.3.24-beta.2",
+          "buildOpenClawVersion": "2026.3.24-beta.2",
+          "buildPluginSdkVersion": "2026.3.24-beta.2",
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./src/index.ts",
+              "relativePath": "plugins/hasdata/src/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
       },
+      "packages": [
+        {
+          "path": "plugins/hasdata/package.json",
+          "name": "@hasdata/hasdata-openclaw-plugin",
+          "version": "0.1.5",
+          "type": "module",
+          "main": null,
+          "openclaw": {
+            "extensions": [
+              "./src/index.ts"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": ">=2026.3.24-beta.2",
+            "buildOpenClawVersion": "2026.3.24-beta.2",
+            "buildPluginSdkVersion": "2026.3.24-beta.2",
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./src/index.ts",
+                "relativePath": "plugins/hasdata/src/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        }
+      ],
       "sdkImports": [],
       "sdkImportDetails": []
     },
@@ -723,8 +961,56 @@
         "path": "plugins/mcp-adapter/package.json",
         "name": "openclaw-mcp-adapter",
         "version": "0.1.1",
-        "type": "module"
+        "type": "module",
+        "main": null,
+        "openclaw": {
+          "extensions": [
+            "./index.ts"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": null,
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.ts",
+              "relativePath": "plugins/mcp-adapter/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
       },
+      "packages": [
+        {
+          "path": "plugins/mcp-adapter/package.json",
+          "name": "openclaw-mcp-adapter",
+          "version": "0.1.1",
+          "type": "module",
+          "main": null,
+          "openclaw": {
+            "extensions": [
+              "./index.ts"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": null,
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.ts",
+                "relativePath": "plugins/mcp-adapter/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        }
+      ],
       "sdkImports": [],
       "sdkImportDetails": []
     },
@@ -783,8 +1069,56 @@
         "path": "plugins/llm-trace-phoenix/package.json",
         "name": "llm-trace-phoenix",
         "version": "1.0.1",
-        "type": "module"
+        "type": "module",
+        "main": "index.ts",
+        "openclaw": {
+          "extensions": [
+            "./index.ts"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": ">=1.0.0",
+          "buildOpenClawVersion": "2026.4.1",
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.ts",
+              "relativePath": "plugins/llm-trace-phoenix/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
       },
+      "packages": [
+        {
+          "path": "plugins/llm-trace-phoenix/package.json",
+          "name": "llm-trace-phoenix",
+          "version": "1.0.1",
+          "type": "module",
+          "main": "index.ts",
+          "openclaw": {
+            "extensions": [
+              "./index.ts"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": ">=1.0.0",
+            "buildOpenClawVersion": "2026.4.1",
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.ts",
+                "relativePath": "plugins/llm-trace-phoenix/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        }
+      ],
       "sdkImports": [
         "openclaw/plugin-sdk"
       ],
@@ -843,11 +1177,85 @@
       ],
       "pluginManifests": [],
       "package": {
-        "path": "plugins/clawmetry/package.json",
-        "name": "openclaw-dashboard-repo",
-        "version": "0.0.1",
-        "type": null
+        "path": "plugins/clawmetry/clawhub-plugin/package.json",
+        "name": "@clawmetry/openclaw-plugin",
+        "version": "1.0.0",
+        "type": "module",
+        "main": "dist/index.js",
+        "openclaw": {
+          "extensions": [
+            "./index.ts"
+          ],
+          "runtimeExtensions": [
+            "./dist/index.js"
+          ],
+          "setupEntry": null,
+          "compatPluginApi": ">=2026.4.20",
+          "buildOpenClawVersion": "2026.4.20",
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.ts",
+              "relativePath": "plugins/clawmetry/clawhub-plugin/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            },
+            {
+              "kind": "runtimeExtension",
+              "specifier": "./dist/index.js",
+              "relativePath": "plugins/clawmetry/clawhub-plugin/dist/index.js",
+              "exists": false,
+              "requiresBuild": true
+            }
+          ]
+        }
       },
+      "packages": [
+        {
+          "path": "plugins/clawmetry/clawhub-plugin/package.json",
+          "name": "@clawmetry/openclaw-plugin",
+          "version": "1.0.0",
+          "type": "module",
+          "main": "dist/index.js",
+          "openclaw": {
+            "extensions": [
+              "./index.ts"
+            ],
+            "runtimeExtensions": [
+              "./dist/index.js"
+            ],
+            "setupEntry": null,
+            "compatPluginApi": ">=2026.4.20",
+            "buildOpenClawVersion": "2026.4.20",
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.ts",
+                "relativePath": "plugins/clawmetry/clawhub-plugin/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              },
+              {
+                "kind": "runtimeExtension",
+                "specifier": "./dist/index.js",
+                "relativePath": "plugins/clawmetry/clawhub-plugin/dist/index.js",
+                "exists": false,
+                "requiresBuild": true
+              }
+            ]
+          }
+        },
+        {
+          "path": "plugins/clawmetry/package.json",
+          "name": "openclaw-dashboard-repo",
+          "version": "0.0.1",
+          "type": null,
+          "main": null,
+          "openclaw": null
+        }
+      ],
       "sdkImports": [
         "openclaw/plugin-sdk/diagnostics-otel",
         "openclaw/plugin-sdk/plugin-entry"
@@ -972,8 +1380,56 @@
         "path": "plugins/codex-app-server/package.json",
         "name": "openclaw-codex-app-server",
         "version": "0.0.0",
-        "type": "module"
+        "type": "module",
+        "main": null,
+        "openclaw": {
+          "extensions": [
+            "./index.ts"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": ">=2026.3.22",
+          "buildOpenClawVersion": "2026.3.22",
+          "buildPluginSdkVersion": "2026.3.22",
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.ts",
+              "relativePath": "plugins/codex-app-server/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
       },
+      "packages": [
+        {
+          "path": "plugins/codex-app-server/package.json",
+          "name": "openclaw-codex-app-server",
+          "version": "0.0.0",
+          "type": "module",
+          "main": null,
+          "openclaw": {
+            "extensions": [
+              "./index.ts"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": ">=2026.3.22",
+            "buildOpenClawVersion": "2026.3.22",
+            "buildPluginSdkVersion": "2026.3.22",
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.ts",
+                "relativePath": "plugins/codex-app-server/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        }
+      ],
       "sdkImports": [
         "openclaw/plugin-sdk",
         "openclaw/plugin-sdk/discord",
@@ -1112,8 +1568,56 @@
         "path": "plugins/web-search-plus/package.json",
         "name": "web-search-plus-plugin-v2",
         "version": "2.2.0",
-        "type": "module"
+        "type": "module",
+        "main": "index.ts",
+        "openclaw": {
+          "extensions": [
+            "./index.ts"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": ">=2026.3.22",
+          "buildOpenClawVersion": "2026.4.2",
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.ts",
+              "relativePath": "plugins/web-search-plus/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
       },
+      "packages": [
+        {
+          "path": "plugins/web-search-plus/package.json",
+          "name": "web-search-plus-plugin-v2",
+          "version": "2.2.0",
+          "type": "module",
+          "main": "index.ts",
+          "openclaw": {
+            "extensions": [
+              "./index.ts"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": ">=2026.3.22",
+            "buildOpenClawVersion": "2026.4.2",
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.ts",
+                "relativePath": "plugins/web-search-plus/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        }
+      ],
       "sdkImports": [],
       "sdkImportDetails": []
     },
@@ -1178,8 +1682,56 @@
         "path": "plugins/apify/package.json",
         "name": "@apify/apify-openclaw-plugin",
         "version": "0.2.0",
-        "type": "module"
+        "type": "module",
+        "main": null,
+        "openclaw": {
+          "extensions": [
+            "./src/index.ts"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": ">=1.0.0",
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./src/index.ts",
+              "relativePath": "plugins/apify/src/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
       },
+      "packages": [
+        {
+          "path": "plugins/apify/package.json",
+          "name": "@apify/apify-openclaw-plugin",
+          "version": "0.2.0",
+          "type": "module",
+          "main": null,
+          "openclaw": {
+            "extensions": [
+              "./src/index.ts"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": ">=1.0.0",
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./src/index.ts",
+                "relativePath": "plugins/apify/src/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        }
+      ],
       "sdkImports": [
         "openclaw/plugin-sdk",
         "openclaw/plugin-sdk/core"
@@ -1278,8 +1830,56 @@
         "path": "plugins/inworld-tts/package.json",
         "name": "openclaw-inworld-tts",
         "version": "1.0.2",
-        "type": "module"
+        "type": "module",
+        "main": null,
+        "openclaw": {
+          "extensions": [
+            "./index.ts"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": ">=2026.4.1",
+          "buildOpenClawVersion": "2026.4.1",
+          "buildPluginSdkVersion": "2026.4.1",
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.ts",
+              "relativePath": "plugins/inworld-tts/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
       },
+      "packages": [
+        {
+          "path": "plugins/inworld-tts/package.json",
+          "name": "openclaw-inworld-tts",
+          "version": "1.0.2",
+          "type": "module",
+          "main": null,
+          "openclaw": {
+            "extensions": [
+              "./index.ts"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": ">=2026.4.1",
+            "buildOpenClawVersion": "2026.4.1",
+            "buildPluginSdkVersion": "2026.4.1",
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.ts",
+                "relativePath": "plugins/inworld-tts/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        }
+      ],
       "sdkImports": [
         "openclaw/plugin-sdk/plugin-entry",
         "openclaw/plugin-sdk/secret-input",
@@ -1332,6 +1932,34 @@
       "compatRecord": "channel-env-vars"
     },
     {
+      "fixture": "wecom",
+      "code": "package-plugin-api-compat-missing",
+      "level": "warning",
+      "message": "package openclaw metadata does not declare compat.pluginApi",
+      "evidence": [
+        "plugins/wecom/package.json"
+      ]
+    },
+    {
+      "fixture": "a2a-gateway",
+      "code": "package-manifest-version-drift",
+      "level": "warning",
+      "message": "package.json and openclaw.plugin.json publish different versions",
+      "evidence": [
+        "package:1.4.0",
+        "manifest:1.3.0"
+      ]
+    },
+    {
+      "fixture": "a2a-gateway",
+      "code": "package-plugin-api-compat-missing",
+      "level": "warning",
+      "message": "package openclaw metadata does not declare compat.pluginApi",
+      "evidence": [
+        "plugins/a2a-gateway/package.json"
+      ]
+    },
+    {
       "fixture": "a2a-gateway",
       "code": "legacy-root-sdk-import",
       "level": "warning",
@@ -1350,6 +1978,15 @@
         "hasdata"
       ],
       "compatRecord": "provider-auth-env-vars"
+    },
+    {
+      "fixture": "mcp-adapter",
+      "code": "package-plugin-api-compat-missing",
+      "level": "warning",
+      "message": "package openclaw metadata does not declare compat.pluginApi",
+      "evidence": [
+        "plugins/mcp-adapter/package.json"
+      ]
     },
     {
       "fixture": "llm-trace-phoenix",
@@ -1426,6 +2063,16 @@
     }
   ],
   "suggestions": [
+    {
+      "fixture": "agentchat",
+      "code": "package-build-artifact-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint points at build output that is not present in the source fixture checkout",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/agentchat/integrations/openclaw-channel/dist/index.js",
+        "setupEntry:./dist/setup-entry.js -> plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js"
+      ]
+    },
     {
       "fixture": "agentchat",
       "code": "channel-contract-probe",
@@ -1512,6 +2159,15 @@
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
         "registerTool @ plugins/mcp-adapter/index.ts:30"
+      ]
+    },
+    {
+      "fixture": "clawmetry",
+      "code": "package-build-artifact-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint points at build output that is not present in the source fixture checkout",
+      "evidence": [
+        "runtimeExtension:./dist/index.js -> plugins/clawmetry/clawhub-plugin/dist/index.js"
       ]
     },
     {
@@ -1681,6 +2337,35 @@
       "id": "CRABPOT-0009",
       "fixture": "a2a-gateway",
       "severity": "P2",
+      "owner": "plugin",
+      "code": "package-manifest-version-drift",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "title": "a2a-gateway: package and manifest versions drift",
+      "evidence": [
+        "package:1.4.0",
+        "manifest:1.3.0"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0010",
+      "fixture": "a2a-gateway",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-plugin-api-compat-missing",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "title": "a2a-gateway: plugin API compatibility range is missing",
+      "evidence": [
+        "plugins/a2a-gateway/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0011",
+      "fixture": "a2a-gateway",
+      "severity": "P2",
       "owner": "inspector",
       "code": "runtime-tool-capture",
       "decision": "inspector-follow-up",
@@ -1692,7 +2377,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0010",
+      "id": "CRABPOT-0012",
       "fixture": "agentchat",
       "severity": "P2",
       "owner": "inspector",
@@ -1706,7 +2391,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0011",
+      "id": "CRABPOT-0013",
       "fixture": "agentchat",
       "severity": "P2",
       "owner": "core",
@@ -1720,7 +2405,22 @@
       "compatRecord": "channel-env-vars"
     },
     {
-      "id": "CRABPOT-0012",
+      "id": "CRABPOT-0014",
+      "fixture": "agentchat",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-build-artifact-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "agentchat: cold import requires package build output",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/agentchat/integrations/openclaw-channel/dist/index.js",
+        "setupEntry:./dist/setup-entry.js -> plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0015",
       "fixture": "apify",
       "severity": "P2",
       "owner": "core",
@@ -1736,7 +2436,7 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
-      "id": "CRABPOT-0013",
+      "id": "CRABPOT-0016",
       "fixture": "apify",
       "severity": "P2",
       "owner": "inspector",
@@ -1750,7 +2450,21 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0014",
+      "id": "CRABPOT-0017",
+      "fixture": "clawmetry",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-build-artifact-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "clawmetry: cold import requires package build output",
+      "evidence": [
+        "runtimeExtension:./dist/index.js -> plugins/clawmetry/clawhub-plugin/dist/index.js"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0018",
       "fixture": "codex-app-server",
       "severity": "P2",
       "owner": "core",
@@ -1767,7 +2481,7 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
-      "id": "CRABPOT-0015",
+      "id": "CRABPOT-0019",
       "fixture": "hasdata",
       "severity": "P2",
       "owner": "core",
@@ -1781,7 +2495,7 @@
       "compatRecord": "provider-auth-env-vars"
     },
     {
-      "id": "CRABPOT-0016",
+      "id": "CRABPOT-0020",
       "fixture": "inworld-tts",
       "severity": "P2",
       "owner": "core",
@@ -1795,7 +2509,7 @@
       "compatRecord": "provider-auth-env-vars"
     },
     {
-      "id": "CRABPOT-0017",
+      "id": "CRABPOT-0021",
       "fixture": "llm-trace-phoenix",
       "severity": "P2",
       "owner": "core",
@@ -1809,7 +2523,21 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
-      "id": "CRABPOT-0018",
+      "id": "CRABPOT-0022",
+      "fixture": "mcp-adapter",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-plugin-api-compat-missing",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "title": "mcp-adapter: plugin API compatibility range is missing",
+      "evidence": [
+        "plugins/mcp-adapter/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0023",
       "fixture": "mcp-adapter",
       "severity": "P2",
       "owner": "inspector",
@@ -1823,7 +2551,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0019",
+      "id": "CRABPOT-0024",
       "fixture": "web-search-plus",
       "severity": "P2",
       "owner": "core",
@@ -1845,7 +2573,7 @@
       "compatRecord": "provider-auth-env-vars"
     },
     {
-      "id": "CRABPOT-0020",
+      "id": "CRABPOT-0025",
       "fixture": "web-search-plus",
       "severity": "P2",
       "owner": "inspector",
@@ -1860,7 +2588,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0021",
+      "id": "CRABPOT-0026",
       "fixture": "wecom",
       "severity": "P2",
       "owner": "inspector",
@@ -1874,7 +2602,21 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0022",
+      "id": "CRABPOT-0027",
+      "fixture": "wecom",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-plugin-api-compat-missing",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "title": "wecom: plugin API compatibility range is missing",
+      "evidence": [
+        "plugins/wecom/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0028",
       "fixture": "wecom",
       "severity": "P2",
       "owner": "inspector",
@@ -2011,6 +2753,58 @@
       ]
     },
     {
+      "id": "package.compat.plugin-api-range:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      "evidence": [
+        "plugins/a2a-gateway/package.json"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:mcp-adapter",
+      "fixture": "mcp-adapter",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      "evidence": [
+        "plugins/mcp-adapter/package.json"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:wecom",
+      "fixture": "wecom",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      "evidence": [
+        "plugins/wecom/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.build-before-cold-import:agentchat",
+      "fixture": "agentchat",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector can build or resolve source aliases before cold importing package entrypoints.",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/agentchat/integrations/openclaw-channel/dist/index.js",
+        "setupEntry:./dist/setup-entry.js -> plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js"
+      ]
+    },
+    {
+      "id": "package.metadata.version-alignment:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Package and OpenClaw manifest versions stay aligned for release compatibility reporting.",
+      "evidence": [
+        "package:1.4.0",
+        "manifest:1.3.0"
+      ]
+    },
+    {
       "id": "sdk.import.root-barrel-cold-import:a2a-gateway",
       "fixture": "a2a-gateway",
       "priority": "P2",
@@ -2091,6 +2885,16 @@
       ]
     },
     {
+      "id": "package.entrypoint.build-before-cold-import:clawmetry",
+      "fixture": "clawmetry",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector can build or resolve source aliases before cold importing package entrypoints.",
+      "evidence": [
+        "runtimeExtension:./dist/index.js -> plugins/clawmetry/clawhub-plugin/dist/index.js"
+      ]
+    },
+    {
       "id": "sdk.import.root-barrel-cold-import:apify",
       "fixture": "apify",
       "priority": "P3",
@@ -2162,6 +2966,17 @@
       "evidence": []
     },
     {
+      "fixture": "agentchat",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/agentchat/integrations/openclaw-channel/package.json",
+        "@agentchatme/openclaw",
+        "version:0.6.1"
+      ]
+    },
+    {
       "fixture": "wecom",
       "code": "seam-inventory",
       "level": "log",
@@ -2202,6 +3017,17 @@
       ]
     },
     {
+      "fixture": "wecom",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/wecom/package.json",
+        "@sunnoy/wecom",
+        "version:3.0.1"
+      ]
+    },
+    {
       "fixture": "a2a-gateway",
       "code": "seam-inventory",
       "level": "log",
@@ -2231,6 +3057,26 @@
       ]
     },
     {
+      "fixture": "a2a-gateway",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/a2a-gateway/package.json",
+        "openclaw-a2a-gateway",
+        "version:1.4.0"
+      ]
+    },
+    {
+      "fixture": "a2a-gateway",
+      "code": "typescript-source-entrypoint",
+      "level": "log",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/a2a-gateway/index.ts"
+      ]
+    },
+    {
       "fixture": "hasdata",
       "code": "seam-inventory",
       "level": "log",
@@ -2254,6 +3100,26 @@
       "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
       "evidence": [
         "registerTool"
+      ]
+    },
+    {
+      "fixture": "hasdata",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/hasdata/package.json",
+        "@hasdata/hasdata-openclaw-plugin",
+        "version:0.1.5"
+      ]
+    },
+    {
+      "fixture": "hasdata",
+      "code": "typescript-source-entrypoint",
+      "level": "log",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/hasdata/src/index.ts"
       ]
     },
     {
@@ -2293,6 +3159,26 @@
       ]
     },
     {
+      "fixture": "mcp-adapter",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/mcp-adapter/package.json",
+        "openclaw-mcp-adapter",
+        "version:0.1.1"
+      ]
+    },
+    {
+      "fixture": "mcp-adapter",
+      "code": "typescript-source-entrypoint",
+      "level": "log",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/mcp-adapter/index.ts"
+      ]
+    },
+    {
       "fixture": "llm-trace-phoenix",
       "code": "seam-inventory",
       "level": "log",
@@ -2320,6 +3206,26 @@
       "evidence": []
     },
     {
+      "fixture": "llm-trace-phoenix",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/llm-trace-phoenix/package.json",
+        "llm-trace-phoenix",
+        "version:1.0.1"
+      ]
+    },
+    {
+      "fixture": "llm-trace-phoenix",
+      "code": "typescript-source-entrypoint",
+      "level": "log",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/llm-trace-phoenix/index.ts"
+      ]
+    },
+    {
       "fixture": "clawmetry",
       "code": "seam-inventory",
       "level": "log",
@@ -2343,6 +3249,26 @@
       "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
       "evidence": [
         "registerService"
+      ]
+    },
+    {
+      "fixture": "clawmetry",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/clawmetry/clawhub-plugin/package.json",
+        "@clawmetry/openclaw-plugin",
+        "version:1.0.0"
+      ]
+    },
+    {
+      "fixture": "clawmetry",
+      "code": "typescript-source-entrypoint",
+      "level": "log",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/clawmetry/clawhub-plugin/index.ts"
       ]
     },
     {
@@ -2378,6 +3304,26 @@
       ]
     },
     {
+      "fixture": "codex-app-server",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/codex-app-server/package.json",
+        "openclaw-codex-app-server",
+        "version:0.0.0"
+      ]
+    },
+    {
+      "fixture": "codex-app-server",
+      "code": "typescript-source-entrypoint",
+      "level": "log",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/codex-app-server/index.ts"
+      ]
+    },
+    {
       "fixture": "web-search-plus",
       "code": "seam-inventory",
       "level": "log",
@@ -2400,6 +3346,26 @@
       "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
       "evidence": [
         "registerTool"
+      ]
+    },
+    {
+      "fixture": "web-search-plus",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/web-search-plus/package.json",
+        "web-search-plus-plugin-v2",
+        "version:2.2.0"
+      ]
+    },
+    {
+      "fixture": "web-search-plus",
+      "code": "typescript-source-entrypoint",
+      "level": "log",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/web-search-plus/index.ts"
       ]
     },
     {
@@ -2430,6 +3396,26 @@
       ]
     },
     {
+      "fixture": "apify",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/apify/package.json",
+        "@apify/apify-openclaw-plugin",
+        "version:0.2.0"
+      ]
+    },
+    {
+      "fixture": "apify",
+      "code": "typescript-source-entrypoint",
+      "level": "log",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/apify/src/index.ts"
+      ]
+    },
+    {
       "fixture": "inworld-tts",
       "code": "seam-inventory",
       "level": "log",
@@ -2454,6 +3440,26 @@
       "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
       "evidence": [
         "registerSpeechProvider"
+      ]
+    },
+    {
+      "fixture": "inworld-tts",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/inworld-tts/package.json",
+        "openclaw-inworld-tts",
+        "version:1.0.2"
+      ]
+    },
+    {
+      "fixture": "inworld-tts",
+      "code": "typescript-source-entrypoint",
+      "level": "log",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/inworld-tts/index.ts"
       ]
     },
     {
@@ -2549,6 +3555,13 @@
   "decisions": [
     {
       "fixture": "agentchat",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Run the plugin build or resolve source entrypoint aliases before cold-importing this fixture.",
+      "evidence": "./dist/index.js, ./dist/setup-entry.js"
+    },
+    {
+      "fixture": "agentchat",
       "decision": "core-compat-adapter",
       "seam": "channel-env",
       "action": "Keep channelEnvVars compatibility active until channel setup metadata has a stable replacement path.",
@@ -2560,6 +3573,13 @@
       "seam": "channel-runtime",
       "action": "Probe channel setup and message envelope contracts before changing channel runtime payloads.",
       "evidence": "defineChannelPluginEntry"
+    },
+    {
+      "fixture": "wecom",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to declare the plugin API range it was built against.",
+      "evidence": "plugins/wecom/package.json"
     },
     {
       "fixture": "wecom",
@@ -2588,6 +3608,20 @@
       "seam": "tool-schema",
       "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
       "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "a2a-gateway",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to keep package and manifest versions aligned before relying on release compatibility signals.",
+      "evidence": "1.4.0 != 1.3.0"
+    },
+    {
+      "fixture": "a2a-gateway",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to declare the plugin API range it was built against.",
+      "evidence": "plugins/a2a-gateway/package.json"
     },
     {
       "fixture": "a2a-gateway",
@@ -2626,6 +3660,13 @@
     },
     {
       "fixture": "mcp-adapter",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to declare the plugin API range it was built against.",
+      "evidence": "plugins/mcp-adapter/package.json"
+    },
+    {
+      "fixture": "mcp-adapter",
       "decision": "inspector-follow-up",
       "seam": "registration-capture",
       "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
@@ -2651,6 +3692,13 @@
       "seam": "sdk-import",
       "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
       "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "clawmetry",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Run the plugin build or resolve source entrypoint aliases before cold-importing this fixture.",
+      "evidence": "./dist/index.js"
     },
     {
       "fixture": "clawmetry",

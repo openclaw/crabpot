@@ -1,5 +1,5 @@
 import { existsSync } from "node:fs";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { inspectManifest } from "./inspect-fixtures.mjs";
 import { readManifest, repoRoot } from "./manifest-lib.mjs";
@@ -311,6 +311,48 @@ function issueMetadata(finding) {
       decision: "core-compat-adapter",
       title: "compat-dependent behavior lacks registry coverage",
     },
+    "package-build-artifact-entrypoint": {
+      severity: "P2",
+      owner: "inspector",
+      decision: "inspector-follow-up",
+      title: "cold import requires package build output",
+    },
+    "package-entrypoint-missing": {
+      severity: "P1",
+      owner: "plugin",
+      decision: "plugin-upstream-fix",
+      title: "OpenClaw package entrypoint is missing",
+    },
+    "package-json-missing": {
+      severity: "P2",
+      owner: "plugin",
+      decision: "plugin-upstream-fix",
+      title: "package metadata is missing",
+    },
+    "package-manifest-version-drift": {
+      severity: "P2",
+      owner: "plugin",
+      decision: "plugin-upstream-fix",
+      title: "package and manifest versions drift",
+    },
+    "package-openclaw-entry-missing": {
+      severity: "P2",
+      owner: "plugin",
+      decision: "plugin-upstream-fix",
+      title: "OpenClaw package entrypoint metadata is missing",
+    },
+    "package-openclaw-metadata-missing": {
+      severity: "P2",
+      owner: "plugin",
+      decision: "plugin-upstream-fix",
+      title: "OpenClaw package metadata is missing",
+    },
+    "package-plugin-api-compat-missing": {
+      severity: "P2",
+      owner: "plugin",
+      decision: "plugin-upstream-fix",
+      title: "plugin API compatibility range is missing",
+    },
     "provider-auth-env-vars": {
       severity: "P2",
       owner: "core",
@@ -379,6 +421,36 @@ function buildContractProbes({ warnings, suggestions, fixtures }) {
       id: "api.capture.runtime-registrars",
       contract: "External inspector capture records service, route, gateway, command, and interactive registrations.",
       target: "inspector-capture-api",
+    },
+    "package-build-artifact-entrypoint": {
+      id: "package.entrypoint.build-before-cold-import",
+      contract: "Inspector can build or resolve source aliases before cold importing package entrypoints.",
+      target: "package-loader",
+    },
+    "package-entrypoint-missing": {
+      id: "package.entrypoint.exists",
+      contract: "OpenClaw package entrypoints resolve to files in the published or built plugin package.",
+      target: "package-loader",
+    },
+    "package-openclaw-entry-missing": {
+      id: "package.entrypoint.openclaw-metadata",
+      contract: "OpenClaw package metadata declares entrypoints for cold import and registration capture.",
+      target: "package-loader",
+    },
+    "package-openclaw-metadata-missing": {
+      id: "package.metadata.openclaw",
+      contract: "Plugins that register OpenClaw APIs declare OpenClaw install and entrypoint metadata.",
+      target: "package-loader",
+    },
+    "package-manifest-version-drift": {
+      id: "package.metadata.version-alignment",
+      contract: "Package and OpenClaw manifest versions stay aligned for release compatibility reporting.",
+      target: "package-loader",
+    },
+    "package-plugin-api-compat-missing": {
+      id: "package.compat.plugin-api-range",
+      contract: "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      target: "package-loader",
     },
     "runtime-tool-capture": {
       id: "tool.registration.schema-capture",
@@ -458,6 +530,7 @@ function classifyFixture({ fixture, inspection, fixtureReport, targetOpenClaw, b
 
   classifyHookNameCoverage({ fixture, inspection, targetOpenClaw, breakages, logs });
   classifyRegistrationNameCoverage({ fixture, inspection, targetOpenClaw, breakages, logs });
+  classifyPackageContracts({ fixture, inspection, fixtureReport, warnings, suggestions, logs, decisions });
 
   for (const pluginManifest of fixtureReport.pluginManifests) {
     const providerAuthKeys = Object.keys(pluginManifest.providerAuthEnvVars ?? {});
@@ -700,12 +773,167 @@ function classifyRegistrationNameCoverage({ fixture, inspection, targetOpenClaw,
   });
 }
 
+function classifyPackageContracts({ fixture, inspection, fixtureReport, warnings, suggestions, logs, decisions }) {
+  const packageSummary = fixtureReport.package;
+  if (!packageSummary) {
+    warnings.push({
+      fixture: fixture.id,
+      code: "package-json-missing",
+      level: "warning",
+      message: "fixture has no package.json to describe install and plugin entrypoint metadata",
+      evidence: [fixture.path],
+    });
+    decisions.push({
+      fixture: fixture.id,
+      decision: "plugin-upstream-fix",
+      seam: "package-metadata",
+      action: "Ask the plugin to publish package metadata before treating install/cold-import checks as covered.",
+      evidence: fixture.path,
+    });
+    return;
+  }
+
+  logs.push({
+    fixture: fixture.id,
+    code: "package-metadata",
+    level: "log",
+    message: "selected package metadata for plugin contract checks",
+    evidence: [
+      packageSummary.path,
+      packageSummary.name ?? "unnamed",
+      packageSummary.version ? `version:${packageSummary.version}` : "version:missing",
+    ],
+  });
+
+  const manifestVersions = fixtureReport.pluginManifests
+    .map((manifest) => manifest.version)
+    .filter((version) => typeof version === "string" && version.length > 0);
+  const mismatchedManifestVersions = manifestVersions.filter((version) => version !== packageSummary.version);
+  if (packageSummary.version && mismatchedManifestVersions.length > 0) {
+    warnings.push({
+      fixture: fixture.id,
+      code: "package-manifest-version-drift",
+      level: "warning",
+      message: "package.json and openclaw.plugin.json publish different versions",
+      evidence: [`package:${packageSummary.version}`, ...mismatchedManifestVersions.map((version) => `manifest:${version}`)],
+    });
+    decisions.push({
+      fixture: fixture.id,
+      decision: "plugin-upstream-fix",
+      seam: "package-metadata",
+      action: "Ask the plugin to keep package and manifest versions aligned before relying on release compatibility signals.",
+      evidence: `${packageSummary.version} != ${mismatchedManifestVersions.join(", ")}`,
+    });
+  }
+
+  if (packageSummary.openclaw && !packageSummary.openclaw.compatPluginApi) {
+    warnings.push({
+      fixture: fixture.id,
+      code: "package-plugin-api-compat-missing",
+      level: "warning",
+      message: "package openclaw metadata does not declare compat.pluginApi",
+      evidence: [packageSummary.path],
+    });
+    decisions.push({
+      fixture: fixture.id,
+      decision: "plugin-upstream-fix",
+      seam: "package-metadata",
+      action: "Ask the plugin to declare the plugin API range it was built against.",
+      evidence: packageSummary.path,
+    });
+  }
+
+  if (packageSummary.openclaw && packageSummary.openclaw.entrypoints.length === 0) {
+    warnings.push({
+      fixture: fixture.id,
+      code: "package-openclaw-entry-missing",
+      level: "warning",
+      message: "package openclaw metadata does not declare plugin entrypoints",
+      evidence: [packageSummary.path],
+    });
+    decisions.push({
+      fixture: fixture.id,
+      decision: "plugin-upstream-fix",
+      seam: "package-entrypoint",
+      action: "Ask the plugin to declare openclaw.extensions or runtimeExtensions so cold import can target the correct entrypoint.",
+      evidence: packageSummary.path,
+    });
+  }
+
+  const missingEntrypoints = packageSummary.openclaw?.entrypoints.filter((entrypoint) => !entrypoint.exists) ?? [];
+  const buildEntrypoints = missingEntrypoints.filter((entrypoint) => entrypoint.requiresBuild);
+  const plainMissingEntrypoints = missingEntrypoints.filter((entrypoint) => !entrypoint.requiresBuild);
+
+  if (buildEntrypoints.length > 0) {
+    suggestions.push({
+      fixture: fixture.id,
+      code: "package-build-artifact-entrypoint",
+      level: "suggestion",
+      message: "package OpenClaw entrypoint points at build output that is not present in the source fixture checkout",
+      evidence: buildEntrypoints.map((entrypoint) => `${entrypoint.kind}:${entrypoint.specifier} -> ${entrypoint.relativePath}`),
+    });
+    decisions.push({
+      fixture: fixture.id,
+      decision: "inspector-follow-up",
+      seam: "cold-import",
+      action: "Run the plugin build or resolve source entrypoint aliases before cold-importing this fixture.",
+      evidence: buildEntrypoints.map((entrypoint) => entrypoint.specifier).join(", "),
+    });
+  }
+
+  if (plainMissingEntrypoints.length > 0) {
+    warnings.push({
+      fixture: fixture.id,
+      code: "package-entrypoint-missing",
+      level: "warning",
+      message: "package OpenClaw entrypoint does not exist in the fixture checkout",
+      evidence: plainMissingEntrypoints.map((entrypoint) => `${entrypoint.kind}:${entrypoint.specifier} -> ${entrypoint.relativePath}`),
+    });
+    decisions.push({
+      fixture: fixture.id,
+      decision: "plugin-upstream-fix",
+      seam: "package-entrypoint",
+      action: "Ask the plugin to publish a valid OpenClaw entrypoint or update package metadata.",
+      evidence: plainMissingEntrypoints.map((entrypoint) => entrypoint.specifier).join(", "),
+    });
+  }
+
+  const sourceEntrypoints = packageSummary.openclaw?.entrypoints.filter((entrypoint) => entrypoint.exists && entrypoint.relativePath.endsWith(".ts")) ?? [];
+  if (sourceEntrypoints.length > 0) {
+    logs.push({
+      fixture: fixture.id,
+      code: "typescript-source-entrypoint",
+      level: "log",
+      message: "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      evidence: sourceEntrypoints.map((entrypoint) => `${entrypoint.kind}:${entrypoint.relativePath}`),
+    });
+  }
+
+  if (inspection.registrations.length > 0 && !packageSummary.openclaw) {
+    warnings.push({
+      fixture: fixture.id,
+      code: "package-openclaw-metadata-missing",
+      level: "warning",
+      message: "fixture registers plugin APIs but the selected package.json has no openclaw metadata",
+      evidence: [packageSummary.path, ...inspection.registrations],
+    });
+    decisions.push({
+      fixture: fixture.id,
+      decision: "plugin-upstream-fix",
+      seam: "package-metadata",
+      action: "Ask the plugin to declare OpenClaw install and entrypoint metadata in package.json.",
+      evidence: packageSummary.path,
+    });
+  }
+}
+
 async function buildFixtureReport(fixture, inspection) {
   const checkoutPath = path.join(repoRoot, fixture.path);
   const sourceRoot = fixture.subdir ? path.join(checkoutPath, fixture.subdir) : checkoutPath;
 
   const pluginManifests = await readPluginManifests(checkoutPath, sourceRoot);
-  const packageJson = await readPackageSummary(checkoutPath, sourceRoot);
+  const packageSummaries = await readPackageSummaries(checkoutPath, sourceRoot);
+  const packageJson = selectPrimaryPackage(packageSummaries);
   const sdkImports = unique((inspection.sdkImports ?? []).map((sdkImport) => sdkImport.specifier));
 
   return {
@@ -724,6 +952,7 @@ async function buildFixtureReport(fixture, inspection) {
     sourceFiles: inspection.sourceFiles ?? [],
     pluginManifests,
     package: packageJson,
+    packages: packageSummaries,
     sdkImports,
     sdkImportDetails: inspection.sdkImports ?? [],
   };
@@ -815,19 +1044,115 @@ async function readTargetOpenClaw(manifest, configuredPath) {
   };
 }
 
-async function readPackageSummary(checkoutPath, sourceRoot) {
-  const candidates = unique([path.join(sourceRoot, "package.json"), path.join(checkoutPath, "package.json")].filter(existsSync));
-  if (candidates.length === 0) {
-    return null;
+async function readPackageSummaries(checkoutPath, sourceRoot) {
+  const candidates = unique([
+    path.join(sourceRoot, "package.json"),
+    path.join(checkoutPath, "package.json"),
+    ...(await findPackageFiles(checkoutPath, { maxDepth: 3 })),
+  ].filter(existsSync));
+  const summaries = [];
+
+  for (const packagePath of candidates) {
+    const packageJson = JSON.parse(await readFile(packagePath, "utf8"));
+    summaries.push(summarizePackage(packagePath, packageJson));
   }
 
-  const packageJson = JSON.parse(await readFile(candidates[0], "utf8"));
+  return summaries.sort((left, right) => packageRank(left) - packageRank(right) || left.path.localeCompare(right.path));
+}
+
+function summarizePackage(packagePath, packageJson) {
+  const packageDir = path.dirname(packagePath);
+  const openclaw = packageJson.openclaw
+    ? {
+        extensions: arrayValues(packageJson.openclaw.extensions),
+        runtimeExtensions: arrayValues(packageJson.openclaw.runtimeExtensions),
+        setupEntry: typeof packageJson.openclaw.setupEntry === "string" ? packageJson.openclaw.setupEntry : null,
+        compatPluginApi:
+          typeof packageJson.openclaw.compat?.pluginApi === "string" ? packageJson.openclaw.compat.pluginApi : null,
+        buildOpenClawVersion:
+          typeof packageJson.openclaw.build?.openclawVersion === "string"
+            ? packageJson.openclaw.build.openclawVersion
+            : null,
+        buildPluginSdkVersion:
+          typeof packageJson.openclaw.build?.pluginSdkVersion === "string"
+            ? packageJson.openclaw.build.pluginSdkVersion
+            : null,
+      }
+    : null;
+
+  if (openclaw) {
+    openclaw.entrypoints = collectOpenClawEntrypoints(packageDir, openclaw);
+  }
+
   return {
-    path: path.relative(repoRoot, candidates[0]),
+    path: path.relative(repoRoot, packagePath),
     name: packageJson.name ?? null,
     version: packageJson.version ?? null,
     type: packageJson.type ?? null,
+    main: typeof packageJson.main === "string" ? packageJson.main : null,
+    openclaw,
   };
+}
+
+function collectOpenClawEntrypoints(packageDir, openclaw) {
+  const entrypoints = [
+    ...openclaw.extensions.map((specifier) => ({ kind: "extension", specifier })),
+    ...openclaw.runtimeExtensions.map((specifier) => ({ kind: "runtimeExtension", specifier })),
+    ...(openclaw.setupEntry ? [{ kind: "setupEntry", specifier: openclaw.setupEntry }] : []),
+  ];
+
+  return entrypoints.map((entrypoint) => {
+    const resolvedPath = path.resolve(packageDir, entrypoint.specifier);
+    const relativePath = path.relative(repoRoot, resolvedPath);
+    return {
+      ...entrypoint,
+      relativePath,
+      exists: existsSync(resolvedPath),
+      requiresBuild: /(^|\/)dist\//.test(entrypoint.specifier) || /(^|\/)build\//.test(entrypoint.specifier),
+    };
+  });
+}
+
+async function findPackageFiles(root, options, depth = 0) {
+  if (!existsSync(root) || depth > options.maxDepth) {
+    return [];
+  }
+
+  const files = [];
+  for (const entry of await readdir(root, { withFileTypes: true })) {
+    const entryPath = path.join(root, entry.name);
+    if (entry.isFile() && entry.name === "package.json") {
+      files.push(entryPath);
+      continue;
+    }
+    if (!entry.isDirectory() || shouldSkipPackageDir(entry.name)) {
+      continue;
+    }
+    files.push(...(await findPackageFiles(entryPath, options, depth + 1)));
+  }
+  return files;
+}
+
+function shouldSkipPackageDir(name) {
+  return name === ".git" || name === "node_modules" || name === "dist" || name === "build" || name === "coverage";
+}
+
+function selectPrimaryPackage(packages) {
+  return packages[0] ?? null;
+}
+
+function packageRank(packageSummary) {
+  if (packageSummary.openclaw?.entrypoints.length > 0) {
+    return 0;
+  }
+  if (packageSummary.openclaw) {
+    return 1;
+  }
+  return 2;
+}
+
+function arrayValues(value) {
+  return Array.isArray(value) ? value.filter((item) => typeof item === "string") : [];
 }
 
 function emptyInspection(fixture) {
