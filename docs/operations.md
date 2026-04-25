@@ -46,6 +46,18 @@ Add heavier lanes later for SDK compilation against specific OpenClaw refs:
 - latest stable release tag
 - active beta branch or release candidate
 
+The `OpenClaw Ref Compatibility` workflow is the manual ref lane. Dispatch it
+with:
+
+- `openclaw_repository`: usually `openclaw/openclaw`, or a fork.
+- `openclaw_ref`: branch, tag, or SHA.
+- `run_isolated_fixture`: `false` for static-only, `true` to run one opt-in
+  workspace fixture.
+- `fixture`: required only when `run_isolated_fixture` is enabled.
+
+The static job uploads `reports/`. The isolated fixture job uploads
+`.crabpot/results/` and `reports/crabpot-execution-results.*`.
+
 ## Reading the report
 
 Use `reports/crabpot-report.md` for full human review,

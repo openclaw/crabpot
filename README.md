@@ -127,6 +127,17 @@ To preview a narrow execution lane without running install/build/import:
 npm run workspace:execute -- --fixture wecom --dry-run
 ```
 
+## Manual OpenClaw ref CI
+
+The `OpenClaw Ref Compatibility` workflow can be run from GitHub Actions with
+an OpenClaw branch, tag, or SHA. Set `openclaw_repository` when testing a fork,
+and `openclaw_ref` to the exact ref under review.
+
+The default job runs the static contract suite against that checkout and uploads
+the generated reports. The optional isolated job runs one fixture lane when
+`run_isolated_fixture` is enabled and `fixture` is set, then uploads
+`.crabpot/results/` plus the execution summary report.
+
 ## Fixture policy
 
 Fixtures should earn their spot by covering a distinct seam. Popularity is a

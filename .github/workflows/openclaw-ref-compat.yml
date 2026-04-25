@@ -1,0 +1,139 @@
+name: OpenClaw Ref Compatibility
+
+on:
+  workflow_dispatch:
+    inputs:
+      openclaw_repository:
+        description: "OpenClaw repository to test against"
+        required: true
+        default: "openclaw/openclaw"
+      openclaw_ref:
+        description: "OpenClaw branch, tag, or SHA to test against"
+        required: true
+        default: "main"
+      run_isolated_fixture:
+        description: "Run one opt-in isolated fixture lane"
+        type: boolean
+        required: true
+        default: false
+      fixture:
+        description: "Fixture id for isolated execution, for example wecom"
+        required: false
+        default: ""
+
+jobs:
+  static-contract:
+    name: Static contract against OpenClaw ref
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout Crabpot
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Checkout target OpenClaw
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ inputs.openclaw_repository }}
+          ref: ${{ inputs.openclaw_ref }}
+          path: openclaw
+
+      - name: Show target revision
+        run: |
+          echo "repository=${{ inputs.openclaw_repository }}"
+          echo "ref=${{ inputs.openclaw_ref }}"
+          git -C openclaw rev-parse HEAD
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm test
+      - run: node scripts/sync-fixtures.mjs --check
+      - run: node scripts/run-contract-smoke.mjs --strict --openclaw ./openclaw
+      - run: node scripts/inspect-fixtures.mjs --check
+      - run: node scripts/generate-report.mjs --check --openclaw ./openclaw
+      - run: node scripts/capture-contracts.mjs --check --openclaw ./openclaw
+      - run: node scripts/synthetic-probes.mjs --check --openclaw ./openclaw
+      - run: node scripts/cold-import-readiness.mjs --check --openclaw ./openclaw
+      - run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
+      - run: node scripts/check-contract-coverage.mjs --openclaw ./openclaw
+
+      - name: Write report artifacts
+        if: always()
+        continue-on-error: true
+        run: |
+          node scripts/generate-report.mjs --openclaw ./openclaw
+          node scripts/capture-contracts.mjs --openclaw ./openclaw
+          node scripts/synthetic-probes.mjs --openclaw ./openclaw
+          node scripts/cold-import-readiness.mjs --openclaw ./openclaw
+          node scripts/workspace-plan.mjs --openclaw ./openclaw
+
+      - name: Upload compatibility reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crabpot-openclaw-ref-static-reports
+          path: reports/
+          if-no-files-found: warn
+
+  isolated-fixture:
+    name: Isolated fixture against OpenClaw ref
+    runs-on: ubuntu-latest
+    needs: static-contract
+    if: ${{ inputs.run_isolated_fixture && inputs.fixture != '' }}
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout Crabpot
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Checkout target OpenClaw
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ inputs.openclaw_repository }}
+          ref: ${{ inputs.openclaw_ref }}
+          path: openclaw
+
+      - name: Show target revision
+        run: |
+          echo "repository=${{ inputs.openclaw_repository }}"
+          echo "ref=${{ inputs.openclaw_ref }}"
+          git -C openclaw rev-parse HEAD
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate workspace plan
+        run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
+
+      - name: Execute fixture lane
+        id: execute
+        continue-on-error: true
+        env:
+          CRABPOT_EXECUTE_ISOLATED: "1"
+        run: npm run workspace:execute -- --fixture "${{ inputs.fixture }}" --openclaw ./openclaw
+
+      - name: Summarize execution artifacts
+        if: always()
+        continue-on-error: true
+        run: npm run execution:report
+
+      - name: Upload isolated execution artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crabpot-openclaw-ref-isolated-${{ inputs.fixture }}
+          path: |
+            .crabpot/results/
+            reports/crabpot-execution-results.*
+          if-no-files-found: warn
+
+      - name: Fail if isolated execution failed
+        if: ${{ steps.execute.outcome == 'failure' }}
+        run: exit 1
