@@ -457,6 +457,7 @@ function classifyFixture({ fixture, inspection, fixtureReport, targetOpenClaw, b
   }
 
   classifyHookNameCoverage({ fixture, inspection, targetOpenClaw, breakages, logs });
+  classifyRegistrationNameCoverage({ fixture, inspection, targetOpenClaw, breakages, logs });
 
   for (const pluginManifest of fixtureReport.pluginManifests) {
     const providerAuthKeys = Object.keys(pluginManifest.providerAuthEnvVars ?? {});
@@ -669,6 +670,36 @@ function classifyHookNameCoverage({ fixture, inspection, targetOpenClaw, breakag
   });
 }
 
+function classifyRegistrationNameCoverage({ fixture, inspection, targetOpenClaw, breakages, logs }) {
+  if (targetOpenClaw.status !== "ok" || targetOpenClaw.apiRegistrars.length === 0) {
+    return;
+  }
+
+  const knownRegistrars = new Set(targetOpenClaw.apiRegistrars);
+  const apiRegistrations = inspection.registrationDetails.filter((registration) =>
+    registration.name.startsWith("register"),
+  );
+  const unknownRegistrations = apiRegistrations.filter((registration) => !knownRegistrars.has(registration.name));
+  if (unknownRegistrations.length === 0) {
+    logs.push({
+      fixture: fixture.id,
+      code: "api-registrars-present",
+      level: "log",
+      message: "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      evidence: unique(apiRegistrations.map((registration) => registration.name)).sort(),
+    });
+    return;
+  }
+
+  breakages.push({
+    fixture: fixture.id,
+    code: "unknown-registration-name",
+    level: "breakage",
+    message: "fixture calls api.register* methods that are not present in the target OpenClaw plugin API builder",
+    evidence: detailEvidence(unknownRegistrations),
+  });
+}
+
 async function buildFixtureReport(fixture, inspection) {
   const checkoutPath = path.join(repoRoot, fixture.path);
   const sourceRoot = fixture.subdir ? path.join(checkoutPath, fixture.subdir) : checkoutPath;
@@ -731,6 +762,7 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       status: "disabled",
       compatRecords: [],
       hookNames: [],
+      apiRegistrars: [],
     };
   }
 
@@ -741,6 +773,7 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       status: "not-configured",
       compatRecords: [],
       hookNames: [],
+      apiRegistrars: [],
     };
   }
 
@@ -753,6 +786,7 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       status: "missing",
       compatRecords: [],
       hookNames: [],
+      apiRegistrars: [],
     };
   }
 
@@ -760,6 +794,10 @@ async function readTargetOpenClaw(manifest, configuredPath) {
   const compatRecords = unique([...registrySource.matchAll(/\bcode:\s*["'`]([^"'`]+)["'`]/g)].map((match) => match[1])).sort();
   const hookNames = existsSync(hookTypesPath)
     ? parseExportedStringArray(await readFile(hookTypesPath, "utf8"), "PLUGIN_HOOK_NAMES")
+    : [];
+  const apiBuilderPath = path.join(resolvedPath, "src/plugins/api-builder.ts");
+  const apiRegistrars = existsSync(apiBuilderPath)
+    ? unique([...((await readFile(apiBuilderPath, "utf8")).matchAll(/\b(register[A-Za-z0-9]+)\b/g))].map((match) => match[1])).sort()
     : [];
 
   return {
@@ -771,6 +809,9 @@ async function readTargetOpenClaw(manifest, configuredPath) {
     hookTypesPath: existsSync(hookTypesPath) ? path.relative(repoRoot, hookTypesPath) : null,
     hookNameCount: hookNames.length,
     hookNames,
+    apiBuilderPath: existsSync(apiBuilderPath) ? path.relative(repoRoot, apiBuilderPath) : null,
+    apiRegistrarCount: apiRegistrars.length,
+    apiRegistrars,
   };
 }
 
@@ -872,6 +913,8 @@ function targetOpenClawTable(targetOpenClaw) {
       ["Record ids", recordPreview],
       ["Hook registry", targetOpenClaw.hookTypesPath ?? "-"],
       ["Hook names", targetOpenClaw.hookNameCount ?? 0],
+      ["API builder", targetOpenClaw.apiBuilderPath ?? "-"],
+      ["API registrars", targetOpenClaw.apiRegistrarCount ?? 0],
     ],
     ["Metric", "Value"],
   );

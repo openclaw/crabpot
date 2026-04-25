@@ -60,6 +60,50 @@
       "subagent_spawned",
       "subagent_spawning",
       "tool_result_persist"
+    ],
+    "apiBuilderPath": "../openclaw/src/plugins/api-builder.ts",
+    "apiRegistrarCount": 40,
+    "apiRegistrars": [
+      "registerAgentHarness",
+      "registerAgentToolResultMiddleware",
+      "registerAutoEnableProbe",
+      "registerChannel",
+      "registerCli",
+      "registerCliBackend",
+      "registerCodexAppServerExtensionFactory",
+      "registerCommand",
+      "registerCompactionProvider",
+      "registerConfigMigration",
+      "registerContextEngine",
+      "registerDetachedTaskRuntime",
+      "registerGatewayDiscoveryService",
+      "registerGatewayMethod",
+      "registerHook",
+      "registerHttpRoute",
+      "registerImageGenerationProvider",
+      "registerInteractiveHandler",
+      "registerMediaUnderstandingProvider",
+      "registerMemoryCapability",
+      "registerMemoryCorpusSupplement",
+      "registerMemoryEmbeddingProvider",
+      "registerMemoryFlushPlan",
+      "registerMemoryPromptSection",
+      "registerMemoryPromptSupplement",
+      "registerMemoryRuntime",
+      "registerMusicGenerationProvider",
+      "registerNodeHostCommand",
+      "registerProvider",
+      "registerRealtimeTranscriptionProvider",
+      "registerRealtimeVoiceProvider",
+      "registerReload",
+      "registerSecurityAuditCollector",
+      "registerService",
+      "registerSpeechProvider",
+      "registerTextTransforms",
+      "registerTool",
+      "registerVideoGenerationProvider",
+      "registerWebFetchProvider",
+      "registerWebSearchProvider"
     ]
   },
   "status": "pass",
@@ -2111,6 +2155,13 @@
       "evidence": []
     },
     {
+      "fixture": "agentchat",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": []
+    },
+    {
       "fixture": "wecom",
       "code": "seam-inventory",
       "level": "log",
@@ -2140,6 +2191,17 @@
       ]
     },
     {
+      "fixture": "wecom",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerChannel",
+        "registerHttpRoute",
+        "registerTool"
+      ]
+    },
+    {
       "fixture": "a2a-gateway",
       "code": "seam-inventory",
       "level": "log",
@@ -2158,6 +2220,17 @@
       "evidence": []
     },
     {
+      "fixture": "a2a-gateway",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerGatewayMethod",
+        "registerService",
+        "registerTool"
+      ]
+    },
+    {
       "fixture": "hasdata",
       "code": "seam-inventory",
       "level": "log",
@@ -2173,6 +2246,15 @@
       "level": "log",
       "message": "all observed hooks exist in the target OpenClaw hook registry",
       "evidence": []
+    },
+    {
+      "fixture": "hasdata",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerTool"
+      ]
     },
     {
       "fixture": "hasdata",
@@ -2201,6 +2283,16 @@
       "evidence": []
     },
     {
+      "fixture": "mcp-adapter",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerService",
+        "registerTool"
+      ]
+    },
+    {
       "fixture": "llm-trace-phoenix",
       "code": "seam-inventory",
       "level": "log",
@@ -2221,6 +2313,13 @@
       ]
     },
     {
+      "fixture": "llm-trace-phoenix",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": []
+    },
+    {
       "fixture": "clawmetry",
       "code": "seam-inventory",
       "level": "log",
@@ -2236,6 +2335,15 @@
       "level": "log",
       "message": "all observed hooks exist in the target OpenClaw hook registry",
       "evidence": []
+    },
+    {
+      "fixture": "clawmetry",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerService"
+      ]
     },
     {
       "fixture": "codex-app-server",
@@ -2259,6 +2367,17 @@
       ]
     },
     {
+      "fixture": "codex-app-server",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerCommand",
+        "registerInteractiveHandler",
+        "registerService"
+      ]
+    },
+    {
       "fixture": "web-search-plus",
       "code": "seam-inventory",
       "level": "log",
@@ -2273,6 +2392,15 @@
       "level": "log",
       "message": "all observed hooks exist in the target OpenClaw hook registry",
       "evidence": []
+    },
+    {
+      "fixture": "web-search-plus",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerTool"
+      ]
     },
     {
       "fixture": "apify",
@@ -2292,6 +2420,16 @@
       "evidence": []
     },
     {
+      "fixture": "apify",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerCli",
+        "registerTool"
+      ]
+    },
+    {
       "fixture": "inworld-tts",
       "code": "seam-inventory",
       "level": "log",
@@ -2308,6 +2446,15 @@
       "level": "log",
       "message": "all observed hooks exist in the target OpenClaw hook registry",
       "evidence": []
+    },
+    {
+      "fixture": "inworld-tts",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerSpeechProvider"
+      ]
     },
     {
       "fixture": "inworld-tts",

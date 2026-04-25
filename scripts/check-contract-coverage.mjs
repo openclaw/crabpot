@@ -45,6 +45,7 @@ export function validateContractCoverage(report) {
   requireP1ProbeCoverage(report, errors);
   requireFixtureEvidence(report, errors);
   requireTargetHookRegistry(report, errors);
+  requireTargetApiBuilder(report, errors);
   requireCompatRecordReconciliation(report, errors);
 
   return errors;
@@ -53,6 +54,12 @@ export function validateContractCoverage(report) {
 function requireTargetHookRegistry(report, errors) {
   if (report.targetOpenClaw.status === "ok" && report.targetOpenClaw.hookNames.length === 0) {
     errors.push("target OpenClaw hook registry was found but no hook names were parsed");
+  }
+}
+
+function requireTargetApiBuilder(report, errors) {
+  if (report.targetOpenClaw.status === "ok" && report.targetOpenClaw.apiRegistrars.length === 0) {
+    errors.push("target OpenClaw API builder was found but no api.register* names were parsed");
   }
 }
 
