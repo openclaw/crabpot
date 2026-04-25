@@ -4,6 +4,10 @@ export function createCaptureApi(options = {}) {
 
   const api = new Proxy(
     {
+      config: options.config ?? {},
+      logger: options.logger ?? console,
+      pluginConfig: options.pluginConfig ?? {},
+      runtime: options.runtime ?? {},
       on(name, handler) {
         captured.push({
           kind: "hook",

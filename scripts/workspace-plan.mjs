@@ -292,7 +292,7 @@ function runCommand(packageManager, script) {
 
 function captureCommand(entrypoint) {
   const loader = entrypoint.blockers.some((blocker) => blocker.code === "ts-loader-required") ? " --import tsx" : "";
-  return `node${loader} ../../../scripts/run-cold-import-capture.mjs ${entrypoint.specifier}`;
+  return `CRABPOT_EXECUTE_ISOLATED=1 node${loader} ../../../scripts/run-cold-import-capture.mjs ${entrypoint.specifier}`;
 }
 
 export function validateWorkspacePlan(plan) {

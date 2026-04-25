@@ -65,7 +65,7 @@
             },
             {
               "kind": "capture",
-              "command": "node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js",
               "cwd": ".crabpot/workspaces/agentchat",
               "reason": "cold import the entrypoint against the capture shim"
             }
@@ -113,7 +113,7 @@
             },
             {
               "kind": "capture",
-              "command": "node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js",
               "cwd": ".crabpot/workspaces/agentchat",
               "reason": "cold import the entrypoint against the capture shim"
             }
@@ -166,7 +166,7 @@
             },
             {
               "kind": "capture",
-              "command": "node ../../../scripts/run-cold-import-capture.mjs ./index.js",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.js",
               "cwd": ".crabpot/workspaces/wecom",
               "reason": "cold import the entrypoint against the capture shim"
             }
@@ -218,7 +218,7 @@
             },
             {
               "kind": "capture",
-              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
               "cwd": ".crabpot/workspaces/a2a-gateway",
               "reason": "cold import the entrypoint against the capture shim"
             }
@@ -283,7 +283,7 @@
             },
             {
               "kind": "capture",
-              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts",
               "cwd": ".crabpot/workspaces/hasdata",
               "reason": "cold import the entrypoint against the capture shim"
             }
@@ -335,7 +335,7 @@
             },
             {
               "kind": "capture",
-              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
               "cwd": ".crabpot/workspaces/mcp-adapter",
               "reason": "cold import the entrypoint against the capture shim"
             }
@@ -381,7 +381,7 @@
             },
             {
               "kind": "capture",
-              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
               "cwd": ".crabpot/workspaces/llm-trace-phoenix",
               "reason": "cold import the entrypoint against the capture shim"
             }
@@ -433,7 +433,7 @@
             },
             {
               "kind": "capture",
-              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
               "cwd": ".crabpot/workspaces/clawmetry",
               "reason": "cold import the entrypoint against the capture shim"
             }
@@ -474,7 +474,7 @@
             },
             {
               "kind": "capture",
-              "command": "node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js",
               "cwd": ".crabpot/workspaces/clawmetry",
               "reason": "cold import the entrypoint against the capture shim"
             }
@@ -549,7 +549,7 @@
             },
             {
               "kind": "capture",
-              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
               "cwd": ".crabpot/workspaces/codex-app-server",
               "reason": "cold import the entrypoint against the capture shim"
             }
@@ -614,7 +614,7 @@
             },
             {
               "kind": "capture",
-              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
               "cwd": ".crabpot/workspaces/web-search-plus",
               "reason": "cold import the entrypoint against the capture shim"
             }
@@ -673,7 +673,7 @@
             },
             {
               "kind": "capture",
-              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts",
               "cwd": ".crabpot/workspaces/apify",
               "reason": "cold import the entrypoint against the capture shim"
             }
@@ -732,7 +732,7 @@
             },
             {
               "kind": "capture",
-              "command": "node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts",
               "cwd": ".crabpot/workspaces/inworld-tts",
               "reason": "cold import the entrypoint against the capture shim"
             }
