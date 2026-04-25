@@ -114,6 +114,8 @@ Crabpot currently classifies:
   inspector build/cold-import follow-up
 - TypeScript source entrypoints that need a loader or compile step before cold
   import as inspector follow-up
+- package runtime dependencies that need isolated installation before direct
+  cold import
 - plugin SDK imports missing from target OpenClaw package exports as
   compat-adapter debt
 - legacy manifest env metadata and root SDK imports as compat-adapter debt

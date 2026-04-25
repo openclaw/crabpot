@@ -111,6 +111,9 @@ export async function buildColdImportReadiness(options = {}) {
       blockedCount: allEntrypoints.filter((entrypoint) => entrypoint.status !== "ready").length,
       tsLoaderRequiredCount: allEntrypoints.filter((entrypoint) => entrypoint.status === "ts-loader-required").length,
       buildRequiredCount: allEntrypoints.filter((entrypoint) => entrypoint.status === "build-required").length,
+      dependencyInstallRequiredCount: allEntrypoints.filter((entrypoint) =>
+        entrypoint.blockers.some((blocker) => blocker.code === "dependency-install-required"),
+      ).length,
       sdkAliasRequiredCount: allEntrypoints.filter((entrypoint) => entrypoint.blockers.some((blocker) => blocker.code === "sdk-alias-required")).length,
     },
     fixtures,
@@ -153,6 +156,19 @@ function classifyEntrypointReadiness({ fixture, packageSummary, entrypoint, sdkB
         evidence: entrypoint.relativePath,
       });
     }
+  }
+
+  const runtimeDependencies = unique([
+    ...(packageSummary.dependencies ?? []),
+    ...(packageSummary.peerDependencies ?? []),
+    ...(packageSummary.optionalDependencies ?? []),
+  ]);
+  if (entrypoint.exists && runtimeDependencies.length > 0) {
+    blockers.push({
+      code: "dependency-install-required",
+      message: "package declares runtime dependencies that must be installed before cold import",
+      evidence: runtimeDependencies.join(", "),
+    });
   }
 
   for (const sdkBlocker of sdkBlockers) {
@@ -204,6 +220,9 @@ function readinessStatus(blockers) {
   if (blockers.some((blocker) => blocker.code === "ts-loader-required")) {
     return "ts-loader-required";
   }
+  if (blockers.some((blocker) => blocker.code === "dependency-install-required")) {
+    return "dependency-install-required";
+  }
   return "review-required";
 }
 
@@ -217,6 +236,7 @@ function coldImportAssertions(blockers) {
 function assertionForBlocker(code) {
   const assertions = {
     "build-required": "plugin build or source alias resolution runs before cold import",
+    "dependency-install-required": "fixture dependencies are installed in an isolated workspace before cold import",
     "missing-entrypoint": "plugin package metadata points at an existing OpenClaw entrypoint",
     "sdk-alias-required": "target OpenClaw exports the imported SDK alias or provides a migration shim",
     "top-level-side-effect-review": "cold import sandbox blocks network/process side effects before register capture",
@@ -280,6 +300,7 @@ export function renderColdImportReadinessMarkdown(readiness) {
         ["Blocked", readiness.summary.blockedCount],
         ["TypeScript loader required", readiness.summary.tsLoaderRequiredCount],
         ["Build required", readiness.summary.buildRequiredCount],
+        ["Dependency install required", readiness.summary.dependencyInstallRequiredCount],
         ["SDK alias required", readiness.summary.sdkAliasRequiredCount],
       ],
       ["Metric", "Value"],
@@ -305,6 +326,10 @@ export function renderColdImportReadinessMarkdown(readiness) {
 
 function slugRef(ref) {
   return ref.replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+function unique(values) {
+  return [...new Set(values)];
 }
 
 function markdownTable(rows, headers) {

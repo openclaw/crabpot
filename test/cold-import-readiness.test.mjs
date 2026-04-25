@@ -9,13 +9,13 @@ test("cold import readiness classifies entrypoint blockers", async () => {
 
   assert.deepEqual(validateColdImportReadiness(readiness), []);
   assert.ok(readiness.summary.entrypointCount > 0);
-  assert.ok(readiness.summary.readyCount > 0);
   assert.ok(readiness.summary.blockedCount > 0);
   assert.ok(readiness.summary.tsLoaderRequiredCount > 0);
   assert.ok(readiness.summary.buildRequiredCount > 0);
+  assert.ok(readiness.summary.dependencyInstallRequiredCount > 0);
   assert.ok(readiness.summary.sdkAliasRequiredCount > 0);
 
-  assertHasStatus(readiness, "wecom", "ready");
+  assertHasStatus(readiness, "wecom", "dependency-install-required");
   assertHasStatus(readiness, "agentchat", "build-required");
   assertHasStatus(readiness, "a2a-gateway", "ts-loader-required");
   assertHasStatus(readiness, "codex-app-server", "sdk-alias-required");

@@ -53,7 +53,8 @@ Use `reports/crabpot-capture.md` when you need the concrete hook, registrar,
 SDK import, and package-entrypoint assertions the future inspector should run.
 Use `reports/crabpot-cold-import.md` when you need to see which fixture
 entrypoints are directly executable and which are blocked by build output,
-TypeScript loader support, SDK aliases, or side-effect review.
+TypeScript loader support, dependency installation, SDK aliases, or side-effect
+review.
 
 Decision classes mean:
 

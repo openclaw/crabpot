@@ -86,7 +86,8 @@ with the assertions a future capture runner must execute.
 
 The cold-import readiness report classifies each package OpenClaw entrypoint as
 ready or blocked by TypeScript loader support, missing build output, missing
-entrypoint metadata, side-effect review, or SDK alias compatibility.
+entrypoint metadata, dependency installation, side-effect review, or SDK alias
+compatibility.
 
 ## Fixture policy
 

@@ -621,6 +621,17 @@
         "version": "0.6.1",
         "type": "module",
         "main": "./dist/index.cjs",
+        "dependencies": [
+          "@agentchatme/agentchat",
+          "@sinclair/typebox",
+          "pino",
+          "ws",
+          "zod"
+        ],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [],
         "openclaw": {
           "extensions": [
             "./dist/index.js"
@@ -655,6 +666,17 @@
           "version": "0.6.1",
           "type": "module",
           "main": "./dist/index.cjs",
+          "dependencies": [
+            "@agentchatme/agentchat",
+            "@sinclair/typebox",
+            "pino",
+            "ws",
+            "zod"
+          ],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [],
           "openclaw": {
             "extensions": [
               "./dist/index.js"
@@ -688,6 +710,9 @@
           "version": "0.0.0",
           "type": null,
           "main": null,
+          "dependencies": [],
+          "peerDependencies": [],
+          "optionalDependencies": [],
           "openclaw": null
         },
         {
@@ -696,6 +721,9 @@
           "version": "0.1.0",
           "type": null,
           "main": null,
+          "dependencies": [],
+          "peerDependencies": [],
+          "optionalDependencies": [],
           "openclaw": null
         },
         {
@@ -704,6 +732,11 @@
           "version": "1.3.0",
           "type": "module",
           "main": "./dist/index.cjs",
+          "dependencies": [],
+          "peerDependencies": [
+            "ws"
+          ],
+          "optionalDependencies": [],
           "openclaw": null
         }
       ],
@@ -917,6 +950,17 @@
         "version": "3.0.1",
         "type": "module",
         "main": "index.js",
+        "dependencies": [
+          "@wecom/aibot-node-sdk",
+          "file-type",
+          "pinyin-pro"
+        ],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [
+          "undici"
+        ],
         "openclaw": {
           "extensions": [
             "./index.js"
@@ -944,6 +988,17 @@
           "version": "3.0.1",
           "type": "module",
           "main": "index.js",
+          "dependencies": [
+            "@wecom/aibot-node-sdk",
+            "file-type",
+            "pinyin-pro"
+          ],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [
+            "undici"
+          ],
           "openclaw": {
             "extensions": [
               "./index.js"
@@ -1141,6 +1196,17 @@
         "version": "1.4.0",
         "type": "module",
         "main": "index.ts",
+        "dependencies": [
+          "@a2a-js/sdk",
+          "@bufbuild/protobuf",
+          "@grpc/grpc-js",
+          "express",
+          "multicast-dns",
+          "uuid",
+          "ws"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": [],
         "openclaw": {
           "extensions": [
             "./index.ts"
@@ -1168,6 +1234,17 @@
           "version": "1.4.0",
           "type": "module",
           "main": "index.ts",
+          "dependencies": [
+            "@a2a-js/sdk",
+            "@bufbuild/protobuf",
+            "@grpc/grpc-js",
+            "express",
+            "multicast-dns",
+            "uuid",
+            "ws"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
           "openclaw": {
             "extensions": [
               "./index.ts"
@@ -1194,6 +1271,14 @@
           "version": "0.1.0",
           "type": "module",
           "main": null,
+          "dependencies": [
+            "@a2a-js/sdk",
+            "chalk",
+            "cli-table3",
+            "commander"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
           "openclaw": null
         }
       ],
@@ -1286,6 +1371,13 @@
         "version": "0.1.5",
         "type": "module",
         "main": null,
+        "dependencies": [
+          "@sinclair/typebox"
+        ],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [],
         "openclaw": {
           "extensions": [
             "./src/index.ts"
@@ -1313,6 +1405,13 @@
           "version": "0.1.5",
           "type": "module",
           "main": null,
+          "dependencies": [
+            "@sinclair/typebox"
+          ],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [],
           "openclaw": {
             "extensions": [
               "./src/index.ts"
@@ -1403,6 +1502,11 @@
         "version": "0.1.1",
         "type": "module",
         "main": null,
+        "dependencies": [
+          "@modelcontextprotocol/sdk"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": [],
         "openclaw": {
           "extensions": [
             "./index.ts"
@@ -1430,6 +1534,11 @@
           "version": "0.1.1",
           "type": "module",
           "main": null,
+          "dependencies": [
+            "@modelcontextprotocol/sdk"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
           "openclaw": {
             "extensions": [
               "./index.ts"
@@ -1520,6 +1629,9 @@
         "version": "1.0.1",
         "type": "module",
         "main": "index.ts",
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": [],
         "openclaw": {
           "extensions": [
             "./index.ts"
@@ -1547,6 +1659,9 @@
           "version": "1.0.1",
           "type": "module",
           "main": "index.ts",
+          "dependencies": [],
+          "peerDependencies": [],
+          "optionalDependencies": [],
           "openclaw": {
             "extensions": [
               "./index.ts"
@@ -1631,6 +1746,11 @@
         "version": "1.0.0",
         "type": "module",
         "main": "dist/index.js",
+        "dependencies": [
+          "node-fetch"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": [],
         "openclaw": {
           "extensions": [
             "./index.ts"
@@ -1667,6 +1787,11 @@
           "version": "1.0.0",
           "type": "module",
           "main": "dist/index.js",
+          "dependencies": [
+            "node-fetch"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
           "openclaw": {
             "extensions": [
               "./index.ts"
@@ -1702,6 +1827,9 @@
           "version": "0.0.1",
           "type": null,
           "main": null,
+          "dependencies": [],
+          "peerDependencies": [],
+          "optionalDependencies": [],
           "openclaw": null
         }
       ],
@@ -1838,6 +1966,13 @@
         "version": "0.0.0",
         "type": "module",
         "main": null,
+        "dependencies": [
+          "ws"
+        ],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [],
         "openclaw": {
           "extensions": [
             "./index.ts"
@@ -1865,6 +2000,13 @@
           "version": "0.0.0",
           "type": "module",
           "main": null,
+          "dependencies": [
+            "ws"
+          ],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [],
           "openclaw": {
             "extensions": [
               "./index.ts"
@@ -2035,6 +2177,11 @@
         "version": "2.2.0",
         "type": "module",
         "main": "index.ts",
+        "dependencies": [],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [],
         "openclaw": {
           "extensions": [
             "./index.ts"
@@ -2062,6 +2209,11 @@
           "version": "2.2.0",
           "type": "module",
           "main": "index.ts",
+          "dependencies": [],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [],
           "openclaw": {
             "extensions": [
               "./index.ts"
@@ -2156,6 +2308,14 @@
         "version": "0.2.0",
         "type": "module",
         "main": null,
+        "dependencies": [
+          "@sinclair/typebox",
+          "apify-client"
+        ],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [],
         "openclaw": {
           "extensions": [
             "./src/index.ts"
@@ -2183,6 +2343,14 @@
           "version": "0.2.0",
           "type": "module",
           "main": null,
+          "dependencies": [
+            "@sinclair/typebox",
+            "apify-client"
+          ],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [],
           "openclaw": {
             "extensions": [
               "./src/index.ts"
@@ -2314,6 +2482,11 @@
         "version": "1.0.2",
         "type": "module",
         "main": null,
+        "dependencies": [],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [],
         "openclaw": {
           "extensions": [
             "./index.ts"
@@ -2341,6 +2514,11 @@
           "version": "1.0.2",
           "type": "module",
           "main": null,
+          "dependencies": [],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [],
           "openclaw": {
             "extensions": [
               "./index.ts"

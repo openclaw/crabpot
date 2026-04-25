@@ -8,10 +8,11 @@
   "summary": {
     "fixtureCount": 11,
     "entrypointCount": 13,
-    "readyCount": 1,
-    "blockedCount": 12,
+    "readyCount": 0,
+    "blockedCount": 13,
     "tsLoaderRequiredCount": 8,
     "buildRequiredCount": 3,
+    "dependencyInstallRequiredCount": 9,
     "sdkAliasRequiredCount": 1
   },
   "fixtures": [
@@ -70,11 +71,16 @@
           "kind": "extension",
           "specifier": "./index.js",
           "path": "plugins/wecom/index.js",
-          "status": "ready",
-          "blockers": [],
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@wecom/aibot-node-sdk, file-type, pinyin-pro, openclaw, undici"
+            }
+          ],
           "assertions": [
-            "entrypoint can be imported by Node without fixture credentials",
-            "registration capture shim receives plugin registrations"
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
       ]
@@ -96,10 +102,16 @@
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
               "evidence": "plugins/a2a-gateway/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@a2a-js/sdk, @bufbuild/protobuf, @grpc/grpc-js, express, multicast-dns, uuid, ws"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import"
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
       ]
@@ -126,11 +138,17 @@
               "code": "top-level-side-effect-review",
               "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
               "evidence": "plugins/hasdata/src/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@sinclair/typebox, openclaw"
             }
           ],
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
-            "cold import sandbox blocks network/process side effects before register capture"
+            "cold import sandbox blocks network/process side effects before register capture",
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
       ]
@@ -152,10 +170,16 @@
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
               "evidence": "plugins/mcp-adapter/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@modelcontextprotocol/sdk"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import"
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
       ]
@@ -208,10 +232,16 @@
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
               "evidence": "plugins/clawmetry/clawhub-plugin/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "node-fetch"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import"
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         },
         {
@@ -254,6 +284,11 @@
               "evidence": "plugins/codex-app-server/index.ts"
             },
             {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "ws, openclaw"
+            },
+            {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
               "evidence": "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104"
@@ -271,6 +306,7 @@
           ],
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
+            "fixture dependencies are installed in an isolated workspace before cold import",
             "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim"
@@ -300,11 +336,17 @@
               "code": "top-level-side-effect-review",
               "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
               "evidence": "plugins/web-search-plus/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "openclaw"
             }
           ],
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
-            "cold import sandbox blocks network/process side effects before register capture"
+            "cold import sandbox blocks network/process side effects before register capture",
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
       ]
@@ -326,10 +368,16 @@
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
               "evidence": "plugins/apify/src/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@sinclair/typebox, apify-client, openclaw"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import"
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
       ]
@@ -351,10 +399,16 @@
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
               "evidence": "plugins/inworld-tts/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "openclaw"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import"
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
       ]

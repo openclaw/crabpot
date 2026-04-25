@@ -1326,6 +1326,9 @@ function summarizePackage(packagePath, packageJson) {
     version: packageJson.version ?? null,
     type: packageJson.type ?? null,
     main: typeof packageJson.main === "string" ? packageJson.main : null,
+    dependencies: Object.keys(packageJson.dependencies ?? {}).sort(),
+    peerDependencies: Object.keys(packageJson.peerDependencies ?? {}).sort(),
+    optionalDependencies: Object.keys(packageJson.optionalDependencies ?? {}).sort(),
     openclaw,
   };
 }
