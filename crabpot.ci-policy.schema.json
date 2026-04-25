@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Crabpot CI policy",
+  "type": "object",
+  "required": ["version", "allowedBlocked", "expectedWarnings", "thresholds", "fixtureSets"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "allowedBlocked": { "$ref": "#/$defs/rules" },
+    "expectedWarnings": { "$ref": "#/$defs/rules" },
+    "thresholds": {
+      "type": "object",
+      "required": [
+        "wallP95RegressionPercent",
+        "peakRssRegressionMb",
+        "bootRegressionMs",
+        "strictMinimumSamples"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "wallP95RegressionPercent": { "type": "number", "minimum": 0 },
+        "peakRssRegressionMb": { "type": "number", "minimum": 0 },
+        "bootRegressionMs": { "type": "number", "minimum": 0 },
+        "strictMinimumSamples": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "fixtureSets": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+        "uniqueItems": true
+      }
+    }
+  },
+  "$defs": {
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "seam", "reasonIncludes", "decision", "until"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+          "seam": { "type": "string", "minLength": 1 },
+          "reasonIncludes": { "type": "string", "minLength": 1 },
+          "decision": { "enum": ["allowed-blocked", "expected-warning"] },
+          "until": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "./crabpot.ci-policy.schema.json",
+  "version": 1,
+  "allowedBlocked": [
+    {
+      "id": "channel-runtime-harness",
+      "seam": "registerChannel",
+      "reasonIncludes": "includeChannelRuntime=true",
+      "decision": "allowed-blocked",
+      "until": "channel runtime harness lands"
+    },
+    {
+      "id": "service-lifecycle-harness",
+      "seam": "registerService",
+      "reasonIncludes": "lifecycle",
+      "decision": "allowed-blocked",
+      "until": "service lifecycle harness lands"
+    }
+  ],
+  "expectedWarnings": [
+    {
+      "id": "tool-factory-descriptor",
+      "seam": "registerTool",
+      "reasonIncludes": "no object descriptor",
+      "decision": "expected-warning",
+      "until": "tool factory capture expansion lands"
+    }
+  ],
+  "thresholds": {
+    "wallP95RegressionPercent": 50,
+    "peakRssRegressionMb": 50,
+    "bootRegressionMs": 500,
+    "strictMinimumSamples": 3
+  },
+  "fixtureSets": {
+    "smoke": ["wecom", "llm-trace-phoenix", "codex-app-server", "opik-openclaw"],
+    "sdk-alias": ["codex-app-server"],
+    "side-effect-review": ["hasdata", "llm-trace-phoenix", "web-search-plus"],
+    "build": ["agentchat", "clawmetry", "opik-openclaw"]
+  }
+}
