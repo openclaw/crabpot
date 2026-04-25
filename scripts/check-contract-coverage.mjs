@@ -46,6 +46,7 @@ export function validateContractCoverage(report) {
   requireFixtureEvidence(report, errors);
   requireTargetHookRegistry(report, errors);
   requireTargetApiBuilder(report, errors);
+  requireTargetManifestTypes(report, errors);
   requireCompatRecordReconciliation(report, errors);
 
   return errors;
@@ -60,6 +61,18 @@ function requireTargetHookRegistry(report, errors) {
 function requireTargetApiBuilder(report, errors) {
   if (report.targetOpenClaw.status === "ok" && report.targetOpenClaw.apiRegistrars.length === 0) {
     errors.push("target OpenClaw API builder was found but no api.register* names were parsed");
+  }
+}
+
+function requireTargetManifestTypes(report, errors) {
+  if (report.targetOpenClaw.status !== "ok") {
+    return;
+  }
+  if (report.targetOpenClaw.manifestFields.length === 0) {
+    errors.push("target OpenClaw manifest types were found but no PluginManifest fields were parsed");
+  }
+  if (report.targetOpenClaw.manifestContractFields.length === 0) {
+    errors.push("target OpenClaw manifest types were found but no PluginManifestContracts fields were parsed");
   }
 }
 

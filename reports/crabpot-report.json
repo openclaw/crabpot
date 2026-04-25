@@ -104,6 +104,61 @@
       "registerVideoGenerationProvider",
       "registerWebFetchProvider",
       "registerWebSearchProvider"
+    ],
+    "manifestTypesPath": "../openclaw/src/plugins/manifest.ts",
+    "manifestFieldCount": 32,
+    "manifestFields": [
+      "activation",
+      "autoEnableWhenConfiguredProviders",
+      "channelConfigs",
+      "channelEnvVars",
+      "channels",
+      "cliBackends",
+      "commandAliases",
+      "configContracts",
+      "configSchema",
+      "contracts",
+      "description",
+      "enabledByDefault",
+      "id",
+      "kind",
+      "legacyPluginIds",
+      "mediaUnderstandingProviderMetadata",
+      "modelCatalog",
+      "modelSupport",
+      "name",
+      "nonSecretAuthMarkers",
+      "providerAuthAliases",
+      "providerAuthChoices",
+      "providerAuthEnvVars",
+      "providerDiscoveryEntry",
+      "providerEndpoints",
+      "providers",
+      "qaRunners",
+      "setup",
+      "skills",
+      "syntheticAuthRefs",
+      "uiHints",
+      "version"
+    ],
+    "manifestContractFieldCount": 16,
+    "manifestContractFields": [
+      "agentToolResultMiddleware",
+      "documentExtractors",
+      "embeddedExtensionFactories",
+      "externalAuthProviders",
+      "imageGenerationProviders",
+      "mediaUnderstandingProviders",
+      "memoryEmbeddingProviders",
+      "musicGenerationProviders",
+      "realtimeTranscriptionProviders",
+      "realtimeVoiceProviders",
+      "speechProviders",
+      "tools",
+      "videoGenerationProviders",
+      "webContentExtractors",
+      "webFetchProviders",
+      "webSearchProviders"
     ]
   },
   "status": "pass",
@@ -111,13 +166,13 @@
     "fixtureCount": 11,
     "highPriorityFixtures": 6,
     "breakageCount": 0,
-    "warningCount": 13,
+    "warningCount": 15,
     "suggestionCount": 15,
-    "decisionCount": 30,
-    "issueCount": 28,
+    "decisionCount": 32,
+    "issueCount": 30,
     "p0IssueCount": 0,
     "p1IssueCount": 7,
-    "contractProbeCount": 28
+    "contractProbeCount": 30
   },
   "fixtures": [
     {
@@ -198,6 +253,21 @@
           "id": "agentchat",
           "name": "AgentChat",
           "version": "0.6.1",
+          "keys": [
+            "channelEnvVars",
+            "channels",
+            "configSchema",
+            "description",
+            "displayName",
+            "homepage",
+            "icon",
+            "id",
+            "name",
+            "setup",
+            "skills",
+            "uiHints",
+            "version"
+          ],
           "contracts": [],
           "providerAuthEnvVars": {},
           "channelEnvVars": {
@@ -491,6 +561,14 @@
           "id": "wecom",
           "name": "OpenClaw WeCom",
           "version": null,
+          "keys": [
+            "channels",
+            "configSchema",
+            "description",
+            "id",
+            "name",
+            "skills"
+          ],
           "contracts": [],
           "providerAuthEnvVars": {},
           "channelEnvVars": {},
@@ -706,6 +784,15 @@
           "id": "a2a-gateway",
           "name": "A2A Gateway",
           "version": "1.3.0",
+          "keys": [
+            "configSchema",
+            "defaultConfig",
+            "description",
+            "id",
+            "name",
+            "uiHints",
+            "version"
+          ],
           "contracts": [],
           "providerAuthEnvVars": {},
           "channelEnvVars": {},
@@ -834,6 +921,17 @@
           "id": "hasdata",
           "name": "HasData",
           "version": "0.1.5",
+          "keys": [
+            "configSchema",
+            "contracts",
+            "description",
+            "id",
+            "name",
+            "providerAuthEnvVars",
+            "skills",
+            "uiHints",
+            "version"
+          ],
           "contracts": [
             "tools"
           ],
@@ -951,6 +1049,12 @@
           "id": "openclaw-mcp-adapter",
           "name": "MCP Adapter",
           "version": null,
+          "keys": [
+            "configSchema",
+            "description",
+            "id",
+            "name"
+          ],
           "contracts": [],
           "providerAuthEnvVars": {},
           "channelEnvVars": {},
@@ -1059,6 +1163,15 @@
           "id": "llm-trace-phoenix",
           "name": "LLM Trace → Phoenix",
           "version": "1.0.1",
+          "keys": [
+            "configSchema",
+            "description",
+            "id",
+            "kind",
+            "name",
+            "uiHints",
+            "version"
+          ],
           "contracts": [],
           "providerAuthEnvVars": {},
           "channelEnvVars": {},
@@ -1370,6 +1483,13 @@
           "id": "openclaw-codex-app-server",
           "name": "OpenClaw Plugin For Codex App Server",
           "version": null,
+          "keys": [
+            "configSchema",
+            "description",
+            "id",
+            "name",
+            "uiHints"
+          ],
           "contracts": [],
           "providerAuthEnvVars": {},
           "channelEnvVars": {},
@@ -1529,6 +1649,15 @@
           "id": "web-search-plus-plugin-v2",
           "name": "Web Search Plus",
           "version": "2.2.0",
+          "keys": [
+            "configSchema",
+            "description",
+            "id",
+            "name",
+            "providerAuthEnvVars",
+            "uiHints",
+            "version"
+          ],
           "contracts": [],
           "providerAuthEnvVars": {
             "serper": [
@@ -1672,6 +1801,13 @@
           "id": "apify-openclaw-plugin",
           "name": "Apify",
           "version": null,
+          "keys": [
+            "configSchema",
+            "description",
+            "id",
+            "name",
+            "uiHints"
+          ],
           "contracts": [],
           "providerAuthEnvVars": {},
           "channelEnvVars": {},
@@ -1814,6 +1950,16 @@
           "id": "inworld-tts",
           "name": "Inworld TTS",
           "version": null,
+          "keys": [
+            "configSchema",
+            "contracts",
+            "description",
+            "id",
+            "name",
+            "providerAuthChoices",
+            "providerAuthEnvVars",
+            "providers"
+          ],
           "contracts": [
             "speechProviders"
           ],
@@ -1923,6 +2069,17 @@
   "warnings": [
     {
       "fixture": "agentchat",
+      "code": "manifest-unknown-fields",
+      "level": "warning",
+      "message": "manifest uses top-level fields that are not present in the target OpenClaw PluginManifest type",
+      "evidence": [
+        "displayName @ plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json",
+        "homepage @ plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json",
+        "icon @ plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "agentchat",
       "code": "channel-env-vars",
       "level": "warning",
       "message": "manifest uses channelEnvVars legacy compatibility metadata",
@@ -1938,6 +2095,15 @@
       "message": "package openclaw metadata does not declare compat.pluginApi",
       "evidence": [
         "plugins/wecom/package.json"
+      ]
+    },
+    {
+      "fixture": "a2a-gateway",
+      "code": "manifest-unknown-fields",
+      "level": "warning",
+      "message": "manifest uses top-level fields that are not present in the target OpenClaw PluginManifest type",
+      "evidence": [
+        "defaultConfig @ plugins/a2a-gateway/openclaw.plugin.json"
       ]
     },
     {
@@ -2338,6 +2504,20 @@
       "fixture": "a2a-gateway",
       "severity": "P2",
       "owner": "plugin",
+      "code": "manifest-unknown-fields",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "title": "a2a-gateway: manifest uses unsupported top-level fields",
+      "evidence": [
+        "defaultConfig @ plugins/a2a-gateway/openclaw.plugin.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0010",
+      "fixture": "a2a-gateway",
+      "severity": "P2",
+      "owner": "plugin",
       "code": "package-manifest-version-drift",
       "decision": "plugin-upstream-fix",
       "status": "open",
@@ -2349,7 +2529,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0010",
+      "id": "CRABPOT-0011",
       "fixture": "a2a-gateway",
       "severity": "P2",
       "owner": "plugin",
@@ -2363,7 +2543,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0011",
+      "id": "CRABPOT-0012",
       "fixture": "a2a-gateway",
       "severity": "P2",
       "owner": "inspector",
@@ -2377,7 +2557,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0012",
+      "id": "CRABPOT-0013",
       "fixture": "agentchat",
       "severity": "P2",
       "owner": "inspector",
@@ -2391,7 +2571,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0013",
+      "id": "CRABPOT-0014",
       "fixture": "agentchat",
       "severity": "P2",
       "owner": "core",
@@ -2405,7 +2585,23 @@
       "compatRecord": "channel-env-vars"
     },
     {
-      "id": "CRABPOT-0014",
+      "id": "CRABPOT-0015",
+      "fixture": "agentchat",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "manifest-unknown-fields",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "title": "agentchat: manifest uses unsupported top-level fields",
+      "evidence": [
+        "displayName @ plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json",
+        "homepage @ plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json",
+        "icon @ plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0016",
       "fixture": "agentchat",
       "severity": "P2",
       "owner": "inspector",
@@ -2420,7 +2616,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0015",
+      "id": "CRABPOT-0017",
       "fixture": "apify",
       "severity": "P2",
       "owner": "core",
@@ -2436,7 +2632,7 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
-      "id": "CRABPOT-0016",
+      "id": "CRABPOT-0018",
       "fixture": "apify",
       "severity": "P2",
       "owner": "inspector",
@@ -2450,7 +2646,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0017",
+      "id": "CRABPOT-0019",
       "fixture": "clawmetry",
       "severity": "P2",
       "owner": "inspector",
@@ -2464,7 +2660,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0018",
+      "id": "CRABPOT-0020",
       "fixture": "codex-app-server",
       "severity": "P2",
       "owner": "core",
@@ -2481,7 +2677,7 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
-      "id": "CRABPOT-0019",
+      "id": "CRABPOT-0021",
       "fixture": "hasdata",
       "severity": "P2",
       "owner": "core",
@@ -2495,7 +2691,7 @@
       "compatRecord": "provider-auth-env-vars"
     },
     {
-      "id": "CRABPOT-0020",
+      "id": "CRABPOT-0022",
       "fixture": "inworld-tts",
       "severity": "P2",
       "owner": "core",
@@ -2509,7 +2705,7 @@
       "compatRecord": "provider-auth-env-vars"
     },
     {
-      "id": "CRABPOT-0021",
+      "id": "CRABPOT-0023",
       "fixture": "llm-trace-phoenix",
       "severity": "P2",
       "owner": "core",
@@ -2523,7 +2719,7 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
-      "id": "CRABPOT-0022",
+      "id": "CRABPOT-0024",
       "fixture": "mcp-adapter",
       "severity": "P2",
       "owner": "plugin",
@@ -2537,7 +2733,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0023",
+      "id": "CRABPOT-0025",
       "fixture": "mcp-adapter",
       "severity": "P2",
       "owner": "inspector",
@@ -2551,7 +2747,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0024",
+      "id": "CRABPOT-0026",
       "fixture": "web-search-plus",
       "severity": "P2",
       "owner": "core",
@@ -2573,7 +2769,7 @@
       "compatRecord": "provider-auth-env-vars"
     },
     {
-      "id": "CRABPOT-0025",
+      "id": "CRABPOT-0027",
       "fixture": "web-search-plus",
       "severity": "P2",
       "owner": "inspector",
@@ -2588,7 +2784,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0026",
+      "id": "CRABPOT-0028",
       "fixture": "wecom",
       "severity": "P2",
       "owner": "inspector",
@@ -2602,7 +2798,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0027",
+      "id": "CRABPOT-0029",
       "fixture": "wecom",
       "severity": "P2",
       "owner": "plugin",
@@ -2616,7 +2812,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0028",
+      "id": "CRABPOT-0030",
       "fixture": "wecom",
       "severity": "P2",
       "owner": "inspector",
@@ -2750,6 +2946,28 @@
       "contract": "Legacy provider auth env metadata continues to map into config/help surfaces.",
       "evidence": [
         "hasdata"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P2",
+      "target": "manifest-loader",
+      "contract": "Manifest top-level fields are represented in target OpenClaw PluginManifest.",
+      "evidence": [
+        "defaultConfig @ plugins/a2a-gateway/openclaw.plugin.json"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:agentchat",
+      "fixture": "agentchat",
+      "priority": "P2",
+      "target": "manifest-loader",
+      "contract": "Manifest top-level fields are represented in target OpenClaw PluginManifest.",
+      "evidence": [
+        "displayName @ plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json",
+        "homepage @ plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json",
+        "icon @ plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json"
       ]
     },
     {
@@ -2967,6 +3185,15 @@
     },
     {
       "fixture": "agentchat",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "agentchat",
       "code": "package-metadata",
       "level": "log",
       "message": "selected package metadata for plugin contract checks",
@@ -3018,6 +3245,15 @@
     },
     {
       "fixture": "wecom",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/wecom/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "wecom",
       "code": "package-metadata",
       "level": "log",
       "message": "selected package metadata for plugin contract checks",
@@ -3054,6 +3290,15 @@
         "registerGatewayMethod",
         "registerService",
         "registerTool"
+      ]
+    },
+    {
+      "fixture": "a2a-gateway",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/a2a-gateway/openclaw.plugin.json"
       ]
     },
     {
@@ -3100,6 +3345,15 @@
       "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
       "evidence": [
         "registerTool"
+      ]
+    },
+    {
+      "fixture": "hasdata",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/hasdata/openclaw.plugin.json"
       ]
     },
     {
@@ -3160,6 +3414,15 @@
     },
     {
       "fixture": "mcp-adapter",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/mcp-adapter/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "mcp-adapter",
       "code": "package-metadata",
       "level": "log",
       "message": "selected package metadata for plugin contract checks",
@@ -3204,6 +3467,15 @@
       "level": "log",
       "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
       "evidence": []
+    },
+    {
+      "fixture": "llm-trace-phoenix",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/llm-trace-phoenix/openclaw.plugin.json"
+      ]
     },
     {
       "fixture": "llm-trace-phoenix",
@@ -3305,6 +3577,15 @@
     },
     {
       "fixture": "codex-app-server",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/codex-app-server/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "codex-app-server",
       "code": "package-metadata",
       "level": "log",
       "message": "selected package metadata for plugin contract checks",
@@ -3346,6 +3627,15 @@
       "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
       "evidence": [
         "registerTool"
+      ]
+    },
+    {
+      "fixture": "web-search-plus",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/web-search-plus/openclaw.plugin.json"
       ]
     },
     {
@@ -3397,6 +3687,15 @@
     },
     {
       "fixture": "apify",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/apify/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "apify",
       "code": "package-metadata",
       "level": "log",
       "message": "selected package metadata for plugin contract checks",
@@ -3440,6 +3739,15 @@
       "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
       "evidence": [
         "registerSpeechProvider"
+      ]
+    },
+    {
+      "fixture": "inworld-tts",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/inworld-tts/openclaw.plugin.json"
       ]
     },
     {
@@ -3555,6 +3863,13 @@
   "decisions": [
     {
       "fixture": "agentchat",
+      "decision": "plugin-upstream-fix",
+      "seam": "manifest-schema",
+      "action": "Move unknown manifest metadata into supported package openclaw metadata or add a versioned OpenClaw manifest field.",
+      "evidence": "displayName, homepage, icon"
+    },
+    {
+      "fixture": "agentchat",
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Run the plugin build or resolve source entrypoint aliases before cold-importing this fixture.",
@@ -3608,6 +3923,13 @@
       "seam": "tool-schema",
       "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
       "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "a2a-gateway",
+      "decision": "plugin-upstream-fix",
+      "seam": "manifest-schema",
+      "action": "Move unknown manifest metadata into supported package openclaw metadata or add a versioned OpenClaw manifest field.",
+      "evidence": "defaultConfig"
     },
     {
       "fixture": "a2a-gateway",

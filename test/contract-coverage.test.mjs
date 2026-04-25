@@ -51,7 +51,13 @@ test("contract coverage requires parsed target hook registry when OpenClaw is av
     warnings: [],
     suggestions: [],
     logs: [],
-    targetOpenClaw: { status: "ok", hookNames: [], apiRegistrars: [] },
+    targetOpenClaw: {
+      status: "ok",
+      hookNames: [],
+      apiRegistrars: [],
+      manifestFields: [],
+      manifestContractFields: [],
+    },
     fixtures: [],
     issues: [],
     contractProbes: [],
@@ -60,5 +66,7 @@ test("contract coverage requires parsed target hook registry when OpenClaw is av
   assert.deepEqual(validateContractCoverage(report), [
     "target OpenClaw hook registry was found but no hook names were parsed",
     "target OpenClaw API builder was found but no api.register* names were parsed",
+    "target OpenClaw manifest types were found but no PluginManifest fields were parsed",
+    "target OpenClaw manifest types were found but no PluginManifestContracts fields were parsed",
   ]);
 });

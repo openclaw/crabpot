@@ -3,7 +3,7 @@ import { test } from "node:test";
 import { buildReport, renderMarkdownReport } from "../scripts/report-lib.mjs";
 
 test("compatibility report classifies current fixture seams", async () => {
-  const report = await buildReport({ generatedAt: "test", openclawPath: false });
+  const report = await buildReport({ generatedAt: "test" });
 
   assert.equal(report.status, "pass");
   assert.equal(report.breakages.length, 0);
@@ -18,6 +18,7 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasFinding(report.suggestions, "a2a-gateway", "registration-capture-gap");
   assertHasFinding(report.suggestions, "wecom", "before-tool-call-probe");
   assertHasFinding(report.warnings, "a2a-gateway", "package-manifest-version-drift");
+  assertHasFinding(report.warnings, "agentchat", "manifest-unknown-fields");
   assertHasFinding(report.warnings, "mcp-adapter", "package-plugin-api-compat-missing");
   assertHasFinding(report.suggestions, "agentchat", "package-build-artifact-entrypoint");
 
@@ -28,8 +29,10 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasIssue(report.issues, "P1", "conversation-access-hook");
   assertHasIssue(report.issues, "P2", "package-plugin-api-compat-missing");
   assertHasIssue(report.issues, "P2", "package-build-artifact-entrypoint");
+  assertHasIssue(report.issues, "P2", "manifest-unknown-fields");
   assertHasProbe(report.contractProbes, "api.capture.runtime-registrars:wecom");
   assertHasProbe(report.contractProbes, "hook.before_tool_call.terminal-block-approval:wecom");
+  assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:agentchat");
   assertHasProbe(report.contractProbes, "package.compat.plugin-api-range:mcp-adapter");
   assertHasProbe(report.contractProbes, "package.entrypoint.build-before-cold-import:agentchat");
 });

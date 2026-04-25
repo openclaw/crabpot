@@ -311,6 +311,18 @@ function issueMetadata(finding) {
       decision: "core-compat-adapter",
       title: "compat-dependent behavior lacks registry coverage",
     },
+    "manifest-unknown-contracts": {
+      severity: "P1",
+      owner: "plugin",
+      decision: "plugin-upstream-fix",
+      title: "manifest declares unsupported contract keys",
+    },
+    "manifest-unknown-fields": {
+      severity: "P2",
+      owner: "plugin",
+      decision: "plugin-upstream-fix",
+      title: "manifest uses unsupported top-level fields",
+    },
     "package-build-artifact-entrypoint": {
       severity: "P2",
       owner: "inspector",
@@ -415,6 +427,16 @@ function buildContractProbes({ warnings, suggestions, fixtures }) {
     "channel-env-vars": {
       id: "manifest.compat.channel-env-vars",
       contract: "Legacy channel env metadata continues to map into channel setup/help surfaces.",
+      target: "manifest-loader",
+    },
+    "manifest-unknown-contracts": {
+      id: "manifest.schema.contract-keys",
+      contract: "Manifest contract keys are represented in target OpenClaw PluginManifestContracts.",
+      target: "manifest-loader",
+    },
+    "manifest-unknown-fields": {
+      id: "manifest.schema.top-level-fields",
+      contract: "Manifest top-level fields are represented in target OpenClaw PluginManifest.",
       target: "manifest-loader",
     },
     "registration-capture-gap": {
@@ -530,6 +552,7 @@ function classifyFixture({ fixture, inspection, fixtureReport, targetOpenClaw, b
 
   classifyHookNameCoverage({ fixture, inspection, targetOpenClaw, breakages, logs });
   classifyRegistrationNameCoverage({ fixture, inspection, targetOpenClaw, breakages, logs });
+  classifyManifestFieldCoverage({ fixture, fixtureReport, targetOpenClaw, warnings, logs, decisions });
   classifyPackageContracts({ fixture, inspection, fixtureReport, warnings, suggestions, logs, decisions });
 
   for (const pluginManifest of fixtureReport.pluginManifests) {
@@ -773,6 +796,62 @@ function classifyRegistrationNameCoverage({ fixture, inspection, targetOpenClaw,
   });
 }
 
+function classifyManifestFieldCoverage({ fixture, fixtureReport, targetOpenClaw, warnings, logs, decisions }) {
+  if (targetOpenClaw.status !== "ok" || targetOpenClaw.manifestFields.length === 0) {
+    return;
+  }
+
+  const manifestFields = new Set(targetOpenClaw.manifestFields);
+  const contractFields = new Set(targetOpenClaw.manifestContractFields);
+  for (const pluginManifest of fixtureReport.pluginManifests) {
+    const unknownFields = pluginManifest.keys.filter((key) => !manifestFields.has(key));
+    if (unknownFields.length > 0) {
+      warnings.push({
+        fixture: fixture.id,
+        code: "manifest-unknown-fields",
+        level: "warning",
+        message: "manifest uses top-level fields that are not present in the target OpenClaw PluginManifest type",
+        evidence: unknownFields.map((field) => `${field} @ ${pluginManifest.path}`),
+      });
+      decisions.push({
+        fixture: fixture.id,
+        decision: "plugin-upstream-fix",
+        seam: "manifest-schema",
+        action: "Move unknown manifest metadata into supported package openclaw metadata or add a versioned OpenClaw manifest field.",
+        evidence: unknownFields.join(", "),
+      });
+    }
+
+    const unknownContractFields = pluginManifest.contracts.filter((field) => !contractFields.has(field));
+    if (unknownContractFields.length > 0) {
+      warnings.push({
+        fixture: fixture.id,
+        code: "manifest-unknown-contracts",
+        level: "warning",
+        message: "manifest declares contract keys that are not present in the target OpenClaw PluginManifestContracts type",
+        evidence: unknownContractFields.map((field) => `${field} @ ${pluginManifest.path}`),
+      });
+      decisions.push({
+        fixture: fixture.id,
+        decision: "plugin-upstream-fix",
+        seam: "manifest-contract",
+        action: "Use a supported manifest contract key or add a versioned OpenClaw contract field.",
+        evidence: unknownContractFields.join(", "),
+      });
+    }
+  }
+
+  if (fixtureReport.pluginManifests.length > 0) {
+    logs.push({
+      fixture: fixture.id,
+      code: "manifest-fields-checked",
+      level: "log",
+      message: "plugin manifest fields were compared with target OpenClaw manifest types",
+      evidence: fixtureReport.pluginManifests.map((manifest) => manifest.path),
+    });
+  }
+}
+
 function classifyPackageContracts({ fixture, inspection, fixtureReport, warnings, suggestions, logs, decisions }) {
   const packageSummary = fixtureReport.package;
   if (!packageSummary) {
@@ -974,6 +1053,7 @@ async function readPluginManifests(checkoutPath, sourceRoot) {
       id: manifest.id ?? null,
       name: manifest.name ?? null,
       version: manifest.version ?? null,
+      keys: Object.keys(manifest).sort(),
       contracts: Object.keys(manifest.contracts ?? {}).sort(),
       providerAuthEnvVars: manifest.providerAuthEnvVars ?? {},
       channelEnvVars: manifest.channelEnvVars ?? {},
@@ -992,6 +1072,8 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       compatRecords: [],
       hookNames: [],
       apiRegistrars: [],
+      manifestFields: [],
+      manifestContractFields: [],
     };
   }
 
@@ -1003,6 +1085,8 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       compatRecords: [],
       hookNames: [],
       apiRegistrars: [],
+      manifestFields: [],
+      manifestContractFields: [],
     };
   }
 
@@ -1016,6 +1100,8 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       compatRecords: [],
       hookNames: [],
       apiRegistrars: [],
+      manifestFields: [],
+      manifestContractFields: [],
     };
   }
 
@@ -1028,6 +1114,10 @@ async function readTargetOpenClaw(manifest, configuredPath) {
   const apiRegistrars = existsSync(apiBuilderPath)
     ? unique([...((await readFile(apiBuilderPath, "utf8")).matchAll(/\b(register[A-Za-z0-9]+)\b/g))].map((match) => match[1])).sort()
     : [];
+  const manifestTypesPath = path.join(resolvedPath, "src/plugins/manifest.ts");
+  const manifestTypesSource = existsSync(manifestTypesPath) ? await readFile(manifestTypesPath, "utf8") : "";
+  const manifestFields = manifestTypesSource ? parseTypeFields(manifestTypesSource, "PluginManifest") : [];
+  const manifestContractFields = manifestTypesSource ? parseTypeFields(manifestTypesSource, "PluginManifestContracts") : [];
 
   return {
     configuredPath: requestedPath,
@@ -1041,6 +1131,11 @@ async function readTargetOpenClaw(manifest, configuredPath) {
     apiBuilderPath: existsSync(apiBuilderPath) ? path.relative(repoRoot, apiBuilderPath) : null,
     apiRegistrarCount: apiRegistrars.length,
     apiRegistrars,
+    manifestTypesPath: existsSync(manifestTypesPath) ? path.relative(repoRoot, manifestTypesPath) : null,
+    manifestFieldCount: manifestFields.length,
+    manifestFields,
+    manifestContractFieldCount: manifestContractFields.length,
+    manifestContractFields,
   };
 }
 
@@ -1240,6 +1335,9 @@ function targetOpenClawTable(targetOpenClaw) {
       ["Hook names", targetOpenClaw.hookNameCount ?? 0],
       ["API builder", targetOpenClaw.apiBuilderPath ?? "-"],
       ["API registrars", targetOpenClaw.apiRegistrarCount ?? 0],
+      ["Manifest types", targetOpenClaw.manifestTypesPath ?? "-"],
+      ["Manifest fields", targetOpenClaw.manifestFieldCount ?? 0],
+      ["Manifest contract fields", targetOpenClaw.manifestContractFieldCount ?? 0],
     ],
     ["Metric", "Value"],
   );
@@ -1303,6 +1401,25 @@ function parseExportedStringArray(source, exportName) {
   }
 
   return unique([...match[1].matchAll(/["'`]([^"'`]+)["'`]/g)].map((item) => item[1])).sort();
+}
+
+function parseTypeFields(source, typeName) {
+  const marker = `export type ${typeName} = {`;
+  const start = source.indexOf(marker);
+  if (start === -1) {
+    return [];
+  }
+  const bodyStart = start + marker.length;
+  const end = source.indexOf("\n};", bodyStart);
+  if (end === -1) {
+    return [];
+  }
+  const body = source.slice(bodyStart, end);
+  return unique(
+    [...body.matchAll(/^\s*([A-Za-z][A-Za-z0-9]*)\??:/gm)]
+      .map((match) => match[1])
+      .filter((field) => !field.startsWith("PluginManifest")),
+  ).sort();
 }
 
 function dedupeBy(values, keyForValue) {
