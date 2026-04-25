@@ -54,11 +54,13 @@ you intentionally pin or update fixture revisions.
 
 - `reports/crabpot-report.md`
 - `reports/crabpot-report.json`
+- `reports/crabpot-issues.md`
 
 The report is the local review surface for hard breakages, warnings, raw seam
 logs, OpenClaw compatibility-record coverage, suggestions for compat-layer work,
-and the decision matrix. It defaults to the OpenClaw checkout configured in
-`crabpot.config.json` and can be pointed elsewhere:
+issue findings, contract-probe backlog, and the decision matrix. It defaults to
+the OpenClaw checkout configured in `crabpot.config.json` and can be pointed
+elsewhere:
 
 ```bash
 node scripts/generate-report.mjs --openclaw ../openclaw

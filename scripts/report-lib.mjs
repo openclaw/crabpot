@@ -7,6 +7,7 @@ import { readManifest, repoRoot } from "./manifest-lib.mjs";
 export const defaultReportDir = path.join(repoRoot, "reports");
 export const defaultMarkdownReportPath = path.join(defaultReportDir, "crabpot-report.md");
 export const defaultJsonReportPath = path.join(defaultReportDir, "crabpot-report.json");
+export const defaultIssuesReportPath = path.join(defaultReportDir, "crabpot-issues.md");
 
 const CONVERSATION_ACCESS_HOOKS = new Set(["agent_end", "llm_input", "llm_output"]);
 const CAPTURE_GAP_REGISTRATIONS = new Set([
@@ -90,6 +91,9 @@ export async function buildReport(options = {}) {
     decisions,
   });
 
+  const issues = buildIssues({ breakages, warnings, suggestions });
+  const contractProbes = buildContractProbes({ warnings, suggestions, fixtures });
+
   const report = {
     generatedAt,
     targetOpenClaw,
@@ -101,11 +105,17 @@ export async function buildReport(options = {}) {
       warningCount: warnings.length,
       suggestionCount: suggestions.length,
       decisionCount: decisions.length,
+      issueCount: issues.length,
+      p0IssueCount: issues.filter((issue) => issue.severity === "P0").length,
+      p1IssueCount: issues.filter((issue) => issue.severity === "P1").length,
+      contractProbeCount: contractProbes.length,
     },
     fixtures,
     breakages,
     warnings,
     suggestions,
+    issues,
+    contractProbes,
     logs,
     decisions,
   };
@@ -116,11 +126,14 @@ export async function buildReport(options = {}) {
 export async function writeReport(report, options = {}) {
   const markdownPath = options.markdownPath ?? defaultMarkdownReportPath;
   const jsonPath = options.jsonPath ?? defaultJsonReportPath;
+  const issuesPath = options.issuesPath ?? defaultIssuesReportPath;
   await mkdir(path.dirname(markdownPath), { recursive: true });
   await mkdir(path.dirname(jsonPath), { recursive: true });
+  await mkdir(path.dirname(issuesPath), { recursive: true });
   await writeFile(markdownPath, `${renderMarkdownReport(report)}\n`, "utf8");
   await writeFile(jsonPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
-  return { markdownPath, jsonPath };
+  await writeFile(issuesPath, `${renderIssuesReport(report)}\n`, "utf8");
+  return { markdownPath, jsonPath, issuesPath };
 }
 
 export function renderMarkdownReport(report) {
@@ -139,6 +152,10 @@ export function renderMarkdownReport(report) {
         ["Hard breakages", report.summary.breakageCount],
         ["Warnings", report.summary.warningCount],
         ["Compatibility suggestions", report.summary.suggestionCount],
+        ["Issue findings", report.summary.issueCount],
+        ["P0 issues", report.summary.p0IssueCount],
+        ["P1 issues", report.summary.p1IssueCount],
+        ["Contract probes", report.summary.contractProbeCount],
         ["Decision rows", report.summary.decisionCount],
       ],
       ["Metric", "Value"],
@@ -159,6 +176,14 @@ export function renderMarkdownReport(report) {
     "## Suggestions To OpenClaw Compat Layer",
     "",
     findingsTable(report.suggestions),
+    "",
+    "## Issue Findings",
+    "",
+    issuesTable(report.issues),
+    "",
+    "## Contract Probe Backlog",
+    "",
+    contractProbesTable(report.contractProbes),
     "",
     "## Fixture Seam Inventory",
     "",
@@ -191,6 +216,193 @@ export function renderMarkdownReport(report) {
     "",
     findingsTable(report.logs),
   ].join("\n");
+}
+
+export function renderIssuesReport(report) {
+  return [
+    "# Crabpot Issue Findings",
+    "",
+    `Generated: ${report.generatedAt}`,
+    `Status: ${report.status.toUpperCase()}`,
+    "",
+    "## Triage Summary",
+    "",
+    markdownTable(
+      [
+        ["Issue findings", report.summary.issueCount],
+        ["P0", report.summary.p0IssueCount],
+        ["P1", report.summary.p1IssueCount],
+        ["Contract probes", report.summary.contractProbeCount],
+      ],
+      ["Metric", "Value"],
+    ),
+    "",
+    "## Issues",
+    "",
+    issuesTable(report.issues),
+    "",
+    "## Contract Probe Backlog",
+    "",
+    contractProbesTable(report.contractProbes),
+  ].join("\n");
+}
+
+function buildIssues({ breakages, warnings, suggestions }) {
+  const findings = [
+    ...breakages.map((finding) => ({ ...finding, severity: "P0", owner: "core", decision: "core-compat-adapter" })),
+    ...warnings.map((finding) => issueMetadata(finding)),
+    ...suggestions.map((finding) => issueMetadata(finding)),
+  ];
+
+  return findings
+    .filter((finding) => finding.severity)
+    .sort(issueSort)
+    .map((finding, index) => ({
+      id: `CRABPOT-${String(index + 1).padStart(4, "0")}`,
+      fixture: finding.fixture,
+      severity: finding.severity,
+      owner: finding.owner,
+      code: finding.code,
+      decision: finding.decision,
+      status: finding.level === "breakage" ? "blocking" : "open",
+      title: issueTitle(finding),
+      evidence: finding.evidence ?? [],
+      compatRecord: finding.compatRecord ?? null,
+    }));
+}
+
+function issueMetadata(finding) {
+  const metadataByCode = {
+    "before-tool-call-probe": {
+      severity: "P1",
+      owner: "inspector",
+      decision: "inspector-follow-up",
+      title: "before_tool_call needs terminal/block/approval probes",
+    },
+    "channel-contract-probe": {
+      severity: "P2",
+      owner: "inspector",
+      decision: "inspector-follow-up",
+      title: "channel runtime needs envelope/config probes",
+    },
+    "channel-env-vars": {
+      severity: "P2",
+      owner: "core",
+      decision: "core-compat-adapter",
+      title: "channelEnvVars legacy manifest metadata must stay covered",
+    },
+    "conversation-access-hook": {
+      severity: "P1",
+      owner: "core",
+      decision: "inspector-follow-up",
+      title: "conversation-access hooks need privacy-boundary probes",
+    },
+    "legacy-root-sdk-import": {
+      severity: "P2",
+      owner: "core",
+      decision: "core-compat-adapter",
+      title: "root plugin SDK barrel is still used by fixtures",
+    },
+    "missing-compat-record": {
+      severity: "P1",
+      owner: "core",
+      decision: "core-compat-adapter",
+      title: "compat-dependent behavior lacks registry coverage",
+    },
+    "provider-auth-env-vars": {
+      severity: "P2",
+      owner: "core",
+      decision: "core-compat-adapter",
+      title: "providerAuthEnvVars legacy manifest metadata must stay covered",
+    },
+    "registration-capture-gap": {
+      severity: "P1",
+      owner: "inspector",
+      decision: "inspector-follow-up",
+      title: "runtime registrations need capture before contract judgment",
+    },
+    "runtime-tool-capture": {
+      severity: "P2",
+      owner: "inspector",
+      decision: "inspector-follow-up",
+      title: "runtime tool schema needs registration capture",
+    },
+  };
+  return {
+    ...finding,
+    ...(metadataByCode[finding.code] ?? {
+      severity: "P3",
+      owner: "inspector",
+      decision: "inspector-follow-up",
+      title: finding.message,
+    }),
+  };
+}
+
+function buildContractProbes({ warnings, suggestions, fixtures }) {
+  const fixtureById = new Map(fixtures.map((fixture) => [fixture.id, fixture]));
+  const probes = [];
+  const probeRules = {
+    "before-tool-call-probe": {
+      id: "hook.before_tool_call.terminal-block-approval",
+      contract: "Hook returns preserve terminal, block, and approval semantics.",
+      target: "hook-runner",
+    },
+    "channel-contract-probe": {
+      id: "channel.runtime.envelope-config-metadata",
+      contract: "Channel setup, message envelope, sender metadata, and config schema remain stable.",
+      target: "channel-runtime",
+    },
+    "conversation-access-hook": {
+      id: "hook.llm-observer.privacy-payload",
+      contract: "LLM observer hooks receive documented prompt/output fields with expected redaction behavior.",
+      target: "hook-runner",
+    },
+    "legacy-root-sdk-import": {
+      id: "sdk.import.root-barrel-cold-import",
+      contract: "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
+      target: "sdk-alias",
+    },
+    "provider-auth-env-vars": {
+      id: "manifest.compat.provider-auth-env-vars",
+      contract: "Legacy provider auth env metadata continues to map into config/help surfaces.",
+      target: "manifest-loader",
+    },
+    "channel-env-vars": {
+      id: "manifest.compat.channel-env-vars",
+      contract: "Legacy channel env metadata continues to map into channel setup/help surfaces.",
+      target: "manifest-loader",
+    },
+    "registration-capture-gap": {
+      id: "api.capture.runtime-registrars",
+      contract: "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      target: "inspector-capture-api",
+    },
+    "runtime-tool-capture": {
+      id: "tool.registration.schema-capture",
+      contract: "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      target: "tool-runtime",
+    },
+  };
+
+  for (const finding of [...warnings, ...suggestions]) {
+    const rule = probeRules[finding.code];
+    if (!rule) {
+      continue;
+    }
+    probes.push({
+      id: `${rule.id}:${finding.fixture}`,
+      fixture: finding.fixture,
+      priority: probePriority(finding.code, fixtureById.get(finding.fixture)?.priority),
+      target: rule.target,
+      contract: rule.contract,
+      evidence: finding.evidence ?? [],
+    });
+  }
+
+  return dedupeBy(probes, (probe) => probe.id).sort(
+    (left, right) => priorityRank(left.priority) - priorityRank(right.priority) || left.id.localeCompare(right.id),
+  );
 }
 
 function classifyCompatRecordCoverage({ targetOpenClaw, findings, suggestions, logs, decisions }) {
@@ -570,6 +782,44 @@ function findingsTable(findings) {
   );
 }
 
+function issuesTable(issues) {
+  if (issues.length === 0) {
+    return "_none_";
+  }
+
+  return markdownTable(
+    issues.map((issue) => [
+      issue.id,
+      issue.severity,
+      issue.fixture,
+      issue.owner,
+      issue.decision,
+      issue.status,
+      issue.title,
+      issue.evidence.join(", ") || "-",
+    ]),
+    ["ID", "Severity", "Fixture", "Owner", "Decision", "Status", "Title", "Evidence"],
+  );
+}
+
+function contractProbesTable(probes) {
+  if (probes.length === 0) {
+    return "_none_";
+  }
+
+  return markdownTable(
+    probes.map((probe) => [
+      probe.id,
+      probe.priority,
+      probe.fixture,
+      probe.target,
+      probe.contract,
+      probe.evidence.join(", ") || "-",
+    ]),
+    ["ID", "Priority", "Fixture", "Target", "Contract", "Evidence"],
+  );
+}
+
 function targetOpenClawTable(targetOpenClaw) {
   const recordPreview = targetOpenClaw.compatRecords.length > 0 ? targetOpenClaw.compatRecords.join(", ") : "-";
   return markdownTable(
@@ -604,8 +854,43 @@ function escapeCell(value) {
   return String(value).replaceAll("|", "\\|").replaceAll("\n", " ");
 }
 
+function issueSort(left, right) {
+  return (
+    priorityRank(left.severity) - priorityRank(right.severity) ||
+    left.fixture.localeCompare(right.fixture) ||
+    left.code.localeCompare(right.code) ||
+    (left.evidence ?? []).join(",").localeCompare((right.evidence ?? []).join(","))
+  );
+}
+
+function issueTitle(finding) {
+  return `${finding.fixture}: ${finding.title ?? finding.message}`;
+}
+
+function probePriority(code, fixturePriority) {
+  if (["before-tool-call-probe", "conversation-access-hook", "registration-capture-gap"].includes(code)) {
+    return "P1";
+  }
+  if (fixturePriority === "high") {
+    return "P2";
+  }
+  return "P3";
+}
+
+function priorityRank(priority) {
+  return { P0: 0, P1: 1, P2: 2, P3: 3, high: 1, medium: 2, low: 3 }[priority] ?? 99;
+}
+
 function detailEvidence(details, key = "name") {
   return unique(details.map((detail) => `${detail[key]} @ ${detail.ref}`));
+}
+
+function dedupeBy(values, keyForValue) {
+  const byKey = new Map();
+  for (const value of values) {
+    byKey.set(keyForValue(value), value);
+  }
+  return [...byKey.values()];
 }
 
 function unique(values) {

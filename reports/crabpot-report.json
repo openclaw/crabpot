@@ -34,7 +34,11 @@
     "breakageCount": 0,
     "warningCount": 9,
     "suggestionCount": 13,
-    "decisionCount": 24
+    "decisionCount": 24,
+    "issueCount": 22,
+    "p0IssueCount": 0,
+    "p1IssueCount": 7,
+    "contractProbeCount": 22
   },
   "fixtures": [
     {
@@ -1469,6 +1473,588 @@
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
         "registerTool @ plugins/apify/src/index.ts:13"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "id": "CRABPOT-0001",
+      "fixture": "a2a-gateway",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "a2a-gateway: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:616",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:622",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:631",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:657",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:669",
+        "registerService @ plugins/a2a-gateway/index.ts:857"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0002",
+      "fixture": "clawmetry",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "clawmetry: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerService @ plugins/clawmetry/clawhub-plugin/index.ts:9"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0003",
+      "fixture": "codex-app-server",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "codex-app-server: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerCommand @ plugins/codex-app-server/index.ts:48",
+        "registerInteractiveHandler @ plugins/codex-app-server/index.ts:29",
+        "registerInteractiveHandler @ plugins/codex-app-server/index.ts:38",
+        "registerService @ plugins/codex-app-server/index.ts:12"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0004",
+      "fixture": "llm-trace-phoenix",
+      "severity": "P1",
+      "owner": "core",
+      "code": "conversation-access-hook",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "llm-trace-phoenix: conversation-access hooks need privacy-boundary probes",
+      "evidence": [
+        "llm_input @ plugins/llm-trace-phoenix/index.ts:154",
+        "llm_output @ plugins/llm-trace-phoenix/index.ts:168"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0005",
+      "fixture": "mcp-adapter",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "mcp-adapter: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerService @ plugins/mcp-adapter/index.ts:15"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0006",
+      "fixture": "wecom",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "before-tool-call-probe",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "wecom: before_tool_call needs terminal/block/approval probes",
+      "evidence": [
+        "before_tool_call @ plugins/wecom/index.js:65"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0007",
+      "fixture": "wecom",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "wecom: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerHttpRoute @ plugins/wecom/index.js:45"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0008",
+      "fixture": "a2a-gateway",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-root-sdk-import",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "title": "a2a-gateway: root plugin SDK barrel is still used by fixtures",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/a2a-gateway/src/types.ts:14"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "id": "CRABPOT-0009",
+      "fixture": "a2a-gateway",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "a2a-gateway: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/a2a-gateway/index.ts:777"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0010",
+      "fixture": "agentchat",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "channel-contract-probe",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "agentchat: channel runtime needs envelope/config probes",
+      "evidence": [
+        "defineChannelPluginEntry @ plugins/agentchat/integrations/openclaw-channel/src/channel.ts:333"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0011",
+      "fixture": "agentchat",
+      "severity": "P2",
+      "owner": "core",
+      "code": "channel-env-vars",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "title": "agentchat: channelEnvVars legacy manifest metadata must stay covered",
+      "evidence": [
+        "agentchat"
+      ],
+      "compatRecord": "channel-env-vars"
+    },
+    {
+      "id": "CRABPOT-0012",
+      "fixture": "apify",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-root-sdk-import",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "title": "apify: root plugin SDK barrel is still used by fixtures",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/apify/src/cli.ts:2",
+        "openclaw/plugin-sdk @ plugins/apify/src/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/apify/src/tools/apify-scraper-tool.ts:4"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "id": "CRABPOT-0013",
+      "fixture": "apify",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "apify: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/apify/src/index.ts:13"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0014",
+      "fixture": "codex-app-server",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-root-sdk-import",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "title": "codex-app-server: root plugin SDK barrel is still used by fixtures",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/codex-app-server/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/codex-app-server/src/client.ts:6",
+        "openclaw/plugin-sdk @ plugins/codex-app-server/src/controller.ts:18",
+        "openclaw/plugin-sdk @ plugins/codex-app-server/src/types.ts:1"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "id": "CRABPOT-0015",
+      "fixture": "hasdata",
+      "severity": "P2",
+      "owner": "core",
+      "code": "provider-auth-env-vars",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "title": "hasdata: providerAuthEnvVars legacy manifest metadata must stay covered",
+      "evidence": [
+        "hasdata"
+      ],
+      "compatRecord": "provider-auth-env-vars"
+    },
+    {
+      "id": "CRABPOT-0016",
+      "fixture": "inworld-tts",
+      "severity": "P2",
+      "owner": "core",
+      "code": "provider-auth-env-vars",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "title": "inworld-tts: providerAuthEnvVars legacy manifest metadata must stay covered",
+      "evidence": [
+        "inworld"
+      ],
+      "compatRecord": "provider-auth-env-vars"
+    },
+    {
+      "id": "CRABPOT-0017",
+      "fixture": "llm-trace-phoenix",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-root-sdk-import",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "title": "llm-trace-phoenix: root plugin SDK barrel is still used by fixtures",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/llm-trace-phoenix/index.ts:12"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "id": "CRABPOT-0018",
+      "fixture": "mcp-adapter",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "mcp-adapter: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/mcp-adapter/index.ts:30"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0019",
+      "fixture": "web-search-plus",
+      "severity": "P2",
+      "owner": "core",
+      "code": "provider-auth-env-vars",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "title": "web-search-plus: providerAuthEnvVars legacy manifest metadata must stay covered",
+      "evidence": [
+        "serper",
+        "tavily",
+        "linkup",
+        "querit",
+        "exa",
+        "firecrawl",
+        "perplexity",
+        "you",
+        "searxng"
+      ],
+      "compatRecord": "provider-auth-env-vars"
+    },
+    {
+      "id": "CRABPOT-0020",
+      "fixture": "web-search-plus",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "web-search-plus: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/web-search-plus/index.ts:815",
+        "registerTool @ plugins/web-search-plus/index.ts:947"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0021",
+      "fixture": "wecom",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "channel-contract-probe",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "wecom: channel runtime needs envelope/config probes",
+      "evidence": [
+        "registerChannel @ plugins/wecom/index.js:27"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0022",
+      "fixture": "wecom",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "wecom: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/wecom/index.js:28",
+        "registerTool @ plugins/wecom/index.js:29",
+        "registerTool @ plugins/wecom/index.js:33"
+      ],
+      "compatRecord": null
+    }
+  ],
+  "contractProbes": [
+    {
+      "id": "api.capture.runtime-registrars:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:616",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:622",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:631",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:657",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:669",
+        "registerService @ plugins/a2a-gateway/index.ts:857"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:clawmetry",
+      "fixture": "clawmetry",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerService @ plugins/clawmetry/clawhub-plugin/index.ts:9"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:codex-app-server",
+      "fixture": "codex-app-server",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerCommand @ plugins/codex-app-server/index.ts:48",
+        "registerInteractiveHandler @ plugins/codex-app-server/index.ts:29",
+        "registerInteractiveHandler @ plugins/codex-app-server/index.ts:38",
+        "registerService @ plugins/codex-app-server/index.ts:12"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:mcp-adapter",
+      "fixture": "mcp-adapter",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerService @ plugins/mcp-adapter/index.ts:15"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:wecom",
+      "fixture": "wecom",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerHttpRoute @ plugins/wecom/index.js:45"
+      ]
+    },
+    {
+      "id": "hook.before_tool_call.terminal-block-approval:wecom",
+      "fixture": "wecom",
+      "priority": "P1",
+      "target": "hook-runner",
+      "contract": "Hook returns preserve terminal, block, and approval semantics.",
+      "evidence": [
+        "before_tool_call @ plugins/wecom/index.js:65"
+      ]
+    },
+    {
+      "id": "hook.llm-observer.privacy-payload:llm-trace-phoenix",
+      "fixture": "llm-trace-phoenix",
+      "priority": "P1",
+      "target": "hook-runner",
+      "contract": "LLM observer hooks receive documented prompt/output fields with expected redaction behavior.",
+      "evidence": [
+        "llm_input @ plugins/llm-trace-phoenix/index.ts:154",
+        "llm_output @ plugins/llm-trace-phoenix/index.ts:168"
+      ]
+    },
+    {
+      "id": "channel.runtime.envelope-config-metadata:agentchat",
+      "fixture": "agentchat",
+      "priority": "P2",
+      "target": "channel-runtime",
+      "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
+      "evidence": [
+        "defineChannelPluginEntry @ plugins/agentchat/integrations/openclaw-channel/src/channel.ts:333"
+      ]
+    },
+    {
+      "id": "channel.runtime.envelope-config-metadata:wecom",
+      "fixture": "wecom",
+      "priority": "P2",
+      "target": "channel-runtime",
+      "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
+      "evidence": [
+        "registerChannel @ plugins/wecom/index.js:27"
+      ]
+    },
+    {
+      "id": "manifest.compat.channel-env-vars:agentchat",
+      "fixture": "agentchat",
+      "priority": "P2",
+      "target": "manifest-loader",
+      "contract": "Legacy channel env metadata continues to map into channel setup/help surfaces.",
+      "evidence": [
+        "agentchat"
+      ]
+    },
+    {
+      "id": "manifest.compat.provider-auth-env-vars:hasdata",
+      "fixture": "hasdata",
+      "priority": "P2",
+      "target": "manifest-loader",
+      "contract": "Legacy provider auth env metadata continues to map into config/help surfaces.",
+      "evidence": [
+        "hasdata"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/a2a-gateway/src/types.ts:14"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:llm-trace-phoenix",
+      "fixture": "llm-trace-phoenix",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/llm-trace-phoenix/index.ts:12"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/a2a-gateway/index.ts:777"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:mcp-adapter",
+      "fixture": "mcp-adapter",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/mcp-adapter/index.ts:30"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:wecom",
+      "fixture": "wecom",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/wecom/index.js:28",
+        "registerTool @ plugins/wecom/index.js:29",
+        "registerTool @ plugins/wecom/index.js:33"
+      ]
+    },
+    {
+      "id": "manifest.compat.provider-auth-env-vars:inworld-tts",
+      "fixture": "inworld-tts",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "contract": "Legacy provider auth env metadata continues to map into config/help surfaces.",
+      "evidence": [
+        "inworld"
+      ]
+    },
+    {
+      "id": "manifest.compat.provider-auth-env-vars:web-search-plus",
+      "fixture": "web-search-plus",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "contract": "Legacy provider auth env metadata continues to map into config/help surfaces.",
+      "evidence": [
+        "serper",
+        "tavily",
+        "linkup",
+        "querit",
+        "exa",
+        "firecrawl",
+        "perplexity",
+        "you",
+        "searxng"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:apify",
+      "fixture": "apify",
+      "priority": "P3",
+      "target": "sdk-alias",
+      "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/apify/src/cli.ts:2",
+        "openclaw/plugin-sdk @ plugins/apify/src/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/apify/src/tools/apify-scraper-tool.ts:4"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:codex-app-server",
+      "fixture": "codex-app-server",
+      "priority": "P3",
+      "target": "sdk-alias",
+      "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/codex-app-server/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/codex-app-server/src/client.ts:6",
+        "openclaw/plugin-sdk @ plugins/codex-app-server/src/controller.ts:18",
+        "openclaw/plugin-sdk @ plugins/codex-app-server/src/types.ts:1"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:apify",
+      "fixture": "apify",
+      "priority": "P3",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/apify/src/index.ts:13"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:web-search-plus",
+      "fixture": "web-search-plus",
+      "priority": "P3",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/web-search-plus/index.ts:815",
+        "registerTool @ plugins/web-search-plus/index.ts:947"
       ]
     }
   ],

@@ -8,6 +8,9 @@ test("compatibility report classifies current fixture seams", async () => {
   assert.equal(report.status, "pass");
   assert.equal(report.breakages.length, 0);
   assert.ok(report.summary.fixtureCount >= 10);
+  assert.ok(report.summary.issueCount > 0);
+  assert.ok(report.summary.p1IssueCount > 0);
+  assert.ok(report.summary.contractProbeCount > 0);
 
   assertHasFinding(report.warnings, "hasdata", "provider-auth-env-vars");
   assertHasFinding(report.warnings, "agentchat", "channel-env-vars");
@@ -17,6 +20,11 @@ test("compatibility report classifies current fixture seams", async () => {
 
   assertHasDecision(report.decisions, "core-compat-adapter", "env-auth");
   assertHasDecision(report.decisions, "inspector-follow-up", "registration-capture");
+
+  assertHasIssue(report.issues, "P1", "registration-capture-gap");
+  assertHasIssue(report.issues, "P1", "conversation-access-hook");
+  assertHasProbe(report.contractProbes, "api.capture.runtime-registrars:wecom");
+  assertHasProbe(report.contractProbes, "hook.before_tool_call.terminal-block-approval:wecom");
 });
 
 test("markdown report includes review sections", async () => {
@@ -27,6 +35,8 @@ test("markdown report includes review sections", async () => {
   assert.match(markdown, /## Target OpenClaw Compat Records/);
   assert.match(markdown, /## Warnings/);
   assert.match(markdown, /## Suggestions To OpenClaw Compat Layer/);
+  assert.match(markdown, /## Issue Findings/);
+  assert.match(markdown, /## Contract Probe Backlog/);
   assert.match(markdown, /## Decision Matrix/);
   assert.match(markdown, /provider-auth-env-vars/);
 });
@@ -42,5 +52,19 @@ function assertHasDecision(decisions, decision, seam) {
   assert.ok(
     decisions.some((row) => row.decision === decision && row.seam === seam),
     `expected ${decision} decision for ${seam}`,
+  );
+}
+
+function assertHasIssue(issues, severity, code) {
+  assert.ok(
+    issues.some((issue) => issue.severity === severity && issue.code === code),
+    `expected ${severity} issue for ${code}`,
+  );
+}
+
+function assertHasProbe(probes, id) {
+  assert.ok(
+    probes.some((probe) => probe.id === id),
+    `expected contract probe ${id}`,
   );
 }

@@ -2,6 +2,7 @@
 import { pathToFileURL } from "node:url";
 import {
   buildReport,
+  defaultIssuesReportPath,
   defaultJsonReportPath,
   defaultMarkdownReportPath,
   writeReport,
@@ -25,6 +26,7 @@ async function main() {
     if (!json) {
       console.log(`wrote ${paths.markdownPath}`);
       console.log(`wrote ${paths.jsonPath}`);
+      console.log(`wrote ${paths.issuesPath}`);
     }
   }
 
@@ -32,9 +34,9 @@ async function main() {
     console.log(JSON.stringify(report, null, 2));
   } else if (check) {
     console.log(
-      `crabpot report check: ${report.status}; ${report.summary.breakageCount} breakages, ${report.summary.warningCount} warnings, ${report.summary.suggestionCount} suggestions`,
+      `crabpot report check: ${report.status}; ${report.summary.breakageCount} breakages, ${report.summary.warningCount} warnings, ${report.summary.suggestionCount} suggestions, ${report.summary.issueCount} issues`,
     );
-    console.log(`report targets: ${defaultMarkdownReportPath}, ${defaultJsonReportPath}`);
+    console.log(`report targets: ${defaultMarkdownReportPath}, ${defaultJsonReportPath}, ${defaultIssuesReportPath}`);
   }
 
   if (check && report.breakages.length > 0) {

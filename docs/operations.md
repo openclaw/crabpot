@@ -42,8 +42,9 @@ Add heavier lanes later for SDK compilation against specific OpenClaw refs:
 
 ## Reading the report
 
-Use `reports/crabpot-report.md` for human review and
-`reports/crabpot-report.json` for downstream tooling.
+Use `reports/crabpot-report.md` for full human review,
+`reports/crabpot-report.json` for downstream tooling, and
+`reports/crabpot-issues.md` for the short issue/probe queue.
 
 Decision classes mean:
 
@@ -56,3 +57,12 @@ Decision classes mean:
 Hard breakages should block contract changes. Warnings are old or sensitive
 seams that currently still work but need compat coverage before OpenClaw changes
 the relevant API.
+
+Issue severity means:
+
+- `P0`: current hard breakage.
+- `P1`: high-risk contract seam where OpenClaw should not change behavior until
+  the inspector has a probe or a compat adapter.
+- `P2`: compatibility debt that should stay visible but does not block all
+  contract work.
+- `P3`: low-risk follow-up.
