@@ -1,0 +1,1047 @@
+{
+  "generatedAt": "deterministic",
+  "status": "pass",
+  "summary": {
+    "fixtureCount": 11,
+    "highPriorityFixtures": 6,
+    "breakageCount": 0,
+    "warningCount": 9,
+    "suggestionCount": 13,
+    "decisionCount": 24
+  },
+  "fixtures": [
+    {
+      "id": "agentchat",
+      "name": "AgentChat OpenClaw Channel",
+      "priority": "high",
+      "seams": [
+        "channel",
+        "prompt-mutation",
+        "config-schema",
+        "websocket",
+        "backpressure"
+      ],
+      "why": "Production-shaped channel plugin with WebSocket auth, reconnect, prompt hints, and typed runtime contracts.",
+      "status": "ok",
+      "hooks": [],
+      "registrations": [
+        "defineChannelPluginEntry"
+      ],
+      "manifestContracts": [],
+      "pluginManifests": [
+        {
+          "path": "plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json",
+          "id": "agentchat",
+          "name": "AgentChat",
+          "version": "0.6.1",
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {
+            "agentchat": [
+              "AGENTCHAT_API_KEY",
+              "AGENTCHAT_API_BASE"
+            ]
+          },
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/agentchat/integrations/openclaw-channel/package.json",
+        "name": "@agentchatme/openclaw",
+        "version": "0.6.1",
+        "type": "module"
+      },
+      "sdkImports": [
+        "openclaw/plugin-sdk/channel-contract",
+        "openclaw/plugin-sdk/channel-core",
+        "openclaw/plugin-sdk/setup"
+      ]
+    },
+    {
+      "id": "wecom",
+      "name": "WeCom Enhanced Channel",
+      "priority": "high",
+      "seams": [
+        "channel",
+        "streaming",
+        "dynamic-agent-routing",
+        "message-policy",
+        "media"
+      ],
+      "why": "Large community channel fixture covering WS streaming, group/DM policy, command allowlists, media, and dynamic agents.",
+      "status": "ok",
+      "hooks": [
+        "before_prompt_build",
+        "before_tool_call",
+        "subagent_delivery_target",
+        "subagent_ended",
+        "subagent_spawned"
+      ],
+      "registrations": [
+        "registerChannel",
+        "registerHttpRoute",
+        "registerTool"
+      ],
+      "manifestContracts": [],
+      "pluginManifests": [
+        {
+          "path": "plugins/wecom/openclaw.plugin.json",
+          "id": "wecom",
+          "name": "OpenClaw WeCom",
+          "version": null,
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/wecom/package.json",
+        "name": "@sunnoy/wecom",
+        "version": "3.0.1",
+        "type": "module"
+      },
+      "sdkImports": [
+        "openclaw/plugin-sdk/core",
+        "openclaw/plugin-sdk/media-runtime",
+        "openclaw/plugin-sdk/setup",
+        "openclaw/plugin-sdk/status-helpers"
+      ]
+    },
+    {
+      "id": "a2a-gateway",
+      "name": "A2A Gateway",
+      "priority": "high",
+      "seams": [
+        "gateway-service",
+        "http-routes",
+        "agent-routing",
+        "async-job",
+        "auth"
+      ],
+      "why": "Agent-to-agent server fixture with agent-card discovery, JSON-RPC/REST/gRPC transports, metrics, peer auth, and async task modes.",
+      "status": "ok",
+      "hooks": [],
+      "registrations": [
+        "registerGatewayMethod",
+        "registerService",
+        "registerTool"
+      ],
+      "manifestContracts": [],
+      "pluginManifests": [
+        {
+          "path": "plugins/a2a-gateway/openclaw.plugin.json",
+          "id": "a2a-gateway",
+          "name": "A2A Gateway",
+          "version": "1.3.0",
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/a2a-gateway/package.json",
+        "name": "openclaw-a2a-gateway",
+        "version": "1.4.0",
+        "type": "module"
+      },
+      "sdkImports": [
+        "openclaw/plugin-sdk"
+      ]
+    },
+    {
+      "id": "hasdata",
+      "name": "HasData",
+      "priority": "high",
+      "seams": [
+        "tool",
+        "tool-schema",
+        "external-api",
+        "cli",
+        "config-schema"
+      ],
+      "why": "Single native tool backed by a large OpenAPI-derived action catalog and strict per-action schemas.",
+      "status": "ok",
+      "hooks": [],
+      "registrations": [
+        "registerTool"
+      ],
+      "manifestContracts": [
+        "tools"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/hasdata/openclaw.plugin.json",
+          "id": "hasdata",
+          "name": "HasData",
+          "version": "0.1.5",
+          "contracts": [
+            "tools"
+          ],
+          "providerAuthEnvVars": {
+            "hasdata": [
+              "HASDATA_API_KEY"
+            ]
+          },
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/hasdata/package.json",
+        "name": "@hasdata/hasdata-openclaw-plugin",
+        "version": "0.1.5",
+        "type": "module"
+      },
+      "sdkImports": []
+    },
+    {
+      "id": "mcp-adapter",
+      "name": "MCP Adapter",
+      "priority": "high",
+      "seams": [
+        "dynamic-tool",
+        "json-schema",
+        "stdio",
+        "http",
+        "reconnect"
+      ],
+      "why": "Dynamic tool discovery from MCP servers with stdio/http transports and schema passthrough.",
+      "status": "ok",
+      "hooks": [],
+      "registrations": [
+        "registerService",
+        "registerTool"
+      ],
+      "manifestContracts": [],
+      "pluginManifests": [
+        {
+          "path": "plugins/mcp-adapter/openclaw.plugin.json",
+          "id": "openclaw-mcp-adapter",
+          "name": "MCP Adapter",
+          "version": null,
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/mcp-adapter/package.json",
+        "name": "openclaw-mcp-adapter",
+        "version": "0.1.1",
+        "type": "module"
+      },
+      "sdkImports": []
+    },
+    {
+      "id": "llm-trace-phoenix",
+      "name": "Phoenix LLM Trace",
+      "priority": "high",
+      "seams": [
+        "llm-observer",
+        "conversation-access",
+        "telemetry",
+        "external-api"
+      ],
+      "why": "Small sharp fixture for llm_input/llm_output access and raw prompt/output privacy boundaries.",
+      "status": "ok",
+      "hooks": [
+        "llm_input",
+        "llm_output"
+      ],
+      "registrations": [],
+      "manifestContracts": [],
+      "pluginManifests": [
+        {
+          "path": "plugins/llm-trace-phoenix/openclaw.plugin.json",
+          "id": "llm-trace-phoenix",
+          "name": "LLM Trace → Phoenix",
+          "version": "1.0.1",
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/llm-trace-phoenix/package.json",
+        "name": "llm-trace-phoenix",
+        "version": "1.0.1",
+        "type": "module"
+      },
+      "sdkImports": [
+        "openclaw/plugin-sdk"
+      ]
+    },
+    {
+      "id": "clawmetry",
+      "name": "ClawMetry",
+      "priority": "medium",
+      "seams": [
+        "diagnostics",
+        "log-transport",
+        "gateway-service",
+        "sidecar",
+        "telemetry"
+      ],
+      "why": "Observability fixture for diagnostic events, log transport, telemetry buffering, and plugin-owned dashboard lifecycle.",
+      "status": "ok",
+      "hooks": [],
+      "registrations": [
+        "definePluginEntry",
+        "registerService"
+      ],
+      "manifestContracts": [],
+      "pluginManifests": [],
+      "package": {
+        "path": "plugins/clawmetry/package.json",
+        "name": "openclaw-dashboard-repo",
+        "version": "0.0.1",
+        "type": null
+      },
+      "sdkImports": [
+        "openclaw/plugin-sdk/diagnostics-otel",
+        "openclaw/plugin-sdk/plugin-entry"
+      ]
+    },
+    {
+      "id": "codex-app-server",
+      "name": "Codex App Server Bridge",
+      "priority": "medium",
+      "seams": [
+        "process-spawn",
+        "unsafe-install",
+        "channel-bridge",
+        "interactive-ui",
+        "sdk-compat"
+      ],
+      "why": "Bridge fixture for process launch policy, install safety gates, and channel-specific SDK compatibility.",
+      "status": "ok",
+      "hooks": [
+        "inbound_claim"
+      ],
+      "registrations": [
+        "registerCommand",
+        "registerInteractiveHandler",
+        "registerService"
+      ],
+      "manifestContracts": [],
+      "pluginManifests": [
+        {
+          "path": "plugins/codex-app-server/openclaw.plugin.json",
+          "id": "openclaw-codex-app-server",
+          "name": "OpenClaw Plugin For Codex App Server",
+          "version": null,
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/codex-app-server/package.json",
+        "name": "openclaw-codex-app-server",
+        "version": "0.0.0",
+        "type": "module"
+      },
+      "sdkImports": [
+        "openclaw/plugin-sdk",
+        "openclaw/plugin-sdk/discord",
+        "openclaw/plugin-sdk/telegram-account"
+      ]
+    },
+    {
+      "id": "web-search-plus",
+      "name": "Web Search Plus",
+      "priority": "medium",
+      "seams": [
+        "tool",
+        "provider-routing",
+        "external-api",
+        "env-auth",
+        "extraction"
+      ],
+      "why": "Multi-provider search/extract tool fixture with several auth/config permutations.",
+      "status": "ok",
+      "hooks": [],
+      "registrations": [
+        "registerTool"
+      ],
+      "manifestContracts": [],
+      "pluginManifests": [
+        {
+          "path": "plugins/web-search-plus/openclaw.plugin.json",
+          "id": "web-search-plus-plugin-v2",
+          "name": "Web Search Plus",
+          "version": "2.2.0",
+          "contracts": [],
+          "providerAuthEnvVars": {
+            "serper": [
+              "SERPER_API_KEY"
+            ],
+            "tavily": [
+              "TAVILY_API_KEY"
+            ],
+            "linkup": [
+              "LINKUP_API_KEY"
+            ],
+            "querit": [
+              "QUERIT_API_KEY"
+            ],
+            "exa": [
+              "EXA_API_KEY"
+            ],
+            "firecrawl": [
+              "FIRECRAWL_API_KEY"
+            ],
+            "perplexity": [
+              "PERPLEXITY_API_KEY",
+              "KILOCODE_API_KEY"
+            ],
+            "you": [
+              "YOU_API_KEY"
+            ],
+            "searxng": [
+              "SEARXNG_INSTANCE_URL"
+            ]
+          },
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/web-search-plus/package.json",
+        "name": "web-search-plus-plugin-v2",
+        "version": "2.2.0",
+        "type": "module"
+      },
+      "sdkImports": []
+    },
+    {
+      "id": "apify",
+      "name": "Apify",
+      "priority": "medium",
+      "seams": [
+        "tool",
+        "async-job",
+        "polling",
+        "external-api",
+        "catalog-discovery"
+      ],
+      "why": "Async start/collect workflow fixture for remote jobs and huge third-party catalog discovery.",
+      "status": "ok",
+      "hooks": [],
+      "registrations": [
+        "registerCli",
+        "registerTool"
+      ],
+      "manifestContracts": [],
+      "pluginManifests": [
+        {
+          "path": "plugins/apify/openclaw.plugin.json",
+          "id": "apify-openclaw-plugin",
+          "name": "Apify",
+          "version": null,
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/apify/package.json",
+        "name": "@apify/apify-openclaw-plugin",
+        "version": "0.2.0",
+        "type": "module"
+      },
+      "sdkImports": [
+        "openclaw/plugin-sdk",
+        "openclaw/plugin-sdk/core"
+      ]
+    },
+    {
+      "id": "inworld-tts",
+      "name": "Inworld TTS",
+      "priority": "medium",
+      "seams": [
+        "provider-capability",
+        "speech",
+        "tts",
+        "env-auth",
+        "runtime-overrides"
+      ],
+      "why": "Provider capability fixture for speech registration, config/env auth, and talk.speak request overrides.",
+      "status": "ok",
+      "hooks": [],
+      "registrations": [
+        "definePluginEntry",
+        "registerSpeechProvider"
+      ],
+      "manifestContracts": [
+        "speechProviders"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/inworld-tts/openclaw.plugin.json",
+          "id": "inworld-tts",
+          "name": "Inworld TTS",
+          "version": null,
+          "contracts": [
+            "speechProviders"
+          ],
+          "providerAuthEnvVars": {
+            "inworld": [
+              "INWORLD_API_KEY"
+            ]
+          },
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/inworld-tts/package.json",
+        "name": "openclaw-inworld-tts",
+        "version": "1.0.2",
+        "type": "module"
+      },
+      "sdkImports": [
+        "openclaw/plugin-sdk/plugin-entry",
+        "openclaw/plugin-sdk/secret-input",
+        "openclaw/plugin-sdk/speech"
+      ]
+    }
+  ],
+  "breakages": [],
+  "warnings": [
+    {
+      "fixture": "agentchat",
+      "code": "channel-env-vars",
+      "level": "warning",
+      "message": "manifest uses channelEnvVars legacy compatibility metadata",
+      "evidence": [
+        "agentchat"
+      ],
+      "compatRecord": "channel-env-vars"
+    },
+    {
+      "fixture": "a2a-gateway",
+      "code": "legacy-root-sdk-import",
+      "level": "warning",
+      "message": "fixture imports the root plugin SDK barrel",
+      "evidence": [
+        "openclaw/plugin-sdk"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "hasdata",
+      "code": "provider-auth-env-vars",
+      "level": "warning",
+      "message": "manifest uses providerAuthEnvVars legacy compatibility metadata",
+      "evidence": [
+        "hasdata"
+      ],
+      "compatRecord": "provider-auth-env-vars"
+    },
+    {
+      "fixture": "llm-trace-phoenix",
+      "code": "conversation-access-hook",
+      "level": "warning",
+      "message": "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
+      "evidence": [
+        "llm_input",
+        "llm_output"
+      ]
+    },
+    {
+      "fixture": "llm-trace-phoenix",
+      "code": "legacy-root-sdk-import",
+      "level": "warning",
+      "message": "fixture imports the root plugin SDK barrel",
+      "evidence": [
+        "openclaw/plugin-sdk"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "codex-app-server",
+      "code": "legacy-root-sdk-import",
+      "level": "warning",
+      "message": "fixture imports the root plugin SDK barrel",
+      "evidence": [
+        "openclaw/plugin-sdk"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "web-search-plus",
+      "code": "provider-auth-env-vars",
+      "level": "warning",
+      "message": "manifest uses providerAuthEnvVars legacy compatibility metadata",
+      "evidence": [
+        "serper",
+        "tavily",
+        "linkup",
+        "querit",
+        "exa",
+        "firecrawl",
+        "perplexity",
+        "you",
+        "searxng"
+      ],
+      "compatRecord": "provider-auth-env-vars"
+    },
+    {
+      "fixture": "apify",
+      "code": "legacy-root-sdk-import",
+      "level": "warning",
+      "message": "fixture imports the root plugin SDK barrel",
+      "evidence": [
+        "openclaw/plugin-sdk"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "inworld-tts",
+      "code": "provider-auth-env-vars",
+      "level": "warning",
+      "message": "manifest uses providerAuthEnvVars legacy compatibility metadata",
+      "evidence": [
+        "inworld"
+      ],
+      "compatRecord": "provider-auth-env-vars"
+    }
+  ],
+  "suggestions": [
+    {
+      "fixture": "agentchat",
+      "code": "channel-contract-probe",
+      "level": "suggestion",
+      "message": "add channel envelope, config-schema, and runtime metadata probes",
+      "evidence": [
+        "defineChannelPluginEntry"
+      ]
+    },
+    {
+      "fixture": "wecom",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerHttpRoute"
+      ]
+    },
+    {
+      "fixture": "wecom",
+      "code": "before-tool-call-probe",
+      "level": "suggestion",
+      "message": "add contract probes for before_tool_call terminal, block, and approval semantics",
+      "evidence": [
+        "before_tool_call"
+      ]
+    },
+    {
+      "fixture": "wecom",
+      "code": "channel-contract-probe",
+      "level": "suggestion",
+      "message": "add channel envelope, config-schema, and runtime metadata probes",
+      "evidence": [
+        "registerChannel"
+      ]
+    },
+    {
+      "fixture": "wecom",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool"
+      ]
+    },
+    {
+      "fixture": "a2a-gateway",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerGatewayMethod",
+        "registerService"
+      ]
+    },
+    {
+      "fixture": "a2a-gateway",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool"
+      ]
+    },
+    {
+      "fixture": "mcp-adapter",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerService"
+      ]
+    },
+    {
+      "fixture": "mcp-adapter",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool"
+      ]
+    },
+    {
+      "fixture": "clawmetry",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerService"
+      ]
+    },
+    {
+      "fixture": "codex-app-server",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerCommand",
+        "registerInteractiveHandler",
+        "registerService"
+      ]
+    },
+    {
+      "fixture": "web-search-plus",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool"
+      ]
+    },
+    {
+      "fixture": "apify",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool"
+      ]
+    }
+  ],
+  "logs": [
+    {
+      "fixture": "agentchat",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 0 hooks, 1 registrations, and 0 manifest contracts",
+      "evidence": [
+        "registration:defineChannelPluginEntry"
+      ]
+    },
+    {
+      "fixture": "wecom",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 5 hooks, 3 registrations, and 0 manifest contracts",
+      "evidence": [
+        "hook:before_prompt_build",
+        "hook:before_tool_call",
+        "hook:subagent_delivery_target",
+        "hook:subagent_ended",
+        "hook:subagent_spawned",
+        "registration:registerChannel",
+        "registration:registerHttpRoute",
+        "registration:registerTool"
+      ]
+    },
+    {
+      "fixture": "a2a-gateway",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 0 hooks, 3 registrations, and 0 manifest contracts",
+      "evidence": [
+        "registration:registerGatewayMethod",
+        "registration:registerService",
+        "registration:registerTool"
+      ]
+    },
+    {
+      "fixture": "hasdata",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 0 hooks, 1 registrations, and 1 manifest contracts",
+      "evidence": [
+        "registration:registerTool",
+        "manifestContract:tools"
+      ]
+    },
+    {
+      "fixture": "hasdata",
+      "code": "declarative-contracts",
+      "level": "log",
+      "message": "fixture declares manifest contracts that can be checked without executing plugin code",
+      "evidence": [
+        "tools"
+      ]
+    },
+    {
+      "fixture": "mcp-adapter",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 0 hooks, 2 registrations, and 0 manifest contracts",
+      "evidence": [
+        "registration:registerService",
+        "registration:registerTool"
+      ]
+    },
+    {
+      "fixture": "llm-trace-phoenix",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 2 hooks, 0 registrations, and 0 manifest contracts",
+      "evidence": [
+        "hook:llm_input",
+        "hook:llm_output"
+      ]
+    },
+    {
+      "fixture": "clawmetry",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 0 hooks, 2 registrations, and 0 manifest contracts",
+      "evidence": [
+        "registration:definePluginEntry",
+        "registration:registerService"
+      ]
+    },
+    {
+      "fixture": "codex-app-server",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 1 hooks, 3 registrations, and 0 manifest contracts",
+      "evidence": [
+        "hook:inbound_claim",
+        "registration:registerCommand",
+        "registration:registerInteractiveHandler",
+        "registration:registerService"
+      ]
+    },
+    {
+      "fixture": "web-search-plus",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 0 hooks, 1 registrations, and 0 manifest contracts",
+      "evidence": [
+        "registration:registerTool"
+      ]
+    },
+    {
+      "fixture": "apify",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 0 hooks, 2 registrations, and 0 manifest contracts",
+      "evidence": [
+        "registration:registerCli",
+        "registration:registerTool"
+      ]
+    },
+    {
+      "fixture": "inworld-tts",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 0 hooks, 2 registrations, and 1 manifest contracts",
+      "evidence": [
+        "registration:definePluginEntry",
+        "registration:registerSpeechProvider",
+        "manifestContract:speechProviders"
+      ]
+    },
+    {
+      "fixture": "inworld-tts",
+      "code": "declarative-contracts",
+      "level": "log",
+      "message": "fixture declares manifest contracts that can be checked without executing plugin code",
+      "evidence": [
+        "speechProviders"
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "fixture": "agentchat",
+      "decision": "core-compat-adapter",
+      "seam": "channel-env",
+      "action": "Keep channelEnvVars compatibility active until channel setup metadata has a stable replacement path.",
+      "evidence": "agentchat"
+    },
+    {
+      "fixture": "agentchat",
+      "decision": "inspector-follow-up",
+      "seam": "channel-runtime",
+      "action": "Probe channel setup and message envelope contracts before changing channel runtime payloads.",
+      "evidence": "defineChannelPluginEntry"
+    },
+    {
+      "fixture": "wecom",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerHttpRoute"
+    },
+    {
+      "fixture": "wecom",
+      "decision": "inspector-follow-up",
+      "seam": "tool-policy",
+      "action": "Probe before_tool_call return shapes before changing tool-call approval or block behavior.",
+      "evidence": "before_tool_call"
+    },
+    {
+      "fixture": "wecom",
+      "decision": "inspector-follow-up",
+      "seam": "channel-runtime",
+      "action": "Probe channel setup and message envelope contracts before changing channel runtime payloads.",
+      "evidence": "registerChannel"
+    },
+    {
+      "fixture": "wecom",
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "a2a-gateway",
+      "decision": "core-compat-adapter",
+      "seam": "sdk-import",
+      "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
+      "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "a2a-gateway",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerGatewayMethod, registerService"
+    },
+    {
+      "fixture": "a2a-gateway",
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "hasdata",
+      "decision": "core-compat-adapter",
+      "seam": "env-auth",
+      "action": "Keep providerAuthEnvVars compatibility active while the inspector recommends manifest-schema migration upstream.",
+      "evidence": "hasdata"
+    },
+    {
+      "fixture": "hasdata",
+      "decision": "no-action",
+      "seam": "manifest-contract",
+      "action": "Keep checking this declarative contract in default offline CI.",
+      "evidence": "tools"
+    },
+    {
+      "fixture": "mcp-adapter",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerService"
+    },
+    {
+      "fixture": "mcp-adapter",
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "llm-trace-phoenix",
+      "decision": "inspector-follow-up",
+      "seam": "conversation-access",
+      "action": "Add synthetic llm_input/llm_output/agent_end probes before tightening hook payloads or redaction behavior.",
+      "evidence": "llm_input, llm_output"
+    },
+    {
+      "fixture": "llm-trace-phoenix",
+      "decision": "core-compat-adapter",
+      "seam": "sdk-import",
+      "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
+      "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "clawmetry",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerService"
+    },
+    {
+      "fixture": "codex-app-server",
+      "decision": "core-compat-adapter",
+      "seam": "sdk-import",
+      "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
+      "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "codex-app-server",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerCommand, registerInteractiveHandler, registerService"
+    },
+    {
+      "fixture": "web-search-plus",
+      "decision": "core-compat-adapter",
+      "seam": "env-auth",
+      "action": "Keep providerAuthEnvVars compatibility active while the inspector recommends manifest-schema migration upstream.",
+      "evidence": "serper, tavily, linkup, querit, exa, firecrawl, perplexity, you, searxng"
+    },
+    {
+      "fixture": "web-search-plus",
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "apify",
+      "decision": "core-compat-adapter",
+      "seam": "sdk-import",
+      "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
+      "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "apify",
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "inworld-tts",
+      "decision": "core-compat-adapter",
+      "seam": "env-auth",
+      "action": "Keep providerAuthEnvVars compatibility active while the inspector recommends manifest-schema migration upstream.",
+      "evidence": "inworld"
+    },
+    {
+      "fixture": "inworld-tts",
+      "decision": "no-action",
+      "seam": "manifest-contract",
+      "action": "Keep checking this declarative contract in default offline CI.",
+      "evidence": "speechProviders"
+    }
+  ]
+}
