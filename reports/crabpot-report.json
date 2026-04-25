@@ -131,6 +131,316 @@
       "registerWebFetchProvider",
       "registerWebSearchProvider"
     ],
+    "packagePath": "../openclaw/package.json",
+    "sdkExportCount": 306,
+    "sdkExports": [
+      "openclaw/plugin-sdk",
+      "openclaw/plugin-sdk/account-core",
+      "openclaw/plugin-sdk/account-helpers",
+      "openclaw/plugin-sdk/account-id",
+      "openclaw/plugin-sdk/account-resolution",
+      "openclaw/plugin-sdk/account-resolution-runtime",
+      "openclaw/plugin-sdk/acp-binding-resolve-runtime",
+      "openclaw/plugin-sdk/acp-binding-runtime",
+      "openclaw/plugin-sdk/acp-runtime",
+      "openclaw/plugin-sdk/agent-config-primitives",
+      "openclaw/plugin-sdk/agent-harness",
+      "openclaw/plugin-sdk/agent-harness-runtime",
+      "openclaw/plugin-sdk/agent-media-payload",
+      "openclaw/plugin-sdk/agent-runtime",
+      "openclaw/plugin-sdk/allow-from",
+      "openclaw/plugin-sdk/allowlist-config-edit",
+      "openclaw/plugin-sdk/approval-auth-runtime",
+      "openclaw/plugin-sdk/approval-client-runtime",
+      "openclaw/plugin-sdk/approval-delivery-runtime",
+      "openclaw/plugin-sdk/approval-gateway-runtime",
+      "openclaw/plugin-sdk/approval-handler-adapter-runtime",
+      "openclaw/plugin-sdk/approval-handler-runtime",
+      "openclaw/plugin-sdk/approval-native-runtime",
+      "openclaw/plugin-sdk/approval-reply-runtime",
+      "openclaw/plugin-sdk/approval-runtime",
+      "openclaw/plugin-sdk/bluebubbles",
+      "openclaw/plugin-sdk/bluebubbles-policy",
+      "openclaw/plugin-sdk/boolean-param",
+      "openclaw/plugin-sdk/browser-cdp",
+      "openclaw/plugin-sdk/browser-config",
+      "openclaw/plugin-sdk/browser-config-runtime",
+      "openclaw/plugin-sdk/browser-config-support",
+      "openclaw/plugin-sdk/browser-control-auth",
+      "openclaw/plugin-sdk/browser-node-runtime",
+      "openclaw/plugin-sdk/browser-profiles",
+      "openclaw/plugin-sdk/browser-security-runtime",
+      "openclaw/plugin-sdk/browser-setup-tools",
+      "openclaw/plugin-sdk/browser-support",
+      "openclaw/plugin-sdk/channel-actions",
+      "openclaw/plugin-sdk/channel-config-helpers",
+      "openclaw/plugin-sdk/channel-config-primitives",
+      "openclaw/plugin-sdk/channel-config-schema",
+      "openclaw/plugin-sdk/channel-config-writes",
+      "openclaw/plugin-sdk/channel-contract",
+      "openclaw/plugin-sdk/channel-contract-testing",
+      "openclaw/plugin-sdk/channel-core",
+      "openclaw/plugin-sdk/channel-entry-contract",
+      "openclaw/plugin-sdk/channel-envelope",
+      "openclaw/plugin-sdk/channel-feedback",
+      "openclaw/plugin-sdk/channel-inbound",
+      "openclaw/plugin-sdk/channel-inbound-debounce",
+      "openclaw/plugin-sdk/channel-inbound-roots",
+      "openclaw/plugin-sdk/channel-lifecycle",
+      "openclaw/plugin-sdk/channel-location",
+      "openclaw/plugin-sdk/channel-logging",
+      "openclaw/plugin-sdk/channel-mention-gating",
+      "openclaw/plugin-sdk/channel-pairing",
+      "openclaw/plugin-sdk/channel-pairing-paths",
+      "openclaw/plugin-sdk/channel-plugin-common",
+      "openclaw/plugin-sdk/channel-policy",
+      "openclaw/plugin-sdk/channel-reply-options-runtime",
+      "openclaw/plugin-sdk/channel-reply-pipeline",
+      "openclaw/plugin-sdk/channel-runtime",
+      "openclaw/plugin-sdk/channel-runtime-context",
+      "openclaw/plugin-sdk/channel-secret-basic-runtime",
+      "openclaw/plugin-sdk/channel-secret-runtime",
+      "openclaw/plugin-sdk/channel-secret-tts-runtime",
+      "openclaw/plugin-sdk/channel-send-result",
+      "openclaw/plugin-sdk/channel-setup",
+      "openclaw/plugin-sdk/channel-status",
+      "openclaw/plugin-sdk/channel-streaming",
+      "openclaw/plugin-sdk/channel-targets",
+      "openclaw/plugin-sdk/cli-backend",
+      "openclaw/plugin-sdk/cli-runtime",
+      "openclaw/plugin-sdk/collection-runtime",
+      "openclaw/plugin-sdk/command-auth",
+      "openclaw/plugin-sdk/command-auth-native",
+      "openclaw/plugin-sdk/command-detection",
+      "openclaw/plugin-sdk/command-gating",
+      "openclaw/plugin-sdk/command-primitives-runtime",
+      "openclaw/plugin-sdk/command-status",
+      "openclaw/plugin-sdk/command-status-runtime",
+      "openclaw/plugin-sdk/command-surface",
+      "openclaw/plugin-sdk/compat",
+      "openclaw/plugin-sdk/config-runtime",
+      "openclaw/plugin-sdk/config-schema",
+      "openclaw/plugin-sdk/context-visibility-runtime",
+      "openclaw/plugin-sdk/conversation-binding-runtime",
+      "openclaw/plugin-sdk/conversation-runtime",
+      "openclaw/plugin-sdk/core",
+      "openclaw/plugin-sdk/dangerous-name-runtime",
+      "openclaw/plugin-sdk/device-bootstrap",
+      "openclaw/plugin-sdk/diagnostic-runtime",
+      "openclaw/plugin-sdk/diagnostics-otel",
+      "openclaw/plugin-sdk/diffs",
+      "openclaw/plugin-sdk/direct-dm",
+      "openclaw/plugin-sdk/direct-dm-access",
+      "openclaw/plugin-sdk/direct-dm-guard-policy",
+      "openclaw/plugin-sdk/directory-config-runtime",
+      "openclaw/plugin-sdk/directory-runtime",
+      "openclaw/plugin-sdk/document-extractor",
+      "openclaw/plugin-sdk/error-runtime",
+      "openclaw/plugin-sdk/extension-shared",
+      "openclaw/plugin-sdk/feishu",
+      "openclaw/plugin-sdk/feishu-conversation",
+      "openclaw/plugin-sdk/feishu-setup",
+      "openclaw/plugin-sdk/fetch-runtime",
+      "openclaw/plugin-sdk/file-lock",
+      "openclaw/plugin-sdk/gateway-runtime",
+      "openclaw/plugin-sdk/github-copilot-login",
+      "openclaw/plugin-sdk/github-copilot-token",
+      "openclaw/plugin-sdk/global-singleton",
+      "openclaw/plugin-sdk/googlechat",
+      "openclaw/plugin-sdk/googlechat-runtime-shared",
+      "openclaw/plugin-sdk/group-access",
+      "openclaw/plugin-sdk/group-activation",
+      "openclaw/plugin-sdk/hook-runtime",
+      "openclaw/plugin-sdk/host-runtime",
+      "openclaw/plugin-sdk/image-generation",
+      "openclaw/plugin-sdk/image-generation-core",
+      "openclaw/plugin-sdk/image-generation-runtime",
+      "openclaw/plugin-sdk/inbound-envelope",
+      "openclaw/plugin-sdk/inbound-reply-dispatch",
+      "openclaw/plugin-sdk/infra-runtime",
+      "openclaw/plugin-sdk/interactive-runtime",
+      "openclaw/plugin-sdk/irc",
+      "openclaw/plugin-sdk/irc-surface",
+      "openclaw/plugin-sdk/json-store",
+      "openclaw/plugin-sdk/keyed-async-queue",
+      "openclaw/plugin-sdk/lazy-runtime",
+      "openclaw/plugin-sdk/line",
+      "openclaw/plugin-sdk/line-core",
+      "openclaw/plugin-sdk/line-runtime",
+      "openclaw/plugin-sdk/line-surface",
+      "openclaw/plugin-sdk/llm-task",
+      "openclaw/plugin-sdk/lmstudio",
+      "openclaw/plugin-sdk/lmstudio-runtime",
+      "openclaw/plugin-sdk/logging-core",
+      "openclaw/plugin-sdk/markdown-table-runtime",
+      "openclaw/plugin-sdk/matrix",
+      "openclaw/plugin-sdk/matrix-helper",
+      "openclaw/plugin-sdk/matrix-runtime-heavy",
+      "openclaw/plugin-sdk/matrix-runtime-shared",
+      "openclaw/plugin-sdk/matrix-runtime-surface",
+      "openclaw/plugin-sdk/matrix-surface",
+      "openclaw/plugin-sdk/matrix-thread-bindings",
+      "openclaw/plugin-sdk/mattermost",
+      "openclaw/plugin-sdk/mattermost-policy",
+      "openclaw/plugin-sdk/media-generation-runtime",
+      "openclaw/plugin-sdk/media-generation-runtime-shared",
+      "openclaw/plugin-sdk/media-mime",
+      "openclaw/plugin-sdk/media-runtime",
+      "openclaw/plugin-sdk/media-store",
+      "openclaw/plugin-sdk/media-understanding",
+      "openclaw/plugin-sdk/media-understanding-runtime",
+      "openclaw/plugin-sdk/memory-core",
+      "openclaw/plugin-sdk/memory-core-engine-runtime",
+      "openclaw/plugin-sdk/memory-core-host-engine-embeddings",
+      "openclaw/plugin-sdk/memory-core-host-engine-foundation",
+      "openclaw/plugin-sdk/memory-core-host-engine-qmd",
+      "openclaw/plugin-sdk/memory-core-host-engine-storage",
+      "openclaw/plugin-sdk/memory-core-host-events",
+      "openclaw/plugin-sdk/memory-core-host-multimodal",
+      "openclaw/plugin-sdk/memory-core-host-query",
+      "openclaw/plugin-sdk/memory-core-host-runtime-cli",
+      "openclaw/plugin-sdk/memory-core-host-runtime-core",
+      "openclaw/plugin-sdk/memory-core-host-runtime-files",
+      "openclaw/plugin-sdk/memory-core-host-secret",
+      "openclaw/plugin-sdk/memory-core-host-status",
+      "openclaw/plugin-sdk/memory-host-core",
+      "openclaw/plugin-sdk/memory-host-events",
+      "openclaw/plugin-sdk/memory-host-files",
+      "openclaw/plugin-sdk/memory-host-markdown",
+      "openclaw/plugin-sdk/memory-host-search",
+      "openclaw/plugin-sdk/memory-host-status",
+      "openclaw/plugin-sdk/memory-lancedb",
+      "openclaw/plugin-sdk/messaging-targets",
+      "openclaw/plugin-sdk/models-provider-runtime",
+      "openclaw/plugin-sdk/msteams",
+      "openclaw/plugin-sdk/music-generation",
+      "openclaw/plugin-sdk/music-generation-core",
+      "openclaw/plugin-sdk/native-command-config-runtime",
+      "openclaw/plugin-sdk/native-command-registry",
+      "openclaw/plugin-sdk/nextcloud-talk",
+      "openclaw/plugin-sdk/nostr",
+      "openclaw/plugin-sdk/opencode",
+      "openclaw/plugin-sdk/outbound-media",
+      "openclaw/plugin-sdk/outbound-runtime",
+      "openclaw/plugin-sdk/param-readers",
+      "openclaw/plugin-sdk/persistent-dedupe",
+      "openclaw/plugin-sdk/plugin-entry",
+      "openclaw/plugin-sdk/plugin-runtime",
+      "openclaw/plugin-sdk/poll-runtime",
+      "openclaw/plugin-sdk/process-runtime",
+      "openclaw/plugin-sdk/provider-auth",
+      "openclaw/plugin-sdk/provider-auth-api-key",
+      "openclaw/plugin-sdk/provider-auth-login",
+      "openclaw/plugin-sdk/provider-auth-result",
+      "openclaw/plugin-sdk/provider-auth-runtime",
+      "openclaw/plugin-sdk/provider-catalog-shared",
+      "openclaw/plugin-sdk/provider-entry",
+      "openclaw/plugin-sdk/provider-env-vars",
+      "openclaw/plugin-sdk/provider-http",
+      "openclaw/plugin-sdk/provider-model-shared",
+      "openclaw/plugin-sdk/provider-model-types",
+      "openclaw/plugin-sdk/provider-onboard",
+      "openclaw/plugin-sdk/provider-selection-runtime",
+      "openclaw/plugin-sdk/provider-setup",
+      "openclaw/plugin-sdk/provider-stream",
+      "openclaw/plugin-sdk/provider-stream-family",
+      "openclaw/plugin-sdk/provider-stream-shared",
+      "openclaw/plugin-sdk/provider-tools",
+      "openclaw/plugin-sdk/provider-transport-runtime",
+      "openclaw/plugin-sdk/provider-usage",
+      "openclaw/plugin-sdk/provider-web-fetch",
+      "openclaw/plugin-sdk/provider-web-fetch-contract",
+      "openclaw/plugin-sdk/provider-web-search",
+      "openclaw/plugin-sdk/provider-web-search-config-contract",
+      "openclaw/plugin-sdk/provider-web-search-contract",
+      "openclaw/plugin-sdk/provider-zai-endpoint",
+      "openclaw/plugin-sdk/proxy-capture",
+      "openclaw/plugin-sdk/qa-channel",
+      "openclaw/plugin-sdk/qa-channel-protocol",
+      "openclaw/plugin-sdk/qa-runner-runtime",
+      "openclaw/plugin-sdk/realtime-transcription",
+      "openclaw/plugin-sdk/realtime-voice",
+      "openclaw/plugin-sdk/reply-chunking",
+      "openclaw/plugin-sdk/reply-dedupe",
+      "openclaw/plugin-sdk/reply-dispatch-runtime",
+      "openclaw/plugin-sdk/reply-history",
+      "openclaw/plugin-sdk/reply-payload",
+      "openclaw/plugin-sdk/reply-reference",
+      "openclaw/plugin-sdk/reply-runtime",
+      "openclaw/plugin-sdk/request-url",
+      "openclaw/plugin-sdk/response-limit-runtime",
+      "openclaw/plugin-sdk/retry-runtime",
+      "openclaw/plugin-sdk/routing",
+      "openclaw/plugin-sdk/run-command",
+      "openclaw/plugin-sdk/runtime",
+      "openclaw/plugin-sdk/runtime-config-snapshot",
+      "openclaw/plugin-sdk/runtime-doctor",
+      "openclaw/plugin-sdk/runtime-env",
+      "openclaw/plugin-sdk/runtime-fetch",
+      "openclaw/plugin-sdk/runtime-group-policy",
+      "openclaw/plugin-sdk/runtime-logger",
+      "openclaw/plugin-sdk/runtime-secret-resolution",
+      "openclaw/plugin-sdk/runtime-store",
+      "openclaw/plugin-sdk/sandbox",
+      "openclaw/plugin-sdk/secret-file-runtime",
+      "openclaw/plugin-sdk/secret-input",
+      "openclaw/plugin-sdk/secret-input-runtime",
+      "openclaw/plugin-sdk/secret-ref-runtime",
+      "openclaw/plugin-sdk/security-runtime",
+      "openclaw/plugin-sdk/self-hosted-provider-setup",
+      "openclaw/plugin-sdk/session-binding-runtime",
+      "openclaw/plugin-sdk/session-key-runtime",
+      "openclaw/plugin-sdk/session-store-runtime",
+      "openclaw/plugin-sdk/session-transcript-hit",
+      "openclaw/plugin-sdk/session-visibility",
+      "openclaw/plugin-sdk/setup",
+      "openclaw/plugin-sdk/setup-adapter-runtime",
+      "openclaw/plugin-sdk/setup-runtime",
+      "openclaw/plugin-sdk/setup-tools",
+      "openclaw/plugin-sdk/simple-completion-runtime",
+      "openclaw/plugin-sdk/skill-commands-runtime",
+      "openclaw/plugin-sdk/skills-runtime",
+      "openclaw/plugin-sdk/speech",
+      "openclaw/plugin-sdk/speech-core",
+      "openclaw/plugin-sdk/ssrf-dispatcher",
+      "openclaw/plugin-sdk/ssrf-policy",
+      "openclaw/plugin-sdk/ssrf-runtime",
+      "openclaw/plugin-sdk/state-paths",
+      "openclaw/plugin-sdk/status-helpers",
+      "openclaw/plugin-sdk/string-coerce-runtime",
+      "openclaw/plugin-sdk/string-normalization-runtime",
+      "openclaw/plugin-sdk/target-resolver-runtime",
+      "openclaw/plugin-sdk/telegram-command-config",
+      "openclaw/plugin-sdk/telegram-command-ui",
+      "openclaw/plugin-sdk/temp-path",
+      "openclaw/plugin-sdk/testing",
+      "openclaw/plugin-sdk/text-autolink-runtime",
+      "openclaw/plugin-sdk/text-chunking",
+      "openclaw/plugin-sdk/text-runtime",
+      "openclaw/plugin-sdk/thread-bindings-runtime",
+      "openclaw/plugin-sdk/thread-bindings-session-runtime",
+      "openclaw/plugin-sdk/thread-ownership",
+      "openclaw/plugin-sdk/tlon",
+      "openclaw/plugin-sdk/tool-payload",
+      "openclaw/plugin-sdk/tool-send",
+      "openclaw/plugin-sdk/twitch",
+      "openclaw/plugin-sdk/video-generation",
+      "openclaw/plugin-sdk/video-generation-core",
+      "openclaw/plugin-sdk/video-generation-runtime",
+      "openclaw/plugin-sdk/voice-call",
+      "openclaw/plugin-sdk/volc-model-catalog-shared",
+      "openclaw/plugin-sdk/web-content-extractor",
+      "openclaw/plugin-sdk/web-media",
+      "openclaw/plugin-sdk/webhook-ingress",
+      "openclaw/plugin-sdk/webhook-path",
+      "openclaw/plugin-sdk/webhook-request-guards",
+      "openclaw/plugin-sdk/webhook-targets",
+      "openclaw/plugin-sdk/windows-spawn",
+      "openclaw/plugin-sdk/zalo",
+      "openclaw/plugin-sdk/zalo-setup",
+      "openclaw/plugin-sdk/zalouser",
+      "openclaw/plugin-sdk/zod"
+    ],
     "manifestTypesPath": "../openclaw/src/plugins/manifest.ts",
     "manifestFieldCount": 32,
     "manifestFields": [
@@ -192,13 +502,13 @@
     "fixtureCount": 11,
     "highPriorityFixtures": 6,
     "breakageCount": 0,
-    "warningCount": 15,
-    "suggestionCount": 15,
-    "decisionCount": 32,
-    "issueCount": 30,
+    "warningCount": 16,
+    "suggestionCount": 16,
+    "decisionCount": 34,
+    "issueCount": 32,
     "p0IssueCount": 0,
-    "p1IssueCount": 7,
-    "contractProbeCount": 30
+    "p1IssueCount": 9,
+    "contractProbeCount": 31
   },
   "fixtures": [
     {
@@ -2202,6 +2512,18 @@
     },
     {
       "fixture": "codex-app-server",
+      "code": "sdk-export-missing",
+      "level": "warning",
+      "message": "fixture imports plugin SDK aliases that are not exported by the target OpenClaw package",
+      "evidence": [
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104",
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106",
+        "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
+      ],
+      "compatRecord": "plugin-sdk-export-aliases"
+    },
+    {
+      "fixture": "codex-app-server",
       "code": "legacy-root-sdk-import",
       "level": "warning",
       "message": "fixture imports the root plugin SDK barrel",
@@ -2402,6 +2724,16 @@
       "evidence": [
         "registerTool @ plugins/apify/src/index.ts:13"
       ]
+    },
+    {
+      "fixture": "codex-app-server",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "plugin-sdk-export-aliases"
+      ],
+      "compatRecord": "plugin-sdk-export-aliases"
     }
   ],
   "issues": [
@@ -2442,6 +2774,20 @@
       "id": "CRABPOT-0003",
       "fixture": "codex-app-server",
       "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "title": "codex-app-server: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "plugin-sdk-export-aliases"
+      ],
+      "compatRecord": "plugin-sdk-export-aliases"
+    },
+    {
+      "id": "CRABPOT-0004",
+      "fixture": "codex-app-server",
+      "severity": "P1",
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
@@ -2456,7 +2802,23 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0004",
+      "id": "CRABPOT-0005",
+      "fixture": "codex-app-server",
+      "severity": "P1",
+      "owner": "core",
+      "code": "sdk-export-missing",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "title": "codex-app-server: plugin SDK import aliases are missing from target package exports",
+      "evidence": [
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104",
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106",
+        "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
+      ],
+      "compatRecord": "plugin-sdk-export-aliases"
+    },
+    {
+      "id": "CRABPOT-0006",
       "fixture": "llm-trace-phoenix",
       "severity": "P1",
       "owner": "core",
@@ -2471,7 +2833,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0005",
+      "id": "CRABPOT-0007",
       "fixture": "mcp-adapter",
       "severity": "P1",
       "owner": "inspector",
@@ -2485,7 +2847,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0006",
+      "id": "CRABPOT-0008",
       "fixture": "wecom",
       "severity": "P1",
       "owner": "inspector",
@@ -2499,7 +2861,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0007",
+      "id": "CRABPOT-0009",
       "fixture": "wecom",
       "severity": "P1",
       "owner": "inspector",
@@ -2514,7 +2876,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0008",
+      "id": "CRABPOT-0010",
       "fixture": "a2a-gateway",
       "severity": "P2",
       "owner": "core",
@@ -2528,7 +2890,7 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
-      "id": "CRABPOT-0009",
+      "id": "CRABPOT-0011",
       "fixture": "a2a-gateway",
       "severity": "P2",
       "owner": "plugin",
@@ -2542,7 +2904,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0010",
+      "id": "CRABPOT-0012",
       "fixture": "a2a-gateway",
       "severity": "P2",
       "owner": "plugin",
@@ -2557,7 +2919,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0011",
+      "id": "CRABPOT-0013",
       "fixture": "a2a-gateway",
       "severity": "P2",
       "owner": "plugin",
@@ -2571,7 +2933,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0012",
+      "id": "CRABPOT-0014",
       "fixture": "a2a-gateway",
       "severity": "P2",
       "owner": "inspector",
@@ -2585,7 +2947,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0013",
+      "id": "CRABPOT-0015",
       "fixture": "agentchat",
       "severity": "P2",
       "owner": "inspector",
@@ -2599,7 +2961,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0014",
+      "id": "CRABPOT-0016",
       "fixture": "agentchat",
       "severity": "P2",
       "owner": "core",
@@ -2613,7 +2975,7 @@
       "compatRecord": "channel-env-vars"
     },
     {
-      "id": "CRABPOT-0015",
+      "id": "CRABPOT-0017",
       "fixture": "agentchat",
       "severity": "P2",
       "owner": "plugin",
@@ -2629,7 +2991,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0016",
+      "id": "CRABPOT-0018",
       "fixture": "agentchat",
       "severity": "P2",
       "owner": "inspector",
@@ -2644,7 +3006,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0017",
+      "id": "CRABPOT-0019",
       "fixture": "apify",
       "severity": "P2",
       "owner": "core",
@@ -2660,7 +3022,7 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
-      "id": "CRABPOT-0018",
+      "id": "CRABPOT-0020",
       "fixture": "apify",
       "severity": "P2",
       "owner": "inspector",
@@ -2674,7 +3036,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0019",
+      "id": "CRABPOT-0021",
       "fixture": "clawmetry",
       "severity": "P2",
       "owner": "inspector",
@@ -2688,7 +3050,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0020",
+      "id": "CRABPOT-0022",
       "fixture": "codex-app-server",
       "severity": "P2",
       "owner": "core",
@@ -2705,7 +3067,7 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
-      "id": "CRABPOT-0021",
+      "id": "CRABPOT-0023",
       "fixture": "hasdata",
       "severity": "P2",
       "owner": "core",
@@ -2719,7 +3081,7 @@
       "compatRecord": "provider-auth-env-vars"
     },
     {
-      "id": "CRABPOT-0022",
+      "id": "CRABPOT-0024",
       "fixture": "inworld-tts",
       "severity": "P2",
       "owner": "core",
@@ -2733,7 +3095,7 @@
       "compatRecord": "provider-auth-env-vars"
     },
     {
-      "id": "CRABPOT-0023",
+      "id": "CRABPOT-0025",
       "fixture": "llm-trace-phoenix",
       "severity": "P2",
       "owner": "core",
@@ -2747,7 +3109,7 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
-      "id": "CRABPOT-0024",
+      "id": "CRABPOT-0026",
       "fixture": "mcp-adapter",
       "severity": "P2",
       "owner": "plugin",
@@ -2761,7 +3123,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0025",
+      "id": "CRABPOT-0027",
       "fixture": "mcp-adapter",
       "severity": "P2",
       "owner": "inspector",
@@ -2775,7 +3137,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0026",
+      "id": "CRABPOT-0028",
       "fixture": "web-search-plus",
       "severity": "P2",
       "owner": "core",
@@ -2797,7 +3159,7 @@
       "compatRecord": "provider-auth-env-vars"
     },
     {
-      "id": "CRABPOT-0027",
+      "id": "CRABPOT-0029",
       "fixture": "web-search-plus",
       "severity": "P2",
       "owner": "inspector",
@@ -2812,7 +3174,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0028",
+      "id": "CRABPOT-0030",
       "fixture": "wecom",
       "severity": "P2",
       "owner": "inspector",
@@ -2826,7 +3188,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0029",
+      "id": "CRABPOT-0031",
       "fixture": "wecom",
       "severity": "P2",
       "owner": "plugin",
@@ -2840,7 +3202,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0030",
+      "id": "CRABPOT-0032",
       "fixture": "wecom",
       "severity": "P2",
       "owner": "inspector",
@@ -3142,6 +3504,18 @@
       ]
     },
     {
+      "id": "sdk.import.package-export-cold-import:codex-app-server",
+      "fixture": "codex-app-server",
+      "priority": "P3",
+      "target": "sdk-alias",
+      "contract": "Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.",
+      "evidence": [
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104",
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106",
+        "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
+      ]
+    },
+    {
       "id": "sdk.import.root-barrel-cold-import:apify",
       "fixture": "apify",
       "priority": "P3",
@@ -3214,6 +3588,17 @@
     },
     {
       "fixture": "agentchat",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk/channel-contract",
+        "openclaw/plugin-sdk/channel-core",
+        "openclaw/plugin-sdk/setup"
+      ]
+    },
+    {
+      "fixture": "agentchat",
       "code": "manifest-fields-checked",
       "level": "log",
       "message": "plugin manifest fields were compared with target OpenClaw manifest types",
@@ -3274,6 +3659,18 @@
     },
     {
       "fixture": "wecom",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk/core",
+        "openclaw/plugin-sdk/media-runtime",
+        "openclaw/plugin-sdk/setup",
+        "openclaw/plugin-sdk/status-helpers"
+      ]
+    },
+    {
+      "fixture": "wecom",
       "code": "manifest-fields-checked",
       "level": "log",
       "message": "plugin manifest fields were compared with target OpenClaw manifest types",
@@ -3319,6 +3716,15 @@
         "registerGatewayMethod",
         "registerService",
         "registerTool"
+      ]
+    },
+    {
+      "fixture": "a2a-gateway",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk"
       ]
     },
     {
@@ -3499,6 +3905,15 @@
     },
     {
       "fixture": "llm-trace-phoenix",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk"
+      ]
+    },
+    {
+      "fixture": "llm-trace-phoenix",
       "code": "manifest-fields-checked",
       "level": "log",
       "message": "plugin manifest fields were compared with target OpenClaw manifest types",
@@ -3550,6 +3965,16 @@
       "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
       "evidence": [
         "registerService"
+      ]
+    },
+    {
+      "fixture": "clawmetry",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk/diagnostics-otel",
+        "openclaw/plugin-sdk/plugin-entry"
       ]
     },
     {
@@ -3716,6 +4141,16 @@
     },
     {
       "fixture": "apify",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk",
+        "openclaw/plugin-sdk/core"
+      ]
+    },
+    {
+      "fixture": "apify",
       "code": "manifest-fields-checked",
       "level": "log",
       "message": "plugin manifest fields were compared with target OpenClaw manifest types",
@@ -3768,6 +4203,17 @@
       "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
       "evidence": [
         "registerSpeechProvider"
+      ]
+    },
+    {
+      "fixture": "inworld-tts",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk/plugin-entry",
+        "openclaw/plugin-sdk/secret-input",
+        "openclaw/plugin-sdk/speech"
       ]
     },
     {
@@ -4061,6 +4507,13 @@
     {
       "fixture": "codex-app-server",
       "decision": "core-compat-adapter",
+      "seam": "sdk-alias",
+      "action": "Restore the package export alias or publish a versioned migration map before cold-importing old plugins.",
+      "evidence": "openclaw/plugin-sdk/discord, openclaw/plugin-sdk/telegram-account"
+    },
+    {
+      "fixture": "codex-app-server",
+      "decision": "core-compat-adapter",
       "seam": "sdk-import",
       "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
       "evidence": "openclaw/plugin-sdk"
@@ -4113,6 +4566,13 @@
       "seam": "manifest-contract",
       "action": "Keep checking this declarative contract in default offline CI.",
       "evidence": "speechProviders"
+    },
+    {
+      "fixture": "codex-app-server",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "plugin-sdk-export-aliases"
     }
   ]
 }

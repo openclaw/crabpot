@@ -19,6 +19,7 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasFinding(report.suggestions, "wecom", "before-tool-call-probe");
   assertHasFinding(report.warnings, "a2a-gateway", "package-manifest-version-drift");
   assertHasFinding(report.warnings, "agentchat", "manifest-unknown-fields");
+  assertHasFinding(report.warnings, "codex-app-server", "sdk-export-missing");
   assertHasFinding(report.warnings, "mcp-adapter", "package-plugin-api-compat-missing");
   assertHasFinding(report.suggestions, "agentchat", "package-build-artifact-entrypoint");
 
@@ -30,9 +31,11 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasIssue(report.issues, "P2", "package-plugin-api-compat-missing");
   assertHasIssue(report.issues, "P2", "package-build-artifact-entrypoint");
   assertHasIssue(report.issues, "P2", "manifest-unknown-fields");
+  assertHasIssue(report.issues, "P1", "sdk-export-missing");
   assertHasProbe(report.contractProbes, "api.capture.runtime-registrars:wecom");
   assertHasProbe(report.contractProbes, "hook.before_tool_call.terminal-block-approval:wecom");
   assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:agentchat");
+  assertHasProbe(report.contractProbes, "sdk.import.package-export-cold-import:codex-app-server");
   assertHasProbe(report.contractProbes, "package.compat.plugin-api-range:mcp-adapter");
   assertHasProbe(report.contractProbes, "package.entrypoint.build-before-cold-import:agentchat");
 });

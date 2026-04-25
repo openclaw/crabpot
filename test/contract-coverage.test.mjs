@@ -56,6 +56,7 @@ test("contract coverage requires parsed target hook registry when OpenClaw is av
       hookNames: [],
       apiRegistrars: [],
       capturedRegistrars: [],
+      sdkExports: [],
       manifestFields: [],
       manifestContractFields: [],
     },
@@ -68,6 +69,7 @@ test("contract coverage requires parsed target hook registry when OpenClaw is av
     "target OpenClaw hook registry was found but no hook names were parsed",
     "target OpenClaw API builder was found but no api.register* names were parsed",
     "target OpenClaw captured-registration helper was found but no api.register* names were parsed",
+    "target OpenClaw package metadata was found but no plugin SDK exports were parsed",
     "target OpenClaw manifest types were found but no PluginManifest fields were parsed",
     "target OpenClaw manifest types were found but no PluginManifestContracts fields were parsed",
   ]);

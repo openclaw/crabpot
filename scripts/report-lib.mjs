@@ -307,6 +307,12 @@ function issueMetadata(finding) {
       decision: "core-compat-adapter",
       title: "root plugin SDK barrel is still used by fixtures",
     },
+    "sdk-export-missing": {
+      severity: "P1",
+      owner: "core",
+      decision: "core-compat-adapter",
+      title: "plugin SDK import aliases are missing from target package exports",
+    },
     "missing-compat-record": {
       severity: "P1",
       owner: "core",
@@ -419,6 +425,11 @@ function buildContractProbes({ warnings, suggestions, fixtures }) {
     "legacy-root-sdk-import": {
       id: "sdk.import.root-barrel-cold-import",
       contract: "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
+      target: "sdk-alias",
+    },
+    "sdk-export-missing": {
+      id: "sdk.import.package-export-cold-import",
+      contract: "Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.",
       target: "sdk-alias",
     },
     "provider-auth-env-vars": {
@@ -554,6 +565,7 @@ function classifyFixture({ fixture, inspection, fixtureReport, targetOpenClaw, b
 
   classifyHookNameCoverage({ fixture, inspection, targetOpenClaw, breakages, logs });
   classifyRegistrationNameCoverage({ fixture, inspection, targetOpenClaw, breakages, logs });
+  classifySdkImportCoverage({ fixture, fixtureReport, targetOpenClaw, warnings, logs, decisions });
   classifyManifestFieldCoverage({ fixture, fixtureReport, targetOpenClaw, warnings, logs, decisions });
   classifyPackageContracts({ fixture, inspection, fixtureReport, warnings, suggestions, logs, decisions });
 
@@ -802,6 +814,41 @@ function classifyRegistrationNameCoverage({ fixture, inspection, targetOpenClaw,
     level: "breakage",
     message: "fixture calls api.register* methods that are not present in the target OpenClaw plugin API builder",
     evidence: detailEvidence(unknownRegistrations),
+  });
+}
+
+function classifySdkImportCoverage({ fixture, fixtureReport, targetOpenClaw, warnings, logs, decisions }) {
+  if (targetOpenClaw.status !== "ok" || targetOpenClaw.sdkExports.length === 0 || fixtureReport.sdkImports.length === 0) {
+    return;
+  }
+
+  const sdkExports = new Set(targetOpenClaw.sdkExports);
+  const unknownImports = fixtureReport.sdkImportDetails.filter((sdkImport) => !sdkExports.has(sdkImport.specifier));
+  if (unknownImports.length === 0) {
+    logs.push({
+      fixture: fixture.id,
+      code: "sdk-exports-present",
+      level: "log",
+      message: "all observed plugin SDK imports exist in target OpenClaw package exports",
+      evidence: fixtureReport.sdkImports,
+    });
+    return;
+  }
+
+  warnings.push({
+    fixture: fixture.id,
+    code: "sdk-export-missing",
+    level: "warning",
+    message: "fixture imports plugin SDK aliases that are not exported by the target OpenClaw package",
+    evidence: detailEvidence(unknownImports, "specifier"),
+    compatRecord: "plugin-sdk-export-aliases",
+  });
+  decisions.push({
+    fixture: fixture.id,
+    decision: "core-compat-adapter",
+    seam: "sdk-alias",
+    action: "Restore the package export alias or publish a versioned migration map before cold-importing old plugins.",
+    evidence: unique(unknownImports.map((sdkImport) => sdkImport.specifier)).join(", "),
   });
 }
 
@@ -1082,6 +1129,7 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       hookNames: [],
       apiRegistrars: [],
       capturedRegistrars: [],
+      sdkExports: [],
       manifestFields: [],
       manifestContractFields: [],
     };
@@ -1096,6 +1144,7 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       hookNames: [],
       apiRegistrars: [],
       capturedRegistrars: [],
+      sdkExports: [],
       manifestFields: [],
       manifestContractFields: [],
     };
@@ -1124,6 +1173,7 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       hookNames: [],
       apiRegistrars: [],
       capturedRegistrars: [],
+      sdkExports: [],
       manifestFields: [],
       manifestContractFields: [],
     };
@@ -1151,6 +1201,10 @@ async function readTargetOpenClaw(manifest, configuredPath) {
   const manifestTypesSource = existsSync(manifestTypesPath) ? await readFile(manifestTypesPath, "utf8") : "";
   const manifestFields = manifestTypesSource ? parseTypeFields(manifestTypesSource, "PluginManifest") : [];
   const manifestContractFields = manifestTypesSource ? parseTypeFields(manifestTypesSource, "PluginManifestContracts") : [];
+  const packagePath = path.join(resolvedPath, "package.json");
+  const sdkExports = existsSync(packagePath)
+    ? parsePluginSdkExports(JSON.parse(await readFile(packagePath, "utf8")))
+    : [];
 
   return {
     configuredPath: requestedPath,
@@ -1170,12 +1224,22 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       : null,
     capturedRegistrarCount: capturedRegistrars.length,
     capturedRegistrars,
+    packagePath: existsSync(packagePath) ? path.relative(repoRoot, packagePath) : null,
+    sdkExportCount: sdkExports.length,
+    sdkExports,
     manifestTypesPath: existsSync(manifestTypesPath) ? path.relative(repoRoot, manifestTypesPath) : null,
     manifestFieldCount: manifestFields.length,
     manifestFields,
     manifestContractFieldCount: manifestContractFields.length,
     manifestContractFields,
   };
+}
+
+function parsePluginSdkExports(packageJson) {
+  return Object.keys(packageJson.exports ?? {})
+    .filter((specifier) => specifier === "./plugin-sdk" || specifier.startsWith("./plugin-sdk/"))
+    .map((specifier) => `openclaw/${specifier.slice(2)}`)
+    .sort();
 }
 
 export function targetOpenClawPathCandidates(manifest, configuredPath) {
@@ -1384,6 +1448,8 @@ function targetOpenClawTable(targetOpenClaw) {
       ["API registrars", targetOpenClaw.apiRegistrarCount ?? 0],
       ["Captured registration", targetOpenClaw.capturedRegistrationPath ?? "-"],
       ["Captured registrars", targetOpenClaw.capturedRegistrarCount ?? 0],
+      ["Package metadata", targetOpenClaw.packagePath ?? "-"],
+      ["Plugin SDK exports", targetOpenClaw.sdkExportCount ?? 0],
       ["Manifest types", targetOpenClaw.manifestTypesPath ?? "-"],
       ["Manifest fields", targetOpenClaw.manifestFieldCount ?? 0],
       ["Manifest contract fields", targetOpenClaw.manifestContractFieldCount ?? 0],
