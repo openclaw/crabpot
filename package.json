@@ -14,6 +14,7 @@
     "contract:coverage": "node scripts/check-contract-coverage.mjs",
     "contract:synthetic": "node scripts/synthetic-probes.mjs",
     "execution:report": "node scripts/summarize-execution-results.mjs",
+    "fixtures:resolve": "node scripts/resolve-fixture-set.mjs",
     "cold-import": "node scripts/cold-import-readiness.mjs",
     "workspace:plan": "node scripts/workspace-plan.mjs",
     "workspace:execute": "node scripts/execute-workspace-plan.mjs",
