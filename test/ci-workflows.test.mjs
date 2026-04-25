@@ -43,5 +43,17 @@ test("default check workflow uploads policy and summary reports", async () => {
   assert.match(workflow, /node scripts\/compare-runtime-profile\.mjs/);
   assert.match(workflow, /node scripts\/check-ci-policy\.mjs/);
   assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
-  assert.match(workflow, /actions\/upload-artifact@v4/);
+  assert.match(workflow, /actions\/upload-artifact@v7/);
+});
+
+test("workflows use Node 24 action majors", async () => {
+  const workflows = [
+    await readFile(".github/workflows/check.yml", "utf8"),
+    await readFile(".github/workflows/openclaw-ref-compat.yml", "utf8"),
+  ].join("\n");
+
+  assert.match(workflows, /actions\/checkout@v6/);
+  assert.match(workflows, /actions\/setup-node@v6/);
+  assert.match(workflows, /actions\/upload-artifact@v7/);
+  assert.doesNotMatch(workflows, /actions\/(checkout|setup-node|upload-artifact)@v4/);
 });

@@ -10,14 +10,14 @@ jobs:
   manifest:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           submodules: recursive
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           repository: openclaw/openclaw
           path: openclaw
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
       - run: npm test
@@ -46,7 +46,7 @@ jobs:
           node scripts/write-ci-summary.mjs --mode check --openclaw-label openclaw/openclaw@main --github-step-summary
       - name: Upload CI reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: crabpot-check-reports
           path: reports/

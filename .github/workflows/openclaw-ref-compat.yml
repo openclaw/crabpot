@@ -79,12 +79,12 @@ jobs:
       STRICT_PERF: ${{ inputs.strict_perf }}
     steps:
       - name: Checkout Crabpot
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: recursive
 
       - name: Checkout target OpenClaw
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ env.TARGET_REPOSITORY }}
           ref: ${{ env.TARGET_REF }}
@@ -96,7 +96,7 @@ jobs:
           echo "ref=${TARGET_REF}"
           git -C openclaw rev-parse HEAD
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
 
@@ -128,7 +128,7 @@ jobs:
 
       - name: Upload static compatibility reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: crabpot-openclaw-ref-static-reports
           path: reports/
@@ -144,19 +144,19 @@ jobs:
       PROFILE_RUNS: ${{ inputs.profile_runs }}
     steps:
       - name: Checkout Crabpot
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: recursive
 
       - name: Checkout base OpenClaw
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ inputs.base_openclaw_repository }}
           ref: ${{ inputs.base_openclaw_ref }}
           path: openclaw-base
 
       - name: Checkout head OpenClaw
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ inputs.head_openclaw_repository }}
           ref: ${{ inputs.head_openclaw_ref }}
@@ -170,7 +170,7 @@ jobs:
           git -C openclaw-head rev-parse HEAD
           ln -s openclaw-head openclaw
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
 
@@ -195,7 +195,7 @@ jobs:
 
       - name: Upload ref diff reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: crabpot-openclaw-ref-diff-reports
           path: reports/
@@ -216,18 +216,18 @@ jobs:
       TARGET_REF: ${{ (inputs.mode == 'full') && inputs.head_openclaw_ref || inputs.openclaw_ref }}
     steps:
       - name: Checkout Crabpot
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: recursive
 
       - name: Checkout target OpenClaw
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ env.TARGET_REPOSITORY }}
           ref: ${{ env.TARGET_REF }}
           path: openclaw
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
 
@@ -262,12 +262,12 @@ jobs:
       TARGET_REF: ${{ (inputs.mode == 'full') && inputs.head_openclaw_ref || inputs.openclaw_ref }}
     steps:
       - name: Checkout Crabpot
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: recursive
 
       - name: Checkout target OpenClaw
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ env.TARGET_REPOSITORY }}
           ref: ${{ env.TARGET_REF }}
@@ -280,7 +280,7 @@ jobs:
           git -C openclaw rev-parse HEAD
           echo "fixture=${{ matrix.id }}"
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
 
@@ -312,7 +312,7 @@ jobs:
 
       - name: Upload isolated execution artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: crabpot-openclaw-ref-isolated-${{ matrix.id }}
           path: |
