@@ -1,0 +1,44 @@
+[submodule "plugins/agentchat"]
+	path = plugins/agentchat
+	url = https://github.com/agentchatme/agentchat.git
+	shallow = true
+[submodule "plugins/wecom"]
+	path = plugins/wecom
+	url = https://github.com/sunnoy/openclaw-plugin-wecom.git
+	shallow = true
+[submodule "plugins/a2a-gateway"]
+	path = plugins/a2a-gateway
+	url = https://github.com/win4r/openclaw-a2a-gateway.git
+	shallow = true
+[submodule "plugins/hasdata"]
+	path = plugins/hasdata
+	url = https://github.com/HasData/hasdata-openclaw-plugin.git
+	shallow = true
+[submodule "plugins/mcp-adapter"]
+	path = plugins/mcp-adapter
+	url = https://github.com/androidStern-personal/openclaw-mcp-adapter.git
+	shallow = true
+[submodule "plugins/llm-trace-phoenix"]
+	path = plugins/llm-trace-phoenix
+	url = https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix.git
+	shallow = true
+[submodule "plugins/clawmetry"]
+	path = plugins/clawmetry
+	url = https://github.com/vivekchand/clawmetry.git
+	shallow = true
+[submodule "plugins/codex-app-server"]
+	path = plugins/codex-app-server
+	url = https://github.com/pwrdrvr/openclaw-codex-app-server.git
+	shallow = true
+[submodule "plugins/web-search-plus"]
+	path = plugins/web-search-plus
+	url = https://github.com/robbyczgw-cla/web-search-plus-plugin.git
+	shallow = true
+[submodule "plugins/apify"]
+	path = plugins/apify
+	url = https://github.com/apify/apify-openclaw-plugin.git
+	shallow = true
+[submodule "plugins/inworld-tts"]
+	path = plugins/inworld-tts
+	url = https://github.com/livingghost/openclaw-inworld-tts.git
+	shallow = true

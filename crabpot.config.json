@@ -1,0 +1,112 @@
+{
+  "$schema": "./crabpot.schema.json",
+  "version": 1,
+  "submoduleRoot": "plugins",
+  "openclaw": {
+    "minimumNode": "22",
+    "defaultCheckoutPath": "../openclaw"
+  },
+  "fixtures": [
+    {
+      "id": "agentchat",
+      "name": "AgentChat OpenClaw Channel",
+      "repo": "https://github.com/agentchatme/agentchat.git",
+      "path": "plugins/agentchat",
+      "subdir": "integrations/openclaw-channel",
+      "priority": "high",
+      "seams": ["channel", "prompt-mutation", "config-schema", "websocket", "backpressure"],
+      "why": "Production-shaped channel plugin with WebSocket auth, reconnect, prompt hints, and typed runtime contracts."
+    },
+    {
+      "id": "wecom",
+      "name": "WeCom Enhanced Channel",
+      "repo": "https://github.com/sunnoy/openclaw-plugin-wecom.git",
+      "path": "plugins/wecom",
+      "priority": "high",
+      "seams": ["channel", "streaming", "dynamic-agent-routing", "message-policy", "media"],
+      "why": "Large community channel fixture covering WS streaming, group/DM policy, command allowlists, media, and dynamic agents."
+    },
+    {
+      "id": "a2a-gateway",
+      "name": "A2A Gateway",
+      "repo": "https://github.com/win4r/openclaw-a2a-gateway.git",
+      "path": "plugins/a2a-gateway",
+      "priority": "high",
+      "seams": ["gateway-service", "http-routes", "agent-routing", "async-job", "auth"],
+      "why": "Agent-to-agent server fixture with agent-card discovery, JSON-RPC/REST/gRPC transports, metrics, peer auth, and async task modes."
+    },
+    {
+      "id": "hasdata",
+      "name": "HasData",
+      "repo": "https://github.com/HasData/hasdata-openclaw-plugin.git",
+      "path": "plugins/hasdata",
+      "priority": "high",
+      "seams": ["tool", "tool-schema", "external-api", "cli", "config-schema"],
+      "why": "Single native tool backed by a large OpenAPI-derived action catalog and strict per-action schemas."
+    },
+    {
+      "id": "mcp-adapter",
+      "name": "MCP Adapter",
+      "repo": "https://github.com/androidStern-personal/openclaw-mcp-adapter.git",
+      "path": "plugins/mcp-adapter",
+      "priority": "high",
+      "seams": ["dynamic-tool", "json-schema", "stdio", "http", "reconnect"],
+      "why": "Dynamic tool discovery from MCP servers with stdio/http transports and schema passthrough."
+    },
+    {
+      "id": "llm-trace-phoenix",
+      "name": "Phoenix LLM Trace",
+      "repo": "https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix.git",
+      "path": "plugins/llm-trace-phoenix",
+      "priority": "high",
+      "seams": ["llm-observer", "conversation-access", "telemetry", "external-api"],
+      "why": "Small sharp fixture for llm_input/llm_output access and raw prompt/output privacy boundaries."
+    },
+    {
+      "id": "clawmetry",
+      "name": "ClawMetry",
+      "repo": "https://github.com/vivekchand/clawmetry.git",
+      "path": "plugins/clawmetry",
+      "priority": "medium",
+      "seams": ["diagnostics", "log-transport", "gateway-service", "sidecar", "telemetry"],
+      "why": "Observability fixture for diagnostic events, log transport, telemetry buffering, and plugin-owned dashboard lifecycle."
+    },
+    {
+      "id": "codex-app-server",
+      "name": "Codex App Server Bridge",
+      "repo": "https://github.com/pwrdrvr/openclaw-codex-app-server.git",
+      "path": "plugins/codex-app-server",
+      "priority": "medium",
+      "seams": ["process-spawn", "unsafe-install", "channel-bridge", "interactive-ui", "sdk-compat"],
+      "why": "Bridge fixture for process launch policy, install safety gates, and channel-specific SDK compatibility."
+    },
+    {
+      "id": "web-search-plus",
+      "name": "Web Search Plus",
+      "repo": "https://github.com/robbyczgw-cla/web-search-plus-plugin.git",
+      "path": "plugins/web-search-plus",
+      "priority": "medium",
+      "seams": ["tool", "provider-routing", "external-api", "env-auth", "extraction"],
+      "why": "Multi-provider search/extract tool fixture with several auth/config permutations."
+    },
+    {
+      "id": "apify",
+      "name": "Apify",
+      "repo": "https://github.com/apify/apify-openclaw-plugin.git",
+      "path": "plugins/apify",
+      "priority": "medium",
+      "seams": ["tool", "async-job", "polling", "external-api", "catalog-discovery"],
+      "why": "Async start/collect workflow fixture for remote jobs and huge third-party catalog discovery."
+    },
+    {
+      "id": "inworld-tts",
+      "name": "Inworld TTS",
+      "repo": "https://github.com/livingghost/openclaw-inworld-tts.git",
+      "path": "plugins/inworld-tts",
+      "priority": "medium",
+      "seams": ["provider-capability", "speech", "tts", "env-auth", "runtime-overrides"],
+      "why": "Provider capability fixture for speech registration, config/env auth, and talk.speak request overrides."
+    }
+  ]
+}
+

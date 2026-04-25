@@ -1,0 +1,17 @@
+{
+  "name": "crabpot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Compatibility testbed for OpenClaw community plugins and plugin seams.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "npm test && node scripts/sync-fixtures.mjs --check && node scripts/run-contract-smoke.mjs",
+    "fixtures:list": "node scripts/list-fixtures.mjs",
+    "fixtures:sync": "node scripts/sync-fixtures.mjs --materialize",
+    "smoke": "node scripts/run-contract-smoke.mjs",
+    "test": "node --test test/*.test.mjs"
+  }
+}
