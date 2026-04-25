@@ -27,7 +27,7 @@ async function main() {
     console.log(JSON.stringify(plan, null, 2));
   } else {
     console.log(
-      `workspace plan: ${plan.summary.entrypointCount} entrypoints, ${plan.summary.installStepCount} installs, ${plan.summary.buildStepCount} builds, ${plan.summary.captureStepCount} captures, ${plan.summary.syntheticProbeStepCount} synthetic probes, ${plan.summary.artifactStepCount} artifact dirs`,
+      `workspace plan: ${plan.summary.entrypointCount} entrypoints, ${plan.summary.installStepCount} installs, ${plan.summary.auditStepCount} audits, ${plan.summary.buildStepCount} builds, ${plan.summary.captureStepCount} captures, ${plan.summary.syntheticProbeStepCount} synthetic probes, ${plan.summary.artifactStepCount} artifact dirs`,
     );
   }
 

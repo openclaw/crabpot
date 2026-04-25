@@ -3,16 +3,16 @@
   "targetOpenClaw": {
     "status": "ok",
     "configuredPath": "../openclaw",
-    "sdkExportCount": 306
+    "sdkExportCount": 307
   },
   "summary": {
-    "fixtureCount": 11,
-    "entrypointCount": 13,
+    "fixtureCount": 12,
+    "entrypointCount": 15,
     "readyCount": 0,
-    "blockedCount": 13,
-    "tsLoaderRequiredCount": 8,
-    "buildRequiredCount": 3,
-    "dependencyInstallRequiredCount": 9,
+    "blockedCount": 15,
+    "tsLoaderRequiredCount": 9,
+    "buildRequiredCount": 4,
+    "dependencyInstallRequiredCount": 10,
     "sdkAliasRequiredCount": 1
   },
   "fixtures": [
@@ -211,6 +211,56 @@
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
             "cold import sandbox blocks network/process side effects before register capture"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "opik-openclaw",
+      "priority": "high",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:opik-openclaw:plugins-opik-openclaw-index-ts",
+          "fixture": "opik-openclaw",
+          "packagePath": "plugins/opik-openclaw/package.json",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "path": "plugins/opik-openclaw/index.ts",
+          "status": "ts-loader-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/opik-openclaw/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@clack/prompts, opik, zod, openclaw"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:opik-openclaw:plugins-opik-openclaw-dist-index-js",
+          "fixture": "opik-openclaw",
+          "packagePath": "plugins/opik-openclaw/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/opik-openclaw/dist/index.js",
+          "status": "build-required",
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/opik-openclaw/dist/index.js"
+            }
+          ],
+          "assertions": [
+            "plugin build or source alias resolution runs before cold import"
           ]
         }
       ]

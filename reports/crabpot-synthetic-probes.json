@@ -1,14 +1,14 @@
 {
   "generatedAt": "deterministic",
   "summary": {
-    "fixtureCount": 11,
-    "probeCount": 36,
-    "hookProbeCount": 8,
-    "registrationProbeCount": 28,
-    "readyCount": 36,
+    "fixtureCount": 12,
+    "probeCount": 48,
+    "hookProbeCount": 18,
+    "registrationProbeCount": 30,
+    "readyCount": 48,
     "blockedCount": 0,
-    "directExecutionCount": 19,
-    "optInExecutionCount": 6,
+    "directExecutionCount": 20,
+    "optInExecutionCount": 7,
     "metadataOnlyCount": 3
   },
   "probes": [
@@ -201,6 +201,254 @@
         "channelId": "fixture-channel"
       },
       "source": "plugins/llm-trace-phoenix/index.ts:168"
+    },
+    {
+      "id": "hook.after_tool_call:opik-openclaw:plugins-opik-openclaw-src-service-hooks-tool-ts-100",
+      "fixture": "opik-openclaw",
+      "kind": "hook",
+      "seam": "after_tool_call",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "after_tool_call",
+        "fixture": "opik-openclaw"
+      },
+      "syntheticContext": {
+        "hook": "after_tool_call",
+        "fixture": "opik-openclaw"
+      },
+      "source": "plugins/opik-openclaw/src/service/hooks/tool.ts:100"
+    },
+    {
+      "id": "hook.agent_end:opik-openclaw:plugins-opik-openclaw-src-service-ts-560",
+      "fixture": "opik-openclaw",
+      "kind": "hook",
+      "seam": "agent_end",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "final conversation payload is redacted as expected",
+        "agent id and run metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "status": "completed",
+        "transcript": [
+          {
+            "role": "assistant",
+            "content": "[redacted fixture output]"
+          }
+        ]
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/opik-openclaw/src/service.ts:560"
+    },
+    {
+      "id": "hook.before_tool_call:opik-openclaw:plugins-opik-openclaw-src-service-hooks-tool-ts-34",
+      "fixture": "opik-openclaw",
+      "kind": "hook",
+      "seam": "before_tool_call",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "block/allow return shapes are preserved",
+        "terminal and approval metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "toolName": "fixture_tool",
+        "params": {},
+        "toolCallId": "call-fixture"
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "toolName": "fixture_tool",
+        "toolCallId": "call-fixture"
+      },
+      "source": "plugins/opik-openclaw/src/service/hooks/tool.ts:34"
+    },
+    {
+      "id": "hook.llm_input:opik-openclaw:plugins-opik-openclaw-src-service-hooks-llm-ts-39",
+      "fixture": "opik-openclaw",
+      "kind": "hook",
+      "seam": "llm_input",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "model input payload is redacted as expected",
+        "model and agent metadata are present"
+      ],
+      "syntheticEvent": {
+        "agentId": "agent-fixture",
+        "model": "gpt-5.4",
+        "messages": [
+          {
+            "role": "user",
+            "content": "[redacted fixture input]"
+          }
+        ]
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/opik-openclaw/src/service/hooks/llm.ts:39"
+    },
+    {
+      "id": "hook.llm_output:opik-openclaw:plugins-opik-openclaw-src-service-hooks-llm-ts-150",
+      "fixture": "opik-openclaw",
+      "kind": "hook",
+      "seam": "llm_output",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "model output payload is redacted as expected",
+        "model and agent metadata are present"
+      ],
+      "syntheticEvent": {
+        "agentId": "agent-fixture",
+        "model": "gpt-5.4",
+        "output": {
+          "role": "assistant",
+          "content": "[redacted fixture output]"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/opik-openclaw/src/service/hooks/llm.ts:150"
+    },
+    {
+      "id": "hook.subagent_delivery_target:opik-openclaw:plugins-opik-openclaw-src-service-hooks-subagent-ts-147",
+      "fixture": "opik-openclaw",
+      "kind": "hook",
+      "seam": "subagent_delivery_target",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "target routing result is preserved",
+        "parent/subagent metadata are present"
+      ],
+      "syntheticEvent": {
+        "childSessionKey": "child-session",
+        "agentId": "agent-child",
+        "label": "fixture child",
+        "mode": "run",
+        "requester": {
+          "channel": "fixture-channel",
+          "accountId": "fixture-account"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "childSessionKey": "child-session",
+        "requesterSessionKey": "parent-session"
+      },
+      "source": "plugins/opik-openclaw/src/service/hooks/subagent.ts:147"
+    },
+    {
+      "id": "hook.subagent_ended:opik-openclaw:plugins-opik-openclaw-src-service-hooks-subagent-ts-222",
+      "fixture": "opik-openclaw",
+      "kind": "hook",
+      "seam": "subagent_ended",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "subagent completion payload is preserved",
+        "status metadata is present"
+      ],
+      "syntheticEvent": {
+        "childSessionKey": "child-session",
+        "agentId": "agent-child",
+        "status": "completed"
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "childSessionKey": "child-session",
+        "requesterSessionKey": "parent-session"
+      },
+      "source": "plugins/opik-openclaw/src/service/hooks/subagent.ts:222"
+    },
+    {
+      "id": "hook.subagent_spawned:opik-openclaw:plugins-opik-openclaw-src-service-hooks-subagent-ts-89",
+      "fixture": "opik-openclaw",
+      "kind": "hook",
+      "seam": "subagent_spawned",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "spawn payload is preserved",
+        "parent/subagent metadata are present"
+      ],
+      "syntheticEvent": {
+        "childSessionKey": "child-session",
+        "agentId": "agent-child",
+        "label": "fixture child",
+        "mode": "run"
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "childSessionKey": "child-session",
+        "requesterSessionKey": "parent-session"
+      },
+      "source": "plugins/opik-openclaw/src/service/hooks/subagent.ts:89"
+    },
+    {
+      "id": "hook.subagent_spawning:opik-openclaw:plugins-opik-openclaw-src-service-hooks-subagent-ts-38",
+      "fixture": "opik-openclaw",
+      "kind": "hook",
+      "seam": "subagent_spawning",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "subagent_spawning",
+        "fixture": "opik-openclaw"
+      },
+      "syntheticContext": {
+        "hook": "subagent_spawning",
+        "fixture": "opik-openclaw"
+      },
+      "source": "plugins/opik-openclaw/src/service/hooks/subagent.ts:38"
+    },
+    {
+      "id": "hook.tool_result_persist:opik-openclaw:plugins-opik-openclaw-src-service-ts-541",
+      "fixture": "opik-openclaw",
+      "kind": "hook",
+      "seam": "tool_result_persist",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "tool_result_persist",
+        "fixture": "opik-openclaw"
+      },
+      "syntheticContext": {
+        "hook": "tool_result_persist",
+        "fixture": "opik-openclaw"
+      },
+      "source": "plugins/opik-openclaw/src/service.ts:541"
     },
     {
       "id": "hook.inbound_claim:codex-app-server:plugins-codex-app-server-index-ts-25",
@@ -710,6 +958,66 @@
         ]
       },
       "source": "plugins/mcp-adapter/index.ts:30"
+    },
+    {
+      "id": "registration.registerCli:opik-openclaw:plugins-opik-openclaw-index-ts-17",
+      "fixture": "opik-openclaw",
+      "kind": "registration",
+      "seam": "registerCli",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command name is stable",
+        "argument schema is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "args": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/opik-openclaw/index.ts:17"
+    },
+    {
+      "id": "registration.registerService:opik-openclaw:plugins-opik-openclaw-index-ts-16",
+      "fixture": "opik-openclaw",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop"
+        ],
+        "option": "includeLifecycle"
+      },
+      "source": "plugins/opik-openclaw/index.ts:16"
     },
     {
       "id": "registration.definePluginEntry:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts-4",

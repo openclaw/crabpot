@@ -10,14 +10,15 @@
     "configuredPath": "../openclaw"
   },
   "summary": {
-    "fixtureCount": 11,
-    "entrypointCount": 13,
-    "installStepCount": 9,
-    "buildStepCount": 3,
-    "artifactStepCount": 13,
-    "captureStepCount": 13,
-    "syntheticProbeStepCount": 13,
-    "targetOpenClawLinkStepCount": 8,
+    "fixtureCount": 12,
+    "entrypointCount": 15,
+    "installStepCount": 10,
+    "auditStepCount": 10,
+    "buildStepCount": 4,
+    "artifactStepCount": 15,
+    "captureStepCount": 15,
+    "syntheticProbeStepCount": 15,
+    "targetOpenClawLinkStepCount": 10,
     "missingBuildScriptCount": 0,
     "sdkAliasRequiredCount": 1
   },
@@ -204,6 +205,13 @@
               "reason": "install runtime dependencies without mutating the pinned submodule"
             },
             {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/wecom/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/wecom",
+              "artifactPath": ".crabpot/results/wecom/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
               "kind": "capture",
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.js --output ../../results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.capture.json",
               "cwd": ".crabpot/workspaces/wecom",
@@ -269,6 +277,13 @@
               "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/a2a-gateway",
               "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/a2a-gateway/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/a2a-gateway",
+              "artifactPath": ".crabpot/results/a2a-gateway/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "capture",
@@ -351,6 +366,13 @@
               "reason": "install runtime dependencies without mutating the pinned submodule"
             },
             {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/hasdata/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/hasdata",
+              "artifactPath": ".crabpot/results/hasdata/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
               "kind": "capture",
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --output ../../results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/hasdata",
@@ -416,6 +438,13 @@
               "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/mcp-adapter",
               "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/mcp-adapter/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/mcp-adapter",
+              "artifactPath": ".crabpot/results/mcp-adapter/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "capture",
@@ -497,6 +526,150 @@
       ]
     },
     {
+      "id": "opik-openclaw",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:opik-openclaw:plugins-opik-openclaw-index-ts",
+          "fixture": "opik-openclaw",
+          "packagePath": "plugins/opik-openclaw/package.json",
+          "packageName": "@opik/opik-openclaw",
+          "entrypoint": "plugins/opik-openclaw/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/opik-openclaw/package-lock.json",
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/opik-openclaw/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@clack/prompts, opik, zod, openclaw"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "rsync -a --delete plugins/opik-openclaw/ .crabpot/workspaces/opik-openclaw/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/opik-openclaw",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/opik-openclaw",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/opik-openclaw",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/opik-openclaw/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/opik-openclaw",
+              "artifactPath": ".crabpot/results/opik-openclaw/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.capture.json",
+              "cwd": ".crabpot/workspaces/opik-openclaw",
+              "artifactPath": ".crabpot/results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/opik-openclaw",
+              "artifactPath": ".crabpot/results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:opik-openclaw:plugins-opik-openclaw-dist-index-js",
+          "fixture": "opik-openclaw",
+          "packagePath": "plugins/opik-openclaw/package.json",
+          "packageName": "@opik/opik-openclaw",
+          "entrypoint": "plugins/opik-openclaw/dist/index.js",
+          "status": "build-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/opik-openclaw/package-lock.json",
+          "requiredCapabilities": [
+            "build",
+            "capture-shim",
+            "synthetic-probes",
+            "target-openclaw-link"
+          ],
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/opik-openclaw/dist/index.js"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "rsync -a --delete plugins/opik-openclaw/ .crabpot/workspaces/opik-openclaw/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/opik-openclaw",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/opik-openclaw",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "build",
+              "command": "npm run build",
+              "cwd": ".crabpot/workspaces/opik-openclaw",
+              "reason": "produce missing OpenClaw build entrypoint"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/opik-openclaw/cold-import-runtimeExtension-opik-openclaw-plugins-opik-openclaw-dist-index-js.capture.json",
+              "cwd": ".crabpot/workspaces/opik-openclaw",
+              "artifactPath": ".crabpot/results/opik-openclaw/cold-import-runtimeExtension-opik-openclaw-plugins-opik-openclaw-dist-index-js.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/opik-openclaw/cold-import-runtimeExtension-opik-openclaw-plugins-opik-openclaw-dist-index-js.synthetic.json",
+              "cwd": ".crabpot/workspaces/opik-openclaw",
+              "artifactPath": ".crabpot/results/opik-openclaw/cold-import-runtimeExtension-opik-openclaw-plugins-opik-openclaw-dist-index-js.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "clawmetry",
       "entrypoints": [
         {
@@ -544,6 +717,13 @@
               "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/clawmetry",
               "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/clawmetry/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/clawmetry",
+              "artifactPath": ".crabpot/results/clawmetry/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "capture",
@@ -692,6 +872,13 @@
               "reason": "install runtime dependencies without mutating the pinned submodule"
             },
             {
+              "kind": "audit",
+              "command": "pnpm audit --json > ../../results/codex-app-server/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/codex-app-server",
+              "artifactPath": ".crabpot/results/codex-app-server/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
               "kind": "capture",
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/codex-app-server",
@@ -772,6 +959,13 @@
               "reason": "install runtime dependencies without mutating the pinned submodule"
             },
             {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/web-search-plus/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/web-search-plus",
+              "artifactPath": ".crabpot/results/web-search-plus/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
               "kind": "capture",
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/web-search-plus",
@@ -846,6 +1040,13 @@
               "reason": "install runtime dependencies without mutating the pinned submodule"
             },
             {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/apify/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/apify",
+              "artifactPath": ".crabpot/results/apify/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
               "kind": "capture",
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/apify",
@@ -918,6 +1119,13 @@
               "command": "pnpm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/inworld-tts",
               "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "pnpm audit --json > ../../results/inworld-tts/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/inworld-tts",
+              "artifactPath": ".crabpot/results/inworld-tts/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "capture",

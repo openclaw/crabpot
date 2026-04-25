@@ -1,0 +1,145 @@
+{
+  "generatedAt": "deterministic",
+  "mode": "local",
+  "openclawLabel": "../openclaw",
+  "status": "pass",
+  "summary": {
+    "breakages": 0,
+    "warnings": 18,
+    "suggestions": 40,
+    "issues": 58,
+    "p1Issues": 12,
+    "refDiffFailures": 0,
+    "refDiffWarnings": 0,
+    "policyFailures": 0,
+    "policyWarnings": 2,
+    "profileWarnings": 0,
+    "executionPass": 6,
+    "executionFail": 0,
+    "executionBlocked": 2
+  },
+  "topIssues": [
+    {
+      "severity": "P1",
+      "fixture": "a2a-gateway",
+      "code": "registration-capture-gap",
+      "title": "a2a-gateway: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "fixture": "clawmetry",
+      "code": "registration-capture-gap",
+      "title": "clawmetry: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "fixture": "codex-app-server",
+      "code": "missing-compat-record",
+      "title": "codex-app-server: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "fixture": "codex-app-server",
+      "code": "registration-capture-gap",
+      "title": "codex-app-server: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "fixture": "codex-app-server",
+      "code": "sdk-export-missing",
+      "title": "codex-app-server: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "fixture": "llm-trace-phoenix",
+      "code": "conversation-access-hook",
+      "title": "llm-trace-phoenix: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "fixture": "mcp-adapter",
+      "code": "registration-capture-gap",
+      "title": "mcp-adapter: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "fixture": "opik-openclaw",
+      "code": "before-tool-call-probe",
+      "title": "opik-openclaw: before_tool_call needs terminal/block/approval probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "fixture": "opik-openclaw",
+      "code": "conversation-access-hook",
+      "title": "opik-openclaw: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "fixture": "opik-openclaw",
+      "code": "registration-capture-gap",
+      "title": "opik-openclaw: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "fixture": "wecom",
+      "code": "before-tool-call-probe",
+      "title": "wecom: before_tool_call needs terminal/block/approval probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "fixture": "wecom",
+      "code": "registration-capture-gap",
+      "title": "wecom: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    }
+  ],
+  "refRegressions": [],
+  "policyFindings": [
+    {
+      "id": "execution-results.blocked.wecom.registerChannel.0",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration requires includeChannelRuntime=true",
+      "evidence": [
+        ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json",
+        "registerChannel",
+        "captured registration requires includeChannelRuntime=true",
+        "channel-runtime-harness"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.wecom.registerTool.2",
+      "action": "warn",
+      "message": "expected-warning: captured registration has no object descriptor",
+      "evidence": [
+        ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json",
+        "registerTool",
+        "captured registration has no object descriptor",
+        "tool-factory-descriptor"
+      ]
+    }
+  ],
+  "profileFindings": [],
+  "artifacts": {
+    "compatibility": "reports/crabpot-report.json",
+    "capture": "reports/crabpot-capture.json",
+    "synthetic": "reports/crabpot-synthetic-probes.json",
+    "coldImport": "reports/crabpot-cold-import.json",
+    "workspace": "reports/crabpot-workspace-plan.json",
+    "execution": "reports/crabpot-execution-results.json",
+    "runtimeProfile": "reports/crabpot-runtime-profile.json",
+    "refDiff": "reports/crabpot-ref-diff.json",
+    "profileDiff": "reports/crabpot-profile-diff.json",
+    "ciPolicy": "reports/crabpot-ci-policy.json"
+  }
+}

@@ -3,8 +3,7 @@
   "targetOpenClaw": {
     "configuredPath": "../openclaw",
     "searchedPaths": [
-      "../openclaw",
-      "./openclaw"
+      "../openclaw"
     ],
     "status": "ok",
     "compatRegistryPath": "../openclaw/src/plugins/compat/registry.ts",
@@ -132,7 +131,7 @@
       "registerWebSearchProvider"
     ],
     "packagePath": "../openclaw/package.json",
-    "sdkExportCount": 306,
+    "sdkExportCount": 307,
     "sdkExports": [
       "openclaw/plugin-sdk",
       "openclaw/plugin-sdk/account-core",
@@ -322,6 +321,7 @@
       "openclaw/plugin-sdk/opencode",
       "openclaw/plugin-sdk/outbound-media",
       "openclaw/plugin-sdk/outbound-runtime",
+      "openclaw/plugin-sdk/outbound-send-deps",
       "openclaw/plugin-sdk/param-readers",
       "openclaw/plugin-sdk/persistent-dedupe",
       "openclaw/plugin-sdk/plugin-entry",
@@ -499,16 +499,16 @@
   },
   "status": "pass",
   "summary": {
-    "fixtureCount": 11,
-    "highPriorityFixtures": 6,
+    "fixtureCount": 12,
+    "highPriorityFixtures": 7,
     "breakageCount": 0,
-    "warningCount": 16,
-    "suggestionCount": 35,
-    "decisionCount": 53,
-    "issueCount": 51,
+    "warningCount": 18,
+    "suggestionCount": 40,
+    "decisionCount": 60,
+    "issueCount": 58,
     "p0IssueCount": 0,
-    "p1IssueCount": 9,
-    "contractProbeCount": 50
+    "p1IssueCount": 12,
+    "contractProbeCount": 57
   },
   "fixtures": [
     {
@@ -1696,6 +1696,306 @@
       ]
     },
     {
+      "id": "opik-openclaw",
+      "name": "Opik OpenClaw",
+      "priority": "high",
+      "seams": [
+        "llm-observer",
+        "tool-runtime",
+        "subagent-routing",
+        "diagnostics",
+        "cli"
+      ],
+      "why": "Opik trace exporter covering LLM spans, tool spans, subagent spans, stale trace cleanup, CLI setup, and persisted tool-result sanitization.",
+      "status": "ok",
+      "hooks": [
+        "after_tool_call",
+        "agent_end",
+        "before_tool_call",
+        "llm_input",
+        "llm_output",
+        "subagent_delivery_target",
+        "subagent_ended",
+        "subagent_spawned",
+        "subagent_spawning",
+        "tool_result_persist"
+      ],
+      "hookDetails": [
+        {
+          "name": "after_tool_call",
+          "file": "plugins/opik-openclaw/src/service/hooks/tool.ts",
+          "line": 100,
+          "ref": "plugins/opik-openclaw/src/service/hooks/tool.ts:100"
+        },
+        {
+          "name": "agent_end",
+          "file": "plugins/opik-openclaw/src/service.ts",
+          "line": 560,
+          "ref": "plugins/opik-openclaw/src/service.ts:560"
+        },
+        {
+          "name": "before_tool_call",
+          "file": "plugins/opik-openclaw/src/service/hooks/tool.ts",
+          "line": 34,
+          "ref": "plugins/opik-openclaw/src/service/hooks/tool.ts:34"
+        },
+        {
+          "name": "llm_input",
+          "file": "plugins/opik-openclaw/src/service/hooks/llm.ts",
+          "line": 39,
+          "ref": "plugins/opik-openclaw/src/service/hooks/llm.ts:39"
+        },
+        {
+          "name": "llm_output",
+          "file": "plugins/opik-openclaw/src/service/hooks/llm.ts",
+          "line": 150,
+          "ref": "plugins/opik-openclaw/src/service/hooks/llm.ts:150"
+        },
+        {
+          "name": "subagent_delivery_target",
+          "file": "plugins/opik-openclaw/src/service/hooks/subagent.ts",
+          "line": 147,
+          "ref": "plugins/opik-openclaw/src/service/hooks/subagent.ts:147"
+        },
+        {
+          "name": "subagent_ended",
+          "file": "plugins/opik-openclaw/src/service/hooks/subagent.ts",
+          "line": 222,
+          "ref": "plugins/opik-openclaw/src/service/hooks/subagent.ts:222"
+        },
+        {
+          "name": "subagent_spawned",
+          "file": "plugins/opik-openclaw/src/service/hooks/subagent.ts",
+          "line": 89,
+          "ref": "plugins/opik-openclaw/src/service/hooks/subagent.ts:89"
+        },
+        {
+          "name": "subagent_spawning",
+          "file": "plugins/opik-openclaw/src/service/hooks/subagent.ts",
+          "line": 38,
+          "ref": "plugins/opik-openclaw/src/service/hooks/subagent.ts:38"
+        },
+        {
+          "name": "tool_result_persist",
+          "file": "plugins/opik-openclaw/src/service.ts",
+          "line": 541,
+          "ref": "plugins/opik-openclaw/src/service.ts:541"
+        }
+      ],
+      "registrations": [
+        "registerCli",
+        "registerService"
+      ],
+      "registrationDetails": [
+        {
+          "name": "registerCli",
+          "file": "plugins/opik-openclaw/index.ts",
+          "line": 17,
+          "ref": "plugins/opik-openclaw/index.ts:17"
+        },
+        {
+          "name": "registerService",
+          "file": "plugins/opik-openclaw/index.ts",
+          "line": 16,
+          "ref": "plugins/opik-openclaw/index.ts:16"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/opik-openclaw/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/opik-openclaw/.scripts/build.mjs",
+        "plugins/opik-openclaw/.scripts/check-clawhub-suspicious.mjs",
+        "plugins/opik-openclaw/.scripts/check-e2e-result.mjs",
+        "plugins/opik-openclaw/.scripts/check-pack-payload.mjs",
+        "plugins/opik-openclaw/.scripts/live-e2e.mjs",
+        "plugins/opik-openclaw/.scripts/mock-llm-server.mjs",
+        "plugins/opik-openclaw/.scripts/mock-opik-server.mjs",
+        "plugins/opik-openclaw/index.ts",
+        "plugins/opik-openclaw/src/cli.ts",
+        "plugins/opik-openclaw/src/configure.ts",
+        "plugins/opik-openclaw/src/service.ts",
+        "plugins/opik-openclaw/src/service/attachment-uploader.ts",
+        "plugins/opik-openclaw/src/service/constants.ts",
+        "plugins/opik-openclaw/src/service/helpers.ts",
+        "plugins/opik-openclaw/src/service/hooks/llm.ts",
+        "plugins/opik-openclaw/src/service/hooks/subagent.ts",
+        "plugins/opik-openclaw/src/service/hooks/tool.ts",
+        "plugins/opik-openclaw/src/service/media.ts",
+        "plugins/opik-openclaw/src/service/payload-sanitizer.ts",
+        "plugins/opik-openclaw/src/types.ts"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/opik-openclaw/openclaw.plugin.json",
+          "id": "opik-openclaw",
+          "name": "Opik",
+          "version": null,
+          "keys": [
+            "configSchema",
+            "description",
+            "id",
+            "name",
+            "uiHints"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/opik-openclaw/package.json",
+        "name": "@opik/opik-openclaw",
+        "version": "0.2.14",
+        "type": "module",
+        "main": null,
+        "dependencies": [
+          "@clack/prompts",
+          "opik",
+          "zod"
+        ],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./index.ts"
+          ],
+          "runtimeExtensions": [
+            "./dist/index.js"
+          ],
+          "setupEntry": null,
+          "compatPluginApi": ">=2026.3.2",
+          "buildOpenClawVersion": "2026.3.2",
+          "buildPluginSdkVersion": "2026.3.2",
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.ts",
+              "relativePath": "plugins/opik-openclaw/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            },
+            {
+              "kind": "runtimeExtension",
+              "specifier": "./dist/index.js",
+              "relativePath": "plugins/opik-openclaw/dist/index.js",
+              "exists": false,
+              "requiresBuild": true
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/opik-openclaw/package.json",
+          "name": "@opik/opik-openclaw",
+          "version": "0.2.14",
+          "type": "module",
+          "main": null,
+          "dependencies": [
+            "@clack/prompts",
+            "opik",
+            "zod"
+          ],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./index.ts"
+            ],
+            "runtimeExtensions": [
+              "./dist/index.js"
+            ],
+            "setupEntry": null,
+            "compatPluginApi": ">=2026.3.2",
+            "buildOpenClawVersion": "2026.3.2",
+            "buildPluginSdkVersion": "2026.3.2",
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.ts",
+                "relativePath": "plugins/opik-openclaw/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              },
+              {
+                "kind": "runtimeExtension",
+                "specifier": "./dist/index.js",
+                "relativePath": "plugins/opik-openclaw/dist/index.js",
+                "exists": false,
+                "requiresBuild": true
+              }
+            ]
+          }
+        }
+      ],
+      "sdkImports": [
+        "openclaw/plugin-sdk"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/opik-openclaw/index.ts",
+          "line": 1,
+          "ref": "plugins/opik-openclaw/index.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/opik-openclaw/index.ts",
+          "line": 2,
+          "ref": "plugins/opik-openclaw/index.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/opik-openclaw/src/cli.ts",
+          "line": 1,
+          "ref": "plugins/opik-openclaw/src/cli.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/opik-openclaw/src/configure.ts",
+          "line": 2,
+          "ref": "plugins/opik-openclaw/src/configure.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/opik-openclaw/src/service.ts",
+          "line": 5,
+          "ref": "plugins/opik-openclaw/src/service.ts:5"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/opik-openclaw/src/service.ts",
+          "line": 6,
+          "ref": "plugins/opik-openclaw/src/service.ts:6"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/opik-openclaw/src/service/hooks/llm.ts",
+          "line": 1,
+          "ref": "plugins/opik-openclaw/src/service/hooks/llm.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/opik-openclaw/src/service/hooks/subagent.ts",
+          "line": 1,
+          "ref": "plugins/opik-openclaw/src/service/hooks/subagent.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/opik-openclaw/src/service/hooks/tool.ts",
+          "line": 1,
+          "ref": "plugins/opik-openclaw/src/service/hooks/tool.ts:1"
+        }
+      ]
+    },
+    {
       "id": "clawmetry",
       "name": "ClawMetry",
       "priority": "medium",
@@ -2689,6 +2989,35 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
+      "fixture": "opik-openclaw",
+      "code": "conversation-access-hook",
+      "level": "warning",
+      "message": "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
+      "evidence": [
+        "agent_end @ plugins/opik-openclaw/src/service.ts:560",
+        "llm_input @ plugins/opik-openclaw/src/service/hooks/llm.ts:39",
+        "llm_output @ plugins/opik-openclaw/src/service/hooks/llm.ts:150"
+      ]
+    },
+    {
+      "fixture": "opik-openclaw",
+      "code": "legacy-root-sdk-import",
+      "level": "warning",
+      "message": "fixture imports the root plugin SDK barrel",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/index.ts:2",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/cli.ts:1",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/configure.ts:2",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service.ts:5",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service.ts:6",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/llm.ts:1",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/subagent.ts:1",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/tool.ts:1"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
       "fixture": "codex-app-server",
       "code": "sdk-export-missing",
       "level": "warning",
@@ -2952,6 +3281,54 @@
       ]
     },
     {
+      "fixture": "opik-openclaw",
+      "code": "package-build-artifact-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint points at build output that is not present in the source fixture checkout",
+      "evidence": [
+        "runtimeExtension:./dist/index.js -> plugins/opik-openclaw/dist/index.js"
+      ]
+    },
+    {
+      "fixture": "opik-openclaw",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/opik-openclaw/index.ts"
+      ]
+    },
+    {
+      "fixture": "opik-openclaw",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "@clack/prompts @ plugins/opik-openclaw/package.json",
+        "opik @ plugins/opik-openclaw/package.json",
+        "zod @ plugins/opik-openclaw/package.json",
+        "openclaw @ plugins/opik-openclaw/package.json"
+      ]
+    },
+    {
+      "fixture": "opik-openclaw",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerService @ plugins/opik-openclaw/index.ts:16"
+      ]
+    },
+    {
+      "fixture": "opik-openclaw",
+      "code": "before-tool-call-probe",
+      "level": "suggestion",
+      "message": "add contract probes for before_tool_call terminal, block, and approval semantics",
+      "evidence": [
+        "before_tool_call @ plugins/opik-openclaw/src/service/hooks/tool.ts:34"
+      ]
+    },
+    {
       "fixture": "clawmetry",
       "code": "package-build-artifact-entrypoint",
       "level": "suggestion",
@@ -3211,6 +3588,50 @@
       "title": "mcp-adapter: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerService @ plugins/mcp-adapter/index.ts:15"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-EE3B527C",
+      "fixture": "opik-openclaw",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "before-tool-call-probe",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "opik-openclaw: before_tool_call needs terminal/block/approval probes",
+      "evidence": [
+        "before_tool_call @ plugins/opik-openclaw/src/service/hooks/tool.ts:34"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-6FC4ED08",
+      "fixture": "opik-openclaw",
+      "severity": "P1",
+      "owner": "core",
+      "code": "conversation-access-hook",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "opik-openclaw: conversation-access hooks need privacy-boundary probes",
+      "evidence": [
+        "agent_end @ plugins/opik-openclaw/src/service.ts:560",
+        "llm_input @ plugins/opik-openclaw/src/service/hooks/llm.ts:39",
+        "llm_output @ plugins/opik-openclaw/src/service/hooks/llm.ts:150"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-5E85F236",
+      "fixture": "opik-openclaw",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "opik-openclaw: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerService @ plugins/opik-openclaw/index.ts:16"
       ],
       "compatRecord": null
     },
@@ -3744,6 +4165,73 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-F76EC24F",
+      "fixture": "opik-openclaw",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-root-sdk-import",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "title": "opik-openclaw: root plugin SDK barrel is still used by fixtures",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/index.ts:2",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/cli.ts:1",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/configure.ts:2",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service.ts:5",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service.ts:6",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/llm.ts:1",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/subagent.ts:1",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/tool.ts:1"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "id": "CRABPOT-5D328BF6",
+      "fixture": "opik-openclaw",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-build-artifact-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "opik-openclaw: cold import requires package build output",
+      "evidence": [
+        "runtimeExtension:./dist/index.js -> plugins/opik-openclaw/dist/index.js"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-32CDFD6D",
+      "fixture": "opik-openclaw",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "opik-openclaw: cold import requires isolated dependency installation",
+      "evidence": [
+        "@clack/prompts @ plugins/opik-openclaw/package.json",
+        "opik @ plugins/opik-openclaw/package.json",
+        "zod @ plugins/opik-openclaw/package.json",
+        "openclaw @ plugins/opik-openclaw/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-FAEC3F71",
+      "fixture": "opik-openclaw",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "opik-openclaw: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/opik-openclaw/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-D8910079",
       "fixture": "web-search-plus",
       "severity": "P2",
@@ -3921,6 +4409,16 @@
       ]
     },
     {
+      "id": "api.capture.runtime-registrars:opik-openclaw",
+      "fixture": "opik-openclaw",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerService @ plugins/opik-openclaw/index.ts:16"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:wecom",
       "fixture": "wecom",
       "priority": "P1",
@@ -3929,6 +4427,16 @@
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27",
         "registerHttpRoute @ plugins/wecom/index.js:45"
+      ]
+    },
+    {
+      "id": "hook.before_tool_call.terminal-block-approval:opik-openclaw",
+      "fixture": "opik-openclaw",
+      "priority": "P1",
+      "target": "hook-runner",
+      "contract": "Hook returns preserve terminal, block, and approval semantics.",
+      "evidence": [
+        "before_tool_call @ plugins/opik-openclaw/src/service/hooks/tool.ts:34"
       ]
     },
     {
@@ -3950,6 +4458,18 @@
       "evidence": [
         "llm_input @ plugins/llm-trace-phoenix/index.ts:154",
         "llm_output @ plugins/llm-trace-phoenix/index.ts:168"
+      ]
+    },
+    {
+      "id": "hook.llm-observer.privacy-payload:opik-openclaw",
+      "fixture": "opik-openclaw",
+      "priority": "P1",
+      "target": "hook-runner",
+      "contract": "LLM observer hooks receive documented prompt/output fields with expected redaction behavior.",
+      "evidence": [
+        "agent_end @ plugins/opik-openclaw/src/service.ts:560",
+        "llm_input @ plugins/opik-openclaw/src/service/hooks/llm.ts:39",
+        "llm_output @ plugins/opik-openclaw/src/service/hooks/llm.ts:150"
       ]
     },
     {
@@ -4068,6 +4588,16 @@
       ]
     },
     {
+      "id": "package.entrypoint.build-before-cold-import:opik-openclaw",
+      "fixture": "opik-openclaw",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector can build or resolve source aliases before cold importing package entrypoints.",
+      "evidence": [
+        "runtimeExtension:./dist/index.js -> plugins/opik-openclaw/dist/index.js"
+      ]
+    },
+    {
       "id": "package.entrypoint.isolated-dependency-install:a2a-gateway",
       "fixture": "a2a-gateway",
       "priority": "P2",
@@ -4117,6 +4647,19 @@
       "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
       "evidence": [
         "@modelcontextprotocol/sdk @ plugins/mcp-adapter/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:opik-openclaw",
+      "fixture": "opik-openclaw",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "@clack/prompts @ plugins/opik-openclaw/package.json",
+        "opik @ plugins/opik-openclaw/package.json",
+        "zod @ plugins/opik-openclaw/package.json",
+        "openclaw @ plugins/opik-openclaw/package.json"
       ]
     },
     {
@@ -4174,6 +4717,16 @@
       ]
     },
     {
+      "id": "package.entrypoint.typescript-loader:opik-openclaw",
+      "fixture": "opik-openclaw",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/opik-openclaw/index.ts"
+      ]
+    },
+    {
       "id": "package.metadata.version-alignment:a2a-gateway",
       "fixture": "a2a-gateway",
       "priority": "P2",
@@ -4202,6 +4755,24 @@
       "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
       "evidence": [
         "openclaw/plugin-sdk @ plugins/llm-trace-phoenix/index.ts:12"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:opik-openclaw",
+      "fixture": "opik-openclaw",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/index.ts:2",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/cli.ts:1",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/configure.ts:2",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service.ts:5",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service.ts:6",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/llm.ts:1",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/subagent.ts:1",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/tool.ts:1"
       ]
     },
     {
@@ -4768,6 +5339,83 @@
       ]
     },
     {
+      "fixture": "opik-openclaw",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 10 hooks, 2 registrations, and 0 manifest contracts",
+      "evidence": [
+        "hook:after_tool_call",
+        "hook:agent_end",
+        "hook:before_tool_call",
+        "hook:llm_input",
+        "hook:llm_output",
+        "hook:subagent_delivery_target",
+        "hook:subagent_ended",
+        "hook:subagent_spawned",
+        "hook:subagent_spawning",
+        "hook:tool_result_persist",
+        "registration:registerCli",
+        "registration:registerService"
+      ]
+    },
+    {
+      "fixture": "opik-openclaw",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": [
+        "after_tool_call",
+        "agent_end",
+        "before_tool_call",
+        "llm_input",
+        "llm_output",
+        "subagent_delivery_target",
+        "subagent_ended",
+        "subagent_spawned",
+        "subagent_spawning",
+        "tool_result_persist"
+      ]
+    },
+    {
+      "fixture": "opik-openclaw",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerCli",
+        "registerService"
+      ]
+    },
+    {
+      "fixture": "opik-openclaw",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk"
+      ]
+    },
+    {
+      "fixture": "opik-openclaw",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/opik-openclaw/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "opik-openclaw",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/opik-openclaw/package.json",
+        "@opik/opik-openclaw",
+        "version:0.2.14"
+      ]
+    },
+    {
       "fixture": "clawmetry",
       "code": "seam-inventory",
       "level": "log",
@@ -5076,6 +5724,16 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
+      "fixture": "opik-openclaw",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-root-sdk-import"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
       "fixture": "codex-app-server",
       "code": "compat-record-present",
       "level": "log",
@@ -5333,6 +5991,55 @@
       "seam": "sdk-import",
       "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
       "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Run the plugin build or resolve source entrypoint aliases before cold-importing this fixture.",
+      "evidence": "./dist/index.js"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/opik-openclaw/index.ts"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "@clack/prompts, opik, zod, openclaw"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "decision": "inspector-follow-up",
+      "seam": "conversation-access",
+      "action": "Add synthetic llm_input/llm_output/agent_end probes before tightening hook payloads or redaction behavior.",
+      "evidence": "agent_end, llm_input, llm_output"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "decision": "core-compat-adapter",
+      "seam": "sdk-import",
+      "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
+      "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerService"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "decision": "inspector-follow-up",
+      "seam": "tool-policy",
+      "action": "Probe before_tool_call return shapes before changing tool-call approval or block behavior.",
+      "evidence": "before_tool_call"
     },
     {
       "fixture": "clawmetry",
