@@ -20,6 +20,7 @@
     "fixtures:inspect": "node scripts/inspect-fixtures.mjs",
     "fixtures:sync": "node scripts/sync-fixtures.mjs --materialize",
     "profile": "node scripts/profile-contract-runtime.mjs",
+    "ref:diff": "node scripts/compare-openclaw-refs.mjs",
     "report": "node scripts/generate-report.mjs",
     "smoke": "node scripts/run-contract-smoke.mjs",
     "test": "node --test test/*.test.mjs"
