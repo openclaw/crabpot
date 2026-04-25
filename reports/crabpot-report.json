@@ -503,12 +503,12 @@
     "highPriorityFixtures": 6,
     "breakageCount": 0,
     "warningCount": 16,
-    "suggestionCount": 25,
-    "decisionCount": 43,
-    "issueCount": 41,
+    "suggestionCount": 35,
+    "decisionCount": 53,
+    "issueCount": 51,
     "p0IssueCount": 0,
     "p1IssueCount": 9,
-    "contractProbeCount": 40
+    "contractProbeCount": 50
   },
   "fixtures": [
     {
@@ -2767,11 +2767,38 @@
     },
     {
       "fixture": "agentchat",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "@agentchatme/agentchat @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "@sinclair/typebox @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "pino @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "ws @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "zod @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "openclaw @ plugins/agentchat/integrations/openclaw-channel/package.json"
+      ]
+    },
+    {
+      "fixture": "agentchat",
       "code": "channel-contract-probe",
       "level": "suggestion",
       "message": "add channel envelope, config-schema, and runtime metadata probes",
       "evidence": [
         "defineChannelPluginEntry @ plugins/agentchat/integrations/openclaw-channel/src/channel.ts:333"
+      ]
+    },
+    {
+      "fixture": "wecom",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "@wecom/aibot-node-sdk @ plugins/wecom/package.json",
+        "file-type @ plugins/wecom/package.json",
+        "pinyin-pro @ plugins/wecom/package.json",
+        "openclaw @ plugins/wecom/package.json",
+        "undici @ plugins/wecom/package.json"
       ]
     },
     {
@@ -2824,6 +2851,21 @@
     },
     {
       "fixture": "a2a-gateway",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "@a2a-js/sdk @ plugins/a2a-gateway/package.json",
+        "@bufbuild/protobuf @ plugins/a2a-gateway/package.json",
+        "@grpc/grpc-js @ plugins/a2a-gateway/package.json",
+        "express @ plugins/a2a-gateway/package.json",
+        "multicast-dns @ plugins/a2a-gateway/package.json",
+        "uuid @ plugins/a2a-gateway/package.json",
+        "ws @ plugins/a2a-gateway/package.json"
+      ]
+    },
+    {
+      "fixture": "a2a-gateway",
       "code": "registration-capture-gap",
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
@@ -2855,12 +2897,31 @@
       ]
     },
     {
+      "fixture": "hasdata",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "@sinclair/typebox @ plugins/hasdata/package.json",
+        "openclaw @ plugins/hasdata/package.json"
+      ]
+    },
+    {
       "fixture": "mcp-adapter",
       "code": "package-typescript-source-entrypoint",
       "level": "suggestion",
       "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
       "evidence": [
         "extension:plugins/mcp-adapter/index.ts"
+      ]
+    },
+    {
+      "fixture": "mcp-adapter",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "@modelcontextprotocol/sdk @ plugins/mcp-adapter/package.json"
       ]
     },
     {
@@ -2910,6 +2971,15 @@
     },
     {
       "fixture": "clawmetry",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "node-fetch @ plugins/clawmetry/clawhub-plugin/package.json"
+      ]
+    },
+    {
+      "fixture": "clawmetry",
       "code": "registration-capture-gap",
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
@@ -2924,6 +2994,16 @@
       "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
       "evidence": [
         "extension:plugins/codex-app-server/index.ts"
+      ]
+    },
+    {
+      "fixture": "codex-app-server",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "ws @ plugins/codex-app-server/package.json",
+        "openclaw @ plugins/codex-app-server/package.json"
       ]
     },
     {
@@ -2949,6 +3029,15 @@
     },
     {
       "fixture": "web-search-plus",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "openclaw @ plugins/web-search-plus/package.json"
+      ]
+    },
+    {
+      "fixture": "web-search-plus",
       "code": "runtime-tool-capture",
       "level": "suggestion",
       "message": "tool shape is only visible after runtime registration capture",
@@ -2968,6 +3057,17 @@
     },
     {
       "fixture": "apify",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "@sinclair/typebox @ plugins/apify/package.json",
+        "apify-client @ plugins/apify/package.json",
+        "openclaw @ plugins/apify/package.json"
+      ]
+    },
+    {
+      "fixture": "apify",
       "code": "runtime-tool-capture",
       "level": "suggestion",
       "message": "tool shape is only visible after runtime registration capture",
@@ -2982,6 +3082,15 @@
       "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
       "evidence": [
         "extension:plugins/inworld-tts/index.ts"
+      ]
+    },
+    {
+      "fixture": "inworld-tts",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "openclaw @ plugins/inworld-tts/package.json"
       ]
     },
     {
@@ -3163,6 +3272,26 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-F5185BE0",
+      "fixture": "a2a-gateway",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "a2a-gateway: cold import requires isolated dependency installation",
+      "evidence": [
+        "@a2a-js/sdk @ plugins/a2a-gateway/package.json",
+        "@bufbuild/protobuf @ plugins/a2a-gateway/package.json",
+        "@grpc/grpc-js @ plugins/a2a-gateway/package.json",
+        "express @ plugins/a2a-gateway/package.json",
+        "multicast-dns @ plugins/a2a-gateway/package.json",
+        "uuid @ plugins/a2a-gateway/package.json",
+        "ws @ plugins/a2a-gateway/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-16E892BF",
       "fixture": "a2a-gateway",
       "severity": "P2",
@@ -3279,6 +3408,25 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-2ED34BE8",
+      "fixture": "agentchat",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "agentchat: cold import requires isolated dependency installation",
+      "evidence": [
+        "@agentchatme/agentchat @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "@sinclair/typebox @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "pino @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "ws @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "zod @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "openclaw @ plugins/agentchat/integrations/openclaw-channel/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-0CFF8B6F",
       "fixture": "apify",
       "severity": "P2",
@@ -3293,6 +3441,22 @@
         "openclaw/plugin-sdk @ plugins/apify/src/tools/apify-scraper-tool.ts:4"
       ],
       "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "id": "CRABPOT-74FAA2A2",
+      "fixture": "apify",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "apify: cold import requires isolated dependency installation",
+      "evidence": [
+        "@sinclair/typebox @ plugins/apify/package.json",
+        "apify-client @ plugins/apify/package.json",
+        "openclaw @ plugins/apify/package.json"
+      ],
+      "compatRecord": null
     },
     {
       "id": "CRABPOT-18D12186",
@@ -3337,6 +3501,20 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-034E5504",
+      "fixture": "clawmetry",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "clawmetry: cold import requires isolated dependency installation",
+      "evidence": [
+        "node-fetch @ plugins/clawmetry/clawhub-plugin/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-EF6E7134",
       "fixture": "clawmetry",
       "severity": "P2",
@@ -3368,6 +3546,21 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
+      "id": "CRABPOT-DC637E99",
+      "fixture": "codex-app-server",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "codex-app-server: cold import requires isolated dependency installation",
+      "evidence": [
+        "ws @ plugins/codex-app-server/package.json",
+        "openclaw @ plugins/codex-app-server/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-F8C8F1CD",
       "fixture": "codex-app-server",
       "severity": "P2",
@@ -3378,6 +3571,21 @@
       "title": "codex-app-server: cold import needs TypeScript source entrypoint support",
       "evidence": [
         "extension:plugins/codex-app-server/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-2C2BFD3C",
+      "fixture": "hasdata",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "hasdata: cold import requires isolated dependency installation",
+      "evidence": [
+        "@sinclair/typebox @ plugins/hasdata/package.json",
+        "openclaw @ plugins/hasdata/package.json"
       ],
       "compatRecord": null
     },
@@ -3408,6 +3616,20 @@
         "hasdata"
       ],
       "compatRecord": "provider-auth-env-vars"
+    },
+    {
+      "id": "CRABPOT-0853EBDC",
+      "fixture": "inworld-tts",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "inworld-tts: cold import requires isolated dependency installation",
+      "evidence": [
+        "openclaw @ plugins/inworld-tts/package.json"
+      ],
+      "compatRecord": null
     },
     {
       "id": "CRABPOT-7C59D06F",
@@ -3466,6 +3688,20 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-22E35E29",
+      "fixture": "mcp-adapter",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "mcp-adapter: cold import requires isolated dependency installation",
+      "evidence": [
+        "@modelcontextprotocol/sdk @ plugins/mcp-adapter/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-4511EE11",
       "fixture": "mcp-adapter",
       "severity": "P2",
@@ -3504,6 +3740,20 @@
       "title": "mcp-adapter: runtime tool schema needs registration capture",
       "evidence": [
         "registerTool @ plugins/mcp-adapter/index.ts:30"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-D8910079",
+      "fixture": "web-search-plus",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "web-search-plus: cold import requires isolated dependency installation",
+      "evidence": [
+        "openclaw @ plugins/web-search-plus/package.json"
       ],
       "compatRecord": null
     },
@@ -3569,6 +3819,24 @@
       "title": "wecom: channel runtime needs envelope/config probes",
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-4734034D",
+      "fixture": "wecom",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "wecom: cold import requires isolated dependency installation",
+      "evidence": [
+        "@wecom/aibot-node-sdk @ plugins/wecom/package.json",
+        "file-type @ plugins/wecom/package.json",
+        "pinyin-pro @ plugins/wecom/package.json",
+        "openclaw @ plugins/wecom/package.json",
+        "undici @ plugins/wecom/package.json"
       ],
       "compatRecord": null
     },
@@ -3800,6 +4068,72 @@
       ]
     },
     {
+      "id": "package.entrypoint.isolated-dependency-install:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "@a2a-js/sdk @ plugins/a2a-gateway/package.json",
+        "@bufbuild/protobuf @ plugins/a2a-gateway/package.json",
+        "@grpc/grpc-js @ plugins/a2a-gateway/package.json",
+        "express @ plugins/a2a-gateway/package.json",
+        "multicast-dns @ plugins/a2a-gateway/package.json",
+        "uuid @ plugins/a2a-gateway/package.json",
+        "ws @ plugins/a2a-gateway/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:agentchat",
+      "fixture": "agentchat",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "@agentchatme/agentchat @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "@sinclair/typebox @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "pino @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "ws @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "zod @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "openclaw @ plugins/agentchat/integrations/openclaw-channel/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:hasdata",
+      "fixture": "hasdata",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "@sinclair/typebox @ plugins/hasdata/package.json",
+        "openclaw @ plugins/hasdata/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:mcp-adapter",
+      "fixture": "mcp-adapter",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "@modelcontextprotocol/sdk @ plugins/mcp-adapter/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:wecom",
+      "fixture": "wecom",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "@wecom/aibot-node-sdk @ plugins/wecom/package.json",
+        "file-type @ plugins/wecom/package.json",
+        "pinyin-pro @ plugins/wecom/package.json",
+        "openclaw @ plugins/wecom/package.json",
+        "undici @ plugins/wecom/package.json"
+      ]
+    },
+    {
       "id": "package.entrypoint.typescript-loader:a2a-gateway",
       "fixture": "a2a-gateway",
       "priority": "P2",
@@ -3938,6 +4272,59 @@
       "contract": "Inspector can build or resolve source aliases before cold importing package entrypoints.",
       "evidence": [
         "runtimeExtension:./dist/index.js -> plugins/clawmetry/clawhub-plugin/dist/index.js"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:apify",
+      "fixture": "apify",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "@sinclair/typebox @ plugins/apify/package.json",
+        "apify-client @ plugins/apify/package.json",
+        "openclaw @ plugins/apify/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:clawmetry",
+      "fixture": "clawmetry",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "node-fetch @ plugins/clawmetry/clawhub-plugin/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:codex-app-server",
+      "fixture": "codex-app-server",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "ws @ plugins/codex-app-server/package.json",
+        "openclaw @ plugins/codex-app-server/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:inworld-tts",
+      "fixture": "inworld-tts",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "openclaw @ plugins/inworld-tts/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:web-search-plus",
+      "fixture": "web-search-plus",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "openclaw @ plugins/web-search-plus/package.json"
       ]
     },
     {
@@ -4746,6 +5133,13 @@
     },
     {
       "fixture": "agentchat",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "@agentchatme/agentchat, @sinclair/typebox, pino, ws, zod, openclaw"
+    },
+    {
+      "fixture": "agentchat",
       "decision": "core-compat-adapter",
       "seam": "channel-env",
       "action": "Keep channelEnvVars compatibility active until channel setup metadata has a stable replacement path.",
@@ -4764,6 +5158,13 @@
       "seam": "package-metadata",
       "action": "Ask the plugin to declare the plugin API range it was built against.",
       "evidence": "plugins/wecom/package.json"
+    },
+    {
+      "fixture": "wecom",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "@wecom/aibot-node-sdk, file-type, pinyin-pro, openclaw, undici"
     },
     {
       "fixture": "wecom",
@@ -4823,6 +5224,13 @@
     },
     {
       "fixture": "a2a-gateway",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "@a2a-js/sdk, @bufbuild/protobuf, @grpc/grpc-js, express, multicast-dns, uuid, ws"
+    },
+    {
+      "fixture": "a2a-gateway",
       "decision": "core-compat-adapter",
       "seam": "sdk-import",
       "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
@@ -4851,6 +5259,13 @@
     },
     {
       "fixture": "hasdata",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "@sinclair/typebox, openclaw"
+    },
+    {
+      "fixture": "hasdata",
       "decision": "core-compat-adapter",
       "seam": "env-auth",
       "action": "Keep providerAuthEnvVars compatibility active while the inspector recommends manifest-schema migration upstream.",
@@ -4876,6 +5291,13 @@
       "seam": "cold-import",
       "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
       "evidence": "plugins/mcp-adapter/index.ts"
+    },
+    {
+      "fixture": "mcp-adapter",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "@modelcontextprotocol/sdk"
     },
     {
       "fixture": "mcp-adapter",
@@ -4929,6 +5351,13 @@
     {
       "fixture": "clawmetry",
       "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "node-fetch"
+    },
+    {
+      "fixture": "clawmetry",
+      "decision": "inspector-follow-up",
       "seam": "registration-capture",
       "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
       "evidence": "registerService"
@@ -4946,6 +5375,13 @@
       "seam": "cold-import",
       "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
       "evidence": "plugins/codex-app-server/index.ts"
+    },
+    {
+      "fixture": "codex-app-server",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "ws, openclaw"
     },
     {
       "fixture": "codex-app-server",
@@ -4970,6 +5406,13 @@
     },
     {
       "fixture": "web-search-plus",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "openclaw"
+    },
+    {
+      "fixture": "web-search-plus",
       "decision": "core-compat-adapter",
       "seam": "env-auth",
       "action": "Keep providerAuthEnvVars compatibility active while the inspector recommends manifest-schema migration upstream.",
@@ -4991,6 +5434,13 @@
     },
     {
       "fixture": "apify",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "@sinclair/typebox, apify-client, openclaw"
+    },
+    {
+      "fixture": "apify",
       "decision": "core-compat-adapter",
       "seam": "sdk-import",
       "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
@@ -5009,6 +5459,13 @@
       "seam": "cold-import",
       "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
       "evidence": "plugins/inworld-tts/index.ts"
+    },
+    {
+      "fixture": "inworld-tts",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "openclaw"
     },
     {
       "fixture": "inworld-tts",

@@ -24,6 +24,7 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasFinding(report.warnings, "mcp-adapter", "package-plugin-api-compat-missing");
   assertHasFinding(report.suggestions, "agentchat", "package-build-artifact-entrypoint");
   assertHasFinding(report.suggestions, "a2a-gateway", "package-typescript-source-entrypoint");
+  assertHasFinding(report.suggestions, "wecom", "package-dependency-install-required");
 
   assertHasDecision(report.decisions, "core-compat-adapter", "env-auth");
   assertHasDecision(report.decisions, "inspector-follow-up", "registration-capture");
@@ -34,6 +35,7 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasIssue(report.issues, "P2", "package-build-artifact-entrypoint");
   assertHasIssue(report.issues, "P2", "manifest-unknown-fields");
   assertHasIssue(report.issues, "P2", "package-typescript-source-entrypoint");
+  assertHasIssue(report.issues, "P2", "package-dependency-install-required");
   assertHasIssue(report.issues, "P1", "sdk-export-missing");
   assertHasProbe(report.contractProbes, "api.capture.runtime-registrars:wecom");
   assertHasProbe(report.contractProbes, "hook.before_tool_call.terminal-block-approval:wecom");
@@ -43,6 +45,7 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasProbe(report.contractProbes, "package.compat.plugin-api-range:mcp-adapter");
   assertHasProbe(report.contractProbes, "package.entrypoint.build-before-cold-import:agentchat");
   assertHasProbe(report.contractProbes, "package.entrypoint.typescript-loader:a2a-gateway");
+  assertHasProbe(report.contractProbes, "package.entrypoint.isolated-dependency-install:wecom");
 });
 
 test("markdown report includes review sections", async () => {

@@ -33,8 +33,12 @@ export const KNOWN_ISSUE_CODES = new Set([
   "legacy-root-sdk-import",
   "manifest-unknown-contracts",
   "manifest-unknown-fields",
+  "missing-expected-seam",
   "missing-compat-record",
+  "unknown-hook-name",
+  "unknown-registration-name",
   "package-build-artifact-entrypoint",
+  "package-dependency-install-required",
   "package-entrypoint-missing",
   "package-json-missing",
   "package-manifest-version-drift",
@@ -353,6 +357,12 @@ function issueMetadata(finding) {
       decision: "core-compat-adapter",
       title: "compat-dependent behavior lacks registry coverage",
     },
+    "missing-expected-seam": {
+      severity: "P0",
+      owner: "inspector",
+      decision: "inspector-follow-up",
+      title: "fixture no longer exposes an expected seam",
+    },
     "manifest-unknown-contracts": {
       severity: "P1",
       owner: "plugin",
@@ -370,6 +380,12 @@ function issueMetadata(finding) {
       owner: "inspector",
       decision: "inspector-follow-up",
       title: "cold import requires package build output",
+    },
+    "package-dependency-install-required": {
+      severity: "P2",
+      owner: "inspector",
+      decision: "inspector-follow-up",
+      title: "cold import requires isolated dependency installation",
     },
     "package-entrypoint-missing": {
       severity: "P1",
@@ -430,6 +446,18 @@ function issueMetadata(finding) {
       owner: "inspector",
       decision: "inspector-follow-up",
       title: "runtime tool schema needs registration capture",
+    },
+    "unknown-hook-name": {
+      severity: "P0",
+      owner: "core",
+      decision: "core-compat-adapter",
+      title: "fixture uses a hook missing from target OpenClaw",
+    },
+    "unknown-registration-name": {
+      severity: "P0",
+      owner: "core",
+      decision: "core-compat-adapter",
+      title: "fixture calls a registrar missing from target OpenClaw",
     },
   };
   return {
@@ -500,6 +528,11 @@ function buildContractProbes({ warnings, suggestions, fixtures }) {
     "package-build-artifact-entrypoint": {
       id: "package.entrypoint.build-before-cold-import",
       contract: "Inspector can build or resolve source aliases before cold importing package entrypoints.",
+      target: "package-loader",
+    },
+    "package-dependency-install-required": {
+      id: "package.entrypoint.isolated-dependency-install",
+      contract: "Inspector installs package dependencies in an isolated workspace before cold import.",
       target: "package-loader",
     },
     "package-entrypoint-missing": {
@@ -1093,6 +1126,28 @@ function classifyPackageContracts({ fixture, inspection, fixtureReport, warnings
       seam: "cold-import",
       action: "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
       evidence: sourceEntrypoints.map((entrypoint) => entrypoint.relativePath).join(", "),
+    });
+  }
+
+  const runtimeDependencies = unique([
+    ...packageSummary.dependencies,
+    ...packageSummary.peerDependencies,
+    ...packageSummary.optionalDependencies,
+  ]);
+  if (packageSummary.openclaw?.entrypoints.length > 0 && runtimeDependencies.length > 0) {
+    suggestions.push({
+      fixture: fixture.id,
+      code: "package-dependency-install-required",
+      level: "suggestion",
+      message: "package declares runtime dependencies that must be installed before cold import",
+      evidence: runtimeDependencies.map((dependency) => `${dependency} @ ${packageSummary.path}`),
+    });
+    decisions.push({
+      fixture: fixture.id,
+      decision: "inspector-follow-up",
+      seam: "cold-import",
+      action: "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      evidence: runtimeDependencies.join(", "),
     });
   }
 

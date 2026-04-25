@@ -12,7 +12,7 @@
     "hookCount": 8,
     "sdkImportCount": 32,
     "packageEntrypointCount": 13,
-    "issueProbeCount": 40,
+    "issueProbeCount": 50,
     "inspectorShimRequiredCount": 17,
     "compatAliasRequiredCount": 3
   },
@@ -1608,6 +1608,87 @@
       ]
     },
     {
+      "id": "package.entrypoint.isolated-dependency-install:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "@a2a-js/sdk @ plugins/a2a-gateway/package.json",
+        "@bufbuild/protobuf @ plugins/a2a-gateway/package.json",
+        "@grpc/grpc-js @ plugins/a2a-gateway/package.json",
+        "express @ plugins/a2a-gateway/package.json",
+        "multicast-dns @ plugins/a2a-gateway/package.json",
+        "uuid @ plugins/a2a-gateway/package.json",
+        "ws @ plugins/a2a-gateway/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:agentchat",
+      "fixture": "agentchat",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "@agentchatme/agentchat @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "@sinclair/typebox @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "pino @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "ws @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "zod @ plugins/agentchat/integrations/openclaw-channel/package.json",
+        "openclaw @ plugins/agentchat/integrations/openclaw-channel/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:hasdata",
+      "fixture": "hasdata",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "@sinclair/typebox @ plugins/hasdata/package.json",
+        "openclaw @ plugins/hasdata/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:mcp-adapter",
+      "fixture": "mcp-adapter",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "@modelcontextprotocol/sdk @ plugins/mcp-adapter/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:wecom",
+      "fixture": "wecom",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "@wecom/aibot-node-sdk @ plugins/wecom/package.json",
+        "file-type @ plugins/wecom/package.json",
+        "pinyin-pro @ plugins/wecom/package.json",
+        "openclaw @ plugins/wecom/package.json",
+        "undici @ plugins/wecom/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.entrypoint.typescript-loader:a2a-gateway",
       "fixture": "a2a-gateway",
       "priority": "P2",
@@ -1781,6 +1862,74 @@
       "target": "package-loader",
       "evidence": [
         "runtimeExtension:./dist/index.js -> plugins/clawmetry/clawhub-plugin/dist/index.js"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:apify",
+      "fixture": "apify",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "@sinclair/typebox @ plugins/apify/package.json",
+        "apify-client @ plugins/apify/package.json",
+        "openclaw @ plugins/apify/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:clawmetry",
+      "fixture": "clawmetry",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "node-fetch @ plugins/clawmetry/clawhub-plugin/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:codex-app-server",
+      "fixture": "codex-app-server",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "ws @ plugins/codex-app-server/package.json",
+        "openclaw @ plugins/codex-app-server/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:inworld-tts",
+      "fixture": "inworld-tts",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "openclaw @ plugins/inworld-tts/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:web-search-plus",
+      "fixture": "web-search-plus",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "openclaw @ plugins/web-search-plus/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
