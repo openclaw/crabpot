@@ -3,7 +3,7 @@ import { test } from "node:test";
 import { buildReport, renderMarkdownReport } from "../scripts/report-lib.mjs";
 
 test("compatibility report classifies current fixture seams", async () => {
-  const report = await buildReport({ generatedAt: "test" });
+  const report = await buildReport({ generatedAt: "test", openclawPath: false });
 
   assert.equal(report.status, "pass");
   assert.equal(report.breakages.length, 0);
@@ -20,10 +20,11 @@ test("compatibility report classifies current fixture seams", async () => {
 });
 
 test("markdown report includes review sections", async () => {
-  const report = await buildReport({ generatedAt: "test" });
+  const report = await buildReport({ generatedAt: "test", openclawPath: false });
   const markdown = renderMarkdownReport(report);
 
   assert.match(markdown, /## Hard Breakages/);
+  assert.match(markdown, /## Target OpenClaw Compat Records/);
   assert.match(markdown, /## Warnings/);
   assert.match(markdown, /## Suggestions To OpenClaw Compat Layer/);
   assert.match(markdown, /## Decision Matrix/);

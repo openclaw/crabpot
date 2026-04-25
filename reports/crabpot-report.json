@@ -1,5 +1,32 @@
 {
   "generatedAt": "deterministic",
+  "targetOpenClaw": {
+    "configuredPath": "../openclaw",
+    "status": "ok",
+    "compatRegistryPath": "../openclaw/src/plugins/compat/registry.ts",
+    "compatRecordCount": 19,
+    "compatRecords": [
+      "activation-capability-hint",
+      "activation-channel-hint",
+      "activation-command-hint",
+      "activation-provider-hint",
+      "activation-route-hint",
+      "agent-harness-id-alias",
+      "agent-harness-sdk-alias",
+      "bundled-plugin-allowlist",
+      "bundled-plugin-enablement",
+      "bundled-plugin-vitest-defaults",
+      "channel-env-vars",
+      "disable-persisted-plugin-registry-env",
+      "embedded-harness-config-alias",
+      "generated-bundled-channel-config-fallback",
+      "hook-only-plugin-shape",
+      "legacy-before-agent-start",
+      "legacy-config-plugin-installs",
+      "legacy-root-sdk-import",
+      "provider-auth-env-vars"
+    ]
+  },
   "status": "pass",
   "summary": {
     "fixtureCount": 11,
@@ -872,6 +899,86 @@
       "evidence": [
         "speechProviders"
       ]
+    },
+    {
+      "fixture": "agentchat",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "channel-env-vars"
+      ],
+      "compatRecord": "channel-env-vars"
+    },
+    {
+      "fixture": "a2a-gateway",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-root-sdk-import"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "hasdata",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "provider-auth-env-vars"
+      ],
+      "compatRecord": "provider-auth-env-vars"
+    },
+    {
+      "fixture": "llm-trace-phoenix",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-root-sdk-import"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "codex-app-server",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-root-sdk-import"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "web-search-plus",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "provider-auth-env-vars"
+      ],
+      "compatRecord": "provider-auth-env-vars"
+    },
+    {
+      "fixture": "apify",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-root-sdk-import"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "inworld-tts",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "provider-auth-env-vars"
+      ],
+      "compatRecord": "provider-auth-env-vars"
     }
   ],
   "decisions": [

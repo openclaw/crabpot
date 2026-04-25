@@ -25,6 +25,7 @@ const CHANNEL_REGISTRATIONS = new Set([
 export async function buildReport(options = {}) {
   const generatedAt = options.generatedAt ?? process.env.CRABPOT_REPORT_GENERATED_AT ?? "deterministic";
   const manifest = await readManifest();
+  const targetOpenClaw = await readTargetOpenClaw(manifest, options.openclawPath);
   const { inspections, failures } = await inspectManifest();
   const inspectionById = new Map(inspections.map((inspection) => [inspection.id, inspection]));
 
@@ -81,8 +82,17 @@ export async function buildReport(options = {}) {
     });
   }
 
+  classifyCompatRecordCoverage({
+    targetOpenClaw,
+    findings: [...warnings, ...suggestions],
+    suggestions,
+    logs,
+    decisions,
+  });
+
   const report = {
     generatedAt,
+    targetOpenClaw,
     status: breakages.length === 0 ? "pass" : "fail",
     summary: {
       fixtureCount: fixtures.length,
@@ -138,6 +148,10 @@ export function renderMarkdownReport(report) {
     "",
     findingsTable(report.breakages),
     "",
+    "## Target OpenClaw Compat Records",
+    "",
+    targetOpenClawTable(report.targetOpenClaw),
+    "",
     "## Warnings",
     "",
     findingsTable(report.warnings),
@@ -177,6 +191,50 @@ export function renderMarkdownReport(report) {
     "",
     findingsTable(report.logs),
   ].join("\n");
+}
+
+function classifyCompatRecordCoverage({ targetOpenClaw, findings, suggestions, logs, decisions }) {
+  if (targetOpenClaw.status !== "ok") {
+    logs.push({
+      fixture: "openclaw",
+      code: "target-openclaw-unavailable",
+      level: "log",
+      message: "target OpenClaw checkout was not available, so compat record coverage was not checked",
+      evidence: [targetOpenClaw.configuredPath ?? "not configured"],
+    });
+    return;
+  }
+
+  const knownRecords = new Set(targetOpenClaw.compatRecords);
+  for (const finding of findings.filter((item) => item.compatRecord)) {
+    if (knownRecords.has(finding.compatRecord)) {
+      logs.push({
+        fixture: finding.fixture,
+        code: "compat-record-present",
+        level: "log",
+        message: "target OpenClaw checkout has a matching compat registry record",
+        evidence: [finding.compatRecord],
+        compatRecord: finding.compatRecord,
+      });
+      continue;
+    }
+
+    suggestions.push({
+      fixture: finding.fixture,
+      code: "missing-compat-record",
+      level: "suggestion",
+      message: "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      evidence: [finding.compatRecord],
+      compatRecord: finding.compatRecord,
+    });
+    decisions.push({
+      fixture: finding.fixture,
+      decision: "core-compat-adapter",
+      seam: "compat-registry",
+      action: "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      evidence: finding.compatRecord,
+    });
+  }
 }
 
 function classifyFixture({ fixture, inspection, fixtureReport, warnings, suggestions, logs, decisions }) {
@@ -408,6 +466,46 @@ async function readPluginManifests(checkoutPath, sourceRoot) {
   return manifests;
 }
 
+async function readTargetOpenClaw(manifest, configuredPath) {
+  if (configuredPath === false) {
+    return {
+      configuredPath: null,
+      status: "disabled",
+      compatRecords: [],
+    };
+  }
+
+  const requestedPath = configuredPath ?? manifest.openclaw?.defaultCheckoutPath ?? null;
+  if (!requestedPath) {
+    return {
+      configuredPath: null,
+      status: "not-configured",
+      compatRecords: [],
+    };
+  }
+
+  const resolvedPath = path.resolve(repoRoot, requestedPath);
+  const registryPath = path.join(resolvedPath, "src/plugins/compat/registry.ts");
+  if (!existsSync(registryPath)) {
+    return {
+      configuredPath: requestedPath,
+      status: "missing",
+      compatRecords: [],
+    };
+  }
+
+  const registrySource = await readFile(registryPath, "utf8");
+  const compatRecords = unique([...registrySource.matchAll(/\bcode:\s*["'`]([^"'`]+)["'`]/g)].map((match) => match[1])).sort();
+
+  return {
+    configuredPath: requestedPath,
+    status: "ok",
+    compatRegistryPath: path.relative(repoRoot, registryPath),
+    compatRecordCount: compatRecords.length,
+    compatRecords,
+  };
+}
+
 async function readPackageSummary(checkoutPath, sourceRoot) {
   const candidates = unique([path.join(sourceRoot, "package.json"), path.join(checkoutPath, "package.json")].filter(existsSync));
   if (candidates.length === 0) {
@@ -516,6 +614,20 @@ function findingsTable(findings) {
       finding.compatRecord ?? "-",
     ]),
     ["Fixture", "Code", "Level", "Message", "Evidence", "Compat record"],
+  );
+}
+
+function targetOpenClawTable(targetOpenClaw) {
+  const recordPreview = targetOpenClaw.compatRecords.length > 0 ? targetOpenClaw.compatRecords.join(", ") : "-";
+  return markdownTable(
+    [
+      ["Configured path", targetOpenClaw.configuredPath ?? "-"],
+      ["Status", targetOpenClaw.status],
+      ["Compat registry", targetOpenClaw.compatRegistryPath ?? "-"],
+      ["Compat records", targetOpenClaw.compatRecordCount ?? 0],
+      ["Record ids", recordPreview],
+    ],
+    ["Metric", "Value"],
   );
 }
 
