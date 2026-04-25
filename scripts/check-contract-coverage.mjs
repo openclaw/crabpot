@@ -44,9 +44,16 @@ export function validateContractCoverage(report) {
   requireIssueEvidence(report, errors);
   requireP1ProbeCoverage(report, errors);
   requireFixtureEvidence(report, errors);
+  requireTargetHookRegistry(report, errors);
   requireCompatRecordReconciliation(report, errors);
 
   return errors;
+}
+
+function requireTargetHookRegistry(report, errors) {
+  if (report.targetOpenClaw.status === "ok" && report.targetOpenClaw.hookNames.length === 0) {
+    errors.push("target OpenClaw hook registry was found but no hook names were parsed");
+  }
 }
 
 function requireUniqueIssueIds(report, errors) {

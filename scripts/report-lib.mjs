@@ -58,6 +58,8 @@ export async function buildReport(options = {}) {
       fixture,
       inspection,
       fixtureReport,
+      targetOpenClaw,
+      breakages,
       warnings,
       suggestions,
       logs,
@@ -449,10 +451,12 @@ function classifyCompatRecordCoverage({ targetOpenClaw, findings, suggestions, l
   }
 }
 
-function classifyFixture({ fixture, inspection, fixtureReport, warnings, suggestions, logs, decisions }) {
+function classifyFixture({ fixture, inspection, fixtureReport, targetOpenClaw, breakages, warnings, suggestions, logs, decisions }) {
   if (inspection.status !== "ok") {
     return;
   }
+
+  classifyHookNameCoverage({ fixture, inspection, targetOpenClaw, breakages, logs });
 
   for (const pluginManifest of fixtureReport.pluginManifests) {
     const providerAuthKeys = Object.keys(pluginManifest.providerAuthEnvVars ?? {});
@@ -638,6 +642,33 @@ function classifyFixture({ fixture, inspection, fixtureReport, warnings, suggest
   }
 }
 
+function classifyHookNameCoverage({ fixture, inspection, targetOpenClaw, breakages, logs }) {
+  if (targetOpenClaw.status !== "ok" || targetOpenClaw.hookNames.length === 0) {
+    return;
+  }
+
+  const knownHookNames = new Set(targetOpenClaw.hookNames);
+  const unknownHooks = inspection.hookDetails.filter((hook) => !knownHookNames.has(hook.name));
+  if (unknownHooks.length === 0) {
+    logs.push({
+      fixture: fixture.id,
+      code: "hook-names-present",
+      level: "log",
+      message: "all observed hooks exist in the target OpenClaw hook registry",
+      evidence: inspection.hooks,
+    });
+    return;
+  }
+
+  breakages.push({
+    fixture: fixture.id,
+    code: "unknown-hook-name",
+    level: "breakage",
+    message: "fixture registers hooks that are not present in the target OpenClaw hook registry",
+    evidence: detailEvidence(unknownHooks),
+  });
+}
+
 async function buildFixtureReport(fixture, inspection) {
   const checkoutPath = path.join(repoRoot, fixture.path);
   const sourceRoot = fixture.subdir ? path.join(checkoutPath, fixture.subdir) : checkoutPath;
@@ -699,6 +730,7 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       configuredPath: null,
       status: "disabled",
       compatRecords: [],
+      hookNames: [],
     };
   }
 
@@ -708,21 +740,27 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       configuredPath: null,
       status: "not-configured",
       compatRecords: [],
+      hookNames: [],
     };
   }
 
   const resolvedPath = path.resolve(repoRoot, requestedPath);
   const registryPath = path.join(resolvedPath, "src/plugins/compat/registry.ts");
+  const hookTypesPath = path.join(resolvedPath, "src/plugins/hook-types.ts");
   if (!existsSync(registryPath)) {
     return {
       configuredPath: requestedPath,
       status: "missing",
       compatRecords: [],
+      hookNames: [],
     };
   }
 
   const registrySource = await readFile(registryPath, "utf8");
   const compatRecords = unique([...registrySource.matchAll(/\bcode:\s*["'`]([^"'`]+)["'`]/g)].map((match) => match[1])).sort();
+  const hookNames = existsSync(hookTypesPath)
+    ? parseExportedStringArray(await readFile(hookTypesPath, "utf8"), "PLUGIN_HOOK_NAMES")
+    : [];
 
   return {
     configuredPath: requestedPath,
@@ -730,6 +768,9 @@ async function readTargetOpenClaw(manifest, configuredPath) {
     compatRegistryPath: path.relative(repoRoot, registryPath),
     compatRecordCount: compatRecords.length,
     compatRecords,
+    hookTypesPath: existsSync(hookTypesPath) ? path.relative(repoRoot, hookTypesPath) : null,
+    hookNameCount: hookNames.length,
+    hookNames,
   };
 }
 
@@ -829,6 +870,8 @@ function targetOpenClawTable(targetOpenClaw) {
       ["Compat registry", targetOpenClaw.compatRegistryPath ?? "-"],
       ["Compat records", targetOpenClaw.compatRecordCount ?? 0],
       ["Record ids", recordPreview],
+      ["Hook registry", targetOpenClaw.hookTypesPath ?? "-"],
+      ["Hook names", targetOpenClaw.hookNameCount ?? 0],
     ],
     ["Metric", "Value"],
   );
@@ -883,6 +926,15 @@ function priorityRank(priority) {
 
 function detailEvidence(details, key = "name") {
   return unique(details.map((detail) => `${detail[key]} @ ${detail.ref}`));
+}
+
+function parseExportedStringArray(source, exportName) {
+  const match = source.match(new RegExp(`export\\s+const\\s+${exportName}\\s*=\\s*\\[([\\s\\S]*?)\\]\\s+as\\s+const`));
+  if (!match) {
+    return [];
+  }
+
+  return unique([...match[1].matchAll(/["'`]([^"'`]+)["'`]/g)].map((item) => item[1])).sort();
 }
 
 function dedupeBy(values, keyForValue) {

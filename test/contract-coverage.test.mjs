@@ -44,3 +44,20 @@ test("contract coverage fails missing evidence and P1 probe gaps", () => {
   assert.ok(errors.some((error) => error.includes("hook before_tool_call has no source evidence")));
   assert.ok(errors.some((error) => error.includes("registration registerService has no source evidence")));
 });
+
+test("contract coverage requires parsed target hook registry when OpenClaw is available", () => {
+  const report = {
+    breakages: [],
+    warnings: [],
+    suggestions: [],
+    logs: [],
+    targetOpenClaw: { status: "ok", hookNames: [] },
+    fixtures: [],
+    issues: [],
+    contractProbes: [],
+  };
+
+  assert.deepEqual(validateContractCoverage(report), [
+    "target OpenClaw hook registry was found but no hook names were parsed",
+  ]);
+});

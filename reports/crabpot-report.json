@@ -25,6 +25,41 @@
       "legacy-config-plugin-installs",
       "legacy-root-sdk-import",
       "provider-auth-env-vars"
+    ],
+    "hookTypesPath": "../openclaw/src/plugins/hook-types.ts",
+    "hookNameCount": 31,
+    "hookNames": [
+      "after_compaction",
+      "after_tool_call",
+      "agent_end",
+      "before_agent_reply",
+      "before_agent_start",
+      "before_compaction",
+      "before_dispatch",
+      "before_install",
+      "before_message_write",
+      "before_model_resolve",
+      "before_prompt_build",
+      "before_reset",
+      "before_tool_call",
+      "gateway_start",
+      "gateway_stop",
+      "inbound_claim",
+      "llm_input",
+      "llm_output",
+      "message_received",
+      "message_sending",
+      "message_sent",
+      "model_call_ended",
+      "model_call_started",
+      "reply_dispatch",
+      "session_end",
+      "session_start",
+      "subagent_delivery_target",
+      "subagent_ended",
+      "subagent_spawned",
+      "subagent_spawning",
+      "tool_result_persist"
     ]
   },
   "status": "pass",
@@ -2069,6 +2104,13 @@
       ]
     },
     {
+      "fixture": "agentchat",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": []
+    },
+    {
       "fixture": "wecom",
       "code": "seam-inventory",
       "level": "log",
@@ -2085,6 +2127,19 @@
       ]
     },
     {
+      "fixture": "wecom",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": [
+        "before_prompt_build",
+        "before_tool_call",
+        "subagent_delivery_target",
+        "subagent_ended",
+        "subagent_spawned"
+      ]
+    },
+    {
       "fixture": "a2a-gateway",
       "code": "seam-inventory",
       "level": "log",
@@ -2096,6 +2151,13 @@
       ]
     },
     {
+      "fixture": "a2a-gateway",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": []
+    },
+    {
       "fixture": "hasdata",
       "code": "seam-inventory",
       "level": "log",
@@ -2104,6 +2166,13 @@
         "registration:registerTool",
         "manifestContract:tools"
       ]
+    },
+    {
+      "fixture": "hasdata",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": []
     },
     {
       "fixture": "hasdata",
@@ -2125,6 +2194,13 @@
       ]
     },
     {
+      "fixture": "mcp-adapter",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": []
+    },
+    {
       "fixture": "llm-trace-phoenix",
       "code": "seam-inventory",
       "level": "log",
@@ -2132,6 +2208,16 @@
       "evidence": [
         "hook:llm_input",
         "hook:llm_output"
+      ]
+    },
+    {
+      "fixture": "llm-trace-phoenix",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": [
+        "llm_input",
+        "llm_output"
       ]
     },
     {
@@ -2143,6 +2229,13 @@
         "registration:definePluginEntry",
         "registration:registerService"
       ]
+    },
+    {
+      "fixture": "clawmetry",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": []
     },
     {
       "fixture": "codex-app-server",
@@ -2157,6 +2250,15 @@
       ]
     },
     {
+      "fixture": "codex-app-server",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": [
+        "inbound_claim"
+      ]
+    },
+    {
       "fixture": "web-search-plus",
       "code": "seam-inventory",
       "level": "log",
@@ -2164,6 +2266,13 @@
       "evidence": [
         "registration:registerTool"
       ]
+    },
+    {
+      "fixture": "web-search-plus",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": []
     },
     {
       "fixture": "apify",
@@ -2176,6 +2285,13 @@
       ]
     },
     {
+      "fixture": "apify",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": []
+    },
+    {
       "fixture": "inworld-tts",
       "code": "seam-inventory",
       "level": "log",
@@ -2185,6 +2301,13 @@
         "registration:registerSpeechProvider",
         "manifestContract:speechProviders"
       ]
+    },
+    {
+      "fixture": "inworld-tts",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": []
     },
     {
       "fixture": "inworld-tts",
