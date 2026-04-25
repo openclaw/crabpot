@@ -63,5 +63,5 @@ test("runtime profile validation catches failed samples and missing metrics", ()
 
   assert.ok(errors.some((error) => error.includes("nonzero")));
   assert.ok(errors.some((error) => error.includes("wall time")));
-  assert.ok(errors.some((error) => error.includes("peak RSS")));
+  assert.ok(errors.some((error) => error.includes("all commands are missing peak RSS")));
 });

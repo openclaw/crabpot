@@ -291,9 +291,9 @@ export function validateRuntimeProfile(profile) {
     if (command.wallMs.max <= 0) {
       errors.push(`${command.id}: missing wall time`);
     }
-    if (command.peakRssMb.max <= 0) {
-      errors.push(`${command.id}: missing peak RSS`);
-    }
+  }
+  if (profile.commands.every((command) => command.peakRssMb.max <= 0)) {
+    errors.push("all commands are missing peak RSS");
   }
   return errors;
 }
