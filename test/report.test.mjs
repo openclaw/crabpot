@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { buildReport, renderMarkdownReport, targetOpenClawPathCandidates } from "../scripts/report-lib.mjs";
+import { buildReport, issueId, renderMarkdownReport, targetOpenClawPathCandidates } from "../scripts/report-lib.mjs";
 
 test("compatibility report classifies current fixture seams", async () => {
   const report = await buildReport({ generatedAt: "test" });
@@ -11,6 +11,7 @@ test("compatibility report classifies current fixture seams", async () => {
   assert.ok(report.summary.issueCount > 0);
   assert.ok(report.summary.p1IssueCount > 0);
   assert.ok(report.summary.contractProbeCount > 0);
+  assert.ok(report.issues.every((issue) => /^CRABPOT-[A-F0-9]{8}$/.test(issue.id)));
 
   assertHasFinding(report.warnings, "hasdata", "provider-auth-env-vars");
   assertHasFinding(report.warnings, "agentchat", "channel-env-vars");
@@ -60,6 +61,19 @@ test("default OpenClaw target discovery covers local and CI checkout shapes", ()
 
   assert.deepEqual(targetOpenClawPathCandidates(manifest), ["../openclaw", "./openclaw"]);
   assert.deepEqual(targetOpenClawPathCandidates(manifest, "./custom-openclaw"), ["./custom-openclaw"]);
+});
+
+test("issue ids are stable fingerprints instead of order counters", () => {
+  const finding = {
+    fixture: "codex-app-server",
+    code: "sdk-export-missing",
+    severity: "P1",
+    compatRecord: "plugin-sdk-export-aliases",
+    evidence: ["openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104"],
+  };
+
+  assert.equal(issueId(finding), issueId({ ignored: "field", ...finding }));
+  assert.notEqual(issueId(finding), issueId({ ...finding, evidence: [...finding.evidence, "extra"] }));
 });
 
 function assertHasFinding(findings, fixture, code) {

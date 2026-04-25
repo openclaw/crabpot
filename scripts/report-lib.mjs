@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
@@ -261,8 +262,8 @@ function buildIssues({ breakages, warnings, suggestions }) {
   return findings
     .filter((finding) => finding.severity)
     .sort(issueSort)
-    .map((finding, index) => ({
-      id: `CRABPOT-${String(index + 1).padStart(4, "0")}`,
+    .map((finding) => ({
+      id: issueId(finding),
       fixture: finding.fixture,
       severity: finding.severity,
       owner: finding.owner,
@@ -273,6 +274,17 @@ function buildIssues({ breakages, warnings, suggestions }) {
       evidence: finding.evidence ?? [],
       compatRecord: finding.compatRecord ?? null,
     }));
+}
+
+export function issueId(finding) {
+  const stableKey = [
+    finding.fixture,
+    finding.code,
+    finding.severity,
+    finding.compatRecord ?? "",
+    ...(finding.evidence ?? []),
+  ].join("\n");
+  return `CRABPOT-${createHash("sha256").update(stableKey).digest("hex").slice(0, 8).toUpperCase()}`;
 }
 
 function issueMetadata(finding) {

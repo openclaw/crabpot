@@ -2738,7 +2738,7 @@
   ],
   "issues": [
     {
-      "id": "CRABPOT-0001",
+      "id": "CRABPOT-37E8444D",
       "fixture": "a2a-gateway",
       "severity": "P1",
       "owner": "inspector",
@@ -2757,7 +2757,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0002",
+      "id": "CRABPOT-9D5EE194",
       "fixture": "clawmetry",
       "severity": "P1",
       "owner": "inspector",
@@ -2771,7 +2771,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0003",
+      "id": "CRABPOT-6D9E51D9",
       "fixture": "codex-app-server",
       "severity": "P1",
       "owner": "core",
@@ -2785,7 +2785,7 @@
       "compatRecord": "plugin-sdk-export-aliases"
     },
     {
-      "id": "CRABPOT-0004",
+      "id": "CRABPOT-45CAC152",
       "fixture": "codex-app-server",
       "severity": "P1",
       "owner": "inspector",
@@ -2802,7 +2802,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0005",
+      "id": "CRABPOT-C2331427",
       "fixture": "codex-app-server",
       "severity": "P1",
       "owner": "core",
@@ -2818,7 +2818,7 @@
       "compatRecord": "plugin-sdk-export-aliases"
     },
     {
-      "id": "CRABPOT-0006",
+      "id": "CRABPOT-D71B126E",
       "fixture": "llm-trace-phoenix",
       "severity": "P1",
       "owner": "core",
@@ -2833,7 +2833,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0007",
+      "id": "CRABPOT-B91192E5",
       "fixture": "mcp-adapter",
       "severity": "P1",
       "owner": "inspector",
@@ -2847,7 +2847,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0008",
+      "id": "CRABPOT-B08DB79E",
       "fixture": "wecom",
       "severity": "P1",
       "owner": "inspector",
@@ -2861,7 +2861,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0009",
+      "id": "CRABPOT-9428734C",
       "fixture": "wecom",
       "severity": "P1",
       "owner": "inspector",
@@ -2876,7 +2876,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0010",
+      "id": "CRABPOT-6469330F",
       "fixture": "a2a-gateway",
       "severity": "P2",
       "owner": "core",
@@ -2890,7 +2890,7 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
-      "id": "CRABPOT-0011",
+      "id": "CRABPOT-892CF14F",
       "fixture": "a2a-gateway",
       "severity": "P2",
       "owner": "plugin",
@@ -2904,7 +2904,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0012",
+      "id": "CRABPOT-16E892BF",
       "fixture": "a2a-gateway",
       "severity": "P2",
       "owner": "plugin",
@@ -2919,7 +2919,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0013",
+      "id": "CRABPOT-FDBB1C67",
       "fixture": "a2a-gateway",
       "severity": "P2",
       "owner": "plugin",
@@ -2933,7 +2933,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0014",
+      "id": "CRABPOT-654F01E7",
       "fixture": "a2a-gateway",
       "severity": "P2",
       "owner": "inspector",
@@ -2947,7 +2947,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0015",
+      "id": "CRABPOT-74260BA0",
       "fixture": "agentchat",
       "severity": "P2",
       "owner": "inspector",
@@ -2961,7 +2961,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0016",
+      "id": "CRABPOT-90736EF4",
       "fixture": "agentchat",
       "severity": "P2",
       "owner": "core",
@@ -2975,7 +2975,7 @@
       "compatRecord": "channel-env-vars"
     },
     {
-      "id": "CRABPOT-0017",
+      "id": "CRABPOT-BEC462A4",
       "fixture": "agentchat",
       "severity": "P2",
       "owner": "plugin",
@@ -2991,7 +2991,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0018",
+      "id": "CRABPOT-6A790CB4",
       "fixture": "agentchat",
       "severity": "P2",
       "owner": "inspector",
@@ -3006,7 +3006,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0019",
+      "id": "CRABPOT-0CFF8B6F",
       "fixture": "apify",
       "severity": "P2",
       "owner": "core",
@@ -3022,7 +3022,7 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
-      "id": "CRABPOT-0020",
+      "id": "CRABPOT-93E9D53A",
       "fixture": "apify",
       "severity": "P2",
       "owner": "inspector",
@@ -3036,7 +3036,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0021",
+      "id": "CRABPOT-4BCB1F63",
       "fixture": "clawmetry",
       "severity": "P2",
       "owner": "inspector",
@@ -3050,7 +3050,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0022",
+      "id": "CRABPOT-A36ECE8E",
       "fixture": "codex-app-server",
       "severity": "P2",
       "owner": "core",
@@ -3067,7 +3067,7 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
-      "id": "CRABPOT-0023",
+      "id": "CRABPOT-1ABECD7E",
       "fixture": "hasdata",
       "severity": "P2",
       "owner": "core",
@@ -3081,7 +3081,7 @@
       "compatRecord": "provider-auth-env-vars"
     },
     {
-      "id": "CRABPOT-0024",
+      "id": "CRABPOT-CCABE384",
       "fixture": "inworld-tts",
       "severity": "P2",
       "owner": "core",
@@ -3095,7 +3095,7 @@
       "compatRecord": "provider-auth-env-vars"
     },
     {
-      "id": "CRABPOT-0025",
+      "id": "CRABPOT-4CC6CA25",
       "fixture": "llm-trace-phoenix",
       "severity": "P2",
       "owner": "core",
@@ -3109,7 +3109,7 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
-      "id": "CRABPOT-0026",
+      "id": "CRABPOT-4511EE11",
       "fixture": "mcp-adapter",
       "severity": "P2",
       "owner": "plugin",
@@ -3123,7 +3123,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0027",
+      "id": "CRABPOT-B195BB7A",
       "fixture": "mcp-adapter",
       "severity": "P2",
       "owner": "inspector",
@@ -3137,7 +3137,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0028",
+      "id": "CRABPOT-A3EA1186",
       "fixture": "web-search-plus",
       "severity": "P2",
       "owner": "core",
@@ -3159,7 +3159,7 @@
       "compatRecord": "provider-auth-env-vars"
     },
     {
-      "id": "CRABPOT-0029",
+      "id": "CRABPOT-AF929F22",
       "fixture": "web-search-plus",
       "severity": "P2",
       "owner": "inspector",
@@ -3174,7 +3174,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0030",
+      "id": "CRABPOT-848F09E3",
       "fixture": "wecom",
       "severity": "P2",
       "owner": "inspector",
@@ -3188,7 +3188,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0031",
+      "id": "CRABPOT-5E53BD07",
       "fixture": "wecom",
       "severity": "P2",
       "owner": "plugin",
@@ -3202,7 +3202,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-0032",
+      "id": "CRABPOT-72021A36",
       "fixture": "wecom",
       "severity": "P2",
       "owner": "inspector",
