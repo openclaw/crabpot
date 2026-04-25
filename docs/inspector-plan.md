@@ -52,16 +52,32 @@ prototype.
 
 ## Default crabpot checks
 
-The current default checks intentionally stop at static inspection:
+The current default checks intentionally stay cheap and offline:
 
 ```bash
 npm run check
 node scripts/inspect-fixtures.mjs --check
+npm run contract:coverage
 ```
 
 This verifies that fixture pins still expose the hooks, registrations, and
-manifest contracts we expect. Later, replace the static scanner with the
-packaged inspector while keeping `crabpot.config.json` as the fixture manifest.
+manifest contracts we expect. It also compares observed plugin seams with the
+target OpenClaw checkout:
+
+- hook names from `src/plugins/hook-types.ts`
+- public `api.register*` names from `src/plugins/api-builder.ts`
+- captured registration support from `src/plugins/captured-registration.ts`
+- compat records from `src/plugins/compat/registry.ts`
+- manifest fields and contract keys from `src/plugins/manifest.ts`
+
+Generated reports live in `reports/`:
+
+- `crabpot-report.md`
+- `crabpot-report.json`
+- `crabpot-issues.md`
+
+Later, replace the static scanner with the packaged inspector while keeping
+`crabpot.config.json` as the fixture manifest.
 
 ## Compatibility issue workflow
 
@@ -76,3 +92,19 @@ When OpenClaw changes a plugin-facing seam:
    - Intentional breaking change: document migration and move the compat record
      through deprecation states.
 
+## Current issue signals
+
+Crabpot currently classifies:
+
+- missing expected fixture seams as hard breakages
+- observed hooks missing from target OpenClaw as hard breakages
+- observed `api.register*` methods missing from target OpenClaw as hard
+  breakages
+- observed `api.register*` methods missing from captured-registration support as
+  P1 inspector follow-up
+- unsupported manifest fields or contract keys as plugin upstream fixes
+- package/manifest version drift as plugin upstream fixes
+- missing package `openclaw.compat.pluginApi` as plugin upstream fixes
+- package OpenClaw entrypoints that point at missing build artifacts as
+  inspector build/cold-import follow-up
+- legacy manifest env metadata and root SDK imports as compat-adapter debt

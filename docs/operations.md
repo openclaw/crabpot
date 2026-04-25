@@ -33,7 +33,8 @@ Use a cheap default workflow first:
 - inspect expected hooks, registrations, and manifest contracts
 - run registration-capture smoke checks
 - generate the compatibility report in check mode
-- gate issue evidence, P1 probe coverage, and compat-record reconciliation
+- gate issue evidence, P1 probe coverage, compat-record reconciliation, target
+  hook/API/capture parsing, and manifest type parsing
 
 Add heavier lanes later for SDK compilation against specific OpenClaw refs:
 
@@ -58,6 +59,10 @@ Decision classes mean:
 Hard breakages should block contract changes. Warnings are old or sensitive
 seams that currently still work but need compat coverage before OpenClaw changes
 the relevant API.
+
+The target OpenClaw checkout is not just context; it is part of the contract
+test. Crabpot compares fixture seams against target hook names, public
+registrars, captured-registration support, compat records, and manifest fields.
 
 Run the quality gate directly when changing classifiers:
 
