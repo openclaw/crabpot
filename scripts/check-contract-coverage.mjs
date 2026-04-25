@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { pathToFileURL } from "node:url";
-import { buildReport } from "./report-lib.mjs";
+import { buildReport, KNOWN_ISSUE_CODES } from "./report-lib.mjs";
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   await main();
@@ -41,6 +41,7 @@ export function validateContractCoverage(report) {
   }
 
   requireUniqueIssueIds(report, errors);
+  requireKnownIssueCodes(report, errors);
   requireIssueEvidence(report, errors);
   requireP1ProbeCoverage(report, errors);
   requireFixtureEvidence(report, errors);
@@ -97,6 +98,14 @@ function requireUniqueIssueIds(report, errors) {
       errors.push(`duplicate issue id: ${issue.id}`);
     }
     seen.add(issue.id);
+  }
+}
+
+function requireKnownIssueCodes(report, errors) {
+  for (const issue of report.issues) {
+    if (!KNOWN_ISSUE_CODES.has(issue.code)) {
+      errors.push(`${issue.id}: unknown issue code ${issue.code}`);
+    }
   }
 }
 

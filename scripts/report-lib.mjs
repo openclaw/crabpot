@@ -25,6 +25,28 @@ const CHANNEL_REGISTRATIONS = new Set([
   "registerChannel",
 ]);
 const FALLBACK_OPENCLAW_CHECKOUT_PATHS = ["./openclaw", "../openclaw"];
+export const KNOWN_ISSUE_CODES = new Set([
+  "before-tool-call-probe",
+  "channel-contract-probe",
+  "channel-env-vars",
+  "conversation-access-hook",
+  "legacy-root-sdk-import",
+  "manifest-unknown-contracts",
+  "manifest-unknown-fields",
+  "missing-compat-record",
+  "package-build-artifact-entrypoint",
+  "package-entrypoint-missing",
+  "package-json-missing",
+  "package-manifest-version-drift",
+  "package-openclaw-entry-missing",
+  "package-openclaw-metadata-missing",
+  "package-plugin-api-compat-missing",
+  "package-typescript-source-entrypoint",
+  "provider-auth-env-vars",
+  "registration-capture-gap",
+  "runtime-tool-capture",
+  "sdk-export-missing",
+]);
 
 export async function buildReport(options = {}) {
   const generatedAt = options.generatedAt ?? process.env.CRABPOT_REPORT_GENERATED_AT ?? "deterministic";

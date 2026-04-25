@@ -32,6 +32,7 @@ test("contract coverage fails missing evidence and P1 probe gaps", () => {
         id: "CRABPOT-0001",
         fixture: "fixture",
         severity: "P1",
+        code: "registration-capture-gap",
         evidence: [],
       },
     ],
@@ -43,6 +44,29 @@ test("contract coverage fails missing evidence and P1 probe gaps", () => {
   assert.ok(errors.some((error) => error.includes("P1 issue has no contract probe")));
   assert.ok(errors.some((error) => error.includes("hook before_tool_call has no source evidence")));
   assert.ok(errors.some((error) => error.includes("registration registerService has no source evidence")));
+});
+
+test("contract coverage rejects unknown issue classifier codes", () => {
+  const report = {
+    breakages: [],
+    warnings: [],
+    suggestions: [],
+    logs: [],
+    targetOpenClaw: { status: "disabled" },
+    fixtures: [],
+    issues: [
+      {
+        id: "CRABPOT-UNKNOWN",
+        fixture: "fixture",
+        severity: "P2",
+        code: "new-unclassified-thing",
+        evidence: ["fixture"],
+      },
+    ],
+    contractProbes: [],
+  };
+
+  assert.deepEqual(validateContractCoverage(report), ["CRABPOT-UNKNOWN: unknown issue code new-unclassified-thing"]);
 });
 
 test("contract coverage requires parsed target hook registry when OpenClaw is available", () => {
