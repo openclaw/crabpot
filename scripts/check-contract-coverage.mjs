@@ -46,6 +46,7 @@ export function validateContractCoverage(report) {
   requireFixtureEvidence(report, errors);
   requireTargetHookRegistry(report, errors);
   requireTargetApiBuilder(report, errors);
+  requireTargetCapturedRegistration(report, errors);
   requireTargetManifestTypes(report, errors);
   requireCompatRecordReconciliation(report, errors);
 
@@ -61,6 +62,12 @@ function requireTargetHookRegistry(report, errors) {
 function requireTargetApiBuilder(report, errors) {
   if (report.targetOpenClaw.status === "ok" && report.targetOpenClaw.apiRegistrars.length === 0) {
     errors.push("target OpenClaw API builder was found but no api.register* names were parsed");
+  }
+}
+
+function requireTargetCapturedRegistration(report, errors) {
+  if (report.targetOpenClaw.status === "ok" && report.targetOpenClaw.capturedRegistrars.length === 0) {
+    errors.push("target OpenClaw captured-registration helper was found but no api.register* names were parsed");
   }
 }
 

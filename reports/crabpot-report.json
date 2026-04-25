@@ -105,6 +105,28 @@
       "registerWebFetchProvider",
       "registerWebSearchProvider"
     ],
+    "capturedRegistrationPath": "../openclaw/src/plugins/captured-registration.ts",
+    "capturedRegistrarCount": 18,
+    "capturedRegistrars": [
+      "registerAgentHarness",
+      "registerAgentToolResultMiddleware",
+      "registerCli",
+      "registerCliBackend",
+      "registerCodexAppServerExtensionFactory",
+      "registerImageGenerationProvider",
+      "registerMediaUnderstandingProvider",
+      "registerMemoryEmbeddingProvider",
+      "registerMusicGenerationProvider",
+      "registerProvider",
+      "registerRealtimeTranscriptionProvider",
+      "registerRealtimeVoiceProvider",
+      "registerSpeechProvider",
+      "registerTextTransforms",
+      "registerTool",
+      "registerVideoGenerationProvider",
+      "registerWebFetchProvider",
+      "registerWebSearchProvider"
+    ],
     "manifestTypesPath": "../openclaw/src/plugins/manifest.ts",
     "manifestFieldCount": 32,
     "manifestFields": [
@@ -2254,6 +2276,7 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
+        "registerChannel @ plugins/wecom/index.js:27",
         "registerHttpRoute @ plugins/wecom/index.js:45"
       ]
     },
@@ -2481,6 +2504,7 @@
       "status": "open",
       "title": "wecom: runtime registrations need capture before contract judgment",
       "evidence": [
+        "registerChannel @ plugins/wecom/index.js:27",
         "registerHttpRoute @ plugins/wecom/index.js:45"
       ],
       "compatRecord": null
@@ -2884,6 +2908,7 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
+        "registerChannel @ plugins/wecom/index.js:27",
         "registerHttpRoute @ plugins/wecom/index.js:45"
       ]
     },
@@ -3901,7 +3926,7 @@
       "decision": "inspector-follow-up",
       "seam": "registration-capture",
       "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
-      "evidence": "registerHttpRoute"
+      "evidence": "registerChannel, registerHttpRoute"
     },
     {
       "fixture": "wecom",

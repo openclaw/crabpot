@@ -11,6 +11,7 @@ export const defaultIssuesReportPath = path.join(defaultReportDir, "crabpot-issu
 
 const CONVERSATION_ACCESS_HOOKS = new Set(["agent_end", "llm_input", "llm_output"]);
 const CAPTURE_GAP_REGISTRATIONS = new Set([
+  "registerChannel",
   "registerCommand",
   "registerGatewayMethod",
   "registerHttpRoute",
@@ -636,12 +637,8 @@ function classifyFixture({ fixture, inspection, fixtureReport, targetOpenClaw, b
     });
   }
 
-  const captureGapRegistrations = inspection.registrations.filter((registration) =>
-    CAPTURE_GAP_REGISTRATIONS.has(registration),
-  );
-  const captureGapRegistrationDetails = inspection.registrationDetails.filter((registration) =>
-    CAPTURE_GAP_REGISTRATIONS.has(registration.name),
-  );
+  const captureGapRegistrationDetails = registrationCaptureGapDetails(inspection, targetOpenClaw);
+  const captureGapRegistrations = unique(captureGapRegistrationDetails.map((registration) => registration.name));
   if (captureGapRegistrations.length > 0) {
     suggestions.push({
       fixture: fixture.id,
@@ -737,6 +734,17 @@ function classifyFixture({ fixture, inspection, fixtureReport, targetOpenClaw, b
       evidence: inspection.manifestContracts.join(", "),
     });
   }
+}
+
+function registrationCaptureGapDetails(inspection, targetOpenClaw) {
+  const apiRegistrationDetails = inspection.registrationDetails.filter((registration) =>
+    registration.name.startsWith("register"),
+  );
+  if (targetOpenClaw.status === "ok" && targetOpenClaw.capturedRegistrars.length > 0) {
+    const captured = new Set(targetOpenClaw.capturedRegistrars);
+    return apiRegistrationDetails.filter((registration) => !captured.has(registration.name));
+  }
+  return apiRegistrationDetails.filter((registration) => CAPTURE_GAP_REGISTRATIONS.has(registration.name));
 }
 
 function classifyHookNameCoverage({ fixture, inspection, targetOpenClaw, breakages, logs }) {
@@ -1072,6 +1080,7 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       compatRecords: [],
       hookNames: [],
       apiRegistrars: [],
+      capturedRegistrars: [],
       manifestFields: [],
       manifestContractFields: [],
     };
@@ -1085,6 +1094,7 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       compatRecords: [],
       hookNames: [],
       apiRegistrars: [],
+      capturedRegistrars: [],
       manifestFields: [],
       manifestContractFields: [],
     };
@@ -1100,6 +1110,7 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       compatRecords: [],
       hookNames: [],
       apiRegistrars: [],
+      capturedRegistrars: [],
       manifestFields: [],
       manifestContractFields: [],
     };
@@ -1113,6 +1124,14 @@ async function readTargetOpenClaw(manifest, configuredPath) {
   const apiBuilderPath = path.join(resolvedPath, "src/plugins/api-builder.ts");
   const apiRegistrars = existsSync(apiBuilderPath)
     ? unique([...((await readFile(apiBuilderPath, "utf8")).matchAll(/\b(register[A-Za-z0-9]+)\b/g))].map((match) => match[1])).sort()
+    : [];
+  const capturedRegistrationPath = path.join(resolvedPath, "src/plugins/captured-registration.ts");
+  const capturedRegistrars = existsSync(capturedRegistrationPath)
+    ? unique(
+        [...((await readFile(capturedRegistrationPath, "utf8")).matchAll(/^\s*(register[A-Za-z0-9]+)\s*\(/gm))].map(
+          (match) => match[1],
+        ),
+      ).sort()
     : [];
   const manifestTypesPath = path.join(resolvedPath, "src/plugins/manifest.ts");
   const manifestTypesSource = existsSync(manifestTypesPath) ? await readFile(manifestTypesPath, "utf8") : "";
@@ -1131,6 +1150,11 @@ async function readTargetOpenClaw(manifest, configuredPath) {
     apiBuilderPath: existsSync(apiBuilderPath) ? path.relative(repoRoot, apiBuilderPath) : null,
     apiRegistrarCount: apiRegistrars.length,
     apiRegistrars,
+    capturedRegistrationPath: existsSync(capturedRegistrationPath)
+      ? path.relative(repoRoot, capturedRegistrationPath)
+      : null,
+    capturedRegistrarCount: capturedRegistrars.length,
+    capturedRegistrars,
     manifestTypesPath: existsSync(manifestTypesPath) ? path.relative(repoRoot, manifestTypesPath) : null,
     manifestFieldCount: manifestFields.length,
     manifestFields,
@@ -1335,6 +1359,8 @@ function targetOpenClawTable(targetOpenClaw) {
       ["Hook names", targetOpenClaw.hookNameCount ?? 0],
       ["API builder", targetOpenClaw.apiBuilderPath ?? "-"],
       ["API registrars", targetOpenClaw.apiRegistrarCount ?? 0],
+      ["Captured registration", targetOpenClaw.capturedRegistrationPath ?? "-"],
+      ["Captured registrars", targetOpenClaw.capturedRegistrarCount ?? 0],
       ["Manifest types", targetOpenClaw.manifestTypesPath ?? "-"],
       ["Manifest fields", targetOpenClaw.manifestFieldCount ?? 0],
       ["Manifest contract fields", targetOpenClaw.manifestContractFieldCount ?? 0],
