@@ -51,6 +51,57 @@ test("contract capture turns observed seams into executable probe assertions", a
   assertHasIssueProbe(capture, "sdk.import.package-export-cold-import:codex-app-server");
 });
 
+test("contract capture validation rejects non-executable probe inventory", () => {
+  const errors = validateContractCapture({
+    fixtures: [
+      {
+        registrations: [
+          {
+            id: "registration.registerTool:fixture:index",
+            registrar: "registerTool",
+            ref: "",
+            assertions: [],
+          },
+        ],
+        hooks: [
+          {
+            id: "hook.before_tool_call:fixture:index",
+            hook: "before_tool_call",
+            ref: "plugins/fixture/index.ts:1",
+            assertions: [],
+            syntheticEvent: null,
+            syntheticContext: null,
+          },
+        ],
+        sdkImports: [],
+        packageEntrypoints: [
+          {
+            id: "entrypoint.fixture:index",
+            assertions: [],
+          },
+        ],
+      },
+    ],
+    issueProbes: [
+      {
+        id: "issue.fixture",
+        evidence: [],
+        assertions: [],
+      },
+    ],
+  });
+
+  assert.ok(errors.some((error) => error.includes("registration.registerTool") && error.includes("missing source reference")));
+  assert.ok(errors.some((error) => error.includes("registration.registerTool") && error.includes("missing capture assertions")));
+  assert.ok(errors.some((error) => error.includes("registration.registerTool") && error.includes("synthetic registration arguments")));
+  assert.ok(errors.some((error) => error.includes("hook.before_tool_call") && error.includes("missing capture assertions")));
+  assert.ok(errors.some((error) => error.includes("hook.before_tool_call") && error.includes("synthetic hook event")));
+  assert.ok(errors.some((error) => error.includes("hook.before_tool_call") && error.includes("synthetic hook context")));
+  assert.ok(errors.some((error) => error.includes("entrypoint.fixture:index") && error.includes("missing capture assertions")));
+  assert.ok(errors.some((error) => error.includes("issue.fixture") && error.includes("missing probe evidence")));
+  assert.ok(errors.some((error) => error.includes("issue.fixture") && error.includes("missing probe assertions")));
+});
+
 function assertHasRegistrationCapture(capture, fixtureId, registrar, support) {
   const fixture = capture.fixtures.find((item) => item.id === fixtureId);
   assert.ok(

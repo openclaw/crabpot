@@ -67,3 +67,37 @@ test("source inspection records exact hook, registrar, and SDK import evidence",
     },
   ]);
 });
+
+test("source inspection ignores comments and records dynamic SDK imports", () => {
+  const inspection = inspectSourceText(
+    [
+      "/*",
+      "api.on('llm_output', () => {});",
+      "api.registerTool({ name: 'commented' });",
+      "*/",
+      "export async function register(api) {",
+      "  const sdk = await import('openclaw/plugin-sdk/runtime');",
+      "  api.on(`tool_result_persist`, () => sdk);",
+      "  return createChatChannelPlugin({ id: 'chat' });",
+      "}",
+    ].join("\n"),
+    "plugins/example/runtime.ts",
+  );
+
+  assert.deepEqual(
+    inspection.hooks.map((hook) => `${hook.name}@${hook.ref}`),
+    ["tool_result_persist@plugins/example/runtime.ts:7"],
+  );
+  assert.deepEqual(
+    inspection.registrations.map((registration) => `${registration.name}@${registration.ref}`),
+    ["createChatChannelPlugin@plugins/example/runtime.ts:8"],
+  );
+  assert.deepEqual(inspection.sdkImports, [
+    {
+      specifier: "openclaw/plugin-sdk/runtime",
+      file: "plugins/example/runtime.ts",
+      line: 6,
+      ref: "plugins/example/runtime.ts:6",
+    },
+  ]);
+});

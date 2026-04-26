@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { readManifest } from "../scripts/manifest-lib.mjs";
+import { readManifest, validateManifest } from "../scripts/manifest-lib.mjs";
 
 test("fixture manifest is valid and seam-rich", async () => {
   const manifest = await readManifest();
@@ -33,3 +33,51 @@ test("fixture paths are stable plugin submodule paths", async () => {
   }
 });
 
+test("manifest validation rejects invalid fixture contracts before CI materializes plugins", () => {
+  assert.throws(() => validateManifest(invalidManifest()), (error) => {
+    for (const expected of [
+      "manifest.version must be 1",
+      'manifest.submoduleRoot must be "plugins"',
+      "invalid fixture id: Bad_ID",
+      "duplicate fixture id: Bad_ID",
+      "duplicate fixture path: ../outside",
+      "repo must be a GitHub HTTPS .git URL",
+      "priority must be high, medium, or low",
+      "seams must be non-empty",
+      "expect.hooks must be a non-empty array",
+    ]) {
+      assert.match(error.message, new RegExp(escapeRegExp(expected)));
+    }
+    return true;
+  });
+});
+
+function invalidManifest() {
+  return {
+    version: 2,
+    submoduleRoot: "extensions",
+    fixtures: [
+      {
+        id: "Bad_ID",
+        path: "../outside",
+        repo: "git@github.com:owner/repo",
+        priority: "urgent",
+        seams: [],
+        expect: {
+          hooks: [],
+        },
+      },
+      {
+        id: "Bad_ID",
+        path: "../outside",
+        repo: "git@github.com:owner/repo",
+        priority: "urgent",
+        seams: [],
+      },
+    ],
+  };
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}

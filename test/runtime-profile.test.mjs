@@ -65,3 +65,25 @@ test("runtime profile validation catches failed samples and missing metrics", ()
   assert.ok(errors.some((error) => error.includes("wall time")));
   assert.ok(errors.some((error) => error.includes("all commands are missing peak RSS")));
 });
+
+test("runtime profile validation accepts partial RSS availability", () => {
+  assert.deepEqual(
+    validateRuntimeProfile({
+      commands: [
+        {
+          id: "node-boot",
+          exitCodes: [0],
+          wallMs: { max: 10 },
+          peakRssMb: { max: 0 },
+        },
+        {
+          id: "report",
+          exitCodes: [0],
+          wallMs: { max: 20 },
+          peakRssMb: { max: 42 },
+        },
+      ],
+    }),
+    [],
+  );
+});

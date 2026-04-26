@@ -36,6 +36,50 @@ test("workspace executor selects a narrow fixture scope", () => {
   );
 });
 
+test("workspace executor can narrow to one entrypoint inside a fixture", () => {
+  const plan = {
+    fixtures: [
+      {
+        id: "wecom",
+        entrypoints: [
+          {
+            id: "cold-import.extension:wecom:index",
+            packagePath: "plugins/wecom/package.json",
+            status: "dependency-install-required",
+            steps: [{ kind: "capture", command: "node capture-index.js", cwd: ".", reason: "capture" }],
+          },
+          {
+            id: "cold-import.extension:wecom:admin",
+            packagePath: "plugins/wecom/package.json",
+            status: "dependency-install-required",
+            steps: [{ kind: "capture", command: "node capture-admin.js", cwd: ".", reason: "capture" }],
+          },
+        ],
+      },
+    ],
+  };
+
+  const selected = selectWorkspaceSteps(plan, {
+    fixture: "wecom",
+    entrypoint: "cold-import.extension:wecom:admin",
+  });
+
+  assert.deepEqual(
+    selected.map((item) => [item.fixture, item.entrypoint, item.steps[0].command]),
+    [["wecom", "cold-import.extension:wecom:admin", "node capture-admin.js"]],
+  );
+});
+
+test("workspace executor refuses unknown fixture selections", () => {
+  const errors = validateExecutionRequest({
+    args: { dryRun: true, fixture: "missing" },
+    selected: [],
+    env: {},
+  });
+
+  assert.ok(errors.some((error) => error.includes("selected no entrypoints")));
+});
+
 test("workspace executor refuses broad or unguarded execution", () => {
   const selected = [
     {
