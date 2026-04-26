@@ -77,9 +77,22 @@ test("workspace executor refuses unknown fixture selections", () => {
     args: { dryRun: true, fixture: "missing" },
     selected: [],
     env: {},
+    fixtureExists: false,
   });
 
+  assert.ok(errors.some((error) => error.includes("unknown fixture")));
   assert.ok(errors.some((error) => error.includes("selected no entrypoints")));
+});
+
+test("workspace executor allows explicit empty fixture lanes", () => {
+  assert.deepEqual(
+    validateExecutionRequest({
+      args: { allowEmpty: true, dryRun: false, fixture: "metadata-only" },
+      selected: [],
+      env: { CRABPOT_EXECUTE_ISOLATED: "1" },
+    }),
+    [],
+  );
 });
 
 test("workspace executor refuses broad or unguarded execution", () => {

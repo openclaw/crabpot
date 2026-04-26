@@ -15,7 +15,11 @@ async function main() {
   const args = parseArgs(process.argv.slice(2));
   const plan = await buildWorkspacePlan({ openclawPath: args.openclawPath });
   const selected = selectWorkspaceSteps(plan, args);
-  const errors = validateExecutionRequest({ args, selected });
+  const errors = validateExecutionRequest({
+    args,
+    selected,
+    fixtureExists: !args.fixture || plan.fixtures.some((fixture) => fixture.id === args.fixture),
+  });
 
   if (errors.length > 0) {
     throw new Error(errors.join("\n"));
@@ -23,6 +27,12 @@ async function main() {
 
   if (args.dryRun) {
     console.log(JSON.stringify({ mode: "dry-run", selected }, null, 2));
+    return;
+  }
+
+  if (selected.length === 0) {
+    await writeExecutionProfile(args.fixture, []);
+    console.log(`workspace execution: no entrypoints selected for ${args.fixture}`);
     return;
   }
 
@@ -47,6 +57,7 @@ async function main() {
 
 function parseArgs(argv) {
   const args = {
+    allowEmpty: false,
     dryRun: false,
     fixture: null,
     entrypoint: null,
@@ -57,6 +68,10 @@ function parseArgs(argv) {
     const arg = argv[index];
     if (arg === "--dry-run") {
       args.dryRun = true;
+      continue;
+    }
+    if (arg === "--allow-empty") {
+      args.allowEmpty = true;
       continue;
     }
     if (arg === "--fixture") {
@@ -104,12 +119,15 @@ export function selectWorkspaceSteps(plan, args) {
   return selected;
 }
 
-export function validateExecutionRequest({ args, selected, env = process.env }) {
+export function validateExecutionRequest({ args, selected, env = process.env, fixtureExists = true }) {
   const errors = [];
   if (!args.fixture) {
     errors.push("workspace execution requires --fixture to keep opt-in scope narrow");
   }
-  if (selected.length === 0) {
+  if (args.fixture && !fixtureExists) {
+    errors.push(`workspace execution selected unknown fixture: ${args.fixture}`);
+  }
+  if (selected.length === 0 && !args.allowEmpty) {
     errors.push("workspace execution selected no entrypoints");
   }
   if (!args.dryRun && env.CRABPOT_EXECUTE_ISOLATED !== "1") {

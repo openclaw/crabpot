@@ -169,7 +169,7 @@ jobs:
         continue-on-error: true
         env:
           CRABPOT_EXECUTE_ISOLATED: "1"
-        run: npm run workspace:execute -- --fixture "${{ matrix.id }}" --openclaw ./openclaw
+        run: npm run workspace:execute -- --fixture "${{ matrix.id }}" --allow-empty --openclaw ./openclaw
       - name: Summarize execution artifacts
         if: always()
         continue-on-error: true

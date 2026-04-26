@@ -86,7 +86,7 @@ test("default check workflow resolves changed submodules into an isolated fixtur
   assert.match(workflow, /--base-ref "\$\{\{ steps\.refs\.outputs\.base \}\}"/);
   assert.match(workflow, /changed-isolated-fixture:/);
   assert.match(workflow, /matrix: \$\{\{ fromJson\(needs\.changed-fixture-plan\.outputs\.matrix\) \}\}/);
-  assert.match(workflow, /npm run workspace:execute -- --fixture "\$\{\{ matrix\.id \}\}"/);
+  assert.match(workflow, /npm run workspace:execute -- --fixture "\$\{\{ matrix\.id \}\}" --allow-empty/);
 });
 
 test("workflows use Node 24 action majors", async () => {
@@ -141,7 +141,10 @@ test("manual workflow enforces strict runtime profile policy before best-effort 
 test("manual workflow keeps isolated execution artifacts and failure policy wired", async () => {
   const workflow = await readWorkflow(".github/workflows/openclaw-ref-compat.yml");
 
-  assert.match(workflow, /id: execute[\s\S]*continue-on-error: true[\s\S]*CRABPOT_EXECUTE_ISOLATED: "1"[\s\S]*npm run workspace:execute -- --fixture/);
+  assert.match(
+    workflow,
+    /id: execute[\s\S]*continue-on-error: true[\s\S]*CRABPOT_EXECUTE_ISOLATED: "1"[\s\S]*npm run workspace:execute -- --fixture "\$\{\{ matrix\.id \}\}" --allow-empty/,
+  );
   assert.match(workflow, /id: policy[\s\S]*continue-on-error: true[\s\S]*node scripts\/check-ci-policy\.mjs/);
   assert.match(workflow, /path: \|[\s\S]*\.crabpot\/results\/[\s\S]*reports\/crabpot-execution-results\.\*[\s\S]*reports\/crabpot-ci-policy\.\*[\s\S]*reports\/crabpot-ci-summary\.\*/);
   assert.match(workflow, /steps\.execute\.outcome == 'failure' \|\| steps\.policy\.outcome == 'failure'/);
