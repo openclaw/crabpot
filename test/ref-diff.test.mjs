@@ -1,6 +1,9 @@
 import assert from "node:assert/strict";
+import { mkdtemp, readFile } from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
 import { test } from "node:test";
-import { buildRefDiff, renderRefDiffMarkdown, validateRefDiff } from "../scripts/compare-openclaw-refs.mjs";
+import { buildRefDiff, renderRefDiffMarkdown, validateRefDiff, writeRefDiff } from "../scripts/compare-openclaw-refs.mjs";
 
 test("ref diff fails removed plugin-facing hooks and SDK exports", async () => {
   const baseReport = reportFixture({
@@ -65,6 +68,33 @@ test("ref diff fails when target OpenClaw status regresses", async () => {
 
   assert.equal(diff.status, "fail");
   assert.match(validateRefDiff(diff).join("\n"), /target\.status\.changed/);
+});
+
+test("ref diff writer emits json and markdown artifacts", async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-ref-diff-"));
+  const jsonPath = path.join(dir, "ref-diff.json");
+  const markdownPath = path.join(dir, "ref-diff.md");
+  const diff = await buildRefDiff({
+    baseReport: reportFixture({ issues: [] }),
+    headReport: reportFixture({
+      issues: [
+        {
+          id: "CRABPOT-NEWP2",
+          fixture: "fixture",
+          severity: "P2",
+          code: "manifest-unknown-fields",
+          title: "manifest uses unsupported top-level fields",
+          evidence: ["extra"],
+        },
+      ],
+    }),
+    baseLabel: "base",
+    headLabel: "head",
+  });
+
+  assert.deepEqual(await writeRefDiff(diff, { jsonPath, markdownPath }), { jsonPath, markdownPath });
+  assert.equal(JSON.parse(await readFile(jsonPath, "utf8")).summary.newIssueCount, 1);
+  assert.match(await readFile(markdownPath, "utf8"), /CRABPOT-NEWP2/);
 });
 
 function reportFixture(overrides = {}) {

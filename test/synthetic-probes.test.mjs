@@ -6,6 +6,7 @@ import { test } from "node:test";
 import { captureEntrypoint } from "../scripts/run-cold-import-capture.mjs";
 import {
   buildSyntheticProbePlan,
+  renderSyntheticProbeMarkdown,
   runCapturedSyntheticProbes,
   validateSyntheticProbePlan,
 } from "../scripts/synthetic-probes.mjs";
@@ -72,6 +73,44 @@ test("synthetic probe plan blocks unclassified registrars before they silently p
 
   assert.equal(plan.summary.blockedCount, 1);
   assert.match(validateSyntheticProbePlan(plan).join("\n"), /not been classified/);
+});
+
+test("synthetic probe plan tracks metadata-only and opt-in execution modes", async () => {
+  const plan = await buildSyntheticProbePlan({
+    capture: {
+      generatedAt: "test",
+      summary: { fixtureCount: 1 },
+      fixtures: [
+        {
+          id: "fixture",
+          hooks: [],
+          registrations: [
+            {
+              id: "registration.definePluginEntry:fixture:index",
+              registrar: "definePluginEntry",
+              ref: "src/index.ts",
+              assertions: ["entry wrapper metadata is captured"],
+              syntheticArguments: [{ id: "fixture" }],
+            },
+            {
+              id: "registration.registerChannel:fixture:index",
+              registrar: "registerChannel",
+              ref: "src/index.ts",
+              assertions: ["channel runtime remains opt-in"],
+              syntheticArguments: [{ id: "channel", send() {} }],
+            },
+          ],
+        },
+      ],
+    },
+  });
+
+  assert.deepEqual(validateSyntheticProbePlan(plan), []);
+  assert.equal(plan.summary.metadataOnlyCount, 1);
+  assert.equal(plan.summary.optInExecutionCount, 1);
+  assert.equal(plan.summary.directExecutionCount, 0);
+  assert.match(renderSyntheticProbeMarkdown(plan), /metadata-only/);
+  assert.match(renderSyntheticProbeMarkdown(plan), /channel-opt-in/);
 });
 
 test("synthetic probes invoke retained hook and tool handlers from a captured fixture", async () => {

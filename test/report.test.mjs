@@ -72,6 +72,10 @@ test("default OpenClaw target discovery covers local and CI checkout shapes", ()
   const manifest = { openclaw: { defaultCheckoutPath: "../openclaw" } };
 
   assert.deepEqual(targetOpenClawPathCandidates(manifest), ["../openclaw", "./openclaw"]);
+  assert.deepEqual(targetOpenClawPathCandidates({ openclaw: { defaultCheckoutPath: "./openclaw" } }), [
+    "./openclaw",
+    "../openclaw",
+  ]);
   assert.deepEqual(targetOpenClawPathCandidates(manifest, "./custom-openclaw"), ["./custom-openclaw"]);
 });
 
