@@ -54,7 +54,7 @@ function parseArgs(argv) {
     json: false,
     readmePath: defaultReadmePath,
     reportsDir: path.join(repoRoot, "reports"),
-    runUrl: process.env.CRABPOT_RUN_URL ?? "",
+    runUrl: process.env.CRABPOT_RUN_URL,
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -96,9 +96,14 @@ export async function buildReadmeSummary(options = {}) {
   const reports = options.reports ?? (await readReports(reportsDir));
   const compatibility = reports.compatibility ?? {};
   const ciSummary = reports.ciSummary ?? {};
+  const ciGeneratedAt = ciSummary.generatedAt && ciSummary.generatedAt !== "deterministic" ? ciSummary.generatedAt : null;
+  const compatibilityGeneratedAt =
+    compatibility.generatedAt && compatibility.generatedAt !== "deterministic" ? compatibility.generatedAt : null;
   const generatedAt =
     options.generatedAt ??
     process.env.CRABPOT_SUMMARY_GENERATED_AT ??
+    ciGeneratedAt ??
+    compatibilityGeneratedAt ??
     ciSummary.generatedAt ??
     compatibility.generatedAt ??
     new Date().toISOString();
@@ -118,7 +123,7 @@ export async function buildReadmeSummary(options = {}) {
 
   return {
     generatedAt,
-    runUrl: options.runUrl ?? "",
+    runUrl: options.runUrl ?? ciSummary.runUrl ?? "",
     mode: ciSummary.mode ?? "local",
     openclawLabel: ciSummary.openclawLabel ?? "",
     status,
@@ -176,7 +181,7 @@ async function readReports(reportsDir) {
 
 export async function updateReadmeSummary({ check = false, readmePath = defaultReadmePath, summary }) {
   const current = await readFile(readmePath, "utf8");
-  const next = applyReadmeSummary(current, renderReadmeSummary(summary));
+  const next = applyReadmeSummary(current, renderReadmeSummary(preserveDashboardMetadata(summary, current)));
   const changed = current !== next;
   if (check && changed) {
     throw new Error(`${path.relative(repoRoot, readmePath)} dashboard is stale; run npm run readme:summary`);
@@ -186,6 +191,35 @@ export async function updateReadmeSummary({ check = false, readmePath = defaultR
     await writeFile(readmePath, next, "utf8");
   }
   return changed;
+}
+
+function preserveDashboardMetadata(summary, readme) {
+  const current = readDashboardMetadata(readme);
+  return {
+    ...summary,
+    generatedAtLabel:
+      (!summary.generatedAt || summary.generatedAt === "deterministic") && current.generatedAtLabel
+        ? current.generatedAtLabel
+        : summary.generatedAtLabel,
+    mode: summary.mode === "local" && current.mode ? current.mode : summary.mode,
+    openclawLabel:
+      (!summary.openclawLabel || summary.openclawLabel === "../openclaw") && current.openclawLabel
+        ? current.openclawLabel
+        : summary.openclawLabel,
+    runtimeProfileLabel:
+      current.runUrl && current.runtimeProfileLabel ? current.runtimeProfileLabel : summary.runtimeProfileLabel,
+    runUrl: summary.runUrl || current.runUrl || "",
+  };
+}
+
+function readDashboardMetadata(readme) {
+  return {
+    generatedAtLabel: readme.match(/^Last dashboard update:\s*(.+)$/m)?.[1],
+    mode: readme.match(/^Mode:\s*(.+)$/m)?.[1],
+    openclawLabel: readme.match(/^OpenClaw:\s*(.+)$/m)?.[1],
+    runtimeProfileLabel: readme.match(/^\| Runtime profile\s+\|\s*(.+?)\s*\|$/m)?.[1],
+    runUrl: readme.match(/^Run:\s*(.+)$/m)?.[1],
+  };
 }
 
 export function applyReadmeSummary(readme, renderedSummary) {
@@ -209,7 +243,7 @@ export function renderReadmeSummary(summary) {
   return [
     "## Dashboard",
     "",
-    `Last dashboard update: ${formatTimestamp(summary.generatedAt)}`,
+    `Last dashboard update: ${summary.generatedAtLabel ?? formatTimestamp(summary.generatedAt)}`,
     "",
     `State: ${summary.status.toUpperCase()}`,
     `Mode: ${summary.mode}`,
@@ -241,7 +275,7 @@ export function renderReadmeSummary(summary) {
         ["Synthetic probes", `${m.syntheticReady} ready / ${m.syntheticBlocked} blocked / ${m.syntheticTotal} total`],
         ["Cold import", `${m.coldReady} ready / ${m.coldBlocked} blocked / ${m.coldTotal} entrypoints`],
         ["Workspace plan", `${m.workspaceEntrypoints} entrypoints / ${m.workspaceInstalls} installs / ${m.workspaceBuilds} builds`],
-        ["Runtime profile", `p50 ${m.runtimeP50Ms}ms / max RSS ${m.runtimeMaxRssMb}MB`],
+        ["Runtime profile", summary.runtimeProfileLabel ?? `p50 ${m.runtimeP50Ms}ms / max RSS ${m.runtimeMaxRssMb}MB`],
       ],
       ["Metric", "Result"],
     ),

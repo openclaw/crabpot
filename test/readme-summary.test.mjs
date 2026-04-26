@@ -112,3 +112,42 @@ test("readme summary check detects stale dashboard", async () => {
   assert.equal(await updateReadmeSummary({ check: true, readmePath, summary }), false);
   assert.match(await readFile(readmePath, "utf8"), /## Dashboard/);
 });
+
+test("readme summary preserves CI run metadata during local checks", async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-readme-summary-"));
+  const readmePath = path.join(dir, "README.md");
+  const summary = await buildReadmeSummary({
+    generatedAt: "deterministic",
+    reports: {
+      compatibility: {
+        status: "pass",
+        summary: {
+          fixtureCount: 1,
+          breakageCount: 0,
+          warningCount: 0,
+          suggestionCount: 0,
+          issueCount: 0,
+          p0IssueCount: 0,
+          p1IssueCount: 0,
+          contractProbeCount: 0,
+        },
+        issues: [],
+      },
+    },
+  });
+  const ciRendered = renderReadmeSummary({
+    ...summary,
+    generatedAt: "2026-04-26T01:31:00Z",
+    metrics: {
+      ...summary.metrics,
+      runtimeP50Ms: 231,
+      runtimeMaxRssMb: 70.4,
+    },
+    mode: "check",
+    openclawLabel: "openclaw/openclaw@main",
+    runUrl: "https://github.com/openclaw/crabpot/actions/runs/1",
+  });
+  await writeFile(readmePath, applyReadmeSummary("# crabpot\n\n## What this tests\n", ciRendered), "utf8");
+
+  assert.equal(await updateReadmeSummary({ check: true, readmePath, summary }), false);
+});
