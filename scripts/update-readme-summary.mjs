@@ -164,9 +164,11 @@ export async function buildReadmeSummary(options = {}) {
       platformContainerRisks: reports.platform?.summary?.containerRiskStepCount ?? 0,
       loaderJitiCandidates: reports.platform?.summary?.jitiAlternativeCount ?? 0,
       importLoopP50Ms: reports.importLoop?.summary?.p50WallMs ?? 0,
+      importLoopP95Ms: reports.importLoop?.summary?.p95WallMs ?? 0,
       importLoopMaxRssMb: reports.importLoop?.summary?.maxPeakRssMb ?? 0,
       importLoopMaxCpuMs: reports.importLoop?.summary?.maxCpuMsEstimate ?? 0,
       runtimeP50Ms: reports.runtimeProfile?.summary?.p50WallMs ?? 0,
+      runtimeP95Ms: reports.runtimeProfile?.summary?.p95WallMs ?? 0,
       runtimeMaxRssMb: reports.runtimeProfile?.summary?.maxPeakRssMb ?? 0,
     },
     topIssues,
@@ -214,9 +216,9 @@ function preserveDashboardMetadata(summary, readme) {
       current.runUrl && isLocalOpenclawLabel(summary.openclawLabel) && current.openclawLabel
         ? current.openclawLabel
         : summary.openclawLabel,
-    importLoopLabel: current.runUrl && current.importLoopLabel ? current.importLoopLabel : summary.importLoopLabel,
+    importLoopLabel: current.runUrl && hasP95Label(current.importLoopLabel) ? current.importLoopLabel : summary.importLoopLabel,
     runtimeProfileLabel:
-      current.runUrl && current.runtimeProfileLabel ? current.runtimeProfileLabel : summary.runtimeProfileLabel,
+      current.runUrl && hasP95Label(current.runtimeProfileLabel) ? current.runtimeProfileLabel : summary.runtimeProfileLabel,
     runUrl: summary.runUrl || current.runUrl || "",
   };
 }
@@ -289,9 +291,13 @@ export function renderReadmeSummary(summary) {
         ["Jiti loader candidates", m.loaderJitiCandidates],
         [
           "Import loop",
-          summary.importLoopLabel ?? `p50 ${m.importLoopP50Ms}ms / max RSS ${m.importLoopMaxRssMb}MB / CPU ${m.importLoopMaxCpuMs}ms`,
+          summary.importLoopLabel ??
+            `p50 ${m.importLoopP50Ms}ms / p95 ${m.importLoopP95Ms}ms / max RSS ${m.importLoopMaxRssMb}MB / CPU ${m.importLoopMaxCpuMs}ms`,
         ],
-        ["Runtime profile", summary.runtimeProfileLabel ?? `p50 ${m.runtimeP50Ms}ms / max RSS ${m.runtimeMaxRssMb}MB`],
+        [
+          "Runtime profile",
+          summary.runtimeProfileLabel ?? `p50 ${m.runtimeP50Ms}ms / p95 ${m.runtimeP95Ms}ms / max RSS ${m.runtimeMaxRssMb}MB`,
+        ],
       ],
       ["Metric", "Result"],
     ),
@@ -360,6 +366,10 @@ function markdownLink(label, href) {
 
 function isLocalOpenclawLabel(label) {
   return !label || label === "../openclaw" || label.endsWith("@local");
+}
+
+function hasP95Label(label) {
+  return /\bp95\b/i.test(label ?? "");
 }
 
 async function readOptionalJson(jsonPath) {

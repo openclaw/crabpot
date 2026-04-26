@@ -58,8 +58,8 @@ test("readme summary rolls up report counts and top issues", async () => {
       coldImport: { summary: { readyCount: 2, blockedCount: 7, entrypointCount: 9 } },
       workspace: { summary: { entrypointCount: 9, installStepCount: 3, buildStepCount: 2 } },
       platform: { summary: { windowsRiskStepCount: 4, containerRiskStepCount: 2, jitiAlternativeCount: 5 } },
-      importLoop: { summary: { p50WallMs: 51, maxPeakRssMb: 44.5, maxCpuMsEstimate: 32 } },
-      runtimeProfile: { summary: { p50WallMs: 120, maxPeakRssMb: 64.5 } },
+      importLoop: { summary: { p50WallMs: 51, p95WallMs: 57, maxPeakRssMb: 44.5, maxCpuMsEstimate: 32 } },
+      runtimeProfile: { summary: { p50WallMs: 120, p95WallMs: 130, maxPeakRssMb: 64.5 } },
     },
   });
   const markdown = renderReadmeSummary(summary);
@@ -79,7 +79,8 @@ test("readme summary rolls up report counts and top issues", async () => {
   assert.match(markdown, /8 ready \/ 1 blocked \/ 9 total/);
   assert.match(markdown, /4 Windows \/ 2 container/);
   assert.match(markdown, /\| Jiti loader candidates\s+\| 5\s+\|/);
-  assert.match(markdown, /p50 51ms \/ max RSS 44\.5MB \/ CPU 32ms/);
+  assert.match(markdown, /p50 51ms \/ p95 57ms \/ max RSS 44\.5MB \/ CPU 32ms/);
+  assert.match(markdown, /p50 120ms \/ p95 130ms \/ max RSS 64\.5MB/);
 });
 
 test("readme summary inserts and replaces marker block", async () => {
@@ -153,9 +154,11 @@ test("readme summary preserves CI run metadata during local checks", async () =>
     metrics: {
       ...summary.metrics,
       importLoopP50Ms: 51,
+      importLoopP95Ms: 57,
       importLoopMaxRssMb: 44.5,
       importLoopMaxCpuMs: 32,
       runtimeP50Ms: 231,
+      runtimeP95Ms: 245,
       runtimeMaxRssMb: 70.4,
     },
     mode: "check",
@@ -168,9 +171,11 @@ test("readme summary preserves CI run metadata during local checks", async () =>
     metrics: {
       ...summary.metrics,
       importLoopP50Ms: 999,
+      importLoopP95Ms: 999,
       importLoopMaxRssMb: 999,
       importLoopMaxCpuMs: 999,
       runtimeP50Ms: 999,
+      runtimeP95Ms: 999,
       runtimeMaxRssMb: 999,
     },
     mode: "local",
@@ -180,6 +185,6 @@ test("readme summary preserves CI run metadata during local checks", async () =>
   assert.equal(await updateReadmeSummary({ check: true, readmePath, summary: localSummary }), false);
   const readme = await readFile(readmePath, "utf8");
   assert.match(readme, /OpenClaw: openclaw\/openclaw@main/);
-  assert.match(readme, /p50 51ms \/ max RSS 44\.5MB \/ CPU 32ms/);
-  assert.match(readme, /p50 231ms \/ max RSS 70\.4MB/);
+  assert.match(readme, /p50 51ms \/ p95 57ms \/ max RSS 44\.5MB \/ CPU 32ms/);
+  assert.match(readme, /p50 231ms \/ p95 245ms \/ max RSS 70\.4MB/);
 });

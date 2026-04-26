@@ -47,8 +47,8 @@ Run: https://github.com/openclaw/crabpot/actions/runs/24948932654
 | Workspace plan         | 24 entrypoints / 14 installs / 7 builds              |
 | Platform risks         | 121 Windows / 38 container                           |
 | Jiti loader candidates | 14                                                   |
-| Import loop            | p50 39ms / max RSS 0MB / CPU 0ms                     |
-| Runtime profile        | p50 231ms / max RSS 70.4MB                           |
+| Import loop            | p50 153ms / p95 165ms / max RSS 46.3MB / CPU 27ms    |
+| Runtime profile        | p50 649ms / p95 1329ms / max RSS 68.7MB              |
 
 ### Top Discovered Issues
 
