@@ -56,6 +56,7 @@ test("readme summary rolls up report counts and top issues", async () => {
       synthetic: { summary: { readyCount: 8, blockedCount: 1, probeCount: 9 } },
       coldImport: { summary: { readyCount: 2, blockedCount: 7, entrypointCount: 9 } },
       workspace: { summary: { entrypointCount: 9, installStepCount: 3, buildStepCount: 2 } },
+      platform: { summary: { windowsRiskStepCount: 4, containerRiskStepCount: 2, jitiAlternativeCount: 5 } },
       runtimeProfile: { summary: { p50WallMs: 120, maxPeakRssMb: 64.5 } },
     },
   });
@@ -68,6 +69,8 @@ test("readme summary rolls up report counts and top issues", async () => {
   assert.match(markdown, /\| P0 issues\s+\| 1\s+\|/);
   assert.match(markdown, /CRABPOT-AAAA1111/);
   assert.match(markdown, /8 ready \/ 1 blocked \/ 9 total/);
+  assert.match(markdown, /4 Windows \/ 2 container/);
+  assert.match(markdown, /\| Jiti loader candidates\s+\| 5\s+\|/);
 });
 
 test("readme summary inserts and replaces marker block", async () => {

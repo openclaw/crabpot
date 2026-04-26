@@ -80,13 +80,23 @@ test("ci summary rolls up compatibility, policy, ref diff, and profile findings"
           blockedCount: 2,
         },
       },
+      platform: {
+        summary: {
+          windowsRiskStepCount: 3,
+          containerRiskStepCount: 2,
+          jitiAlternativeCount: 1,
+        },
+      },
     },
   });
 
   assert.equal(summary.status, "pass");
   assert.equal(summary.summary.p0Issues, 1);
   assert.equal(summary.summary.policyWarnings, 1);
+  assert.equal(summary.summary.platformWindowsRisks, 3);
+  assert.equal(summary.summary.loaderJitiCandidates, 1);
   assert.match(renderCiSummaryMarkdown(summary), /Crabpot CI Summary/);
+  assert.match(renderCiSummaryMarkdown(summary), /Windows portability risks/);
   assert.match(renderCiSummaryMarkdown(summary), /\| P0 issues\s+\| 1\s+\|/);
   assert.match(renderCiSummaryMarkdown(summary), /openclaw\/openclaw@main/);
 });

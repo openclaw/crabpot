@@ -65,6 +65,7 @@ export async function buildExecutionResultsReport(options = {}) {
   const syntheticArtifacts = artifacts.filter((artifact) => artifact.kind === "synthetic");
   const captureArtifacts = artifacts.filter((artifact) => artifact.kind === "capture");
   const auditArtifacts = artifacts.filter((artifact) => artifact.kind === "audit");
+  const profileArtifacts = artifacts.filter((artifact) => artifact.kind === "profile");
 
   return {
     generatedAt: "deterministic",
@@ -74,11 +75,15 @@ export async function buildExecutionResultsReport(options = {}) {
       captureArtifactCount: captureArtifacts.length,
       syntheticArtifactCount: syntheticArtifacts.length,
       auditArtifactCount: auditArtifacts.length,
+      profileArtifactCount: profileArtifacts.length,
       capturedRegistrationCount: captureArtifacts.reduce(
         (sum, artifact) => sum + (artifact.capturedCount ?? 0),
         0,
       ),
       auditFindingCount: auditArtifacts.reduce((sum, artifact) => sum + artifact.findingCount, 0),
+      executionWallMs: profileArtifacts.reduce((sum, artifact) => sum + (artifact.summary?.totalWallMs ?? 0), 0),
+      maxPeakRssMb: Math.max(0, ...profileArtifacts.map((artifact) => artifact.summary?.maxPeakRssMb ?? 0)),
+      maxCpuMsEstimate: Math.max(0, ...profileArtifacts.map((artifact) => artifact.summary?.maxCpuMsEstimate ?? 0)),
       passCount: syntheticArtifacts.reduce((sum, artifact) => sum + (artifact.summary?.passCount ?? 0), 0),
       failCount: syntheticArtifacts.reduce((sum, artifact) => sum + (artifact.summary?.failCount ?? 0), 0),
       blockedCount: syntheticArtifacts.reduce((sum, artifact) => sum + (artifact.summary?.blockedCount ?? 0), 0),
@@ -119,6 +124,8 @@ function summarizeArtifact({ artifactPath, parsed }) {
     ? "synthetic"
     : artifactPath.endsWith("package-audit.json")
       ? "audit"
+      : artifactPath.endsWith("execution-profile.json")
+        ? "profile"
       : "capture";
   const fixture = artifactPath.split("/").at(-2) ?? "unknown";
   if (kind === "synthetic") {
@@ -142,6 +149,17 @@ function summarizeArtifact({ artifactPath, parsed }) {
       status: "warning",
       findingCount: auditFindingCount(parsed),
       vulnerabilities: parsed.metadata?.vulnerabilities ?? null,
+    };
+  }
+  if (kind === "profile") {
+    return {
+      artifactPath,
+      fixture,
+      kind,
+      entrypoint: "-",
+      status: parsed.summary?.failCount > 0 ? "fail" : "pass",
+      summary: parsed.summary,
+      slowestSteps: [...(parsed.steps ?? [])].sort((left, right) => right.wallMs - left.wallMs).slice(0, 5),
     };
   }
   return {
@@ -180,8 +198,12 @@ export function renderExecutionResultsMarkdown(report) {
         ["Capture artifacts", report.summary.captureArtifactCount],
         ["Synthetic artifacts", report.summary.syntheticArtifactCount],
         ["Audit artifacts", report.summary.auditArtifactCount],
+        ["Profile artifacts", report.summary.profileArtifactCount],
         ["Captured registrations/hooks", report.summary.capturedRegistrationCount],
         ["Audit findings", report.summary.auditFindingCount],
+        ["Execution wall", `${report.summary.executionWallMs} ms`],
+        ["Max peak RSS", `${report.summary.maxPeakRssMb} MB`],
+        ["Max CPU estimate", `${report.summary.maxCpuMsEstimate} ms`],
         ["Pass", report.summary.passCount],
         ["Fail", report.summary.failCount],
         ["Blocked", report.summary.blockedCount],
@@ -201,6 +223,8 @@ export function renderExecutionResultsMarkdown(report) {
           ? `${artifact.summary.passCount} pass / ${artifact.summary.failCount} fail / ${artifact.summary.blockedCount} blocked`
           : artifact.kind === "audit"
             ? `${artifact.findingCount} audit findings`
+          : artifact.kind === "profile"
+            ? `${artifact.summary.stepCount} steps / ${artifact.summary.totalWallMs} ms / ${artifact.summary.maxPeakRssMb} MB`
           : `${artifact.capturedCount} captured`,
         artifact.artifactPath,
       ]),
@@ -251,6 +275,22 @@ export function renderExecutionResultsMarkdown(report) {
           artifact.artifactPath,
         ]),
       ["Fixture", "Findings", "Vulnerabilities", "Artifact"],
+    ),
+    "",
+    "## Execution Profiles",
+    "",
+    markdownTable(
+      report.artifacts.flatMap((artifact) =>
+        (artifact.slowestSteps ?? []).map((step) => [
+          artifact.fixture,
+          step.kind,
+          `${step.wallMs} ms`,
+          `${step.peakRssMb} MB`,
+          `${step.cpuMsEstimate} ms`,
+          step.command,
+        ]),
+      ),
+      ["Fixture", "Step", "Wall", "Peak RSS", "CPU Estimate", "Command"],
     ),
   ].join("\n");
 }

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { readFile } from "node:fs/promises";
+import { spawnSync } from "node:child_process";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { defaultCiPolicyPath } from "./check-ci-policy.mjs";
@@ -17,6 +18,8 @@ async function main() {
     fixtureSet: args.fixtureSet,
     openclawPath: args.openclawPath,
     policyPath: args.policyPath,
+    baseRef: args.baseRef,
+    headRef: args.headRef,
   });
 
   if (args.githubOutput) {
@@ -42,6 +45,8 @@ function parseArgs(argv) {
     json: false,
     openclawPath: undefined,
     policyPath: defaultCiPolicyPath,
+    baseRef: undefined,
+    headRef: undefined,
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -75,6 +80,16 @@ function parseArgs(argv) {
     if (arg === "--policy") {
       args.policyPath = path.resolve(argv[index + 1]);
       index += 1;
+      continue;
+    }
+    if (arg === "--base-ref") {
+      args.baseRef = argv[index + 1];
+      index += 1;
+      continue;
+    }
+    if (arg === "--head-ref") {
+      args.headRef = argv[index + 1];
+      index += 1;
     }
   }
   return args;
@@ -86,7 +101,12 @@ export async function resolveFixtureSet(options = {}) {
   const policy = options.policy ?? (await readJson(options.policyPath ?? defaultCiPolicyPath));
   const plan = options.plan ?? (await buildWorkspacePlan({ openclawPath: options.openclawPath }));
   const fixtureIds = new Set(manifest.fixtures.map((fixture) => fixture.id));
-  const selectedIds = selectFixtureIds({ requested, policy, plan, fixtureIds });
+  const changedPaths =
+    options.changedPaths ??
+    (requested === "changed-submodules"
+      ? readChangedPaths({ baseRef: options.baseRef, headRef: options.headRef })
+      : []);
+  const selectedIds = selectFixtureIds({ requested, policy, plan, fixtureIds, manifest, changedPaths });
   const fixtures = [...selectedIds].sort().map((fixtureId) => summarizeFixture(fixtureId, plan));
 
   if (!options.allowEmpty && fixtures.length === 0) {
@@ -101,9 +121,12 @@ export async function resolveFixtureSet(options = {}) {
   };
 }
 
-function selectFixtureIds({ requested, policy, plan, fixtureIds }) {
+function selectFixtureIds({ requested, policy, plan, fixtureIds, manifest, changedPaths }) {
   if (requested === "none") {
     return new Set();
+  }
+  if (requested === "changed-submodules") {
+    return fixturesChangedByPaths(manifest.fixtures, changedPaths);
   }
   if (policy.fixtureSets?.[requested]) {
     return validateIds(policy.fixtureSets[requested], fixtureIds, requested);
@@ -128,6 +151,36 @@ function selectFixtureIds({ requested, policy, plan, fixtureIds }) {
     return validateIds(requested.split(",").map((value) => value.trim()).filter(Boolean), fixtureIds, requested);
   }
   return validateIds([requested], fixtureIds, requested);
+}
+
+function fixturesChangedByPaths(fixtures, changedPaths) {
+  if (changedPaths.some((changedPath) => [".gitmodules", "crabpot.config.json"].includes(changedPath))) {
+    return new Set(fixtures.map((fixture) => fixture.id));
+  }
+  return new Set(
+    fixtures
+      .filter((fixture) =>
+        changedPaths.some((changedPath) => changedPath === fixture.path || changedPath.startsWith(`${fixture.path}/`)),
+      )
+      .map((fixture) => fixture.id),
+  );
+}
+
+function readChangedPaths({ baseRef, headRef } = {}) {
+  const args = ["diff", "--name-only"];
+  if (baseRef && headRef) {
+    args.push(`${baseRef}..${headRef}`);
+  } else {
+    args.push("HEAD^", "HEAD");
+  }
+  const result = spawnSync("git", args, {
+    cwd: repoRoot,
+    encoding: "utf8",
+  });
+  if (result.status !== 0) {
+    throw new Error(`failed to resolve changed paths for fixture matrix: ${result.stderr.trim()}`);
+  }
+  return result.stdout.split(/\r?\n/).map((value) => value.trim()).filter(Boolean);
 }
 
 function fixturesWithCapability(plan, capability) {

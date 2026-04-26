@@ -125,6 +125,12 @@ export async function buildWorkspacePlan(options = {}) {
       captureStepCount: allSteps.filter((step) => step.kind === "capture").length,
       syntheticProbeStepCount: allSteps.filter((step) => step.kind === "synthetic-probe").length,
       targetOpenClawLinkStepCount: allSteps.filter((step) => step.kind === "link-openclaw").length,
+      tsLoaderEntrypointCount: allEntries.filter((entrypoint) =>
+        entrypoint.requiredCapabilities.includes("ts-loader"),
+      ).length,
+      jitiAlternativeCount: allEntries.filter((entrypoint) =>
+        entrypoint.loaderStrategy.alternatives.includes("jiti"),
+      ).length,
       missingBuildScriptCount: allEntries.filter((entrypoint) =>
         entrypoint.blockers.some((blocker) => blocker.code === "missing-build-script"),
       ).length,
@@ -142,6 +148,7 @@ async function buildEntrypointPlan({ fixtureId, entrypoint, packageSummary, pack
   const lockfile = findNearestLockfile(packageDir);
   const buildScript = packageJson.scripts?.build;
   const requiredCapabilities = requiredCapabilitiesFor(entrypoint);
+  const loaderStrategy = loaderStrategyFor(entrypoint);
   const blockers = [...entrypoint.blockers];
   const steps = [];
 
@@ -224,9 +231,29 @@ async function buildEntrypointPlan({ fixtureId, entrypoint, packageSummary, pack
     status: entrypoint.status,
     packageManager,
     lockfile,
+    loaderStrategy,
     requiredCapabilities,
     blockers,
     steps,
+  };
+}
+
+function loaderStrategyFor(entrypoint) {
+  const needsTypeScriptLoader = entrypoint.blockers.some((blocker) => blocker.code === "ts-loader-required");
+  if (!needsTypeScriptLoader) {
+    return {
+      source: "native-node",
+      primary: "node",
+      alternatives: [],
+      reason: "entrypoint extension can be loaded by Node without a TypeScript source loader",
+    };
+  }
+
+  return {
+    source: "typescript-source",
+    primary: "tsx",
+    alternatives: ["jiti"],
+    reason: "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity.",
   };
 }
 
@@ -358,6 +385,15 @@ export function validateWorkspacePlan(plan) {
       if (entrypoint.steps.length === 0) {
         errors.push(`${entrypoint.id}: missing workspace steps`);
       }
+      if (!entrypoint.loaderStrategy?.primary || !entrypoint.loaderStrategy.reason) {
+        errors.push(`${entrypoint.id}: missing loader strategy`);
+      }
+      if (
+        entrypoint.requiredCapabilities.includes("ts-loader") &&
+        !entrypoint.loaderStrategy?.alternatives?.includes("jiti")
+      ) {
+        errors.push(`${entrypoint.id}: ts-loader capability must track a jiti fallback`);
+      }
       if (!entrypoint.steps.some((step) => step.kind === "prepare")) {
         errors.push(`${entrypoint.id}: missing prepare step`);
       }
@@ -423,6 +459,8 @@ export function renderWorkspacePlanMarkdown(plan) {
         ["Capture steps", plan.summary.captureStepCount],
         ["Synthetic probe steps", plan.summary.syntheticProbeStepCount],
         ["Target OpenClaw link steps", plan.summary.targetOpenClawLinkStepCount],
+        ["TypeScript loader entrypoints", plan.summary.tsLoaderEntrypointCount],
+        ["Jiti fallback candidates", plan.summary.jitiAlternativeCount],
         ["Missing build scripts", plan.summary.missingBuildScriptCount],
         ["SDK alias required", plan.summary.sdkAliasRequiredCount],
       ],
@@ -437,6 +475,7 @@ export function renderWorkspacePlanMarkdown(plan) {
           fixture.id,
           entrypoint.packageManager,
           entrypoint.status,
+          `${entrypoint.loaderStrategy.primary}${entrypoint.loaderStrategy.alternatives.length > 0 ? ` (+${entrypoint.loaderStrategy.alternatives.join(", ")})` : ""}`,
           entrypoint.entrypoint,
           entrypoint.requiredCapabilities.join(", "),
           entrypoint.steps
@@ -444,7 +483,7 @@ export function renderWorkspacePlanMarkdown(plan) {
             .join("; "),
         ]),
       ),
-      ["Fixture", "PM", "Status", "Entrypoint", "Capabilities", "Steps"],
+      ["Fixture", "PM", "Status", "Loader", "Entrypoint", "Capabilities", "Steps"],
     ),
   ].join("\n");
 }

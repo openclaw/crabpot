@@ -58,17 +58,44 @@ test("execution results summarize capture and synthetic artifacts", async () => 
     }),
     "utf8",
   );
+  await writeFile(
+    path.join(fixtureDir, "execution-profile.json"),
+    JSON.stringify({
+      summary: {
+        stepCount: 2,
+        failCount: 0,
+        totalWallMs: 123,
+        maxPeakRssMb: 42.5,
+        maxCpuMsEstimate: 80,
+      },
+      steps: [
+        {
+          kind: "install",
+          wallMs: 100,
+          peakRssMb: 42.5,
+          cpuMsEstimate: 80,
+          command: "npm install --ignore-scripts",
+        },
+      ],
+    }),
+    "utf8",
+  );
 
   const report = await buildExecutionResultsReport({ resultsDir: dir });
 
-  assert.equal(report.summary.artifactCount, 3);
+  assert.equal(report.summary.artifactCount, 4);
   assert.equal(report.summary.auditArtifactCount, 1);
+  assert.equal(report.summary.profileArtifactCount, 1);
   assert.equal(report.summary.auditFindingCount, 6);
+  assert.equal(report.summary.executionWallMs, 123);
+  assert.equal(report.summary.maxPeakRssMb, 42.5);
+  assert.equal(report.summary.maxCpuMsEstimate, 80);
   assert.equal(report.summary.capturedRegistrationCount, 1);
   assert.equal(report.summary.passCount, 1);
   assert.equal(report.summary.blockedCount, 1);
   assert.equal(report.artifacts.find((artifact) => artifact.kind === "synthetic").blocked[0].seam, "registerChannel");
   assert.equal(report.artifacts.find((artifact) => artifact.kind === "audit").findingCount, 6);
+  assert.match(renderExecutionResultsMarkdown(report), /Execution Profiles/);
 });
 
 test("execution results count total-only audit metadata", async () => {

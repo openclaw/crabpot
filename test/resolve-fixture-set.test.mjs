@@ -4,10 +4,10 @@ import { resolveFixtureSet } from "../scripts/resolve-fixture-set.mjs";
 
 const manifest = {
   fixtures: [
-    { id: "wecom" },
-    { id: "opik-openclaw" },
-    { id: "codex-app-server" },
-    { id: "hasdata" },
+    { id: "wecom", path: "plugins/wecom" },
+    { id: "opik-openclaw", path: "plugins/opik-openclaw" },
+    { id: "codex-app-server", path: "plugins/codex-app-server" },
+    { id: "hasdata", path: "plugins/hasdata" },
   ],
 };
 const policy = {
@@ -81,4 +81,33 @@ test("fixture set resolver requires explicit allow-empty for none", async () => 
 
   assert.equal(resolved.count, 0);
   assert.deepEqual(resolved.fixtures, []);
+});
+
+test("fixture set resolver derives changed plugin submodules from git paths", async () => {
+  const resolved = await resolveFixtureSet({
+    fixtureSet: "changed-submodules",
+    manifest,
+    policy,
+    plan,
+    changedPaths: ["plugins/wecom", "plugins/hasdata/package.json", "README.md"],
+  });
+
+  assert.deepEqual(resolved.fixtures.map((fixture) => fixture.id), ["hasdata", "wecom"]);
+});
+
+test("fixture set resolver expands manifest changes to every plugin", async () => {
+  const resolved = await resolveFixtureSet({
+    fixtureSet: "changed-submodules",
+    manifest,
+    policy,
+    plan,
+    changedPaths: [".gitmodules"],
+  });
+
+  assert.deepEqual(resolved.fixtures.map((fixture) => fixture.id), [
+    "codex-app-server",
+    "hasdata",
+    "opik-openclaw",
+    "wecom",
+  ]);
 });

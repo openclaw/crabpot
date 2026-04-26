@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import { spawn } from "node:child_process";
+import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { performance } from "node:perf_hooks";
 import { pathToFileURL } from "node:url";
 import { buildWorkspacePlan } from "./workspace-plan.mjs";
 import { repoRoot } from "./manifest-lib.mjs";
@@ -24,9 +26,21 @@ async function main() {
     return;
   }
 
+  const profiles = [];
   for (const item of selected) {
     for (const step of item.steps) {
-      await runStep(step);
+      const result = await runStep(step);
+      profiles.push({
+        fixture: item.fixture,
+        entrypoint: item.entrypoint,
+        packagePath: item.packagePath,
+        status: item.status,
+        ...result,
+      });
+      await writeExecutionProfile(args.fixture, profiles);
+      if (result.exitCode !== 0) {
+        throw new Error(`${step.kind} failed with exit code ${result.exitCode}: ${step.command}`);
+      }
     }
   }
 }
@@ -106,19 +120,90 @@ export function validateExecutionRequest({ args, selected, env = process.env }) 
 
 function runStep(step) {
   return new Promise((resolve, reject) => {
+    const start = performance.now();
+    let peakRssKb = 0;
+    let peakCpuPercent = 0;
+    const cpuSamples = [];
     const child = spawn(step.command, {
       cwd: path.join(repoRoot, step.cwd),
       env: { ...process.env, CRABPOT_EXECUTE_ISOLATED: "1" },
       shell: true,
       stdio: "inherit",
     });
-    child.on("exit", (code) => {
-      if (code === 0) {
-        resolve();
-        return;
+    const poll = setInterval(async () => {
+      const stats = await readProcessStats(child.pid);
+      peakRssKb = Math.max(peakRssKb, stats.rssKb);
+      peakCpuPercent = Math.max(peakCpuPercent, stats.cpuPercent);
+      if (stats.cpuPercent > 0) {
+        cpuSamples.push(stats.cpuPercent);
       }
-      reject(new Error(`${step.kind} failed with exit code ${code}: ${step.command}`));
+    }, 50);
+    child.on("exit", async (code) => {
+      clearInterval(poll);
+      const finalStats = await readProcessStats(child.pid);
+      peakRssKb = Math.max(peakRssKb, finalStats.rssKb);
+      peakCpuPercent = Math.max(peakCpuPercent, finalStats.cpuPercent);
+      if (finalStats.cpuPercent > 0) {
+        cpuSamples.push(finalStats.cpuPercent);
+      }
+      const wallMs = Math.round(performance.now() - start);
+      const averageCpuPercent =
+        cpuSamples.length > 0
+          ? cpuSamples.reduce((sum, value) => sum + value, 0) / cpuSamples.length
+          : 0;
+      resolve({
+        kind: step.kind,
+        command: step.command,
+        cwd: step.cwd,
+        artifactPath: step.artifactPath ?? null,
+        exitCode: code ?? 1,
+        wallMs,
+        peakRssMb: Math.round((peakRssKb / 1024) * 10) / 10,
+        peakCpuPercent: Math.round(peakCpuPercent * 10) / 10,
+        cpuMsEstimate: Math.round((wallMs * averageCpuPercent) / 100),
+      });
     });
     child.on("error", reject);
+  });
+}
+
+async function writeExecutionProfile(fixtureId, steps) {
+  const jsonPath = path.join(repoRoot, ".crabpot", "results", fixtureId, "execution-profile.json");
+  const profile = {
+    generatedAt: "deterministic",
+    fixture: fixtureId,
+    summary: {
+      stepCount: steps.length,
+      failCount: steps.filter((step) => step.exitCode !== 0).length,
+      totalWallMs: steps.reduce((sum, step) => sum + step.wallMs, 0),
+      maxPeakRssMb: Math.max(0, ...steps.map((step) => step.peakRssMb)),
+      maxCpuMsEstimate: Math.max(0, ...steps.map((step) => step.cpuMsEstimate)),
+    },
+    steps,
+  };
+  await mkdir(path.dirname(jsonPath), { recursive: true });
+  await writeFile(jsonPath, `${JSON.stringify(profile, null, 2)}\n`, "utf8");
+}
+
+function readProcessStats(pid) {
+  if (!pid || process.platform === "win32") {
+    return { rssKb: 0, cpuPercent: 0 };
+  }
+  return new Promise((resolve) => {
+    const ps = spawn("ps", ["-o", "rss=,%cpu=", "-p", String(pid)], {
+      stdio: ["ignore", "pipe", "ignore"],
+    });
+    const chunks = [];
+    ps.stdout.on("data", (chunk) => chunks.push(chunk));
+    ps.on("error", () => resolve({ rssKb: 0, cpuPercent: 0 }));
+    ps.on("exit", () => {
+      const [rssRaw, cpuRaw] = Buffer.concat(chunks).toString("utf8").trim().split(/\s+/);
+      const rssKb = Number.parseInt(rssRaw, 10);
+      const cpuPercent = Number.parseFloat(cpuRaw);
+      resolve({
+        rssKb: Number.isFinite(rssKb) ? rssKb : 0,
+        cpuPercent: Number.isFinite(cpuPercent) ? cpuPercent : 0,
+      });
+    });
   });
 }

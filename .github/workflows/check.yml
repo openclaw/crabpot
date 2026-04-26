@@ -13,7 +13,12 @@ permissions:
 
 jobs:
   manifest:
-    runs-on: ubuntu-latest
+    name: Static checks (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
       - uses: actions/checkout@v6
         with:
@@ -34,6 +39,7 @@ jobs:
       - run: node scripts/synthetic-probes.mjs --check --openclaw ./openclaw
       - run: node scripts/cold-import-readiness.mjs --check --openclaw ./openclaw
       - run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
+      - run: node scripts/platform-probes.mjs --check --openclaw ./openclaw
       - run: node scripts/profile-contract-runtime.mjs --check --openclaw ./openclaw
       - run: node scripts/check-contract-coverage.mjs --openclaw ./openclaw
       - name: Write CI summary artifacts
@@ -45,6 +51,7 @@ jobs:
           node scripts/synthetic-probes.mjs --openclaw ./openclaw
           node scripts/cold-import-readiness.mjs --openclaw ./openclaw
           node scripts/workspace-plan.mjs --openclaw ./openclaw
+          node scripts/platform-probes.mjs --openclaw ./openclaw
           node scripts/profile-contract-runtime.mjs --openclaw ./openclaw
           node scripts/compare-runtime-profile.mjs
           node scripts/check-ci-policy.mjs
@@ -53,14 +60,143 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: crabpot-check-reports
+          name: crabpot-check-reports-${{ matrix.os }}
           path: reports/
           if-no-files-found: warn
 
+  container-smoke:
+    name: Container static checks
+    runs-on: ubuntu-latest
+    container:
+      image: node:22-bookworm
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: recursive
+      - uses: actions/checkout@v6
+        with:
+          repository: openclaw/openclaw
+          path: openclaw
+      - run: node --version
+      - run: npm test
+      - run: node scripts/sync-fixtures.mjs --check
+      - run: node scripts/inspect-fixtures.mjs --check
+      - run: node scripts/generate-report.mjs --check --openclaw ./openclaw
+      - run: node scripts/cold-import-readiness.mjs --check --openclaw ./openclaw
+      - run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
+      - run: node scripts/platform-probes.mjs --check --openclaw ./openclaw
+      - run: node scripts/profile-contract-runtime.mjs --check --openclaw ./openclaw
+
+  changed-fixture-plan:
+    name: Resolve changed fixture matrix
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
+    outputs:
+      matrix: ${{ steps.resolve.outputs.matrix }}
+      count: ${{ steps.resolve.outputs.count }}
+      fixtures: ${{ steps.resolve.outputs.fixtures }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+          submodules: recursive
+      - uses: actions/checkout@v6
+        with:
+          repository: openclaw/openclaw
+          path: openclaw
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Resolve diff refs
+        id: refs
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            base="${{ github.event.pull_request.base.sha }}"
+            head="${{ github.event.pull_request.head.sha }}"
+          else
+            base="${{ github.event.before }}"
+            head="${{ github.sha }}"
+            if [ -z "$base" ] || [[ "$base" =~ ^0+$ ]]; then
+              base="$(git rev-parse HEAD^ 2>/dev/null || true)"
+            fi
+          fi
+          git fetch --no-tags --depth=1 origin "$base" "$head" || true
+          echo "base=${base}" >> "$GITHUB_OUTPUT"
+          echo "head=${head}" >> "$GITHUB_OUTPUT"
+      - name: Resolve changed fixture matrix
+        id: resolve
+        shell: bash
+        run: |
+          node scripts/resolve-fixture-set.mjs \
+            --fixture-set changed-submodules \
+            --base-ref "${{ steps.refs.outputs.base }}" \
+            --head-ref "${{ steps.refs.outputs.head }}" \
+            --openclaw ./openclaw \
+            --allow-empty \
+            --github-output >> "$GITHUB_OUTPUT"
+      - name: Show selected fixtures
+        run: echo "fixtures=${{ steps.resolve.outputs.fixtures }}"
+
+  changed-isolated-fixture:
+    name: Isolated changed fixture ${{ matrix.id }}
+    runs-on: ubuntu-latest
+    needs: changed-fixture-plan
+    if: ${{ needs.changed-fixture-plan.outputs.count != '0' }}
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.changed-fixture-plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: recursive
+      - uses: actions/checkout@v6
+        with:
+          repository: openclaw/openclaw
+          path: openclaw
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Validate workspace plan
+        run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
+      - name: Execute fixture lane
+        id: execute
+        continue-on-error: true
+        env:
+          CRABPOT_EXECUTE_ISOLATED: "1"
+        run: npm run workspace:execute -- --fixture "${{ matrix.id }}" --openclaw ./openclaw
+      - name: Summarize execution artifacts
+        if: always()
+        continue-on-error: true
+        run: npm run execution:report
+      - name: Run execution policy
+        id: policy
+        if: always()
+        continue-on-error: true
+        run: node scripts/check-ci-policy.mjs
+      - name: Write isolated summary
+        if: always()
+        continue-on-error: true
+        run: node scripts/write-ci-summary.mjs --mode changed-isolated --openclaw-label openclaw/openclaw@main --github-step-summary
+      - name: Upload isolated execution artifacts
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: crabpot-changed-isolated-${{ matrix.id }}
+          path: |
+            .crabpot/results/
+            reports/crabpot-execution-results.*
+            reports/crabpot-ci-policy.*
+            reports/crabpot-ci-summary.*
+          if-no-files-found: warn
+      - name: Fail if isolated execution failed
+        if: ${{ steps.execute.outcome == 'failure' || steps.policy.outcome == 'failure' }}
+        run: exit 1
+
   dashboard:
     runs-on: ubuntu-latest
-    needs: manifest
-    if: ${{ github.event_name != 'pull_request' && github.actor != 'github-actions[bot]' }}
+    needs: [manifest, container-smoke, changed-fixture-plan, changed-isolated-fixture]
+    if: ${{ always() && github.event_name != 'pull_request' && github.actor != 'github-actions[bot]' && needs.manifest.result == 'success' && needs.container-smoke.result == 'success' && (needs.changed-isolated-fixture.result == 'success' || needs.changed-isolated-fixture.result == 'skipped') }}
     permissions:
       contents: write
     steps:
@@ -84,6 +220,7 @@ jobs:
           node scripts/synthetic-probes.mjs --openclaw ./openclaw
           node scripts/cold-import-readiness.mjs --openclaw ./openclaw
           node scripts/workspace-plan.mjs --openclaw ./openclaw
+          node scripts/platform-probes.mjs --openclaw ./openclaw
           node scripts/profile-contract-runtime.mjs --openclaw ./openclaw
           node scripts/compare-runtime-profile.mjs
           node scripts/check-ci-policy.mjs

@@ -20,6 +20,8 @@ test("workspace plan maps blocked entrypoints to opt-in install/build/capture st
   assert.ok(plan.summary.captureStepCount > 0);
   assert.equal(plan.summary.syntheticProbeStepCount, plan.summary.entrypointCount);
   assert.ok(plan.summary.targetOpenClawLinkStepCount > 0);
+  assert.ok(plan.summary.tsLoaderEntrypointCount > 0);
+  assert.equal(plan.summary.jitiAlternativeCount, plan.summary.tsLoaderEntrypointCount);
 
   const wecom = entrypointFor(plan, "wecom");
   assert.equal(wecom.packageManager, "npm");
@@ -51,6 +53,8 @@ test("workspace plan maps blocked entrypoints to opt-in install/build/capture st
   const codex = entrypointFor(plan, "codex-app-server");
   assert.ok(codex.requiredCapabilities.includes("sdk-alias-compat"));
   assert.ok(codex.requiredCapabilities.includes("ts-loader"));
+  assert.equal(codex.loaderStrategy.primary, "tsx");
+  assert.ok(codex.loaderStrategy.alternatives.includes("jiti"));
 
   const hasdata = entrypointFor(plan, "hasdata");
   assert.ok(hasdata.requiredCapabilities.includes("side-effect-sandbox"));
@@ -70,6 +74,7 @@ test("workspace plan validation keeps execution opt-in and explicit", () => {
             id: "cold-import.extension:fixture:index",
             packagePath: "plugins/fixture/package.json",
             entrypoint: "plugins/fixture/index.js",
+            loaderStrategy: { primary: "node", alternatives: [], reason: "test" },
             requiredCapabilities: ["dependency-install"],
             blockers: [],
             steps: [{ kind: "capture", command: "node capture.js", cwd: ".", reason: "capture" }],
@@ -86,13 +91,19 @@ test("workspace plan validation keeps execution opt-in and explicit", () => {
   assert.ok(errors.some((error) => error.includes("dependency install capability has no install step")));
   assert.ok(errors.some((error) => error.includes("dependency install capability has no audit step")));
 
+  plan.fixtures[0].entrypoints[0].loaderStrategy = null;
+  const loaderErrors = validateWorkspacePlan(plan);
+  assert.ok(loaderErrors.some((error) => error.includes("missing loader strategy")));
+  plan.fixtures[0].entrypoints[0].loaderStrategy = { primary: "node", alternatives: [], reason: "test" };
+
   plan.fixtures[0].entrypoints[0].requiredCapabilities = ["target-openclaw-link"];
   const linkErrors = validateWorkspacePlan(plan);
   assert.ok(linkErrors.some((error) => error.includes("target-openclaw-link capability has no link-openclaw step")));
 
-  plan.fixtures[0].entrypoints[0].requiredCapabilities = ["build"];
+  plan.fixtures[0].entrypoints[0].requiredCapabilities = ["build", "ts-loader"];
   const buildErrors = validateWorkspacePlan(plan);
   assert.ok(buildErrors.some((error) => error.includes("build capability has no build step")));
+  assert.ok(buildErrors.some((error) => error.includes("jiti fallback")));
 
   plan.fixtures[0].entrypoints[0].requiredCapabilities = [];
   plan.fixtures[0].entrypoints[0].steps = [{ kind: "prepare", command: "", cwd: ".", reason: "" }];

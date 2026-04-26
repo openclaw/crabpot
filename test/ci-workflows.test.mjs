@@ -12,6 +12,7 @@ test("manual OpenClaw ref workflow accepts branch tag or SHA inputs", async () =
   assert.match(workflow, /TARGET_REF:/);
   assert.match(workflow, /ref: \$\{\{ env\.TARGET_REF \}\}/);
   assert.match(workflow, /node scripts\/check-contract-coverage\.mjs --openclaw \.\/openclaw/);
+  assert.match(workflow, /node scripts\/platform-probes\.mjs --check --openclaw \.\/openclaw/);
 });
 
 test("manual OpenClaw ref workflow keeps isolated fixture execution opt-in", async () => {
@@ -41,6 +42,7 @@ test("default check workflow uploads policy and summary reports", async () => {
   const workflow = await readFile(".github/workflows/check.yml", "utf8");
 
   assert.match(workflow, /node scripts\/compare-runtime-profile\.mjs/);
+  assert.match(workflow, /node scripts\/platform-probes\.mjs/);
   assert.match(workflow, /node scripts\/check-ci-policy\.mjs/);
   assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs/);
@@ -58,6 +60,27 @@ test("default check workflow retests plugin submodule gitlink changes", async ()
   assert.doesNotMatch(triggerBlock, /paths:/);
   assert.doesNotMatch(triggerBlock, /paths-ignore:/);
   assert.match(workflow, /plugins\/\*\* must retest/);
+});
+
+test("default check workflow runs OS and container static lanes", async () => {
+  const workflow = await readFile(".github/workflows/check.yml", "utf8");
+
+  assert.match(workflow, /name: Static checks \(\$\{\{ matrix\.os \}\}\)/);
+  assert.match(workflow, /os: \[ubuntu-latest, macos-latest, windows-latest\]/);
+  assert.match(workflow, /container-smoke:/);
+  assert.match(workflow, /image: node:22-bookworm/);
+  assert.match(workflow, /crabpot-check-reports-\$\{\{ matrix\.os \}\}/);
+});
+
+test("default check workflow resolves changed submodules into an isolated fixture matrix", async () => {
+  const workflow = await readFile(".github/workflows/check.yml", "utf8");
+
+  assert.match(workflow, /changed-fixture-plan:/);
+  assert.match(workflow, /--fixture-set changed-submodules/);
+  assert.match(workflow, /--base-ref "\$\{\{ steps\.refs\.outputs\.base \}\}"/);
+  assert.match(workflow, /changed-isolated-fixture:/);
+  assert.match(workflow, /matrix: \$\{\{ fromJson\(needs\.changed-fixture-plan\.outputs\.matrix\) \}\}/);
+  assert.match(workflow, /npm run workspace:execute -- --fixture "\$\{\{ matrix\.id \}\}"/);
 });
 
 test("workflows use Node 24 action majors", async () => {

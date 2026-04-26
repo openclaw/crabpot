@@ -61,6 +61,13 @@ const PROFILE_COMMANDS = [
     args: ["scripts/workspace-plan.mjs", "--check"],
     openclaw: true,
   },
+  {
+    id: "platform-probes",
+    label: "Platform and loader probes",
+    category: "platform-probes",
+    args: ["scripts/platform-probes.mjs", "--check"],
+    openclaw: true,
+  },
 ];
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
@@ -156,6 +163,13 @@ export async function buildRuntimeProfile(options = {}) {
     runs,
     targetOpenClaw: summarizeTargetOpenClaw(report.targetOpenClaw),
     fixtureInventory: summarizeFixtureInventory(report, inspection),
+    platform: {
+      os: process.platform,
+      arch: process.arch,
+      node: process.version,
+      rssSampler: process.platform === "win32" ? "unavailable" : "ps",
+      cpuSampler: process.platform === "win32" ? "unavailable" : "ps-percent",
+    },
     summary: summarizeProfile(commands),
     groups: summarizeCommandGroups(commands),
     commands,
@@ -192,17 +206,29 @@ function summarizeFixtureInventory(report, inspection) {
 function summarizeProfile(commands) {
   const wallTimes = commands.map((command) => command.wallMs.median).sort((left, right) => left - right);
   const maxPeakRssMb = Math.max(...commands.map((command) => command.peakRssMb.max));
+  const maxRssDeltaMb = Math.max(...commands.map((command) => command.rssDeltaMb.max));
+  const maxCpuMsEstimate = Math.max(...commands.map((command) => command.cpuMsEstimate.max));
+  const maxHarnessHeapDeltaMb = Math.max(...commands.map((command) => command.harnessHeapDeltaMb.max));
   return {
     commandCount: commands.length,
     p50WallMs: percentile(wallTimes, 0.5),
     p95WallMs: percentile(wallTimes, 0.95),
     maxPeakRssMb,
+    maxRssDeltaMb,
+    maxCpuMsEstimate,
+    maxHarnessHeapDeltaMb,
   };
 }
 
 function summarizeCommand(command, samples) {
   const wallMs = samples.map((sample) => sample.wallMs).sort((left, right) => left - right);
   const peakRssMb = samples.map((sample) => sample.peakRssMb).sort((left, right) => left - right);
+  const rssDeltaMb = samples.map((sample) => sample.rssDeltaMb).sort((left, right) => left - right);
+  const peakCpuPercent = samples.map((sample) => sample.peakCpuPercent).sort((left, right) => left - right);
+  const cpuMsEstimate = samples.map((sample) => sample.cpuMsEstimate).sort((left, right) => left - right);
+  const harnessHeapDeltaMb = samples
+    .map((sample) => sample.harnessHeapDeltaMb)
+    .sort((left, right) => left - right);
   return {
     id: command.id,
     label: command.label,
@@ -211,6 +237,10 @@ function summarizeCommand(command, samples) {
     samples,
     wallMs: summarizeNumbers(wallMs),
     peakRssMb: summarizeNumbers(peakRssMb),
+    rssDeltaMb: summarizeNumbers(rssDeltaMb),
+    peakCpuPercent: summarizeNumbers(peakCpuPercent),
+    cpuMsEstimate: summarizeNumbers(cpuMsEstimate),
+    harnessHeapDeltaMb: summarizeNumbers(harnessHeapDeltaMb),
     exitCodes: [...new Set(samples.map((sample) => sample.exitCode))].sort(),
   };
 }
@@ -230,12 +260,16 @@ function summarizeCommandGroups(commands) {
     const peakRss = categoryCommands
       .flatMap((command) => command.samples.map((sample) => sample.peakRssMb))
       .sort((left, right) => left - right);
+    const cpuMs = categoryCommands
+      .flatMap((command) => command.samples.map((sample) => sample.cpuMsEstimate))
+      .sort((left, right) => left - right);
     return {
       category,
       commandCount: categoryCommands.length,
       p50WallMs: percentile(wallTimes, 0.5),
       p95WallMs: percentile(wallTimes, 0.95),
       maxPeakRssMb: peakRss.at(-1) ?? 0,
+      maxCpuMsEstimate: cpuMs.at(-1) ?? 0,
       commands: categoryCommands.map((command) => command.id),
     };
   });
@@ -268,7 +302,11 @@ async function profileCommand(command, options) {
   }
 
   const start = performance.now();
+  const heapStartMb = heapUsedMb();
+  let firstRssKb = 0;
   let peakRssKb = 0;
+  let peakCpuPercent = 0;
+  const cpuSamples = [];
   const child = spawn(process.execPath, args, {
     cwd: repoRoot,
     env: { ...process.env, CRABPOT_REPORT_GENERATED_AT: "deterministic" },
@@ -280,7 +318,15 @@ async function profileCommand(command, options) {
   child.stderr.on("data", (chunk) => stderr.push(chunk));
 
   const poll = setInterval(async () => {
-    peakRssKb = Math.max(peakRssKb, await readRssKb(child.pid));
+    const stats = await readProcessStats(child.pid);
+    if (stats.rssKb > 0 && firstRssKb === 0) {
+      firstRssKb = stats.rssKb;
+    }
+    peakRssKb = Math.max(peakRssKb, stats.rssKb);
+    peakCpuPercent = Math.max(peakCpuPercent, stats.cpuPercent);
+    if (stats.cpuPercent > 0) {
+      cpuSamples.push(stats.cpuPercent);
+    }
   }, 25);
 
   const exitCode = await new Promise((resolve, reject) => {
@@ -288,33 +334,63 @@ async function profileCommand(command, options) {
     child.on("exit", (code) => resolve(code ?? 1));
   });
   clearInterval(poll);
-  peakRssKb = Math.max(peakRssKb, await readRssKb(child.pid));
+  const finalStats = await readProcessStats(child.pid);
+  if (finalStats.rssKb > 0 && firstRssKb === 0) {
+    firstRssKb = finalStats.rssKb;
+  }
+  peakRssKb = Math.max(peakRssKb, finalStats.rssKb);
+  peakCpuPercent = Math.max(peakCpuPercent, finalStats.cpuPercent);
+  if (finalStats.cpuPercent > 0) {
+    cpuSamples.push(finalStats.cpuPercent);
+  }
+
+  const wallMs = Math.round(performance.now() - start);
+  const averageCpuPercent =
+    cpuSamples.length > 0
+      ? Math.round((cpuSamples.reduce((sum, value) => sum + value, 0) / cpuSamples.length) * 10) / 10
+      : 0;
 
   return {
-    wallMs: Math.round(performance.now() - start),
+    wallMs,
     peakRssMb: Math.round((peakRssKb / 1024) * 10) / 10,
+    rssDeltaMb: Math.round(((peakRssKb - firstRssKb) / 1024) * 10) / 10,
+    peakCpuPercent,
+    cpuMsEstimate: Math.round((wallMs * averageCpuPercent) / 100),
+    harnessHeapDeltaMb: Math.round((heapUsedMb() - heapStartMb) * 10) / 10,
     exitCode,
     stdoutPreview: Buffer.concat(stdout).toString("utf8").trim().split("\n").slice(-2).join("\n"),
     stderrPreview: Buffer.concat(stderr).toString("utf8").trim().split("\n").slice(-2).join("\n"),
   };
 }
 
-function readRssKb(pid) {
+function readProcessStats(pid) {
   if (!pid) {
-    return 0;
+    return { rssKb: 0, cpuPercent: 0 };
+  }
+  if (process.platform === "win32") {
+    return { rssKb: 0, cpuPercent: 0 };
   }
   return new Promise((resolve) => {
-    const ps = spawn("ps", ["-o", "rss=", "-p", String(pid)], {
+    const ps = spawn("ps", ["-o", "rss=,%cpu=", "-p", String(pid)], {
       stdio: ["ignore", "pipe", "ignore"],
     });
     const chunks = [];
     ps.stdout.on("data", (chunk) => chunks.push(chunk));
-    ps.on("error", () => resolve(0));
+    ps.on("error", () => resolve({ rssKb: 0, cpuPercent: 0 }));
     ps.on("exit", () => {
-      const value = Number.parseInt(Buffer.concat(chunks).toString("utf8").trim(), 10);
-      resolve(Number.isFinite(value) ? value : 0);
+      const [rssRaw, cpuRaw] = Buffer.concat(chunks).toString("utf8").trim().split(/\s+/);
+      const rssKb = Number.parseInt(rssRaw, 10);
+      const cpuPercent = Number.parseFloat(cpuRaw);
+      resolve({
+        rssKb: Number.isFinite(rssKb) ? rssKb : 0,
+        cpuPercent: Number.isFinite(cpuPercent) ? cpuPercent : 0,
+      });
     });
   });
+}
+
+function heapUsedMb() {
+  return Math.round((process.memoryUsage().heapUsed / 1024 / 1024) * 10) / 10;
 }
 
 export function validateRuntimeProfile(profile) {
@@ -327,7 +403,7 @@ export function validateRuntimeProfile(profile) {
       errors.push(`${command.id}: missing wall time`);
     }
   }
-  if (profile.commands.every((command) => command.peakRssMb.max <= 0)) {
+  if (profile.platform?.rssSampler !== "unavailable" && profile.commands.every((command) => command.peakRssMb.max <= 0)) {
     errors.push("all commands are missing peak RSS");
   }
   return errors;
@@ -357,6 +433,9 @@ export function renderRuntimeProfileMarkdown(profile) {
         ["P50 wall time", `${profile.summary.p50WallMs} ms`],
         ["P95 wall time", `${profile.summary.p95WallMs} ms`],
         ["Max peak RSS", `${profile.summary.maxPeakRssMb} MB`],
+        ["Max RSS delta", `${profile.summary.maxRssDeltaMb} MB`],
+        ["Max CPU estimate", `${profile.summary.maxCpuMsEstimate} ms`],
+        ["Max harness heap delta", `${profile.summary.maxHarnessHeapDeltaMb} MB`],
       ],
       ["Metric", "Value"],
     ),
@@ -384,9 +463,12 @@ export function renderRuntimeProfileMarkdown(profile) {
         `${command.wallMs.median} ms`,
         `${command.wallMs.max} ms`,
         `${command.peakRssMb.max} MB`,
+        `${command.rssDeltaMb.max} MB`,
+        `${command.cpuMsEstimate.max} ms`,
+        `${command.harnessHeapDeltaMb.max} MB`,
         command.exitCodes.join(", "),
       ]),
-      ["ID", "Label", "Median wall", "Max wall", "Max peak RSS", "Exit codes"],
+      ["ID", "Label", "Median wall", "Max wall", "Max peak RSS", "Max RSS delta", "CPU estimate", "Heap delta", "Exit codes"],
     ),
     "",
     "## Category Rollups",
@@ -398,9 +480,10 @@ export function renderRuntimeProfileMarkdown(profile) {
         `${group.p50WallMs} ms`,
         `${group.p95WallMs} ms`,
         `${group.maxPeakRssMb} MB`,
+        `${group.maxCpuMsEstimate} ms`,
         group.commands.join(", "),
       ]),
-      ["Category", "Commands", "P50 wall", "P95 wall", "Max peak RSS", "Command IDs"],
+      ["Category", "Commands", "P50 wall", "P95 wall", "Max peak RSS", "CPU estimate", "Command IDs"],
     ),
   ].join("\n");
 }
