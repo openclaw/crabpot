@@ -64,10 +64,11 @@ async function materializeNpmFixture(fixture, target) {
   const spec = `${fixture.package.name}@${fixture.package.version}`;
   const tempDir = await mkdtemp(path.join(os.tmpdir(), "crabpot-npm-fixture-"));
   try {
-    const pack = spawnSync(npmCommand(), ["pack", spec, "--pack-destination", tempDir, "--json"], {
+    const pack = spawnSync("npm", ["pack", spec, "--pack-destination", tempDir, "--json"], {
       cwd: repoRoot,
       encoding: "utf8",
       env: process.env,
+      shell: process.platform === "win32",
     });
     if (pack.status !== 0) {
       process.stderr.write(pack.stderr ?? "");
@@ -93,10 +94,6 @@ async function hasEntries(target) {
   } catch {
     return false;
   }
-}
-
-function npmCommand() {
-  return process.platform === "win32" ? "npm.cmd" : "npm";
 }
 
 function run(command, args) {
