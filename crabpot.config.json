@@ -40,6 +40,18 @@
       "why": "Large community channel fixture covering WS streaming, group/DM policy, command allowlists, media, and dynamic agents."
     },
     {
+      "id": "qqbot",
+      "name": "QQbot",
+      "repo": "https://github.com/tencent-connect/openclaw-qqbot.git",
+      "path": "plugins/qqbot",
+      "priority": "high",
+      "seams": ["channel", "media", "proactive-messaging", "cron", "sdk-preload"],
+      "expect": {
+        "registrations": ["registerChannel", "registerTool"]
+      },
+      "why": "QQ Bot channel fixture covering rich media, proactive messaging, cron/reminder tools, and preload-based SDK/runtime compatibility."
+    },
+    {
       "id": "a2a-gateway",
       "name": "A2A Gateway",
       "repo": "https://github.com/win4r/openclaw-a2a-gateway.git",
@@ -111,6 +123,19 @@
         "registrations": ["registerService", "registerCli"]
       },
       "why": "Opik trace exporter covering LLM spans, tool spans, subagent spans, stale trace cleanup, CLI setup, and persisted tool-result sanitization."
+    },
+    {
+      "id": "lossless-claw",
+      "name": "Lossless Claw (LCM)",
+      "repo": "https://github.com/Martian-Engineering/lossless-claw.git",
+      "path": "plugins/lossless-claw",
+      "priority": "high",
+      "seams": ["context-engine", "prompt-mutation", "session-lifecycle", "gateway-lifecycle", "dynamic-tool"],
+      "expect": {
+        "hooks": ["before_reset", "before_prompt_build", "session_end", "gateway_start", "gateway_stop"],
+        "registrations": ["registerContextEngine", "registerTool", "registerCommand"]
+      },
+      "why": "Lossless context-management fixture covering context engine registration, DAG compaction tools, prompt assembly hooks, session cleanup, and gateway maintenance lifecycle."
     },
     {
       "id": "connectclaw",

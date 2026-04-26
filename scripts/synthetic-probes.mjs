@@ -38,6 +38,11 @@ const REGISTRATION_EXECUTION_PROFILES = {
     mode: "direct",
     callableProperties: ["handler", "run", "execute"],
   },
+  registerContextEngine: {
+    mode: "metadata-only",
+    callableProperties: [],
+    reason: "context engine factories are captured as registration metadata; engine startup remains isolated opt-in",
+  },
   registerGatewayMethod: {
     mode: "direct",
     callableProperties: ["handler", "run", "execute"],
@@ -293,14 +298,17 @@ async function runHookProbe(entry, retainedEntry, captureIndex) {
 }
 
 async function runRegistrationProbes(entry, retainedEntry, captureIndex, options) {
-  const descriptor = retainedEntry.arguments?.[0];
-  if (!descriptor || typeof descriptor !== "object") {
-    return [blockedResult(entry, captureIndex, "captured registration has no object descriptor")];
-  }
-
   const profile = registrationExecutionProfile(entry.name);
   if (profile.mode === "unknown") {
     return [blockedResult(entry, captureIndex, "captured registration has no execution profile")];
+  }
+  if (profile.mode === "metadata-only") {
+    return [metadataOnlyResult(entry, captureIndex, profile.reason)];
+  }
+
+  const descriptor = retainedEntry.arguments?.[0];
+  if (!descriptor || typeof descriptor !== "object") {
+    return [blockedResult(entry, captureIndex, "captured registration has no object descriptor")];
   }
   if (profile.option && options[profile.option] !== true) {
     return [blockedResult(entry, captureIndex, `captured registration requires ${profile.option}=true`)];
@@ -411,6 +419,17 @@ function blockedResult(entry, captureIndex, reason) {
     label: entry.name,
     status: "blocked",
     reason,
+  };
+}
+
+function metadataOnlyResult(entry, captureIndex, reason) {
+  return {
+    captureIndex,
+    kind: entry.kind,
+    seam: entry.name,
+    label: entry.name,
+    status: "pass",
+    output: { mode: "metadata-only", reason },
   };
 }
 

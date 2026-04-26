@@ -97,6 +97,13 @@ test("synthetic probe plan tracks metadata-only and opt-in execution modes", asy
               syntheticArguments: [{ id: "fixture" }],
             },
             {
+              id: "registration.registerContextEngine:fixture:index",
+              registrar: "registerContextEngine",
+              ref: "src/index.ts",
+              assertions: ["context engine factory metadata is captured"],
+              syntheticArguments: [{ id: "engine", factory: "function" }],
+            },
+            {
               id: "registration.registerChannel:fixture:index",
               registrar: "registerChannel",
               ref: "src/index.ts",
@@ -110,7 +117,7 @@ test("synthetic probe plan tracks metadata-only and opt-in execution modes", asy
   });
 
   assert.deepEqual(validateSyntheticProbePlan(plan), []);
-  assert.equal(plan.summary.metadataOnlyCount, 1);
+  assert.equal(plan.summary.metadataOnlyCount, 2);
   assert.equal(plan.summary.optInExecutionCount, 1);
   assert.equal(plan.summary.directExecutionCount, 0);
   assert.match(renderSyntheticProbeMarkdown(plan), /metadata-only/);
@@ -185,6 +192,23 @@ test("synthetic probes keep service lifecycle execution opt-in", async () => {
   const executed = await runCapturedSyntheticProbes(capture, { includeLifecycle: true });
   assert.equal(executed.summary.passCount, 1);
   assert.equal(executed.results[0].label, "registerService.start");
+});
+
+test("synthetic probes keep context engine factories metadata-only", async () => {
+  const capture = await captureLocalFixture([
+    "export function register(api) {",
+    "  api.registerContextEngine('fixture-context-engine', () => ({",
+    "    assemble() { return { messages: [] }; },",
+    "  }));",
+    "}",
+  ]);
+
+  const result = await runCapturedSyntheticProbes(capture);
+
+  assert.equal(result.summary.failCount, 0);
+  assert.equal(result.summary.blockedCount, 0);
+  assert.equal(result.results[0].label, "registerContextEngine");
+  assert.equal(result.results[0].output.mode, "metadata-only");
 });
 
 test("synthetic probe CLI refuses isolated execution without opt-in", async () => {

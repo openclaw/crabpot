@@ -50,3 +50,11 @@
 	path = plugins/connectclaw
 	url = https://github.com/osipov-anton/connectclaw.git
 	shallow = true
+[submodule "plugins/qqbot"]
+	path = plugins/qqbot
+	url = https://github.com/tencent-connect/openclaw-qqbot.git
+	shallow = true
+[submodule "plugins/lossless-claw"]
+	path = plugins/lossless-claw
+	url = https://github.com/Martian-Engineering/lossless-claw.git
+	shallow = true
