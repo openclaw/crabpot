@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { existsSync } from "node:fs";
-import { mkdir, mkdtemp, readFile, rm } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, readdir, rm } from "node:fs/promises";
 import os from "node:os";
 import { spawnSync } from "node:child_process";
 import path from "node:path";
@@ -26,11 +26,14 @@ for (const fixture of manifest.fixtures) {
   }
 
   if (existsSync(target)) {
-    run("git", ["submodule", "update", "--init", "--recursive", fixture.path]);
+    if (await hasEntries(target)) {
+      continue;
+    }
+    run("git", ["-c", "safe.directory=*", "submodule", "update", "--init", "--recursive", fixture.path]);
     continue;
   }
 
-  run("git", ["submodule", "add", "--depth", "1", fixture.repo, fixture.path]);
+  run("git", ["-c", "safe.directory=*", "submodule", "add", "--depth", "1", fixture.repo, fixture.path]);
 }
 
 console.log("crabpot: fixtures materialized. review .gitmodules and commit pinned revisions.");
@@ -61,14 +64,15 @@ async function materializeNpmFixture(fixture, target) {
   const spec = `${fixture.package.name}@${fixture.package.version}`;
   const tempDir = await mkdtemp(path.join(os.tmpdir(), "crabpot-npm-fixture-"));
   try {
-    const pack = spawnSync("npm", ["pack", spec, "--pack-destination", tempDir, "--json"], {
+    const pack = spawnSync(npmCommand(), ["pack", spec, "--pack-destination", tempDir, "--json"], {
       cwd: repoRoot,
       encoding: "utf8",
       env: process.env,
     });
     if (pack.status !== 0) {
       process.stderr.write(pack.stderr ?? "");
-      throw new Error(`npm pack ${spec} failed with ${pack.status}`);
+      const detail = pack.error ? `: ${pack.error.message}` : "";
+      throw new Error(`npm pack ${spec} failed with ${pack.status}${detail}`);
     }
     const packed = JSON.parse(pack.stdout)[0];
     if (!packed?.filename) {
@@ -83,6 +87,18 @@ async function materializeNpmFixture(fixture, target) {
   }
 }
 
+async function hasEntries(target) {
+  try {
+    return (await readdir(target)).length > 0;
+  } catch {
+    return false;
+  }
+}
+
+function npmCommand() {
+  return process.platform === "win32" ? "npm.cmd" : "npm";
+}
+
 function run(command, args) {
   const result = spawnSync(command, args, {
     cwd: repoRoot,
@@ -91,6 +107,7 @@ function run(command, args) {
   });
 
   if (result.status !== 0) {
-    throw new Error(`${command} ${args.join(" ")} failed with ${result.status}`);
+    const detail = result.error ? `: ${result.error.message}` : "";
+    throw new Error(`${command} ${args.join(" ")} failed with ${result.status}${detail}`);
   }
 }
