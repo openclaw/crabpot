@@ -113,6 +113,20 @@
       "why": "Opik trace exporter covering LLM spans, tool spans, subagent spans, stale trace cleanup, CLI setup, and persisted tool-result sanitization."
     },
     {
+      "id": "connectclaw",
+      "name": "ConnectClaw",
+      "repo": "https://github.com/osipov-anton/connectclaw.git",
+      "path": "plugins/connectclaw",
+      "subdir": "packages/plugin",
+      "priority": "high",
+      "seams": ["dynamic-tool", "external-api", "gateway-service", "process-spawn", "hono-relay"],
+      "expect": {
+        "hooks": ["before_agent_start"],
+        "registrations": ["registerTool", "registerCommand", "registerService"]
+      },
+      "why": "Contacts/messaging plugin with dynamic tool factories, command handlers, a polling service that wakes agents via the OpenClaw CLI, and a Hono relay package in the same repo."
+    },
+    {
       "id": "clawmetry",
       "name": "ClawMetry",
       "repo": "https://github.com/vivekchand/clawmetry.git",

@@ -46,3 +46,7 @@
 	path = plugins/opik-openclaw
 	url = https://github.com/comet-ml/opik-openclaw.git
 	shallow = true
+[submodule "plugins/connectclaw"]
+	path = plugins/connectclaw
+	url = https://github.com/osipov-anton/connectclaw.git
+	shallow = true
