@@ -110,6 +110,7 @@ jobs:
       - run: node scripts/cold-import-readiness.mjs --check --openclaw ./openclaw
       - run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
       - run: node scripts/platform-probes.mjs --check --openclaw ./openclaw
+      - run: node scripts/import-loop-profile.mjs --check
       - run: node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs "${PROFILE_RUNS}"
       - name: Run runtime profile policy
         run: node scripts/compare-runtime-profile.mjs ${{ inputs.strict_perf && '--strict' || '' }}
@@ -125,6 +126,7 @@ jobs:
           node scripts/cold-import-readiness.mjs --openclaw ./openclaw
           node scripts/workspace-plan.mjs --openclaw ./openclaw
           node scripts/platform-probes.mjs --openclaw ./openclaw
+          node scripts/import-loop-profile.mjs
           node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs "${PROFILE_RUNS}"
           node scripts/compare-runtime-profile.mjs ${{ inputs.strict_perf && '--strict' || '' }}
           node scripts/check-ci-policy.mjs ${{ inputs.strict_contract && '--strict' || '' }}

@@ -68,6 +68,13 @@ const PROFILE_COMMANDS = [
     args: ["scripts/platform-probes.mjs", "--check"],
     openclaw: true,
   },
+  {
+    id: "import-loop-profile",
+    label: "Repeated cold import capture loop",
+    category: "import-loop",
+    args: ["scripts/import-loop-profile.mjs", "--check", "--runs", "2"],
+    openclaw: false,
+  },
 ];
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {

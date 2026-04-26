@@ -40,6 +40,7 @@ jobs:
       - run: node scripts/cold-import-readiness.mjs --check --openclaw ./openclaw
       - run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
       - run: node scripts/platform-probes.mjs --check --openclaw ./openclaw
+      - run: node scripts/import-loop-profile.mjs --check
       - run: node scripts/profile-contract-runtime.mjs --check --openclaw ./openclaw
       - run: node scripts/check-contract-coverage.mjs --openclaw ./openclaw
       - name: Write CI summary artifacts
@@ -52,6 +53,7 @@ jobs:
           node scripts/cold-import-readiness.mjs --openclaw ./openclaw
           node scripts/workspace-plan.mjs --openclaw ./openclaw
           node scripts/platform-probes.mjs --openclaw ./openclaw
+          node scripts/import-loop-profile.mjs
           node scripts/profile-contract-runtime.mjs --openclaw ./openclaw
           node scripts/compare-runtime-profile.mjs
           node scripts/check-ci-policy.mjs
@@ -85,6 +87,7 @@ jobs:
       - run: node scripts/cold-import-readiness.mjs --check --openclaw ./openclaw
       - run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
       - run: node scripts/platform-probes.mjs --check --openclaw ./openclaw
+      - run: node scripts/import-loop-profile.mjs --check
       - run: node scripts/profile-contract-runtime.mjs --check --openclaw ./openclaw
 
   changed-fixture-plan:
@@ -221,6 +224,7 @@ jobs:
           node scripts/cold-import-readiness.mjs --openclaw ./openclaw
           node scripts/workspace-plan.mjs --openclaw ./openclaw
           node scripts/platform-probes.mjs --openclaw ./openclaw
+          node scripts/import-loop-profile.mjs
           node scripts/profile-contract-runtime.mjs --openclaw ./openclaw
           node scripts/compare-runtime-profile.mjs
           node scripts/check-ci-policy.mjs

@@ -87,6 +87,13 @@ test("ci summary rolls up compatibility, policy, ref diff, and profile findings"
           jitiAlternativeCount: 1,
         },
       },
+      importLoop: {
+        summary: {
+          p50WallMs: 50,
+          maxPeakRssMb: 40,
+          maxCpuMsEstimate: 30,
+        },
+      },
     },
   });
 
@@ -95,8 +102,10 @@ test("ci summary rolls up compatibility, policy, ref diff, and profile findings"
   assert.equal(summary.summary.policyWarnings, 1);
   assert.equal(summary.summary.platformWindowsRisks, 3);
   assert.equal(summary.summary.loaderJitiCandidates, 1);
+  assert.equal(summary.summary.importLoopP50Ms, 50);
   assert.match(renderCiSummaryMarkdown(summary), /Crabpot CI Summary/);
   assert.match(renderCiSummaryMarkdown(summary), /Windows portability risks/);
+  assert.match(renderCiSummaryMarkdown(summary), /Import loop/);
   assert.match(renderCiSummaryMarkdown(summary), /\| P0 issues\s+\| 1\s+\|/);
   assert.match(renderCiSummaryMarkdown(summary), /openclaw\/openclaw@main/);
 });

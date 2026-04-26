@@ -50,6 +50,7 @@ test("runtime profile records boot time and target registry surface", async () =
   assert.ok(Number.isFinite(profile.summary.maxHarnessHeapDeltaMb));
   assert.ok(profile.commands.some((command) => command.id === "node-boot" && command.wallMs.max > 0));
   assert.ok(profile.commands.some((command) => command.id === "platform-probes"));
+  assert.ok(profile.commands.some((command) => command.id === "import-loop-profile"));
   assert.ok(profile.groups.some((group) => group.category === "target-registry" && group.commands.includes("compat-report-registry")));
   assert.ok(profile.groups.every((group) => group.p50WallMs > 0));
   assert.match(renderRuntimeProfileMarkdown(profile), /Target OpenClaw Registry Surface/);
