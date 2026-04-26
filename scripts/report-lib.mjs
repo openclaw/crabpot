@@ -2015,7 +2015,7 @@ function readSubmoduleShas() {
   }
 
   try {
-    const status = execFileSync("git", ["submodule", "status", "--recursive"], {
+    const status = execFileSync("git", ["-c", "safe.directory=*", "submodule", "status", "--recursive"], {
       cwd: repoRoot,
       encoding: "utf8",
       stdio: ["ignore", "pipe", "ignore"],
@@ -2034,7 +2034,7 @@ function readSubmoduleShas() {
 
 function readSubmoduleGitlinkShas() {
   try {
-    const tree = execFileSync("git", ["ls-tree", "-r", "HEAD", "plugins"], {
+    const tree = execFileSync("git", ["-c", "safe.directory=*", "ls-tree", "-r", "HEAD", "plugins"], {
       cwd: repoRoot,
       encoding: "utf8",
       stdio: ["ignore", "pipe", "ignore"],
