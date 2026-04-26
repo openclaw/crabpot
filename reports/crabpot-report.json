@@ -3,11 +3,12 @@
   "targetOpenClaw": {
     "configuredPath": "../openclaw",
     "searchedPaths": [
-      "../openclaw"
+      "../openclaw",
+      "./openclaw"
     ],
     "status": "ok",
     "compatRegistryPath": "../openclaw/src/plugins/compat/registry.ts",
-    "compatRecordCount": 19,
+    "compatRecordCount": 18,
     "compatRecords": [
       "activation-capability-hint",
       "activation-channel-hint",
@@ -25,16 +26,16 @@
       "generated-bundled-channel-config-fallback",
       "hook-only-plugin-shape",
       "legacy-before-agent-start",
-      "legacy-config-plugin-installs",
       "legacy-root-sdk-import",
       "provider-auth-env-vars"
     ],
     "hookTypesPath": "../openclaw/src/plugins/hook-types.ts",
-    "hookNameCount": 31,
+    "hookNameCount": 32,
     "hookNames": [
       "after_compaction",
       "after_tool_call",
       "agent_end",
+      "before_agent_finalize",
       "before_agent_reply",
       "before_agent_start",
       "before_compaction",
@@ -499,16 +500,16 @@
   },
   "status": "pass",
   "summary": {
-    "fixtureCount": 12,
-    "highPriorityFixtures": 7,
+    "fixtureCount": 13,
+    "highPriorityFixtures": 8,
     "breakageCount": 0,
-    "warningCount": 18,
-    "suggestionCount": 40,
-    "decisionCount": 60,
-    "issueCount": 58,
+    "warningCount": 20,
+    "suggestionCount": 44,
+    "decisionCount": 66,
+    "issueCount": 64,
     "p0IssueCount": 0,
-    "p1IssueCount": 12,
-    "contractProbeCount": 57
+    "p1IssueCount": 13,
+    "contractProbeCount": 63
   },
   "fixtures": [
     {
@@ -1996,6 +1997,218 @@
       ]
     },
     {
+      "id": "connectclaw",
+      "name": "ConnectClaw",
+      "priority": "high",
+      "seams": [
+        "dynamic-tool",
+        "external-api",
+        "gateway-service",
+        "process-spawn",
+        "hono-relay"
+      ],
+      "why": "Contacts/messaging plugin with dynamic tool factories, command handlers, a polling service that wakes agents via the OpenClaw CLI, and a Hono relay package in the same repo.",
+      "status": "ok",
+      "hooks": [
+        "before_agent_start"
+      ],
+      "hookDetails": [
+        {
+          "name": "before_agent_start",
+          "file": "plugins/connectclaw/packages/plugin/src/hooks.ts",
+          "line": 17,
+          "ref": "plugins/connectclaw/packages/plugin/src/hooks.ts:17"
+        }
+      ],
+      "registrations": [
+        "registerCommand",
+        "registerService",
+        "registerTool"
+      ],
+      "registrationDetails": [
+        {
+          "name": "registerCommand",
+          "file": "plugins/connectclaw/packages/plugin/src/commands.ts",
+          "line": 18,
+          "ref": "plugins/connectclaw/packages/plugin/src/commands.ts:18"
+        },
+        {
+          "name": "registerCommand",
+          "file": "plugins/connectclaw/packages/plugin/src/commands.ts",
+          "line": 64,
+          "ref": "plugins/connectclaw/packages/plugin/src/commands.ts:64"
+        },
+        {
+          "name": "registerService",
+          "file": "plugins/connectclaw/packages/plugin/src/hooks.ts",
+          "line": 91,
+          "ref": "plugins/connectclaw/packages/plugin/src/hooks.ts:91"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/connectclaw/packages/plugin/src/tools.ts",
+          "line": 6,
+          "ref": "plugins/connectclaw/packages/plugin/src/tools.ts:6"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/connectclaw/packages/plugin/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/connectclaw/packages/plugin/index.ts",
+        "plugins/connectclaw/packages/plugin/src/commands.ts",
+        "plugins/connectclaw/packages/plugin/src/config.ts",
+        "plugins/connectclaw/packages/plugin/src/hooks.ts",
+        "plugins/connectclaw/packages/plugin/src/relay-client.ts",
+        "plugins/connectclaw/packages/plugin/src/tools.ts"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/connectclaw/packages/plugin/openclaw.plugin.json",
+          "id": "connectclaw",
+          "name": "ConnectClaw",
+          "version": null,
+          "keys": [
+            "configSchema",
+            "description",
+            "id",
+            "name"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/connectclaw/packages/plugin/package.json",
+        "name": "@connectclaw/connectclaw",
+        "version": "0.3.0",
+        "type": "module",
+        "main": null,
+        "dependencies": [],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./index.ts"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": null,
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.ts",
+              "relativePath": "plugins/connectclaw/packages/plugin/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/connectclaw/packages/plugin/package.json",
+          "name": "@connectclaw/connectclaw",
+          "version": "0.3.0",
+          "type": "module",
+          "main": null,
+          "dependencies": [],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./index.ts"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": null,
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.ts",
+                "relativePath": "plugins/connectclaw/packages/plugin/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        },
+        {
+          "path": "plugins/connectclaw/package.json",
+          "name": "connectclaw",
+          "version": null,
+          "type": "module",
+          "main": null,
+          "dependencies": [],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": null
+        },
+        {
+          "path": "plugins/connectclaw/packages/relay/package.json",
+          "name": "@connectclaw/relay",
+          "version": "0.2.0",
+          "type": "module",
+          "main": null,
+          "dependencies": [
+            "@hono/node-server",
+            "@libsql/client",
+            "drizzle-orm",
+            "hono"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": null
+        }
+      ],
+      "sdkImports": [
+        "openclaw/plugin-sdk"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/connectclaw/packages/plugin/index.ts",
+          "line": 1,
+          "ref": "plugins/connectclaw/packages/plugin/index.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/connectclaw/packages/plugin/src/commands.ts",
+          "line": 1,
+          "ref": "plugins/connectclaw/packages/plugin/src/commands.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/connectclaw/packages/plugin/src/hooks.ts",
+          "line": 1,
+          "ref": "plugins/connectclaw/packages/plugin/src/hooks.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/connectclaw/packages/plugin/src/tools.ts",
+          "line": 1,
+          "ref": "plugins/connectclaw/packages/plugin/src/tools.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/connectclaw/packages/plugin/src/tools.ts",
+          "line": 2,
+          "ref": "plugins/connectclaw/packages/plugin/src/tools.ts:2"
+        }
+      ]
+    },
+    {
       "id": "clawmetry",
       "name": "ClawMetry",
       "priority": "medium",
@@ -3018,6 +3231,29 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
+      "fixture": "connectclaw",
+      "code": "package-plugin-api-compat-missing",
+      "level": "warning",
+      "message": "package openclaw metadata does not declare compat.pluginApi",
+      "evidence": [
+        "plugins/connectclaw/packages/plugin/package.json"
+      ]
+    },
+    {
+      "fixture": "connectclaw",
+      "code": "legacy-root-sdk-import",
+      "level": "warning",
+      "message": "fixture imports the root plugin SDK barrel",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/commands.ts:1",
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/hooks.ts:1",
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:1",
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:2"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
       "fixture": "codex-app-server",
       "code": "sdk-export-missing",
       "level": "warning",
@@ -3329,6 +3565,44 @@
       ]
     },
     {
+      "fixture": "connectclaw",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/connectclaw/packages/plugin/index.ts"
+      ]
+    },
+    {
+      "fixture": "connectclaw",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "openclaw @ plugins/connectclaw/packages/plugin/package.json"
+      ]
+    },
+    {
+      "fixture": "connectclaw",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerCommand @ plugins/connectclaw/packages/plugin/src/commands.ts:18",
+        "registerCommand @ plugins/connectclaw/packages/plugin/src/commands.ts:64",
+        "registerService @ plugins/connectclaw/packages/plugin/src/hooks.ts:91"
+      ]
+    },
+    {
+      "fixture": "connectclaw",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool @ plugins/connectclaw/packages/plugin/src/tools.ts:6"
+      ]
+    },
+    {
       "fixture": "clawmetry",
       "code": "package-build-artifact-entrypoint",
       "level": "suggestion",
@@ -3561,6 +3835,22 @@
         "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
       ],
       "compatRecord": "plugin-sdk-export-aliases"
+    },
+    {
+      "id": "CRABPOT-A16D6B91",
+      "fixture": "connectclaw",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "connectclaw: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerCommand @ plugins/connectclaw/packages/plugin/src/commands.ts:18",
+        "registerCommand @ plugins/connectclaw/packages/plugin/src/commands.ts:64",
+        "registerService @ plugins/connectclaw/packages/plugin/src/hooks.ts:91"
+      ],
+      "compatRecord": null
     },
     {
       "id": "CRABPOT-D71B126E",
@@ -3996,6 +4286,80 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-4320AA30",
+      "fixture": "connectclaw",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-root-sdk-import",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "title": "connectclaw: root plugin SDK barrel is still used by fixtures",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/commands.ts:1",
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/hooks.ts:1",
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:1",
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:2"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "id": "CRABPOT-7CD3D0A0",
+      "fixture": "connectclaw",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "connectclaw: cold import requires isolated dependency installation",
+      "evidence": [
+        "openclaw @ plugins/connectclaw/packages/plugin/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-8DC3A4AE",
+      "fixture": "connectclaw",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-plugin-api-compat-missing",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "title": "connectclaw: plugin API compatibility range is missing",
+      "evidence": [
+        "plugins/connectclaw/packages/plugin/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-FF258127",
+      "fixture": "connectclaw",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "connectclaw: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/connectclaw/packages/plugin/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-3497E5D0",
+      "fixture": "connectclaw",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "connectclaw: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/connectclaw/packages/plugin/src/tools.ts:6"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-2C2BFD3C",
       "fixture": "hasdata",
       "severity": "P2",
@@ -4399,6 +4763,18 @@
       ]
     },
     {
+      "id": "api.capture.runtime-registrars:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerCommand @ plugins/connectclaw/packages/plugin/src/commands.ts:18",
+        "registerCommand @ plugins/connectclaw/packages/plugin/src/commands.ts:64",
+        "registerService @ plugins/connectclaw/packages/plugin/src/hooks.ts:91"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:mcp-adapter",
       "fixture": "mcp-adapter",
       "priority": "P1",
@@ -4557,6 +4933,16 @@
       ]
     },
     {
+      "id": "package.compat.plugin-api-range:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      "evidence": [
+        "plugins/connectclaw/packages/plugin/package.json"
+      ]
+    },
+    {
       "id": "package.compat.plugin-api-range:mcp-adapter",
       "fixture": "mcp-adapter",
       "priority": "P2",
@@ -4629,6 +5015,16 @@
       ]
     },
     {
+      "id": "package.entrypoint.isolated-dependency-install:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "openclaw @ plugins/connectclaw/packages/plugin/package.json"
+      ]
+    },
+    {
       "id": "package.entrypoint.isolated-dependency-install:hasdata",
       "fixture": "hasdata",
       "priority": "P2",
@@ -4684,6 +5080,16 @@
       "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
       "evidence": [
         "extension:plugins/a2a-gateway/index.ts"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/connectclaw/packages/plugin/index.ts"
       ]
     },
     {
@@ -4748,6 +5154,20 @@
       ]
     },
     {
+      "id": "sdk.import.root-barrel-cold-import:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/commands.ts:1",
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/hooks.ts:1",
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:1",
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:2"
+      ]
+    },
+    {
       "id": "sdk.import.root-barrel-cold-import:llm-trace-phoenix",
       "fixture": "llm-trace-phoenix",
       "priority": "P2",
@@ -4783,6 +5203,16 @@
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
         "registerTool @ plugins/a2a-gateway/index.ts:777"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/connectclaw/packages/plugin/src/tools.ts:6"
       ]
     },
     {
@@ -5416,6 +5846,67 @@
       ]
     },
     {
+      "fixture": "connectclaw",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 1 hooks, 3 registrations, and 0 manifest contracts",
+      "evidence": [
+        "hook:before_agent_start",
+        "registration:registerCommand",
+        "registration:registerService",
+        "registration:registerTool"
+      ]
+    },
+    {
+      "fixture": "connectclaw",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": [
+        "before_agent_start"
+      ]
+    },
+    {
+      "fixture": "connectclaw",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerCommand",
+        "registerService",
+        "registerTool"
+      ]
+    },
+    {
+      "fixture": "connectclaw",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk"
+      ]
+    },
+    {
+      "fixture": "connectclaw",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/connectclaw/packages/plugin/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "connectclaw",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/connectclaw/packages/plugin/package.json",
+        "@connectclaw/connectclaw",
+        "version:0.3.0"
+      ]
+    },
+    {
       "fixture": "clawmetry",
       "code": "seam-inventory",
       "level": "log",
@@ -5734,6 +6225,16 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
+      "fixture": "connectclaw",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-root-sdk-import"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
       "fixture": "codex-app-server",
       "code": "compat-record-present",
       "level": "log",
@@ -6040,6 +6541,48 @@
       "seam": "tool-policy",
       "action": "Probe before_tool_call return shapes before changing tool-call approval or block behavior.",
       "evidence": "before_tool_call"
+    },
+    {
+      "fixture": "connectclaw",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to declare the plugin API range it was built against.",
+      "evidence": "plugins/connectclaw/packages/plugin/package.json"
+    },
+    {
+      "fixture": "connectclaw",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/connectclaw/packages/plugin/index.ts"
+    },
+    {
+      "fixture": "connectclaw",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "openclaw"
+    },
+    {
+      "fixture": "connectclaw",
+      "decision": "core-compat-adapter",
+      "seam": "sdk-import",
+      "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
+      "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "connectclaw",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerCommand, registerService"
+    },
+    {
+      "fixture": "connectclaw",
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
     },
     {
       "fixture": "clawmetry",

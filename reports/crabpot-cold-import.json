@@ -6,13 +6,13 @@
     "sdkExportCount": 307
   },
   "summary": {
-    "fixtureCount": 12,
-    "entrypointCount": 15,
+    "fixtureCount": 13,
+    "entrypointCount": 16,
     "readyCount": 0,
-    "blockedCount": 15,
-    "tsLoaderRequiredCount": 9,
+    "blockedCount": 16,
+    "tsLoaderRequiredCount": 10,
     "buildRequiredCount": 4,
-    "dependencyInstallRequiredCount": 10,
+    "dependencyInstallRequiredCount": 11,
     "sdkAliasRequiredCount": 1
   },
   "fixtures": [
@@ -261,6 +261,37 @@
           ],
           "assertions": [
             "plugin build or source alias resolution runs before cold import"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "connectclaw",
+      "priority": "high",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
+          "fixture": "connectclaw",
+          "packagePath": "plugins/connectclaw/packages/plugin/package.json",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "path": "plugins/connectclaw/packages/plugin/index.ts",
+          "status": "ts-loader-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/connectclaw/packages/plugin/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "openclaw"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
       ]

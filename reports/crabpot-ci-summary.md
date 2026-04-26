@@ -10,14 +10,15 @@ Status: PASS
 | Metric            | Value |
 | ----------------- | ----- |
 | Breakages         | 0     |
-| Warnings          | 18    |
-| Suggestions       | 40    |
-| Issues            | 58    |
-| P1 issues         | 12    |
+| Warnings          | 20    |
+| Suggestions       | 44    |
+| Issues            | 64    |
+| P1 issues         | 13    |
 | Ref diff failures | 0     |
 | Ref diff warnings | 0     |
 | Policy failures   | 0     |
 | Policy warnings   | 2     |
+| Profile failures  | 0     |
 | Profile warnings  | 0     |
 | Execution pass    | 6     |
 | Execution fail    | 0     |
@@ -32,6 +33,7 @@ Status: PASS
 | P1       | codex-app-server  | missing-compat-record    | core-compat-adapter | codex-app-server: compat-dependent behavior lacks registry coverage                 |
 | P1       | codex-app-server  | registration-capture-gap | inspector-follow-up | codex-app-server: runtime registrations need capture before contract judgment       |
 | P1       | codex-app-server  | sdk-export-missing       | core-compat-adapter | codex-app-server: plugin SDK import aliases are missing from target package exports |
+| P1       | connectclaw       | registration-capture-gap | inspector-follow-up | connectclaw: runtime registrations need capture before contract judgment            |
 | P1       | llm-trace-phoenix | conversation-access-hook | inspector-follow-up | llm-trace-phoenix: conversation-access hooks need privacy-boundary probes           |
 | P1       | mcp-adapter       | registration-capture-gap | inspector-follow-up | mcp-adapter: runtime registrations need capture before contract judgment            |
 | P1       | opik-openclaw     | before-tool-call-probe   | inspector-follow-up | opik-openclaw: before_tool_call needs terminal/block/approval probes                |

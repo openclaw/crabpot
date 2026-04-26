@@ -5,14 +5,15 @@
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 18,
-    "suggestions": 40,
-    "issues": 58,
-    "p1Issues": 12,
+    "warnings": 20,
+    "suggestions": 44,
+    "issues": 64,
+    "p1Issues": 13,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
     "policyWarnings": 2,
+    "profileFailures": 0,
     "profileWarnings": 0,
     "executionPass": 6,
     "executionFail": 0,
@@ -53,6 +54,13 @@
       "code": "sdk-export-missing",
       "title": "codex-app-server: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "fixture": "connectclaw",
+      "code": "registration-capture-gap",
+      "title": "connectclaw: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
     },
     {
       "severity": "P1",

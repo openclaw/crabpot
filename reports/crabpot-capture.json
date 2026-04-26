@@ -7,13 +7,13 @@
     "sdkExportCount": 307
   },
   "summary": {
-    "fixtureCount": 12,
-    "registrationCount": 30,
-    "hookCount": 18,
-    "sdkImportCount": 41,
-    "packageEntrypointCount": 15,
-    "issueProbeCount": 57,
-    "inspectorShimRequiredCount": 18,
+    "fixtureCount": 13,
+    "registrationCount": 34,
+    "hookCount": 19,
+    "sdkImportCount": 46,
+    "packageEntrypointCount": 16,
+    "issueProbeCount": 63,
+    "inspectorShimRequiredCount": 21,
     "compatAliasRequiredCount": 3
   },
   "fixtures": [
@@ -1213,6 +1213,177 @@
       ]
     },
     {
+      "id": "connectclaw",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.registerCommand:connectclaw:plugins-connectclaw-packages-plugin-src-commands-ts-18",
+          "fixture": "connectclaw",
+          "registrar": "registerCommand",
+          "ref": "plugins/connectclaw/packages/plugin/src/commands.ts:18",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCommand:connectclaw:plugins-connectclaw-packages-plugin-src-commands-ts-64",
+          "fixture": "connectclaw",
+          "registrar": "registerCommand",
+          "ref": "plugins/connectclaw/packages/plugin/src/commands.ts:64",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerService:connectclaw:plugins-connectclaw-packages-plugin-src-hooks-ts-91",
+          "fixture": "connectclaw",
+          "registrar": "registerService",
+          "ref": "plugins/connectclaw/packages/plugin/src/hooks.ts:91",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "service id is stable",
+            "start/stop lifecycle handlers are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-service",
+              "start": "function",
+              "stop": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:connectclaw:plugins-connectclaw-packages-plugin-src-tools-ts-6",
+          "fixture": "connectclaw",
+          "registrar": "registerTool",
+          "ref": "plugins/connectclaw/packages/plugin/src/tools.ts:6",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [
+        {
+          "id": "hook.before_agent_start:connectclaw:plugins-connectclaw-packages-plugin-src-hooks-ts-17",
+          "fixture": "connectclaw",
+          "hook": "before_agent_start",
+          "ref": "plugins/connectclaw/packages/plugin/src/hooks.ts:17",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "before_agent_start",
+            "fixture": "connectclaw"
+          },
+          "syntheticContext": {
+            "hook": "before_agent_start",
+            "fixture": "connectclaw"
+          }
+        }
+      ],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk:connectclaw:plugins-connectclaw-packages-plugin-index-ts-1",
+          "fixture": "connectclaw",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/connectclaw/packages/plugin/index.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:connectclaw:plugins-connectclaw-packages-plugin-src-commands-ts-1",
+          "fixture": "connectclaw",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/connectclaw/packages/plugin/src/commands.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:connectclaw:plugins-connectclaw-packages-plugin-src-hooks-ts-1",
+          "fixture": "connectclaw",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/connectclaw/packages/plugin/src/hooks.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:connectclaw:plugins-connectclaw-packages-plugin-src-tools-ts-1",
+          "fixture": "connectclaw",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/connectclaw/packages/plugin/src/tools.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:connectclaw:plugins-connectclaw-packages-plugin-src-tools-ts-2",
+          "fixture": "connectclaw",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/connectclaw/packages/plugin/src/tools.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
+          "fixture": "connectclaw",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "ref": "plugins/connectclaw/packages/plugin/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
       "id": "clawmetry",
       "priority": "medium",
       "registrations": [
@@ -1850,6 +2021,21 @@
       ]
     },
     {
+      "id": "api.capture.runtime-registrars:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerCommand @ plugins/connectclaw/packages/plugin/src/commands.ts:18",
+        "registerCommand @ plugins/connectclaw/packages/plugin/src/commands.ts:64",
+        "registerService @ plugins/connectclaw/packages/plugin/src/hooks.ts:91"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:mcp-adapter",
       "fixture": "mcp-adapter",
       "priority": "P1",
@@ -2053,6 +2239,19 @@
       ]
     },
     {
+      "id": "package.compat.plugin-api-range:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/connectclaw/packages/plugin/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.compat.plugin-api-range:mcp-adapter",
       "fixture": "mcp-adapter",
       "priority": "P2",
@@ -2143,6 +2342,19 @@
       ]
     },
     {
+      "id": "package.entrypoint.isolated-dependency-install:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "openclaw @ plugins/connectclaw/packages/plugin/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.entrypoint.isolated-dependency-install:hasdata",
       "fixture": "hasdata",
       "priority": "P2",
@@ -2209,6 +2421,19 @@
       "target": "package-loader",
       "evidence": [
         "extension:plugins/a2a-gateway/index.ts"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/connectclaw/packages/plugin/index.ts"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -2295,6 +2520,23 @@
       ]
     },
     {
+      "id": "sdk.import.root-barrel-cold-import:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/commands.ts:1",
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/hooks.ts:1",
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:1",
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:2"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
       "id": "sdk.import.root-barrel-cold-import:llm-trace-phoenix",
       "fixture": "llm-trace-phoenix",
       "priority": "P2",
@@ -2335,6 +2577,19 @@
       "target": "tool-runtime",
       "evidence": [
         "registerTool @ plugins/a2a-gateway/index.ts:777"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/connectclaw/packages/plugin/src/tools.ts:6"
       ],
       "assertions": [
         "tool schema is captured",

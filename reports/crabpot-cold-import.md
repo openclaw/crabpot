@@ -6,13 +6,13 @@ Generated: deterministic
 
 | Metric                      | Value |
 | --------------------------- | ----- |
-| Fixtures                    | 12    |
-| Entrypoints                 | 15    |
+| Fixtures                    | 13    |
+| Entrypoints                 | 16    |
 | Ready                       | 0     |
-| Blocked                     | 15    |
-| TypeScript loader required  | 9     |
+| Blocked                     | 16    |
+| TypeScript loader required  | 10    |
 | Build required              | 4     |
-| Dependency install required | 10    |
+| Dependency install required | 11    |
 | SDK alias required          | 1     |
 
 ## Entrypoints
@@ -28,6 +28,7 @@ Generated: deterministic
 | llm-trace-phoenix | extension        | ts-loader-required          | plugins/llm-trace-phoenix/index.ts                                  | ts-loader-required, top-level-side-effect-review                                                            | TypeScript source entrypoint is compiled or loaded before cold import; cold import sandbox blocks network/process side effects before register capture                                                                                                                                                                                                                                       |
 | opik-openclaw     | extension        | ts-loader-required          | plugins/opik-openclaw/index.ts                                      | ts-loader-required, dependency-install-required                                                             | TypeScript source entrypoint is compiled or loaded before cold import; fixture dependencies are installed in an isolated workspace before cold import                                                                                                                                                                                                                                        |
 | opik-openclaw     | runtimeExtension | build-required              | plugins/opik-openclaw/dist/index.js                                 | build-required                                                                                              | plugin build or source alias resolution runs before cold import                                                                                                                                                                                                                                                                                                                              |
+| connectclaw       | extension        | ts-loader-required          | plugins/connectclaw/packages/plugin/index.ts                        | ts-loader-required, dependency-install-required                                                             | TypeScript source entrypoint is compiled or loaded before cold import; fixture dependencies are installed in an isolated workspace before cold import                                                                                                                                                                                                                                        |
 | clawmetry         | extension        | ts-loader-required          | plugins/clawmetry/clawhub-plugin/index.ts                           | ts-loader-required, dependency-install-required                                                             | TypeScript source entrypoint is compiled or loaded before cold import; fixture dependencies are installed in an isolated workspace before cold import                                                                                                                                                                                                                                        |
 | clawmetry         | runtimeExtension | build-required              | plugins/clawmetry/clawhub-plugin/dist/index.js                      | build-required                                                                                              | plugin build or source alias resolution runs before cold import                                                                                                                                                                                                                                                                                                                              |
 | codex-app-server  | extension        | sdk-alias-required          | plugins/codex-app-server/index.ts                                   | ts-loader-required, dependency-install-required, sdk-alias-required, sdk-alias-required, sdk-alias-required | TypeScript source entrypoint is compiled or loaded before cold import; fixture dependencies are installed in an isolated workspace before cold import; target OpenClaw exports the imported SDK alias or provides a migration shim; target OpenClaw exports the imported SDK alias or provides a migration shim; target OpenClaw exports the imported SDK alias or provides a migration shim |

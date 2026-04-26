@@ -1,14 +1,14 @@
 {
   "generatedAt": "deterministic",
   "summary": {
-    "fixtureCount": 12,
-    "probeCount": 48,
-    "hookProbeCount": 18,
-    "registrationProbeCount": 30,
-    "readyCount": 48,
+    "fixtureCount": 13,
+    "probeCount": 53,
+    "hookProbeCount": 19,
+    "registrationProbeCount": 34,
+    "readyCount": 53,
     "blockedCount": 0,
-    "directExecutionCount": 20,
-    "optInExecutionCount": 7,
+    "directExecutionCount": 23,
+    "optInExecutionCount": 8,
     "metadataOnlyCount": 3
   },
   "probes": [
@@ -449,6 +449,26 @@
         "fixture": "opik-openclaw"
       },
       "source": "plugins/opik-openclaw/src/service.ts:541"
+    },
+    {
+      "id": "hook.before_agent_start:connectclaw:plugins-connectclaw-packages-plugin-src-hooks-ts-17",
+      "fixture": "connectclaw",
+      "kind": "hook",
+      "seam": "before_agent_start",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "before_agent_start",
+        "fixture": "connectclaw"
+      },
+      "syntheticContext": {
+        "hook": "before_agent_start",
+        "fixture": "connectclaw"
+      },
+      "source": "plugins/connectclaw/packages/plugin/src/hooks.ts:17"
     },
     {
       "id": "hook.inbound_claim:codex-app-server:plugins-codex-app-server-index-ts-25",
@@ -1018,6 +1038,120 @@
         "option": "includeLifecycle"
       },
       "source": "plugins/opik-openclaw/index.ts:16"
+    },
+    {
+      "id": "registration.registerCommand:connectclaw:plugins-connectclaw-packages-plugin-src-commands-ts-18",
+      "fixture": "connectclaw",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/connectclaw/packages/plugin/src/commands.ts:18"
+    },
+    {
+      "id": "registration.registerCommand:connectclaw:plugins-connectclaw-packages-plugin-src-commands-ts-64",
+      "fixture": "connectclaw",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/connectclaw/packages/plugin/src/commands.ts:64"
+    },
+    {
+      "id": "registration.registerService:connectclaw:plugins-connectclaw-packages-plugin-src-hooks-ts-91",
+      "fixture": "connectclaw",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop"
+        ],
+        "option": "includeLifecycle"
+      },
+      "source": "plugins/connectclaw/packages/plugin/src/hooks.ts:91"
+    },
+    {
+      "id": "registration.registerTool:connectclaw:plugins-connectclaw-packages-plugin-src-tools-ts-6",
+      "fixture": "connectclaw",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/connectclaw/packages/plugin/src/tools.ts:6"
     },
     {
       "id": "registration.definePluginEntry:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts-4",

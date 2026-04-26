@@ -10,15 +10,15 @@
     "configuredPath": "../openclaw"
   },
   "summary": {
-    "fixtureCount": 12,
-    "entrypointCount": 15,
-    "installStepCount": 10,
-    "auditStepCount": 10,
+    "fixtureCount": 13,
+    "entrypointCount": 16,
+    "installStepCount": 11,
+    "auditStepCount": 11,
     "buildStepCount": 4,
-    "artifactStepCount": 15,
-    "captureStepCount": 15,
-    "syntheticProbeStepCount": 15,
-    "targetOpenClawLinkStepCount": 10,
+    "artifactStepCount": 16,
+    "captureStepCount": 16,
+    "syntheticProbeStepCount": 16,
+    "targetOpenClawLinkStepCount": 11,
     "missingBuildScriptCount": 0,
     "sdkAliasRequiredCount": 1
   },
@@ -663,6 +663,87 @@
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/opik-openclaw/cold-import-runtimeExtension-opik-openclaw-plugins-opik-openclaw-dist-index-js.synthetic.json",
               "cwd": ".crabpot/workspaces/opik-openclaw",
               "artifactPath": ".crabpot/results/opik-openclaw/cold-import-runtimeExtension-opik-openclaw-plugins-opik-openclaw-dist-index-js.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "connectclaw",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
+          "fixture": "connectclaw",
+          "packagePath": "plugins/connectclaw/packages/plugin/package.json",
+          "packageName": "@connectclaw/connectclaw",
+          "entrypoint": "plugins/connectclaw/packages/plugin/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "pnpm",
+          "lockfile": "plugins/connectclaw/pnpm-lock.yaml",
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/connectclaw/packages/plugin/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "openclaw"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/connectclaw && rsync -a --delete plugins/connectclaw/packages/plugin/ .crabpot/workspaces/connectclaw/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/connectclaw",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/connectclaw",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "pnpm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/connectclaw",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "pnpm audit --json > ../../results/connectclaw/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/connectclaw",
+              "artifactPath": ".crabpot/results/connectclaw/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.capture.json",
+              "cwd": ".crabpot/workspaces/connectclaw",
+              "artifactPath": ".crabpot/results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/connectclaw",
+              "artifactPath": ".crabpot/results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
