@@ -11,7 +11,8 @@ Dependabot watches `.gitmodules` with the `gitsubmodule` ecosystem and the npm
 shim package directories with the `npm` ecosystem. Update PRs should change only
 the relevant pin unless plugin behavior requires report or contract classifier
 changes. Dependabot PRs can be auto-merged after CI refreshes the generated
-reports and dashboard.
+reports and dashboard. Schedules use Dependabot cron entries twice per day, with
+fixture paths staggered by minute to avoid one big update burst.
 
 The root `.github/dependabot.yml` owns this:
 

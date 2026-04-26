@@ -4,8 +4,8 @@ updates:
   - package-ecosystem: "gitsubmodule"
     directory: "/"
     schedule:
-      interval: "daily"
-      time: "09:00"
+      interval: "cron"
+      cronjob: "0 9,21 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 10
     commit-message:
@@ -15,8 +15,8 @@ updates:
   - package-ecosystem: "npm"
     directory: "/plugins/memory-tencentdb"
     schedule:
-      interval: "daily"
-      time: "09:10"
+      interval: "cron"
+      cronjob: "10 9,21 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -26,8 +26,8 @@ updates:
   - package-ecosystem: "npm"
     directory: "/plugins/yuanbao"
     schedule:
-      interval: "daily"
-      time: "09:20"
+      interval: "cron"
+      cronjob: "20 9,21 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -37,8 +37,8 @@ updates:
   - package-ecosystem: "npm"
     directory: "/plugins/openclaw-weixin"
     schedule:
-      interval: "daily"
-      time: "09:30"
+      interval: "cron"
+      cronjob: "30 9,21 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -48,8 +48,8 @@ updates:
   - package-ecosystem: "npm"
     directory: "/plugins/lightclawbot"
     schedule:
-      interval: "daily"
-      time: "09:40"
+      interval: "cron"
+      cronjob: "40 9,21 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:

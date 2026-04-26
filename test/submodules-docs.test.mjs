@@ -9,8 +9,11 @@ test("dependabot is configured to update plugin submodules", async () => {
   assert.match(dependabot, /version:\s*2/);
   assert.match(dependabot, /package-ecosystem:\s*"gitsubmodule"/);
   assert.match(dependabot, /directory:\s*"\/"/);
-  assert.match(dependabot, /interval:\s*"daily"/);
+  assert.match(dependabot, /interval:\s*"cron"/);
+  assert.match(dependabot, /cronjob:\s*"0 9,21 \* \* \*"/);
+  assert.doesNotMatch(dependabot, /interval:\s*"daily"/);
   assert.doesNotMatch(dependabot, /interval:\s*"weekly"/);
+  assert.doesNotMatch(dependabot, /time:\s*"/);
 });
 
 test("dependabot is configured to update npm fixture shims", async () => {
@@ -20,7 +23,11 @@ test("dependabot is configured to update npm fixture shims", async () => {
   for (const fixture of manifest.fixtures.filter((item) => item.package)) {
     assert.match(
       dependabot,
-      new RegExp(`package-ecosystem:\\s*"npm"[\\s\\S]*directory:\\s*"\\/${escapeRegExp(fixture.path)}"`),
+      new RegExp(
+        `package-ecosystem:\\s*"npm"[\\s\\S]*directory:\\s*"\\/${escapeRegExp(
+          fixture.path,
+        )}"[\\s\\S]*interval:\\s*"cron"[\\s\\S]*cronjob:\\s*"[0-5][0-9] 9,21 \\* \\* \\*"`,
+      ),
     );
   }
 });
@@ -38,6 +45,7 @@ test("plugin submodule README stays aligned with manifest and gitmodules", async
   assert.match(readme, /package-ecosystem: "gitsubmodule"/);
   assert.match(readme, /package-ecosystem: "npm"/);
   assert.match(readme, /plugins\/<id>\/package\.json/);
+  assert.match(readme, /twice per day/);
 
   for (const fixture of gitFixtures) {
     const submodule = submodules.find((item) => item.path === fixture.path);
