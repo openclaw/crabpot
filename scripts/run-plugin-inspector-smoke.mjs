@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { spawnSync } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, rmSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -43,8 +43,52 @@ function resolveInspectorInvocation() {
     };
   }
 
+  const pinnedCli = ensurePinnedInspectorCheckout();
   return {
-    command: "npx",
-    args: ["--yes", `github:openclaw/plugin-inspector#${pluginInspectorRef}`],
+    command: process.execPath,
+    args: [pinnedCli],
   };
+}
+
+function ensurePinnedInspectorCheckout() {
+  const checkoutDir = path.join(repoRoot, ".crabpot", "plugin-inspector", pluginInspectorRef);
+  const cliPath = path.join(checkoutDir, "src", "cli.js");
+
+  if (existsSync(cliPath) && readGitHead(checkoutDir) === pluginInspectorRef) {
+    return cliPath;
+  }
+
+  rmSync(checkoutDir, { force: true, recursive: true });
+  run("git", ["init", checkoutDir]);
+  run("git", ["-C", checkoutDir, "fetch", "--depth=1", "https://github.com/openclaw/plugin-inspector.git", pluginInspectorRef]);
+  run("git", ["-C", checkoutDir, "checkout", "--detach", "FETCH_HEAD"]);
+
+  if (readGitHead(checkoutDir) !== pluginInspectorRef) {
+    throw new Error(`plugin-inspector checkout did not resolve to ${pluginInspectorRef}`);
+  }
+  return cliPath;
+}
+
+function readGitHead(checkoutDir) {
+  const result = spawnSync("git", ["-C", checkoutDir, "rev-parse", "HEAD"], {
+    encoding: "utf8",
+  });
+  if (result.status !== 0) {
+    return null;
+  }
+  return result.stdout.trim();
+}
+
+function run(command, commandArgs) {
+  const result = spawnSync(command, commandArgs, {
+    cwd: repoRoot,
+    encoding: "utf8",
+    stdio: "inherit",
+  });
+  if (result.error) {
+    throw result.error;
+  }
+  if (result.status !== 0) {
+    throw new Error(`${command} ${commandArgs.join(" ")} failed with exit code ${result.status}`);
+  }
 }

@@ -95,8 +95,8 @@ npm run plugin-inspector:smoke
 The smoke writes ignored artifacts under `.crabpot/plugin-inspector-smoke/`.
 For local development it uses a sibling `../plugin-inspector` checkout when one
 exists. In CI or standalone checkouts it falls back to the pinned GitHub package
-source. This intentionally avoids npm publishing until the package boundary is
-reviewed.
+source checkout. This intentionally avoids npm publishing until the package
+boundary is reviewed.
 
 Migration path: replace the local static scanner with the packaged inspector
 while keeping `crabpot.config.json` as the fixture manifest.
