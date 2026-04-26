@@ -2,8 +2,12 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { test } from "node:test";
 
+async function readWorkflow(path) {
+  return (await readFile(path, "utf8")).replace(/\r\n/g, "\n");
+}
+
 test("manual OpenClaw ref workflow accepts branch tag or SHA inputs", async () => {
-  const workflow = await readFile(".github/workflows/openclaw-ref-compat.yml", "utf8");
+  const workflow = await readWorkflow(".github/workflows/openclaw-ref-compat.yml");
 
   assert.match(workflow, /openclaw_repository:/);
   assert.match(workflow, /openclaw_ref:/);
@@ -17,7 +21,7 @@ test("manual OpenClaw ref workflow accepts branch tag or SHA inputs", async () =
 });
 
 test("manual OpenClaw ref workflow keeps isolated fixture execution opt-in", async () => {
-  const workflow = await readFile(".github/workflows/openclaw-ref-compat.yml", "utf8");
+  const workflow = await readWorkflow(".github/workflows/openclaw-ref-compat.yml");
 
   assert.match(workflow, /run_isolated_fixture:/);
   assert.match(workflow, /fixture:/);
@@ -29,7 +33,7 @@ test("manual OpenClaw ref workflow keeps isolated fixture execution opt-in", asy
 });
 
 test("manual OpenClaw ref workflow has diff and profile modes", async () => {
-  const workflow = await readFile(".github/workflows/openclaw-ref-compat.yml", "utf8");
+  const workflow = await readWorkflow(".github/workflows/openclaw-ref-compat.yml");
 
   assert.match(workflow, /mode:/);
   assert.match(workflow, /Compare base and head OpenClaw refs/);
@@ -40,7 +44,7 @@ test("manual OpenClaw ref workflow has diff and profile modes", async () => {
 });
 
 test("default check workflow uploads policy and summary reports", async () => {
-  const workflow = await readFile(".github/workflows/check.yml", "utf8");
+  const workflow = await readWorkflow(".github/workflows/check.yml");
 
   assert.match(workflow, /node scripts\/compare-runtime-profile\.mjs/);
   assert.match(workflow, /node scripts\/platform-probes\.mjs/);
@@ -53,7 +57,7 @@ test("default check workflow uploads policy and summary reports", async () => {
 });
 
 test("default check workflow retests plugin submodule gitlink changes", async () => {
-  const workflow = await readFile(".github/workflows/check.yml", "utf8");
+  const workflow = await readWorkflow(".github/workflows/check.yml");
   const triggerBlock = workflow.slice(workflow.indexOf("on:"), workflow.indexOf("permissions:"));
 
   assert.match(triggerBlock, /pull_request:/);
@@ -65,7 +69,7 @@ test("default check workflow retests plugin submodule gitlink changes", async ()
 });
 
 test("default check workflow runs OS and container static lanes", async () => {
-  const workflow = await readFile(".github/workflows/check.yml", "utf8");
+  const workflow = await readWorkflow(".github/workflows/check.yml");
 
   assert.match(workflow, /name: Static checks \(\$\{\{ matrix\.os \}\}\)/);
   assert.match(workflow, /os: \[ubuntu-latest, macos-latest, windows-latest\]/);
@@ -75,7 +79,7 @@ test("default check workflow runs OS and container static lanes", async () => {
 });
 
 test("default check workflow resolves changed submodules into an isolated fixture matrix", async () => {
-  const workflow = await readFile(".github/workflows/check.yml", "utf8");
+  const workflow = await readWorkflow(".github/workflows/check.yml");
 
   assert.match(workflow, /changed-fixture-plan:/);
   assert.match(workflow, /--fixture-set changed-submodules/);
@@ -87,8 +91,8 @@ test("default check workflow resolves changed submodules into an isolated fixtur
 
 test("workflows use Node 24 action majors", async () => {
   const workflows = [
-    await readFile(".github/workflows/check.yml", "utf8"),
-    await readFile(".github/workflows/openclaw-ref-compat.yml", "utf8"),
+    await readWorkflow(".github/workflows/check.yml"),
+    await readWorkflow(".github/workflows/openclaw-ref-compat.yml"),
   ].join("\n");
   const actionRefs = [
     ...workflows.matchAll(/uses:\s+(actions\/(?:checkout|setup-node|upload-artifact)@[^\s]+)/g),
@@ -104,7 +108,7 @@ test("workflows use Node 24 action majors", async () => {
 });
 
 test("manual workflow enforces strict runtime profile policy before best-effort summaries", async () => {
-  const workflow = await readFile(".github/workflows/openclaw-ref-compat.yml", "utf8");
+  const workflow = await readWorkflow(".github/workflows/openclaw-ref-compat.yml");
   const policySteps = [...workflow.matchAll(/- name: Run runtime profile policy\n(?<body>(?:        .*\n)+)/g)].map(
     (match) => match.groups.body,
   );
@@ -118,7 +122,7 @@ test("manual workflow enforces strict runtime profile policy before best-effort 
 });
 
 test("manual workflow keeps isolated execution artifacts and failure policy wired", async () => {
-  const workflow = await readFile(".github/workflows/openclaw-ref-compat.yml", "utf8");
+  const workflow = await readWorkflow(".github/workflows/openclaw-ref-compat.yml");
 
   assert.match(workflow, /id: execute[\s\S]*continue-on-error: true[\s\S]*CRABPOT_EXECUTE_ISOLATED: "1"[\s\S]*npm run workspace:execute -- --fixture/);
   assert.match(workflow, /id: policy[\s\S]*continue-on-error: true[\s\S]*node scripts\/check-ci-policy\.mjs/);

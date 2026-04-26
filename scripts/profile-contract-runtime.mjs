@@ -384,7 +384,7 @@ async function profileCommand(command, options) {
   };
 }
 
-function readProcessStats(pid) {
+async function readProcessStats(pid) {
   if (!pid) {
     return { rssKb: 0, cpuPercent: 0 };
   }

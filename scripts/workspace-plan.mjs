@@ -309,7 +309,7 @@ function findNearestLockfile(packageDir) {
     for (const candidate of candidates) {
       const lockfile = path.join(current, candidate);
       if (existsSync(lockfile)) {
-        return path.relative(repoRoot, lockfile);
+        return repoRelative(path.relative(repoRoot, lockfile));
       }
     }
     const parent = path.dirname(current);
@@ -493,11 +493,11 @@ function targetOpenClawWorkspacePath(fixtureId, targetOpenClawPath) {
     return "../../../openclaw";
   }
   const workspaceRoot = path.join(repoRoot, ".crabpot", "workspaces", fixtureId);
-  return path.relative(workspaceRoot, path.resolve(repoRoot, targetOpenClawPath));
+  return repoRelative(path.relative(workspaceRoot, path.resolve(repoRoot, targetOpenClawPath)));
 }
 
 function repoRelative(value) {
-  return value;
+  return String(value).replaceAll(path.sep, "/");
 }
 
 function artifactPath(fixtureId, entrypoint, kind) {

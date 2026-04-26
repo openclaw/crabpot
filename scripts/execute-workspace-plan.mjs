@@ -199,7 +199,7 @@ async function writeExecutionProfile(fixtureId, steps) {
   await writeFile(jsonPath, `${JSON.stringify(profile, null, 2)}\n`, "utf8");
 }
 
-function readProcessStats(pid) {
+async function readProcessStats(pid) {
   if (!pid || process.platform === "win32") {
     return { rssKb: 0, cpuPercent: 0 };
   }

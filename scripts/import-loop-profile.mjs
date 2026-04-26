@@ -223,7 +223,7 @@ export function renderImportLoopProfileMarkdown(report) {
   ].join("\n");
 }
 
-function readProcessStats(pid) {
+async function readProcessStats(pid) {
   if (!pid || process.platform === "win32") {
     return { rssKb: 0, cpuPercent: 0 };
   }

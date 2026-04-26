@@ -120,6 +120,7 @@ async function listJsonFiles(dir) {
 }
 
 function summarizeArtifact({ artifactPath, parsed }) {
+  const normalizedArtifactPath = toRepoPath(artifactPath);
   const kind = artifactPath.endsWith(".synthetic.json")
     ? "synthetic"
     : artifactPath.endsWith("package-audit.json")
@@ -127,10 +128,10 @@ function summarizeArtifact({ artifactPath, parsed }) {
       : artifactPath.endsWith("execution-profile.json")
         ? "profile"
       : "capture";
-  const fixture = artifactPath.split("/").at(-2) ?? "unknown";
+  const fixture = normalizedArtifactPath.split("/").at(-2) ?? "unknown";
   if (kind === "synthetic") {
     return {
-      artifactPath,
+      artifactPath: normalizedArtifactPath,
       fixture,
       kind,
       entrypoint: scrubPath(parsed.entrypoint),
@@ -142,7 +143,7 @@ function summarizeArtifact({ artifactPath, parsed }) {
   }
   if (kind === "audit") {
     return {
-      artifactPath,
+      artifactPath: normalizedArtifactPath,
       fixture,
       kind,
       entrypoint: "-",
@@ -153,7 +154,7 @@ function summarizeArtifact({ artifactPath, parsed }) {
   }
   if (kind === "profile") {
     return {
-      artifactPath,
+      artifactPath: normalizedArtifactPath,
       fixture,
       kind,
       entrypoint: "-",
@@ -163,7 +164,7 @@ function summarizeArtifact({ artifactPath, parsed }) {
     };
   }
   return {
-    artifactPath,
+    artifactPath: normalizedArtifactPath,
     fixture,
     kind,
     entrypoint: scrubPath(parsed.entrypoint),
@@ -318,7 +319,11 @@ function scrubPath(value) {
 
 function repoRelative(value) {
   const absolute = path.resolve(value);
-  return absolute.startsWith(repoRoot) ? path.relative(repoRoot, absolute) || "." : value;
+  return toRepoPath(absolute.startsWith(repoRoot) ? path.relative(repoRoot, absolute) || "." : value);
+}
+
+function toRepoPath(value) {
+  return String(value).replaceAll(path.sep, "/");
 }
 
 function markdownTable(rows, headers) {
