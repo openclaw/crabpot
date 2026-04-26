@@ -5,10 +5,10 @@
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 20,
-    "suggestions": 44,
-    "issues": 64,
-    "p1Issues": 13,
+    "warnings": 25,
+    "suggestions": 52,
+    "issues": 77,
+    "p1Issues": 15,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -71,6 +71,13 @@
     },
     {
       "severity": "P1",
+      "fixture": "lossless-claw",
+      "code": "registration-capture-gap",
+      "title": "lossless-claw: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
       "fixture": "mcp-adapter",
       "code": "registration-capture-gap",
       "title": "mcp-adapter: runtime registrations need capture before contract judgment",
@@ -95,6 +102,13 @@
       "fixture": "opik-openclaw",
       "code": "registration-capture-gap",
       "title": "opik-openclaw: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "fixture": "qqbot",
+      "code": "registration-capture-gap",
+      "title": "qqbot: runtime registrations need capture before contract judgment",
       "decision": "inspector-follow-up"
     },
     {

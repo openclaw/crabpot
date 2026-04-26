@@ -6,15 +6,15 @@ Generated: deterministic
 
 | Metric              | Value |
 | ------------------- | ----- |
-| Fixtures            | 13    |
-| Probes              | 53    |
-| Hook probes         | 19    |
-| Registration probes | 34    |
-| Ready               | 53    |
+| Fixtures            | 15    |
+| Probes              | 67    |
+| Hook probes         | 24    |
+| Registration probes | 43    |
+| Ready               | 67    |
 | Blocked             | 0     |
-| Direct execution    | 23    |
-| Opt-in execution    | 8     |
-| Metadata-only       | 3     |
+| Direct execution    | 30    |
+| Opt-in execution    | 9     |
+| Metadata-only       | 4     |
 
 ## Probe Inventory
 
@@ -37,6 +37,11 @@ Generated: deterministic
 | opik-openclaw     | hook         | subagent_spawned           | ready  | hook-direct      | plugins/opik-openclaw/src/service/hooks/subagent.ts:89             | spawn payload is preserved; parent/subagent metadata are present                                |
 | opik-openclaw     | hook         | subagent_spawning          | ready  | hook-direct      | plugins/opik-openclaw/src/service/hooks/subagent.ts:38             | hook payload and return value are captured                                                      |
 | opik-openclaw     | hook         | tool_result_persist        | ready  | hook-direct      | plugins/opik-openclaw/src/service.ts:541                           | hook payload and return value are captured                                                      |
+| lossless-claw     | hook         | before_prompt_build        | ready  | hook-direct      | plugins/lossless-claw/src/plugin/index.ts:1975                     | prompt mutation result is preserved; agent and conversation metadata are present                |
+| lossless-claw     | hook         | before_reset               | ready  | hook-direct      | plugins/lossless-claw/src/plugin/index.ts:1968                     | hook payload and return value are captured                                                      |
+| lossless-claw     | hook         | gateway_start              | ready  | hook-direct      | plugins/lossless-claw/src/plugin/index.ts:2171                     | hook payload and return value are captured                                                      |
+| lossless-claw     | hook         | gateway_stop               | ready  | hook-direct      | plugins/lossless-claw/src/plugin/index.ts:2195                     | hook payload and return value are captured                                                      |
+| lossless-claw     | hook         | session_end                | ready  | hook-direct      | plugins/lossless-claw/src/plugin/index.ts:1978                     | hook payload and return value are captured                                                      |
 | connectclaw       | hook         | before_agent_start         | ready  | hook-direct      | plugins/connectclaw/packages/plugin/src/hooks.ts:17                | hook payload and return value are captured                                                      |
 | codex-app-server  | hook         | inbound_claim              | ready  | hook-direct      | plugins/codex-app-server/index.ts:25                               | claim payload preserves channel/source identity; routing metadata is present                    |
 | agentchat         | registration | defineChannelPluginEntry   | ready  | metadata-only    | plugins/agentchat/integrations/openclaw-channel/src/channel.ts:333 | channel id is stable; setup/config schema can be read; message envelope metadata is preserved   |
@@ -45,6 +50,9 @@ Generated: deterministic
 | wecom             | registration | registerTool               | ready  | direct           | plugins/wecom/index.js:28                                          | tool name is stable; input schema is captured; result shape metadata is captured                |
 | wecom             | registration | registerTool               | ready  | direct           | plugins/wecom/index.js:29                                          | tool name is stable; input schema is captured; result shape metadata is captured                |
 | wecom             | registration | registerTool               | ready  | direct           | plugins/wecom/index.js:33                                          | tool name is stable; input schema is captured; result shape metadata is captured                |
+| qqbot             | registration | registerChannel            | ready  | channel-opt-in   | plugins/qqbot/index.ts:16                                          | channel id is stable; inbound/outbound envelope shape is captured; sender metadata is preserved |
+| qqbot             | registration | registerTool               | ready  | direct           | plugins/qqbot/src/tools/channel.ts:138                             | tool name is stable; input schema is captured; result shape metadata is captured                |
+| qqbot             | registration | registerTool               | ready  | direct           | plugins/qqbot/src/tools/remind.ts:222                              | tool name is stable; input schema is captured; result shape metadata is captured                |
 | a2a-gateway       | registration | registerGatewayMethod      | ready  | direct           | plugins/a2a-gateway/index.ts:616                                   | method name is stable; request and response schema are captured                                 |
 | a2a-gateway       | registration | registerGatewayMethod      | ready  | direct           | plugins/a2a-gateway/index.ts:622                                   | method name is stable; request and response schema are captured                                 |
 | a2a-gateway       | registration | registerGatewayMethod      | ready  | direct           | plugins/a2a-gateway/index.ts:631                                   | method name is stable; request and response schema are captured                                 |
@@ -57,6 +65,12 @@ Generated: deterministic
 | mcp-adapter       | registration | registerTool               | ready  | direct           | plugins/mcp-adapter/index.ts:30                                    | tool name is stable; input schema is captured; result shape metadata is captured                |
 | opik-openclaw     | registration | registerCli                | ready  | direct           | plugins/opik-openclaw/index.ts:17                                  | command name is stable; argument schema is captured                                             |
 | opik-openclaw     | registration | registerService            | ready  | lifecycle-opt-in | plugins/opik-openclaw/index.ts:16                                  | service id is stable; start/stop lifecycle handlers are captured                                |
+| lossless-claw     | registration | registerCommand            | ready  | direct           | plugins/lossless-claw/src/plugin/index.ts:2009                     | command id is stable; interactive command payload is captured                                   |
+| lossless-claw     | registration | registerContextEngine      | ready  | metadata-only    | plugins/lossless-claw/src/plugin/index.ts:1989                     | context engine id is stable; factory metadata is captured                                       |
+| lossless-claw     | registration | registerTool               | ready  | direct           | plugins/lossless-claw/src/plugin/index.ts:1991                     | tool name is stable; input schema is captured; result shape metadata is captured                |
+| lossless-claw     | registration | registerTool               | ready  | direct           | plugins/lossless-claw/src/plugin/index.ts:1994                     | tool name is stable; input schema is captured; result shape metadata is captured                |
+| lossless-claw     | registration | registerTool               | ready  | direct           | plugins/lossless-claw/src/plugin/index.ts:1997                     | tool name is stable; input schema is captured; result shape metadata is captured                |
+| lossless-claw     | registration | registerTool               | ready  | direct           | plugins/lossless-claw/src/plugin/index.ts:2000                     | tool name is stable; input schema is captured; result shape metadata is captured                |
 | connectclaw       | registration | registerCommand            | ready  | direct           | plugins/connectclaw/packages/plugin/src/commands.ts:18             | command id is stable; interactive command payload is captured                                   |
 | connectclaw       | registration | registerCommand            | ready  | direct           | plugins/connectclaw/packages/plugin/src/commands.ts:64             | command id is stable; interactive command payload is captured                                   |
 | connectclaw       | registration | registerService            | ready  | lifecycle-opt-in | plugins/connectclaw/packages/plugin/src/hooks.ts:91                | service id is stable; start/stop lifecycle handlers are captured                                |

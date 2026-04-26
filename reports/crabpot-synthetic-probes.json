@@ -1,15 +1,15 @@
 {
   "generatedAt": "deterministic",
   "summary": {
-    "fixtureCount": 13,
-    "probeCount": 53,
-    "hookProbeCount": 19,
-    "registrationProbeCount": 34,
-    "readyCount": 53,
+    "fixtureCount": 15,
+    "probeCount": 67,
+    "hookProbeCount": 24,
+    "registrationProbeCount": 43,
+    "readyCount": 67,
     "blockedCount": 0,
-    "directExecutionCount": 23,
-    "optInExecutionCount": 8,
-    "metadataOnlyCount": 3
+    "directExecutionCount": 30,
+    "optInExecutionCount": 9,
+    "metadataOnlyCount": 4
   },
   "probes": [
     {
@@ -451,6 +451,119 @@
       "source": "plugins/opik-openclaw/src/service.ts:541"
     },
     {
+      "id": "hook.before_prompt_build:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1975",
+      "fixture": "lossless-claw",
+      "kind": "hook",
+      "seam": "before_prompt_build",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "prompt mutation result is preserved",
+        "agent and conversation metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "messages": [
+          {
+            "role": "user",
+            "content": "fixture prompt"
+          }
+        ],
+        "metadata": {
+          "source": "crabpot"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1975"
+    },
+    {
+      "id": "hook.before_reset:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1968",
+      "fixture": "lossless-claw",
+      "kind": "hook",
+      "seam": "before_reset",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "before_reset",
+        "fixture": "lossless-claw"
+      },
+      "syntheticContext": {
+        "hook": "before_reset",
+        "fixture": "lossless-claw"
+      },
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1968"
+    },
+    {
+      "id": "hook.gateway_start:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2171",
+      "fixture": "lossless-claw",
+      "kind": "hook",
+      "seam": "gateway_start",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "gateway_start",
+        "fixture": "lossless-claw"
+      },
+      "syntheticContext": {
+        "hook": "gateway_start",
+        "fixture": "lossless-claw"
+      },
+      "source": "plugins/lossless-claw/src/plugin/index.ts:2171"
+    },
+    {
+      "id": "hook.gateway_stop:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2195",
+      "fixture": "lossless-claw",
+      "kind": "hook",
+      "seam": "gateway_stop",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "gateway_stop",
+        "fixture": "lossless-claw"
+      },
+      "syntheticContext": {
+        "hook": "gateway_stop",
+        "fixture": "lossless-claw"
+      },
+      "source": "plugins/lossless-claw/src/plugin/index.ts:2195"
+    },
+    {
+      "id": "hook.session_end:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1978",
+      "fixture": "lossless-claw",
+      "kind": "hook",
+      "seam": "session_end",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "session_end",
+        "fixture": "lossless-claw"
+      },
+      "syntheticContext": {
+        "hook": "session_end",
+        "fixture": "lossless-claw"
+      },
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1978"
+    },
+    {
       "id": "hook.before_agent_start:connectclaw:plugins-connectclaw-packages-plugin-src-hooks-ts-17",
       "fixture": "connectclaw",
       "kind": "hook",
@@ -676,6 +789,99 @@
         ]
       },
       "source": "plugins/wecom/index.js:33"
+    },
+    {
+      "id": "registration.registerChannel:qqbot:plugins-qqbot-index-ts-16",
+      "fixture": "qqbot",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "receive"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/qqbot/index.ts:16"
+    },
+    {
+      "id": "registration.registerTool:qqbot:plugins-qqbot-src-tools-channel-ts-138",
+      "fixture": "qqbot",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/qqbot/src/tools/channel.ts:138"
+    },
+    {
+      "id": "registration.registerTool:qqbot:plugins-qqbot-src-tools-remind-ts-222",
+      "fixture": "qqbot",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/qqbot/src/tools/remind.ts:222"
     },
     {
       "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-616",
@@ -1038,6 +1244,185 @@
         "option": "includeLifecycle"
       },
       "source": "plugins/opik-openclaw/index.ts:16"
+    },
+    {
+      "id": "registration.registerCommand:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2009",
+      "fixture": "lossless-claw",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/lossless-claw/src/plugin/index.ts:2009"
+    },
+    {
+      "id": "registration.registerContextEngine:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1989",
+      "fixture": "lossless-claw",
+      "kind": "registration",
+      "seam": "registerContextEngine",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "context engine id is stable",
+        "factory metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-context-engine",
+          "factory": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "context engine factories are captured as registration metadata; engine startup remains isolated opt-in"
+      },
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1989"
+    },
+    {
+      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1991",
+      "fixture": "lossless-claw",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1991"
+    },
+    {
+      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1994",
+      "fixture": "lossless-claw",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1994"
+    },
+    {
+      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1997",
+      "fixture": "lossless-claw",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1997"
+    },
+    {
+      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2000",
+      "fixture": "lossless-claw",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/lossless-claw/src/plugin/index.ts:2000"
     },
     {
       "id": "registration.registerCommand:connectclaw:plugins-connectclaw-packages-plugin-src-commands-ts-18",

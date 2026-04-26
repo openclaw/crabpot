@@ -500,16 +500,16 @@
   },
   "status": "pass",
   "summary": {
-    "fixtureCount": 13,
-    "highPriorityFixtures": 8,
+    "fixtureCount": 15,
+    "highPriorityFixtures": 10,
     "breakageCount": 0,
-    "warningCount": 20,
-    "suggestionCount": 44,
-    "decisionCount": 66,
-    "issueCount": 64,
+    "warningCount": 25,
+    "suggestionCount": 52,
+    "decisionCount": 79,
+    "issueCount": 77,
     "p0IssueCount": 0,
-    "p1IssueCount": 13,
-    "contractProbeCount": 63
+    "p1IssueCount": 15,
+    "contractProbeCount": 76
   },
   "fixtures": [
     {
@@ -1051,6 +1051,265 @@
           "file": "plugins/wecom/wecom/channel-plugin.js",
           "line": 6,
           "ref": "plugins/wecom/wecom/channel-plugin.js:6"
+        }
+      ]
+    },
+    {
+      "id": "qqbot",
+      "name": "QQbot",
+      "priority": "high",
+      "seams": [
+        "channel",
+        "media",
+        "proactive-messaging",
+        "cron",
+        "sdk-preload"
+      ],
+      "why": "QQ Bot channel fixture covering rich media, proactive messaging, cron/reminder tools, and preload-based SDK/runtime compatibility.",
+      "status": "ok",
+      "hooks": [],
+      "hookDetails": [],
+      "registrations": [
+        "registerChannel",
+        "registerTool"
+      ],
+      "registrationDetails": [
+        {
+          "name": "registerChannel",
+          "file": "plugins/qqbot/index.ts",
+          "line": 16,
+          "ref": "plugins/qqbot/index.ts:16"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/qqbot/src/tools/channel.ts",
+          "line": 138,
+          "ref": "plugins/qqbot/src/tools/channel.ts:138"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/qqbot/src/tools/remind.ts",
+          "line": 222,
+          "ref": "plugins/qqbot/src/tools/remind.ts:222"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/qqbot/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/qqbot/bin/qqbot-cli.js",
+        "plugins/qqbot/index.ts",
+        "plugins/qqbot/preload.cjs",
+        "plugins/qqbot/scripts/link-sdk-core.cjs",
+        "plugins/qqbot/scripts/postinstall-link-sdk.js",
+        "plugins/qqbot/scripts/proactive-api-server.ts",
+        "plugins/qqbot/scripts/send-proactive.ts",
+        "plugins/qqbot/scripts/test-sendmedia.ts",
+        "plugins/qqbot/src/admin-resolver.ts",
+        "plugins/qqbot/src/api.ts",
+        "plugins/qqbot/src/approval-handler.ts",
+        "plugins/qqbot/src/channel.ts",
+        "plugins/qqbot/src/config.ts",
+        "plugins/qqbot/src/credential-backup.ts",
+        "plugins/qqbot/src/deliver-debounce.ts",
+        "plugins/qqbot/src/gateway.ts",
+        "plugins/qqbot/src/group-history.ts",
+        "plugins/qqbot/src/image-server.ts",
+        "plugins/qqbot/src/inbound-attachments.ts",
+        "plugins/qqbot/src/known-users.ts",
+        "plugins/qqbot/src/message-gating.ts",
+        "plugins/qqbot/src/message-queue.ts",
+        "plugins/qqbot/src/onboarding.ts",
+        "plugins/qqbot/src/outbound-deliver.ts",
+        "plugins/qqbot/src/outbound.ts",
+        "plugins/qqbot/src/proactive.ts",
+        "plugins/qqbot/src/ref-index-store.ts",
+        "plugins/qqbot/src/reply-dispatcher.ts",
+        "plugins/qqbot/src/request-context.ts",
+        "plugins/qqbot/src/runtime.ts",
+        "plugins/qqbot/src/session-store.ts",
+        "plugins/qqbot/src/slash-commands.ts",
+        "plugins/qqbot/src/startup-greeting.ts",
+        "plugins/qqbot/src/streaming.ts",
+        "plugins/qqbot/src/stt.ts",
+        "plugins/qqbot/src/tools/channel.ts",
+        "plugins/qqbot/src/tools/remind.ts",
+        "plugins/qqbot/src/types.ts",
+        "plugins/qqbot/src/typing-keepalive.ts",
+        "plugins/qqbot/src/update-checker.ts",
+        "plugins/qqbot/src/utils/audio-convert.ts",
+        "plugins/qqbot/src/utils/chunked-upload.ts",
+        "plugins/qqbot/src/utils/file-utils.ts",
+        "plugins/qqbot/src/utils/image-size.ts",
+        "plugins/qqbot/src/utils/media-send.ts",
+        "plugins/qqbot/src/utils/media-tags.ts",
+        "plugins/qqbot/src/utils/payload.ts",
+        "plugins/qqbot/src/utils/pkg-version.ts",
+        "plugins/qqbot/src/utils/platform.ts",
+        "plugins/qqbot/src/utils/ssrf-guard.ts",
+        "plugins/qqbot/src/utils/text-parsing.ts",
+        "plugins/qqbot/src/utils/upload-cache.ts"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/qqbot/openclaw.plugin.json",
+          "id": "openclaw-qqbot",
+          "name": "OpenClaw QQ Bot",
+          "version": null,
+          "keys": [
+            "capabilities",
+            "channelConfigs",
+            "channels",
+            "configSchema",
+            "description",
+            "extensions",
+            "id",
+            "name",
+            "skills"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/qqbot/package.json",
+        "name": "@tencent-connect/openclaw-qqbot",
+        "version": "1.7.1",
+        "type": "module",
+        "main": "dist/index.js",
+        "dependencies": [
+          "mpg123-decoder",
+          "silk-wasm",
+          "ws"
+        ],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./preload.cjs"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": null,
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./preload.cjs",
+              "relativePath": "plugins/qqbot/preload.cjs",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/qqbot/package.json",
+          "name": "@tencent-connect/openclaw-qqbot",
+          "version": "1.7.1",
+          "type": "module",
+          "main": "dist/index.js",
+          "dependencies": [
+            "mpg123-decoder",
+            "silk-wasm",
+            "ws"
+          ],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./preload.cjs"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": null,
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./preload.cjs",
+                "relativePath": "plugins/qqbot/preload.cjs",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        }
+      ],
+      "sdkImports": [
+        "openclaw/plugin-sdk",
+        "openclaw/plugin-sdk/core"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/qqbot/index.ts",
+          "line": 1,
+          "ref": "plugins/qqbot/index.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/qqbot/index.ts",
+          "line": 2,
+          "ref": "plugins/qqbot/index.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/qqbot/src/approval-handler.ts",
+          "line": 12,
+          "ref": "plugins/qqbot/src/approval-handler.ts:12"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/qqbot/src/config.ts",
+          "line": 2,
+          "ref": "plugins/qqbot/src/config.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/qqbot/src/onboarding.ts",
+          "line": 13,
+          "ref": "plugins/qqbot/src/onboarding.ts:13"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/qqbot/src/proactive.ts",
+          "line": 67,
+          "ref": "plugins/qqbot/src/proactive.ts:67"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/qqbot/src/runtime.ts",
+          "line": 1,
+          "ref": "plugins/qqbot/src/runtime.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/qqbot/src/tools/channel.ts",
+          "line": 1,
+          "ref": "plugins/qqbot/src/tools/channel.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/qqbot/src/tools/remind.ts",
+          "line": 1,
+          "ref": "plugins/qqbot/src/tools/remind.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/qqbot/src/channel.ts",
+          "line": 7,
+          "ref": "plugins/qqbot/src/channel.ts:7"
         }
       ]
     },
@@ -1993,6 +2252,304 @@
           "file": "plugins/opik-openclaw/src/service/hooks/tool.ts",
           "line": 1,
           "ref": "plugins/opik-openclaw/src/service/hooks/tool.ts:1"
+        }
+      ]
+    },
+    {
+      "id": "lossless-claw",
+      "name": "Lossless Claw (LCM)",
+      "priority": "high",
+      "seams": [
+        "context-engine",
+        "prompt-mutation",
+        "session-lifecycle",
+        "gateway-lifecycle",
+        "dynamic-tool"
+      ],
+      "why": "Lossless context-management fixture covering context engine registration, DAG compaction tools, prompt assembly hooks, session cleanup, and gateway maintenance lifecycle.",
+      "status": "ok",
+      "hooks": [
+        "before_prompt_build",
+        "before_reset",
+        "gateway_start",
+        "gateway_stop",
+        "session_end"
+      ],
+      "hookDetails": [
+        {
+          "name": "before_prompt_build",
+          "file": "plugins/lossless-claw/src/plugin/index.ts",
+          "line": 1975,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1975"
+        },
+        {
+          "name": "before_reset",
+          "file": "plugins/lossless-claw/src/plugin/index.ts",
+          "line": 1968,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1968"
+        },
+        {
+          "name": "gateway_start",
+          "file": "plugins/lossless-claw/src/plugin/index.ts",
+          "line": 2171,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2171"
+        },
+        {
+          "name": "gateway_stop",
+          "file": "plugins/lossless-claw/src/plugin/index.ts",
+          "line": 2195,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2195"
+        },
+        {
+          "name": "session_end",
+          "file": "plugins/lossless-claw/src/plugin/index.ts",
+          "line": 1978,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1978"
+        }
+      ],
+      "registrations": [
+        "registerCommand",
+        "registerContextEngine",
+        "registerTool"
+      ],
+      "registrationDetails": [
+        {
+          "name": "registerCommand",
+          "file": "plugins/lossless-claw/src/plugin/index.ts",
+          "line": 2009,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2009"
+        },
+        {
+          "name": "registerContextEngine",
+          "file": "plugins/lossless-claw/src/plugin/index.ts",
+          "line": 1989,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1989"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/lossless-claw/src/plugin/index.ts",
+          "line": 1991,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1991"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/lossless-claw/src/plugin/index.ts",
+          "line": 1994,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1994"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/lossless-claw/src/plugin/index.ts",
+          "line": 1997,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1997"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/lossless-claw/src/plugin/index.ts",
+          "line": 2000,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2000"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/lossless-claw/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/lossless-claw/index.ts",
+        "plugins/lossless-claw/src/assembler.ts",
+        "plugins/lossless-claw/src/compaction.ts",
+        "plugins/lossless-claw/src/db/config.ts",
+        "plugins/lossless-claw/src/db/connection.ts",
+        "plugins/lossless-claw/src/db/features.ts",
+        "plugins/lossless-claw/src/db/migration.ts",
+        "plugins/lossless-claw/src/engine.ts",
+        "plugins/lossless-claw/src/estimate-tokens.ts",
+        "plugins/lossless-claw/src/expansion-auth.ts",
+        "plugins/lossless-claw/src/expansion-policy.ts",
+        "plugins/lossless-claw/src/expansion.ts",
+        "plugins/lossless-claw/src/integrity.ts",
+        "plugins/lossless-claw/src/large-files.ts",
+        "plugins/lossless-claw/src/lcm-log.ts",
+        "plugins/lossless-claw/src/openclaw-bridge.ts",
+        "plugins/lossless-claw/src/plugin/index.ts",
+        "plugins/lossless-claw/src/plugin/lcm-command.ts",
+        "plugins/lossless-claw/src/plugin/lcm-db-backup.ts",
+        "plugins/lossless-claw/src/plugin/lcm-doctor-apply.ts",
+        "plugins/lossless-claw/src/plugin/lcm-doctor-cleaners.ts",
+        "plugins/lossless-claw/src/plugin/lcm-doctor-shared.ts",
+        "plugins/lossless-claw/src/plugin/shared-init.ts",
+        "plugins/lossless-claw/src/prune.ts",
+        "plugins/lossless-claw/src/retrieval.ts",
+        "plugins/lossless-claw/src/session-patterns.ts",
+        "plugins/lossless-claw/src/startup-banner-log.ts",
+        "plugins/lossless-claw/src/store/compaction-maintenance-store.ts",
+        "plugins/lossless-claw/src/store/compaction-telemetry-store.ts",
+        "plugins/lossless-claw/src/store/conversation-store.ts",
+        "plugins/lossless-claw/src/store/fts5-sanitize.ts",
+        "plugins/lossless-claw/src/store/full-text-fallback.ts",
+        "plugins/lossless-claw/src/store/full-text-sort.ts",
+        "plugins/lossless-claw/src/store/index.ts",
+        "plugins/lossless-claw/src/store/message-identity.ts",
+        "plugins/lossless-claw/src/store/parse-utc-timestamp.ts",
+        "plugins/lossless-claw/src/store/summary-store.ts",
+        "plugins/lossless-claw/src/summarize.ts",
+        "plugins/lossless-claw/src/tools/common.ts",
+        "plugins/lossless-claw/src/tools/lcm-conversation-scope.ts",
+        "plugins/lossless-claw/src/tools/lcm-describe-tool.ts",
+        "plugins/lossless-claw/src/tools/lcm-expand-query-tool.ts",
+        "plugins/lossless-claw/src/tools/lcm-expand-tool.delegation.ts",
+        "plugins/lossless-claw/src/tools/lcm-expand-tool.ts",
+        "plugins/lossless-claw/src/tools/lcm-expansion-recursion-guard.ts",
+        "plugins/lossless-claw/src/tools/lcm-grep-tool.ts",
+        "plugins/lossless-claw/src/transaction-mutex.ts",
+        "plugins/lossless-claw/src/transcript-repair.ts",
+        "plugins/lossless-claw/src/types.ts",
+        "plugins/lossless-claw/vitest.config.ts"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/lossless-claw/openclaw.plugin.json",
+          "id": "lossless-claw",
+          "name": null,
+          "version": null,
+          "keys": [
+            "configSchema",
+            "id",
+            "kind",
+            "skills",
+            "uiHints"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/lossless-claw/package.json",
+        "name": "@martian-engineering/lossless-claw",
+        "version": "0.9.2",
+        "type": "module",
+        "main": "dist/index.js",
+        "dependencies": [
+          "@mariozechner/pi-agent-core",
+          "@mariozechner/pi-ai",
+          "@mariozechner/pi-coding-agent",
+          "@sinclair/typebox"
+        ],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./dist/index.js"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": null,
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./dist/index.js",
+              "relativePath": "plugins/lossless-claw/dist/index.js",
+              "exists": false,
+              "requiresBuild": true
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/lossless-claw/package.json",
+          "name": "@martian-engineering/lossless-claw",
+          "version": "0.9.2",
+          "type": "module",
+          "main": "dist/index.js",
+          "dependencies": [
+            "@mariozechner/pi-agent-core",
+            "@mariozechner/pi-ai",
+            "@mariozechner/pi-coding-agent",
+            "@sinclair/typebox"
+          ],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./dist/index.js"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": null,
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./dist/index.js",
+                "relativePath": "plugins/lossless-claw/dist/index.js",
+                "exists": false,
+                "requiresBuild": true
+              }
+            ]
+          }
+        }
+      ],
+      "sdkImports": [
+        "openclaw/plugin-sdk"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/lossless-claw/src/assembler.ts",
+          "line": 2,
+          "ref": "plugins/lossless-claw/src/assembler.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/lossless-claw/src/engine.ts",
+          "line": 19,
+          "ref": "plugins/lossless-claw/src/engine.ts:19"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/lossless-claw/src/lcm-log.ts",
+          "line": 1,
+          "ref": "plugins/lossless-claw/src/lcm-log.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/lossless-claw/src/openclaw-bridge.ts",
+          "line": 17,
+          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:17"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/lossless-claw/src/openclaw-bridge.ts",
+          "line": 22,
+          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:22"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/lossless-claw/src/plugin/index.ts",
+          "line": 10,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:10"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/lossless-claw/src/plugin/lcm-command.ts",
+          "line": 9,
+          "ref": "plugins/lossless-claw/src/plugin/lcm-command.ts:9"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/lossless-claw/src/tools/common.ts",
+          "line": 1,
+          "ref": "plugins/lossless-claw/src/tools/common.ts:1"
         }
       ]
     },
@@ -3125,6 +3682,43 @@
       ]
     },
     {
+      "fixture": "qqbot",
+      "code": "manifest-unknown-fields",
+      "level": "warning",
+      "message": "manifest uses top-level fields that are not present in the target OpenClaw PluginManifest type",
+      "evidence": [
+        "capabilities @ plugins/qqbot/openclaw.plugin.json",
+        "extensions @ plugins/qqbot/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "qqbot",
+      "code": "package-plugin-api-compat-missing",
+      "level": "warning",
+      "message": "package openclaw metadata does not declare compat.pluginApi",
+      "evidence": [
+        "plugins/qqbot/package.json"
+      ]
+    },
+    {
+      "fixture": "qqbot",
+      "code": "legacy-root-sdk-import",
+      "level": "warning",
+      "message": "fixture imports the root plugin SDK barrel",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:2",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/approval-handler.ts:12",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/config.ts:2",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/onboarding.ts:13",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/proactive.ts:67",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/tools/channel.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/tools/remind.ts:1"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
       "fixture": "a2a-gateway",
       "code": "manifest-unknown-fields",
       "level": "warning",
@@ -3227,6 +3821,32 @@
         "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/llm.ts:1",
         "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/subagent.ts:1",
         "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/tool.ts:1"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "lossless-claw",
+      "code": "package-plugin-api-compat-missing",
+      "level": "warning",
+      "message": "package openclaw metadata does not declare compat.pluginApi",
+      "evidence": [
+        "plugins/lossless-claw/package.json"
+      ]
+    },
+    {
+      "fixture": "lossless-claw",
+      "code": "legacy-root-sdk-import",
+      "level": "warning",
+      "message": "fixture imports the root plugin SDK barrel",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/assembler.ts:2",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/engine.ts:19",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/lcm-log.ts:1",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:17",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:22",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/index.ts:10",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/lcm-command.ts:9",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/tools/common.ts:1"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
@@ -3406,6 +4026,46 @@
       ]
     },
     {
+      "fixture": "qqbot",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "mpg123-decoder @ plugins/qqbot/package.json",
+        "silk-wasm @ plugins/qqbot/package.json",
+        "ws @ plugins/qqbot/package.json",
+        "openclaw @ plugins/qqbot/package.json"
+      ]
+    },
+    {
+      "fixture": "qqbot",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerChannel @ plugins/qqbot/index.ts:16"
+      ]
+    },
+    {
+      "fixture": "qqbot",
+      "code": "channel-contract-probe",
+      "level": "suggestion",
+      "message": "add channel envelope, config-schema, and runtime metadata probes",
+      "evidence": [
+        "registerChannel @ plugins/qqbot/index.ts:16"
+      ]
+    },
+    {
+      "fixture": "qqbot",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool @ plugins/qqbot/src/tools/channel.ts:138",
+        "registerTool @ plugins/qqbot/src/tools/remind.ts:222"
+      ]
+    },
+    {
       "fixture": "a2a-gateway",
       "code": "package-typescript-source-entrypoint",
       "level": "suggestion",
@@ -3562,6 +4222,50 @@
       "message": "add contract probes for before_tool_call terminal, block, and approval semantics",
       "evidence": [
         "before_tool_call @ plugins/opik-openclaw/src/service/hooks/tool.ts:34"
+      ]
+    },
+    {
+      "fixture": "lossless-claw",
+      "code": "package-build-artifact-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint points at build output that is not present in the source fixture checkout",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/lossless-claw/dist/index.js"
+      ]
+    },
+    {
+      "fixture": "lossless-claw",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "@mariozechner/pi-agent-core @ plugins/lossless-claw/package.json",
+        "@mariozechner/pi-ai @ plugins/lossless-claw/package.json",
+        "@mariozechner/pi-coding-agent @ plugins/lossless-claw/package.json",
+        "@sinclair/typebox @ plugins/lossless-claw/package.json",
+        "openclaw @ plugins/lossless-claw/package.json"
+      ]
+    },
+    {
+      "fixture": "lossless-claw",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2009",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1989"
+      ]
+    },
+    {
+      "fixture": "lossless-claw",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1991",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1994",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1997",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2000"
       ]
     },
     {
@@ -3868,6 +4572,21 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-795CF4F4",
+      "fixture": "lossless-claw",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "lossless-claw: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2009",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1989"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-B91192E5",
       "fixture": "mcp-adapter",
       "severity": "P1",
@@ -3922,6 +4641,20 @@
       "title": "opik-openclaw: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerService @ plugins/opik-openclaw/index.ts:16"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-E203ED8A",
+      "fixture": "qqbot",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "qqbot: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerChannel @ plugins/qqbot/index.ts:16"
       ],
       "compatRecord": null
     },
@@ -4473,6 +5206,90 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-DB268655",
+      "fixture": "lossless-claw",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-root-sdk-import",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "title": "lossless-claw: root plugin SDK barrel is still used by fixtures",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/assembler.ts:2",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/engine.ts:19",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/lcm-log.ts:1",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:17",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:22",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/index.ts:10",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/lcm-command.ts:9",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/tools/common.ts:1"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "id": "CRABPOT-1D5467C3",
+      "fixture": "lossless-claw",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-build-artifact-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "lossless-claw: cold import requires package build output",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/lossless-claw/dist/index.js"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-D4F34CF3",
+      "fixture": "lossless-claw",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "lossless-claw: cold import requires isolated dependency installation",
+      "evidence": [
+        "@mariozechner/pi-agent-core @ plugins/lossless-claw/package.json",
+        "@mariozechner/pi-ai @ plugins/lossless-claw/package.json",
+        "@mariozechner/pi-coding-agent @ plugins/lossless-claw/package.json",
+        "@sinclair/typebox @ plugins/lossless-claw/package.json",
+        "openclaw @ plugins/lossless-claw/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0DC43A1E",
+      "fixture": "lossless-claw",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-plugin-api-compat-missing",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "title": "lossless-claw: plugin API compatibility range is missing",
+      "evidence": [
+        "plugins/lossless-claw/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-03BC9DF6",
+      "fixture": "lossless-claw",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "lossless-claw: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1991",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1994",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1997",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2000"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-22E35E29",
       "fixture": "mcp-adapter",
       "severity": "P2",
@@ -4592,6 +5409,103 @@
       "title": "opik-openclaw: cold import needs TypeScript source entrypoint support",
       "evidence": [
         "extension:plugins/opik-openclaw/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-DADEF8C2",
+      "fixture": "qqbot",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "channel-contract-probe",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "qqbot: channel runtime needs envelope/config probes",
+      "evidence": [
+        "registerChannel @ plugins/qqbot/index.ts:16"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-3AB4ABC1",
+      "fixture": "qqbot",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-root-sdk-import",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "title": "qqbot: root plugin SDK barrel is still used by fixtures",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:2",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/approval-handler.ts:12",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/config.ts:2",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/onboarding.ts:13",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/proactive.ts:67",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/tools/channel.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/tools/remind.ts:1"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "id": "CRABPOT-FD77FB14",
+      "fixture": "qqbot",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "manifest-unknown-fields",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "title": "qqbot: manifest uses unsupported top-level fields",
+      "evidence": [
+        "capabilities @ plugins/qqbot/openclaw.plugin.json",
+        "extensions @ plugins/qqbot/openclaw.plugin.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0DE2381D",
+      "fixture": "qqbot",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "qqbot: cold import requires isolated dependency installation",
+      "evidence": [
+        "mpg123-decoder @ plugins/qqbot/package.json",
+        "silk-wasm @ plugins/qqbot/package.json",
+        "ws @ plugins/qqbot/package.json",
+        "openclaw @ plugins/qqbot/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-9752D007",
+      "fixture": "qqbot",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-plugin-api-compat-missing",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "title": "qqbot: plugin API compatibility range is missing",
+      "evidence": [
+        "plugins/qqbot/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-02A5199C",
+      "fixture": "qqbot",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "title": "qqbot: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/qqbot/src/tools/channel.ts:138",
+        "registerTool @ plugins/qqbot/src/tools/remind.ts:222"
       ],
       "compatRecord": null
     },
@@ -4775,6 +5689,17 @@
       ]
     },
     {
+      "id": "api.capture.runtime-registrars:lossless-claw",
+      "fixture": "lossless-claw",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2009",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1989"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:mcp-adapter",
       "fixture": "mcp-adapter",
       "priority": "P1",
@@ -4792,6 +5717,16 @@
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
         "registerService @ plugins/opik-openclaw/index.ts:16"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:qqbot",
+      "fixture": "qqbot",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerChannel @ plugins/qqbot/index.ts:16"
       ]
     },
     {
@@ -4871,6 +5806,16 @@
       ]
     },
     {
+      "id": "channel.runtime.envelope-config-metadata:qqbot",
+      "fixture": "qqbot",
+      "priority": "P2",
+      "target": "channel-runtime",
+      "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
+      "evidence": [
+        "registerChannel @ plugins/qqbot/index.ts:16"
+      ]
+    },
+    {
       "id": "channel.runtime.envelope-config-metadata:wecom",
       "fixture": "wecom",
       "priority": "P2",
@@ -4923,6 +5868,17 @@
       ]
     },
     {
+      "id": "manifest.schema.top-level-fields:qqbot",
+      "fixture": "qqbot",
+      "priority": "P2",
+      "target": "manifest-loader",
+      "contract": "Manifest top-level fields are represented in target OpenClaw PluginManifest.",
+      "evidence": [
+        "capabilities @ plugins/qqbot/openclaw.plugin.json",
+        "extensions @ plugins/qqbot/openclaw.plugin.json"
+      ]
+    },
+    {
       "id": "package.compat.plugin-api-range:a2a-gateway",
       "fixture": "a2a-gateway",
       "priority": "P2",
@@ -4943,6 +5899,16 @@
       ]
     },
     {
+      "id": "package.compat.plugin-api-range:lossless-claw",
+      "fixture": "lossless-claw",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      "evidence": [
+        "plugins/lossless-claw/package.json"
+      ]
+    },
+    {
       "id": "package.compat.plugin-api-range:mcp-adapter",
       "fixture": "mcp-adapter",
       "priority": "P2",
@@ -4950,6 +5916,16 @@
       "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
       "evidence": [
         "plugins/mcp-adapter/package.json"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:qqbot",
+      "fixture": "qqbot",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      "evidence": [
+        "plugins/qqbot/package.json"
       ]
     },
     {
@@ -4971,6 +5947,16 @@
       "evidence": [
         "extension:./dist/index.js -> plugins/agentchat/integrations/openclaw-channel/dist/index.js",
         "setupEntry:./dist/setup-entry.js -> plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js"
+      ]
+    },
+    {
+      "id": "package.entrypoint.build-before-cold-import:lossless-claw",
+      "fixture": "lossless-claw",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector can build or resolve source aliases before cold importing package entrypoints.",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/lossless-claw/dist/index.js"
       ]
     },
     {
@@ -5036,6 +6022,20 @@
       ]
     },
     {
+      "id": "package.entrypoint.isolated-dependency-install:lossless-claw",
+      "fixture": "lossless-claw",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "@mariozechner/pi-agent-core @ plugins/lossless-claw/package.json",
+        "@mariozechner/pi-ai @ plugins/lossless-claw/package.json",
+        "@mariozechner/pi-coding-agent @ plugins/lossless-claw/package.json",
+        "@sinclair/typebox @ plugins/lossless-claw/package.json",
+        "openclaw @ plugins/lossless-claw/package.json"
+      ]
+    },
+    {
       "id": "package.entrypoint.isolated-dependency-install:mcp-adapter",
       "fixture": "mcp-adapter",
       "priority": "P2",
@@ -5056,6 +6056,19 @@
         "opik @ plugins/opik-openclaw/package.json",
         "zod @ plugins/opik-openclaw/package.json",
         "openclaw @ plugins/opik-openclaw/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:qqbot",
+      "fixture": "qqbot",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "mpg123-decoder @ plugins/qqbot/package.json",
+        "silk-wasm @ plugins/qqbot/package.json",
+        "ws @ plugins/qqbot/package.json",
+        "openclaw @ plugins/qqbot/package.json"
       ]
     },
     {
@@ -5178,6 +6191,23 @@
       ]
     },
     {
+      "id": "sdk.import.root-barrel-cold-import:lossless-claw",
+      "fixture": "lossless-claw",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/assembler.ts:2",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/engine.ts:19",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/lcm-log.ts:1",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:17",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:22",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/index.ts:10",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/lcm-command.ts:9",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/tools/common.ts:1"
+      ]
+    },
+    {
       "id": "sdk.import.root-barrel-cold-import:opik-openclaw",
       "fixture": "opik-openclaw",
       "priority": "P2",
@@ -5193,6 +6223,24 @@
         "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/llm.ts:1",
         "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/subagent.ts:1",
         "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/tool.ts:1"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:qqbot",
+      "fixture": "qqbot",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:2",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/approval-handler.ts:12",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/config.ts:2",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/onboarding.ts:13",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/proactive.ts:67",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/tools/channel.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/tools/remind.ts:1"
       ]
     },
     {
@@ -5216,6 +6264,19 @@
       ]
     },
     {
+      "id": "tool.registration.schema-capture:lossless-claw",
+      "fixture": "lossless-claw",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1991",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1994",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1997",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2000"
+      ]
+    },
+    {
       "id": "tool.registration.schema-capture:mcp-adapter",
       "fixture": "mcp-adapter",
       "priority": "P2",
@@ -5223,6 +6284,17 @@
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
         "registerTool @ plugins/mcp-adapter/index.ts:30"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:qqbot",
+      "fixture": "qqbot",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/qqbot/src/tools/channel.ts:138",
+        "registerTool @ plugins/qqbot/src/tools/remind.ts:222"
       ]
     },
     {
@@ -5553,6 +6625,63 @@
       ]
     },
     {
+      "fixture": "qqbot",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 0 hooks, 2 registrations, and 0 manifest contracts",
+      "evidence": [
+        "registration:registerChannel",
+        "registration:registerTool"
+      ]
+    },
+    {
+      "fixture": "qqbot",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": []
+    },
+    {
+      "fixture": "qqbot",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerChannel",
+        "registerTool"
+      ]
+    },
+    {
+      "fixture": "qqbot",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk",
+        "openclaw/plugin-sdk/core"
+      ]
+    },
+    {
+      "fixture": "qqbot",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/qqbot/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "qqbot",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/qqbot/package.json",
+        "@tencent-connect/openclaw-qqbot",
+        "version:1.7.1"
+      ]
+    },
+    {
       "fixture": "a2a-gateway",
       "code": "seam-inventory",
       "level": "log",
@@ -5843,6 +6972,75 @@
         "plugins/opik-openclaw/package.json",
         "@opik/opik-openclaw",
         "version:0.2.14"
+      ]
+    },
+    {
+      "fixture": "lossless-claw",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 5 hooks, 3 registrations, and 0 manifest contracts",
+      "evidence": [
+        "hook:before_prompt_build",
+        "hook:before_reset",
+        "hook:gateway_start",
+        "hook:gateway_stop",
+        "hook:session_end",
+        "registration:registerCommand",
+        "registration:registerContextEngine",
+        "registration:registerTool"
+      ]
+    },
+    {
+      "fixture": "lossless-claw",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": [
+        "before_prompt_build",
+        "before_reset",
+        "gateway_start",
+        "gateway_stop",
+        "session_end"
+      ]
+    },
+    {
+      "fixture": "lossless-claw",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerCommand",
+        "registerContextEngine",
+        "registerTool"
+      ]
+    },
+    {
+      "fixture": "lossless-claw",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk"
+      ]
+    },
+    {
+      "fixture": "lossless-claw",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/lossless-claw/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "lossless-claw",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/lossless-claw/package.json",
+        "@martian-engineering/lossless-claw",
+        "version:0.9.2"
       ]
     },
     {
@@ -6185,6 +7383,16 @@
       "compatRecord": "channel-env-vars"
     },
     {
+      "fixture": "qqbot",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-root-sdk-import"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
       "fixture": "a2a-gateway",
       "code": "compat-record-present",
       "level": "log",
@@ -6216,6 +7424,16 @@
     },
     {
       "fixture": "opik-openclaw",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-root-sdk-import"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "lossless-claw",
       "code": "compat-record-present",
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
@@ -6348,6 +7566,55 @@
     },
     {
       "fixture": "wecom",
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "qqbot",
+      "decision": "plugin-upstream-fix",
+      "seam": "manifest-schema",
+      "action": "Move unknown manifest metadata into supported package openclaw metadata or add a versioned OpenClaw manifest field.",
+      "evidence": "capabilities, extensions"
+    },
+    {
+      "fixture": "qqbot",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to declare the plugin API range it was built against.",
+      "evidence": "plugins/qqbot/package.json"
+    },
+    {
+      "fixture": "qqbot",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "mpg123-decoder, silk-wasm, ws, openclaw"
+    },
+    {
+      "fixture": "qqbot",
+      "decision": "core-compat-adapter",
+      "seam": "sdk-import",
+      "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
+      "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "qqbot",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerChannel"
+    },
+    {
+      "fixture": "qqbot",
+      "decision": "inspector-follow-up",
+      "seam": "channel-runtime",
+      "action": "Probe channel setup and message envelope contracts before changing channel runtime payloads.",
+      "evidence": "registerChannel"
+    },
+    {
+      "fixture": "qqbot",
       "decision": "inspector-follow-up",
       "seam": "tool-schema",
       "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
@@ -6541,6 +7808,48 @@
       "seam": "tool-policy",
       "action": "Probe before_tool_call return shapes before changing tool-call approval or block behavior.",
       "evidence": "before_tool_call"
+    },
+    {
+      "fixture": "lossless-claw",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to declare the plugin API range it was built against.",
+      "evidence": "plugins/lossless-claw/package.json"
+    },
+    {
+      "fixture": "lossless-claw",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Run the plugin build or resolve source entrypoint aliases before cold-importing this fixture.",
+      "evidence": "./dist/index.js"
+    },
+    {
+      "fixture": "lossless-claw",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "@mariozechner/pi-agent-core, @mariozechner/pi-ai, @mariozechner/pi-coding-agent, @sinclair/typebox, openclaw"
+    },
+    {
+      "fixture": "lossless-claw",
+      "decision": "core-compat-adapter",
+      "seam": "sdk-import",
+      "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
+      "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "lossless-claw",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerCommand, registerContextEngine"
+    },
+    {
+      "fixture": "lossless-claw",
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
     },
     {
       "fixture": "connectclaw",

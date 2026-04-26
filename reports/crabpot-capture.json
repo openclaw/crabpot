@@ -7,13 +7,13 @@
     "sdkExportCount": 307
   },
   "summary": {
-    "fixtureCount": 13,
-    "registrationCount": 34,
-    "hookCount": 19,
-    "sdkImportCount": 46,
-    "packageEntrypointCount": 16,
-    "issueProbeCount": 63,
-    "inspectorShimRequiredCount": 21,
+    "fixtureCount": 15,
+    "registrationCount": 43,
+    "hookCount": 24,
+    "sdkImportCount": 64,
+    "packageEntrypointCount": 18,
+    "issueProbeCount": 76,
+    "inspectorShimRequiredCount": 24,
     "compatAliasRequiredCount": 3
   },
   "fixtures": [
@@ -435,6 +435,202 @@
           "kind": "extension",
           "specifier": "./index.js",
           "ref": "plugins/wecom/index.js",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qqbot",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.registerChannel:qqbot:plugins-qqbot-index-ts-16",
+          "fixture": "qqbot",
+          "registrar": "registerChannel",
+          "ref": "plugins/qqbot/index.ts:16",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "channel id is stable",
+            "inbound/outbound envelope shape is captured",
+            "sender metadata is preserved"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-channel",
+              "send": "function",
+              "receive": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:qqbot:plugins-qqbot-src-tools-channel-ts-138",
+          "fixture": "qqbot",
+          "registrar": "registerTool",
+          "ref": "plugins/qqbot/src/tools/channel.ts:138",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:qqbot:plugins-qqbot-src-tools-remind-ts-222",
+          "fixture": "qqbot",
+          "registrar": "registerTool",
+          "ref": "plugins/qqbot/src/tools/remind.ts:222",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk:qqbot:plugins-qqbot-index-ts-1",
+          "fixture": "qqbot",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/qqbot/index.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:qqbot:plugins-qqbot-index-ts-2",
+          "fixture": "qqbot",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/qqbot/index.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:qqbot:plugins-qqbot-src-approval-handler-ts-12",
+          "fixture": "qqbot",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/qqbot/src/approval-handler.ts:12",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:qqbot:plugins-qqbot-src-config-ts-2",
+          "fixture": "qqbot",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/qqbot/src/config.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:qqbot:plugins-qqbot-src-onboarding-ts-13",
+          "fixture": "qqbot",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/qqbot/src/onboarding.ts:13",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:qqbot:plugins-qqbot-src-proactive-ts-67",
+          "fixture": "qqbot",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/qqbot/src/proactive.ts:67",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:qqbot:plugins-qqbot-src-runtime-ts-1",
+          "fixture": "qqbot",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/qqbot/src/runtime.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:qqbot:plugins-qqbot-src-tools-channel-ts-1",
+          "fixture": "qqbot",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/qqbot/src/tools/channel.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:qqbot:plugins-qqbot-src-tools-remind-ts-1",
+          "fixture": "qqbot",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/qqbot/src/tools/remind.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:qqbot:plugins-qqbot-src-channel-ts-7",
+          "fixture": "qqbot",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/qqbot/src/channel.ts:7",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:qqbot:plugins-qqbot-preload-cjs",
+          "fixture": "qqbot",
+          "kind": "extension",
+          "specifier": "./preload.cjs",
+          "ref": "plugins/qqbot/preload.cjs",
           "support": "source-present",
           "assertions": [
             "entrypoint path resolves",
@@ -1204,6 +1400,343 @@
           "kind": "runtimeExtension",
           "specifier": "./dist/index.js",
           "ref": "plugins/opik-openclaw/dist/index.js",
+          "support": "build-required",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lossless-claw",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.registerCommand:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2009",
+          "fixture": "lossless-claw",
+          "registrar": "registerCommand",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2009",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerContextEngine:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1989",
+          "fixture": "lossless-claw",
+          "registrar": "registerContextEngine",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1989",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "context engine id is stable",
+            "factory metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-context-engine",
+              "factory": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1991",
+          "fixture": "lossless-claw",
+          "registrar": "registerTool",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1991",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1994",
+          "fixture": "lossless-claw",
+          "registrar": "registerTool",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1994",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1997",
+          "fixture": "lossless-claw",
+          "registrar": "registerTool",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1997",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2000",
+          "fixture": "lossless-claw",
+          "registrar": "registerTool",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2000",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [
+        {
+          "id": "hook.before_prompt_build:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1975",
+          "fixture": "lossless-claw",
+          "hook": "before_prompt_build",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1975",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "prompt mutation result is preserved",
+            "agent and conversation metadata are present"
+          ],
+          "syntheticEvent": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "conversationId": "conversation-fixture",
+            "messages": [
+              {
+                "role": "user",
+                "content": "fixture prompt"
+              }
+            ],
+            "metadata": {
+              "source": "crabpot"
+            }
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture",
+            "channelId": "fixture-channel"
+          }
+        },
+        {
+          "id": "hook.before_reset:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1968",
+          "fixture": "lossless-claw",
+          "hook": "before_reset",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1968",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "before_reset",
+            "fixture": "lossless-claw"
+          },
+          "syntheticContext": {
+            "hook": "before_reset",
+            "fixture": "lossless-claw"
+          }
+        },
+        {
+          "id": "hook.gateway_start:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2171",
+          "fixture": "lossless-claw",
+          "hook": "gateway_start",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2171",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "gateway_start",
+            "fixture": "lossless-claw"
+          },
+          "syntheticContext": {
+            "hook": "gateway_start",
+            "fixture": "lossless-claw"
+          }
+        },
+        {
+          "id": "hook.gateway_stop:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2195",
+          "fixture": "lossless-claw",
+          "hook": "gateway_stop",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2195",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "gateway_stop",
+            "fixture": "lossless-claw"
+          },
+          "syntheticContext": {
+            "hook": "gateway_stop",
+            "fixture": "lossless-claw"
+          }
+        },
+        {
+          "id": "hook.session_end:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1978",
+          "fixture": "lossless-claw",
+          "hook": "session_end",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1978",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "session_end",
+            "fixture": "lossless-claw"
+          },
+          "syntheticContext": {
+            "hook": "session_end",
+            "fixture": "lossless-claw"
+          }
+        }
+      ],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-assembler-ts-2",
+          "fixture": "lossless-claw",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/lossless-claw/src/assembler.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-engine-ts-19",
+          "fixture": "lossless-claw",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/lossless-claw/src/engine.ts:19",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-lcm-log-ts-1",
+          "fixture": "lossless-claw",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/lossless-claw/src/lcm-log.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-openclaw-bridge-ts-17",
+          "fixture": "lossless-claw",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:17",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-openclaw-bridge-ts-22",
+          "fixture": "lossless-claw",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:22",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-10",
+          "fixture": "lossless-claw",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:10",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-plugin-lcm-command-ts-9",
+          "fixture": "lossless-claw",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/lossless-claw/src/plugin/lcm-command.ts:9",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-tools-common-ts-1",
+          "fixture": "lossless-claw",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/lossless-claw/src/tools/common.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:lossless-claw:plugins-lossless-claw-dist-index-js",
+          "fixture": "lossless-claw",
+          "kind": "extension",
+          "specifier": "./dist/index.js",
+          "ref": "plugins/lossless-claw/dist/index.js",
           "support": "build-required",
           "assertions": [
             "entrypoint path resolves",
@@ -2036,6 +2569,20 @@
       ]
     },
     {
+      "id": "api.capture.runtime-registrars:lossless-claw",
+      "fixture": "lossless-claw",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2009",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1989"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:mcp-adapter",
       "fixture": "mcp-adapter",
       "priority": "P1",
@@ -2055,6 +2602,19 @@
       "target": "inspector-capture-api",
       "evidence": [
         "registerService @ plugins/opik-openclaw/index.ts:16"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:qqbot",
+      "fixture": "qqbot",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerChannel @ plugins/qqbot/index.ts:16"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -2159,6 +2719,19 @@
       ]
     },
     {
+      "id": "channel.runtime.envelope-config-metadata:qqbot",
+      "fixture": "qqbot",
+      "priority": "P2",
+      "target": "channel-runtime",
+      "evidence": [
+        "registerChannel @ plugins/qqbot/index.ts:16"
+      ],
+      "assertions": [
+        "message envelope is stable",
+        "sender/config metadata is preserved"
+      ]
+    },
+    {
       "id": "channel.runtime.envelope-config-metadata:wecom",
       "fixture": "wecom",
       "priority": "P2",
@@ -2226,6 +2799,20 @@
       ]
     },
     {
+      "id": "manifest.schema.top-level-fields:qqbot",
+      "fixture": "qqbot",
+      "priority": "P2",
+      "target": "manifest-loader",
+      "evidence": [
+        "capabilities @ plugins/qqbot/openclaw.plugin.json",
+        "extensions @ plugins/qqbot/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
       "id": "package.compat.plugin-api-range:a2a-gateway",
       "fixture": "a2a-gateway",
       "priority": "P2",
@@ -2252,12 +2839,38 @@
       ]
     },
     {
+      "id": "package.compat.plugin-api-range:lossless-claw",
+      "fixture": "lossless-claw",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/lossless-claw/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.compat.plugin-api-range:mcp-adapter",
       "fixture": "mcp-adapter",
       "priority": "P2",
       "target": "package-loader",
       "evidence": [
         "plugins/mcp-adapter/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:qqbot",
+      "fixture": "qqbot",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/qqbot/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -2285,6 +2898,19 @@
       "evidence": [
         "extension:./dist/index.js -> plugins/agentchat/integrations/openclaw-channel/dist/index.js",
         "setupEntry:./dist/setup-entry.js -> plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.build-before-cold-import:lossless-claw",
+      "fixture": "lossless-claw",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/lossless-claw/dist/index.js"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -2369,6 +2995,23 @@
       ]
     },
     {
+      "id": "package.entrypoint.isolated-dependency-install:lossless-claw",
+      "fixture": "lossless-claw",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "@mariozechner/pi-agent-core @ plugins/lossless-claw/package.json",
+        "@mariozechner/pi-ai @ plugins/lossless-claw/package.json",
+        "@mariozechner/pi-coding-agent @ plugins/lossless-claw/package.json",
+        "@sinclair/typebox @ plugins/lossless-claw/package.json",
+        "openclaw @ plugins/lossless-claw/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.entrypoint.isolated-dependency-install:mcp-adapter",
       "fixture": "mcp-adapter",
       "priority": "P2",
@@ -2391,6 +3034,22 @@
         "opik @ plugins/opik-openclaw/package.json",
         "zod @ plugins/opik-openclaw/package.json",
         "openclaw @ plugins/opik-openclaw/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:qqbot",
+      "fixture": "qqbot",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "mpg123-decoder @ plugins/qqbot/package.json",
+        "silk-wasm @ plugins/qqbot/package.json",
+        "ws @ plugins/qqbot/package.json",
+        "openclaw @ plugins/qqbot/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -2550,6 +3209,26 @@
       ]
     },
     {
+      "id": "sdk.import.root-barrel-cold-import:lossless-claw",
+      "fixture": "lossless-claw",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/assembler.ts:2",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/engine.ts:19",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/lcm-log.ts:1",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:17",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:22",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/index.ts:10",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/lcm-command.ts:9",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/tools/common.ts:1"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
       "id": "sdk.import.root-barrel-cold-import:opik-openclaw",
       "fixture": "opik-openclaw",
       "priority": "P2",
@@ -2564,6 +3243,27 @@
         "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/llm.ts:1",
         "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/subagent.ts:1",
         "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/tool.ts:1"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:qqbot",
+      "fixture": "qqbot",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:2",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/approval-handler.ts:12",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/config.ts:2",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/onboarding.ts:13",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/proactive.ts:67",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/tools/channel.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/tools/remind.ts:1"
       ],
       "assertions": [
         "package export exists",
@@ -2597,12 +3297,42 @@
       ]
     },
     {
+      "id": "tool.registration.schema-capture:lossless-claw",
+      "fixture": "lossless-claw",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1991",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1994",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1997",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2000"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    },
+    {
       "id": "tool.registration.schema-capture:mcp-adapter",
       "fixture": "mcp-adapter",
       "priority": "P2",
       "target": "tool-runtime",
       "evidence": [
         "registerTool @ plugins/mcp-adapter/index.ts:30"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:qqbot",
+      "fixture": "qqbot",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/qqbot/src/tools/channel.ts:138",
+        "registerTool @ plugins/qqbot/src/tools/remind.ts:222"
       ],
       "assertions": [
         "tool schema is captured",

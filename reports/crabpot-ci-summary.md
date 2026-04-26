@@ -10,10 +10,10 @@ Status: PASS
 | Metric            | Value |
 | ----------------- | ----- |
 | Breakages         | 0     |
-| Warnings          | 20    |
-| Suggestions       | 44    |
-| Issues            | 64    |
-| P1 issues         | 13    |
+| Warnings          | 25    |
+| Suggestions       | 52    |
+| Issues            | 77    |
+| P1 issues         | 15    |
 | Ref diff failures | 0     |
 | Ref diff warnings | 0     |
 | Policy failures   | 0     |
@@ -35,10 +35,12 @@ Status: PASS
 | P1       | codex-app-server  | sdk-export-missing       | core-compat-adapter | codex-app-server: plugin SDK import aliases are missing from target package exports |
 | P1       | connectclaw       | registration-capture-gap | inspector-follow-up | connectclaw: runtime registrations need capture before contract judgment            |
 | P1       | llm-trace-phoenix | conversation-access-hook | inspector-follow-up | llm-trace-phoenix: conversation-access hooks need privacy-boundary probes           |
+| P1       | lossless-claw     | registration-capture-gap | inspector-follow-up | lossless-claw: runtime registrations need capture before contract judgment          |
 | P1       | mcp-adapter       | registration-capture-gap | inspector-follow-up | mcp-adapter: runtime registrations need capture before contract judgment            |
 | P1       | opik-openclaw     | before-tool-call-probe   | inspector-follow-up | opik-openclaw: before_tool_call needs terminal/block/approval probes                |
 | P1       | opik-openclaw     | conversation-access-hook | inspector-follow-up | opik-openclaw: conversation-access hooks need privacy-boundary probes               |
 | P1       | opik-openclaw     | registration-capture-gap | inspector-follow-up | opik-openclaw: runtime registrations need capture before contract judgment          |
+| P1       | qqbot             | registration-capture-gap | inspector-follow-up | qqbot: runtime registrations need capture before contract judgment                  |
 | P1       | wecom             | before-tool-call-probe   | inspector-follow-up | wecom: before_tool_call needs terminal/block/approval probes                        |
 | P1       | wecom             | registration-capture-gap | inspector-follow-up | wecom: runtime registrations need capture before contract judgment                  |
 

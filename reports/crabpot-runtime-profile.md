@@ -5,12 +5,12 @@ Samples per command: 1
 
 ## Summary
 
-| Metric        | Value   |
-| ------------- | ------- |
-| Commands      | 7       |
-| P50 wall time | 309 ms  |
-| P95 wall time | 513 ms  |
-| Max peak RSS  | 66.7 MB |
+| Metric        | Value    |
+| ------------- | -------- |
+| Commands      | 7        |
+| P50 wall time | 3492 ms  |
+| P95 wall time | 13398 ms |
+| Max peak RSS  | 66.7 MB  |
 
 ## Target OpenClaw Registry Surface
 
@@ -30,22 +30,22 @@ Samples per command: 1
 
 | Metric                | Value |
 | --------------------- | ----- |
-| fixtures              | 13    |
-| sourceFiles           | 207   |
-| observedHooks         | 19    |
-| observedRegistrations | 25    |
-| observedSdkImports    | 21    |
-| contractProbes        | 63    |
-| issueFindings         | 64    |
+| fixtures              | 15    |
+| sourceFiles           | 309   |
+| observedHooks         | 24    |
+| observedRegistrations | 30    |
+| observedSdkImports    | 24    |
+| contractProbes        | 76    |
+| issueFindings         | 77    |
 
 ## Boot And Memory Samples
 
 | ID                     | Label                                           | Median wall | Max wall | Max peak RSS | Exit codes |
 | ---------------------- | ----------------------------------------------- | ----------- | -------- | ------------ | ---------- |
-| node-boot              | Node boot                                       | 204 ms      | 204 ms   | 2.3 MB       | 0          |
-| fixture-inspection     | Fixture inspection                              | 253 ms      | 253 ms   | 64.3 MB      | 0          |
-| compat-report-registry | Compatibility report plus target registry parse | 262 ms      | 262 ms   | 63.7 MB      | 0          |
-| contract-capture       | Contract capture inventory                      | 513 ms      | 513 ms   | 52.4 MB      | 0          |
-| synthetic-probe-plan   | Synthetic probe plan                            | 489 ms      | 489 ms   | 63.5 MB      | 0          |
-| cold-import-readiness  | Cold import readiness                           | 309 ms      | 309 ms   | 59.1 MB      | 0          |
-| workspace-plan         | Workspace execution plan                        | 329 ms      | 329 ms   | 66.7 MB      | 0          |
+| node-boot              | Node boot                                       | 2536 ms     | 2536 ms  | 24.6 MB      | 0          |
+| fixture-inspection     | Fixture inspection                              | 1272 ms     | 1272 ms  | 66.7 MB      | 0          |
+| compat-report-registry | Compatibility report plus target registry parse | 2470 ms     | 2470 ms  | 0 MB         | 0          |
+| contract-capture       | Contract capture inventory                      | 6114 ms     | 6114 ms  | 0 MB         | 0          |
+| synthetic-probe-plan   | Synthetic probe plan                            | 3492 ms     | 3492 ms  | 0 MB         | 0          |
+| cold-import-readiness  | Cold import readiness                           | 6155 ms     | 6155 ms  | 0 MB         | 0          |
+| workspace-plan         | Workspace execution plan                        | 13398 ms    | 13398 ms | 51.5 MB      | 0          |

@@ -10,15 +10,15 @@
     "configuredPath": "../openclaw"
   },
   "summary": {
-    "fixtureCount": 13,
-    "entrypointCount": 16,
-    "installStepCount": 11,
-    "auditStepCount": 11,
-    "buildStepCount": 4,
-    "artifactStepCount": 16,
-    "captureStepCount": 16,
-    "syntheticProbeStepCount": 16,
-    "targetOpenClawLinkStepCount": 11,
+    "fixtureCount": 15,
+    "entrypointCount": 18,
+    "installStepCount": 12,
+    "auditStepCount": 12,
+    "buildStepCount": 5,
+    "artifactStepCount": 18,
+    "captureStepCount": 18,
+    "syntheticProbeStepCount": 18,
+    "targetOpenClawLinkStepCount": 12,
     "missingBuildScriptCount": 0,
     "sdkAliasRequiredCount": 1
   },
@@ -223,6 +223,81 @@
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.js --output ../../results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json",
               "cwd": ".crabpot/workspaces/wecom",
               "artifactPath": ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qqbot",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:qqbot:plugins-qqbot-preload-cjs",
+          "fixture": "qqbot",
+          "packagePath": "plugins/qqbot/package.json",
+          "packageName": "@tencent-connect/openclaw-qqbot",
+          "entrypoint": "plugins/qqbot/preload.cjs",
+          "status": "dependency-install-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/qqbot/package-lock.json",
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link"
+          ],
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "mpg123-decoder, silk-wasm, ws, openclaw"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/qqbot && rsync -a --delete plugins/qqbot/ .crabpot/workspaces/qqbot/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/qqbot",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/qqbot",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/qqbot",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/qqbot/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/qqbot",
+              "artifactPath": ".crabpot/results/qqbot/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./preload.cjs --output ../../results/qqbot/cold-import-extension-qqbot-plugins-qqbot-preload-cjs.capture.json",
+              "cwd": ".crabpot/workspaces/qqbot",
+              "artifactPath": ".crabpot/results/qqbot/cold-import-extension-qqbot-plugins-qqbot-preload-cjs.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./preload.cjs --output ../../results/qqbot/cold-import-extension-qqbot-plugins-qqbot-preload-cjs.synthetic.json",
+              "cwd": ".crabpot/workspaces/qqbot",
+              "artifactPath": ".crabpot/results/qqbot/cold-import-extension-qqbot-plugins-qqbot-preload-cjs.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -663,6 +738,67 @@
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/opik-openclaw/cold-import-runtimeExtension-opik-openclaw-plugins-opik-openclaw-dist-index-js.synthetic.json",
               "cwd": ".crabpot/workspaces/opik-openclaw",
               "artifactPath": ".crabpot/results/opik-openclaw/cold-import-runtimeExtension-opik-openclaw-plugins-opik-openclaw-dist-index-js.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lossless-claw",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:lossless-claw:plugins-lossless-claw-dist-index-js",
+          "fixture": "lossless-claw",
+          "packagePath": "plugins/lossless-claw/package.json",
+          "packageName": "@martian-engineering/lossless-claw",
+          "entrypoint": "plugins/lossless-claw/dist/index.js",
+          "status": "build-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/lossless-claw/package-lock.json",
+          "requiredCapabilities": [
+            "build",
+            "capture-shim",
+            "synthetic-probes"
+          ],
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/lossless-claw/dist/index.js"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/lossless-claw && rsync -a --delete plugins/lossless-claw/ .crabpot/workspaces/lossless-claw/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/lossless-claw",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "build",
+              "command": "npm run build",
+              "cwd": ".crabpot/workspaces/lossless-claw",
+              "reason": "produce missing OpenClaw build entrypoint"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/lossless-claw/cold-import-extension-lossless-claw-plugins-lossless-claw-dist-index-js.capture.json",
+              "cwd": ".crabpot/workspaces/lossless-claw",
+              "artifactPath": ".crabpot/results/lossless-claw/cold-import-extension-lossless-claw-plugins-lossless-claw-dist-index-js.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/lossless-claw/cold-import-extension-lossless-claw-plugins-lossless-claw-dist-index-js.synthetic.json",
+              "cwd": ".crabpot/workspaces/lossless-claw",
+              "artifactPath": ".crabpot/results/lossless-claw/cold-import-extension-lossless-claw-plugins-lossless-claw-dist-index-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]

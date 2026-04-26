@@ -6,13 +6,13 @@
     "sdkExportCount": 307
   },
   "summary": {
-    "fixtureCount": 13,
-    "entrypointCount": 16,
+    "fixtureCount": 15,
+    "entrypointCount": 18,
     "readyCount": 0,
-    "blockedCount": 16,
+    "blockedCount": 18,
     "tsLoaderRequiredCount": 10,
-    "buildRequiredCount": 4,
-    "dependencyInstallRequiredCount": 11,
+    "buildRequiredCount": 5,
+    "dependencyInstallRequiredCount": 12,
     "sdkAliasRequiredCount": 1
   },
   "fixtures": [
@@ -77,6 +77,31 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@wecom/aibot-node-sdk, file-type, pinyin-pro, openclaw, undici"
+            }
+          ],
+          "assertions": [
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qqbot",
+      "priority": "high",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:qqbot:plugins-qqbot-preload-cjs",
+          "fixture": "qqbot",
+          "packagePath": "plugins/qqbot/package.json",
+          "kind": "extension",
+          "specifier": "./preload.cjs",
+          "path": "plugins/qqbot/preload.cjs",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "mpg123-decoder, silk-wasm, ws, openclaw"
             }
           ],
           "assertions": [
@@ -257,6 +282,31 @@
               "code": "build-required",
               "message": "entrypoint points at build output that is absent in the fixture checkout",
               "evidence": "plugins/opik-openclaw/dist/index.js"
+            }
+          ],
+          "assertions": [
+            "plugin build or source alias resolution runs before cold import"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lossless-claw",
+      "priority": "high",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:lossless-claw:plugins-lossless-claw-dist-index-js",
+          "fixture": "lossless-claw",
+          "packagePath": "plugins/lossless-claw/package.json",
+          "kind": "extension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/lossless-claw/dist/index.js",
+          "status": "build-required",
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/lossless-claw/dist/index.js"
             }
           ],
           "assertions": [

@@ -10,36 +10,34 @@ is to catch contract drift before external plugin authors do.
 <!-- crabpot-summary:start -->
 ## Dashboard
 
-Last dashboard update: Apr 26, 2026, 00:46 UTC
+Last dashboard update: Apr 26, 2026, 00:55 UTC
 
 State: PASS
 
-Mode: check
+Mode: local
 
-OpenClaw: openclaw/openclaw@main
-
-Run: https://github.com/openclaw/crabpot/actions/runs/24944533555
+OpenClaw: ../openclaw
 
 ### Result Grid
 
 | Metric            | Result                                  |
 | ----------------- | --------------------------------------- |
-| Fixtures          | 13                                      |
+| Fixtures          | 15                                      |
 | Hard breakages    | 0                                       |
-| Warnings          | 20                                      |
-| Suggestions       | 44                                      |
-| Issues            | 64                                      |
-| P1 issues         | 13                                      |
-| Contract probes   | 63                                      |
+| Warnings          | 25                                      |
+| Suggestions       | 52                                      |
+| Issues            | 77                                      |
+| P1 issues         | 15                                      |
+| Contract probes   | 76                                      |
 | Policy failures   | 0                                       |
 | Policy warnings   | 2                                       |
 | Ref diff failures | 0                                       |
 | Profile failures  | 0                                       |
 | Execution probes  | 6 pass / 0 fail / 2 blocked             |
-| Synthetic probes  | 53 ready / 0 blocked / 53 total         |
-| Cold import       | 0 ready / 16 blocked / 16 entrypoints   |
-| Workspace plan    | 16 entrypoints / 11 installs / 4 builds |
-| Runtime profile   | p50 182ms / max RSS 68.6MB              |
+| Synthetic probes  | 67 ready / 0 blocked / 67 total         |
+| Cold import       | 0 ready / 18 blocked / 18 entrypoints   |
+| Workspace plan    | 18 entrypoints / 12 installs / 5 builds |
+| Runtime profile   | p50 3492ms / max RSS 66.7MB             |
 
 ### Top Discovered Issues
 
@@ -52,9 +50,9 @@ Run: https://github.com/openclaw/crabpot/actions/runs/24944533555
 | CRABPOT-C2331427 | P1       | codex-app-server  | sdk-export-missing       | core-compat-adapter | codex-app-server: plugin SDK import aliases are missing from target package exports |
 | CRABPOT-A16D6B91 | P1       | connectclaw       | registration-capture-gap | inspector-follow-up | connectclaw: runtime registrations need capture before contract judgment            |
 | CRABPOT-D71B126E | P1       | llm-trace-phoenix | conversation-access-hook | inspector-follow-up | llm-trace-phoenix: conversation-access hooks need privacy-boundary probes           |
+| CRABPOT-795CF4F4 | P1       | lossless-claw     | registration-capture-gap | inspector-follow-up | lossless-claw: runtime registrations need capture before contract judgment          |
 | CRABPOT-B91192E5 | P1       | mcp-adapter       | registration-capture-gap | inspector-follow-up | mcp-adapter: runtime registrations need capture before contract judgment            |
 | CRABPOT-EE3B527C | P1       | opik-openclaw     | before-tool-call-probe   | inspector-follow-up | opik-openclaw: before_tool_call needs terminal/block/approval probes                |
-| CRABPOT-6FC4ED08 | P1       | opik-openclaw     | conversation-access-hook | inspector-follow-up | opik-openclaw: conversation-access hooks need privacy-boundary probes               |
 
 ### Report Artifacts
 

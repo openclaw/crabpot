@@ -13,18 +13,18 @@
     "manifestContractFields": 16
   },
   "fixtureInventory": {
-    "fixtures": 13,
-    "sourceFiles": 207,
-    "observedHooks": 19,
-    "observedRegistrations": 25,
-    "observedSdkImports": 21,
-    "contractProbes": 63,
-    "issueFindings": 64
+    "fixtures": 15,
+    "sourceFiles": 309,
+    "observedHooks": 24,
+    "observedRegistrations": 30,
+    "observedSdkImports": 24,
+    "contractProbes": 76,
+    "issueFindings": 77
   },
   "summary": {
     "commandCount": 7,
-    "p50WallMs": 309,
-    "p95WallMs": 513,
+    "p50WallMs": 3492,
+    "p95WallMs": 13398,
     "maxPeakRssMb": 66.7
   },
   "commands": [
@@ -34,22 +34,22 @@
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node -e 0",
       "samples": [
         {
-          "wallMs": 204,
-          "peakRssMb": 2.3,
+          "wallMs": 2536,
+          "peakRssMb": 24.6,
           "exitCode": 0,
           "stdoutPreview": "",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 204,
-        "median": 204,
-        "max": 204
+        "min": 2536,
+        "median": 2536,
+        "max": 2536
       },
       "peakRssMb": {
-        "min": 2.3,
-        "median": 2.3,
-        "max": 2.3
+        "min": 24.6,
+        "median": 24.6,
+        "max": 24.6
       },
       "exitCodes": [
         0
@@ -61,22 +61,22 @@
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/inspect-fixtures.mjs --check",
       "samples": [
         {
-          "wallMs": 253,
-          "peakRssMb": 64.3,
+          "wallMs": 1272,
+          "peakRssMb": 66.7,
           "exitCode": 0,
-          "stdoutPreview": "│ 12      │ 'inworld-tts'       │ 'ok'   │ ''                                                                                                                                                               │ 'definePluginEntry,registerSpeechProvider'                   │ 'speechProviders' │\n└─────────┴─────────────────────┴────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴──────────────────────────────────────────────────────────────┴───────────────────┘",
+          "stdoutPreview": "│ 14      │ 'inworld-tts'       │ 'ok'   │ ''                                                                                                                                                               │ 'definePluginEntry,registerSpeechProvider'                   │ 'speechProviders' │\n└─────────┴─────────────────────┴────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴──────────────────────────────────────────────────────────────┴───────────────────┘",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 253,
-        "median": 253,
-        "max": 253
+        "min": 1272,
+        "median": 1272,
+        "max": 1272
       },
       "peakRssMb": {
-        "min": 64.3,
-        "median": 64.3,
-        "max": 64.3
+        "min": 66.7,
+        "median": 66.7,
+        "max": 66.7
       },
       "exitCodes": [
         0
@@ -88,22 +88,22 @@
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/generate-report.mjs --check",
       "samples": [
         {
-          "wallMs": 262,
-          "peakRssMb": 63.7,
+          "wallMs": 2470,
+          "peakRssMb": 0,
           "exitCode": 0,
-          "stdoutPreview": "crabpot report check: pass; 0 breakages, 20 warnings, 44 suggestions, 64 issues\nreport targets: /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-report.md, /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-report.json, /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-issues.md",
+          "stdoutPreview": "crabpot report check: pass; 0 breakages, 25 warnings, 52 suggestions, 77 issues\nreport targets: /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-report.md, /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-report.json, /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-issues.md",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 262,
-        "median": 262,
-        "max": 262
+        "min": 2470,
+        "median": 2470,
+        "max": 2470
       },
       "peakRssMb": {
-        "min": 63.7,
-        "median": 63.7,
-        "max": 63.7
+        "min": 0,
+        "median": 0,
+        "max": 0
       },
       "exitCodes": [
         0
@@ -115,22 +115,22 @@
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/capture-contracts.mjs --check",
       "samples": [
         {
-          "wallMs": 513,
-          "peakRssMb": 52.4,
+          "wallMs": 6114,
+          "peakRssMb": 0,
           "exitCode": 0,
-          "stdoutPreview": "contract capture: 34 registrations, 19 hooks, 46 sdk imports, 63 issue probes",
+          "stdoutPreview": "contract capture: 43 registrations, 24 hooks, 64 sdk imports, 76 issue probes",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 513,
-        "median": 513,
-        "max": 513
+        "min": 6114,
+        "median": 6114,
+        "max": 6114
       },
       "peakRssMb": {
-        "min": 52.4,
-        "median": 52.4,
-        "max": 52.4
+        "min": 0,
+        "median": 0,
+        "max": 0
       },
       "exitCodes": [
         0
@@ -142,22 +142,22 @@
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/synthetic-probes.mjs --check",
       "samples": [
         {
-          "wallMs": 489,
-          "peakRssMb": 63.5,
+          "wallMs": 3492,
+          "peakRssMb": 0,
           "exitCode": 0,
-          "stdoutPreview": "synthetic probes: 53 ready, 0 blocked, 53 total",
+          "stdoutPreview": "synthetic probes: 67 ready, 0 blocked, 67 total",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 489,
-        "median": 489,
-        "max": 489
+        "min": 3492,
+        "median": 3492,
+        "max": 3492
       },
       "peakRssMb": {
-        "min": 63.5,
-        "median": 63.5,
-        "max": 63.5
+        "min": 0,
+        "median": 0,
+        "max": 0
       },
       "exitCodes": [
         0
@@ -169,22 +169,22 @@
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/cold-import-readiness.mjs --check",
       "samples": [
         {
-          "wallMs": 309,
-          "peakRssMb": 59.1,
+          "wallMs": 6155,
+          "peakRssMb": 0,
           "exitCode": 0,
-          "stdoutPreview": "cold import readiness: 16 entrypoints, 0 ready, 16 blocked",
+          "stdoutPreview": "cold import readiness: 18 entrypoints, 0 ready, 18 blocked",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 309,
-        "median": 309,
-        "max": 309
+        "min": 6155,
+        "median": 6155,
+        "max": 6155
       },
       "peakRssMb": {
-        "min": 59.1,
-        "median": 59.1,
-        "max": 59.1
+        "min": 0,
+        "median": 0,
+        "max": 0
       },
       "exitCodes": [
         0
@@ -196,22 +196,22 @@
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/workspace-plan.mjs --check",
       "samples": [
         {
-          "wallMs": 329,
-          "peakRssMb": 66.7,
+          "wallMs": 13398,
+          "peakRssMb": 51.5,
           "exitCode": 0,
-          "stdoutPreview": "workspace plan: 16 entrypoints, 11 installs, 11 audits, 4 builds, 16 captures, 16 synthetic probes, 16 artifact dirs",
+          "stdoutPreview": "workspace plan: 18 entrypoints, 12 installs, 12 audits, 5 builds, 18 captures, 18 synthetic probes, 18 artifact dirs",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 329,
-        "median": 329,
-        "max": 329
+        "min": 13398,
+        "median": 13398,
+        "max": 13398
       },
       "peakRssMb": {
-        "min": 66.7,
-        "median": 66.7,
-        "max": 66.7
+        "min": 51.5,
+        "median": 51.5,
+        "max": 51.5
       },
       "exitCodes": [
         0
