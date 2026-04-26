@@ -170,6 +170,15 @@ test("issue report preserves decision metadata for compat-layer work", async () 
   );
   assert.doesNotMatch(markdown, /\| ID\s+\| Severity\s+\| Class\s+\| Fixture\s+\| Owner\s+\|/);
   assert.doesNotMatch(markdown, /CRABPOT-[A-F0-9]{8}/);
+
+  const windowsReport = structuredClone(report);
+  windowsReport.issues.find((issue) => issue.code === "sdk-export-missing").evidence = [
+    "openclaw/plugin-sdk/discord @ plugins\\codex-app-server\\src\\controller.ts:104",
+  ];
+  assert.match(
+    renderIssuesReport(windowsReport),
+    /https:\/\/github\.com\/pwrdrvr\/openclaw-codex-app-server\/blob\/[0-9a-f]{40}\/src\/controller\.ts#L104/,
+  );
 });
 
 test("issue classification separates live breaks from compat and deprecation buckets", () => {

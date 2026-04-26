@@ -1920,12 +1920,12 @@ function formatEvidenceLink(evidence) {
 }
 
 function parseEvidencePath(evidence) {
-  const match = String(evidence).match(/(?<filePath>plugins\/[^\s,)]+?)(?::(?<line>\d+))?(?=$|[\s,)])/);
+  const match = String(evidence).match(/(?<filePath>plugins[\\/][^\s,)]+?)(?::(?<line>\d+))?(?=$|[\s,)])/);
   if (!match?.groups?.filePath) {
     return null;
   }
   return {
-    filePath: match.groups.filePath,
+    filePath: match.groups.filePath.replaceAll("\\", "/"),
     index: match.index ?? 0,
     line: match.groups.line,
   };
@@ -1936,18 +1936,19 @@ function evidenceLinkLabel(evidence, parsed) {
     .slice(0, parsed.index)
     .trim()
     .replace(/\s*(?:@|->|:)\s*$/, "");
-  const fileLabel = `${path.basename(parsed.filePath)}${parsed.line ? `:${parsed.line}` : ""}`;
+  const fileLabel = `${path.posix.basename(parsed.filePath)}${parsed.line ? `:${parsed.line}` : ""}`;
   return prefix ? `${prefix} @ ${fileLabel}` : fileLabel;
 }
 
 function submoduleLinkTarget(filePath) {
+  const normalizedFilePath = filePath.replaceAll("\\", "/");
   const target = submoduleLinkTargetsForRepo().find(
-    (candidate) => filePath === candidate.path || filePath.startsWith(`${candidate.path}/`),
+    (candidate) => normalizedFilePath === candidate.path || normalizedFilePath.startsWith(`${candidate.path}/`),
   );
   if (!target) {
     return null;
   }
-  const subPath = filePath === target.path ? "" : filePath.slice(target.path.length + 1);
+  const subPath = normalizedFilePath === target.path ? "" : normalizedFilePath.slice(target.path.length + 1);
   const encodedPath = subPath
     .split("/")
     .filter(Boolean)
@@ -2008,6 +2009,11 @@ function readGitmodules() {
 }
 
 function readSubmoduleShas() {
+  const gitlinkShas = readSubmoduleGitlinkShas();
+  if (gitlinkShas.size > 0) {
+    return gitlinkShas;
+  }
+
   try {
     const status = execFileSync("git", ["submodule", "status", "--recursive"], {
       cwd: repoRoot,
@@ -2019,7 +2025,26 @@ function readSubmoduleShas() {
         .split(/\r?\n/)
         .map((line) => line.match(/^[ +-]?([0-9a-f]{40})\s+(\S+)/i))
         .filter(Boolean)
-        .map((match) => [match[2], match[1]]),
+        .map((match) => [match[2].replaceAll("\\", "/"), match[1]]),
+    );
+  } catch {
+    return new Map();
+  }
+}
+
+function readSubmoduleGitlinkShas() {
+  try {
+    const tree = execFileSync("git", ["ls-tree", "-r", "HEAD", "plugins"], {
+      cwd: repoRoot,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    });
+    return new Map(
+      tree
+        .split(/\r?\n/)
+        .map((line) => line.match(/^160000 commit ([0-9a-f]{40})\s+(.+)$/i))
+        .filter(Boolean)
+        .map((match) => [match[2].replaceAll("\\", "/"), match[1]]),
     );
   } catch {
     return new Map();
