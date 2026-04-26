@@ -851,8 +851,8 @@ function classifyFixture({ fixture, inspection, fixtureReport, targetOpenClaw, b
     return;
   }
 
-  classifyHookNameCoverage({ fixture, inspection, targetOpenClaw, breakages, logs });
-  classifyRegistrationNameCoverage({ fixture, inspection, targetOpenClaw, breakages, logs });
+  classifyHookNameCoverage({ fixture, inspection, targetOpenClaw, warnings, logs });
+  classifyRegistrationNameCoverage({ fixture, inspection, targetOpenClaw, warnings, logs });
   classifySdkImportCoverage({ fixture, fixtureReport, targetOpenClaw, warnings, logs, decisions });
   classifyManifestFieldCoverage({ fixture, fixtureReport, targetOpenClaw, warnings, logs, decisions });
   classifyPackageContracts({ fixture, inspection, fixtureReport, warnings, suggestions, logs, decisions });
@@ -1067,7 +1067,7 @@ function registrationCaptureGapDetails(inspection, targetOpenClaw) {
   return apiRegistrationDetails.filter((registration) => CAPTURE_GAP_REGISTRATIONS.has(registration.name));
 }
 
-function classifyHookNameCoverage({ fixture, inspection, targetOpenClaw, breakages, logs }) {
+function classifyHookNameCoverage({ fixture, inspection, targetOpenClaw, warnings, logs }) {
   if (targetOpenClaw.status !== "ok" || targetOpenClaw.hookNames.length === 0) {
     return;
   }
@@ -1085,16 +1085,16 @@ function classifyHookNameCoverage({ fixture, inspection, targetOpenClaw, breakag
     return;
   }
 
-  breakages.push({
+  warnings.push({
     fixture: fixture.id,
     code: "unknown-hook-name",
-    level: "breakage",
+    level: "warning",
     message: "fixture registers hooks that are not present in the target OpenClaw hook registry",
     evidence: detailEvidence(unknownHooks),
   });
 }
 
-function classifyRegistrationNameCoverage({ fixture, inspection, targetOpenClaw, breakages, logs }) {
+function classifyRegistrationNameCoverage({ fixture, inspection, targetOpenClaw, warnings, logs }) {
   if (targetOpenClaw.status !== "ok" || targetOpenClaw.apiRegistrars.length === 0) {
     return;
   }
@@ -1115,10 +1115,10 @@ function classifyRegistrationNameCoverage({ fixture, inspection, targetOpenClaw,
     return;
   }
 
-  breakages.push({
+  warnings.push({
     fixture: fixture.id,
     code: "unknown-registration-name",
-    level: "breakage",
+    level: "warning",
     message: "fixture calls api.register* methods that are not present in the target OpenClaw plugin API builder",
     evidence: detailEvidence(unknownRegistrations),
   });

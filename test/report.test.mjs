@@ -27,6 +27,12 @@ test("compatibility report classifies current fixture seams", async () => {
   assert.ok(report.summary.contractProbeCount > 0);
   assert.ok(report.issues.every((issue) => /^CRABPOT-[A-F0-9]{8}$/.test(issue.id)));
   assert.ok(report.issues.every((issue) => typeof issue.issueClass === "string"));
+  assert.deepEqual(
+    ["hyperspell", "honcho", "composio", "memu-engine", "secureclaw", "memos-cloud"].filter((id) =>
+      report.fixtures.some((fixture) => fixture.id === id),
+    ),
+    ["hyperspell", "honcho", "composio", "memu-engine", "secureclaw", "memos-cloud"],
+  );
 
   assertHasFinding(report.warnings, "hasdata", "provider-auth-env-vars");
   assertHasFinding(report.warnings, "agentchat", "channel-env-vars");
@@ -42,6 +48,11 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasFinding(report.suggestions, "a2a-gateway", "package-typescript-source-entrypoint");
   assertHasFinding(report.suggestions, "wecom", "package-dependency-install-required");
   assertHasFinding(report.suggestions, "codex-app-server", "missing-compat-record");
+  assertHasFinding(report.warnings, "hyperspell", "unknown-hook-name");
+  assertHasFinding(report.warnings, "honcho", "conversation-access-hook");
+  assertHasFinding(report.warnings, "composio", "package-plugin-api-compat-missing");
+  assertHasFinding(report.warnings, "memos-cloud", "manifest-unknown-fields");
+  assertHasFinding(report.suggestions, "secureclaw", "registration-capture-gap");
 
   assertHasDecision(report.decisions, "core-compat-adapter", "env-auth");
   assertHasDecision(report.decisions, "inspector-follow-up", "registration-capture");
@@ -56,7 +67,9 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasIssue(report.issues, "P2", "package-typescript-source-entrypoint");
   assertHasIssue(report.issues, "P2", "package-dependency-install-required");
   assertHasIssue(report.issues, "P0", "sdk-export-missing");
+  assertHasIssue(report.issues, "P0", "unknown-hook-name");
   assertHasIssueClass(report.issues, "live-issue", "sdk-export-missing");
+  assertHasIssueClass(report.issues, "live-issue", "unknown-hook-name");
   assertHasIssueClass(report.issues, "compat-gap", "missing-compat-record");
   assertHasIssueClass(report.issues, "deprecation-warning", "legacy-before-agent-start");
   assertHasIssueClass(report.issues, "inspector-gap", "registration-capture-gap");
@@ -70,6 +83,10 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasProbe(report.contractProbes, "package.entrypoint.build-before-cold-import:agentchat");
   assertHasProbe(report.contractProbes, "package.entrypoint.typescript-loader:a2a-gateway");
   assertHasProbe(report.contractProbes, "package.entrypoint.isolated-dependency-install:wecom");
+  assertHasProbe(report.contractProbes, "api.capture.runtime-registrars:hyperspell");
+  assertHasProbe(report.contractProbes, "hook.compat.before-agent-start-migration:honcho");
+  assertHasProbe(report.contractProbes, "package.compat.plugin-api-range:secureclaw");
+  assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:memos-cloud");
 });
 
 test("markdown report includes review sections", async () => {
