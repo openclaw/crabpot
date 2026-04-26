@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import { test } from "node:test";
+import { repoRoot } from "../scripts/manifest-lib.mjs";
 import { validateExecutionRequest, selectWorkspaceSteps } from "../scripts/execute-workspace-plan.mjs";
 
 test("workspace executor selects a narrow fixture scope", () => {
@@ -108,4 +110,32 @@ test("workspace executor refuses broad or unguarded execution", () => {
     }),
     [],
   );
+});
+
+test("workspace executor CLI emits a narrow dry-run plan", () => {
+  const result = spawnSync(
+    process.execPath,
+    ["scripts/execute-workspace-plan.mjs", "--fixture", "wecom", "--dry-run", "--no-openclaw"],
+    {
+      cwd: repoRoot,
+      encoding: "utf8",
+    },
+  );
+
+  assert.equal(result.status, 0, result.stderr);
+  const parsed = JSON.parse(result.stdout);
+  assert.equal(parsed.mode, "dry-run");
+  assert.ok(parsed.selected.length > 0);
+  assert.ok(parsed.selected.every((item) => item.fixture === "wecom"));
+  assert.ok(parsed.selected.every((item) => item.steps.every((step) => step.command && step.reason)));
+});
+
+test("workspace executor CLI rejects broad dry-runs before materializing work", () => {
+  const result = spawnSync(process.execPath, ["scripts/execute-workspace-plan.mjs", "--dry-run", "--no-openclaw"], {
+    cwd: repoRoot,
+    encoding: "utf8",
+  });
+
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /workspace execution requires --fixture/);
 });

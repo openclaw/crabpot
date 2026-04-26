@@ -93,6 +93,46 @@ test("execution results count total-only audit metadata", async () => {
   assert.equal(report.artifacts[0].findingCount, 4);
 });
 
+test("execution results handle empty result directories", async () => {
+  const dir = path.join(os.tmpdir(), `crabpot-missing-results-${Date.now()}`);
+
+  const report = await buildExecutionResultsReport({ resultsDir: dir });
+
+  assert.equal(report.summary.artifactCount, 0);
+  assert.equal(report.summary.passCount, 0);
+  assert.deepEqual(report.artifacts, []);
+  assert.match(renderExecutionResultsMarkdown(report), /## Artifacts\n\n_none_/);
+});
+
+test("execution results recurse, sort artifacts, and count alternate audit shapes", async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-results-"));
+  await mkdir(path.join(dir, "z-fixture"));
+  await mkdir(path.join(dir, "a-fixture", "nested"), { recursive: true });
+  await writeFile(
+    path.join(dir, "z-fixture", "package-audit.json"),
+    JSON.stringify({ vulnerabilities: [{ id: "one" }, { id: "two" }] }),
+    "utf8",
+  );
+  await writeFile(
+    path.join(dir, "a-fixture", "nested", "package-audit.json"),
+    JSON.stringify({ vulnerabilities: { low: {}, high: {}, advisory: {} } }),
+    "utf8",
+  );
+
+  const report = await buildExecutionResultsReport({ resultsDir: dir });
+
+  assert.equal(report.summary.artifactCount, 2);
+  assert.equal(report.summary.auditFindingCount, 5);
+  assert.deepEqual(
+    report.artifacts.map((artifact) => artifact.fixture),
+    ["nested", "z-fixture"],
+  );
+  assert.deepEqual(
+    report.artifacts.map((artifact) => artifact.findingCount),
+    [3, 2],
+  );
+});
+
 test("execution results writer preserves failures and repo-relative entrypoint paths", async () => {
   const resultsDir = await mkdtemp(path.join(os.tmpdir(), "crabpot-results-"));
   const fixtureDir = path.join(resultsDir, "broken");
