@@ -161,6 +161,15 @@ test("issue report preserves decision metadata for compat-layer work", async () 
   assert.match(markdown, /core-compat-adapter/);
   assert.match(markdown, /live-issue/);
   assert.match(markdown, /deprecation-warning/);
+  assert.match(markdown, /🔴 P0 \*\*codex-app-server\*\* `live-issue` `core-compat-adapter`/);
+  assert.match(markdown, /🟠 P1/);
+  assert.match(markdown, /🟡 P2/);
+  assert.match(
+    markdown,
+    /https:\/\/github\.com\/pwrdrvr\/openclaw-codex-app-server\/blob\/[0-9a-f]{40}\/src\/controller\.ts#L104/,
+  );
+  assert.doesNotMatch(markdown, /\| ID\s+\| Severity\s+\| Class\s+\| Fixture\s+\| Owner\s+\|/);
+  assert.doesNotMatch(markdown, /CRABPOT-[A-F0-9]{8}/);
 });
 
 test("issue classification separates live breaks from compat and deprecation buckets", () => {

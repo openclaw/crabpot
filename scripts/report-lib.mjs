@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
-import { existsSync } from "node:fs";
+import { execFileSync } from "node:child_process";
+import { existsSync, readFileSync } from "node:fs";
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { inspectManifest } from "./inspect-fixtures.mjs";
@@ -31,6 +32,7 @@ const CHANNEL_REGISTRATIONS = new Set([
   "registerChannel",
 ]);
 const FALLBACK_OPENCLAW_CHECKOUT_PATHS = ["./openclaw", "../openclaw"];
+let submoduleLinkTargets;
 export const KNOWN_ISSUE_CODES = new Set([
   "before-tool-call-probe",
   "channel-contract-probe",
@@ -310,8 +312,8 @@ export function renderIssuesReport(report) {
     markdownTable(
       [
         ["Issue findings", report.summary.issueCount],
-        ["P0", report.summary.p0IssueCount],
-        ["P1", report.summary.p1IssueCount],
+        [severityLabel("P0"), report.summary.p0IssueCount],
+        [severityLabel("P1"), report.summary.p1IssueCount],
         ["Live issues", report.summary.liveIssueCount],
         ["Live P0 issues", report.summary.liveP0IssueCount],
         ["Compat gaps", report.summary.compatGapCount],
@@ -1752,38 +1754,27 @@ function issuesTable(issues) {
     return "_none_";
   }
 
-  return markdownTable(
-    issues.map((issue) => [
-      issue.id,
-      issue.severity,
-      issue.issueClass,
-      issue.fixture,
-      issue.owner,
-      issue.decision,
-      issue.status,
-      issue.code,
-      issue.compatStatus ?? "none",
-      issue.live ? "yes" : "no",
-      issue.deprecated ? "yes" : "no",
-      issue.title,
-      issue.evidence.join(", ") || "-",
-    ]),
-    [
-      "ID",
-      "Severity",
-      "Class",
-      "Fixture",
-      "Owner",
-      "Decision",
-      "Status",
-      "Code",
-      "Compat status",
-      "Live",
-      "Deprecated",
-      "Title",
-      "Evidence",
-    ],
-  );
+  return issues.map((issue) => issueBlock(issue)).join("\n\n");
+}
+
+function issueBlock(issue) {
+  return [
+    `- ${severityLabel(issue.severity)} **${issue.fixture}** \`${issue.issueClass}\` \`${issue.decision}\``,
+    `  - **${issue.code}**: ${issue.title}`,
+    `  - state: ${issueState(issue)}`,
+    "  - evidence:",
+    ...evidenceList(issue.evidence).map((item) => `    - ${item}`),
+  ].join("\n");
+}
+
+function issueState(issue) {
+  const flags = [
+    issue.status,
+    `compat:${issue.compatStatus ?? "none"}`,
+    issue.live ? "live" : null,
+    issue.deprecated ? "deprecated" : null,
+  ].filter(Boolean);
+  return flags.join(" · ");
 }
 
 function triageOverview(report) {
@@ -1835,17 +1826,17 @@ function contractProbesTable(probes) {
     return "_none_";
   }
 
-  return markdownTable(
-    probes.map((probe) => [
-      probe.id,
-      probe.priority,
-      probe.fixture,
-      probe.target,
-      probe.contract,
-      probe.evidence.join(", ") || "-",
-    ]),
-    ["ID", "Priority", "Fixture", "Target", "Contract", "Evidence"],
-  );
+  return probes.map((probe) => contractProbeBlock(probe)).join("\n\n");
+}
+
+function contractProbeBlock(probe) {
+  return [
+    `- ${severityLabel(probe.priority)} **${probe.fixture}** \`${probe.target}\``,
+    `  - contract: ${probe.contract}`,
+    `  - id: \`${probe.id}\``,
+    "  - evidence:",
+    ...evidenceList(probe.evidence).map((item) => `    - ${item}`),
+  ].join("\n");
 }
 
 function targetOpenClawTable(targetOpenClaw) {
@@ -1896,6 +1887,155 @@ function markdownTable(rows, headers) {
 
 function escapeCell(value) {
   return String(value).replaceAll("|", "\\|").replaceAll("\n", " ");
+}
+
+function severityLabel(severity) {
+  const labels = {
+    P0: "🔴 P0",
+    P1: "🟠 P1",
+    P2: "🟡 P2",
+    P3: "🟢 P3",
+  };
+  return labels[severity] ?? severity ?? "-";
+}
+
+function evidenceList(evidence) {
+  const items = (evidence ?? []).filter(Boolean);
+  if (items.length === 0) {
+    return ["-"];
+  }
+  return items.map((item) => formatEvidenceLink(item));
+}
+
+function formatEvidenceLink(evidence) {
+  const parsed = parseEvidencePath(evidence);
+  if (!parsed) {
+    return evidence;
+  }
+  const target = submoduleLinkTarget(parsed.filePath);
+  if (!target) {
+    return evidence;
+  }
+  return `[${evidenceLinkLabel(evidence, parsed)}](${target.href}${parsed.line ? `#L${parsed.line}` : ""})`;
+}
+
+function parseEvidencePath(evidence) {
+  const match = String(evidence).match(/(?<filePath>plugins\/[^\s,)]+?)(?::(?<line>\d+))?(?=$|[\s,)])/);
+  if (!match?.groups?.filePath) {
+    return null;
+  }
+  return {
+    filePath: match.groups.filePath,
+    index: match.index ?? 0,
+    line: match.groups.line,
+  };
+}
+
+function evidenceLinkLabel(evidence, parsed) {
+  const prefix = String(evidence)
+    .slice(0, parsed.index)
+    .trim()
+    .replace(/\s*(?:@|->|:)\s*$/, "");
+  const fileLabel = `${path.basename(parsed.filePath)}${parsed.line ? `:${parsed.line}` : ""}`;
+  return prefix ? `${prefix} @ ${fileLabel}` : fileLabel;
+}
+
+function submoduleLinkTarget(filePath) {
+  const target = submoduleLinkTargetsForRepo().find(
+    (candidate) => filePath === candidate.path || filePath.startsWith(`${candidate.path}/`),
+  );
+  if (!target) {
+    return null;
+  }
+  const subPath = filePath === target.path ? "" : filePath.slice(target.path.length + 1);
+  const encodedPath = subPath
+    .split("/")
+    .filter(Boolean)
+    .map((part) => encodeURIComponent(part))
+    .join("/");
+  return {
+    href: encodedPath ? `${target.webUrl}/blob/${target.sha}/${encodedPath}` : `${target.webUrl}/tree/${target.sha}`,
+  };
+}
+
+function submoduleLinkTargetsForRepo() {
+  if (submoduleLinkTargets) {
+    return submoduleLinkTargets;
+  }
+  const modules = readGitmodules();
+  const shas = readSubmoduleShas();
+  submoduleLinkTargets = [...modules.values()]
+    .map((entry) => ({
+      ...entry,
+      sha: shas.get(entry.path),
+      webUrl: githubWebUrl(entry.url),
+    }))
+    .filter((entry) => entry.sha && entry.webUrl)
+    .sort((left, right) => right.path.length - left.path.length);
+  return submoduleLinkTargets;
+}
+
+function readGitmodules() {
+  const gitmodulesPath = path.join(repoRoot, ".gitmodules");
+  if (!existsSync(gitmodulesPath)) {
+    return new Map();
+  }
+
+  const modules = new Map();
+  let current = {};
+  for (const line of readFileSync(gitmodulesPath, "utf8").split(/\r?\n/)) {
+    if (/^\[submodule /.test(line)) {
+      if (current.path && current.url) {
+        modules.set(current.path, current);
+      }
+      current = {};
+      continue;
+    }
+    const pathMatch = line.match(/^\s*path\s*=\s*(.+)$/);
+    if (pathMatch) {
+      current.path = pathMatch[1].trim();
+      continue;
+    }
+    const urlMatch = line.match(/^\s*url\s*=\s*(.+)$/);
+    if (urlMatch) {
+      current.url = urlMatch[1].trim();
+    }
+  }
+  if (current.path && current.url) {
+    modules.set(current.path, current);
+  }
+  return modules;
+}
+
+function readSubmoduleShas() {
+  try {
+    const status = execFileSync("git", ["submodule", "status", "--recursive"], {
+      cwd: repoRoot,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    });
+    return new Map(
+      status
+        .split(/\r?\n/)
+        .map((line) => line.match(/^[ +-]?([0-9a-f]{40})\s+(\S+)/i))
+        .filter(Boolean)
+        .map((match) => [match[2], match[1]]),
+    );
+  } catch {
+    return new Map();
+  }
+}
+
+function githubWebUrl(url) {
+  const httpsMatch = url.match(/^https:\/\/github\.com\/(.+?)(?:\.git)?$/);
+  if (httpsMatch) {
+    return `https://github.com/${httpsMatch[1].replace(/\/$/, "")}`;
+  }
+  const sshMatch = url.match(/^git@github\.com:(.+?)(?:\.git)?$/);
+  if (sshMatch) {
+    return `https://github.com/${sshMatch[1].replace(/\/$/, "")}`;
+  }
+  return null;
 }
 
 function issueSort(left, right) {
