@@ -1,0 +1,95 @@
+name: Dependabot Auto Merge
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  actions: read
+  checks: read
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh-and-automerge:
+    name: Refresh reports and enable auto-merge
+    if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' && github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Dependabot branch
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+          token: ${{ github.token }}
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Checkout OpenClaw
+        uses: actions/checkout@v6
+        with:
+          repository: openclaw/openclaw
+          path: openclaw
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Verify Dependabot changed only fixture pins
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files" --paginate --jq '.[].filename' > /tmp/crabpot-dependabot-files.txt
+          if [ ! -s /tmp/crabpot-dependabot-files.txt ]; then
+            echo "::error::Dependabot PR has no changed files"
+            exit 1
+          fi
+          while IFS= read -r file; do
+            if [[ "$file" == ".gitmodules" || "$file" =~ ^plugins/[^/]+$ || "$file" =~ ^plugins/[^/]+/package(-lock)?\.json$ ]]; then
+              continue
+            fi
+            echo "::error file=${file}::Dependabot auto-merge only accepts fixture pin changes"
+            exit 1
+          done < /tmp/crabpot-dependabot-files.txt
+
+      - name: Refresh compatibility reports
+        env:
+          CRABPOT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          export CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          node scripts/sync-fixtures.mjs --materialize
+          npm test
+          node scripts/sync-fixtures.mjs --check
+          node scripts/run-contract-smoke.mjs --strict --openclaw ./openclaw
+          node scripts/inspect-fixtures.mjs --check
+          node scripts/generate-report.mjs --openclaw ./openclaw
+          node scripts/capture-contracts.mjs --openclaw ./openclaw
+          node scripts/synthetic-probes.mjs --openclaw ./openclaw
+          node scripts/cold-import-readiness.mjs --openclaw ./openclaw
+          node scripts/workspace-plan.mjs --openclaw ./openclaw
+          node scripts/platform-probes.mjs --openclaw ./openclaw
+          node scripts/import-loop-profile.mjs
+          node scripts/profile-contract-runtime.mjs --openclaw ./openclaw
+          node scripts/compare-runtime-profile.mjs
+          node scripts/check-ci-policy.mjs
+          node scripts/write-ci-summary.mjs --mode dependabot --openclaw-label openclaw/openclaw@main
+          node scripts/update-readme-summary.mjs
+
+      - name: Commit refreshed reports
+        run: |
+          if ! git diff --quiet README.md reports/; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add README.md reports/
+            git commit -m "chore(reports): refresh dependabot compatibility reports"
+            git push
+          fi
+
+      - name: Enable Dependabot auto-merge
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: gh pr merge "${PR_NUMBER}" --auto --squash --delete-branch

@@ -93,6 +93,7 @@ test("workflows use Node 24 action majors", async () => {
   const workflows = [
     await readWorkflow(".github/workflows/check.yml"),
     await readWorkflow(".github/workflows/openclaw-ref-compat.yml"),
+    await readWorkflow(".github/workflows/dependabot-auto-merge.yml"),
   ].join("\n");
   const actionRefs = [
     ...workflows.matchAll(/uses:\s+(actions\/(?:checkout|setup-node|upload-artifact)@[^\s]+)/g),
@@ -105,6 +106,22 @@ test("workflows use Node 24 action majors", async () => {
   ]);
   assert.doesNotMatch(workflows, /actions\/(checkout|setup-node|upload-artifact)@v4/);
   assert.doesNotMatch(workflows, /FORCE_JAVASCRIPT_ACTIONS_TO_NODE24/);
+});
+
+test("dependabot auto-merge refreshes reports after fixture pin updates", async () => {
+  const workflow = await readWorkflow(".github/workflows/dependabot-auto-merge.yml");
+
+  assert.match(workflow, /pull_request_target:/);
+  assert.match(workflow, /dependabot\[bot\]/);
+  assert.match(workflow, /github\.event\.pull_request\.head\.repo\.full_name == github\.repository/);
+  assert.match(workflow, /Verify Dependabot changed only fixture pins/);
+  assert.ok(workflow.includes("^plugins/[^/]+$"));
+  assert.ok(workflow.includes("^plugins/[^/]+/package(-lock)?\\.json$"));
+  assert.match(workflow, /node scripts\/sync-fixtures\.mjs --materialize/);
+  assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw/);
+  assert.match(workflow, /node scripts\/update-readme-summary\.mjs/);
+  assert.match(workflow, /git add README\.md reports\//);
+  assert.match(workflow, /gh pr merge "\$\{PR_NUMBER\}" --auto --squash --delete-branch/);
 });
 
 test("manual workflow enforces strict runtime profile policy before best-effort summaries", async () => {
