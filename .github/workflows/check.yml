@@ -215,6 +215,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 22
+      - run: node scripts/sync-fixtures.mjs --materialize
       - name: Write README dashboard
         env:
           CRABPOT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
