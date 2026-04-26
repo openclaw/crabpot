@@ -15,9 +15,17 @@ test("compatibility report classifies current fixture seams", async () => {
   assert.equal(report.breakages.length, 0);
   assert.ok(report.summary.fixtureCount >= 10);
   assert.ok(report.summary.issueCount > 0);
+  assert.ok(report.summary.p0IssueCount > 0);
   assert.ok(report.summary.p1IssueCount > 0);
+  assert.ok(report.summary.liveIssueCount > 0);
+  assert.ok(report.summary.liveP0IssueCount > 0);
+  assert.ok(report.summary.compatGapCount > 0);
+  assert.ok(report.summary.deprecationWarningCount > 0);
+  assert.ok(report.summary.inspectorGapCount > 0);
+  assert.ok(report.summary.upstreamIssueCount > 0);
   assert.ok(report.summary.contractProbeCount > 0);
   assert.ok(report.issues.every((issue) => /^CRABPOT-[A-F0-9]{8}$/.test(issue.id)));
+  assert.ok(report.issues.every((issue) => typeof issue.issueClass === "string"));
 
   assertHasFinding(report.warnings, "hasdata", "provider-auth-env-vars");
   assertHasFinding(report.warnings, "agentchat", "channel-env-vars");
@@ -27,6 +35,7 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasFinding(report.warnings, "a2a-gateway", "package-manifest-version-drift");
   assertHasFinding(report.warnings, "agentchat", "manifest-unknown-fields");
   assertHasFinding(report.warnings, "codex-app-server", "sdk-export-missing");
+  assertHasFinding(report.warnings, "connectclaw", "legacy-before-agent-start");
   assertHasFinding(report.warnings, "mcp-adapter", "package-plugin-api-compat-missing");
   assertHasFinding(report.suggestions, "agentchat", "package-build-artifact-entrypoint");
   assertHasFinding(report.suggestions, "a2a-gateway", "package-typescript-source-entrypoint");
@@ -45,7 +54,12 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasIssue(report.issues, "P2", "manifest-unknown-fields");
   assertHasIssue(report.issues, "P2", "package-typescript-source-entrypoint");
   assertHasIssue(report.issues, "P2", "package-dependency-install-required");
-  assertHasIssue(report.issues, "P1", "sdk-export-missing");
+  assertHasIssue(report.issues, "P0", "sdk-export-missing");
+  assertHasIssueClass(report.issues, "live-issue", "sdk-export-missing");
+  assertHasIssueClass(report.issues, "compat-gap", "missing-compat-record");
+  assertHasIssueClass(report.issues, "deprecation-warning", "legacy-before-agent-start");
+  assertHasIssueClass(report.issues, "inspector-gap", "registration-capture-gap");
+  assertHasIssueClass(report.issues, "upstream-metadata", "package-plugin-api-compat-missing");
   assertHasProbe(report.contractProbes, "api.capture.runtime-registrars:wecom");
   assertHasProbe(report.contractProbes, "hook.before_tool_call.terminal-block-approval:wecom");
   assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:agentchat");
@@ -63,6 +77,10 @@ test("markdown report includes review sections", async () => {
 
   assert.match(markdown, /## Hard Breakages/);
   assert.match(markdown, /## Target OpenClaw Compat Records/);
+  assert.match(markdown, /## Triage Overview/);
+  assert.match(markdown, /## Live Issues/);
+  assert.match(markdown, /## Deprecation Warnings/);
+  assert.match(markdown, /## Inspector Proof Gaps/);
   assert.match(markdown, /## Warnings/);
   assert.match(markdown, /## Suggestions To OpenClaw Compat Layer/);
   assert.match(markdown, /## Issue Findings/);
@@ -115,13 +133,16 @@ test("issue report preserves decision metadata for compat-layer work", async () 
 
   assert.equal(sdkIssue.owner, "core");
   assert.equal(sdkIssue.decision, "core-compat-adapter");
-  assert.equal(sdkIssue.status, "open");
-  assert.equal(sdkIssue.severity, "P1");
+  assert.equal(sdkIssue.status, "blocking");
+  assert.equal(sdkIssue.severity, "P0");
+  assert.equal(sdkIssue.compatStatus, "untracked");
   assert.equal(manifestIssue.owner, "plugin");
   assert.equal(manifestIssue.decision, "plugin-upstream-fix");
   assert.match(markdown, /## Triage Summary/);
   assert.match(markdown, /sdk-export-missing/);
   assert.match(markdown, /core-compat-adapter/);
+  assert.match(markdown, /live-issue/);
+  assert.match(markdown, /deprecation-warning/);
 });
 
 function assertHasFinding(findings, fixture, code) {
@@ -149,6 +170,13 @@ function assertHasIssue(issues, severity, code) {
   assert.ok(
     issues.some((issue) => issue.severity === severity && issue.code === code),
     `expected ${severity} issue for ${code}`,
+  );
+}
+
+function assertHasIssueClass(issues, issueClass, code) {
+  assert.ok(
+    issues.some((issue) => issue.issueClass === issueClass && issue.code === code),
+    `expected ${issueClass} issue for ${code}`,
   );
 }
 

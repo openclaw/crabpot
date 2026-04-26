@@ -23,6 +23,7 @@ test("readme summary rolls up report counts and top issues", async () => {
           warningCount: 2,
           suggestionCount: 3,
           issueCount: 4,
+          p0IssueCount: 1,
           p1IssueCount: 1,
           contractProbeCount: 5,
         },
@@ -46,6 +47,7 @@ test("readme summary rolls up report counts and top issues", async () => {
           warnings: 2,
           suggestions: 3,
           issues: 4,
+          p0Issues: 1,
           p1Issues: 1,
           policyFailures: 0,
           policyWarnings: 1,
@@ -60,8 +62,10 @@ test("readme summary rolls up report counts and top issues", async () => {
   const markdown = renderReadmeSummary(summary);
 
   assert.equal(summary.status, "pass");
+  assert.equal(summary.metrics.p0Issues, 1);
   assert.equal(summary.metrics.policyWarnings, 1);
   assert.match(markdown, /openclaw\/openclaw@main/);
+  assert.match(markdown, /\| P0 issues\s+\| 1\s+\|/);
   assert.match(markdown, /CRABPOT-AAAA1111/);
   assert.match(markdown, /8 ready \/ 1 blocked \/ 9 total/);
 });

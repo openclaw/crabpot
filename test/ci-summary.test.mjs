@@ -16,6 +16,7 @@ test("ci summary rolls up compatibility, policy, ref diff, and profile findings"
           warningCount: 2,
           suggestionCount: 3,
           issueCount: 4,
+          p0IssueCount: 1,
           p1IssueCount: 1,
         },
         issues: [
@@ -83,8 +84,10 @@ test("ci summary rolls up compatibility, policy, ref diff, and profile findings"
   });
 
   assert.equal(summary.status, "pass");
+  assert.equal(summary.summary.p0Issues, 1);
   assert.equal(summary.summary.policyWarnings, 1);
   assert.match(renderCiSummaryMarkdown(summary), /Crabpot CI Summary/);
+  assert.match(renderCiSummaryMarkdown(summary), /\| P0 issues\s+\| 1\s+\|/);
   assert.match(renderCiSummaryMarkdown(summary), /openclaw\/openclaw@main/);
 });
 

@@ -2,6 +2,15 @@
 import { pathToFileURL } from "node:url";
 import { buildReport, KNOWN_ISSUE_CODES } from "./report-lib.mjs";
 
+const KNOWN_ISSUE_CLASSES = new Set([
+  "compat-gap",
+  "deprecation-warning",
+  "fixture-regression",
+  "inspector-gap",
+  "live-issue",
+  "upstream-metadata",
+]);
+
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   await main();
 }
@@ -42,6 +51,7 @@ export function validateContractCoverage(report) {
 
   requireUniqueIssueIds(report, errors);
   requireKnownIssueCodes(report, errors);
+  requireKnownIssueClasses(report, errors);
   requireIssueEvidence(report, errors);
   requireP1ProbeCoverage(report, errors);
   requireFixtureEvidence(report, errors);
@@ -105,6 +115,14 @@ function requireKnownIssueCodes(report, errors) {
   for (const issue of report.issues) {
     if (!KNOWN_ISSUE_CODES.has(issue.code)) {
       errors.push(`${issue.id}: unknown issue code ${issue.code}`);
+    }
+  }
+}
+
+function requireKnownIssueClasses(report, errors) {
+  for (const issue of report.issues) {
+    if (!KNOWN_ISSUE_CLASSES.has(issue.issueClass)) {
+      errors.push(`${issue.id}: unknown issue class ${issue.issueClass}`);
     }
   }
 }

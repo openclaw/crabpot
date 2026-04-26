@@ -96,7 +96,12 @@ export async function buildReadmeSummary(options = {}) {
   const reports = options.reports ?? (await readReports(reportsDir));
   const compatibility = reports.compatibility ?? {};
   const ciSummary = reports.ciSummary ?? {};
-  const generatedAt = options.generatedAt ?? process.env.CRABPOT_SUMMARY_GENERATED_AT ?? new Date().toISOString();
+  const generatedAt =
+    options.generatedAt ??
+    process.env.CRABPOT_SUMMARY_GENERATED_AT ??
+    ciSummary.generatedAt ??
+    compatibility.generatedAt ??
+    new Date().toISOString();
   const status = ciSummary.status ?? compatibility.status ?? "unknown";
   const topIssues = (compatibility.issues ?? [])
     .filter((issue) => ["P0", "P1"].includes(issue.severity))
@@ -104,6 +109,7 @@ export async function buildReadmeSummary(options = {}) {
     .map((issue) => ({
       id: issue.id,
       severity: issue.severity,
+      issueClass: issue.issueClass ?? "-",
       fixture: issue.fixture,
       code: issue.code,
       decision: issue.decision,
@@ -122,7 +128,14 @@ export async function buildReadmeSummary(options = {}) {
       warnings: ciSummary.summary?.warnings ?? compatibility.summary?.warningCount ?? 0,
       suggestions: ciSummary.summary?.suggestions ?? compatibility.summary?.suggestionCount ?? 0,
       issues: ciSummary.summary?.issues ?? compatibility.summary?.issueCount ?? 0,
+      p0Issues: ciSummary.summary?.p0Issues ?? compatibility.summary?.p0IssueCount ?? 0,
       p1Issues: ciSummary.summary?.p1Issues ?? compatibility.summary?.p1IssueCount ?? 0,
+      liveIssues: compatibility.summary?.liveIssueCount ?? 0,
+      liveP0Issues: compatibility.summary?.liveP0IssueCount ?? 0,
+      compatGaps: compatibility.summary?.compatGapCount ?? 0,
+      deprecationWarnings: compatibility.summary?.deprecationWarningCount ?? 0,
+      inspectorGaps: compatibility.summary?.inspectorGapCount ?? 0,
+      upstreamIssues: compatibility.summary?.upstreamIssueCount ?? 0,
       contractProbes: compatibility.summary?.contractProbeCount ?? 0,
       policyFailures: ciSummary.summary?.policyFailures ?? reports.ciPolicy?.summary?.failCount ?? 0,
       policyWarnings: ciSummary.summary?.policyWarnings ?? reports.ciPolicy?.summary?.warnCount ?? 0,
@@ -212,7 +225,13 @@ export function renderReadmeSummary(summary) {
         ["Warnings", m.warnings],
         ["Suggestions", m.suggestions],
         ["Issues", m.issues],
+        ["P0 issues", m.p0Issues],
         ["P1 issues", m.p1Issues],
+        ["Live issues", `${m.liveIssues} total / ${m.liveP0Issues} P0`],
+        ["Compat gaps", m.compatGaps],
+        ["Deprecation warnings", m.deprecationWarnings],
+        ["Inspector gaps", m.inspectorGaps],
+        ["Upstream metadata", m.upstreamIssues],
         ["Contract probes", m.contractProbes],
         ["Policy failures", m.policyFailures],
         ["Policy warnings", m.policyWarnings],
@@ -233,12 +252,13 @@ export function renderReadmeSummary(summary) {
       summary.topIssues.map((issue) => [
         issue.id,
         issue.severity,
+        issue.issueClass,
         issue.fixture,
         issue.code,
         issue.decision,
         issue.title,
       ]),
-      ["ID", "Severity", "Fixture", "Code", "Decision", "Title"],
+      ["ID", "Severity", "Class", "Fixture", "Code", "Decision", "Title"],
     ),
     "",
     "### Report Artifacts",

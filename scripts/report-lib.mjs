@@ -11,6 +11,12 @@ export const defaultJsonReportPath = path.join(defaultReportDir, "crabpot-report
 export const defaultIssuesReportPath = path.join(defaultReportDir, "crabpot-issues.md");
 
 const CONVERSATION_ACCESS_HOOKS = new Set(["agent_end", "llm_input", "llm_output"]);
+const DEPRECATED_COMPAT_RECORDS = new Set([
+  "channel-env-vars",
+  "legacy-before-agent-start",
+  "legacy-root-sdk-import",
+  "provider-auth-env-vars",
+]);
 const CAPTURE_GAP_REGISTRATIONS = new Set([
   "registerChannel",
   "registerCommand",
@@ -30,6 +36,7 @@ export const KNOWN_ISSUE_CODES = new Set([
   "channel-contract-probe",
   "channel-env-vars",
   "conversation-access-hook",
+  "legacy-before-agent-start",
   "legacy-root-sdk-import",
   "manifest-unknown-contracts",
   "manifest-unknown-fields",
@@ -122,8 +129,9 @@ export async function buildReport(options = {}) {
     decisions,
   });
 
-  const issues = buildIssues({ breakages, warnings, suggestions });
+  const issues = buildIssues({ breakages, warnings, suggestions, targetOpenClaw });
   const contractProbes = buildContractProbes({ warnings, suggestions, fixtures });
+  const issueSummary = summarizeIssueClasses(issues);
 
   const report = {
     generatedAt,
@@ -139,6 +147,13 @@ export async function buildReport(options = {}) {
       issueCount: issues.length,
       p0IssueCount: issues.filter((issue) => issue.severity === "P0").length,
       p1IssueCount: issues.filter((issue) => issue.severity === "P1").length,
+      liveIssueCount: issueSummary["live-issue"],
+      liveP0IssueCount: issues.filter((issue) => issue.issueClass === "live-issue" && issue.severity === "P0").length,
+      compatGapCount: issueSummary["compat-gap"],
+      deprecationWarningCount: issueSummary["deprecation-warning"],
+      inspectorGapCount: issueSummary["inspector-gap"],
+      upstreamIssueCount: issueSummary["upstream-metadata"],
+      fixtureRegressionCount: issueSummary["fixture-regression"],
       contractProbeCount: contractProbes.length,
     },
     fixtures,
@@ -186,11 +201,45 @@ export function renderMarkdownReport(report) {
         ["Issue findings", report.summary.issueCount],
         ["P0 issues", report.summary.p0IssueCount],
         ["P1 issues", report.summary.p1IssueCount],
+        ["Live issues", report.summary.liveIssueCount],
+        ["Live P0 issues", report.summary.liveP0IssueCount],
+        ["Compat gaps", report.summary.compatGapCount],
+        ["Deprecation warnings", report.summary.deprecationWarningCount],
+        ["Inspector gaps", report.summary.inspectorGapCount],
+        ["Upstream metadata", report.summary.upstreamIssueCount],
         ["Contract probes", report.summary.contractProbeCount],
         ["Decision rows", report.summary.decisionCount],
       ],
       ["Metric", "Value"],
     ),
+    "",
+    "## Triage Overview",
+    "",
+    triageOverview(report),
+    "",
+    "## P0 Live Issues",
+    "",
+    issuesTable(report.issues.filter((issue) => issue.issueClass === "live-issue" && issue.severity === "P0")),
+    "",
+    "## Live Issues",
+    "",
+    issuesTable(report.issues.filter((issue) => issue.issueClass === "live-issue")),
+    "",
+    "## Compat Gaps",
+    "",
+    issuesTable(report.issues.filter((issue) => issue.issueClass === "compat-gap")),
+    "",
+    "## Deprecation Warnings",
+    "",
+    issuesTable(report.issues.filter((issue) => issue.issueClass === "deprecation-warning")),
+    "",
+    "## Inspector Proof Gaps",
+    "",
+    issuesTable(report.issues.filter((issue) => issue.issueClass === "inspector-gap")),
+    "",
+    "## Upstream Metadata Issues",
+    "",
+    issuesTable(report.issues.filter((issue) => issue.issueClass === "upstream-metadata")),
     "",
     "## Hard Breakages",
     "",
@@ -263,10 +312,44 @@ export function renderIssuesReport(report) {
         ["Issue findings", report.summary.issueCount],
         ["P0", report.summary.p0IssueCount],
         ["P1", report.summary.p1IssueCount],
+        ["Live issues", report.summary.liveIssueCount],
+        ["Live P0 issues", report.summary.liveP0IssueCount],
+        ["Compat gaps", report.summary.compatGapCount],
+        ["Deprecation warnings", report.summary.deprecationWarningCount],
+        ["Inspector gaps", report.summary.inspectorGapCount],
+        ["Upstream metadata", report.summary.upstreamIssueCount],
         ["Contract probes", report.summary.contractProbeCount],
       ],
       ["Metric", "Value"],
     ),
+    "",
+    "## Triage Overview",
+    "",
+    triageOverview(report),
+    "",
+    "## P0 Live Issues",
+    "",
+    issuesTable(report.issues.filter((issue) => issue.issueClass === "live-issue" && issue.severity === "P0")),
+    "",
+    "## Live Issues",
+    "",
+    issuesTable(report.issues.filter((issue) => issue.issueClass === "live-issue")),
+    "",
+    "## Compat Gaps",
+    "",
+    issuesTable(report.issues.filter((issue) => issue.issueClass === "compat-gap")),
+    "",
+    "## Deprecation Warnings",
+    "",
+    issuesTable(report.issues.filter((issue) => issue.issueClass === "deprecation-warning")),
+    "",
+    "## Inspector Proof Gaps",
+    "",
+    issuesTable(report.issues.filter((issue) => issue.issueClass === "inspector-gap")),
+    "",
+    "## Upstream Metadata Issues",
+    "",
+    issuesTable(report.issues.filter((issue) => issue.issueClass === "upstream-metadata")),
     "",
     "## Issues",
     "",
@@ -278,11 +361,11 @@ export function renderIssuesReport(report) {
   ].join("\n");
 }
 
-function buildIssues({ breakages, warnings, suggestions }) {
+function buildIssues({ breakages, warnings, suggestions, targetOpenClaw }) {
   const findings = [
-    ...breakages.map((finding) => ({ ...finding, severity: "P0", owner: "core", decision: "core-compat-adapter" })),
-    ...warnings.map((finding) => issueMetadata(finding)),
-    ...suggestions.map((finding) => issueMetadata(finding)),
+    ...breakages.map((finding) => issueMetadata({ ...finding, severity: "P0" }, targetOpenClaw)),
+    ...warnings.map((finding) => issueMetadata(finding, targetOpenClaw)),
+    ...suggestions.map((finding) => issueMetadata(finding, targetOpenClaw)),
   ];
 
   return findings
@@ -295,7 +378,11 @@ function buildIssues({ breakages, warnings, suggestions }) {
       owner: finding.owner,
       code: finding.code,
       decision: finding.decision,
-      status: finding.level === "breakage" ? "blocking" : "open",
+      status: finding.severity === "P0" || finding.level === "breakage" ? "blocking" : "open",
+      issueClass: finding.issueClass,
+      live: finding.live,
+      deprecated: finding.deprecated,
+      compatStatus: finding.compatStatus,
       title: issueTitle(finding),
       evidence: finding.evidence ?? [],
       compatRecord: finding.compatRecord ?? null,
@@ -313,7 +400,7 @@ export function issueId(finding) {
   return `CRABPOT-${createHash("sha256").update(stableKey).digest("hex").slice(0, 8).toUpperCase()}`;
 }
 
-function issueMetadata(finding) {
+function issueMetadata(finding, targetOpenClaw) {
   const metadataByCode = {
     "before-tool-call-probe": {
       severity: "P1",
@@ -338,6 +425,12 @@ function issueMetadata(finding) {
       owner: "core",
       decision: "inspector-follow-up",
       title: "conversation-access hooks need privacy-boundary probes",
+    },
+    "legacy-before-agent-start": {
+      severity: "P2",
+      owner: "core",
+      decision: "core-compat-adapter",
+      title: "legacy before_agent_start hook compatibility is still used",
     },
     "legacy-root-sdk-import": {
       severity: "P2",
@@ -468,7 +561,115 @@ function issueMetadata(finding) {
       decision: "inspector-follow-up",
       title: finding.message,
     }),
+    ...classifyIssue(finding, metadataByCode[finding.code], targetOpenClaw),
   };
+}
+
+function classifyIssue(finding, metadata, targetOpenClaw) {
+  const compatStatus = compatStatusFor(finding, targetOpenClaw);
+  const deprecated = compatStatus === "deprecated";
+  const code = finding.code;
+  const issueClass = issueClassFor(code, { deprecated, compatRecord: finding.compatRecord });
+  const live = issueClass === "live-issue" || finding.level === "breakage";
+  const severity = severityForClass(code, metadata?.severity, {
+    issueClass,
+    compatRecord: finding.compatRecord,
+    compatStatus,
+  });
+
+  return {
+    compatStatus,
+    deprecated,
+    issueClass,
+    live,
+    severity,
+  };
+}
+
+function issueClassFor(code, options) {
+  if (["unknown-hook-name", "unknown-registration-name", "package-entrypoint-missing", "sdk-export-missing"].includes(code)) {
+    return "live-issue";
+  }
+  if (code === "missing-compat-record") {
+    return "compat-gap";
+  }
+  if (options.deprecated || ["channel-env-vars", "legacy-before-agent-start", "legacy-root-sdk-import", "provider-auth-env-vars"].includes(code)) {
+    return "deprecation-warning";
+  }
+  if (
+    [
+      "before-tool-call-probe",
+      "channel-contract-probe",
+      "conversation-access-hook",
+      "package-build-artifact-entrypoint",
+      "package-dependency-install-required",
+      "package-typescript-source-entrypoint",
+      "registration-capture-gap",
+      "runtime-tool-capture",
+    ].includes(code)
+  ) {
+    return "inspector-gap";
+  }
+  if (
+    [
+      "manifest-unknown-contracts",
+      "manifest-unknown-fields",
+      "package-json-missing",
+      "package-manifest-version-drift",
+      "package-openclaw-entry-missing",
+      "package-openclaw-metadata-missing",
+      "package-plugin-api-compat-missing",
+    ].includes(code)
+  ) {
+    return "upstream-metadata";
+  }
+  if (code === "missing-expected-seam") {
+    return "fixture-regression";
+  }
+  return options.compatRecord ? "compat-gap" : "inspector-gap";
+}
+
+function severityForClass(code, defaultSeverity, options) {
+  if (
+    options.issueClass === "live-issue" &&
+    ["none", "untracked"].includes(options.compatStatus) &&
+    ["unknown-hook-name", "unknown-registration-name", "package-entrypoint-missing", "sdk-export-missing"].includes(code)
+  ) {
+    return "P0";
+  }
+  return defaultSeverity ?? "P3";
+}
+
+function compatStatusFor(finding, targetOpenClaw) {
+  if (finding.code === "missing-compat-record") {
+    return "missing";
+  }
+  if (!finding.compatRecord) {
+    return "none";
+  }
+  const targetStatus = targetOpenClaw?.compatRecordStatuses?.[finding.compatRecord];
+  if (targetStatus) {
+    return targetStatus;
+  }
+  if (DEPRECATED_COMPAT_RECORDS.has(finding.compatRecord)) {
+    return "deprecated";
+  }
+  return "untracked";
+}
+
+function summarizeIssueClasses(issues) {
+  const summary = {
+    "compat-gap": 0,
+    "deprecation-warning": 0,
+    "fixture-regression": 0,
+    "inspector-gap": 0,
+    "live-issue": 0,
+    "upstream-metadata": 0,
+  };
+  for (const issue of issues) {
+    summary[issue.issueClass] = (summary[issue.issueClass] ?? 0) + 1;
+  }
+  return summary;
 }
 
 function buildContractProbes({ warnings, suggestions, fixtures }) {
@@ -494,6 +695,11 @@ function buildContractProbes({ warnings, suggestions, fixtures }) {
       id: "sdk.import.root-barrel-cold-import",
       contract: "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
       target: "sdk-alias",
+    },
+    "legacy-before-agent-start": {
+      id: "hook.compat.before-agent-start-migration",
+      contract: "Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.",
+      target: "hook-runner",
     },
     "sdk-export-missing": {
       id: "sdk.import.package-export-cold-import",
@@ -612,7 +818,7 @@ function classifyCompatRecordCoverage({ targetOpenClaw, findings, suggestions, l
         code: "compat-record-present",
         level: "log",
         message: "target OpenClaw checkout has a matching compat registry record",
-        evidence: [finding.compatRecord],
+        evidence: [finding.compatRecord, `status:${targetOpenClaw.compatRecordStatuses?.[finding.compatRecord] ?? "unknown"}`],
         compatRecord: finding.compatRecord,
       });
       continue;
@@ -725,6 +931,25 @@ function classifyFixture({ fixture, inspection, fixtureReport, targetOpenClaw, b
       seam: "sdk-import",
       action: "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
       evidence: unique(rootSdkImports).join(", "),
+    });
+  }
+
+  const legacyBeforeAgentStartDetails = inspection.hookDetails.filter((hook) => hook.name === "before_agent_start");
+  if (legacyBeforeAgentStartDetails.length > 0) {
+    warnings.push({
+      fixture: fixture.id,
+      code: "legacy-before-agent-start",
+      level: "warning",
+      message: "fixture uses deprecated before_agent_start hook compatibility",
+      evidence: detailEvidence(legacyBeforeAgentStartDetails),
+      compatRecord: "legacy-before-agent-start",
+    });
+    decisions.push({
+      fixture: fixture.id,
+      decision: "core-compat-adapter",
+      seam: "hook-compat",
+      action: "Keep before_agent_start wired while plugin authors migrate to before_model_resolve and before_prompt_build.",
+      evidence: detailEvidence(legacyBeforeAgentStartDetails).join(", "),
     });
   }
 
@@ -1233,6 +1458,7 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       configuredPath: null,
       status: "disabled",
       compatRecords: [],
+      compatRecordStatuses: {},
       hookNames: [],
       apiRegistrars: [],
       capturedRegistrars: [],
@@ -1248,6 +1474,7 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       configuredPath: null,
       status: "not-configured",
       compatRecords: [],
+      compatRecordStatuses: {},
       hookNames: [],
       apiRegistrars: [],
       capturedRegistrars: [],
@@ -1277,6 +1504,7 @@ async function readTargetOpenClaw(manifest, configuredPath) {
       searchedPaths: requestedPaths,
       status: "missing",
       compatRecords: [],
+      compatRecordStatuses: {},
       hookNames: [],
       apiRegistrars: [],
       capturedRegistrars: [],
@@ -1288,7 +1516,8 @@ async function readTargetOpenClaw(manifest, configuredPath) {
 
   const hookTypesPath = path.join(resolvedPath, "src/plugins/hook-types.ts");
   const registrySource = await readFile(registryPath, "utf8");
-  const compatRecords = unique([...registrySource.matchAll(/\bcode:\s*["'`]([^"'`]+)["'`]/g)].map((match) => match[1])).sort();
+  const compatRecordEntries = parseCompatRecordEntries(registrySource);
+  const compatRecords = compatRecordEntries.map((record) => record.code).sort();
   const hookNames = existsSync(hookTypesPath)
     ? parseExportedStringArray(await readFile(hookTypesPath, "utf8"), "PLUGIN_HOOK_NAMES")
     : [];
@@ -1320,6 +1549,7 @@ async function readTargetOpenClaw(manifest, configuredPath) {
     compatRegistryPath: path.relative(repoRoot, registryPath),
     compatRecordCount: compatRecords.length,
     compatRecords,
+    compatRecordStatuses: Object.fromEntries(compatRecordEntries.map((record) => [record.code, record.status])),
     hookTypesPath: existsSync(hookTypesPath) ? path.relative(repoRoot, hookTypesPath) : null,
     hookNameCount: hookNames.length,
     hookNames,
@@ -1340,6 +1570,14 @@ async function readTargetOpenClaw(manifest, configuredPath) {
     manifestContractFieldCount: manifestContractFields.length,
     manifestContractFields,
   };
+}
+
+function parseCompatRecordEntries(source) {
+  const entries = [];
+  for (const match of source.matchAll(/\{[\s\S]*?\bcode:\s*["'`]([^"'`]+)["'`][\s\S]*?\bstatus:\s*["'`]([^"'`]+)["'`][\s\S]*?\n\s*\}/g)) {
+    entries.push({ code: match[1], status: match[2] });
+  }
+  return dedupeBy(entries, (entry) => entry.code).sort((left, right) => left.code.localeCompare(right.code));
 }
 
 function parsePluginSdkExports(packageJson) {
@@ -1514,15 +1752,77 @@ function issuesTable(issues) {
     issues.map((issue) => [
       issue.id,
       issue.severity,
+      issue.issueClass,
       issue.fixture,
       issue.owner,
       issue.decision,
       issue.status,
       issue.code,
+      issue.compatStatus ?? "none",
+      issue.live ? "yes" : "no",
+      issue.deprecated ? "yes" : "no",
       issue.title,
       issue.evidence.join(", ") || "-",
     ]),
-    ["ID", "Severity", "Fixture", "Owner", "Decision", "Status", "Code", "Title", "Evidence"],
+    [
+      "ID",
+      "Severity",
+      "Class",
+      "Fixture",
+      "Owner",
+      "Decision",
+      "Status",
+      "Code",
+      "Compat status",
+      "Live",
+      "Deprecated",
+      "Title",
+      "Evidence",
+    ],
+  );
+}
+
+function triageOverview(report) {
+  return markdownTable(
+    [
+      [
+        "live-issue",
+        report.summary.liveIssueCount,
+        report.summary.liveP0IssueCount,
+        "Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.",
+      ],
+      [
+        "compat-gap",
+        report.summary.compatGapCount,
+        "-",
+        "Compatibility behavior is needed but missing from the target OpenClaw compat registry.",
+      ],
+      [
+        "deprecation-warning",
+        report.summary.deprecationWarningCount,
+        "-",
+        "Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.",
+      ],
+      [
+        "inspector-gap",
+        report.summary.inspectorGapCount,
+        "-",
+        "Crabpot needs stronger capture/probe evidence before making contract judgments.",
+      ],
+      [
+        "upstream-metadata",
+        report.summary.upstreamIssueCount,
+        "-",
+        "Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.",
+      ],
+      [
+        "fixture-regression",
+        report.summary.fixtureRegressionCount,
+        "-",
+        "Fixture no longer exposes a seam Crabpot expected; investigate fixture pin or scanner drift.",
+      ],
+    ],
+    ["Class", "Count", "P0", "Meaning"],
   );
 }
 
@@ -1546,12 +1846,17 @@ function contractProbesTable(probes) {
 
 function targetOpenClawTable(targetOpenClaw) {
   const recordPreview = targetOpenClaw.compatRecords.length > 0 ? targetOpenClaw.compatRecords.join(", ") : "-";
+  const statusCounts = Object.values(targetOpenClaw.compatRecordStatuses ?? {}).reduce((counts, status) => {
+    counts[status] = (counts[status] ?? 0) + 1;
+    return counts;
+  }, {});
   return markdownTable(
     [
       ["Configured path", targetOpenClaw.configuredPath ?? "-"],
       ["Status", targetOpenClaw.status],
       ["Compat registry", targetOpenClaw.compatRegistryPath ?? "-"],
       ["Compat records", targetOpenClaw.compatRecordCount ?? 0],
+      ["Compat status counts", Object.entries(statusCounts).map(([status, count]) => `${status}:${count}`).join(", ") || "-"],
       ["Record ids", recordPreview],
       ["Hook registry", targetOpenClaw.hookTypesPath ?? "-"],
       ["Hook names", targetOpenClaw.hookNameCount ?? 0],
