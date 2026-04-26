@@ -49,6 +49,7 @@ test("default check workflow uploads policy and summary reports", async () => {
   assert.match(workflow, /node scripts\/compare-runtime-profile\.mjs/);
   assert.match(workflow, /node scripts\/platform-probes\.mjs/);
   assert.match(workflow, /node scripts\/import-loop-profile\.mjs/);
+  assert.match(workflow, /npm run plugin-inspector:smoke/);
   assert.match(workflow, /node scripts\/check-ci-policy\.mjs/);
   assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs/);
@@ -75,6 +76,7 @@ test("default check workflow runs OS and container static lanes", async () => {
   assert.match(workflow, /os: \[ubuntu-latest, macos-latest, windows-latest\]/);
   assert.match(workflow, /container-smoke:/);
   assert.match(workflow, /image: node:22-bookworm/);
+  assert.match(workflow, /npm run plugin-inspector:smoke/);
   assert.match(workflow, /crabpot-check-reports-\$\{\{ matrix\.os \}\}/);
 });
 
