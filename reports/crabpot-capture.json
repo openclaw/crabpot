@@ -12,7 +12,7 @@
     "hookCount": 24,
     "sdkImportCount": 64,
     "packageEntrypointCount": 18,
-    "issueProbeCount": 76,
+    "issueProbeCount": 77,
     "inspectorShimRequiredCount": 24,
     "compatAliasRequiredCount": 3
   },
@@ -2742,6 +2742,19 @@
       "assertions": [
         "message envelope is stable",
         "sender/config metadata is preserved"
+      ]
+    },
+    {
+      "id": "hook.compat.before-agent-start-migration:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P2",
+      "target": "hook-runner",
+      "evidence": [
+        "before_agent_start @ plugins/connectclaw/packages/plugin/src/hooks.ts:17"
+      ],
+      "assertions": [
+        "synthetic event payload is accepted",
+        "return semantics are preserved"
       ]
     },
     {

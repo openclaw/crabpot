@@ -10,51 +10,55 @@ is to catch contract drift before external plugin authors do.
 <!-- crabpot-summary:start -->
 ## Dashboard
 
-Last dashboard update: Apr 26, 2026, 00:57 UTC
+Last dashboard update: deterministic
 
 State: PASS
 
-Mode: check
+Mode: local
 
-OpenClaw: openclaw/openclaw@main
-
-Run: https://github.com/openclaw/crabpot/actions/runs/24944712338
+OpenClaw: ../openclaw
 
 ### Result Grid
 
-| Metric            | Result                                  |
-| ----------------- | --------------------------------------- |
-| Fixtures          | 15                                      |
-| Hard breakages    | 0                                       |
-| Warnings          | 25                                      |
-| Suggestions       | 52                                      |
-| Issues            | 77                                      |
-| P1 issues         | 15                                      |
-| Contract probes   | 76                                      |
-| Policy failures   | 0                                       |
-| Policy warnings   | 2                                       |
-| Ref diff failures | 0                                       |
-| Profile failures  | 0                                       |
-| Execution probes  | 6 pass / 0 fail / 2 blocked             |
-| Synthetic probes  | 67 ready / 0 blocked / 67 total         |
-| Cold import       | 0 ready / 18 blocked / 18 entrypoints   |
-| Workspace plan    | 18 entrypoints / 12 installs / 5 builds |
-| Runtime profile   | p50 236ms / max RSS 72.3MB              |
+| Metric               | Result                                  |
+| -------------------- | --------------------------------------- |
+| Fixtures             | 15                                      |
+| Hard breakages       | 0                                       |
+| Warnings             | 26                                      |
+| Suggestions          | 52                                      |
+| Issues               | 78                                      |
+| P0 issues            | 1                                       |
+| P1 issues            | 14                                      |
+| Live issues          | 1 total / 1 P0                          |
+| Compat gaps          | 1                                       |
+| Deprecation warnings | 13                                      |
+| Inspector gaps       | 53                                      |
+| Upstream metadata    | 10                                      |
+| Contract probes      | 77                                      |
+| Policy failures      | 0                                       |
+| Policy warnings      | 2                                       |
+| Ref diff failures    | 0                                       |
+| Profile failures     | 0                                       |
+| Execution probes     | 6 pass / 0 fail / 2 blocked             |
+| Synthetic probes     | 67 ready / 0 blocked / 67 total         |
+| Cold import          | 0 ready / 18 blocked / 18 entrypoints   |
+| Workspace plan       | 18 entrypoints / 12 installs / 5 builds |
+| Runtime profile      | p50 1041ms / max RSS 71MB               |
 
 ### Top Discovered Issues
 
-| ID               | Severity | Fixture           | Code                     | Decision            | Title                                                                               |
-| ---------------- | -------- | ----------------- | ------------------------ | ------------------- | ----------------------------------------------------------------------------------- |
-| CRABPOT-37E8444D | P1       | a2a-gateway       | registration-capture-gap | inspector-follow-up | a2a-gateway: runtime registrations need capture before contract judgment            |
-| CRABPOT-9D5EE194 | P1       | clawmetry         | registration-capture-gap | inspector-follow-up | clawmetry: runtime registrations need capture before contract judgment              |
-| CRABPOT-6D9E51D9 | P1       | codex-app-server  | missing-compat-record    | core-compat-adapter | codex-app-server: compat-dependent behavior lacks registry coverage                 |
-| CRABPOT-45CAC152 | P1       | codex-app-server  | registration-capture-gap | inspector-follow-up | codex-app-server: runtime registrations need capture before contract judgment       |
-| CRABPOT-C2331427 | P1       | codex-app-server  | sdk-export-missing       | core-compat-adapter | codex-app-server: plugin SDK import aliases are missing from target package exports |
-| CRABPOT-A16D6B91 | P1       | connectclaw       | registration-capture-gap | inspector-follow-up | connectclaw: runtime registrations need capture before contract judgment            |
-| CRABPOT-D71B126E | P1       | llm-trace-phoenix | conversation-access-hook | inspector-follow-up | llm-trace-phoenix: conversation-access hooks need privacy-boundary probes           |
-| CRABPOT-795CF4F4 | P1       | lossless-claw     | registration-capture-gap | inspector-follow-up | lossless-claw: runtime registrations need capture before contract judgment          |
-| CRABPOT-B91192E5 | P1       | mcp-adapter       | registration-capture-gap | inspector-follow-up | mcp-adapter: runtime registrations need capture before contract judgment            |
-| CRABPOT-EE3B527C | P1       | opik-openclaw     | before-tool-call-probe   | inspector-follow-up | opik-openclaw: before_tool_call needs terminal/block/approval probes                |
+| ID               | Severity | Class         | Fixture           | Code                     | Decision            | Title                                                                               |
+| ---------------- | -------- | ------------- | ----------------- | ------------------------ | ------------------- | ----------------------------------------------------------------------------------- |
+| CRABPOT-62AC9404 | P0       | live-issue    | codex-app-server  | sdk-export-missing       | core-compat-adapter | codex-app-server: plugin SDK import aliases are missing from target package exports |
+| CRABPOT-37E8444D | P1       | inspector-gap | a2a-gateway       | registration-capture-gap | inspector-follow-up | a2a-gateway: runtime registrations need capture before contract judgment            |
+| CRABPOT-9D5EE194 | P1       | inspector-gap | clawmetry         | registration-capture-gap | inspector-follow-up | clawmetry: runtime registrations need capture before contract judgment              |
+| CRABPOT-6D9E51D9 | P1       | compat-gap    | codex-app-server  | missing-compat-record    | core-compat-adapter | codex-app-server: compat-dependent behavior lacks registry coverage                 |
+| CRABPOT-45CAC152 | P1       | inspector-gap | codex-app-server  | registration-capture-gap | inspector-follow-up | codex-app-server: runtime registrations need capture before contract judgment       |
+| CRABPOT-A16D6B91 | P1       | inspector-gap | connectclaw       | registration-capture-gap | inspector-follow-up | connectclaw: runtime registrations need capture before contract judgment            |
+| CRABPOT-D71B126E | P1       | inspector-gap | llm-trace-phoenix | conversation-access-hook | inspector-follow-up | llm-trace-phoenix: conversation-access hooks need privacy-boundary probes           |
+| CRABPOT-795CF4F4 | P1       | inspector-gap | lossless-claw     | registration-capture-gap | inspector-follow-up | lossless-claw: runtime registrations need capture before contract judgment          |
+| CRABPOT-B91192E5 | P1       | inspector-gap | mcp-adapter       | registration-capture-gap | inspector-follow-up | mcp-adapter: runtime registrations need capture before contract judgment            |
+| CRABPOT-EE3B527C | P1       | inspector-gap | opik-openclaw     | before-tool-call-probe   | inspector-follow-up | opik-openclaw: before_tool_call needs terminal/block/approval probes                |
 
 ### Report Artifacts
 

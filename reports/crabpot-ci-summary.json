@@ -5,10 +5,17 @@
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 25,
+    "warnings": 26,
     "suggestions": 52,
-    "issues": 77,
-    "p1Issues": 15,
+    "issues": 78,
+    "p0Issues": 1,
+    "p1Issues": 14,
+    "liveIssues": 1,
+    "liveP0Issues": 1,
+    "compatGaps": 1,
+    "deprecationWarnings": 13,
+    "inspectorGaps": 53,
+    "upstreamIssues": 10,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -21,35 +28,8 @@
   },
   "topIssues": [
     {
-      "severity": "P1",
-      "fixture": "a2a-gateway",
-      "code": "registration-capture-gap",
-      "title": "a2a-gateway: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "fixture": "clawmetry",
-      "code": "registration-capture-gap",
-      "title": "clawmetry: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "fixture": "codex-app-server",
-      "code": "missing-compat-record",
-      "title": "codex-app-server: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "fixture": "codex-app-server",
-      "code": "registration-capture-gap",
-      "title": "codex-app-server: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
+      "severity": "P0",
+      "issueClass": "live-issue",
       "fixture": "codex-app-server",
       "code": "sdk-export-missing",
       "title": "codex-app-server: plugin SDK import aliases are missing from target package exports",
@@ -57,6 +37,39 @@
     },
     {
       "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "a2a-gateway",
+      "code": "registration-capture-gap",
+      "title": "a2a-gateway: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "clawmetry",
+      "code": "registration-capture-gap",
+      "title": "clawmetry: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "codex-app-server",
+      "code": "missing-compat-record",
+      "title": "codex-app-server: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "codex-app-server",
+      "code": "registration-capture-gap",
+      "title": "codex-app-server: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
       "fixture": "connectclaw",
       "code": "registration-capture-gap",
       "title": "connectclaw: runtime registrations need capture before contract judgment",
@@ -64,6 +77,7 @@
     },
     {
       "severity": "P1",
+      "issueClass": "inspector-gap",
       "fixture": "llm-trace-phoenix",
       "code": "conversation-access-hook",
       "title": "llm-trace-phoenix: conversation-access hooks need privacy-boundary probes",
@@ -71,6 +85,7 @@
     },
     {
       "severity": "P1",
+      "issueClass": "inspector-gap",
       "fixture": "lossless-claw",
       "code": "registration-capture-gap",
       "title": "lossless-claw: runtime registrations need capture before contract judgment",
@@ -78,6 +93,7 @@
     },
     {
       "severity": "P1",
+      "issueClass": "inspector-gap",
       "fixture": "mcp-adapter",
       "code": "registration-capture-gap",
       "title": "mcp-adapter: runtime registrations need capture before contract judgment",
@@ -85,6 +101,7 @@
     },
     {
       "severity": "P1",
+      "issueClass": "inspector-gap",
       "fixture": "opik-openclaw",
       "code": "before-tool-call-probe",
       "title": "opik-openclaw: before_tool_call needs terminal/block/approval probes",
@@ -92,6 +109,7 @@
     },
     {
       "severity": "P1",
+      "issueClass": "inspector-gap",
       "fixture": "opik-openclaw",
       "code": "conversation-access-hook",
       "title": "opik-openclaw: conversation-access hooks need privacy-boundary probes",
@@ -99,6 +117,7 @@
     },
     {
       "severity": "P1",
+      "issueClass": "inspector-gap",
       "fixture": "opik-openclaw",
       "code": "registration-capture-gap",
       "title": "opik-openclaw: runtime registrations need capture before contract judgment",
@@ -106,6 +125,7 @@
     },
     {
       "severity": "P1",
+      "issueClass": "inspector-gap",
       "fixture": "qqbot",
       "code": "registration-capture-gap",
       "title": "qqbot: runtime registrations need capture before contract judgment",
@@ -113,6 +133,7 @@
     },
     {
       "severity": "P1",
+      "issueClass": "inspector-gap",
       "fixture": "wecom",
       "code": "before-tool-call-probe",
       "title": "wecom: before_tool_call needs terminal/block/approval probes",
@@ -120,6 +141,7 @@
     },
     {
       "severity": "P1",
+      "issueClass": "inspector-gap",
       "fixture": "wecom",
       "code": "registration-capture-gap",
       "title": "wecom: runtime registrations need capture before contract judgment",

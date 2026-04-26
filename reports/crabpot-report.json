@@ -29,6 +29,26 @@
       "legacy-root-sdk-import",
       "provider-auth-env-vars"
     ],
+    "compatRecordStatuses": {
+      "activation-capability-hint": "active",
+      "activation-channel-hint": "active",
+      "activation-command-hint": "active",
+      "activation-provider-hint": "active",
+      "activation-route-hint": "active",
+      "agent-harness-id-alias": "deprecated",
+      "agent-harness-sdk-alias": "deprecated",
+      "bundled-plugin-allowlist": "active",
+      "bundled-plugin-enablement": "active",
+      "bundled-plugin-vitest-defaults": "active",
+      "channel-env-vars": "deprecated",
+      "disable-persisted-plugin-registry-env": "deprecated",
+      "embedded-harness-config-alias": "deprecated",
+      "generated-bundled-channel-config-fallback": "active",
+      "hook-only-plugin-shape": "active",
+      "legacy-before-agent-start": "deprecated",
+      "legacy-root-sdk-import": "deprecated",
+      "provider-auth-env-vars": "deprecated"
+    },
     "hookTypesPath": "../openclaw/src/plugins/hook-types.ts",
     "hookNameCount": 32,
     "hookNames": [
@@ -503,13 +523,20 @@
     "fixtureCount": 15,
     "highPriorityFixtures": 10,
     "breakageCount": 0,
-    "warningCount": 25,
+    "warningCount": 26,
     "suggestionCount": 52,
-    "decisionCount": 79,
-    "issueCount": 77,
-    "p0IssueCount": 0,
-    "p1IssueCount": 15,
-    "contractProbeCount": 76
+    "decisionCount": 80,
+    "issueCount": 78,
+    "p0IssueCount": 1,
+    "p1IssueCount": 14,
+    "liveIssueCount": 1,
+    "liveP0IssueCount": 1,
+    "compatGapCount": 1,
+    "deprecationWarningCount": 13,
+    "inspectorGapCount": 53,
+    "upstreamIssueCount": 10,
+    "fixtureRegressionCount": 0,
+    "contractProbeCount": 77
   },
   "fixtures": [
     {
@@ -3874,6 +3901,16 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
+      "fixture": "connectclaw",
+      "code": "legacy-before-agent-start",
+      "level": "warning",
+      "message": "fixture uses deprecated before_agent_start hook compatibility",
+      "evidence": [
+        "before_agent_start @ plugins/connectclaw/packages/plugin/src/hooks.ts:17"
+      ],
+      "compatRecord": "legacy-before-agent-start"
+    },
+    {
       "fixture": "codex-app-server",
       "code": "sdk-export-missing",
       "level": "warning",
@@ -4461,6 +4498,26 @@
   ],
   "issues": [
     {
+      "id": "CRABPOT-62AC9404",
+      "fixture": "codex-app-server",
+      "severity": "P0",
+      "owner": "core",
+      "code": "sdk-export-missing",
+      "decision": "core-compat-adapter",
+      "status": "blocking",
+      "issueClass": "live-issue",
+      "live": true,
+      "deprecated": false,
+      "compatStatus": "untracked",
+      "title": "codex-app-server: plugin SDK import aliases are missing from target package exports",
+      "evidence": [
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104",
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106",
+        "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
+      ],
+      "compatRecord": "plugin-sdk-export-aliases"
+    },
+    {
       "id": "CRABPOT-37E8444D",
       "fixture": "a2a-gateway",
       "severity": "P1",
@@ -4468,6 +4525,10 @@
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "a2a-gateway: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerGatewayMethod @ plugins/a2a-gateway/index.ts:616",
@@ -4487,6 +4548,10 @@
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "clawmetry: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerService @ plugins/clawmetry/clawhub-plugin/index.ts:9"
@@ -4501,6 +4566,10 @@
       "code": "missing-compat-record",
       "decision": "core-compat-adapter",
       "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
       "title": "codex-app-server: compat-dependent behavior lacks registry coverage",
       "evidence": [
         "plugin-sdk-export-aliases"
@@ -4515,6 +4584,10 @@
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "codex-app-server: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerCommand @ plugins/codex-app-server/index.ts:48",
@@ -4525,22 +4598,6 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-C2331427",
-      "fixture": "codex-app-server",
-      "severity": "P1",
-      "owner": "core",
-      "code": "sdk-export-missing",
-      "decision": "core-compat-adapter",
-      "status": "open",
-      "title": "codex-app-server: plugin SDK import aliases are missing from target package exports",
-      "evidence": [
-        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104",
-        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106",
-        "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
-      ],
-      "compatRecord": "plugin-sdk-export-aliases"
-    },
-    {
       "id": "CRABPOT-A16D6B91",
       "fixture": "connectclaw",
       "severity": "P1",
@@ -4548,6 +4605,10 @@
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "connectclaw: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerCommand @ plugins/connectclaw/packages/plugin/src/commands.ts:18",
@@ -4564,6 +4625,10 @@
       "code": "conversation-access-hook",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "llm-trace-phoenix: conversation-access hooks need privacy-boundary probes",
       "evidence": [
         "llm_input @ plugins/llm-trace-phoenix/index.ts:154",
@@ -4579,6 +4644,10 @@
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "lossless-claw: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2009",
@@ -4594,6 +4663,10 @@
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "mcp-adapter: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerService @ plugins/mcp-adapter/index.ts:15"
@@ -4608,6 +4681,10 @@
       "code": "before-tool-call-probe",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "opik-openclaw: before_tool_call needs terminal/block/approval probes",
       "evidence": [
         "before_tool_call @ plugins/opik-openclaw/src/service/hooks/tool.ts:34"
@@ -4622,6 +4699,10 @@
       "code": "conversation-access-hook",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "opik-openclaw: conversation-access hooks need privacy-boundary probes",
       "evidence": [
         "agent_end @ plugins/opik-openclaw/src/service.ts:560",
@@ -4638,6 +4719,10 @@
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "opik-openclaw: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerService @ plugins/opik-openclaw/index.ts:16"
@@ -4652,6 +4737,10 @@
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "qqbot: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerChannel @ plugins/qqbot/index.ts:16"
@@ -4666,6 +4755,10 @@
       "code": "before-tool-call-probe",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "wecom: before_tool_call needs terminal/block/approval probes",
       "evidence": [
         "before_tool_call @ plugins/wecom/index.js:65"
@@ -4680,6 +4773,10 @@
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "wecom: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27",
@@ -4695,6 +4792,10 @@
       "code": "legacy-root-sdk-import",
       "decision": "core-compat-adapter",
       "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
       "title": "a2a-gateway: root plugin SDK barrel is still used by fixtures",
       "evidence": [
         "openclaw/plugin-sdk @ plugins/a2a-gateway/src/types.ts:14"
@@ -4709,6 +4810,10 @@
       "code": "manifest-unknown-fields",
       "decision": "plugin-upstream-fix",
       "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "a2a-gateway: manifest uses unsupported top-level fields",
       "evidence": [
         "defaultConfig @ plugins/a2a-gateway/openclaw.plugin.json"
@@ -4723,6 +4828,10 @@
       "code": "package-dependency-install-required",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "a2a-gateway: cold import requires isolated dependency installation",
       "evidence": [
         "@a2a-js/sdk @ plugins/a2a-gateway/package.json",
@@ -4743,6 +4852,10 @@
       "code": "package-manifest-version-drift",
       "decision": "plugin-upstream-fix",
       "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "a2a-gateway: package and manifest versions drift",
       "evidence": [
         "package:1.4.0",
@@ -4758,6 +4871,10 @@
       "code": "package-plugin-api-compat-missing",
       "decision": "plugin-upstream-fix",
       "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "a2a-gateway: plugin API compatibility range is missing",
       "evidence": [
         "plugins/a2a-gateway/package.json"
@@ -4772,6 +4889,10 @@
       "code": "package-typescript-source-entrypoint",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "a2a-gateway: cold import needs TypeScript source entrypoint support",
       "evidence": [
         "extension:plugins/a2a-gateway/index.ts"
@@ -4786,6 +4907,10 @@
       "code": "runtime-tool-capture",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "a2a-gateway: runtime tool schema needs registration capture",
       "evidence": [
         "registerTool @ plugins/a2a-gateway/index.ts:777"
@@ -4800,6 +4925,10 @@
       "code": "channel-contract-probe",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "agentchat: channel runtime needs envelope/config probes",
       "evidence": [
         "defineChannelPluginEntry @ plugins/agentchat/integrations/openclaw-channel/src/channel.ts:333"
@@ -4814,6 +4943,10 @@
       "code": "channel-env-vars",
       "decision": "core-compat-adapter",
       "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
       "title": "agentchat: channelEnvVars legacy manifest metadata must stay covered",
       "evidence": [
         "agentchat"
@@ -4828,6 +4961,10 @@
       "code": "manifest-unknown-fields",
       "decision": "plugin-upstream-fix",
       "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "agentchat: manifest uses unsupported top-level fields",
       "evidence": [
         "displayName @ plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json",
@@ -4844,6 +4981,10 @@
       "code": "package-build-artifact-entrypoint",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "agentchat: cold import requires package build output",
       "evidence": [
         "extension:./dist/index.js -> plugins/agentchat/integrations/openclaw-channel/dist/index.js",
@@ -4859,6 +5000,10 @@
       "code": "package-dependency-install-required",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "agentchat: cold import requires isolated dependency installation",
       "evidence": [
         "@agentchatme/agentchat @ plugins/agentchat/integrations/openclaw-channel/package.json",
@@ -4878,6 +5023,10 @@
       "code": "legacy-root-sdk-import",
       "decision": "core-compat-adapter",
       "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
       "title": "apify: root plugin SDK barrel is still used by fixtures",
       "evidence": [
         "openclaw/plugin-sdk @ plugins/apify/src/cli.ts:2",
@@ -4894,6 +5043,10 @@
       "code": "package-dependency-install-required",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "apify: cold import requires isolated dependency installation",
       "evidence": [
         "@sinclair/typebox @ plugins/apify/package.json",
@@ -4910,6 +5063,10 @@
       "code": "package-typescript-source-entrypoint",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "apify: cold import needs TypeScript source entrypoint support",
       "evidence": [
         "extension:plugins/apify/src/index.ts"
@@ -4924,6 +5081,10 @@
       "code": "runtime-tool-capture",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "apify: runtime tool schema needs registration capture",
       "evidence": [
         "registerTool @ plugins/apify/src/index.ts:13"
@@ -4938,6 +5099,10 @@
       "code": "package-build-artifact-entrypoint",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "clawmetry: cold import requires package build output",
       "evidence": [
         "runtimeExtension:./dist/index.js -> plugins/clawmetry/clawhub-plugin/dist/index.js"
@@ -4952,6 +5117,10 @@
       "code": "package-dependency-install-required",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "clawmetry: cold import requires isolated dependency installation",
       "evidence": [
         "node-fetch @ plugins/clawmetry/clawhub-plugin/package.json"
@@ -4966,6 +5135,10 @@
       "code": "package-typescript-source-entrypoint",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "clawmetry: cold import needs TypeScript source entrypoint support",
       "evidence": [
         "extension:plugins/clawmetry/clawhub-plugin/index.ts"
@@ -4980,6 +5153,10 @@
       "code": "legacy-root-sdk-import",
       "decision": "core-compat-adapter",
       "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
       "title": "codex-app-server: root plugin SDK barrel is still used by fixtures",
       "evidence": [
         "openclaw/plugin-sdk @ plugins/codex-app-server/index.ts:1",
@@ -4997,6 +5174,10 @@
       "code": "package-dependency-install-required",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "codex-app-server: cold import requires isolated dependency installation",
       "evidence": [
         "ws @ plugins/codex-app-server/package.json",
@@ -5012,11 +5193,33 @@
       "code": "package-typescript-source-entrypoint",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "codex-app-server: cold import needs TypeScript source entrypoint support",
       "evidence": [
         "extension:plugins/codex-app-server/index.ts"
       ],
       "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-52DE4B29",
+      "fixture": "connectclaw",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-before-agent-start",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
+      "title": "connectclaw: legacy before_agent_start hook compatibility is still used",
+      "evidence": [
+        "before_agent_start @ plugins/connectclaw/packages/plugin/src/hooks.ts:17"
+      ],
+      "compatRecord": "legacy-before-agent-start"
     },
     {
       "id": "CRABPOT-4320AA30",
@@ -5026,6 +5229,10 @@
       "code": "legacy-root-sdk-import",
       "decision": "core-compat-adapter",
       "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
       "title": "connectclaw: root plugin SDK barrel is still used by fixtures",
       "evidence": [
         "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/index.ts:1",
@@ -5044,6 +5251,10 @@
       "code": "package-dependency-install-required",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "connectclaw: cold import requires isolated dependency installation",
       "evidence": [
         "openclaw @ plugins/connectclaw/packages/plugin/package.json"
@@ -5058,6 +5269,10 @@
       "code": "package-plugin-api-compat-missing",
       "decision": "plugin-upstream-fix",
       "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "connectclaw: plugin API compatibility range is missing",
       "evidence": [
         "plugins/connectclaw/packages/plugin/package.json"
@@ -5072,6 +5287,10 @@
       "code": "package-typescript-source-entrypoint",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "connectclaw: cold import needs TypeScript source entrypoint support",
       "evidence": [
         "extension:plugins/connectclaw/packages/plugin/index.ts"
@@ -5086,6 +5305,10 @@
       "code": "runtime-tool-capture",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "connectclaw: runtime tool schema needs registration capture",
       "evidence": [
         "registerTool @ plugins/connectclaw/packages/plugin/src/tools.ts:6"
@@ -5100,6 +5323,10 @@
       "code": "package-dependency-install-required",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "hasdata: cold import requires isolated dependency installation",
       "evidence": [
         "@sinclair/typebox @ plugins/hasdata/package.json",
@@ -5115,6 +5342,10 @@
       "code": "package-typescript-source-entrypoint",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "hasdata: cold import needs TypeScript source entrypoint support",
       "evidence": [
         "extension:plugins/hasdata/src/index.ts"
@@ -5129,6 +5360,10 @@
       "code": "provider-auth-env-vars",
       "decision": "core-compat-adapter",
       "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
       "title": "hasdata: providerAuthEnvVars legacy manifest metadata must stay covered",
       "evidence": [
         "hasdata"
@@ -5143,6 +5378,10 @@
       "code": "package-dependency-install-required",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "inworld-tts: cold import requires isolated dependency installation",
       "evidence": [
         "openclaw @ plugins/inworld-tts/package.json"
@@ -5157,6 +5396,10 @@
       "code": "package-typescript-source-entrypoint",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "inworld-tts: cold import needs TypeScript source entrypoint support",
       "evidence": [
         "extension:plugins/inworld-tts/index.ts"
@@ -5171,6 +5414,10 @@
       "code": "provider-auth-env-vars",
       "decision": "core-compat-adapter",
       "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
       "title": "inworld-tts: providerAuthEnvVars legacy manifest metadata must stay covered",
       "evidence": [
         "inworld"
@@ -5185,6 +5432,10 @@
       "code": "legacy-root-sdk-import",
       "decision": "core-compat-adapter",
       "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
       "title": "llm-trace-phoenix: root plugin SDK barrel is still used by fixtures",
       "evidence": [
         "openclaw/plugin-sdk @ plugins/llm-trace-phoenix/index.ts:12"
@@ -5199,6 +5450,10 @@
       "code": "package-typescript-source-entrypoint",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "llm-trace-phoenix: cold import needs TypeScript source entrypoint support",
       "evidence": [
         "extension:plugins/llm-trace-phoenix/index.ts"
@@ -5213,6 +5468,10 @@
       "code": "legacy-root-sdk-import",
       "decision": "core-compat-adapter",
       "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
       "title": "lossless-claw: root plugin SDK barrel is still used by fixtures",
       "evidence": [
         "openclaw/plugin-sdk @ plugins/lossless-claw/src/assembler.ts:2",
@@ -5234,6 +5493,10 @@
       "code": "package-build-artifact-entrypoint",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "lossless-claw: cold import requires package build output",
       "evidence": [
         "extension:./dist/index.js -> plugins/lossless-claw/dist/index.js"
@@ -5248,6 +5511,10 @@
       "code": "package-dependency-install-required",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "lossless-claw: cold import requires isolated dependency installation",
       "evidence": [
         "@mariozechner/pi-agent-core @ plugins/lossless-claw/package.json",
@@ -5266,6 +5533,10 @@
       "code": "package-plugin-api-compat-missing",
       "decision": "plugin-upstream-fix",
       "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "lossless-claw: plugin API compatibility range is missing",
       "evidence": [
         "plugins/lossless-claw/package.json"
@@ -5280,6 +5551,10 @@
       "code": "runtime-tool-capture",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "lossless-claw: runtime tool schema needs registration capture",
       "evidence": [
         "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1991",
@@ -5297,6 +5572,10 @@
       "code": "package-dependency-install-required",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "mcp-adapter: cold import requires isolated dependency installation",
       "evidence": [
         "@modelcontextprotocol/sdk @ plugins/mcp-adapter/package.json"
@@ -5311,6 +5590,10 @@
       "code": "package-plugin-api-compat-missing",
       "decision": "plugin-upstream-fix",
       "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "mcp-adapter: plugin API compatibility range is missing",
       "evidence": [
         "plugins/mcp-adapter/package.json"
@@ -5325,6 +5608,10 @@
       "code": "package-typescript-source-entrypoint",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "mcp-adapter: cold import needs TypeScript source entrypoint support",
       "evidence": [
         "extension:plugins/mcp-adapter/index.ts"
@@ -5339,6 +5626,10 @@
       "code": "runtime-tool-capture",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "mcp-adapter: runtime tool schema needs registration capture",
       "evidence": [
         "registerTool @ plugins/mcp-adapter/index.ts:30"
@@ -5353,6 +5644,10 @@
       "code": "legacy-root-sdk-import",
       "decision": "core-compat-adapter",
       "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
       "title": "opik-openclaw: root plugin SDK barrel is still used by fixtures",
       "evidence": [
         "openclaw/plugin-sdk @ plugins/opik-openclaw/index.ts:1",
@@ -5375,6 +5670,10 @@
       "code": "package-build-artifact-entrypoint",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "opik-openclaw: cold import requires package build output",
       "evidence": [
         "runtimeExtension:./dist/index.js -> plugins/opik-openclaw/dist/index.js"
@@ -5389,6 +5688,10 @@
       "code": "package-dependency-install-required",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "opik-openclaw: cold import requires isolated dependency installation",
       "evidence": [
         "@clack/prompts @ plugins/opik-openclaw/package.json",
@@ -5406,6 +5709,10 @@
       "code": "package-typescript-source-entrypoint",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "opik-openclaw: cold import needs TypeScript source entrypoint support",
       "evidence": [
         "extension:plugins/opik-openclaw/index.ts"
@@ -5420,6 +5727,10 @@
       "code": "channel-contract-probe",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "qqbot: channel runtime needs envelope/config probes",
       "evidence": [
         "registerChannel @ plugins/qqbot/index.ts:16"
@@ -5434,6 +5745,10 @@
       "code": "legacy-root-sdk-import",
       "decision": "core-compat-adapter",
       "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
       "title": "qqbot: root plugin SDK barrel is still used by fixtures",
       "evidence": [
         "openclaw/plugin-sdk @ plugins/qqbot/index.ts:1",
@@ -5456,6 +5771,10 @@
       "code": "manifest-unknown-fields",
       "decision": "plugin-upstream-fix",
       "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "qqbot: manifest uses unsupported top-level fields",
       "evidence": [
         "capabilities @ plugins/qqbot/openclaw.plugin.json",
@@ -5471,6 +5790,10 @@
       "code": "package-dependency-install-required",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "qqbot: cold import requires isolated dependency installation",
       "evidence": [
         "mpg123-decoder @ plugins/qqbot/package.json",
@@ -5488,6 +5811,10 @@
       "code": "package-plugin-api-compat-missing",
       "decision": "plugin-upstream-fix",
       "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "qqbot: plugin API compatibility range is missing",
       "evidence": [
         "plugins/qqbot/package.json"
@@ -5502,6 +5829,10 @@
       "code": "runtime-tool-capture",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "qqbot: runtime tool schema needs registration capture",
       "evidence": [
         "registerTool @ plugins/qqbot/src/tools/channel.ts:138",
@@ -5517,6 +5848,10 @@
       "code": "package-dependency-install-required",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "web-search-plus: cold import requires isolated dependency installation",
       "evidence": [
         "openclaw @ plugins/web-search-plus/package.json"
@@ -5531,6 +5866,10 @@
       "code": "package-typescript-source-entrypoint",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "web-search-plus: cold import needs TypeScript source entrypoint support",
       "evidence": [
         "extension:plugins/web-search-plus/index.ts"
@@ -5545,6 +5884,10 @@
       "code": "provider-auth-env-vars",
       "decision": "core-compat-adapter",
       "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
       "title": "web-search-plus: providerAuthEnvVars legacy manifest metadata must stay covered",
       "evidence": [
         "serper",
@@ -5567,6 +5910,10 @@
       "code": "runtime-tool-capture",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "web-search-plus: runtime tool schema needs registration capture",
       "evidence": [
         "registerTool @ plugins/web-search-plus/index.ts:815",
@@ -5582,6 +5929,10 @@
       "code": "channel-contract-probe",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "wecom: channel runtime needs envelope/config probes",
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27"
@@ -5596,6 +5947,10 @@
       "code": "package-dependency-install-required",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "wecom: cold import requires isolated dependency installation",
       "evidence": [
         "@wecom/aibot-node-sdk @ plugins/wecom/package.json",
@@ -5614,6 +5969,10 @@
       "code": "package-plugin-api-compat-missing",
       "decision": "plugin-upstream-fix",
       "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "wecom: plugin API compatibility range is missing",
       "evidence": [
         "plugins/wecom/package.json"
@@ -5628,6 +5987,10 @@
       "code": "runtime-tool-capture",
       "decision": "inspector-follow-up",
       "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
       "title": "wecom: runtime tool schema needs registration capture",
       "evidence": [
         "registerTool @ plugins/wecom/index.js:28",
@@ -5823,6 +6186,16 @@
       "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27"
+      ]
+    },
+    {
+      "id": "hook.compat.before-agent-start-migration:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P2",
+      "target": "hook-runner",
+      "contract": "Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.",
+      "evidence": [
+        "before_agent_start @ plugins/connectclaw/packages/plugin/src/hooks.ts:17"
       ]
     },
     {
@@ -7378,7 +7751,8 @@
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
       "evidence": [
-        "channel-env-vars"
+        "channel-env-vars",
+        "status:deprecated"
       ],
       "compatRecord": "channel-env-vars"
     },
@@ -7388,7 +7762,8 @@
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
       "evidence": [
-        "legacy-root-sdk-import"
+        "legacy-root-sdk-import",
+        "status:deprecated"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
@@ -7398,7 +7773,8 @@
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
       "evidence": [
-        "legacy-root-sdk-import"
+        "legacy-root-sdk-import",
+        "status:deprecated"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
@@ -7408,7 +7784,8 @@
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
       "evidence": [
-        "provider-auth-env-vars"
+        "provider-auth-env-vars",
+        "status:deprecated"
       ],
       "compatRecord": "provider-auth-env-vars"
     },
@@ -7418,7 +7795,8 @@
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
       "evidence": [
-        "legacy-root-sdk-import"
+        "legacy-root-sdk-import",
+        "status:deprecated"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
@@ -7428,7 +7806,8 @@
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
       "evidence": [
-        "legacy-root-sdk-import"
+        "legacy-root-sdk-import",
+        "status:deprecated"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
@@ -7438,7 +7817,8 @@
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
       "evidence": [
-        "legacy-root-sdk-import"
+        "legacy-root-sdk-import",
+        "status:deprecated"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
@@ -7448,9 +7828,21 @@
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
       "evidence": [
-        "legacy-root-sdk-import"
+        "legacy-root-sdk-import",
+        "status:deprecated"
       ],
       "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "connectclaw",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-before-agent-start",
+        "status:deprecated"
+      ],
+      "compatRecord": "legacy-before-agent-start"
     },
     {
       "fixture": "codex-app-server",
@@ -7458,7 +7850,8 @@
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
       "evidence": [
-        "legacy-root-sdk-import"
+        "legacy-root-sdk-import",
+        "status:deprecated"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
@@ -7468,7 +7861,8 @@
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
       "evidence": [
-        "provider-auth-env-vars"
+        "provider-auth-env-vars",
+        "status:deprecated"
       ],
       "compatRecord": "provider-auth-env-vars"
     },
@@ -7478,7 +7872,8 @@
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
       "evidence": [
-        "legacy-root-sdk-import"
+        "legacy-root-sdk-import",
+        "status:deprecated"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
@@ -7488,7 +7883,8 @@
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
       "evidence": [
-        "provider-auth-env-vars"
+        "provider-auth-env-vars",
+        "status:deprecated"
       ],
       "compatRecord": "provider-auth-env-vars"
     }
@@ -7878,6 +8274,13 @@
       "seam": "sdk-import",
       "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
       "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "connectclaw",
+      "decision": "core-compat-adapter",
+      "seam": "hook-compat",
+      "action": "Keep before_agent_start wired while plugin authors migrate to before_model_resolve and before_prompt_build.",
+      "evidence": "before_agent_start @ plugins/connectclaw/packages/plugin/src/hooks.ts:17"
     },
     {
       "fixture": "connectclaw",

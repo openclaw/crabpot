@@ -7,42 +7,49 @@ Status: PASS
 
 ## Counts
 
-| Metric            | Value |
-| ----------------- | ----- |
-| Breakages         | 0     |
-| Warnings          | 25    |
-| Suggestions       | 52    |
-| Issues            | 77    |
-| P1 issues         | 15    |
-| Ref diff failures | 0     |
-| Ref diff warnings | 0     |
-| Policy failures   | 0     |
-| Policy warnings   | 2     |
-| Profile failures  | 0     |
-| Profile warnings  | 0     |
-| Execution pass    | 6     |
-| Execution fail    | 0     |
-| Execution blocked | 2     |
+| Metric               | Value |
+| -------------------- | ----- |
+| Breakages            | 0     |
+| Warnings             | 26    |
+| Suggestions          | 52    |
+| Issues               | 78    |
+| P0 issues            | 1     |
+| P1 issues            | 14    |
+| Live issues          | 1     |
+| Live P0 issues       | 1     |
+| Compat gaps          | 1     |
+| Deprecation warnings | 13    |
+| Inspector gaps       | 53    |
+| Upstream metadata    | 10    |
+| Ref diff failures    | 0     |
+| Ref diff warnings    | 0     |
+| Policy failures      | 0     |
+| Policy warnings      | 2     |
+| Profile failures     | 0     |
+| Profile warnings     | 0     |
+| Execution pass       | 6     |
+| Execution fail       | 0     |
+| Execution blocked    | 2     |
 
 ## Top Issues
 
-| Severity | Fixture           | Code                     | Decision            | Title                                                                               |
-| -------- | ----------------- | ------------------------ | ------------------- | ----------------------------------------------------------------------------------- |
-| P1       | a2a-gateway       | registration-capture-gap | inspector-follow-up | a2a-gateway: runtime registrations need capture before contract judgment            |
-| P1       | clawmetry         | registration-capture-gap | inspector-follow-up | clawmetry: runtime registrations need capture before contract judgment              |
-| P1       | codex-app-server  | missing-compat-record    | core-compat-adapter | codex-app-server: compat-dependent behavior lacks registry coverage                 |
-| P1       | codex-app-server  | registration-capture-gap | inspector-follow-up | codex-app-server: runtime registrations need capture before contract judgment       |
-| P1       | codex-app-server  | sdk-export-missing       | core-compat-adapter | codex-app-server: plugin SDK import aliases are missing from target package exports |
-| P1       | connectclaw       | registration-capture-gap | inspector-follow-up | connectclaw: runtime registrations need capture before contract judgment            |
-| P1       | llm-trace-phoenix | conversation-access-hook | inspector-follow-up | llm-trace-phoenix: conversation-access hooks need privacy-boundary probes           |
-| P1       | lossless-claw     | registration-capture-gap | inspector-follow-up | lossless-claw: runtime registrations need capture before contract judgment          |
-| P1       | mcp-adapter       | registration-capture-gap | inspector-follow-up | mcp-adapter: runtime registrations need capture before contract judgment            |
-| P1       | opik-openclaw     | before-tool-call-probe   | inspector-follow-up | opik-openclaw: before_tool_call needs terminal/block/approval probes                |
-| P1       | opik-openclaw     | conversation-access-hook | inspector-follow-up | opik-openclaw: conversation-access hooks need privacy-boundary probes               |
-| P1       | opik-openclaw     | registration-capture-gap | inspector-follow-up | opik-openclaw: runtime registrations need capture before contract judgment          |
-| P1       | qqbot             | registration-capture-gap | inspector-follow-up | qqbot: runtime registrations need capture before contract judgment                  |
-| P1       | wecom             | before-tool-call-probe   | inspector-follow-up | wecom: before_tool_call needs terminal/block/approval probes                        |
-| P1       | wecom             | registration-capture-gap | inspector-follow-up | wecom: runtime registrations need capture before contract judgment                  |
+| Severity | Class         | Fixture           | Code                     | Decision            | Title                                                                               |
+| -------- | ------------- | ----------------- | ------------------------ | ------------------- | ----------------------------------------------------------------------------------- |
+| P0       | live-issue    | codex-app-server  | sdk-export-missing       | core-compat-adapter | codex-app-server: plugin SDK import aliases are missing from target package exports |
+| P1       | inspector-gap | a2a-gateway       | registration-capture-gap | inspector-follow-up | a2a-gateway: runtime registrations need capture before contract judgment            |
+| P1       | inspector-gap | clawmetry         | registration-capture-gap | inspector-follow-up | clawmetry: runtime registrations need capture before contract judgment              |
+| P1       | compat-gap    | codex-app-server  | missing-compat-record    | core-compat-adapter | codex-app-server: compat-dependent behavior lacks registry coverage                 |
+| P1       | inspector-gap | codex-app-server  | registration-capture-gap | inspector-follow-up | codex-app-server: runtime registrations need capture before contract judgment       |
+| P1       | inspector-gap | connectclaw       | registration-capture-gap | inspector-follow-up | connectclaw: runtime registrations need capture before contract judgment            |
+| P1       | inspector-gap | llm-trace-phoenix | conversation-access-hook | inspector-follow-up | llm-trace-phoenix: conversation-access hooks need privacy-boundary probes           |
+| P1       | inspector-gap | lossless-claw     | registration-capture-gap | inspector-follow-up | lossless-claw: runtime registrations need capture before contract judgment          |
+| P1       | inspector-gap | mcp-adapter       | registration-capture-gap | inspector-follow-up | mcp-adapter: runtime registrations need capture before contract judgment            |
+| P1       | inspector-gap | opik-openclaw     | before-tool-call-probe   | inspector-follow-up | opik-openclaw: before_tool_call needs terminal/block/approval probes                |
+| P1       | inspector-gap | opik-openclaw     | conversation-access-hook | inspector-follow-up | opik-openclaw: conversation-access hooks need privacy-boundary probes               |
+| P1       | inspector-gap | opik-openclaw     | registration-capture-gap | inspector-follow-up | opik-openclaw: runtime registrations need capture before contract judgment          |
+| P1       | inspector-gap | qqbot             | registration-capture-gap | inspector-follow-up | qqbot: runtime registrations need capture before contract judgment                  |
+| P1       | inspector-gap | wecom             | before-tool-call-probe   | inspector-follow-up | wecom: before_tool_call needs terminal/block/approval probes                        |
+| P1       | inspector-gap | wecom             | registration-capture-gap | inspector-follow-up | wecom: runtime registrations need capture before contract judgment                  |
 
 ## Ref Regressions
 
