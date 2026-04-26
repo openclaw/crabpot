@@ -84,6 +84,15 @@ test("workspace plan validation keeps execution opt-in and explicit", () => {
   plan.fixtures[0].entrypoints[0].requiredCapabilities = ["target-openclaw-link"];
   const linkErrors = validateWorkspacePlan(plan);
   assert.ok(linkErrors.some((error) => error.includes("target-openclaw-link capability has no link-openclaw step")));
+
+  plan.fixtures[0].entrypoints[0].requiredCapabilities = ["build"];
+  const buildErrors = validateWorkspacePlan(plan);
+  assert.ok(buildErrors.some((error) => error.includes("build capability has no build step")));
+
+  plan.fixtures[0].entrypoints[0].requiredCapabilities = [];
+  plan.fixtures[0].entrypoints[0].steps = [{ kind: "prepare", command: "", cwd: ".", reason: "" }];
+  const stepErrors = validateWorkspacePlan(plan);
+  assert.ok(stepErrors.some((error) => error.includes("prepare step missing command, cwd, or reason")));
 });
 
 function entrypointFor(plan, fixtureId) {

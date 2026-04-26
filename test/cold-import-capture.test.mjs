@@ -1,9 +1,13 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import { mkdtemp, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { test } from "node:test";
 import { captureEntrypoint } from "../scripts/run-cold-import-capture.mjs";
+
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 test("cold import capture runner imports a local fixture and records registrations", async () => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-capture-"));
@@ -41,4 +45,33 @@ test("cold import capture runner reports entrypoints without register exports", 
 
   assert.equal(result.status, "no-register-export");
   assert.deepEqual(result.captured, []);
+});
+
+test("cold import capture runner supports named register and default function exports", async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-capture-"));
+  const named = path.join(dir, "named.mjs");
+  const defaultFunction = path.join(dir, "default-function.mjs");
+  await writeFile(named, "export function register(api) { api.registerCli({ name: 'named' }); }\n", "utf8");
+  await writeFile(defaultFunction, "export default function register(api) { api.registerTool({ name: 'defaulted' }); }\n", "utf8");
+
+  const namedResult = await captureEntrypoint(named);
+  const defaultResult = await captureEntrypoint(defaultFunction);
+
+  assert.deepEqual(namedResult.captured.map((item) => `${item.kind}:${item.name}`), ["registration:registerCli"]);
+  assert.deepEqual(defaultResult.captured.map((item) => `${item.kind}:${item.name}`), ["registration:registerTool"]);
+});
+
+test("cold import capture CLI refuses execution outside isolated opt-in", async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-capture-"));
+  const entrypoint = path.join(dir, "fixture.mjs");
+  await writeFile(entrypoint, "export function register(api) { api.registerTool({ name: 'fixture' }); }\n", "utf8");
+
+  const result = spawnSync(process.execPath, ["scripts/run-cold-import-capture.mjs", entrypoint], {
+    cwd: repoRoot,
+    encoding: "utf8",
+    env: { ...process.env, CRABPOT_EXECUTE_ISOLATED: "" },
+  });
+
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /CRABPOT_EXECUTE_ISOLATED=1/);
 });

@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import { mkdtemp, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { test } from "node:test";
 import { captureEntrypoint } from "../scripts/run-cold-import-capture.mjs";
 import {
@@ -10,6 +12,8 @@ import {
   runCapturedSyntheticProbes,
   validateSyntheticProbePlan,
 } from "../scripts/synthetic-probes.mjs";
+
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 test("synthetic probe plan turns capture assertions into ready hook and registration probes", async () => {
   const plan = await buildSyntheticProbePlan({
@@ -181,6 +185,21 @@ test("synthetic probes keep service lifecycle execution opt-in", async () => {
   const executed = await runCapturedSyntheticProbes(capture, { includeLifecycle: true });
   assert.equal(executed.summary.passCount, 1);
   assert.equal(executed.results[0].label, "registerService.start");
+});
+
+test("synthetic probe CLI refuses isolated execution without opt-in", async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-probes-"));
+  const entrypoint = path.join(dir, "fixture.mjs");
+  await writeFile(entrypoint, "export function register(api) { api.registerTool({ name: 'fixture' }); }\n", "utf8");
+
+  const result = spawnSync(process.execPath, ["scripts/synthetic-probes.mjs", "--entrypoint", entrypoint], {
+    cwd: repoRoot,
+    encoding: "utf8",
+    env: { ...process.env, CRABPOT_EXECUTE_ISOLATED: "" },
+  });
+
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /CRABPOT_EXECUTE_ISOLATED=1/);
 });
 
 async function captureLocalFixture(lines) {
