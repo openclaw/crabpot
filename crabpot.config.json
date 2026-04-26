@@ -152,6 +152,98 @@
       "why": "Contacts/messaging plugin with dynamic tool factories, command handlers, a polling service that wakes agents via the OpenClaw CLI, and a Hono relay package in the same repo."
     },
     {
+      "id": "hyperspell",
+      "name": "Hyperspell OpenClaw",
+      "repo": "https://github.com/hyperspell/hyperspell-openclaw.git",
+      "path": "plugins/hyperspell",
+      "priority": "high",
+      "seams": ["memory-runtime", "prompt-mutation", "session-lifecycle", "file-watch", "cli"],
+      "expect": {
+        "hooks": ["before_agent_start", "after_compaction", "session_end", "agent_end", "file_changed"],
+        "registrations": ["registerCli", "registerCommand", "registerService", "registerTool"]
+      },
+      "why": "Memory and context fixture covering legacy startup hooks, compaction/session hooks, file-change sync, CLI setup, command handlers, and tool-backed external memory search/write."
+    },
+    {
+      "id": "honcho",
+      "name": "Honcho OpenClaw",
+      "repo": "https://github.com/plastic-labs/openclaw-honcho.git",
+      "path": "plugins/honcho",
+      "priority": "high",
+      "seams": ["memory-runtime", "prompt-mutation", "gateway-lifecycle", "subagent-routing", "sdk-compat"],
+      "expect": {
+        "hooks": [
+          "before_agent_start",
+          "before_prompt_build",
+          "before_compaction",
+          "before_reset",
+          "gateway_start",
+          "subagent_spawned",
+          "agent_end"
+        ],
+        "registrations": [
+          "definePluginEntry",
+          "registerCli",
+          "registerMemoryPromptSection",
+          "registerMemoryRuntime",
+          "registerTool"
+        ]
+      },
+      "why": "Memory-runtime fixture covering plugin-entry aliases, memory runtime/prompt-section registration, gateway lifecycle, subagent capture, and managed external memory tools."
+    },
+    {
+      "id": "composio",
+      "name": "Composio OpenClaw",
+      "repo": "https://github.com/ComposioHQ/openclaw-composio-plugin.git",
+      "path": "plugins/composio",
+      "priority": "high",
+      "seams": ["dynamic-tool", "mcp", "external-api", "prompt-mutation", "cli"],
+      "expect": {
+        "hooks": ["before_prompt_build"],
+        "registrations": ["registerCli", "registerTool"]
+      },
+      "why": "NPM-installed dynamic tool fixture for Composio/MCP integration, prompt context injection, CLI setup, external API auth, and large remote tool catalogs."
+    },
+    {
+      "id": "memu-engine",
+      "name": "MemU Engine",
+      "repo": "https://github.com/duxiaoxiong/memu-engine-for-OpenClaw.git",
+      "path": "plugins/memu-engine",
+      "priority": "medium",
+      "seams": ["memory-runtime", "tool", "python-sidecar", "storage-migration", "session-ingest"],
+      "expect": {
+        "registrations": ["registerTool"]
+      },
+      "why": "Memory tool fixture with a Python sidecar, OpenClaw session ingestion, filesystem storage migration, and long-running local memory data layout assumptions."
+    },
+    {
+      "id": "secureclaw",
+      "name": "SecureClaw",
+      "repo": "https://github.com/adversa-ai/secureclaw.git",
+      "path": "plugins/secureclaw",
+      "subdir": "secureclaw",
+      "priority": "medium",
+      "seams": ["security-audit", "config-hardening", "gateway-lifecycle", "filesystem-scan", "cli"],
+      "expect": {
+        "hooks": ["gateway_start"],
+        "registrations": ["registerCli", "registerService"]
+      },
+      "why": "Security fixture covering gateway-start scanning, config and credential hardening, filesystem watch/audit behavior, and CLI-driven remediation/report generation."
+    },
+    {
+      "id": "memos-cloud",
+      "name": "MemOS Cloud OpenClaw Plugin",
+      "repo": "https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin.git",
+      "path": "plugins/memos-cloud",
+      "priority": "medium",
+      "seams": ["memory-runtime", "session-lifecycle", "config-ui", "legacy-hook-api", "external-api"],
+      "expect": {
+        "hooks": ["before_agent_start", "agent_end"],
+        "registrations": ["registerHook"]
+      },
+      "why": "Cloud memory fixture covering legacy registerHook compatibility, startup/session-end hooks, config UI service code, env/config precedence, and external MemOS API calls."
+    },
+    {
       "id": "clawmetry",
       "name": "ClawMetry",
       "repo": "https://github.com/vivekchand/clawmetry.git",

@@ -58,3 +58,27 @@
 	path = plugins/lossless-claw
 	url = https://github.com/Martian-Engineering/lossless-claw.git
 	shallow = true
+[submodule "plugins/hyperspell"]
+	path = plugins/hyperspell
+	url = https://github.com/hyperspell/hyperspell-openclaw.git
+	shallow = true
+[submodule "plugins/honcho"]
+	path = plugins/honcho
+	url = https://github.com/plastic-labs/openclaw-honcho.git
+	shallow = true
+[submodule "plugins/composio"]
+	path = plugins/composio
+	url = https://github.com/ComposioHQ/openclaw-composio-plugin.git
+	shallow = true
+[submodule "plugins/memu-engine"]
+	path = plugins/memu-engine
+	url = https://github.com/duxiaoxiong/memu-engine-for-OpenClaw.git
+	shallow = true
+[submodule "plugins/secureclaw"]
+	path = plugins/secureclaw
+	url = https://github.com/adversa-ai/secureclaw.git
+	shallow = true
+[submodule "plugins/memos-cloud"]
+	path = plugins/memos-cloud
+	url = https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin.git
+	shallow = true

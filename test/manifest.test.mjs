@@ -7,6 +7,12 @@ test("fixture manifest is valid and seam-rich", async () => {
 
   assert.equal(manifest.submoduleRoot, "plugins");
   assert.ok(manifest.fixtures.length >= 10);
+  assert.deepEqual(
+    ["hyperspell", "honcho", "composio", "memu-engine", "secureclaw", "memos-cloud"].filter((id) =>
+      manifest.fixtures.some((fixture) => fixture.id === id),
+    ),
+    ["hyperspell", "honcho", "composio", "memu-engine", "secureclaw", "memos-cloud"],
+  );
 
   const seams = new Set(manifest.fixtures.flatMap((fixture) => fixture.seams));
   for (const seam of [
@@ -19,6 +25,11 @@ test("fixture manifest is valid and seam-rich", async () => {
     "provider-capability",
     "async-job",
     "prompt-mutation",
+    "memory-runtime",
+    "mcp",
+    "python-sidecar",
+    "security-audit",
+    "legacy-hook-api",
   ]) {
     assert.ok(seams.has(seam), `missing seam coverage: ${seam}`);
   }
