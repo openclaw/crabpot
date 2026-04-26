@@ -95,7 +95,7 @@ test("fixture set resolver derives changed plugin submodules from git paths", as
   assert.deepEqual(resolved.fixtures.map((fixture) => fixture.id), ["hasdata", "wecom"]);
 });
 
-test("fixture set resolver expands manifest changes to every plugin", async () => {
+test("fixture set resolver expands gitmodule changes to every plugin", async () => {
   const resolved = await resolveFixtureSet({
     fixtureSet: "changed-submodules",
     manifest,
@@ -110,4 +110,18 @@ test("fixture set resolver expands manifest changes to every plugin", async () =
     "opik-openclaw",
     "wecom",
   ]);
+});
+
+test("fixture set resolver ignores manifest metadata-only changes", async () => {
+  const resolved = await resolveFixtureSet({
+    fixtureSet: "changed-submodules",
+    manifest,
+    policy,
+    plan,
+    changedPaths: ["crabpot.config.json", "scripts/resolve-fixture-set.mjs"],
+    allowEmpty: true,
+  });
+
+  assert.equal(resolved.count, 0);
+  assert.deepEqual(resolved.fixtures, []);
 });

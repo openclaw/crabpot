@@ -154,7 +154,7 @@ function selectFixtureIds({ requested, policy, plan, fixtureIds, manifest, chang
 }
 
 function fixturesChangedByPaths(fixtures, changedPaths) {
-  if (changedPaths.some((changedPath) => [".gitmodules", "crabpot.config.json"].includes(changedPath))) {
+  if (changedPaths.some((changedPath) => changedPath === ".gitmodules")) {
     return new Set(fixtures.map((fixture) => fixture.id));
   }
   return new Set(
