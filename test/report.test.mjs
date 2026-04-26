@@ -31,12 +31,15 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasFinding(report.suggestions, "agentchat", "package-build-artifact-entrypoint");
   assertHasFinding(report.suggestions, "a2a-gateway", "package-typescript-source-entrypoint");
   assertHasFinding(report.suggestions, "wecom", "package-dependency-install-required");
+  assertHasFinding(report.suggestions, "codex-app-server", "missing-compat-record");
 
   assertHasDecision(report.decisions, "core-compat-adapter", "env-auth");
   assertHasDecision(report.decisions, "inspector-follow-up", "registration-capture");
+  assertHasDecision(report.decisions, "core-compat-adapter", "compat-registry");
 
   assertHasIssue(report.issues, "P1", "registration-capture-gap");
   assertHasIssue(report.issues, "P1", "conversation-access-hook");
+  assertHasIssue(report.issues, "P1", "missing-compat-record");
   assertHasIssue(report.issues, "P2", "package-plugin-api-compat-missing");
   assertHasIssue(report.issues, "P2", "package-build-artifact-entrypoint");
   assertHasIssue(report.issues, "P2", "manifest-unknown-fields");
@@ -66,6 +69,18 @@ test("markdown report includes review sections", async () => {
   assert.match(markdown, /## Contract Probe Backlog/);
   assert.match(markdown, /## Decision Matrix/);
   assert.match(markdown, /provider-auth-env-vars/);
+});
+
+test("disabled OpenClaw target suppresses target-derived compat findings", async () => {
+  const report = await buildReport({ generatedAt: "test", openclawPath: false });
+  const markdown = renderMarkdownReport(report);
+
+  assert.equal(report.targetOpenClaw.status, "disabled");
+  assertMissingFinding(report.warnings, "sdk-export-missing");
+  assertMissingFinding(report.warnings, "manifest-unknown-fields");
+  assertMissingFinding(report.suggestions, "missing-compat-record");
+  assert.ok(report.contractProbes.every((probe) => !probe.id.startsWith("sdk.import.package-export-cold-import:")));
+  assert.match(markdown, /\| Status\s+\| disabled\s+\|/);
 });
 
 test("default OpenClaw target discovery covers local and CI checkout shapes", () => {
@@ -113,6 +128,13 @@ function assertHasFinding(findings, fixture, code) {
   assert.ok(
     findings.some((finding) => finding.fixture === fixture && finding.code === code),
     `expected ${fixture} ${code} finding`,
+  );
+}
+
+function assertMissingFinding(findings, code) {
+  assert.ok(
+    findings.every((finding) => finding.code !== code),
+    `expected no ${code} finding`,
   );
 }
 
