@@ -123,88 +123,62 @@ you intentionally pin or update fixture revisions.
 
 ## Compatibility report
 
-`npm run report` writes:
+Start with the dashboard at the top of this README. It is the condensed view of
+the generated reports: fixture count, breakages, warnings, issue backlog, probe
+coverage, cold-import blockers, workspace execution shape, and runtime profile.
 
-- `reports/crabpot-report.md`
-- `reports/crabpot-report.json`
-- `reports/crabpot-issues.md`
+For deeper review, open the reports in this order:
 
-`npm run contract:capture` writes:
+| Need | Command | Primary report |
+| --- | --- | --- |
+| Main compatibility triage, decision matrix, issue backlog | `npm run report` | `reports/crabpot-report.md` |
+| Stable issue list for compat-layer planning | `npm run report` | `reports/crabpot-issues.md` |
+| Hooks, registrars, SDK imports, and entrypoints that need capture | `npm run contract:capture` | `reports/crabpot-capture.md` |
+| Executable synthetic hook/registration probe plan | `npm run contract:synthetic` | `reports/crabpot-synthetic-probes.md` |
+| Why plugin entrypoints cannot be safely cold-imported yet | `npm run cold-import` | `reports/crabpot-cold-import.md` |
+| Isolated install/build/capture commands Crabpot would run | `npm run workspace:plan` | `reports/crabpot-workspace-plan.md` |
+| Results from opt-in isolated fixture execution | `npm run execution:report` | `reports/crabpot-execution-results.md` |
+| Boot time and RSS against the target OpenClaw registry surface | `npm run profile` | `reports/crabpot-runtime-profile.md` |
+| README dashboard refresh from all generated JSON reports | `npm run readme:summary` | `README.md` |
 
-- `reports/crabpot-capture.md`
-- `reports/crabpot-capture.json`
+Each Markdown report has a matching JSON file beside it for CI, dashboards, and
+future inspector tooling. The JSON is the contract; the Markdown is the review
+surface.
 
-`npm run contract:synthetic` writes:
+Use the main compatibility report like this:
 
-- `reports/crabpot-synthetic-probes.md`
-- `reports/crabpot-synthetic-probes.json`
+| Section | What to do with it |
+| --- | --- |
+| Hard Breakages | Treat as release-blocking contract drift. |
+| Warnings | Review for target OpenClaw compatibility gaps or plugin metadata drift. |
+| Suggestions To OpenClaw Compat Layer | Convert into compat-layer work, inspector follow-ups, or upstream plugin requests. |
+| Issue Findings | Use stable `CRABPOT-*` ids for tracking and comparison across runs. |
+| Contract Probe Backlog | Turn into tests before changing a plugin-facing seam. |
+| Decision Matrix | Decide whether the fix belongs in core compat, the future inspector, or the plugin upstream. |
 
-`npm run cold-import` writes:
-
-- `reports/crabpot-cold-import.md`
-- `reports/crabpot-cold-import.json`
-
-`npm run workspace:plan` writes:
-
-- `reports/crabpot-workspace-plan.md`
-- `reports/crabpot-workspace-plan.json`
-
-`npm run execution:report` writes:
-
-- `reports/crabpot-execution-results.md`
-- `reports/crabpot-execution-results.json`
-
-`npm run profile` writes:
-
-- `reports/crabpot-runtime-profile.md`
-- `reports/crabpot-runtime-profile.json`
-
-The report is the local review surface for hard breakages, warnings, raw seam
-logs, OpenClaw compatibility-record coverage, suggestions for compat-layer work,
-issue findings, contract-probe backlog, and the decision matrix. It defaults to
-the OpenClaw checkout configured in `crabpot.config.json` and can be pointed
-elsewhere:
+By default, reports target the OpenClaw checkout configured in
+`crabpot.config.json`. Point a run at a branch, tag, SHA checkout, or local fork
+with `--openclaw`:
 
 ```bash
 node scripts/generate-report.mjs --openclaw ../openclaw
 node scripts/generate-report.mjs --check --openclaw ../openclaw
 ```
 
-The capture report is the lower-level inspector backlog. It records every
-observed hook, runtime registration, SDK import, and OpenClaw package entrypoint
-with the assertions a future capture runner must execute.
-
-The synthetic probe report narrows that backlog to hook and registrar probes
-with concrete payloads. Real handler invocation stays guarded behind
-`CRABPOT_EXECUTE_ISOLATED=1` because cold-importing third-party plugin code can
-run package side effects.
-
-The cold-import readiness report classifies each package OpenClaw entrypoint as
-ready or blocked by TypeScript loader support, missing build output, missing
-entrypoint metadata, dependency installation, side-effect review, or SDK alias
-compatibility.
-
-The workspace plan is still plan-only by default. It lays out the isolated copy,
-dependency install, build, capture, synthetic-probe, and artifact-output commands
-for each entrypoint. Actual execution must be opt-in with
-`CRABPOT_EXECUTE_ISOLATED=1`.
-
-The execution results report summarizes opt-in JSON artifacts from
-`.crabpot/results/`, including captured registrations/hooks and synthetic probe
-pass/fail/blocked counts.
-
-The runtime profile measures CLI boot time, wall time, and peak RSS for the
-default contract commands, then places those numbers next to the target OpenClaw
-registry surface counts.
-
-`npm run readme:summary` refreshes the dashboard block at the top of this
-README from the generated JSON reports. CI updates that block on `main` after
-the report artifacts are written.
-
-To preview a narrow execution lane without running install/build/import:
+Crabpot does not execute third-party plugin code during default checks. The
+workspace plan is dry planning unless you explicitly opt into isolated execution.
+Preview a fixture lane first:
 
 ```bash
 npm run workspace:execute -- --fixture wecom --dry-run
+```
+
+Then run isolated execution only when you want install/build/import side effects
+inside Crabpot's generated workspace:
+
+```bash
+CRABPOT_EXECUTE_ISOLATED=1 npm run workspace:execute -- --fixture wecom
+npm run execution:report
 ```
 
 ## Manual OpenClaw ref CI
