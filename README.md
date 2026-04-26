@@ -10,42 +10,45 @@ is to catch contract drift before external plugin authors do.
 <!-- crabpot-summary:start -->
 ## Dashboard
 
-Last dashboard update: Apr 26, 2026, 02:20 UTC
+Last dashboard update: Apr 26, 2026, 04:09 UTC
 
 State: PASS
 
 Mode: check
 
-OpenClaw: openclaw/openclaw@main
+OpenClaw: openclaw/openclaw@local
 
 Run: https://github.com/openclaw/crabpot/actions/runs/24946139651
 
 ### Result Grid
 
-| Metric               | Result                                  |
-| -------------------- | --------------------------------------- |
-| Fixtures             | 21                                      |
-| Hard breakages       | 0                                       |
-| Warnings             | 42                                      |
-| Suggestions          | 69                                      |
-| Issues               | 111                                     |
-| P0 issues            | 2                                       |
-| P1 issues            | 21                                      |
-| Live issues          | 2 total / 2 P0                          |
-| Compat gaps          | 1                                       |
-| Deprecation warnings | 19                                      |
-| Inspector gaps       | 73                                      |
-| Upstream metadata    | 16                                      |
-| Contract probes      | 109                                     |
-| Policy failures      | 0                                       |
-| Policy warnings      | 3                                       |
-| Ref diff failures    | 0                                       |
-| Profile failures     | 0                                       |
-| Execution probes     | 6 pass / 0 fail / 2 blocked             |
-| Synthetic probes     | 118 ready / 0 blocked / 118 total       |
-| Cold import          | 0 ready / 24 blocked / 24 entrypoints   |
-| Workspace plan       | 24 entrypoints / 14 installs / 7 builds |
-| Runtime profile      | p50 231ms / max RSS 70.4MB              |
+| Metric                 | Result                                  |
+| ---------------------- | --------------------------------------- |
+| Fixtures               | 21                                      |
+| Hard breakages         | 0                                       |
+| Warnings               | 42                                      |
+| Suggestions            | 69                                      |
+| Issues                 | 111                                     |
+| P0 issues              | 2                                       |
+| P1 issues              | 21                                      |
+| Live issues            | 2 total / 2 P0                          |
+| Compat gaps            | 1                                       |
+| Deprecation warnings   | 19                                      |
+| Inspector gaps         | 73                                      |
+| Upstream metadata      | 16                                      |
+| Contract probes        | 109                                     |
+| Policy failures        | 0                                       |
+| Policy warnings        | 3                                       |
+| Ref diff failures      | 0                                       |
+| Profile failures       | 0                                       |
+| Execution probes       | 6 pass / 0 fail / 2 blocked             |
+| Synthetic probes       | 118 ready / 0 blocked / 118 total       |
+| Cold import            | 0 ready / 24 blocked / 24 entrypoints   |
+| Workspace plan         | 24 entrypoints / 14 installs / 7 builds |
+| Platform risks         | 121 Windows / 38 container              |
+| Jiti loader candidates | 14                                      |
+| Import loop            | p50 153ms / max RSS 46.3MB / CPU 27ms   |
+| Runtime profile        | p50 231ms / max RSS 70.4MB              |
 
 ### Top Discovered Issues
 
@@ -64,18 +67,20 @@ Run: https://github.com/openclaw/crabpot/actions/runs/24946139651
 
 ### Report Artifacts
 
-| Artifact       | Path                                   |
-| -------------- | -------------------------------------- |
-| compatibility  | reports/crabpot-report.json            |
-| ciSummary      | reports/crabpot-ci-summary.json        |
-| synthetic      | reports/crabpot-synthetic-probes.json  |
-| coldImport     | reports/crabpot-cold-import.json       |
-| workspace      | reports/crabpot-workspace-plan.json    |
-| execution      | reports/crabpot-execution-results.json |
-| runtimeProfile | reports/crabpot-runtime-profile.json   |
-| refDiff        | reports/crabpot-ref-diff.json          |
-| profileDiff    | reports/crabpot-profile-diff.json      |
-| ciPolicy       | reports/crabpot-ci-policy.json         |
+| Artifact       | Path                                     |
+| -------------- | ---------------------------------------- |
+| compatibility  | reports/crabpot-report.json              |
+| ciSummary      | reports/crabpot-ci-summary.json          |
+| synthetic      | reports/crabpot-synthetic-probes.json    |
+| coldImport     | reports/crabpot-cold-import.json         |
+| workspace      | reports/crabpot-workspace-plan.json      |
+| platform       | reports/crabpot-platform-probes.json     |
+| importLoop     | reports/crabpot-import-loop-profile.json |
+| execution      | reports/crabpot-execution-results.json   |
+| runtimeProfile | reports/crabpot-runtime-profile.json     |
+| refDiff        | reports/crabpot-ref-diff.json            |
+| profileDiff    | reports/crabpot-profile-diff.json        |
+| ciPolicy       | reports/crabpot-ci-policy.json           |
 <!-- crabpot-summary:end -->
 ## What this tests
 
@@ -111,6 +116,8 @@ npm run contract:capture
 npm run contract:synthetic
 npm run cold-import
 npm run workspace:plan
+npm run platform:probes
+npm run import:profile
 npm run execution:report
 npm run profile
 npm run contract:coverage

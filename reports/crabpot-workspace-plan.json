@@ -19,6 +19,8 @@
     "captureStepCount": 24,
     "syntheticProbeStepCount": 24,
     "targetOpenClawLinkStepCount": 13,
+    "tsLoaderEntrypointCount": 14,
+    "jitiAlternativeCount": 14,
     "missingBuildScriptCount": 0,
     "sdkAliasRequiredCount": 1
   },
@@ -35,6 +37,12 @@
           "status": "build-required",
           "packageManager": "pnpm",
           "lockfile": "plugins/agentchat/pnpm-lock.yaml",
+          "loaderStrategy": {
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+          },
           "requiredCapabilities": [
             "build",
             "capture-shim",
@@ -98,6 +106,12 @@
           "status": "build-required",
           "packageManager": "pnpm",
           "lockfile": "plugins/agentchat/pnpm-lock.yaml",
+          "loaderStrategy": {
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+          },
           "requiredCapabilities": [
             "build",
             "capture-shim",
@@ -166,6 +180,12 @@
           "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/wecom/package-lock.json",
+          "loaderStrategy": {
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+          },
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
@@ -241,6 +261,12 @@
           "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/qqbot/package-lock.json",
+          "loaderStrategy": {
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+          },
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
@@ -316,6 +342,14 @@
           "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": "plugins/a2a-gateway/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
@@ -390,6 +424,14 @@
           "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": "plugins/hasdata/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
@@ -477,6 +519,14 @@
           "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": null,
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
@@ -551,6 +601,14 @@
           "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": null,
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
           "requiredCapabilities": [
             "capture-shim",
             "side-effect-sandbox",
@@ -612,6 +670,14 @@
           "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": "plugins/opik-openclaw/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
@@ -688,6 +754,12 @@
           "status": "build-required",
           "packageManager": "npm",
           "lockfile": "plugins/opik-openclaw/package-lock.json",
+          "loaderStrategy": {
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+          },
           "requiredCapabilities": [
             "build",
             "capture-shim",
@@ -756,6 +828,12 @@
           "status": "build-required",
           "packageManager": "npm",
           "lockfile": "plugins/lossless-claw/package-lock.json",
+          "loaderStrategy": {
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+          },
           "requiredCapabilities": [
             "build",
             "capture-shim",
@@ -817,6 +895,14 @@
           "status": "ts-loader-required",
           "packageManager": "pnpm",
           "lockfile": "plugins/connectclaw/pnpm-lock.yaml",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
@@ -898,6 +984,14 @@
           "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": "plugins/hyperspell/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
@@ -985,6 +1079,12 @@
           "status": "build-required",
           "packageManager": "pnpm",
           "lockfile": "plugins/honcho/pnpm-lock.yaml",
+          "loaderStrategy": {
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+          },
           "requiredCapabilities": [
             "build",
             "capture-shim",
@@ -1046,6 +1146,14 @@
           "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": null,
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
@@ -1120,6 +1228,14 @@
           "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": null,
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
           "requiredCapabilities": [
             "capture-shim",
             "side-effect-sandbox",
@@ -1181,6 +1297,12 @@
           "status": "build-required",
           "packageManager": "npm",
           "lockfile": "plugins/secureclaw/secureclaw/package-lock.json",
+          "loaderStrategy": {
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+          },
           "requiredCapabilities": [
             "build",
             "capture-shim",
@@ -1242,6 +1364,12 @@
           "status": "review-required",
           "packageManager": "npm",
           "lockfile": null,
+          "loaderStrategy": {
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+          },
           "requiredCapabilities": [
             "capture-shim",
             "side-effect-sandbox",
@@ -1297,6 +1425,14 @@
           "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": null,
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
@@ -1366,6 +1502,12 @@
           "status": "build-required",
           "packageManager": "npm",
           "lockfile": null,
+          "loaderStrategy": {
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+          },
           "requiredCapabilities": [
             "build",
             "capture-shim",
@@ -1427,6 +1569,14 @@
           "status": "sdk-alias-required",
           "packageManager": "pnpm",
           "lockfile": "plugins/codex-app-server/pnpm-lock.yaml",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
@@ -1524,6 +1674,14 @@
           "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": null,
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
@@ -1611,6 +1769,14 @@
           "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": "plugins/apify/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
@@ -1692,6 +1858,14 @@
           "status": "ts-loader-required",
           "packageManager": "pnpm",
           "lockfile": "plugins/inworld-tts/pnpm-lock.yaml",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",

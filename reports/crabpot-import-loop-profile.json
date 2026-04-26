@@ -1,0 +1,49 @@
+{
+  "generatedAt": "deterministic",
+  "mode": "subprocess-cold-import-loop",
+  "entrypoint": "test/fixtures/lazy-import-plugin.mjs",
+  "summary": {
+    "runs": 3,
+    "p50WallMs": 153,
+    "p95WallMs": 165,
+    "maxPeakRssMb": 46.3,
+    "maxCpuMsEstimate": 27,
+    "capturedCount": 6,
+    "failCount": 0
+  },
+  "samples": [
+    {
+      "index": 0,
+      "exitCode": 0,
+      "status": "captured",
+      "capturedCount": 2,
+      "wallMs": 150,
+      "peakRssMb": 46.3,
+      "peakCpuPercent": 17.8,
+      "cpuMsEstimate": 27,
+      "stderrPreview": ""
+    },
+    {
+      "index": 1,
+      "exitCode": 0,
+      "status": "captured",
+      "capturedCount": 2,
+      "wallMs": 165,
+      "peakRssMb": 45.4,
+      "peakCpuPercent": 10.3,
+      "cpuMsEstimate": 17,
+      "stderrPreview": ""
+    },
+    {
+      "index": 2,
+      "exitCode": 0,
+      "status": "captured",
+      "capturedCount": 2,
+      "wallMs": 153,
+      "peakRssMb": 45.2,
+      "peakCpuPercent": 1.4,
+      "cpuMsEstimate": 2,
+      "stderrPreview": ""
+    }
+  ]
+}

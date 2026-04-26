@@ -1,7 +1,7 @@
 {
   "generatedAt": "deterministic",
   "mode": "local",
-  "openclawLabel": "../openclaw",
+  "openclawLabel": "openclaw/openclaw@local",
   "status": "pass",
   "summary": {
     "breakages": 0,
@@ -13,9 +13,9 @@
     "liveIssues": 2,
     "liveP0Issues": 2,
     "compatGaps": 1,
-    "deprecationWarnings": 20,
+    "deprecationWarnings": 19,
     "inspectorGaps": 73,
-    "upstreamIssues": 15,
+    "upstreamIssues": 16,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -24,7 +24,13 @@
     "profileWarnings": 0,
     "executionPass": 6,
     "executionFail": 0,
-    "executionBlocked": 2
+    "executionBlocked": 2,
+    "platformWindowsRisks": 121,
+    "platformContainerRisks": 38,
+    "loaderJitiCandidates": 14,
+    "importLoopP50Ms": 153,
+    "importLoopMaxRssMb": 46.3,
+    "importLoopMaxCpuMs": 27
   },
   "topIssues": [
     {
@@ -229,6 +235,8 @@
     "synthetic": "reports/crabpot-synthetic-probes.json",
     "coldImport": "reports/crabpot-cold-import.json",
     "workspace": "reports/crabpot-workspace-plan.json",
+    "platform": "reports/crabpot-platform-probes.json",
+    "importLoop": "reports/crabpot-import-loop-profile.json",
     "execution": "reports/crabpot-execution-results.json",
     "runtimeProfile": "reports/crabpot-runtime-profile.json",
     "refDiff": "reports/crabpot-ref-diff.json",

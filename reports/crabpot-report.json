@@ -3,8 +3,7 @@
   "targetOpenClaw": {
     "configuredPath": "../openclaw",
     "searchedPaths": [
-      "../openclaw",
-      "./openclaw"
+      "../openclaw"
     ],
     "status": "ok",
     "compatRegistryPath": "../openclaw/src/plugins/compat/registry.ts",
@@ -532,9 +531,9 @@
     "liveIssueCount": 2,
     "liveP0IssueCount": 2,
     "compatGapCount": 1,
-    "deprecationWarningCount": 20,
+    "deprecationWarningCount": 19,
     "inspectorGapCount": 73,
-    "upstreamIssueCount": 15,
+    "upstreamIssueCount": 16,
     "fixtureRegressionCount": 0,
     "contractProbeCount": 109
   },
@@ -572,6 +571,7 @@
       "sourceFiles": [
         "plugins/agentchat/integrations/openclaw-channel/scripts/emit-manifest-schema.mjs",
         "plugins/agentchat/integrations/openclaw-channel/scripts/fix-cjs-extensions.mjs",
+        "plugins/agentchat/integrations/openclaw-channel/scripts/strip-publish-fields.mjs",
         "plugins/agentchat/integrations/openclaw-channel/src/binding/actions.ts",
         "plugins/agentchat/integrations/openclaw-channel/src/binding/agent-prompt.ts",
         "plugins/agentchat/integrations/openclaw-channel/src/binding/agent-tools.ts",
@@ -616,7 +616,7 @@
           "path": "plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json",
           "id": "agentchat",
           "name": "AgentChat",
-          "version": "0.6.1",
+          "version": "0.6.2",
           "keys": [
             "channelEnvVars",
             "channels",
@@ -646,7 +646,7 @@
       "package": {
         "path": "plugins/agentchat/integrations/openclaw-channel/package.json",
         "name": "@agentchatme/openclaw",
-        "version": "0.6.1",
+        "version": "0.6.2",
         "type": "module",
         "main": "./dist/index.cjs",
         "dependencies": [
@@ -691,7 +691,7 @@
         {
           "path": "plugins/agentchat/integrations/openclaw-channel/package.json",
           "name": "@agentchatme/openclaw",
-          "version": "0.6.1",
+          "version": "0.6.2",
           "type": "module",
           "main": "./dist/index.cjs",
           "dependencies": [
@@ -4475,47 +4475,19 @@
           "path": "plugins/web-search-plus/openclaw.plugin.json",
           "id": "web-search-plus-plugin-v2",
           "name": "Web Search Plus",
-          "version": "2.2.0",
+          "version": "2.2.9",
           "keys": [
             "configSchema",
             "description",
+            "displayName",
             "id",
             "name",
-            "providerAuthEnvVars",
+            "setup",
             "uiHints",
             "version"
           ],
           "contracts": [],
-          "providerAuthEnvVars": {
-            "serper": [
-              "SERPER_API_KEY"
-            ],
-            "tavily": [
-              "TAVILY_API_KEY"
-            ],
-            "linkup": [
-              "LINKUP_API_KEY"
-            ],
-            "querit": [
-              "QUERIT_API_KEY"
-            ],
-            "exa": [
-              "EXA_API_KEY"
-            ],
-            "firecrawl": [
-              "FIRECRAWL_API_KEY"
-            ],
-            "perplexity": [
-              "PERPLEXITY_API_KEY",
-              "KILOCODE_API_KEY"
-            ],
-            "you": [
-              "YOU_API_KEY"
-            ],
-            "searxng": [
-              "SEARXNG_INSTANCE_URL"
-            ]
-          },
+          "providerAuthEnvVars": {},
           "channelEnvVars": {},
           "activation": null
         }
@@ -4523,7 +4495,7 @@
       "package": {
         "path": "plugins/web-search-plus/package.json",
         "name": "web-search-plus-plugin-v2",
-        "version": "2.2.0",
+        "version": "2.2.9",
         "type": "module",
         "main": "index.ts",
         "dependencies": [],
@@ -4555,7 +4527,7 @@
         {
           "path": "plugins/web-search-plus/package.json",
           "name": "web-search-plus-plugin-v2",
-          "version": "2.2.0",
+          "version": "2.2.9",
           "type": "module",
           "main": "index.ts",
           "dependencies": [],
@@ -5359,21 +5331,12 @@
     },
     {
       "fixture": "web-search-plus",
-      "code": "provider-auth-env-vars",
+      "code": "manifest-unknown-fields",
       "level": "warning",
-      "message": "manifest uses providerAuthEnvVars legacy compatibility metadata",
+      "message": "manifest uses top-level fields that are not present in the target OpenClaw PluginManifest type",
       "evidence": [
-        "serper",
-        "tavily",
-        "linkup",
-        "querit",
-        "exa",
-        "firecrawl",
-        "perplexity",
-        "you",
-        "searxng"
-      ],
-      "compatRecord": "provider-auth-env-vars"
+        "displayName @ plugins/web-search-plus/openclaw.plugin.json"
+      ]
     },
     {
       "fixture": "apify",
@@ -8083,6 +8046,24 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-5C1BD071",
+      "fixture": "web-search-plus",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "manifest-unknown-fields",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "web-search-plus: manifest uses unsupported top-level fields",
+      "evidence": [
+        "displayName @ plugins/web-search-plus/openclaw.plugin.json"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-D8910079",
       "fixture": "web-search-plus",
       "severity": "P2",
@@ -8117,32 +8098,6 @@
         "extension:plugins/web-search-plus/index.ts"
       ],
       "compatRecord": null
-    },
-    {
-      "id": "CRABPOT-A3EA1186",
-      "fixture": "web-search-plus",
-      "severity": "P2",
-      "owner": "core",
-      "code": "provider-auth-env-vars",
-      "decision": "core-compat-adapter",
-      "status": "open",
-      "issueClass": "deprecation-warning",
-      "live": false,
-      "deprecated": true,
-      "compatStatus": "deprecated",
-      "title": "web-search-plus: providerAuthEnvVars legacy manifest metadata must stay covered",
-      "evidence": [
-        "serper",
-        "tavily",
-        "linkup",
-        "querit",
-        "exa",
-        "firecrawl",
-        "perplexity",
-        "you",
-        "searxng"
-      ],
-      "compatRecord": "provider-auth-env-vars"
     },
     {
       "id": "CRABPOT-AF929F22",
@@ -9209,24 +9164,6 @@
       ]
     },
     {
-      "id": "manifest.compat.provider-auth-env-vars:web-search-plus",
-      "fixture": "web-search-plus",
-      "priority": "P3",
-      "target": "manifest-loader",
-      "contract": "Legacy provider auth env metadata continues to map into config/help surfaces.",
-      "evidence": [
-        "serper",
-        "tavily",
-        "linkup",
-        "querit",
-        "exa",
-        "firecrawl",
-        "perplexity",
-        "you",
-        "searxng"
-      ]
-    },
-    {
       "id": "manifest.schema.top-level-fields:memos-cloud",
       "fixture": "memos-cloud",
       "priority": "P3",
@@ -9234,6 +9171,16 @@
       "contract": "Manifest top-level fields are represented in target OpenClaw PluginManifest.",
       "evidence": [
         "main @ plugins/memos-cloud/openclaw.plugin.json"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:web-search-plus",
+      "fixture": "web-search-plus",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "contract": "Manifest top-level fields are represented in target OpenClaw PluginManifest.",
+      "evidence": [
+        "displayName @ plugins/web-search-plus/openclaw.plugin.json"
       ]
     },
     {
@@ -9530,7 +9477,7 @@
       "evidence": [
         "plugins/agentchat/integrations/openclaw-channel/package.json",
         "@agentchatme/openclaw",
-        "version:0.6.1"
+        "version:0.6.2"
       ]
     },
     {
@@ -10575,7 +10522,7 @@
       "evidence": [
         "plugins/web-search-plus/package.json",
         "web-search-plus-plugin-v2",
-        "version:2.2.0"
+        "version:2.2.9"
       ]
     },
     {
@@ -10888,17 +10835,6 @@
         "status:deprecated"
       ],
       "compatRecord": "legacy-root-sdk-import"
-    },
-    {
-      "fixture": "web-search-plus",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "provider-auth-env-vars",
-        "status:deprecated"
-      ],
-      "compatRecord": "provider-auth-env-vars"
     },
     {
       "fixture": "apify",
@@ -11619,6 +11555,13 @@
     },
     {
       "fixture": "web-search-plus",
+      "decision": "plugin-upstream-fix",
+      "seam": "manifest-schema",
+      "action": "Move unknown manifest metadata into supported package openclaw metadata or add a versioned OpenClaw manifest field.",
+      "evidence": "displayName"
+    },
+    {
+      "fixture": "web-search-plus",
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
@@ -11630,13 +11573,6 @@
       "seam": "cold-import",
       "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
       "evidence": "openclaw"
-    },
-    {
-      "fixture": "web-search-plus",
-      "decision": "core-compat-adapter",
-      "seam": "env-auth",
-      "action": "Keep providerAuthEnvVars compatibility active while the inspector recommends manifest-schema migration upstream.",
-      "evidence": "serper, tavily, linkup, querit, exa, firecrawl, perplexity, you, searxng"
     },
     {
       "fixture": "web-search-plus",

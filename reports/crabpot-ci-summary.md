@@ -2,34 +2,38 @@
 
 Generated: deterministic
 Mode: local
-OpenClaw: ../openclaw
+OpenClaw: openclaw/openclaw@local
 Status: PASS
 
 ## Counts
 
-| Metric               | Value |
-| -------------------- | ----- |
-| Breakages            | 0     |
-| Warnings             | 42    |
-| Suggestions          | 69    |
-| Issues               | 111   |
-| P0 issues            | 2     |
-| P1 issues            | 21    |
-| Live issues          | 2     |
-| Live P0 issues       | 2     |
-| Compat gaps          | 1     |
-| Deprecation warnings | 20    |
-| Inspector gaps       | 73    |
-| Upstream metadata    | 15    |
-| Ref diff failures    | 0     |
-| Ref diff warnings    | 0     |
-| Policy failures      | 0     |
-| Policy warnings      | 3     |
-| Profile failures     | 0     |
-| Profile warnings     | 0     |
-| Execution pass       | 6     |
-| Execution fail       | 0     |
-| Execution blocked    | 2     |
+| Metric                      | Value                                    |
+| --------------------------- | ---------------------------------------- |
+| Breakages                   | 0                                        |
+| Warnings                    | 42                                       |
+| Suggestions                 | 69                                       |
+| Issues                      | 111                                      |
+| P0 issues                   | 2                                        |
+| P1 issues                   | 21                                       |
+| Live issues                 | 2                                        |
+| Live P0 issues              | 2                                        |
+| Compat gaps                 | 1                                        |
+| Deprecation warnings        | 19                                       |
+| Inspector gaps              | 73                                       |
+| Upstream metadata           | 16                                       |
+| Ref diff failures           | 0                                        |
+| Ref diff warnings           | 0                                        |
+| Policy failures             | 0                                        |
+| Policy warnings             | 3                                        |
+| Profile failures            | 0                                        |
+| Profile warnings            | 0                                        |
+| Execution pass              | 6                                        |
+| Execution fail              | 0                                        |
+| Execution blocked           | 2                                        |
+| Windows portability risks   | 121                                      |
+| Container portability risks | 38                                       |
+| Jiti loader candidates      | 14                                       |
+| Import loop                 | p50 153 ms / max RSS 46.3 MB / CPU 27 ms |
 
 ## Top Issues
 
@@ -74,15 +78,17 @@ _none_
 
 ## Artifacts
 
-| Artifact       | Path                                   |
-| -------------- | -------------------------------------- |
-| compatibility  | reports/crabpot-report.json            |
-| capture        | reports/crabpot-capture.json           |
-| synthetic      | reports/crabpot-synthetic-probes.json  |
-| coldImport     | reports/crabpot-cold-import.json       |
-| workspace      | reports/crabpot-workspace-plan.json    |
-| execution      | reports/crabpot-execution-results.json |
-| runtimeProfile | reports/crabpot-runtime-profile.json   |
-| refDiff        | reports/crabpot-ref-diff.json          |
-| profileDiff    | reports/crabpot-profile-diff.json      |
-| ciPolicy       | reports/crabpot-ci-policy.json         |
+| Artifact       | Path                                     |
+| -------------- | ---------------------------------------- |
+| compatibility  | reports/crabpot-report.json              |
+| capture        | reports/crabpot-capture.json             |
+| synthetic      | reports/crabpot-synthetic-probes.json    |
+| coldImport     | reports/crabpot-cold-import.json         |
+| workspace      | reports/crabpot-workspace-plan.json      |
+| platform       | reports/crabpot-platform-probes.json     |
+| importLoop     | reports/crabpot-import-loop-profile.json |
+| execution      | reports/crabpot-execution-results.json   |
+| runtimeProfile | reports/crabpot-runtime-profile.json     |
+| refDiff        | reports/crabpot-ref-diff.json            |
+| profileDiff    | reports/crabpot-profile-diff.json        |
+| ciPolicy       | reports/crabpot-ci-policy.json           |

@@ -124,20 +124,31 @@ function runStep(step) {
     let peakRssKb = 0;
     let peakCpuPercent = 0;
     const cpuSamples = [];
+    let pollInFlight = false;
     const child = spawn(step.command, {
       cwd: path.join(repoRoot, step.cwd),
       env: { ...process.env, CRABPOT_EXECUTE_ISOLATED: "1" },
       shell: true,
       stdio: "inherit",
     });
-    const poll = setInterval(async () => {
-      const stats = await readProcessStats(child.pid);
+    const recordStats = (stats) => {
       peakRssKb = Math.max(peakRssKb, stats.rssKb);
       peakCpuPercent = Math.max(peakCpuPercent, stats.cpuPercent);
       if (stats.cpuPercent > 0) {
         cpuSamples.push(stats.cpuPercent);
       }
-    }, 50);
+    };
+    const poll = setInterval(() => {
+      if (pollInFlight) {
+        return;
+      }
+      pollInFlight = true;
+      readProcessStats(child.pid)
+        .then(recordStats)
+        .finally(() => {
+          pollInFlight = false;
+        });
+    }, 100);
     child.on("exit", async (code) => {
       clearInterval(poll);
       const finalStats = await readProcessStats(child.pid);
@@ -163,7 +174,10 @@ function runStep(step) {
         cpuMsEstimate: Math.round((wallMs * averageCpuPercent) / 100),
       });
     });
-    child.on("error", reject);
+    child.on("error", (error) => {
+      clearInterval(poll);
+      reject(error);
+    });
   });
 }
 
@@ -190,7 +204,7 @@ function readProcessStats(pid) {
     return { rssKb: 0, cpuPercent: 0 };
   }
   return new Promise((resolve) => {
-    const ps = spawn("ps", ["-o", "rss=,%cpu=", "-p", String(pid)], {
+    const ps = spawn("ps", ["-o", "rss=", "-o", "%cpu=", "-p", String(pid)], {
       stdio: ["ignore", "pipe", "ignore"],
     });
     const chunks = [];

@@ -1,0 +1,2112 @@
+{
+  "generatedAt": "deterministic",
+  "mode": "plan-only",
+  "targets": [
+    "linux",
+    "macos",
+    "windows",
+    "container"
+  ],
+  "summary": {
+    "fixtureCount": 21,
+    "entrypointCount": 24,
+    "tsLoaderEntrypointCount": 14,
+    "jitiAlternativeCount": 14,
+    "lazyImportProbeCount": 24,
+    "portabilityFindingCount": 121,
+    "windowsRiskStepCount": 121,
+    "macosRiskStepCount": 14,
+    "linuxRiskStepCount": 14,
+    "containerRiskStepCount": 38
+  },
+  "entrypoints": [
+    {
+      "fixture": "agentchat",
+      "id": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
+      "status": "build-required",
+      "entrypoint": "plugins/agentchat/integrations/openclaw-channel/dist/index.js",
+      "packageManager": "pnpm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
+    },
+    {
+      "fixture": "agentchat",
+      "id": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
+      "status": "build-required",
+      "entrypoint": "plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js",
+      "packageManager": "pnpm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
+    },
+    {
+      "fixture": "wecom",
+      "id": "cold-import.extension:wecom:plugins-wecom-index-js",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/wecom/index.js",
+      "packageManager": "npm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
+    },
+    {
+      "fixture": "qqbot",
+      "id": "cold-import.extension:qqbot:plugins-qqbot-preload-cjs",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/qqbot/preload.cjs",
+      "packageManager": "npm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
+    },
+    {
+      "fixture": "a2a-gateway",
+      "id": "cold-import.extension:a2a-gateway:plugins-a2a-gateway-index-ts",
+      "status": "ts-loader-required",
+      "entrypoint": "plugins/a2a-gateway/index.ts",
+      "packageManager": "npm",
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": true,
+      "syntheticUsesTsx": true
+    },
+    {
+      "fixture": "hasdata",
+      "id": "cold-import.extension:hasdata:plugins-hasdata-src-index-ts",
+      "status": "ts-loader-required",
+      "entrypoint": "plugins/hasdata/src/index.ts",
+      "packageManager": "npm",
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": true,
+      "syntheticUsesTsx": true
+    },
+    {
+      "fixture": "mcp-adapter",
+      "id": "cold-import.extension:mcp-adapter:plugins-mcp-adapter-index-ts",
+      "status": "ts-loader-required",
+      "entrypoint": "plugins/mcp-adapter/index.ts",
+      "packageManager": "npm",
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": true,
+      "syntheticUsesTsx": true
+    },
+    {
+      "fixture": "llm-trace-phoenix",
+      "id": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
+      "status": "ts-loader-required",
+      "entrypoint": "plugins/llm-trace-phoenix/index.ts",
+      "packageManager": "npm",
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": true,
+      "syntheticUsesTsx": true
+    },
+    {
+      "fixture": "opik-openclaw",
+      "id": "cold-import.extension:opik-openclaw:plugins-opik-openclaw-index-ts",
+      "status": "ts-loader-required",
+      "entrypoint": "plugins/opik-openclaw/index.ts",
+      "packageManager": "npm",
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": true,
+      "syntheticUsesTsx": true
+    },
+    {
+      "fixture": "opik-openclaw",
+      "id": "cold-import.runtimeExtension:opik-openclaw:plugins-opik-openclaw-dist-index-js",
+      "status": "build-required",
+      "entrypoint": "plugins/opik-openclaw/dist/index.js",
+      "packageManager": "npm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
+    },
+    {
+      "fixture": "lossless-claw",
+      "id": "cold-import.extension:lossless-claw:plugins-lossless-claw-dist-index-js",
+      "status": "build-required",
+      "entrypoint": "plugins/lossless-claw/dist/index.js",
+      "packageManager": "npm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
+    },
+    {
+      "fixture": "connectclaw",
+      "id": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
+      "status": "ts-loader-required",
+      "entrypoint": "plugins/connectclaw/packages/plugin/index.ts",
+      "packageManager": "pnpm",
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": true,
+      "syntheticUsesTsx": true
+    },
+    {
+      "fixture": "hyperspell",
+      "id": "cold-import.extension:hyperspell:plugins-hyperspell-index-ts",
+      "status": "ts-loader-required",
+      "entrypoint": "plugins/hyperspell/index.ts",
+      "packageManager": "npm",
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": true,
+      "syntheticUsesTsx": true
+    },
+    {
+      "fixture": "honcho",
+      "id": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
+      "status": "build-required",
+      "entrypoint": "plugins/honcho/dist/index.js",
+      "packageManager": "pnpm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
+    },
+    {
+      "fixture": "composio",
+      "id": "cold-import.extension:composio:plugins-composio-index-ts",
+      "status": "ts-loader-required",
+      "entrypoint": "plugins/composio/index.ts",
+      "packageManager": "npm",
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": true,
+      "syntheticUsesTsx": true
+    },
+    {
+      "fixture": "memu-engine",
+      "id": "cold-import.extension:memu-engine:plugins-memu-engine-index-ts",
+      "status": "ts-loader-required",
+      "entrypoint": "plugins/memu-engine/index.ts",
+      "packageManager": "npm",
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": true,
+      "syntheticUsesTsx": true
+    },
+    {
+      "fixture": "secureclaw",
+      "id": "cold-import.extension:secureclaw:plugins-secureclaw-secureclaw-dist-index-js",
+      "status": "build-required",
+      "entrypoint": "plugins/secureclaw/secureclaw/dist/index.js",
+      "packageManager": "npm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
+    },
+    {
+      "fixture": "memos-cloud",
+      "id": "cold-import.extension:memos-cloud:plugins-memos-cloud-index-js",
+      "status": "review-required",
+      "entrypoint": "plugins/memos-cloud/index.js",
+      "packageManager": "npm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
+    },
+    {
+      "fixture": "clawmetry",
+      "id": "cold-import.extension:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts",
+      "status": "ts-loader-required",
+      "entrypoint": "plugins/clawmetry/clawhub-plugin/index.ts",
+      "packageManager": "npm",
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": true,
+      "syntheticUsesTsx": true
+    },
+    {
+      "fixture": "clawmetry",
+      "id": "cold-import.runtimeExtension:clawmetry:plugins-clawmetry-clawhub-plugin-dist-index-js",
+      "status": "build-required",
+      "entrypoint": "plugins/clawmetry/clawhub-plugin/dist/index.js",
+      "packageManager": "npm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
+    },
+    {
+      "fixture": "codex-app-server",
+      "id": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
+      "status": "sdk-alias-required",
+      "entrypoint": "plugins/codex-app-server/index.ts",
+      "packageManager": "pnpm",
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": true,
+      "syntheticUsesTsx": true
+    },
+    {
+      "fixture": "web-search-plus",
+      "id": "cold-import.extension:web-search-plus:plugins-web-search-plus-index-ts",
+      "status": "ts-loader-required",
+      "entrypoint": "plugins/web-search-plus/index.ts",
+      "packageManager": "npm",
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": true,
+      "syntheticUsesTsx": true
+    },
+    {
+      "fixture": "apify",
+      "id": "cold-import.extension:apify:plugins-apify-src-index-ts",
+      "status": "ts-loader-required",
+      "entrypoint": "plugins/apify/src/index.ts",
+      "packageManager": "npm",
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": true,
+      "syntheticUsesTsx": true
+    },
+    {
+      "fixture": "inworld-tts",
+      "id": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
+      "status": "ts-loader-required",
+      "entrypoint": "plugins/inworld-tts/index.ts",
+      "packageManager": "pnpm",
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": true,
+      "syntheticUsesTsx": true
+    }
+  ],
+  "portabilityFindings": [
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/agentchat && rsync -a --delete plugins/agentchat/integrations/openclaw-channel/ .crabpot/workspaces/agentchat/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/agentchat",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
+      "kind": "link-openclaw",
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
+      "kind": "build",
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "command": "pnpm run build",
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/agentchat/cold-import-extension-agentchat-plugins-agentchat-integrations-openclaw-channel-dist-index-js.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/agentchat/cold-import-extension-agentchat-plugins-agentchat-integrations-openclaw-channel-dist-index-js.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/agentchat && rsync -a --delete plugins/agentchat/integrations/openclaw-channel/ .crabpot/workspaces/agentchat/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/agentchat",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
+      "kind": "link-openclaw",
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
+      "kind": "build",
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "command": "pnpm run build",
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --output ../../results/agentchat/cold-import-setupEntry-agentchat-plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --output ../../results/agentchat/cold-import-setupEntry-agentchat-plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "wecom",
+      "entrypoint": "cold-import.extension:wecom:plugins-wecom-index-js",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/wecom && rsync -a --delete plugins/wecom/ .crabpot/workspaces/wecom/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "wecom",
+      "entrypoint": "cold-import.extension:wecom:plugins-wecom-index-js",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/wecom",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "wecom",
+      "entrypoint": "cold-import.extension:wecom:plugins-wecom-index-js",
+      "kind": "audit",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "command": "npm audit --json > ../../results/wecom/package-audit.json || true",
+      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
+    },
+    {
+      "fixture": "wecom",
+      "entrypoint": "cold-import.extension:wecom:plugins-wecom-index-js",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.js --output ../../results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "wecom",
+      "entrypoint": "cold-import.extension:wecom:plugins-wecom-index-js",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.js --output ../../results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "qqbot",
+      "entrypoint": "cold-import.extension:qqbot:plugins-qqbot-preload-cjs",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/qqbot && rsync -a --delete plugins/qqbot/ .crabpot/workspaces/qqbot/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "qqbot",
+      "entrypoint": "cold-import.extension:qqbot:plugins-qqbot-preload-cjs",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/qqbot",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "qqbot",
+      "entrypoint": "cold-import.extension:qqbot:plugins-qqbot-preload-cjs",
+      "kind": "audit",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "command": "npm audit --json > ../../results/qqbot/package-audit.json || true",
+      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
+    },
+    {
+      "fixture": "qqbot",
+      "entrypoint": "cold-import.extension:qqbot:plugins-qqbot-preload-cjs",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./preload.cjs --output ../../results/qqbot/cold-import-extension-qqbot-plugins-qqbot-preload-cjs.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "qqbot",
+      "entrypoint": "cold-import.extension:qqbot:plugins-qqbot-preload-cjs",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./preload.cjs --output ../../results/qqbot/cold-import-extension-qqbot-plugins-qqbot-preload-cjs.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "a2a-gateway",
+      "entrypoint": "cold-import.extension:a2a-gateway:plugins-a2a-gateway-index-ts",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/a2a-gateway && rsync -a --delete plugins/a2a-gateway/ .crabpot/workspaces/a2a-gateway/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "a2a-gateway",
+      "entrypoint": "cold-import.extension:a2a-gateway:plugins-a2a-gateway-index-ts",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/a2a-gateway",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "a2a-gateway",
+      "entrypoint": "cold-import.extension:a2a-gateway:plugins-a2a-gateway-index-ts",
+      "kind": "audit",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "command": "npm audit --json > ../../results/a2a-gateway/package-audit.json || true",
+      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
+    },
+    {
+      "fixture": "a2a-gateway",
+      "entrypoint": "cold-import.extension:a2a-gateway:plugins-a2a-gateway-index-ts",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "a2a-gateway",
+      "entrypoint": "cold-import.extension:a2a-gateway:plugins-a2a-gateway-index-ts",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "hasdata",
+      "entrypoint": "cold-import.extension:hasdata:plugins-hasdata-src-index-ts",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/hasdata && rsync -a --delete plugins/hasdata/ .crabpot/workspaces/hasdata/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "hasdata",
+      "entrypoint": "cold-import.extension:hasdata:plugins-hasdata-src-index-ts",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/hasdata",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "hasdata",
+      "entrypoint": "cold-import.extension:hasdata:plugins-hasdata-src-index-ts",
+      "kind": "audit",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "command": "npm audit --json > ../../results/hasdata/package-audit.json || true",
+      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
+    },
+    {
+      "fixture": "hasdata",
+      "entrypoint": "cold-import.extension:hasdata:plugins-hasdata-src-index-ts",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --output ../../results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "hasdata",
+      "entrypoint": "cold-import.extension:hasdata:plugins-hasdata-src-index-ts",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --output ../../results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "mcp-adapter",
+      "entrypoint": "cold-import.extension:mcp-adapter:plugins-mcp-adapter-index-ts",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/mcp-adapter && rsync -a --delete plugins/mcp-adapter/ .crabpot/workspaces/mcp-adapter/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "mcp-adapter",
+      "entrypoint": "cold-import.extension:mcp-adapter:plugins-mcp-adapter-index-ts",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/mcp-adapter",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "mcp-adapter",
+      "entrypoint": "cold-import.extension:mcp-adapter:plugins-mcp-adapter-index-ts",
+      "kind": "audit",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "command": "npm audit --json > ../../results/mcp-adapter/package-audit.json || true",
+      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
+    },
+    {
+      "fixture": "mcp-adapter",
+      "entrypoint": "cold-import.extension:mcp-adapter:plugins-mcp-adapter-index-ts",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "mcp-adapter",
+      "entrypoint": "cold-import.extension:mcp-adapter:plugins-mcp-adapter-index-ts",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "llm-trace-phoenix",
+      "entrypoint": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/llm-trace-phoenix && rsync -a --delete plugins/llm-trace-phoenix/ .crabpot/workspaces/llm-trace-phoenix/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "llm-trace-phoenix",
+      "entrypoint": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/llm-trace-phoenix",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "llm-trace-phoenix",
+      "entrypoint": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "llm-trace-phoenix",
+      "entrypoint": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "entrypoint": "cold-import.extension:opik-openclaw:plugins-opik-openclaw-index-ts",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/opik-openclaw && rsync -a --delete plugins/opik-openclaw/ .crabpot/workspaces/opik-openclaw/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "entrypoint": "cold-import.extension:opik-openclaw:plugins-opik-openclaw-index-ts",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/opik-openclaw",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "entrypoint": "cold-import.extension:opik-openclaw:plugins-opik-openclaw-index-ts",
+      "kind": "audit",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "command": "npm audit --json > ../../results/opik-openclaw/package-audit.json || true",
+      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "entrypoint": "cold-import.extension:opik-openclaw:plugins-opik-openclaw-index-ts",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "entrypoint": "cold-import.extension:opik-openclaw:plugins-opik-openclaw-index-ts",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "entrypoint": "cold-import.runtimeExtension:opik-openclaw:plugins-opik-openclaw-dist-index-js",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/opik-openclaw && rsync -a --delete plugins/opik-openclaw/ .crabpot/workspaces/opik-openclaw/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "entrypoint": "cold-import.runtimeExtension:opik-openclaw:plugins-opik-openclaw-dist-index-js",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/opik-openclaw",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "entrypoint": "cold-import.runtimeExtension:opik-openclaw:plugins-opik-openclaw-dist-index-js",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/opik-openclaw/cold-import-runtimeExtension-opik-openclaw-plugins-opik-openclaw-dist-index-js.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "entrypoint": "cold-import.runtimeExtension:opik-openclaw:plugins-opik-openclaw-dist-index-js",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/opik-openclaw/cold-import-runtimeExtension-opik-openclaw-plugins-opik-openclaw-dist-index-js.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "lossless-claw",
+      "entrypoint": "cold-import.extension:lossless-claw:plugins-lossless-claw-dist-index-js",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/lossless-claw && rsync -a --delete plugins/lossless-claw/ .crabpot/workspaces/lossless-claw/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "lossless-claw",
+      "entrypoint": "cold-import.extension:lossless-claw:plugins-lossless-claw-dist-index-js",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/lossless-claw",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "lossless-claw",
+      "entrypoint": "cold-import.extension:lossless-claw:plugins-lossless-claw-dist-index-js",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/lossless-claw/cold-import-extension-lossless-claw-plugins-lossless-claw-dist-index-js.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "lossless-claw",
+      "entrypoint": "cold-import.extension:lossless-claw:plugins-lossless-claw-dist-index-js",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/lossless-claw/cold-import-extension-lossless-claw-plugins-lossless-claw-dist-index-js.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "connectclaw",
+      "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/connectclaw && rsync -a --delete plugins/connectclaw/packages/plugin/ .crabpot/workspaces/connectclaw/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "connectclaw",
+      "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/connectclaw",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "connectclaw",
+      "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
+      "kind": "link-openclaw",
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "connectclaw",
+      "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
+      "kind": "install",
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "command": "pnpm install --ignore-scripts",
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "connectclaw",
+      "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
+      "kind": "audit",
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability",
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "command": "pnpm audit --json > ../../results/connectclaw/package-audit.json || true",
+      "mitigation": "install the declared package manager before isolated execution; capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
+    },
+    {
+      "fixture": "connectclaw",
+      "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "connectclaw",
+      "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "hyperspell",
+      "entrypoint": "cold-import.extension:hyperspell:plugins-hyperspell-index-ts",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/hyperspell && rsync -a --delete plugins/hyperspell/ .crabpot/workspaces/hyperspell/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "hyperspell",
+      "entrypoint": "cold-import.extension:hyperspell:plugins-hyperspell-index-ts",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/hyperspell",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "hyperspell",
+      "entrypoint": "cold-import.extension:hyperspell:plugins-hyperspell-index-ts",
+      "kind": "audit",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "command": "npm audit --json > ../../results/hyperspell/package-audit.json || true",
+      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
+    },
+    {
+      "fixture": "hyperspell",
+      "entrypoint": "cold-import.extension:hyperspell:plugins-hyperspell-index-ts",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "hyperspell",
+      "entrypoint": "cold-import.extension:hyperspell:plugins-hyperspell-index-ts",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "honcho",
+      "entrypoint": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/honcho && rsync -a --delete plugins/honcho/ .crabpot/workspaces/honcho/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "honcho",
+      "entrypoint": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/honcho",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "honcho",
+      "entrypoint": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
+      "kind": "build",
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "command": "pnpm run build",
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "honcho",
+      "entrypoint": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/honcho/cold-import-extension-honcho-plugins-honcho-dist-index-js.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "honcho",
+      "entrypoint": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/honcho/cold-import-extension-honcho-plugins-honcho-dist-index-js.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "composio",
+      "entrypoint": "cold-import.extension:composio:plugins-composio-index-ts",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/composio && rsync -a --delete plugins/composio/ .crabpot/workspaces/composio/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "composio",
+      "entrypoint": "cold-import.extension:composio:plugins-composio-index-ts",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/composio",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "composio",
+      "entrypoint": "cold-import.extension:composio:plugins-composio-index-ts",
+      "kind": "audit",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "command": "npm audit --json > ../../results/composio/package-audit.json || true",
+      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
+    },
+    {
+      "fixture": "composio",
+      "entrypoint": "cold-import.extension:composio:plugins-composio-index-ts",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "composio",
+      "entrypoint": "cold-import.extension:composio:plugins-composio-index-ts",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "memu-engine",
+      "entrypoint": "cold-import.extension:memu-engine:plugins-memu-engine-index-ts",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/memu-engine && rsync -a --delete plugins/memu-engine/ .crabpot/workspaces/memu-engine/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "memu-engine",
+      "entrypoint": "cold-import.extension:memu-engine:plugins-memu-engine-index-ts",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/memu-engine",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "memu-engine",
+      "entrypoint": "cold-import.extension:memu-engine:plugins-memu-engine-index-ts",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "memu-engine",
+      "entrypoint": "cold-import.extension:memu-engine:plugins-memu-engine-index-ts",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "secureclaw",
+      "entrypoint": "cold-import.extension:secureclaw:plugins-secureclaw-secureclaw-dist-index-js",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/secureclaw && rsync -a --delete plugins/secureclaw/secureclaw/ .crabpot/workspaces/secureclaw/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "secureclaw",
+      "entrypoint": "cold-import.extension:secureclaw:plugins-secureclaw-secureclaw-dist-index-js",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/secureclaw",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "secureclaw",
+      "entrypoint": "cold-import.extension:secureclaw:plugins-secureclaw-secureclaw-dist-index-js",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/secureclaw/cold-import-extension-secureclaw-plugins-secureclaw-secureclaw-dist-index-js.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "secureclaw",
+      "entrypoint": "cold-import.extension:secureclaw:plugins-secureclaw-secureclaw-dist-index-js",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/secureclaw/cold-import-extension-secureclaw-plugins-secureclaw-secureclaw-dist-index-js.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "memos-cloud",
+      "entrypoint": "cold-import.extension:memos-cloud:plugins-memos-cloud-index-js",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/memos-cloud && rsync -a --delete plugins/memos-cloud/ .crabpot/workspaces/memos-cloud/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "memos-cloud",
+      "entrypoint": "cold-import.extension:memos-cloud:plugins-memos-cloud-index-js",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/memos-cloud",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "memos-cloud",
+      "entrypoint": "cold-import.extension:memos-cloud:plugins-memos-cloud-index-js",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.js --output ../../results/memos-cloud/cold-import-extension-memos-cloud-plugins-memos-cloud-index-js.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "memos-cloud",
+      "entrypoint": "cold-import.extension:memos-cloud:plugins-memos-cloud-index-js",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.js --output ../../results/memos-cloud/cold-import-extension-memos-cloud-plugins-memos-cloud-index-js.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "clawmetry",
+      "entrypoint": "cold-import.extension:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/clawmetry && rsync -a --delete plugins/clawmetry/clawhub-plugin/ .crabpot/workspaces/clawmetry/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "clawmetry",
+      "entrypoint": "cold-import.extension:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/clawmetry",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "clawmetry",
+      "entrypoint": "cold-import.extension:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts",
+      "kind": "audit",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "command": "npm audit --json > ../../results/clawmetry/package-audit.json || true",
+      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
+    },
+    {
+      "fixture": "clawmetry",
+      "entrypoint": "cold-import.extension:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "clawmetry",
+      "entrypoint": "cold-import.extension:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "clawmetry",
+      "entrypoint": "cold-import.runtimeExtension:clawmetry:plugins-clawmetry-clawhub-plugin-dist-index-js",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/clawmetry && rsync -a --delete plugins/clawmetry/clawhub-plugin/ .crabpot/workspaces/clawmetry/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "clawmetry",
+      "entrypoint": "cold-import.runtimeExtension:clawmetry:plugins-clawmetry-clawhub-plugin-dist-index-js",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/clawmetry",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "clawmetry",
+      "entrypoint": "cold-import.runtimeExtension:clawmetry:plugins-clawmetry-clawhub-plugin-dist-index-js",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "clawmetry",
+      "entrypoint": "cold-import.runtimeExtension:clawmetry:plugins-clawmetry-clawhub-plugin-dist-index-js",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "codex-app-server",
+      "entrypoint": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/codex-app-server && rsync -a --delete plugins/codex-app-server/ .crabpot/workspaces/codex-app-server/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "codex-app-server",
+      "entrypoint": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/codex-app-server",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "codex-app-server",
+      "entrypoint": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
+      "kind": "link-openclaw",
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "codex-app-server",
+      "entrypoint": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
+      "kind": "install",
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "command": "pnpm install --ignore-scripts",
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "codex-app-server",
+      "entrypoint": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
+      "kind": "audit",
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability",
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "command": "pnpm audit --json > ../../results/codex-app-server/package-audit.json || true",
+      "mitigation": "install the declared package manager before isolated execution; capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
+    },
+    {
+      "fixture": "codex-app-server",
+      "entrypoint": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "codex-app-server",
+      "entrypoint": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "web-search-plus",
+      "entrypoint": "cold-import.extension:web-search-plus:plugins-web-search-plus-index-ts",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/web-search-plus && rsync -a --delete plugins/web-search-plus/ .crabpot/workspaces/web-search-plus/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "web-search-plus",
+      "entrypoint": "cold-import.extension:web-search-plus:plugins-web-search-plus-index-ts",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/web-search-plus",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "web-search-plus",
+      "entrypoint": "cold-import.extension:web-search-plus:plugins-web-search-plus-index-ts",
+      "kind": "audit",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "command": "npm audit --json > ../../results/web-search-plus/package-audit.json || true",
+      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
+    },
+    {
+      "fixture": "web-search-plus",
+      "entrypoint": "cold-import.extension:web-search-plus:plugins-web-search-plus-index-ts",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "web-search-plus",
+      "entrypoint": "cold-import.extension:web-search-plus:plugins-web-search-plus-index-ts",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "apify",
+      "entrypoint": "cold-import.extension:apify:plugins-apify-src-index-ts",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/apify && rsync -a --delete plugins/apify/ .crabpot/workspaces/apify/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "apify",
+      "entrypoint": "cold-import.extension:apify:plugins-apify-src-index-ts",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/apify",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "apify",
+      "entrypoint": "cold-import.extension:apify:plugins-apify-src-index-ts",
+      "kind": "audit",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "command": "npm audit --json > ../../results/apify/package-audit.json || true",
+      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
+    },
+    {
+      "fixture": "apify",
+      "entrypoint": "cold-import.extension:apify:plugins-apify-src-index-ts",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "apify",
+      "entrypoint": "cold-import.extension:apify:plugins-apify-src-index-ts",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "inworld-tts",
+      "entrypoint": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/inworld-tts && rsync -a --delete plugins/inworld-tts/ .crabpot/workspaces/inworld-tts/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "inworld-tts",
+      "entrypoint": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/inworld-tts",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "inworld-tts",
+      "entrypoint": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
+      "kind": "link-openclaw",
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "inworld-tts",
+      "entrypoint": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
+      "kind": "install",
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "command": "pnpm install --ignore-scripts",
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "inworld-tts",
+      "entrypoint": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
+      "kind": "audit",
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability",
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "command": "pnpm audit --json > ../../results/inworld-tts/package-audit.json || true",
+      "mitigation": "install the declared package manager before isolated execution; capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
+    },
+    {
+      "fixture": "inworld-tts",
+      "entrypoint": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "inworld-tts",
+      "entrypoint": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix",
+        "tsx-loader-runtime"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    }
+  ],
+  "recommendations": [
+    {
+      "area": "loader",
+      "action": "keep tsx as the source-entrypoint smoke path, add a Jiti execution lane before treating TS plugin source compatibility as covered"
+    },
+    {
+      "area": "workspace-copy",
+      "action": "move isolated workspace copy into Node fs.cp so Windows and slim containers do not depend on rsync"
+    },
+    {
+      "area": "executor",
+      "action": "replace shell env-prefix commands with structured spawn env for Windows parity"
+    }
+  ]
+}

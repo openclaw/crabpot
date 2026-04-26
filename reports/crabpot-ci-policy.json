@@ -65,7 +65,7 @@
     {
       "id": "compatibility-report.deprecation-warnings",
       "action": "pass",
-      "message": "20 deprecated compat seams tracked",
+      "message": "19 deprecated compat seams tracked",
       "evidence": [
         "a2a-gateway:legacy-root-sdk-import",
         "agentchat:channel-env-vars",
@@ -85,8 +85,7 @@
         "memos-cloud:legacy-before-agent-start",
         "memu-engine:legacy-root-sdk-import",
         "opik-openclaw:legacy-root-sdk-import",
-        "qqbot:legacy-root-sdk-import",
-        "web-search-plus:provider-auth-env-vars"
+        "qqbot:legacy-root-sdk-import"
       ]
     },
     {

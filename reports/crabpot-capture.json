@@ -5195,20 +5195,12 @@
       ]
     },
     {
-      "id": "manifest.compat.provider-auth-env-vars:web-search-plus",
-      "fixture": "web-search-plus",
+      "id": "manifest.schema.top-level-fields:memos-cloud",
+      "fixture": "memos-cloud",
       "priority": "P3",
       "target": "manifest-loader",
       "evidence": [
-        "serper",
-        "tavily",
-        "linkup",
-        "querit",
-        "exa",
-        "firecrawl",
-        "perplexity",
-        "you",
-        "searxng"
+        "main @ plugins/memos-cloud/openclaw.plugin.json"
       ],
       "assertions": [
         "metadata key is accepted",
@@ -5216,12 +5208,12 @@
       ]
     },
     {
-      "id": "manifest.schema.top-level-fields:memos-cloud",
-      "fixture": "memos-cloud",
+      "id": "manifest.schema.top-level-fields:web-search-plus",
+      "fixture": "web-search-plus",
       "priority": "P3",
       "target": "manifest-loader",
       "evidence": [
-        "main @ plugins/memos-cloud/openclaw.plugin.json"
+        "displayName @ plugins/web-search-plus/openclaw.plugin.json"
       ],
       "assertions": [
         "metadata key is accepted",
