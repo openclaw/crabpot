@@ -130,6 +130,23 @@ test("ci policy strict mode escalates classified blocked probes", async () => {
   assert.match(validateCiPolicyReport(report).join("\n"), /tool-factory-descriptor/);
 });
 
+test("ci policy validation rejects malformed policy files", async () => {
+  await assert.rejects(
+    () =>
+      buildCiPolicyReport({
+        policy: {
+          version: 2,
+          allowedBlocked: {},
+          expectedWarnings: null,
+          thresholds: null,
+          fixtureSets: null,
+        },
+        compatibilityReport: compatibilityReport(),
+      }),
+    /ci policy version must be 1[\s\S]*allowedBlocked must be an array[\s\S]*expectedWarnings must be an array[\s\S]*thresholds are required[\s\S]*fixtureSets are required/,
+  );
+});
+
 function compatibilityReport() {
   return {
     summary: {

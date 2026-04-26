@@ -1,6 +1,12 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { buildReport, issueId, renderMarkdownReport, targetOpenClawPathCandidates } from "../scripts/report-lib.mjs";
+import {
+  buildReport,
+  issueId,
+  renderIssuesReport,
+  renderMarkdownReport,
+  targetOpenClawPathCandidates,
+} from "../scripts/report-lib.mjs";
 
 test("compatibility report classifies current fixture seams", async () => {
   const report = await buildReport({ generatedAt: "test" });
@@ -80,6 +86,23 @@ test("issue ids are stable fingerprints instead of order counters", () => {
 
   assert.equal(issueId(finding), issueId({ ignored: "field", ...finding }));
   assert.notEqual(issueId(finding), issueId({ ...finding, evidence: [...finding.evidence, "extra"] }));
+});
+
+test("issue report preserves decision metadata for compat-layer work", async () => {
+  const report = await buildReport({ generatedAt: "test" });
+  const sdkIssue = report.issues.find((issue) => issue.code === "sdk-export-missing");
+  const manifestIssue = report.issues.find((issue) => issue.code === "manifest-unknown-fields");
+  const markdown = renderIssuesReport(report);
+
+  assert.equal(sdkIssue.owner, "core");
+  assert.equal(sdkIssue.decision, "core-compat-adapter");
+  assert.equal(sdkIssue.status, "open");
+  assert.equal(sdkIssue.severity, "P1");
+  assert.equal(manifestIssue.owner, "plugin");
+  assert.equal(manifestIssue.decision, "plugin-upstream-fix");
+  assert.match(markdown, /## Triage Summary/);
+  assert.match(markdown, /sdk-export-missing/);
+  assert.match(markdown, /core-compat-adapter/);
 });
 
 function assertHasFinding(findings, fixture, code) {

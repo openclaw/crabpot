@@ -33,6 +33,39 @@ test("capture shim records hooks and runtime registrations without plugin intern
   ]);
 });
 
+test("capture shim retains callable handlers only when explicitly enabled", async () => {
+  const retainedApi = createCaptureApi({ retainHandlers: true });
+  const hookHandler = () => "hooked";
+  const toolDescriptor = {
+    name: "lookup",
+    execute() {
+      return "tool";
+    },
+  };
+
+  assert.equal(retainedApi.on("llm_input", hookHandler), retainedApi);
+  assert.equal(retainedApi.registerTool(toolDescriptor), "lookup");
+  assert.deepEqual(
+    retainedApi.getRetainedContracts().map((entry) => ({
+      kind: entry.kind,
+      name: entry.name,
+      captureIndex: entry.captureIndex,
+      hasHandler: typeof entry.handler === "function",
+      firstArgName: entry.arguments?.[0]?.name,
+    })),
+    [
+      { kind: "hook", name: "llm_input", captureIndex: 0, hasHandler: true, firstArgName: undefined },
+      { kind: "registration", name: "registerTool", captureIndex: 1, hasHandler: false, firstArgName: "lookup" },
+    ],
+  );
+  assert.equal(await retainedApi.getRetainedContracts()[0].handler(), "hooked");
+  assert.equal(retainedApi.getRetainedContracts()[1].arguments[0], toolDescriptor);
+
+  const nonRetainedApi = createCaptureApi();
+  nonRetainedApi.on("llm_input", hookHandler);
+  assert.deepEqual(nonRetainedApi.getRetainedContracts(), []);
+});
+
 test("contract capture turns observed seams into executable probe assertions", async () => {
   const report = await buildReport({ generatedAt: "test" });
   const capture = await buildContractCapture({ report });

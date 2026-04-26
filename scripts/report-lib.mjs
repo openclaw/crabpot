@@ -1518,10 +1518,11 @@ function issuesTable(issues) {
       issue.owner,
       issue.decision,
       issue.status,
+      issue.code,
       issue.title,
       issue.evidence.join(", ") || "-",
     ]),
-    ["ID", "Severity", "Fixture", "Owner", "Decision", "Status", "Title", "Evidence"],
+    ["ID", "Severity", "Fixture", "Owner", "Decision", "Status", "Code", "Title", "Evidence"],
   );
 }
 
