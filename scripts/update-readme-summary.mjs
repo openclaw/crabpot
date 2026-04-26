@@ -267,8 +267,8 @@ export function renderReadmeSummary(summary) {
         ["Warnings", m.warnings],
         ["Suggestions", m.suggestions],
         ["Issues", m.issues],
-        ["P0 issues", m.p0Issues],
-        ["P1 issues", m.p1Issues],
+        ["P0 issues", severityCount("P0", m.p0Issues)],
+        ["P1 issues", severityCount("P1", m.p1Issues)],
         ["Live issues", `${m.liveIssues} total / ${m.liveP0Issues} P0`],
         ["Compat gaps", m.compatGaps],
         ["Deprecation warnings", m.deprecationWarnings],
@@ -295,15 +295,14 @@ export function renderReadmeSummary(summary) {
     "",
     markdownTable(
       summary.topIssues.map((issue) => [
-        issue.id,
-        issue.severity,
+        severitySignal(issue.severity),
         issue.issueClass,
         issue.fixture,
         issue.code,
         issue.decision,
         issue.title,
       ]),
-      ["ID", "Severity", "Class", "Fixture", "Code", "Decision", "Title"],
+      ["Severity", "Class", "Fixture", "Code", "Decision", "Title"],
     ),
     "",
     "### Report Artifacts",
@@ -315,6 +314,20 @@ export function renderReadmeSummary(summary) {
   ]
     .filter((line) => line !== "")
     .join("\n\n");
+}
+
+function severityCount(severity, count) {
+  return `${severitySignal(severity)} ${count}`;
+}
+
+function severitySignal(severity) {
+  const signals = {
+    P0: "[red] P0",
+    P1: "[amber] P1",
+    P2: "[yellow] P2",
+    P3: "[green] P3",
+  };
+  return signals[severity] ?? severity ?? "-";
 }
 
 async function readOptionalJson(jsonPath) {

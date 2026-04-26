@@ -67,8 +67,9 @@ test("readme summary rolls up report counts and top issues", async () => {
   assert.equal(summary.metrics.p0Issues, 1);
   assert.equal(summary.metrics.policyWarnings, 1);
   assert.match(markdown, /openclaw\/openclaw@main/);
-  assert.match(markdown, /\| P0 issues\s+\| 1\s+\|/);
-  assert.match(markdown, /CRABPOT-AAAA1111/);
+  assert.match(markdown, /\| P0 issues\s+\| \[red\] P0 1\s+\|/);
+  assert.match(markdown, /\| \[amber\] P1\s+\| -\s+\| codex-app-server\s+\| sdk-export-missing\s+\|/);
+  assert.doesNotMatch(markdown, /CRABPOT-AAAA1111/);
   assert.match(markdown, /8 ready \/ 1 blocked \/ 9 total/);
   assert.match(markdown, /4 Windows \/ 2 container/);
   assert.match(markdown, /\| Jiti loader candidates\s+\| 5\s+\|/);

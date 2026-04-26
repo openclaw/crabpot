@@ -29,8 +29,8 @@ Run: https://github.com/openclaw/crabpot/actions/runs/24948105684
 | Warnings               | 42                                      |
 | Suggestions            | 69                                      |
 | Issues                 | 111                                     |
-| P0 issues              | 2                                       |
-| P1 issues              | 21                                      |
+| P0 issues              | [red] P0 2                              |
+| P1 issues              | [amber] P1 21                           |
 | Live issues            | 2 total / 2 P0                          |
 | Compat gaps            | 1                                       |
 | Deprecation warnings   | 19                                      |
@@ -52,18 +52,18 @@ Run: https://github.com/openclaw/crabpot/actions/runs/24948105684
 
 ### Top Discovered Issues
 
-| ID               | Severity | Class         | Fixture          | Code                     | Decision            | Title                                                                               |
-| ---------------- | -------- | ------------- | ---------------- | ------------------------ | ------------------- | ----------------------------------------------------------------------------------- |
-| CRABPOT-62AC9404 | P0       | live-issue    | codex-app-server | sdk-export-missing       | core-compat-adapter | codex-app-server: plugin SDK import aliases are missing from target package exports |
-| CRABPOT-D7817FEA | P0       | live-issue    | hyperspell       | unknown-hook-name        | core-compat-adapter | hyperspell: fixture uses a hook missing from target OpenClaw                        |
-| CRABPOT-37E8444D | P1       | inspector-gap | a2a-gateway      | registration-capture-gap | inspector-follow-up | a2a-gateway: runtime registrations need capture before contract judgment            |
-| CRABPOT-9D5EE194 | P1       | inspector-gap | clawmetry        | registration-capture-gap | inspector-follow-up | clawmetry: runtime registrations need capture before contract judgment              |
-| CRABPOT-6D9E51D9 | P1       | compat-gap    | codex-app-server | missing-compat-record    | core-compat-adapter | codex-app-server: compat-dependent behavior lacks registry coverage                 |
-| CRABPOT-45CAC152 | P1       | inspector-gap | codex-app-server | registration-capture-gap | inspector-follow-up | codex-app-server: runtime registrations need capture before contract judgment       |
-| CRABPOT-A16D6B91 | P1       | inspector-gap | connectclaw      | registration-capture-gap | inspector-follow-up | connectclaw: runtime registrations need capture before contract judgment            |
-| CRABPOT-E8240285 | P1       | inspector-gap | honcho           | conversation-access-hook | inspector-follow-up | honcho: conversation-access hooks need privacy-boundary probes                      |
-| CRABPOT-7999B952 | P1       | inspector-gap | honcho           | registration-capture-gap | inspector-follow-up | honcho: runtime registrations need capture before contract judgment                 |
-| CRABPOT-6DABAD8C | P1       | inspector-gap | hyperspell       | conversation-access-hook | inspector-follow-up | hyperspell: conversation-access hooks need privacy-boundary probes                  |
+| Severity   | Class         | Fixture          | Code                     | Decision            | Title                                                                               |
+| ---------- | ------------- | ---------------- | ------------------------ | ------------------- | ----------------------------------------------------------------------------------- |
+| [red] P0   | live-issue    | codex-app-server | sdk-export-missing       | core-compat-adapter | codex-app-server: plugin SDK import aliases are missing from target package exports |
+| [red] P0   | live-issue    | hyperspell       | unknown-hook-name        | core-compat-adapter | hyperspell: fixture uses a hook missing from target OpenClaw                        |
+| [amber] P1 | inspector-gap | a2a-gateway      | registration-capture-gap | inspector-follow-up | a2a-gateway: runtime registrations need capture before contract judgment            |
+| [amber] P1 | inspector-gap | clawmetry        | registration-capture-gap | inspector-follow-up | clawmetry: runtime registrations need capture before contract judgment              |
+| [amber] P1 | compat-gap    | codex-app-server | missing-compat-record    | core-compat-adapter | codex-app-server: compat-dependent behavior lacks registry coverage                 |
+| [amber] P1 | inspector-gap | codex-app-server | registration-capture-gap | inspector-follow-up | codex-app-server: runtime registrations need capture before contract judgment       |
+| [amber] P1 | inspector-gap | connectclaw      | registration-capture-gap | inspector-follow-up | connectclaw: runtime registrations need capture before contract judgment            |
+| [amber] P1 | inspector-gap | honcho           | conversation-access-hook | inspector-follow-up | honcho: conversation-access hooks need privacy-boundary probes                      |
+| [amber] P1 | inspector-gap | honcho           | registration-capture-gap | inspector-follow-up | honcho: runtime registrations need capture before contract judgment                 |
+| [amber] P1 | inspector-gap | hyperspell       | conversation-access-hook | inspector-follow-up | hyperspell: conversation-access hooks need privacy-boundary probes                  |
 
 ### Report Artifacts
 
