@@ -211,9 +211,10 @@ function preserveDashboardMetadata(summary, readme) {
         : summary.generatedAtLabel,
     mode: summary.mode === "local" && current.mode ? current.mode : summary.mode,
     openclawLabel:
-      (!summary.openclawLabel || summary.openclawLabel === "../openclaw") && current.openclawLabel
+      current.runUrl && isLocalOpenclawLabel(summary.openclawLabel) && current.openclawLabel
         ? current.openclawLabel
         : summary.openclawLabel,
+    importLoopLabel: current.runUrl && current.importLoopLabel ? current.importLoopLabel : summary.importLoopLabel,
     runtimeProfileLabel:
       current.runUrl && current.runtimeProfileLabel ? current.runtimeProfileLabel : summary.runtimeProfileLabel,
     runUrl: summary.runUrl || current.runUrl || "",
@@ -223,6 +224,7 @@ function preserveDashboardMetadata(summary, readme) {
 function readDashboardMetadata(readme) {
   return {
     generatedAtLabel: readme.match(/^Last dashboard update:\s*(.+)$/m)?.[1],
+    importLoopLabel: readme.match(/^\| Import loop\s+\|\s*(.+?)\s*\|$/m)?.[1],
     mode: readme.match(/^Mode:\s*(.+)$/m)?.[1],
     openclawLabel: readme.match(/^OpenClaw:\s*(.+)$/m)?.[1],
     runtimeProfileLabel: readme.match(/^\| Runtime profile\s+\|\s*(.+?)\s*\|$/m)?.[1],
@@ -285,7 +287,10 @@ export function renderReadmeSummary(summary) {
         ["Workspace plan", `${m.workspaceEntrypoints} entrypoints / ${m.workspaceInstalls} installs / ${m.workspaceBuilds} builds`],
         ["Platform risks", `${m.platformWindowsRisks} Windows / ${m.platformContainerRisks} container`],
         ["Jiti loader candidates", m.loaderJitiCandidates],
-        ["Import loop", `p50 ${m.importLoopP50Ms}ms / max RSS ${m.importLoopMaxRssMb}MB / CPU ${m.importLoopMaxCpuMs}ms`],
+        [
+          "Import loop",
+          summary.importLoopLabel ?? `p50 ${m.importLoopP50Ms}ms / max RSS ${m.importLoopMaxRssMb}MB / CPU ${m.importLoopMaxCpuMs}ms`,
+        ],
         ["Runtime profile", summary.runtimeProfileLabel ?? `p50 ${m.runtimeP50Ms}ms / max RSS ${m.runtimeMaxRssMb}MB`],
       ],
       ["Metric", "Result"],
@@ -300,7 +305,7 @@ export function renderReadmeSummary(summary) {
         issue.fixture,
         issue.code,
         issue.decision,
-        issue.title,
+        issueTitleLink(issue),
       ]),
       ["Severity", "Class", "Fixture", "Code", "Decision", "Title"],
     ),
@@ -317,17 +322,51 @@ export function renderReadmeSummary(summary) {
 }
 
 function severityCount(severity, count) {
-  return `${severitySignal(severity)} ${count}`;
+  return markdownLink(`${severitySignal(severity)} ${count}`, severityReportAnchor(severity));
 }
 
 function severitySignal(severity) {
   const signals = {
-    P0: "[red] P0",
-    P1: "[amber] P1",
-    P2: "[yellow] P2",
-    P3: "[green] P3",
+    P0: "🔴 P0",
+    P1: "🟠 P1",
+    P2: "🟡 P2",
+    P3: "🟢 P3",
   };
   return signals[severity] ?? severity ?? "-";
+}
+
+function issueTitleLink(issue) {
+  return markdownLink(issue.title, issueReportAnchor(issue));
+}
+
+function severityReportAnchor(severity) {
+  if (severity === "P0") {
+    return "reports/crabpot-issues.md#p0-live-issues";
+  }
+  return "reports/crabpot-issues.md#triage-summary";
+}
+
+function issueReportAnchor(issue) {
+  if (issue.severity === "P0" && issue.issueClass === "live-issue") {
+    return "reports/crabpot-issues.md#p0-live-issues";
+  }
+
+  const anchors = {
+    "compat-gap": "reports/crabpot-issues.md#compat-gaps",
+    "deprecation-warning": "reports/crabpot-issues.md#deprecation-warnings",
+    "inspector-gap": "reports/crabpot-issues.md#inspector-proof-gaps",
+    "live-issue": "reports/crabpot-issues.md#live-issues",
+    "upstream-metadata": "reports/crabpot-issues.md#upstream-metadata-issues",
+  };
+  return anchors[issue.issueClass] ?? "reports/crabpot-issues.md#issues";
+}
+
+function markdownLink(label, href) {
+  return `[${label}](${href})`;
+}
+
+function isLocalOpenclawLabel(label) {
+  return !label || label === "../openclaw" || label.endsWith("@local");
 }
 
 async function readOptionalJson(jsonPath) {

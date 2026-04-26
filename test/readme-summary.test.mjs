@@ -31,6 +31,7 @@ test("readme summary rolls up report counts and top issues", async () => {
           {
             id: "CRABPOT-AAAA1111",
             severity: "P1",
+            issueClass: "compat-gap",
             fixture: "codex-app-server",
             code: "sdk-export-missing",
             decision: "core-compat-adapter",
@@ -67,8 +68,12 @@ test("readme summary rolls up report counts and top issues", async () => {
   assert.equal(summary.metrics.p0Issues, 1);
   assert.equal(summary.metrics.policyWarnings, 1);
   assert.match(markdown, /openclaw\/openclaw@main/);
-  assert.match(markdown, /\| P0 issues\s+\| \[red\] P0 1\s+\|/);
-  assert.match(markdown, /\| \[amber\] P1\s+\| -\s+\| codex-app-server\s+\| sdk-export-missing\s+\|/);
+  assert.match(markdown, /\| P0 issues\s+\| \[🔴 P0 1\]\(reports\/crabpot-issues\.md#p0-live-issues\)\s+\|/u);
+  assert.match(
+    markdown,
+    /\| 🟠 P1\s+\| compat-gap\s+\| codex-app-server\s+\| sdk-export-missing\s+\| core-compat-adapter\s+\| \[missing SDK alias\]\(reports\/crabpot-issues\.md#compat-gaps\)\s+\|/u,
+  );
+  assert.doesNotMatch(markdown, /\[red\]/);
   assert.doesNotMatch(markdown, /CRABPOT-AAAA1111/);
   assert.match(markdown, /8 ready \/ 1 blocked \/ 9 total/);
   assert.match(markdown, /4 Windows \/ 2 container/);
@@ -146,6 +151,9 @@ test("readme summary preserves CI run metadata during local checks", async () =>
     generatedAt: "2026-04-26T01:31:00Z",
     metrics: {
       ...summary.metrics,
+      importLoopP50Ms: 51,
+      importLoopMaxRssMb: 44.5,
+      importLoopMaxCpuMs: 32,
       runtimeP50Ms: 231,
       runtimeMaxRssMb: 70.4,
     },
@@ -154,6 +162,23 @@ test("readme summary preserves CI run metadata during local checks", async () =>
     runUrl: "https://github.com/openclaw/crabpot/actions/runs/1",
   });
   await writeFile(readmePath, applyReadmeSummary("# crabpot\n\n## What this tests\n", ciRendered), "utf8");
+  const localSummary = {
+    ...summary,
+    metrics: {
+      ...summary.metrics,
+      importLoopP50Ms: 999,
+      importLoopMaxRssMb: 999,
+      importLoopMaxCpuMs: 999,
+      runtimeP50Ms: 999,
+      runtimeMaxRssMb: 999,
+    },
+    mode: "local",
+    openclawLabel: "openclaw/openclaw@local",
+  };
 
-  assert.equal(await updateReadmeSummary({ check: true, readmePath, summary }), false);
+  assert.equal(await updateReadmeSummary({ check: true, readmePath, summary: localSummary }), false);
+  const readme = await readFile(readmePath, "utf8");
+  assert.match(readme, /OpenClaw: openclaw\/openclaw@main/);
+  assert.match(readme, /p50 51ms \/ max RSS 44\.5MB \/ CPU 32ms/);
+  assert.match(readme, /p50 231ms \/ max RSS 70\.4MB/);
 });
