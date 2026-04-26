@@ -520,23 +520,23 @@
   },
   "status": "pass",
   "summary": {
-    "fixtureCount": 21,
-    "highPriorityFixtures": 13,
+    "fixtureCount": 27,
+    "highPriorityFixtures": 18,
     "breakageCount": 0,
-    "warningCount": 42,
-    "suggestionCount": 69,
-    "decisionCount": 112,
-    "issueCount": 111,
+    "warningCount": 51,
+    "suggestionCount": 92,
+    "decisionCount": 144,
+    "issueCount": 143,
     "p0IssueCount": 2,
-    "p1IssueCount": 21,
+    "p1IssueCount": 26,
     "liveIssueCount": 2,
     "liveP0IssueCount": 2,
     "compatGapCount": 1,
-    "deprecationWarningCount": 19,
-    "inspectorGapCount": 73,
-    "upstreamIssueCount": 16,
+    "deprecationWarningCount": 21,
+    "inspectorGapCount": 97,
+    "upstreamIssueCount": 22,
     "fixtureRegressionCount": 0,
-    "contractProbeCount": 109
+    "contractProbeCount": 141
   },
   "fixtures": [
     {
@@ -3609,6 +3609,1680 @@
       ]
     },
     {
+      "id": "memory-tencentdb",
+      "name": "TencentDB Agent Memory",
+      "priority": "high",
+      "seams": [
+        "memory-runtime",
+        "prompt-mutation",
+        "session-lifecycle",
+        "vector-store",
+        "cli"
+      ],
+      "why": "NPM-pinned memory fixture covering automatic recall/capture hooks, TencentDB vector storage, SQLite fallback, cleanup lifecycle, and seed/export CLI commands.",
+      "status": "ok",
+      "hooks": [
+        "agent_end",
+        "before_prompt_build",
+        "gateway_stop"
+      ],
+      "hookDetails": [
+        {
+          "name": "agent_end",
+          "file": "plugins/memory-tencentdb/index.ts",
+          "line": 820,
+          "ref": "plugins/memory-tencentdb/index.ts:820"
+        },
+        {
+          "name": "before_prompt_build",
+          "file": "plugins/memory-tencentdb/index.ts",
+          "line": 464,
+          "ref": "plugins/memory-tencentdb/index.ts:464"
+        },
+        {
+          "name": "gateway_stop",
+          "file": "plugins/memory-tencentdb/index.ts",
+          "line": 745,
+          "ref": "plugins/memory-tencentdb/index.ts:745"
+        },
+        {
+          "name": "gateway_stop",
+          "file": "plugins/memory-tencentdb/index.ts",
+          "line": 939,
+          "ref": "plugins/memory-tencentdb/index.ts:939"
+        }
+      ],
+      "registrations": [
+        "registerCli",
+        "registerTool"
+      ],
+      "registrationDetails": [
+        {
+          "name": "registerCli",
+          "file": "plugins/memory-tencentdb/index.ts",
+          "line": 957,
+          "ref": "plugins/memory-tencentdb/index.ts:957"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/memory-tencentdb/index.ts",
+          "line": 268,
+          "ref": "plugins/memory-tencentdb/index.ts:268"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/memory-tencentdb/index.ts",
+          "line": 365,
+          "ref": "plugins/memory-tencentdb/index.ts:365"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/memory-tencentdb/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/memory-tencentdb/bin/export-tencent-vdb.mjs",
+        "plugins/memory-tencentdb/bin/migrate-sqlite-to-tcvdb.mjs",
+        "plugins/memory-tencentdb/bin/read-local-memory.mjs",
+        "plugins/memory-tencentdb/index.ts",
+        "plugins/memory-tencentdb/scripts/export-tencent-vdb/dist/export-tencent-vdb.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/scripts/migrate-sqlite-to-tcvdb/cli-entry.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/scripts/migrate-sqlite-to-tcvdb/config-write.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/scripts/migrate-sqlite-to-tcvdb/manifest-write.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/scripts/migrate-sqlite-to-tcvdb/sqlite-to-tcvdb.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/profile/profile-sync.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/record/l1-writer.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/scene/scene-format.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/scene/scene-index.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/scene/scene-navigation.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/bm25-local.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/embedding.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/sqlite.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/tcvdb-client.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/tcvdb.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/types.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/profile/profile-sync.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/record/l1-writer.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/scene/scene-format.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/scene/scene-index.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/scene/scene-navigation.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/store/bm25-local.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/store/embedding.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/store/sqlite.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/store/tcvdb-client.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/store/tcvdb.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/store/types.js",
+        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/utils/manifest.js",
+        "plugins/memory-tencentdb/scripts/read-local-memory/dist/read-local-memory.js",
+        "plugins/memory-tencentdb/src/cli/commands/seed.ts",
+        "plugins/memory-tencentdb/src/cli/index.ts",
+        "plugins/memory-tencentdb/src/config.ts",
+        "plugins/memory-tencentdb/src/conversation/l0-recorder.ts",
+        "plugins/memory-tencentdb/src/hooks/auto-capture.ts",
+        "plugins/memory-tencentdb/src/hooks/auto-recall.ts",
+        "plugins/memory-tencentdb/src/persona/persona-generator.ts",
+        "plugins/memory-tencentdb/src/persona/persona-trigger.ts",
+        "plugins/memory-tencentdb/src/profile/profile-sync.ts",
+        "plugins/memory-tencentdb/src/prompts/l1-dedup.ts",
+        "plugins/memory-tencentdb/src/prompts/l1-extraction.ts",
+        "plugins/memory-tencentdb/src/prompts/persona-generation.ts",
+        "plugins/memory-tencentdb/src/prompts/scene-extraction.ts",
+        "plugins/memory-tencentdb/src/record/l1-dedup.ts",
+        "plugins/memory-tencentdb/src/record/l1-extractor.ts",
+        "plugins/memory-tencentdb/src/record/l1-reader.ts",
+        "plugins/memory-tencentdb/src/record/l1-writer.ts",
+        "plugins/memory-tencentdb/src/report/reporter.ts",
+        "plugins/memory-tencentdb/src/scene/scene-extractor.ts",
+        "plugins/memory-tencentdb/src/scene/scene-format.ts",
+        "plugins/memory-tencentdb/src/scene/scene-index.ts",
+        "plugins/memory-tencentdb/src/scene/scene-navigation.ts",
+        "plugins/memory-tencentdb/src/seed/input.ts",
+        "plugins/memory-tencentdb/src/seed/seed-runtime.ts",
+        "plugins/memory-tencentdb/src/seed/types.ts",
+        "plugins/memory-tencentdb/src/store/bm25-client.ts",
+        "plugins/memory-tencentdb/src/store/bm25-local.ts",
+        "plugins/memory-tencentdb/src/store/embedding.ts",
+        "plugins/memory-tencentdb/src/store/factory.ts",
+        "plugins/memory-tencentdb/src/store/search-utils.ts",
+        "plugins/memory-tencentdb/src/store/sqlite.ts",
+        "plugins/memory-tencentdb/src/store/tcvdb-client.ts",
+        "plugins/memory-tencentdb/src/store/tcvdb.ts",
+        "plugins/memory-tencentdb/src/store/types.ts",
+        "plugins/memory-tencentdb/src/tools/conversation-search.ts",
+        "plugins/memory-tencentdb/src/tools/memory-search.ts",
+        "plugins/memory-tencentdb/src/utils/backup.ts",
+        "plugins/memory-tencentdb/src/utils/checkpoint.ts",
+        "plugins/memory-tencentdb/src/utils/clean-context-runner.ts",
+        "plugins/memory-tencentdb/src/utils/managed-timer.ts",
+        "plugins/memory-tencentdb/src/utils/manifest.ts",
+        "plugins/memory-tencentdb/src/utils/memory-cleaner.ts",
+        "plugins/memory-tencentdb/src/utils/pipeline-factory.ts",
+        "plugins/memory-tencentdb/src/utils/pipeline-manager.ts",
+        "plugins/memory-tencentdb/src/utils/sanitize.ts",
+        "plugins/memory-tencentdb/src/utils/serial-queue.ts",
+        "plugins/memory-tencentdb/src/utils/session-filter.ts",
+        "plugins/memory-tencentdb/src/utils/text-utils.ts"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/memory-tencentdb/openclaw.plugin.json",
+          "id": "memory-tencentdb",
+          "name": "Memory (TencentDB)",
+          "version": null,
+          "keys": [
+            "configSchema",
+            "description",
+            "id",
+            "name"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/memory-tencentdb/package.json",
+        "name": "@tencentdb-agent-memory/memory-tencentdb",
+        "version": "0.2.3",
+        "type": "module",
+        "main": "index.ts",
+        "dependencies": [
+          "@node-rs/jieba",
+          "@tencentdb-agent-memory/tcvdb-text",
+          "json5",
+          "sqlite-vec",
+          "undici"
+        ],
+        "peerDependencies": [
+          "node-llama-cpp",
+          "openclaw"
+        ],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./index.ts"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": ">=2026.3.13",
+          "buildOpenClawVersion": "2026.3.13",
+          "buildPluginSdkVersion": "2026.3.13",
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.ts",
+              "relativePath": "plugins/memory-tencentdb/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/memory-tencentdb/package.json",
+          "name": "@tencentdb-agent-memory/memory-tencentdb",
+          "version": "0.2.3",
+          "type": "module",
+          "main": "index.ts",
+          "dependencies": [
+            "@node-rs/jieba",
+            "@tencentdb-agent-memory/tcvdb-text",
+            "json5",
+            "sqlite-vec",
+            "undici"
+          ],
+          "peerDependencies": [
+            "node-llama-cpp",
+            "openclaw"
+          ],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./index.ts"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": ">=2026.3.13",
+            "buildOpenClawVersion": "2026.3.13",
+            "buildPluginSdkVersion": "2026.3.13",
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.ts",
+                "relativePath": "plugins/memory-tencentdb/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        }
+      ],
+      "sdkImports": [
+        "openclaw/plugin-sdk/core"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/memory-tencentdb/index.ts",
+          "line": 15,
+          "ref": "plugins/memory-tencentdb/index.ts:15"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/memory-tencentdb/src/utils/clean-context-runner.ts",
+          "line": 17,
+          "ref": "plugins/memory-tencentdb/src/utils/clean-context-runner.ts:17"
+        }
+      ]
+    },
+    {
+      "id": "ddingtalk",
+      "name": "DingTalk Channel",
+      "priority": "high",
+      "seams": [
+        "channel",
+        "media",
+        "account-auth",
+        "webhook",
+        "config-schema"
+      ],
+      "why": "DingTalk channel fixture from the latest npm-backed repo, covering enterprise IM auth, channel setup, media handling, and webhook-style message ingress.",
+      "status": "ok",
+      "hooks": [],
+      "hookDetails": [],
+      "registrations": [
+        "defineChannelPluginEntry"
+      ],
+      "registrationDetails": [
+        {
+          "name": "defineChannelPluginEntry",
+          "file": "plugins/ddingtalk/index.ts",
+          "line": 8,
+          "ref": "plugins/ddingtalk/index.ts:8"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/ddingtalk/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/ddingtalk/index.ts",
+        "plugins/ddingtalk/src/accounts.ts",
+        "plugins/ddingtalk/src/channel.ts",
+        "plugins/ddingtalk/src/client.ts",
+        "plugins/ddingtalk/src/constants.ts",
+        "plugins/ddingtalk/src/ffmpeg.ts",
+        "plugins/ddingtalk/src/logger.ts",
+        "plugins/ddingtalk/src/monitor.ts",
+        "plugins/ddingtalk/src/runtime.ts",
+        "plugins/ddingtalk/src/setup-core.ts",
+        "plugins/ddingtalk/src/setup-surface.ts",
+        "plugins/ddingtalk/src/types.ts"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/ddingtalk/openclaw.plugin.json",
+          "id": "ddingtalk",
+          "name": null,
+          "version": null,
+          "keys": [
+            "channels",
+            "configSchema",
+            "id"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/ddingtalk/package.json",
+        "name": "@largezhou/ddingtalk",
+        "version": "2.0.1",
+        "type": "module",
+        "main": "index.ts",
+        "dependencies": [
+          "dingtalk-stream",
+          "zod"
+        ],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./index.ts"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": null,
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.ts",
+              "relativePath": "plugins/ddingtalk/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/ddingtalk/package.json",
+          "name": "@largezhou/ddingtalk",
+          "version": "2.0.1",
+          "type": "module",
+          "main": "index.ts",
+          "dependencies": [
+            "dingtalk-stream",
+            "zod"
+          ],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./index.ts"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": null,
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.ts",
+                "relativePath": "plugins/ddingtalk/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        }
+      ],
+      "sdkImports": [
+        "openclaw/plugin-sdk/channel-contract",
+        "openclaw/plugin-sdk/channel-feedback",
+        "openclaw/plugin-sdk/conversation-runtime",
+        "openclaw/plugin-sdk/core",
+        "openclaw/plugin-sdk/runtime-env",
+        "openclaw/plugin-sdk/setup",
+        "openclaw/plugin-sdk/setup-tools",
+        "openclaw/plugin-sdk/web-media"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk/channel-contract",
+          "file": "plugins/ddingtalk/src/channel.ts",
+          "line": 11,
+          "ref": "plugins/ddingtalk/src/channel.ts:11"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/channel-feedback",
+          "file": "plugins/ddingtalk/src/channel.ts",
+          "line": 13,
+          "ref": "plugins/ddingtalk/src/channel.ts:13"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/conversation-runtime",
+          "file": "plugins/ddingtalk/src/monitor.ts",
+          "line": 2,
+          "ref": "plugins/ddingtalk/src/monitor.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/ddingtalk/index.ts",
+          "line": 1,
+          "ref": "plugins/ddingtalk/index.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/ddingtalk/src/accounts.ts",
+          "line": 5,
+          "ref": "plugins/ddingtalk/src/accounts.ts:5"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/ddingtalk/src/channel.ts",
+          "line": 10,
+          "ref": "plugins/ddingtalk/src/channel.ts:10"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/ddingtalk/src/monitor.ts",
+          "line": 3,
+          "ref": "plugins/ddingtalk/src/monitor.ts:3"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/ddingtalk/src/runtime.ts",
+          "line": 1,
+          "ref": "plugins/ddingtalk/src/runtime.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/runtime-env",
+          "file": "plugins/ddingtalk/src/monitor.ts",
+          "line": 4,
+          "ref": "plugins/ddingtalk/src/monitor.ts:4"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/setup",
+          "file": "plugins/ddingtalk/src/setup-core.ts",
+          "line": 7,
+          "ref": "plugins/ddingtalk/src/setup-core.ts:7"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/setup",
+          "file": "plugins/ddingtalk/src/setup-core.ts",
+          "line": 8,
+          "ref": "plugins/ddingtalk/src/setup-core.ts:8"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/setup",
+          "file": "plugins/ddingtalk/src/setup-surface.ts",
+          "line": 13,
+          "ref": "plugins/ddingtalk/src/setup-surface.ts:13"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/setup",
+          "file": "plugins/ddingtalk/src/setup-surface.ts",
+          "line": 9,
+          "ref": "plugins/ddingtalk/src/setup-surface.ts:9"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/setup-tools",
+          "file": "plugins/ddingtalk/src/setup-core.ts",
+          "line": 9,
+          "ref": "plugins/ddingtalk/src/setup-core.ts:9"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/setup-tools",
+          "file": "plugins/ddingtalk/src/setup-surface.ts",
+          "line": 14,
+          "ref": "plugins/ddingtalk/src/setup-surface.ts:14"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/web-media",
+          "file": "plugins/ddingtalk/src/channel.ts",
+          "line": 12,
+          "ref": "plugins/ddingtalk/src/channel.ts:12"
+        }
+      ]
+    },
+    {
+      "id": "mocrane-wecom",
+      "name": "Mocrane WeCom",
+      "priority": "high",
+      "seams": [
+        "channel",
+        "dynamic-agent-routing",
+        "mcp",
+        "skills",
+        "sdk-compat"
+      ],
+      "why": "Latest @mocrane/wecom-backed fixture covering WeCom channel routing, MCP proxy tooling, skill bundles, HTTP routes, and broad SDK compatibility shims.",
+      "status": "ok",
+      "hooks": [
+        "before_prompt_build"
+      ],
+      "hookDetails": [
+        {
+          "name": "before_prompt_build",
+          "file": "plugins/mocrane-wecom/index.ts",
+          "line": 48,
+          "ref": "plugins/mocrane-wecom/index.ts:48"
+        }
+      ],
+      "registrations": [
+        "registerChannel",
+        "registerHttpRoute",
+        "registerTool"
+      ],
+      "registrationDetails": [
+        {
+          "name": "registerChannel",
+          "file": "plugins/mocrane-wecom/index.ts",
+          "line": 31,
+          "ref": "plugins/mocrane-wecom/index.ts:31"
+        },
+        {
+          "name": "registerHttpRoute",
+          "file": "plugins/mocrane-wecom/index.ts",
+          "line": 34,
+          "ref": "plugins/mocrane-wecom/index.ts:34"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/mocrane-wecom/index.ts",
+          "line": 43,
+          "ref": "plugins/mocrane-wecom/index.ts:43"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/mocrane-wecom/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/mocrane-wecom/index.ts",
+        "plugins/mocrane-wecom/scripts/test-proxy.ts",
+        "plugins/mocrane-wecom/src/accounts.ts",
+        "plugins/mocrane-wecom/src/agent/api-client.ts",
+        "plugins/mocrane-wecom/src/agent/handler.ts",
+        "plugins/mocrane-wecom/src/agent/index.ts",
+        "plugins/mocrane-wecom/src/channel.ts",
+        "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts",
+        "plugins/mocrane-wecom/src/config-schema.ts",
+        "plugins/mocrane-wecom/src/config/accounts.ts",
+        "plugins/mocrane-wecom/src/config/index.ts",
+        "plugins/mocrane-wecom/src/config/media.ts",
+        "plugins/mocrane-wecom/src/config/network.ts",
+        "plugins/mocrane-wecom/src/config/routing.ts",
+        "plugins/mocrane-wecom/src/config/schema.ts",
+        "plugins/mocrane-wecom/src/crypto.ts",
+        "plugins/mocrane-wecom/src/crypto/aes.ts",
+        "plugins/mocrane-wecom/src/crypto/index.ts",
+        "plugins/mocrane-wecom/src/crypto/signature.ts",
+        "plugins/mocrane-wecom/src/crypto/xml.ts",
+        "plugins/mocrane-wecom/src/dynamic-agent.ts",
+        "plugins/mocrane-wecom/src/gateway-monitor.ts",
+        "plugins/mocrane-wecom/src/http.ts",
+        "plugins/mocrane-wecom/src/mcp-config.ts",
+        "plugins/mocrane-wecom/src/mcp/index.ts",
+        "plugins/mocrane-wecom/src/mcp/schema.ts",
+        "plugins/mocrane-wecom/src/mcp/tool.ts",
+        "plugins/mocrane-wecom/src/mcp/transport.ts",
+        "plugins/mocrane-wecom/src/media.ts",
+        "plugins/mocrane-wecom/src/media/const.ts",
+        "plugins/mocrane-wecom/src/media/index.ts",
+        "plugins/mocrane-wecom/src/media/uploader.ts",
+        "plugins/mocrane-wecom/src/monitor.ts",
+        "plugins/mocrane-wecom/src/monitor/state.ts",
+        "plugins/mocrane-wecom/src/monitor/types.ts",
+        "plugins/mocrane-wecom/src/onboarding.ts",
+        "plugins/mocrane-wecom/src/outbound.ts",
+        "plugins/mocrane-wecom/src/runtime.ts",
+        "plugins/mocrane-wecom/src/shared/command-auth.ts",
+        "plugins/mocrane-wecom/src/shared/index.ts",
+        "plugins/mocrane-wecom/src/shared/xml-parser.ts",
+        "plugins/mocrane-wecom/src/target.ts",
+        "plugins/mocrane-wecom/src/timeout.ts",
+        "plugins/mocrane-wecom/src/types.ts",
+        "plugins/mocrane-wecom/src/types/account.ts",
+        "plugins/mocrane-wecom/src/types/config.ts",
+        "plugins/mocrane-wecom/src/types/constants.ts",
+        "plugins/mocrane-wecom/src/types/index.ts",
+        "plugins/mocrane-wecom/src/types/message.ts",
+        "plugins/mocrane-wecom/src/ws-adapter.ts",
+        "plugins/mocrane-wecom/vitest.config.ts"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/mocrane-wecom/openclaw.plugin.json",
+          "id": "wecom",
+          "name": null,
+          "version": null,
+          "keys": [
+            "channels",
+            "configSchema",
+            "id",
+            "skills"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/mocrane-wecom/package.json",
+        "name": "@mocrane/wecom",
+        "version": "2026.3.24-beta",
+        "type": "module",
+        "main": "index.ts",
+        "dependencies": [
+          "@wecom/aibot-node-sdk",
+          "fast-xml-parser",
+          "file-type",
+          "undici",
+          "zod"
+        ],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./index.ts"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": null,
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.ts",
+              "relativePath": "plugins/mocrane-wecom/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/mocrane-wecom/package.json",
+          "name": "@mocrane/wecom",
+          "version": "2026.3.24-beta",
+          "type": "module",
+          "main": "index.ts",
+          "dependencies": [
+            "@wecom/aibot-node-sdk",
+            "fast-xml-parser",
+            "file-type",
+            "undici",
+            "zod"
+          ],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./index.ts"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": null,
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.ts",
+                "relativePath": "plugins/mocrane-wecom/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        }
+      ],
+      "sdkImports": [
+        "openclaw/plugin-sdk"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/index.ts",
+          "line": 1,
+          "ref": "plugins/mocrane-wecom/index.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/accounts.ts",
+          "line": 1,
+          "ref": "plugins/mocrane-wecom/src/accounts.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/agent/handler.ts",
+          "line": 9,
+          "ref": "plugins/mocrane-wecom/src/agent/handler.ts:9"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/channel.ts",
+          "line": 5,
+          "ref": "plugins/mocrane-wecom/src/channel.ts:5"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts",
+          "line": 17,
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:17"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts",
+          "line": 18,
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:18"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts",
+          "line": 19,
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:19"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts",
+          "line": 20,
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:20"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts",
+          "line": 21,
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:21"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts",
+          "line": 22,
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:22"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts",
+          "line": 23,
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:23"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts",
+          "line": 27,
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:27"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts",
+          "line": 30,
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:30"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/config/accounts.ts",
+          "line": 5,
+          "ref": "plugins/mocrane-wecom/src/config/accounts.ts:5"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/config/media.ts",
+          "line": 1,
+          "ref": "plugins/mocrane-wecom/src/config/media.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/config/network.ts",
+          "line": 1,
+          "ref": "plugins/mocrane-wecom/src/config/network.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/config/routing.ts",
+          "line": 1,
+          "ref": "plugins/mocrane-wecom/src/config/routing.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/dynamic-agent.ts",
+          "line": 8,
+          "ref": "plugins/mocrane-wecom/src/dynamic-agent.ts:8"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/gateway-monitor.ts",
+          "line": 5,
+          "ref": "plugins/mocrane-wecom/src/gateway-monitor.ts:5"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/monitor.ts",
+          "line": 6,
+          "ref": "plugins/mocrane-wecom/src/monitor.ts:6"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/monitor/types.ts",
+          "line": 2,
+          "ref": "plugins/mocrane-wecom/src/monitor/types.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/onboarding.ts",
+          "line": 9,
+          "ref": "plugins/mocrane-wecom/src/onboarding.ts:9"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/outbound.ts",
+          "line": 1,
+          "ref": "plugins/mocrane-wecom/src/outbound.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/runtime.ts",
+          "line": 1,
+          "ref": "plugins/mocrane-wecom/src/runtime.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/shared/command-auth.ts",
+          "line": 1,
+          "ref": "plugins/mocrane-wecom/src/shared/command-auth.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/mocrane-wecom/src/ws-adapter.ts",
+          "line": 14,
+          "ref": "plugins/mocrane-wecom/src/ws-adapter.ts:14"
+        }
+      ]
+    },
+    {
+      "id": "yuanbao",
+      "name": "Tencent Yuanbao Bot",
+      "priority": "high",
+      "seams": [
+        "channel",
+        "media",
+        "command",
+        "account-auth",
+        "sdk-compat"
+      ],
+      "why": "NPM-pinned Yuanbao channel fixture covering bot auth, media messaging, built-in commands, command queue state compatibility, and root SDK imports.",
+      "status": "ok",
+      "hooks": [],
+      "hookDetails": [],
+      "registrations": [
+        "registerChannel",
+        "registerCommand",
+        "registerTool"
+      ],
+      "registrationDetails": [
+        {
+          "name": "registerChannel",
+          "file": "plugins/yuanbao/dist/index.js",
+          "line": 29,
+          "ref": "plugins/yuanbao/dist/index.js:29"
+        },
+        {
+          "name": "registerCommand",
+          "file": "plugins/yuanbao/dist/index.js",
+          "line": 31,
+          "ref": "plugins/yuanbao/dist/index.js:31"
+        },
+        {
+          "name": "registerCommand",
+          "file": "plugins/yuanbao/dist/index.js",
+          "line": 32,
+          "ref": "plugins/yuanbao/dist/index.js:32"
+        },
+        {
+          "name": "registerCommand",
+          "file": "plugins/yuanbao/dist/index.js",
+          "line": 34,
+          "ref": "plugins/yuanbao/dist/index.js:34"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/yuanbao/dist/src/tools/group.js",
+          "line": 43,
+          "ref": "plugins/yuanbao/dist/src/tools/group.js:43"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/yuanbao/dist/src/tools/member.js",
+          "line": 120,
+          "ref": "plugins/yuanbao/dist/src/tools/member.js:120"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/yuanbao/dist/src/tools/remind.js",
+          "line": 271,
+          "ref": "plugins/yuanbao/dist/src/tools/remind.js:271"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/yuanbao/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/yuanbao/dist/index.js",
+        "plugins/yuanbao/dist/src/accounts.js",
+        "plugins/yuanbao/dist/src/agent-isolation.js",
+        "plugins/yuanbao/dist/src/channel.js",
+        "plugins/yuanbao/dist/src/commands/log-upload.js",
+        "plugins/yuanbao/dist/src/commands/slash-commands/index.js",
+        "plugins/yuanbao/dist/src/commands/upgrade/index.js",
+        "plugins/yuanbao/dist/src/commands/upgrade/upgrade.js",
+        "plugins/yuanbao/dist/src/commands/upgrade/utils.js",
+        "plugins/yuanbao/dist/src/config-schema.js",
+        "plugins/yuanbao/dist/src/directory-adapter.js",
+        "plugins/yuanbao/dist/src/dm/agent-prompt.js",
+        "plugins/yuanbao/dist/src/dm/directory-cache.js",
+        "plugins/yuanbao/dist/src/dm/directory.js",
+        "plugins/yuanbao/dist/src/dm/dm-access.js",
+        "plugins/yuanbao/dist/src/dm/error-handler.js",
+        "plugins/yuanbao/dist/src/dm/handle-action.js",
+        "plugins/yuanbao/dist/src/dm/inbound.js",
+        "plugins/yuanbao/dist/src/dm/index.js",
+        "plugins/yuanbao/dist/src/dm/send-dm.js",
+        "plugins/yuanbao/dist/src/dm/targets.js",
+        "plugins/yuanbao/dist/src/logger.js",
+        "plugins/yuanbao/dist/src/media.js",
+        "plugins/yuanbao/dist/src/message-handler/callbacks/recall.js",
+        "plugins/yuanbao/dist/src/message-handler/chat-history.js",
+        "plugins/yuanbao/dist/src/message-handler/context.js",
+        "plugins/yuanbao/dist/src/message-handler/extract.js",
+        "plugins/yuanbao/dist/src/message-handler/handlers/custom/index.js",
+        "plugins/yuanbao/dist/src/message-handler/handlers/custom/link-card.js",
+        "plugins/yuanbao/dist/src/message-handler/handlers/face.js",
+        "plugins/yuanbao/dist/src/message-handler/handlers/file.js",
+        "plugins/yuanbao/dist/src/message-handler/handlers/image.js",
+        "plugins/yuanbao/dist/src/message-handler/handlers/index.js",
+        "plugins/yuanbao/dist/src/message-handler/handlers/sound.js",
+        "plugins/yuanbao/dist/src/message-handler/handlers/text.js",
+        "plugins/yuanbao/dist/src/message-handler/handlers/types.js",
+        "plugins/yuanbao/dist/src/message-handler/handlers/video.js",
+        "plugins/yuanbao/dist/src/message-handler/inbound.js",
+        "plugins/yuanbao/dist/src/message-handler/index.js",
+        "plugins/yuanbao/dist/src/message-handler/outbound.js",
+        "plugins/yuanbao/dist/src/message-handler/quote.js",
+        "plugins/yuanbao/dist/src/message-handler/system-callbacks.js",
+        "plugins/yuanbao/dist/src/message-tool/action-runtime.js",
+        "plugins/yuanbao/dist/src/message-tool/hints.js",
+        "plugins/yuanbao/dist/src/message-tool/index.js",
+        "plugins/yuanbao/dist/src/messaging-adapter.js",
+        "plugins/yuanbao/dist/src/module/log-upload/cos-upload.js",
+        "plugins/yuanbao/dist/src/module/log-upload/extractor.js",
+        "plugins/yuanbao/dist/src/module/log-upload/index.js",
+        "plugins/yuanbao/dist/src/module/log-upload/types.js",
+        "plugins/yuanbao/dist/src/module/member.js",
+        "plugins/yuanbao/dist/src/module/reply-heartbeat.js",
+        "plugins/yuanbao/dist/src/onboarding.js",
+        "plugins/yuanbao/dist/src/outbound-queue.js",
+        "plugins/yuanbao/dist/src/runtime.js",
+        "plugins/yuanbao/dist/src/setup.js",
+        "plugins/yuanbao/dist/src/sticker/init-builtin-stickers.js",
+        "plugins/yuanbao/dist/src/sticker/sticker-cache.js",
+        "plugins/yuanbao/dist/src/sticker/sticker-sender.js",
+        "plugins/yuanbao/dist/src/sticker/sticker-types.js",
+        "plugins/yuanbao/dist/src/targets.js",
+        "plugins/yuanbao/dist/src/tools/group.js",
+        "plugins/yuanbao/dist/src/tools/index.js",
+        "plugins/yuanbao/dist/src/tools/member.js",
+        "plugins/yuanbao/dist/src/tools/remind.js",
+        "plugins/yuanbao/dist/src/tools/utils.js",
+        "plugins/yuanbao/dist/src/trace/context.js",
+        "plugins/yuanbao/dist/src/types.js",
+        "plugins/yuanbao/dist/src/utils.js",
+        "plugins/yuanbao/dist/src/utils/get-env.js",
+        "plugins/yuanbao/dist/src/utils/markdown-stream.js",
+        "plugins/yuanbao/dist/src/utils/markdown-table-sanitize.js",
+        "plugins/yuanbao/dist/src/utils/ttl-db.js",
+        "plugins/yuanbao/dist/src/yuanbao-server/api.js",
+        "plugins/yuanbao/dist/src/yuanbao-server/http/main.js",
+        "plugins/yuanbao/dist/src/yuanbao-server/http/request.js",
+        "plugins/yuanbao/dist/src/yuanbao-server/ws/biz-codec.js",
+        "plugins/yuanbao/dist/src/yuanbao-server/ws/client.js",
+        "plugins/yuanbao/dist/src/yuanbao-server/ws/conn-codec.js",
+        "plugins/yuanbao/dist/src/yuanbao-server/ws/gateway.js",
+        "plugins/yuanbao/dist/src/yuanbao-server/ws/index.js",
+        "plugins/yuanbao/dist/src/yuanbao-server/ws/runtime.js",
+        "plugins/yuanbao/dist/src/yuanbao-server/ws/types.js"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/yuanbao/openclaw.plugin.json",
+          "id": "openclaw-plugin-yuanbao",
+          "name": "元宝 Bot",
+          "version": "2.11.0",
+          "keys": [
+            "channels",
+            "configSchema",
+            "description",
+            "id",
+            "name",
+            "version"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/yuanbao/package.json",
+        "name": "openclaw-plugin-yuanbao",
+        "version": "2.11.0",
+        "type": "module",
+        "main": "./dist/index.js",
+        "dependencies": [
+          "cos-nodejs-sdk-v5",
+          "protobufjs",
+          "uuid",
+          "ws"
+        ],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./dist/index.js"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": "2026.3",
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./dist/index.js",
+              "relativePath": "plugins/yuanbao/dist/index.js",
+              "exists": true,
+              "requiresBuild": true
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/yuanbao/package.json",
+          "name": "openclaw-plugin-yuanbao",
+          "version": "2.11.0",
+          "type": "module",
+          "main": "./dist/index.js",
+          "dependencies": [
+            "cos-nodejs-sdk-v5",
+            "protobufjs",
+            "uuid",
+            "ws"
+          ],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./dist/index.js"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": "2026.3",
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./dist/index.js",
+                "relativePath": "plugins/yuanbao/dist/index.js",
+                "exists": true,
+                "requiresBuild": true
+              }
+            ]
+          }
+        }
+      ],
+      "sdkImports": [
+        "openclaw/plugin-sdk",
+        "openclaw/plugin-sdk/account-id",
+        "openclaw/plugin-sdk/command-auth",
+        "openclaw/plugin-sdk/core",
+        "openclaw/plugin-sdk/matrix",
+        "openclaw/plugin-sdk/mattermost"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/yuanbao/dist/index.js",
+          "line": 1,
+          "ref": "plugins/yuanbao/dist/index.js:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/account-id",
+          "file": "plugins/yuanbao/dist/src/accounts.js",
+          "line": 2,
+          "ref": "plugins/yuanbao/dist/src/accounts.js:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/command-auth",
+          "file": "plugins/yuanbao/dist/src/commands/slash-commands/index.js",
+          "line": 9,
+          "ref": "plugins/yuanbao/dist/src/commands/slash-commands/index.js:9"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/yuanbao/dist/src/accounts.js",
+          "line": 1,
+          "ref": "plugins/yuanbao/dist/src/accounts.js:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/yuanbao/dist/src/channel.js",
+          "line": 1,
+          "ref": "plugins/yuanbao/dist/src/channel.js:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/yuanbao/dist/src/onboarding.js",
+          "line": 1,
+          "ref": "plugins/yuanbao/dist/src/onboarding.js:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/matrix",
+          "file": "plugins/yuanbao/dist/src/commands/upgrade/utils.js",
+          "line": 2,
+          "ref": "plugins/yuanbao/dist/src/commands/upgrade/utils.js:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/matrix",
+          "file": "plugins/yuanbao/dist/src/module/log-upload/extractor.js",
+          "line": 2,
+          "ref": "plugins/yuanbao/dist/src/module/log-upload/extractor.js:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/mattermost",
+          "file": "plugins/yuanbao/dist/src/channel.js",
+          "line": 2,
+          "ref": "plugins/yuanbao/dist/src/channel.js:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/mattermost",
+          "file": "plugins/yuanbao/dist/src/message-handler/inbound.js",
+          "line": 1,
+          "ref": "plugins/yuanbao/dist/src/message-handler/inbound.js:1"
+        }
+      ]
+    },
+    {
+      "id": "openclaw-weixin",
+      "name": "OpenClaw Weixin",
+      "priority": "high",
+      "seams": [
+        "channel",
+        "media",
+        "account-auth",
+        "pairing",
+        "sdk-subpaths"
+      ],
+      "why": "NPM-pinned Weixin channel fixture covering scan-login pairing, account isolation, media upload/download, and narrow SDK subpath usage.",
+      "status": "ok",
+      "hooks": [],
+      "hookDetails": [],
+      "registrations": [
+        "registerChannel"
+      ],
+      "registrationDetails": [
+        {
+          "name": "registerChannel",
+          "file": "plugins/openclaw-weixin/index.ts",
+          "line": 22,
+          "ref": "plugins/openclaw-weixin/index.ts:22"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/openclaw-weixin/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/openclaw-weixin/index.ts",
+        "plugins/openclaw-weixin/src/api/api.ts",
+        "plugins/openclaw-weixin/src/api/config-cache.ts",
+        "plugins/openclaw-weixin/src/api/session-guard.ts",
+        "plugins/openclaw-weixin/src/api/types.ts",
+        "plugins/openclaw-weixin/src/auth/accounts.ts",
+        "plugins/openclaw-weixin/src/auth/login-qr.ts",
+        "plugins/openclaw-weixin/src/auth/pairing.ts",
+        "plugins/openclaw-weixin/src/cdn/aes-ecb.ts",
+        "plugins/openclaw-weixin/src/cdn/cdn-upload.ts",
+        "plugins/openclaw-weixin/src/cdn/cdn-url.ts",
+        "plugins/openclaw-weixin/src/cdn/pic-decrypt.ts",
+        "plugins/openclaw-weixin/src/cdn/upload.ts",
+        "plugins/openclaw-weixin/src/channel.ts",
+        "plugins/openclaw-weixin/src/compat.ts",
+        "plugins/openclaw-weixin/src/config/config-schema.ts",
+        "plugins/openclaw-weixin/src/media/media-download.ts",
+        "plugins/openclaw-weixin/src/media/mime.ts",
+        "plugins/openclaw-weixin/src/media/silk-transcode.ts",
+        "plugins/openclaw-weixin/src/messaging/debug-mode.ts",
+        "plugins/openclaw-weixin/src/messaging/error-notice.ts",
+        "plugins/openclaw-weixin/src/messaging/inbound.ts",
+        "plugins/openclaw-weixin/src/messaging/markdown-filter.ts",
+        "plugins/openclaw-weixin/src/messaging/outbound-hooks.ts",
+        "plugins/openclaw-weixin/src/messaging/process-message.ts",
+        "plugins/openclaw-weixin/src/messaging/send-media.ts",
+        "plugins/openclaw-weixin/src/messaging/send.ts",
+        "plugins/openclaw-weixin/src/messaging/slash-commands.ts",
+        "plugins/openclaw-weixin/src/monitor/monitor.ts",
+        "plugins/openclaw-weixin/src/runtime.ts",
+        "plugins/openclaw-weixin/src/storage/state-dir.ts",
+        "plugins/openclaw-weixin/src/storage/sync-buf.ts",
+        "plugins/openclaw-weixin/src/util/logger.ts",
+        "plugins/openclaw-weixin/src/util/random.ts",
+        "plugins/openclaw-weixin/src/util/redact.ts"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/openclaw-weixin/openclaw.plugin.json",
+          "id": "openclaw-weixin",
+          "name": null,
+          "version": "2.1.10",
+          "keys": [
+            "channels",
+            "configSchema",
+            "id",
+            "version"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/openclaw-weixin/package.json",
+        "name": "@tencent-weixin/openclaw-weixin",
+        "version": "2.1.10",
+        "type": "module",
+        "main": null,
+        "dependencies": [
+          "qrcode-terminal",
+          "zod"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./index.ts"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": null,
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.ts",
+              "relativePath": "plugins/openclaw-weixin/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/openclaw-weixin/package.json",
+          "name": "@tencent-weixin/openclaw-weixin",
+          "version": "2.1.10",
+          "type": "module",
+          "main": null,
+          "dependencies": [
+            "qrcode-terminal",
+            "zod"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./index.ts"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": null,
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.ts",
+                "relativePath": "plugins/openclaw-weixin/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        }
+      ],
+      "sdkImports": [
+        "openclaw/plugin-sdk/account-id",
+        "openclaw/plugin-sdk/channel-config-schema",
+        "openclaw/plugin-sdk/channel-contract",
+        "openclaw/plugin-sdk/channel-runtime",
+        "openclaw/plugin-sdk/command-auth",
+        "openclaw/plugin-sdk/config-runtime",
+        "openclaw/plugin-sdk/core",
+        "openclaw/plugin-sdk/hook-runtime",
+        "openclaw/plugin-sdk/infra-runtime",
+        "openclaw/plugin-sdk/plugin-entry",
+        "openclaw/plugin-sdk/plugin-runtime",
+        "openclaw/plugin-sdk/reply-runtime"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk/account-id",
+          "file": "plugins/openclaw-weixin/src/auth/accounts.ts",
+          "line": 4,
+          "ref": "plugins/openclaw-weixin/src/auth/accounts.ts:4"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/account-id",
+          "file": "plugins/openclaw-weixin/src/channel.ts",
+          "line": 4,
+          "ref": "plugins/openclaw-weixin/src/channel.ts:4"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/channel-config-schema",
+          "file": "plugins/openclaw-weixin/index.ts",
+          "line": 2,
+          "ref": "plugins/openclaw-weixin/index.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/channel-contract",
+          "file": "plugins/openclaw-weixin/src/monitor/monitor.ts",
+          "line": 1,
+          "ref": "plugins/openclaw-weixin/src/monitor/monitor.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/channel-runtime",
+          "file": "plugins/openclaw-weixin/src/messaging/process-message.ts",
+          "line": 3,
+          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:3"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/command-auth",
+          "file": "plugins/openclaw-weixin/src/messaging/process-message.ts",
+          "line": 7,
+          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:7"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/openclaw-weixin/src/auth/accounts.ts",
+          "line": 299,
+          "ref": "plugins/openclaw-weixin/src/auth/accounts.ts:299"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/openclaw-weixin/src/auth/accounts.ts",
+          "line": 5,
+          "ref": "plugins/openclaw-weixin/src/auth/accounts.ts:5"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/openclaw-weixin/src/channel.ts",
+          "line": 3,
+          "ref": "plugins/openclaw-weixin/src/channel.ts:3"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/openclaw-weixin/src/messaging/process-message.ts",
+          "line": 41,
+          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:41"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/openclaw-weixin/src/messaging/process-message.ts",
+          "line": 9,
+          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:9"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/openclaw-weixin/src/monitor/monitor.ts",
+          "line": 2,
+          "ref": "plugins/openclaw-weixin/src/monitor/monitor.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/openclaw-weixin/src/monitor/monitor.ts",
+          "line": 26,
+          "ref": "plugins/openclaw-weixin/src/monitor/monitor.ts:26"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/openclaw-weixin/src/runtime.ts",
+          "line": 1,
+          "ref": "plugins/openclaw-weixin/src/runtime.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/hook-runtime",
+          "file": "plugins/openclaw-weixin/src/messaging/outbound-hooks.ts",
+          "line": 6,
+          "ref": "plugins/openclaw-weixin/src/messaging/outbound-hooks.ts:6"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/infra-runtime",
+          "file": "plugins/openclaw-weixin/src/auth/pairing.ts",
+          "line": 4,
+          "ref": "plugins/openclaw-weixin/src/auth/pairing.ts:4"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/infra-runtime",
+          "file": "plugins/openclaw-weixin/src/channel.ts",
+          "line": 5,
+          "ref": "plugins/openclaw-weixin/src/channel.ts:5"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/infra-runtime",
+          "file": "plugins/openclaw-weixin/src/messaging/process-message.ts",
+          "line": 8,
+          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:8"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/infra-runtime",
+          "file": "plugins/openclaw-weixin/src/util/logger.ts",
+          "line": 5,
+          "ref": "plugins/openclaw-weixin/src/util/logger.ts:5"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/plugin-entry",
+          "file": "plugins/openclaw-weixin/index.ts",
+          "line": 1,
+          "ref": "plugins/openclaw-weixin/index.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/plugin-runtime",
+          "file": "plugins/openclaw-weixin/src/messaging/outbound-hooks.ts",
+          "line": 7,
+          "ref": "plugins/openclaw-weixin/src/messaging/outbound-hooks.ts:7"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/reply-runtime",
+          "file": "plugins/openclaw-weixin/src/messaging/send.ts",
+          "line": 1,
+          "ref": "plugins/openclaw-weixin/src/messaging/send.ts:1"
+        }
+      ]
+    },
+    {
+      "id": "lightclawbot",
+      "name": "LightClawBot",
+      "priority": "medium",
+      "seams": [
+        "channel",
+        "cron",
+        "proactive-messaging",
+        "media",
+        "bundled-deps"
+      ],
+      "why": "NPM-pinned channel fixture covering cron/proactive messaging metadata, file upload tooling, bundled Socket.IO dependencies, and built JavaScript-only plugin packages.",
+      "status": "ok",
+      "hooks": [],
+      "hookDetails": [],
+      "registrations": [
+        "registerChannel",
+        "registerTool"
+      ],
+      "registrationDetails": [
+        {
+          "name": "registerChannel",
+          "file": "plugins/lightclawbot/dist/index.js",
+          "line": 13,
+          "ref": "plugins/lightclawbot/dist/index.js:13"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/lightclawbot/dist/src/download-tool.js",
+          "line": 49,
+          "ref": "plugins/lightclawbot/dist/src/download-tool.js:49"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/lightclawbot/dist/src/upload-tool.js",
+          "line": 37,
+          "ref": "plugins/lightclawbot/dist/src/upload-tool.js:37"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/lightclawbot/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/lightclawbot/dist/index.js",
+        "plugins/lightclawbot/dist/src/channel.js",
+        "plugins/lightclawbot/dist/src/config.js",
+        "plugins/lightclawbot/dist/src/dedup.js",
+        "plugins/lightclawbot/dist/src/download-tool.js",
+        "plugins/lightclawbot/dist/src/file-storage.js",
+        "plugins/lightclawbot/dist/src/format-urls.js",
+        "plugins/lightclawbot/dist/src/gateway.js",
+        "plugins/lightclawbot/dist/src/history/cron-utils.js",
+        "plugins/lightclawbot/dist/src/history/index.js",
+        "plugins/lightclawbot/dist/src/history/message-parser.js",
+        "plugins/lightclawbot/dist/src/history/session-reader.js",
+        "plugins/lightclawbot/dist/src/history/session-store.js",
+        "plugins/lightclawbot/dist/src/history/text-processing.js",
+        "plugins/lightclawbot/dist/src/history/types.js",
+        "plugins/lightclawbot/dist/src/inbound.js",
+        "plugins/lightclawbot/dist/src/media.js",
+        "plugins/lightclawbot/dist/src/outbound.js",
+        "plugins/lightclawbot/dist/src/runtime.js",
+        "plugins/lightclawbot/dist/src/socket/handlers.js",
+        "plugins/lightclawbot/dist/src/socket/index.js",
+        "plugins/lightclawbot/dist/src/socket/registry.js",
+        "plugins/lightclawbot/dist/src/socket/reliable-emitter.js",
+        "plugins/lightclawbot/dist/src/types.js",
+        "plugins/lightclawbot/dist/src/upload-tool.js"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/lightclawbot/openclaw.plugin.json",
+          "id": "lightclawbot",
+          "name": "LightClawBot Channel",
+          "version": "1.0.0",
+          "keys": [
+            "capabilities",
+            "channels",
+            "configSchema",
+            "description",
+            "id",
+            "name",
+            "skills",
+            "version"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/lightclawbot/package.json",
+        "name": "lightclawbot",
+        "version": "1.1.2",
+        "type": "module",
+        "main": null,
+        "dependencies": [
+          "socket.io-client"
+        ],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./dist/index.js"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": null,
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./dist/index.js",
+              "relativePath": "plugins/lightclawbot/dist/index.js",
+              "exists": true,
+              "requiresBuild": true
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/lightclawbot/package.json",
+          "name": "lightclawbot",
+          "version": "1.1.2",
+          "type": "module",
+          "main": null,
+          "dependencies": [
+            "socket.io-client"
+          ],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./dist/index.js"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": null,
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./dist/index.js",
+                "relativePath": "plugins/lightclawbot/dist/index.js",
+                "exists": true,
+                "requiresBuild": true
+              }
+            ]
+          }
+        }
+      ],
+      "sdkImports": [
+        "openclaw/plugin-sdk/channel-reply-pipeline",
+        "openclaw/plugin-sdk/core"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk/channel-reply-pipeline",
+          "file": "plugins/lightclawbot/dist/src/inbound.js",
+          "line": 8,
+          "ref": "plugins/lightclawbot/dist/src/inbound.js:8"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/lightclawbot/dist/index.js",
+          "line": 1,
+          "ref": "plugins/lightclawbot/dist/index.js:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/lightclawbot/dist/src/channel.js",
+          "line": 8,
+          "ref": "plugins/lightclawbot/dist/src/channel.js:8"
+        }
+      ]
+    },
+    {
       "id": "memu-engine",
       "name": "MemU Engine",
       "priority": "medium",
@@ -5241,6 +6915,115 @@
       "compatRecord": "legacy-root-sdk-import"
     },
     {
+      "fixture": "memory-tencentdb",
+      "code": "conversation-access-hook",
+      "level": "warning",
+      "message": "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
+      "evidence": [
+        "agent_end @ plugins/memory-tencentdb/index.ts:820"
+      ]
+    },
+    {
+      "fixture": "ddingtalk",
+      "code": "package-plugin-api-compat-missing",
+      "level": "warning",
+      "message": "package openclaw metadata does not declare compat.pluginApi",
+      "evidence": [
+        "plugins/ddingtalk/package.json"
+      ]
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "code": "package-plugin-api-compat-missing",
+      "level": "warning",
+      "message": "package openclaw metadata does not declare compat.pluginApi",
+      "evidence": [
+        "plugins/mocrane-wecom/package.json"
+      ]
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "code": "legacy-root-sdk-import",
+      "level": "warning",
+      "message": "fixture imports the root plugin SDK barrel",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/accounts.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/agent/handler.ts:9",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/channel.ts:5",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:17",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:18",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:19",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:20",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:21",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:22",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:23",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:27",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:30",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/accounts.ts:5",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/media.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/network.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/routing.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/dynamic-agent.ts:8",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/gateway-monitor.ts:5",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor.ts:6",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor/types.ts:2",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/onboarding.ts:9",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/outbound.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/shared/command-auth.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/ws-adapter.ts:14"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "yuanbao",
+      "code": "legacy-root-sdk-import",
+      "level": "warning",
+      "message": "fixture imports the root plugin SDK barrel",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/yuanbao/dist/index.js:1"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "code": "package-plugin-api-compat-missing",
+      "level": "warning",
+      "message": "package openclaw metadata does not declare compat.pluginApi",
+      "evidence": [
+        "plugins/openclaw-weixin/package.json"
+      ]
+    },
+    {
+      "fixture": "lightclawbot",
+      "code": "manifest-unknown-fields",
+      "level": "warning",
+      "message": "manifest uses top-level fields that are not present in the target OpenClaw PluginManifest type",
+      "evidence": [
+        "capabilities @ plugins/lightclawbot/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "lightclawbot",
+      "code": "package-manifest-version-drift",
+      "level": "warning",
+      "message": "package.json and openclaw.plugin.json publish different versions",
+      "evidence": [
+        "package:1.1.2",
+        "manifest:1.0.0"
+      ]
+    },
+    {
+      "fixture": "lightclawbot",
+      "code": "package-plugin-api-compat-missing",
+      "level": "warning",
+      "message": "package openclaw metadata does not declare compat.pluginApi",
+      "evidence": [
+        "plugins/lightclawbot/package.json"
+      ]
+    },
+    {
       "fixture": "memu-engine",
       "code": "package-plugin-api-compat-missing",
       "level": "warning",
@@ -5852,6 +7635,240 @@
       ]
     },
     {
+      "fixture": "memory-tencentdb",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/memory-tencentdb/index.ts"
+      ]
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "@node-rs/jieba @ plugins/memory-tencentdb/package.json",
+        "@tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/package.json",
+        "json5 @ plugins/memory-tencentdb/package.json",
+        "sqlite-vec @ plugins/memory-tencentdb/package.json",
+        "undici @ plugins/memory-tencentdb/package.json",
+        "node-llama-cpp @ plugins/memory-tencentdb/package.json",
+        "openclaw @ plugins/memory-tencentdb/package.json"
+      ]
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool @ plugins/memory-tencentdb/index.ts:268",
+        "registerTool @ plugins/memory-tencentdb/index.ts:365"
+      ]
+    },
+    {
+      "fixture": "ddingtalk",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/ddingtalk/index.ts"
+      ]
+    },
+    {
+      "fixture": "ddingtalk",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "dingtalk-stream @ plugins/ddingtalk/package.json",
+        "zod @ plugins/ddingtalk/package.json",
+        "openclaw @ plugins/ddingtalk/package.json"
+      ]
+    },
+    {
+      "fixture": "ddingtalk",
+      "code": "channel-contract-probe",
+      "level": "suggestion",
+      "message": "add channel envelope, config-schema, and runtime metadata probes",
+      "evidence": [
+        "defineChannelPluginEntry @ plugins/ddingtalk/index.ts:8"
+      ]
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/mocrane-wecom/index.ts"
+      ]
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "@wecom/aibot-node-sdk @ plugins/mocrane-wecom/package.json",
+        "fast-xml-parser @ plugins/mocrane-wecom/package.json",
+        "file-type @ plugins/mocrane-wecom/package.json",
+        "undici @ plugins/mocrane-wecom/package.json",
+        "zod @ plugins/mocrane-wecom/package.json",
+        "openclaw @ plugins/mocrane-wecom/package.json"
+      ]
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerChannel @ plugins/mocrane-wecom/index.ts:31",
+        "registerHttpRoute @ plugins/mocrane-wecom/index.ts:34"
+      ]
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "code": "channel-contract-probe",
+      "level": "suggestion",
+      "message": "add channel envelope, config-schema, and runtime metadata probes",
+      "evidence": [
+        "registerChannel @ plugins/mocrane-wecom/index.ts:31"
+      ]
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool @ plugins/mocrane-wecom/index.ts:43"
+      ]
+    },
+    {
+      "fixture": "yuanbao",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "cos-nodejs-sdk-v5 @ plugins/yuanbao/package.json",
+        "protobufjs @ plugins/yuanbao/package.json",
+        "uuid @ plugins/yuanbao/package.json",
+        "ws @ plugins/yuanbao/package.json",
+        "openclaw @ plugins/yuanbao/package.json"
+      ]
+    },
+    {
+      "fixture": "yuanbao",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerChannel @ plugins/yuanbao/dist/index.js:29",
+        "registerCommand @ plugins/yuanbao/dist/index.js:31",
+        "registerCommand @ plugins/yuanbao/dist/index.js:32",
+        "registerCommand @ plugins/yuanbao/dist/index.js:34"
+      ]
+    },
+    {
+      "fixture": "yuanbao",
+      "code": "channel-contract-probe",
+      "level": "suggestion",
+      "message": "add channel envelope, config-schema, and runtime metadata probes",
+      "evidence": [
+        "registerChannel @ plugins/yuanbao/dist/index.js:29"
+      ]
+    },
+    {
+      "fixture": "yuanbao",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool @ plugins/yuanbao/dist/src/tools/group.js:43",
+        "registerTool @ plugins/yuanbao/dist/src/tools/member.js:120",
+        "registerTool @ plugins/yuanbao/dist/src/tools/remind.js:271"
+      ]
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/openclaw-weixin/index.ts"
+      ]
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "qrcode-terminal @ plugins/openclaw-weixin/package.json",
+        "zod @ plugins/openclaw-weixin/package.json"
+      ]
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerChannel @ plugins/openclaw-weixin/index.ts:22"
+      ]
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "code": "channel-contract-probe",
+      "level": "suggestion",
+      "message": "add channel envelope, config-schema, and runtime metadata probes",
+      "evidence": [
+        "registerChannel @ plugins/openclaw-weixin/index.ts:22"
+      ]
+    },
+    {
+      "fixture": "lightclawbot",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "socket.io-client @ plugins/lightclawbot/package.json",
+        "openclaw @ plugins/lightclawbot/package.json"
+      ]
+    },
+    {
+      "fixture": "lightclawbot",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerChannel @ plugins/lightclawbot/dist/index.js:13"
+      ]
+    },
+    {
+      "fixture": "lightclawbot",
+      "code": "channel-contract-probe",
+      "level": "suggestion",
+      "message": "add channel envelope, config-schema, and runtime metadata probes",
+      "evidence": [
+        "registerChannel @ plugins/lightclawbot/dist/index.js:13"
+      ]
+    },
+    {
+      "fixture": "lightclawbot",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool @ plugins/lightclawbot/dist/src/download-tool.js:49",
+        "registerTool @ plugins/lightclawbot/dist/src/upload-tool.js:37"
+      ]
+    },
+    {
       "fixture": "memu-engine",
       "code": "package-typescript-source-entrypoint",
       "level": "suggestion",
@@ -6283,6 +8300,24 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-67575E70",
+      "fixture": "lightclawbot",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "lightclawbot: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerChannel @ plugins/lightclawbot/dist/index.js:13"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-D71B126E",
       "fixture": "llm-trace-phoenix",
       "severity": "P1",
@@ -6339,6 +8374,24 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-2EF307D7",
+      "fixture": "memory-tencentdb",
+      "severity": "P1",
+      "owner": "core",
+      "code": "conversation-access-hook",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "memory-tencentdb: conversation-access hooks need privacy-boundary probes",
+      "evidence": [
+        "agent_end @ plugins/memory-tencentdb/index.ts:820"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-13459911",
       "fixture": "memos-cloud",
       "severity": "P1",
@@ -6371,6 +8424,43 @@
       "title": "memos-cloud: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerHook @ plugins/memos-cloud/index.js:467"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-F9601B95",
+      "fixture": "mocrane-wecom",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "mocrane-wecom: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerChannel @ plugins/mocrane-wecom/index.ts:31",
+        "registerHttpRoute @ plugins/mocrane-wecom/index.ts:34"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-8845BC02",
+      "fixture": "openclaw-weixin",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "openclaw-weixin: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerChannel @ plugins/openclaw-weixin/index.ts:22"
       ],
       "compatRecord": null
     },
@@ -6502,6 +8592,27 @@
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27",
         "registerHttpRoute @ plugins/wecom/index.js:45"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-E46C8387",
+      "fixture": "yuanbao",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "yuanbao: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerChannel @ plugins/yuanbao/dist/index.js:29",
+        "registerCommand @ plugins/yuanbao/dist/index.js:31",
+        "registerCommand @ plugins/yuanbao/dist/index.js:32",
+        "registerCommand @ plugins/yuanbao/dist/index.js:34"
       ],
       "compatRecord": null
     },
@@ -7131,6 +9242,80 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-90423CBF",
+      "fixture": "ddingtalk",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "channel-contract-probe",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "ddingtalk: channel runtime needs envelope/config probes",
+      "evidence": [
+        "defineChannelPluginEntry @ plugins/ddingtalk/index.ts:8"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-C8EB8E62",
+      "fixture": "ddingtalk",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "ddingtalk: cold import requires isolated dependency installation",
+      "evidence": [
+        "dingtalk-stream @ plugins/ddingtalk/package.json",
+        "zod @ plugins/ddingtalk/package.json",
+        "openclaw @ plugins/ddingtalk/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-9464E307",
+      "fixture": "ddingtalk",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-plugin-api-compat-missing",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "ddingtalk: plugin API compatibility range is missing",
+      "evidence": [
+        "plugins/ddingtalk/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-C5EE2B34",
+      "fixture": "ddingtalk",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "ddingtalk: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/ddingtalk/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-2C2BFD3C",
       "fixture": "hasdata",
       "severity": "P2",
@@ -7449,6 +9634,117 @@
       "compatRecord": "provider-auth-env-vars"
     },
     {
+      "id": "CRABPOT-35AA276B",
+      "fixture": "lightclawbot",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "channel-contract-probe",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "lightclawbot: channel runtime needs envelope/config probes",
+      "evidence": [
+        "registerChannel @ plugins/lightclawbot/dist/index.js:13"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-9AD77D55",
+      "fixture": "lightclawbot",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "manifest-unknown-fields",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "lightclawbot: manifest uses unsupported top-level fields",
+      "evidence": [
+        "capabilities @ plugins/lightclawbot/openclaw.plugin.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-B4214D87",
+      "fixture": "lightclawbot",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "lightclawbot: cold import requires isolated dependency installation",
+      "evidence": [
+        "socket.io-client @ plugins/lightclawbot/package.json",
+        "openclaw @ plugins/lightclawbot/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-84DB7953",
+      "fixture": "lightclawbot",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-manifest-version-drift",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "lightclawbot: package and manifest versions drift",
+      "evidence": [
+        "package:1.1.2",
+        "manifest:1.0.0"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-1DBCA352",
+      "fixture": "lightclawbot",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-plugin-api-compat-missing",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "lightclawbot: plugin API compatibility range is missing",
+      "evidence": [
+        "plugins/lightclawbot/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-BF2A47B8",
+      "fixture": "lightclawbot",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "lightclawbot: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/lightclawbot/dist/src/download-tool.js:49",
+        "registerTool @ plugins/lightclawbot/dist/src/upload-tool.js:37"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-4CC6CA25",
       "fixture": "llm-trace-phoenix",
       "severity": "P2",
@@ -7661,6 +9957,67 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-612B002D",
+      "fixture": "memory-tencentdb",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "memory-tencentdb: cold import requires isolated dependency installation",
+      "evidence": [
+        "@node-rs/jieba @ plugins/memory-tencentdb/package.json",
+        "@tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/package.json",
+        "json5 @ plugins/memory-tencentdb/package.json",
+        "sqlite-vec @ plugins/memory-tencentdb/package.json",
+        "undici @ plugins/memory-tencentdb/package.json",
+        "node-llama-cpp @ plugins/memory-tencentdb/package.json",
+        "openclaw @ plugins/memory-tencentdb/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-11EBBC27",
+      "fixture": "memory-tencentdb",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "memory-tencentdb: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/memory-tencentdb/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-273DA0FD",
+      "fixture": "memory-tencentdb",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "memory-tencentdb: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/memory-tencentdb/index.ts:268",
+        "registerTool @ plugins/memory-tencentdb/index.ts:365"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-C13A3115",
       "fixture": "memos-cloud",
       "severity": "P2",
@@ -7783,6 +10140,217 @@
       "title": "memu-engine: runtime tool schema needs registration capture",
       "evidence": [
         "registerTool @ plugins/memu-engine/index.ts:1252"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-C1DD1FB8",
+      "fixture": "mocrane-wecom",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "channel-contract-probe",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "mocrane-wecom: channel runtime needs envelope/config probes",
+      "evidence": [
+        "registerChannel @ plugins/mocrane-wecom/index.ts:31"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-FF151B9D",
+      "fixture": "mocrane-wecom",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-root-sdk-import",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
+      "title": "mocrane-wecom: root plugin SDK barrel is still used by fixtures",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/accounts.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/agent/handler.ts:9",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/channel.ts:5",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:17",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:18",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:19",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:20",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:21",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:22",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:23",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:27",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:30",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/accounts.ts:5",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/media.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/network.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/routing.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/dynamic-agent.ts:8",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/gateway-monitor.ts:5",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor.ts:6",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor/types.ts:2",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/onboarding.ts:9",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/outbound.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/shared/command-auth.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/ws-adapter.ts:14"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "id": "CRABPOT-F2EB21E0",
+      "fixture": "mocrane-wecom",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "mocrane-wecom: cold import requires isolated dependency installation",
+      "evidence": [
+        "@wecom/aibot-node-sdk @ plugins/mocrane-wecom/package.json",
+        "fast-xml-parser @ plugins/mocrane-wecom/package.json",
+        "file-type @ plugins/mocrane-wecom/package.json",
+        "undici @ plugins/mocrane-wecom/package.json",
+        "zod @ plugins/mocrane-wecom/package.json",
+        "openclaw @ plugins/mocrane-wecom/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-C2C0CF20",
+      "fixture": "mocrane-wecom",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-plugin-api-compat-missing",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "mocrane-wecom: plugin API compatibility range is missing",
+      "evidence": [
+        "plugins/mocrane-wecom/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-7AE2275C",
+      "fixture": "mocrane-wecom",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "mocrane-wecom: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/mocrane-wecom/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-1C327002",
+      "fixture": "mocrane-wecom",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "mocrane-wecom: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/mocrane-wecom/index.ts:43"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-8D96316B",
+      "fixture": "openclaw-weixin",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "channel-contract-probe",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "openclaw-weixin: channel runtime needs envelope/config probes",
+      "evidence": [
+        "registerChannel @ plugins/openclaw-weixin/index.ts:22"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-64A3A1AC",
+      "fixture": "openclaw-weixin",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "openclaw-weixin: cold import requires isolated dependency installation",
+      "evidence": [
+        "qrcode-terminal @ plugins/openclaw-weixin/package.json",
+        "zod @ plugins/openclaw-weixin/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-30B3AED3",
+      "fixture": "openclaw-weixin",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-plugin-api-compat-missing",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "openclaw-weixin: plugin API compatibility range is missing",
+      "evidence": [
+        "plugins/openclaw-weixin/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-5E4837C5",
+      "fixture": "openclaw-weixin",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "openclaw-weixin: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/openclaw-weixin/index.ts"
       ],
       "compatRecord": null
     },
@@ -8196,6 +10764,84 @@
         "registerTool @ plugins/wecom/index.js:33"
       ],
       "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-51B07E65",
+      "fixture": "yuanbao",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "channel-contract-probe",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "yuanbao: channel runtime needs envelope/config probes",
+      "evidence": [
+        "registerChannel @ plugins/yuanbao/dist/index.js:29"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-DAE3C162",
+      "fixture": "yuanbao",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-root-sdk-import",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
+      "title": "yuanbao: root plugin SDK barrel is still used by fixtures",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/yuanbao/dist/index.js:1"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "id": "CRABPOT-19459517",
+      "fixture": "yuanbao",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "yuanbao: cold import requires isolated dependency installation",
+      "evidence": [
+        "cos-nodejs-sdk-v5 @ plugins/yuanbao/package.json",
+        "protobufjs @ plugins/yuanbao/package.json",
+        "uuid @ plugins/yuanbao/package.json",
+        "ws @ plugins/yuanbao/package.json",
+        "openclaw @ plugins/yuanbao/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-69E8E16F",
+      "fixture": "yuanbao",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "yuanbao: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/yuanbao/dist/src/tools/group.js:43",
+        "registerTool @ plugins/yuanbao/dist/src/tools/member.js:120",
+        "registerTool @ plugins/yuanbao/dist/src/tools/remind.js:271"
+      ],
+      "compatRecord": null
     }
   ],
   "contractProbes": [
@@ -8277,6 +10923,16 @@
       ]
     },
     {
+      "id": "api.capture.runtime-registrars:lightclawbot",
+      "fixture": "lightclawbot",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerChannel @ plugins/lightclawbot/dist/index.js:13"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:lossless-claw",
       "fixture": "lossless-claw",
       "priority": "P1",
@@ -8305,6 +10961,27 @@
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
         "registerHook @ plugins/memos-cloud/index.js:467"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:mocrane-wecom",
+      "fixture": "mocrane-wecom",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerChannel @ plugins/mocrane-wecom/index.ts:31",
+        "registerHttpRoute @ plugins/mocrane-wecom/index.ts:34"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:openclaw-weixin",
+      "fixture": "openclaw-weixin",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerChannel @ plugins/openclaw-weixin/index.ts:22"
       ]
     },
     {
@@ -8348,6 +11025,19 @@
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27",
         "registerHttpRoute @ plugins/wecom/index.js:45"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:yuanbao",
+      "fixture": "yuanbao",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerChannel @ plugins/yuanbao/dist/index.js:29",
+        "registerCommand @ plugins/yuanbao/dist/index.js:31",
+        "registerCommand @ plugins/yuanbao/dist/index.js:32",
+        "registerCommand @ plugins/yuanbao/dist/index.js:34"
       ]
     },
     {
@@ -8404,6 +11094,16 @@
       ]
     },
     {
+      "id": "hook.llm-observer.privacy-payload:memory-tencentdb",
+      "fixture": "memory-tencentdb",
+      "priority": "P1",
+      "target": "hook-runner",
+      "contract": "LLM observer hooks receive documented prompt/output fields with expected redaction behavior.",
+      "evidence": [
+        "agent_end @ plugins/memory-tencentdb/index.ts:820"
+      ]
+    },
+    {
       "id": "hook.llm-observer.privacy-payload:memos-cloud",
       "fixture": "memos-cloud",
       "priority": "P1",
@@ -8448,6 +11148,36 @@
       ]
     },
     {
+      "id": "channel.runtime.envelope-config-metadata:ddingtalk",
+      "fixture": "ddingtalk",
+      "priority": "P2",
+      "target": "channel-runtime",
+      "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
+      "evidence": [
+        "defineChannelPluginEntry @ plugins/ddingtalk/index.ts:8"
+      ]
+    },
+    {
+      "id": "channel.runtime.envelope-config-metadata:mocrane-wecom",
+      "fixture": "mocrane-wecom",
+      "priority": "P2",
+      "target": "channel-runtime",
+      "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
+      "evidence": [
+        "registerChannel @ plugins/mocrane-wecom/index.ts:31"
+      ]
+    },
+    {
+      "id": "channel.runtime.envelope-config-metadata:openclaw-weixin",
+      "fixture": "openclaw-weixin",
+      "priority": "P2",
+      "target": "channel-runtime",
+      "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
+      "evidence": [
+        "registerChannel @ plugins/openclaw-weixin/index.ts:22"
+      ]
+    },
+    {
       "id": "channel.runtime.envelope-config-metadata:qqbot",
       "fixture": "qqbot",
       "priority": "P2",
@@ -8465,6 +11195,16 @@
       "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27"
+      ]
+    },
+    {
+      "id": "channel.runtime.envelope-config-metadata:yuanbao",
+      "fixture": "yuanbao",
+      "priority": "P2",
+      "target": "channel-runtime",
+      "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
+      "evidence": [
+        "registerChannel @ plugins/yuanbao/dist/index.js:29"
       ]
     },
     {
@@ -8582,6 +11322,16 @@
       ]
     },
     {
+      "id": "package.compat.plugin-api-range:ddingtalk",
+      "fixture": "ddingtalk",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      "evidence": [
+        "plugins/ddingtalk/package.json"
+      ]
+    },
+    {
       "id": "package.compat.plugin-api-range:lossless-claw",
       "fixture": "lossless-claw",
       "priority": "P2",
@@ -8599,6 +11349,26 @@
       "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
       "evidence": [
         "plugins/mcp-adapter/package.json"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:mocrane-wecom",
+      "fixture": "mocrane-wecom",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      "evidence": [
+        "plugins/mocrane-wecom/package.json"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:openclaw-weixin",
+      "fixture": "openclaw-weixin",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      "evidence": [
+        "plugins/openclaw-weixin/package.json"
       ]
     },
     {
@@ -8715,6 +11485,18 @@
       ]
     },
     {
+      "id": "package.entrypoint.isolated-dependency-install:ddingtalk",
+      "fixture": "ddingtalk",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "dingtalk-stream @ plugins/ddingtalk/package.json",
+        "zod @ plugins/ddingtalk/package.json",
+        "openclaw @ plugins/ddingtalk/package.json"
+      ]
+    },
+    {
       "id": "package.entrypoint.isolated-dependency-install:hasdata",
       "fixture": "hasdata",
       "priority": "P2",
@@ -8775,6 +11557,48 @@
       ]
     },
     {
+      "id": "package.entrypoint.isolated-dependency-install:memory-tencentdb",
+      "fixture": "memory-tencentdb",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "@node-rs/jieba @ plugins/memory-tencentdb/package.json",
+        "@tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/package.json",
+        "json5 @ plugins/memory-tencentdb/package.json",
+        "sqlite-vec @ plugins/memory-tencentdb/package.json",
+        "undici @ plugins/memory-tencentdb/package.json",
+        "node-llama-cpp @ plugins/memory-tencentdb/package.json",
+        "openclaw @ plugins/memory-tencentdb/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:mocrane-wecom",
+      "fixture": "mocrane-wecom",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "@wecom/aibot-node-sdk @ plugins/mocrane-wecom/package.json",
+        "fast-xml-parser @ plugins/mocrane-wecom/package.json",
+        "file-type @ plugins/mocrane-wecom/package.json",
+        "undici @ plugins/mocrane-wecom/package.json",
+        "zod @ plugins/mocrane-wecom/package.json",
+        "openclaw @ plugins/mocrane-wecom/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:openclaw-weixin",
+      "fixture": "openclaw-weixin",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "qrcode-terminal @ plugins/openclaw-weixin/package.json",
+        "zod @ plugins/openclaw-weixin/package.json"
+      ]
+    },
+    {
       "id": "package.entrypoint.isolated-dependency-install:opik-openclaw",
       "fixture": "opik-openclaw",
       "priority": "P2",
@@ -8815,6 +11639,20 @@
       ]
     },
     {
+      "id": "package.entrypoint.isolated-dependency-install:yuanbao",
+      "fixture": "yuanbao",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "cos-nodejs-sdk-v5 @ plugins/yuanbao/package.json",
+        "protobufjs @ plugins/yuanbao/package.json",
+        "uuid @ plugins/yuanbao/package.json",
+        "ws @ plugins/yuanbao/package.json",
+        "openclaw @ plugins/yuanbao/package.json"
+      ]
+    },
+    {
       "id": "package.entrypoint.typescript-loader:a2a-gateway",
       "fixture": "a2a-gateway",
       "priority": "P2",
@@ -8842,6 +11680,16 @@
       "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
       "evidence": [
         "extension:plugins/connectclaw/packages/plugin/index.ts"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:ddingtalk",
+      "fixture": "ddingtalk",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/ddingtalk/index.ts"
       ]
     },
     {
@@ -8882,6 +11730,36 @@
       "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
       "evidence": [
         "extension:plugins/mcp-adapter/index.ts"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:memory-tencentdb",
+      "fixture": "memory-tencentdb",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/memory-tencentdb/index.ts"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:mocrane-wecom",
+      "fixture": "mocrane-wecom",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/mocrane-wecom/index.ts"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:openclaw-weixin",
+      "fixture": "openclaw-weixin",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/openclaw-weixin/index.ts"
       ]
     },
     {
@@ -9003,6 +11881,41 @@
       ]
     },
     {
+      "id": "sdk.import.root-barrel-cold-import:mocrane-wecom",
+      "fixture": "mocrane-wecom",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/accounts.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/agent/handler.ts:9",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/channel.ts:5",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:17",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:18",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:19",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:20",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:21",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:22",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:23",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:27",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:30",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/accounts.ts:5",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/media.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/network.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/routing.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/dynamic-agent.ts:8",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/gateway-monitor.ts:5",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor.ts:6",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor/types.ts:2",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/onboarding.ts:9",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/outbound.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/shared/command-auth.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/ws-adapter.ts:14"
+      ]
+    },
+    {
       "id": "sdk.import.root-barrel-cold-import:opik-openclaw",
       "fixture": "opik-openclaw",
       "priority": "P2",
@@ -9036,6 +11949,16 @@
         "openclaw/plugin-sdk @ plugins/qqbot/src/runtime.ts:1",
         "openclaw/plugin-sdk @ plugins/qqbot/src/tools/channel.ts:1",
         "openclaw/plugin-sdk @ plugins/qqbot/src/tools/remind.ts:1"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:yuanbao",
+      "fixture": "yuanbao",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/yuanbao/dist/index.js:1"
       ]
     },
     {
@@ -9122,6 +12045,27 @@
       ]
     },
     {
+      "id": "tool.registration.schema-capture:memory-tencentdb",
+      "fixture": "memory-tencentdb",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/memory-tencentdb/index.ts:268",
+        "registerTool @ plugins/memory-tencentdb/index.ts:365"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:mocrane-wecom",
+      "fixture": "mocrane-wecom",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/mocrane-wecom/index.ts:43"
+      ]
+    },
+    {
       "id": "tool.registration.schema-capture:qqbot",
       "fixture": "qqbot",
       "priority": "P2",
@@ -9145,6 +12089,28 @@
       ]
     },
     {
+      "id": "tool.registration.schema-capture:yuanbao",
+      "fixture": "yuanbao",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/yuanbao/dist/src/tools/group.js:43",
+        "registerTool @ plugins/yuanbao/dist/src/tools/member.js:120",
+        "registerTool @ plugins/yuanbao/dist/src/tools/remind.js:271"
+      ]
+    },
+    {
+      "id": "channel.runtime.envelope-config-metadata:lightclawbot",
+      "fixture": "lightclawbot",
+      "priority": "P3",
+      "target": "channel-runtime",
+      "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
+      "evidence": [
+        "registerChannel @ plugins/lightclawbot/dist/index.js:13"
+      ]
+    },
+    {
       "id": "hook.compat.before-agent-start-migration:memos-cloud",
       "fixture": "memos-cloud",
       "priority": "P3",
@@ -9165,6 +12131,16 @@
       ]
     },
     {
+      "id": "manifest.schema.top-level-fields:lightclawbot",
+      "fixture": "lightclawbot",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "contract": "Manifest top-level fields are represented in target OpenClaw PluginManifest.",
+      "evidence": [
+        "capabilities @ plugins/lightclawbot/openclaw.plugin.json"
+      ]
+    },
+    {
       "id": "manifest.schema.top-level-fields:memos-cloud",
       "fixture": "memos-cloud",
       "priority": "P3",
@@ -9182,6 +12158,16 @@
       "contract": "Manifest top-level fields are represented in target OpenClaw PluginManifest.",
       "evidence": [
         "displayName @ plugins/web-search-plus/openclaw.plugin.json"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:lightclawbot",
+      "fixture": "lightclawbot",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      "evidence": [
+        "plugins/lightclawbot/package.json"
       ]
     },
     {
@@ -9278,6 +12264,17 @@
       ]
     },
     {
+      "id": "package.entrypoint.isolated-dependency-install:lightclawbot",
+      "fixture": "lightclawbot",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "socket.io-client @ plugins/lightclawbot/package.json",
+        "openclaw @ plugins/lightclawbot/package.json"
+      ]
+    },
+    {
       "id": "package.entrypoint.isolated-dependency-install:secureclaw",
       "fixture": "secureclaw",
       "priority": "P3",
@@ -9360,6 +12357,17 @@
       ]
     },
     {
+      "id": "package.metadata.version-alignment:lightclawbot",
+      "fixture": "lightclawbot",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Package and OpenClaw manifest versions stay aligned for release compatibility reporting.",
+      "evidence": [
+        "package:1.1.2",
+        "manifest:1.0.0"
+      ]
+    },
+    {
       "id": "sdk.import.root-barrel-cold-import:apify",
       "fixture": "apify",
       "priority": "P3",
@@ -9402,6 +12410,17 @@
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
         "registerTool @ plugins/apify/src/index.ts:13"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:lightclawbot",
+      "fixture": "lightclawbot",
+      "priority": "P3",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/lightclawbot/dist/src/download-tool.js:49",
+        "registerTool @ plugins/lightclawbot/dist/src/upload-tool.js:37"
       ]
     },
     {
@@ -10229,6 +13248,374 @@
       ]
     },
     {
+      "fixture": "memory-tencentdb",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 3 hooks, 2 registrations, and 0 manifest contracts",
+      "evidence": [
+        "hook:agent_end",
+        "hook:before_prompt_build",
+        "hook:gateway_stop",
+        "registration:registerCli",
+        "registration:registerTool"
+      ]
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": [
+        "agent_end",
+        "before_prompt_build",
+        "gateway_stop"
+      ]
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerCli",
+        "registerTool"
+      ]
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk/core"
+      ]
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/memory-tencentdb/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/memory-tencentdb/package.json",
+        "@tencentdb-agent-memory/memory-tencentdb",
+        "version:0.2.3"
+      ]
+    },
+    {
+      "fixture": "ddingtalk",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 0 hooks, 1 registrations, and 0 manifest contracts",
+      "evidence": [
+        "registration:defineChannelPluginEntry"
+      ]
+    },
+    {
+      "fixture": "ddingtalk",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": []
+    },
+    {
+      "fixture": "ddingtalk",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": []
+    },
+    {
+      "fixture": "ddingtalk",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk/channel-contract",
+        "openclaw/plugin-sdk/channel-feedback",
+        "openclaw/plugin-sdk/conversation-runtime",
+        "openclaw/plugin-sdk/core",
+        "openclaw/plugin-sdk/runtime-env",
+        "openclaw/plugin-sdk/setup",
+        "openclaw/plugin-sdk/setup-tools",
+        "openclaw/plugin-sdk/web-media"
+      ]
+    },
+    {
+      "fixture": "ddingtalk",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/ddingtalk/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "ddingtalk",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/ddingtalk/package.json",
+        "@largezhou/ddingtalk",
+        "version:2.0.1"
+      ]
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 1 hooks, 3 registrations, and 0 manifest contracts",
+      "evidence": [
+        "hook:before_prompt_build",
+        "registration:registerChannel",
+        "registration:registerHttpRoute",
+        "registration:registerTool"
+      ]
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": [
+        "before_prompt_build"
+      ]
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerChannel",
+        "registerHttpRoute",
+        "registerTool"
+      ]
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk"
+      ]
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/mocrane-wecom/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/mocrane-wecom/package.json",
+        "@mocrane/wecom",
+        "version:2026.3.24-beta"
+      ]
+    },
+    {
+      "fixture": "yuanbao",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 0 hooks, 3 registrations, and 0 manifest contracts",
+      "evidence": [
+        "registration:registerChannel",
+        "registration:registerCommand",
+        "registration:registerTool"
+      ]
+    },
+    {
+      "fixture": "yuanbao",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": []
+    },
+    {
+      "fixture": "yuanbao",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerChannel",
+        "registerCommand",
+        "registerTool"
+      ]
+    },
+    {
+      "fixture": "yuanbao",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk",
+        "openclaw/plugin-sdk/account-id",
+        "openclaw/plugin-sdk/command-auth",
+        "openclaw/plugin-sdk/core",
+        "openclaw/plugin-sdk/matrix",
+        "openclaw/plugin-sdk/mattermost"
+      ]
+    },
+    {
+      "fixture": "yuanbao",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/yuanbao/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "yuanbao",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/yuanbao/package.json",
+        "openclaw-plugin-yuanbao",
+        "version:2.11.0"
+      ]
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 0 hooks, 1 registrations, and 0 manifest contracts",
+      "evidence": [
+        "registration:registerChannel"
+      ]
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": []
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerChannel"
+      ]
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk/account-id",
+        "openclaw/plugin-sdk/channel-config-schema",
+        "openclaw/plugin-sdk/channel-contract",
+        "openclaw/plugin-sdk/channel-runtime",
+        "openclaw/plugin-sdk/command-auth",
+        "openclaw/plugin-sdk/config-runtime",
+        "openclaw/plugin-sdk/core",
+        "openclaw/plugin-sdk/hook-runtime",
+        "openclaw/plugin-sdk/infra-runtime",
+        "openclaw/plugin-sdk/plugin-entry",
+        "openclaw/plugin-sdk/plugin-runtime",
+        "openclaw/plugin-sdk/reply-runtime"
+      ]
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/openclaw-weixin/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/openclaw-weixin/package.json",
+        "@tencent-weixin/openclaw-weixin",
+        "version:2.1.10"
+      ]
+    },
+    {
+      "fixture": "lightclawbot",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 0 hooks, 2 registrations, and 0 manifest contracts",
+      "evidence": [
+        "registration:registerChannel",
+        "registration:registerTool"
+      ]
+    },
+    {
+      "fixture": "lightclawbot",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": []
+    },
+    {
+      "fixture": "lightclawbot",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerChannel",
+        "registerTool"
+      ]
+    },
+    {
+      "fixture": "lightclawbot",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk/channel-reply-pipeline",
+        "openclaw/plugin-sdk/core"
+      ]
+    },
+    {
+      "fixture": "lightclawbot",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/lightclawbot/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "lightclawbot",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/lightclawbot/package.json",
+        "lightclawbot",
+        "version:1.1.2"
+      ]
+    },
+    {
       "fixture": "memu-engine",
       "code": "seam-inventory",
       "level": "log",
@@ -10795,6 +14182,28 @@
     },
     {
       "fixture": "composio",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-root-sdk-import",
+        "status:deprecated"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-root-sdk-import",
+        "status:deprecated"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "yuanbao",
       "code": "compat-record-present",
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
@@ -11395,6 +14804,230 @@
     },
     {
       "fixture": "composio",
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/memory-tencentdb/index.ts"
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "@node-rs/jieba, @tencentdb-agent-memory/tcvdb-text, json5, sqlite-vec, undici, node-llama-cpp, openclaw"
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "decision": "inspector-follow-up",
+      "seam": "conversation-access",
+      "action": "Add synthetic llm_input/llm_output/agent_end probes before tightening hook payloads or redaction behavior.",
+      "evidence": "agent_end"
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "ddingtalk",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to declare the plugin API range it was built against.",
+      "evidence": "plugins/ddingtalk/package.json"
+    },
+    {
+      "fixture": "ddingtalk",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/ddingtalk/index.ts"
+    },
+    {
+      "fixture": "ddingtalk",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "dingtalk-stream, zod, openclaw"
+    },
+    {
+      "fixture": "ddingtalk",
+      "decision": "inspector-follow-up",
+      "seam": "channel-runtime",
+      "action": "Probe channel setup and message envelope contracts before changing channel runtime payloads.",
+      "evidence": "defineChannelPluginEntry"
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to declare the plugin API range it was built against.",
+      "evidence": "plugins/mocrane-wecom/package.json"
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/mocrane-wecom/index.ts"
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "@wecom/aibot-node-sdk, fast-xml-parser, file-type, undici, zod, openclaw"
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "decision": "core-compat-adapter",
+      "seam": "sdk-import",
+      "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
+      "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerChannel, registerHttpRoute"
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "decision": "inspector-follow-up",
+      "seam": "channel-runtime",
+      "action": "Probe channel setup and message envelope contracts before changing channel runtime payloads.",
+      "evidence": "registerChannel"
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "yuanbao",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "cos-nodejs-sdk-v5, protobufjs, uuid, ws, openclaw"
+    },
+    {
+      "fixture": "yuanbao",
+      "decision": "core-compat-adapter",
+      "seam": "sdk-import",
+      "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
+      "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "yuanbao",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerChannel, registerCommand"
+    },
+    {
+      "fixture": "yuanbao",
+      "decision": "inspector-follow-up",
+      "seam": "channel-runtime",
+      "action": "Probe channel setup and message envelope contracts before changing channel runtime payloads.",
+      "evidence": "registerChannel"
+    },
+    {
+      "fixture": "yuanbao",
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to declare the plugin API range it was built against.",
+      "evidence": "plugins/openclaw-weixin/package.json"
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/openclaw-weixin/index.ts"
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "qrcode-terminal, zod"
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerChannel"
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "decision": "inspector-follow-up",
+      "seam": "channel-runtime",
+      "action": "Probe channel setup and message envelope contracts before changing channel runtime payloads.",
+      "evidence": "registerChannel"
+    },
+    {
+      "fixture": "lightclawbot",
+      "decision": "plugin-upstream-fix",
+      "seam": "manifest-schema",
+      "action": "Move unknown manifest metadata into supported package openclaw metadata or add a versioned OpenClaw manifest field.",
+      "evidence": "capabilities"
+    },
+    {
+      "fixture": "lightclawbot",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to keep package and manifest versions aligned before relying on release compatibility signals.",
+      "evidence": "1.1.2 != 1.0.0"
+    },
+    {
+      "fixture": "lightclawbot",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to declare the plugin API range it was built against.",
+      "evidence": "plugins/lightclawbot/package.json"
+    },
+    {
+      "fixture": "lightclawbot",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "socket.io-client, openclaw"
+    },
+    {
+      "fixture": "lightclawbot",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerChannel"
+    },
+    {
+      "fixture": "lightclawbot",
+      "decision": "inspector-follow-up",
+      "seam": "channel-runtime",
+      "action": "Probe channel setup and message envelope contracts before changing channel runtime payloads.",
+      "evidence": "registerChannel"
+    },
+    {
+      "fixture": "lightclawbot",
       "decision": "inspector-follow-up",
       "seam": "tool-schema",
       "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",

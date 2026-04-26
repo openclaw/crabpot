@@ -24,29 +24,29 @@ Run: https://github.com/openclaw/crabpot/actions/runs/24949371209
 
 | Metric                 | Result                                               |
 | ---------------------- | ---------------------------------------------------- |
-| Fixtures               | 21                                                   |
+| Fixtures               | 27                                                   |
 | Hard breakages         | 0                                                    |
-| Warnings               | 42                                                   |
-| Suggestions            | 69                                                   |
-| Issues                 | 111                                                  |
+| Warnings               | 51                                                   |
+| Suggestions            | 92                                                   |
+| Issues                 | 143                                                  |
 | P0 issues              | [🔴 P0 2](reports/crabpot-issues.md#p0-live-issues)  |
-| P1 issues              | [🟠 P1 21](reports/crabpot-issues.md#triage-summary) |
+| P1 issues              | [🟠 P1 26](reports/crabpot-issues.md#triage-summary) |
 | Live issues            | 2 total / 2 P0                                       |
 | Compat gaps            | 1                                                    |
-| Deprecation warnings   | 19                                                   |
-| Inspector gaps         | 73                                                   |
-| Upstream metadata      | 16                                                   |
-| Contract probes        | 109                                                  |
+| Deprecation warnings   | 21                                                   |
+| Inspector gaps         | 97                                                   |
+| Upstream metadata      | 22                                                   |
+| Contract probes        | 141                                                  |
 | Policy failures        | 0                                                    |
 | Policy warnings        | 3                                                    |
 | Ref diff failures      | 0                                                    |
 | Profile failures       | 0                                                    |
 | Execution probes       | 6 pass / 0 fail / 2 blocked                          |
-| Synthetic probes       | 118 ready / 0 blocked / 118 total                    |
-| Cold import            | 0 ready / 24 blocked / 24 entrypoints                |
-| Workspace plan         | 24 entrypoints / 14 installs / 7 builds              |
-| Platform risks         | 121 Windows / 38 container                           |
-| Jiti loader candidates | 14                                                   |
+| Synthetic probes       | 141 ready / 0 blocked / 141 total                    |
+| Cold import            | 0 ready / 30 blocked / 30 entrypoints                |
+| Workspace plan         | 30 entrypoints / 20 installs / 7 builds              |
+| Platform risks         | 153 Windows / 47 container                           |
+| Jiti loader candidates | 18                                                   |
 | Import loop            | p50 153ms / p95 165ms / max RSS 46.3MB / CPU 27ms    |
 | Runtime profile        | p50 649ms / p95 1329ms / max RSS 68.7MB              |
 

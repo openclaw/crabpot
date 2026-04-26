@@ -6,15 +6,15 @@ Generated: deterministic
 
 | Metric              | Value |
 | ------------------- | ----- |
-| Fixtures            | 21    |
-| Probes              | 118   |
-| Hook probes         | 43    |
-| Registration probes | 75    |
-| Ready               | 118   |
+| Fixtures            | 27    |
+| Probes              | 141   |
+| Hook probes         | 48    |
+| Registration probes | 93    |
+| Ready               | 141   |
 | Blocked             | 0     |
-| Direct execution    | 54    |
-| Opt-in execution    | 13    |
-| Metadata-only       | 8     |
+| Direct execution    | 67    |
+| Opt-in execution    | 17    |
+| Metadata-only       | 9     |
 
 ## Probe Inventory
 
@@ -59,6 +59,11 @@ Generated: deterministic
 | honcho            | hook         | gateway_start               | ready  | hook-direct      | plugins/honcho/hooks/gateway.ts:6                                  | hook payload and return value are captured                                                      |
 | honcho            | hook         | subagent_spawned            | ready  | hook-direct      | plugins/honcho/hooks/subagent.ts:24                                | spawn payload is preserved; parent/subagent metadata are present                                |
 | composio          | hook         | before_prompt_build         | ready  | hook-direct      | plugins/composio/index.ts:33                                       | prompt mutation result is preserved; agent and conversation metadata are present                |
+| memory-tencentdb  | hook         | agent_end                   | ready  | hook-direct      | plugins/memory-tencentdb/index.ts:820                              | final conversation payload is redacted as expected; agent id and run metadata are present       |
+| memory-tencentdb  | hook         | before_prompt_build         | ready  | hook-direct      | plugins/memory-tencentdb/index.ts:464                              | prompt mutation result is preserved; agent and conversation metadata are present                |
+| memory-tencentdb  | hook         | gateway_stop                | ready  | hook-direct      | plugins/memory-tencentdb/index.ts:745                              | hook payload and return value are captured                                                      |
+| memory-tencentdb  | hook         | gateway_stop                | ready  | hook-direct      | plugins/memory-tencentdb/index.ts:939                              | hook payload and return value are captured                                                      |
+| mocrane-wecom     | hook         | before_prompt_build         | ready  | hook-direct      | plugins/mocrane-wecom/index.ts:48                                  | prompt mutation result is preserved; agent and conversation metadata are present                |
 | secureclaw        | hook         | gateway_start               | ready  | hook-direct      | plugins/secureclaw/secureclaw/src/index.ts:314                     | hook payload and return value are captured                                                      |
 | memos-cloud       | hook         | agent_end                   | ready  | hook-direct      | plugins/memos-cloud/index.js:515                                   | final conversation payload is redacted as expected; agent id and run metadata are present       |
 | memos-cloud       | hook         | before_agent_start          | ready  | hook-direct      | plugins/memos-cloud/index.js:481                                   | legacy startup hook payload is accepted; migration metadata can map to prompt/model hooks       |
@@ -120,6 +125,24 @@ Generated: deterministic
 | honcho            | registration | registerTool                | ready  | direct           | plugins/honcho/tools/session.ts:8                                  | tool name is stable; input schema is captured; result shape metadata is captured                |
 | composio          | registration | registerCli                 | ready  | direct           | plugins/composio/src/cli.ts:46                                     | command name is stable; argument schema is captured                                             |
 | composio          | registration | registerTool                | ready  | direct           | plugins/composio/src/tools.ts:89                                   | tool name is stable; input schema is captured; result shape metadata is captured                |
+| memory-tencentdb  | registration | registerCli                 | ready  | direct           | plugins/memory-tencentdb/index.ts:957                              | command name is stable; argument schema is captured                                             |
+| memory-tencentdb  | registration | registerTool                | ready  | direct           | plugins/memory-tencentdb/index.ts:268                              | tool name is stable; input schema is captured; result shape metadata is captured                |
+| memory-tencentdb  | registration | registerTool                | ready  | direct           | plugins/memory-tencentdb/index.ts:365                              | tool name is stable; input schema is captured; result shape metadata is captured                |
+| ddingtalk         | registration | defineChannelPluginEntry    | ready  | metadata-only    | plugins/ddingtalk/index.ts:8                                       | channel id is stable; setup/config schema can be read; message envelope metadata is preserved   |
+| mocrane-wecom     | registration | registerChannel             | ready  | channel-opt-in   | plugins/mocrane-wecom/index.ts:31                                  | channel id is stable; inbound/outbound envelope shape is captured; sender metadata is preserved |
+| mocrane-wecom     | registration | registerHttpRoute           | ready  | direct           | plugins/mocrane-wecom/index.ts:34                                  | route method and path are captured; auth policy metadata is captured                            |
+| mocrane-wecom     | registration | registerTool                | ready  | direct           | plugins/mocrane-wecom/index.ts:43                                  | tool name is stable; input schema is captured; result shape metadata is captured                |
+| yuanbao           | registration | registerChannel             | ready  | channel-opt-in   | plugins/yuanbao/dist/index.js:29                                   | channel id is stable; inbound/outbound envelope shape is captured; sender metadata is preserved |
+| yuanbao           | registration | registerCommand             | ready  | direct           | plugins/yuanbao/dist/index.js:31                                   | command id is stable; interactive command payload is captured                                   |
+| yuanbao           | registration | registerCommand             | ready  | direct           | plugins/yuanbao/dist/index.js:32                                   | command id is stable; interactive command payload is captured                                   |
+| yuanbao           | registration | registerCommand             | ready  | direct           | plugins/yuanbao/dist/index.js:34                                   | command id is stable; interactive command payload is captured                                   |
+| yuanbao           | registration | registerTool                | ready  | direct           | plugins/yuanbao/dist/src/tools/group.js:43                         | tool name is stable; input schema is captured; result shape metadata is captured                |
+| yuanbao           | registration | registerTool                | ready  | direct           | plugins/yuanbao/dist/src/tools/member.js:120                       | tool name is stable; input schema is captured; result shape metadata is captured                |
+| yuanbao           | registration | registerTool                | ready  | direct           | plugins/yuanbao/dist/src/tools/remind.js:271                       | tool name is stable; input schema is captured; result shape metadata is captured                |
+| openclaw-weixin   | registration | registerChannel             | ready  | channel-opt-in   | plugins/openclaw-weixin/index.ts:22                                | channel id is stable; inbound/outbound envelope shape is captured; sender metadata is preserved |
+| lightclawbot      | registration | registerChannel             | ready  | channel-opt-in   | plugins/lightclawbot/dist/index.js:13                              | channel id is stable; inbound/outbound envelope shape is captured; sender metadata is preserved |
+| lightclawbot      | registration | registerTool                | ready  | direct           | plugins/lightclawbot/dist/src/download-tool.js:49                  | tool name is stable; input schema is captured; result shape metadata is captured                |
+| lightclawbot      | registration | registerTool                | ready  | direct           | plugins/lightclawbot/dist/src/upload-tool.js:37                    | tool name is stable; input schema is captured; result shape metadata is captured                |
 | memu-engine       | registration | registerTool                | ready  | direct           | plugins/memu-engine/index.ts:1252                                  | tool name is stable; input schema is captured; result shape metadata is captured                |
 | secureclaw        | registration | registerCli                 | ready  | direct           | plugins/secureclaw/secureclaw/src/index.ts:351                     | command name is stable; argument schema is captured                                             |
 | secureclaw        | registration | registerService             | ready  | lifecycle-opt-in | plugins/secureclaw/secureclaw/src/index.ts:295                     | service id is stable; start/stop lifecycle handlers are captured                                |

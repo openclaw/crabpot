@@ -82,3 +82,11 @@
 	path = plugins/memos-cloud
 	url = https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin.git
 	shallow = true
+[submodule "plugins/ddingtalk"]
+	path = plugins/ddingtalk
+	url = https://github.com/largezhou/openclaw-dingtalk.git
+	shallow = true
+[submodule "plugins/mocrane-wecom"]
+	path = plugins/mocrane-wecom
+	url = https://github.com/TencentCloud-Lighthouse/openclaw-wecom.git
+	shallow = true

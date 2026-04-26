@@ -68,7 +68,7 @@ export async function inspectFixture(fixture) {
     return emptyInspection(fixture, "missing");
   }
 
-  const files = await listSourceFiles(sourceRoot);
+  const files = await listSourceFiles(sourceRoot, { includeDist: Boolean(fixture.package) });
   if (sourceRoot !== checkoutPath) {
     files.push(...(await listSourceFiles(checkoutPath, { shallowRootOnly: true })));
   }
@@ -214,7 +214,7 @@ async function walk(dir, output, options) {
     const normalized = entryPath.split(path.sep).join("/");
 
     if (entry.isDirectory()) {
-      if (shouldSkipDir(entry.name, normalized)) {
+      if (shouldSkipDir(entry.name, normalized, options)) {
         continue;
       }
       if (options.shallowRootOnly) {
@@ -230,10 +230,10 @@ async function walk(dir, output, options) {
   }
 }
 
-function shouldSkipDir(name, normalizedPath) {
+function shouldSkipDir(name, normalizedPath, options = {}) {
   return (
     name === "node_modules" ||
-    name === "dist" ||
+    (!options.includeDist && name === "dist") ||
     name === "build" ||
     name === "coverage" ||
     name === ".git" ||

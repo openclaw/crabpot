@@ -52,7 +52,9 @@ test("manifest validation rejects invalid fixture contracts before CI materializ
       "invalid fixture id: Bad_ID",
       "duplicate fixture id: Bad_ID",
       "duplicate fixture path: ../outside",
+      "fixture must declare exactly one of repo or package",
       "repo must be a GitHub HTTPS .git URL",
+      "package.version must be set",
       "priority must be high, medium, or low",
       "seams must be non-empty",
       "expect.hooks must be a non-empty array",
@@ -72,6 +74,9 @@ function invalidManifest() {
         id: "Bad_ID",
         path: "../outside",
         repo: "git@github.com:owner/repo",
+        package: {
+          name: "@scope/plugin",
+        },
         priority: "urgent",
         seams: [],
         expect: {

@@ -7,13 +7,13 @@
     "sdkExportCount": 307
   },
   "summary": {
-    "fixtureCount": 21,
-    "registrationCount": 75,
-    "hookCount": 43,
-    "sdkImportCount": 86,
-    "packageEntrypointCount": 24,
-    "issueProbeCount": 109,
-    "inspectorShimRequiredCount": 38,
+    "fixtureCount": 27,
+    "registrationCount": 93,
+    "hookCount": 48,
+    "sdkImportCount": 165,
+    "packageEntrypointCount": 30,
+    "issueProbeCount": 141,
+    "inspectorShimRequiredCount": 47,
     "compatAliasRequiredCount": 3
   },
   "fixtures": [
@@ -3125,6 +3125,1504 @@
       ]
     },
     {
+      "id": "memory-tencentdb",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-index-ts-957",
+          "fixture": "memory-tencentdb",
+          "registrar": "registerCli",
+          "ref": "plugins/memory-tencentdb/index.ts:957",
+          "support": "target-captured",
+          "assertions": [
+            "command name is stable",
+            "argument schema is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "args": [
+                {
+                  "name": "input",
+                  "type": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-index-ts-268",
+          "fixture": "memory-tencentdb",
+          "registrar": "registerTool",
+          "ref": "plugins/memory-tencentdb/index.ts:268",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-index-ts-365",
+          "fixture": "memory-tencentdb",
+          "registrar": "registerTool",
+          "ref": "plugins/memory-tencentdb/index.ts:365",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [
+        {
+          "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-index-ts-820",
+          "fixture": "memory-tencentdb",
+          "hook": "agent_end",
+          "ref": "plugins/memory-tencentdb/index.ts:820",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "final conversation payload is redacted as expected",
+            "agent id and run metadata are present"
+          ],
+          "syntheticEvent": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "conversationId": "conversation-fixture",
+            "status": "completed",
+            "transcript": [
+              {
+                "role": "assistant",
+                "content": "[redacted fixture output]"
+              }
+            ]
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture",
+            "channelId": "fixture-channel"
+          }
+        },
+        {
+          "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-index-ts-464",
+          "fixture": "memory-tencentdb",
+          "hook": "before_prompt_build",
+          "ref": "plugins/memory-tencentdb/index.ts:464",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "prompt mutation result is preserved",
+            "agent and conversation metadata are present"
+          ],
+          "syntheticEvent": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "conversationId": "conversation-fixture",
+            "messages": [
+              {
+                "role": "user",
+                "content": "fixture prompt"
+              }
+            ],
+            "metadata": {
+              "source": "crabpot"
+            }
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture",
+            "channelId": "fixture-channel"
+          }
+        },
+        {
+          "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-index-ts-745",
+          "fixture": "memory-tencentdb",
+          "hook": "gateway_stop",
+          "ref": "plugins/memory-tencentdb/index.ts:745",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "gateway_stop",
+            "fixture": "memory-tencentdb"
+          },
+          "syntheticContext": {
+            "hook": "gateway_stop",
+            "fixture": "memory-tencentdb"
+          }
+        },
+        {
+          "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-index-ts-939",
+          "fixture": "memory-tencentdb",
+          "hook": "gateway_stop",
+          "ref": "plugins/memory-tencentdb/index.ts:939",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "gateway_stop",
+            "fixture": "memory-tencentdb"
+          },
+          "syntheticContext": {
+            "hook": "gateway_stop",
+            "fixture": "memory-tencentdb"
+          }
+        }
+      ],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:memory-tencentdb:plugins-memory-tencentdb-index-ts-15",
+          "fixture": "memory-tencentdb",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/memory-tencentdb/index.ts:15",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:memory-tencentdb:plugins-memory-tencentdb-src-utils-clean-context-runner-ts-17",
+          "fixture": "memory-tencentdb",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/memory-tencentdb/src/utils/clean-context-runner.ts:17",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:memory-tencentdb:plugins-memory-tencentdb-index-ts",
+          "fixture": "memory-tencentdb",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "ref": "plugins/memory-tencentdb/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ddingtalk",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.defineChannelPluginEntry:ddingtalk:plugins-ddingtalk-index-ts-8",
+          "fixture": "ddingtalk",
+          "registrar": "defineChannelPluginEntry",
+          "ref": "plugins/ddingtalk/index.ts:8",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "channel id is stable",
+            "setup/config schema can be read",
+            "message envelope metadata is preserved"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-channel",
+              "setup": "function",
+              "receive": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-contract:ddingtalk:plugins-ddingtalk-src-channel-ts-11",
+          "fixture": "ddingtalk",
+          "specifier": "openclaw/plugin-sdk/channel-contract",
+          "ref": "plugins/ddingtalk/src/channel.ts:11",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-feedback:ddingtalk:plugins-ddingtalk-src-channel-ts-13",
+          "fixture": "ddingtalk",
+          "specifier": "openclaw/plugin-sdk/channel-feedback",
+          "ref": "plugins/ddingtalk/src/channel.ts:13",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/conversation-runtime:ddingtalk:plugins-ddingtalk-src-monitor-ts-2",
+          "fixture": "ddingtalk",
+          "specifier": "openclaw/plugin-sdk/conversation-runtime",
+          "ref": "plugins/ddingtalk/src/monitor.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:ddingtalk:plugins-ddingtalk-index-ts-1",
+          "fixture": "ddingtalk",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/ddingtalk/index.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:ddingtalk:plugins-ddingtalk-src-accounts-ts-5",
+          "fixture": "ddingtalk",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/ddingtalk/src/accounts.ts:5",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:ddingtalk:plugins-ddingtalk-src-channel-ts-10",
+          "fixture": "ddingtalk",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/ddingtalk/src/channel.ts:10",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:ddingtalk:plugins-ddingtalk-src-monitor-ts-3",
+          "fixture": "ddingtalk",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/ddingtalk/src/monitor.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:ddingtalk:plugins-ddingtalk-src-runtime-ts-1",
+          "fixture": "ddingtalk",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/ddingtalk/src/runtime.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/runtime-env:ddingtalk:plugins-ddingtalk-src-monitor-ts-4",
+          "fixture": "ddingtalk",
+          "specifier": "openclaw/plugin-sdk/runtime-env",
+          "ref": "plugins/ddingtalk/src/monitor.ts:4",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/setup:ddingtalk:plugins-ddingtalk-src-setup-core-ts-7",
+          "fixture": "ddingtalk",
+          "specifier": "openclaw/plugin-sdk/setup",
+          "ref": "plugins/ddingtalk/src/setup-core.ts:7",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/setup:ddingtalk:plugins-ddingtalk-src-setup-core-ts-8",
+          "fixture": "ddingtalk",
+          "specifier": "openclaw/plugin-sdk/setup",
+          "ref": "plugins/ddingtalk/src/setup-core.ts:8",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/setup:ddingtalk:plugins-ddingtalk-src-setup-surface-ts-13",
+          "fixture": "ddingtalk",
+          "specifier": "openclaw/plugin-sdk/setup",
+          "ref": "plugins/ddingtalk/src/setup-surface.ts:13",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/setup:ddingtalk:plugins-ddingtalk-src-setup-surface-ts-9",
+          "fixture": "ddingtalk",
+          "specifier": "openclaw/plugin-sdk/setup",
+          "ref": "plugins/ddingtalk/src/setup-surface.ts:9",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/setup-tools:ddingtalk:plugins-ddingtalk-src-setup-core-ts-9",
+          "fixture": "ddingtalk",
+          "specifier": "openclaw/plugin-sdk/setup-tools",
+          "ref": "plugins/ddingtalk/src/setup-core.ts:9",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/setup-tools:ddingtalk:plugins-ddingtalk-src-setup-surface-ts-14",
+          "fixture": "ddingtalk",
+          "specifier": "openclaw/plugin-sdk/setup-tools",
+          "ref": "plugins/ddingtalk/src/setup-surface.ts:14",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/web-media:ddingtalk:plugins-ddingtalk-src-channel-ts-12",
+          "fixture": "ddingtalk",
+          "specifier": "openclaw/plugin-sdk/web-media",
+          "ref": "plugins/ddingtalk/src/channel.ts:12",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:ddingtalk:plugins-ddingtalk-index-ts",
+          "fixture": "ddingtalk",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "ref": "plugins/ddingtalk/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mocrane-wecom",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.registerChannel:mocrane-wecom:plugins-mocrane-wecom-index-ts-31",
+          "fixture": "mocrane-wecom",
+          "registrar": "registerChannel",
+          "ref": "plugins/mocrane-wecom/index.ts:31",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "channel id is stable",
+            "inbound/outbound envelope shape is captured",
+            "sender metadata is preserved"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-channel",
+              "send": "function",
+              "receive": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerHttpRoute:mocrane-wecom:plugins-mocrane-wecom-index-ts-34",
+          "fixture": "mocrane-wecom",
+          "registrar": "registerHttpRoute",
+          "ref": "plugins/mocrane-wecom/index.ts:34",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "route method and path are captured",
+            "auth policy metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "method": "POST",
+              "path": "/fixture/probe",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:mocrane-wecom:plugins-mocrane-wecom-index-ts-43",
+          "fixture": "mocrane-wecom",
+          "registrar": "registerTool",
+          "ref": "plugins/mocrane-wecom/index.ts:43",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [
+        {
+          "id": "hook.before_prompt_build:mocrane-wecom:plugins-mocrane-wecom-index-ts-48",
+          "fixture": "mocrane-wecom",
+          "hook": "before_prompt_build",
+          "ref": "plugins/mocrane-wecom/index.ts:48",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "prompt mutation result is preserved",
+            "agent and conversation metadata are present"
+          ],
+          "syntheticEvent": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "conversationId": "conversation-fixture",
+            "messages": [
+              {
+                "role": "user",
+                "content": "fixture prompt"
+              }
+            ],
+            "metadata": {
+              "source": "crabpot"
+            }
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture",
+            "channelId": "fixture-channel"
+          }
+        }
+      ],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-index-ts-1",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/index.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-accounts-ts-1",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/accounts.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-agent-handler-ts-9",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/agent/handler.ts:9",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-channel-ts-5",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/channel.ts:5",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-compat-plugin-sdk-shim-ts-17",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:17",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-compat-plugin-sdk-shim-ts-18",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:18",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-compat-plugin-sdk-shim-ts-19",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:19",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-compat-plugin-sdk-shim-ts-20",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:20",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-compat-plugin-sdk-shim-ts-21",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:21",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-compat-plugin-sdk-shim-ts-22",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:22",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-compat-plugin-sdk-shim-ts-23",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:23",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-compat-plugin-sdk-shim-ts-27",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:27",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-compat-plugin-sdk-shim-ts-30",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:30",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-config-accounts-ts-5",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/config/accounts.ts:5",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-config-media-ts-1",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/config/media.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-config-network-ts-1",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/config/network.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-config-routing-ts-1",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/config/routing.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-dynamic-agent-ts-8",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/dynamic-agent.ts:8",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-gateway-monitor-ts-5",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/gateway-monitor.ts:5",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-monitor-ts-6",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/monitor.ts:6",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-monitor-types-ts-2",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/monitor/types.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-onboarding-ts-9",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/onboarding.ts:9",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-outbound-ts-1",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/outbound.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-runtime-ts-1",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/runtime.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-shared-command-auth-ts-1",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/shared/command-auth.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:mocrane-wecom:plugins-mocrane-wecom-src-ws-adapter-ts-14",
+          "fixture": "mocrane-wecom",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/mocrane-wecom/src/ws-adapter.ts:14",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:mocrane-wecom:plugins-mocrane-wecom-index-ts",
+          "fixture": "mocrane-wecom",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "ref": "plugins/mocrane-wecom/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yuanbao",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.registerChannel:yuanbao:plugins-yuanbao-dist-index-js-29",
+          "fixture": "yuanbao",
+          "registrar": "registerChannel",
+          "ref": "plugins/yuanbao/dist/index.js:29",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "channel id is stable",
+            "inbound/outbound envelope shape is captured",
+            "sender metadata is preserved"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-channel",
+              "send": "function",
+              "receive": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCommand:yuanbao:plugins-yuanbao-dist-index-js-31",
+          "fixture": "yuanbao",
+          "registrar": "registerCommand",
+          "ref": "plugins/yuanbao/dist/index.js:31",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCommand:yuanbao:plugins-yuanbao-dist-index-js-32",
+          "fixture": "yuanbao",
+          "registrar": "registerCommand",
+          "ref": "plugins/yuanbao/dist/index.js:32",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCommand:yuanbao:plugins-yuanbao-dist-index-js-34",
+          "fixture": "yuanbao",
+          "registrar": "registerCommand",
+          "ref": "plugins/yuanbao/dist/index.js:34",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:yuanbao:plugins-yuanbao-dist-src-tools-group-js-43",
+          "fixture": "yuanbao",
+          "registrar": "registerTool",
+          "ref": "plugins/yuanbao/dist/src/tools/group.js:43",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:yuanbao:plugins-yuanbao-dist-src-tools-member-js-120",
+          "fixture": "yuanbao",
+          "registrar": "registerTool",
+          "ref": "plugins/yuanbao/dist/src/tools/member.js:120",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:yuanbao:plugins-yuanbao-dist-src-tools-remind-js-271",
+          "fixture": "yuanbao",
+          "registrar": "registerTool",
+          "ref": "plugins/yuanbao/dist/src/tools/remind.js:271",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk:yuanbao:plugins-yuanbao-dist-index-js-1",
+          "fixture": "yuanbao",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/yuanbao/dist/index.js:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/account-id:yuanbao:plugins-yuanbao-dist-src-accounts-js-2",
+          "fixture": "yuanbao",
+          "specifier": "openclaw/plugin-sdk/account-id",
+          "ref": "plugins/yuanbao/dist/src/accounts.js:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/command-auth:yuanbao:plugins-yuanbao-dist-src-commands-slash-commands-index-js-9",
+          "fixture": "yuanbao",
+          "specifier": "openclaw/plugin-sdk/command-auth",
+          "ref": "plugins/yuanbao/dist/src/commands/slash-commands/index.js:9",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:yuanbao:plugins-yuanbao-dist-src-accounts-js-1",
+          "fixture": "yuanbao",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/yuanbao/dist/src/accounts.js:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:yuanbao:plugins-yuanbao-dist-src-channel-js-1",
+          "fixture": "yuanbao",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/yuanbao/dist/src/channel.js:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:yuanbao:plugins-yuanbao-dist-src-onboarding-js-1",
+          "fixture": "yuanbao",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/yuanbao/dist/src/onboarding.js:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/matrix:yuanbao:plugins-yuanbao-dist-src-commands-upgrade-utils-js-2",
+          "fixture": "yuanbao",
+          "specifier": "openclaw/plugin-sdk/matrix",
+          "ref": "plugins/yuanbao/dist/src/commands/upgrade/utils.js:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/matrix:yuanbao:plugins-yuanbao-dist-src-module-log-upload-extractor-js-2",
+          "fixture": "yuanbao",
+          "specifier": "openclaw/plugin-sdk/matrix",
+          "ref": "plugins/yuanbao/dist/src/module/log-upload/extractor.js:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/mattermost:yuanbao:plugins-yuanbao-dist-src-channel-js-2",
+          "fixture": "yuanbao",
+          "specifier": "openclaw/plugin-sdk/mattermost",
+          "ref": "plugins/yuanbao/dist/src/channel.js:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/mattermost:yuanbao:plugins-yuanbao-dist-src-message-handler-inbound-js-1",
+          "fixture": "yuanbao",
+          "specifier": "openclaw/plugin-sdk/mattermost",
+          "ref": "plugins/yuanbao/dist/src/message-handler/inbound.js:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:yuanbao:plugins-yuanbao-dist-index-js",
+          "fixture": "yuanbao",
+          "kind": "extension",
+          "specifier": "./dist/index.js",
+          "ref": "plugins/yuanbao/dist/index.js",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "openclaw-weixin",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-index-ts-22",
+          "fixture": "openclaw-weixin",
+          "registrar": "registerChannel",
+          "ref": "plugins/openclaw-weixin/index.ts:22",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "channel id is stable",
+            "inbound/outbound envelope shape is captured",
+            "sender metadata is preserved"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-channel",
+              "send": "function",
+              "receive": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk/account-id:openclaw-weixin:plugins-openclaw-weixin-src-auth-accounts-ts-4",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/account-id",
+          "ref": "plugins/openclaw-weixin/src/auth/accounts.ts:4",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/account-id:openclaw-weixin:plugins-openclaw-weixin-src-channel-ts-4",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/account-id",
+          "ref": "plugins/openclaw-weixin/src/channel.ts:4",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-config-schema:openclaw-weixin:plugins-openclaw-weixin-index-ts-2",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/channel-config-schema",
+          "ref": "plugins/openclaw-weixin/index.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-contract:openclaw-weixin:plugins-openclaw-weixin-src-monitor-monitor-ts-1",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/channel-contract",
+          "ref": "plugins/openclaw-weixin/src/monitor/monitor.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-runtime:openclaw-weixin:plugins-openclaw-weixin-src-messaging-process-message-ts-3",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/channel-runtime",
+          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/command-auth:openclaw-weixin:plugins-openclaw-weixin-src-messaging-process-message-ts-7",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/command-auth",
+          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:7",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:openclaw-weixin:plugins-openclaw-weixin-src-auth-accounts-ts-299",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "ref": "plugins/openclaw-weixin/src/auth/accounts.ts:299",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-src-auth-accounts-ts-5",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/openclaw-weixin/src/auth/accounts.ts:5",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-src-channel-ts-3",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/openclaw-weixin/src/channel.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-src-messaging-process-message-ts-41",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:41",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-src-messaging-process-message-ts-9",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:9",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-src-monitor-monitor-ts-2",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/openclaw-weixin/src/monitor/monitor.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-src-monitor-monitor-ts-26",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/openclaw-weixin/src/monitor/monitor.ts:26",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-src-runtime-ts-1",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/openclaw-weixin/src/runtime.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/hook-runtime:openclaw-weixin:plugins-openclaw-weixin-src-messaging-outbound-hooks-ts-6",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/hook-runtime",
+          "ref": "plugins/openclaw-weixin/src/messaging/outbound-hooks.ts:6",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/infra-runtime:openclaw-weixin:plugins-openclaw-weixin-src-auth-pairing-ts-4",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/infra-runtime",
+          "ref": "plugins/openclaw-weixin/src/auth/pairing.ts:4",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/infra-runtime:openclaw-weixin:plugins-openclaw-weixin-src-channel-ts-5",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/infra-runtime",
+          "ref": "plugins/openclaw-weixin/src/channel.ts:5",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/infra-runtime:openclaw-weixin:plugins-openclaw-weixin-src-messaging-process-message-ts-8",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/infra-runtime",
+          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:8",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/infra-runtime:openclaw-weixin:plugins-openclaw-weixin-src-util-logger-ts-5",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/infra-runtime",
+          "ref": "plugins/openclaw-weixin/src/util/logger.ts:5",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/plugin-entry:openclaw-weixin:plugins-openclaw-weixin-index-ts-1",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/plugin-entry",
+          "ref": "plugins/openclaw-weixin/index.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/plugin-runtime:openclaw-weixin:plugins-openclaw-weixin-src-messaging-outbound-hooks-ts-7",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/plugin-runtime",
+          "ref": "plugins/openclaw-weixin/src/messaging/outbound-hooks.ts:7",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/reply-runtime:openclaw-weixin:plugins-openclaw-weixin-src-messaging-send-ts-1",
+          "fixture": "openclaw-weixin",
+          "specifier": "openclaw/plugin-sdk/reply-runtime",
+          "ref": "plugins/openclaw-weixin/src/messaging/send.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:openclaw-weixin:plugins-openclaw-weixin-index-ts",
+          "fixture": "openclaw-weixin",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "ref": "plugins/openclaw-weixin/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lightclawbot",
+      "priority": "medium",
+      "registrations": [
+        {
+          "id": "registration.registerChannel:lightclawbot:plugins-lightclawbot-dist-index-js-13",
+          "fixture": "lightclawbot",
+          "registrar": "registerChannel",
+          "ref": "plugins/lightclawbot/dist/index.js:13",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "channel id is stable",
+            "inbound/outbound envelope shape is captured",
+            "sender metadata is preserved"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-channel",
+              "send": "function",
+              "receive": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-dist-src-download-tool-js-49",
+          "fixture": "lightclawbot",
+          "registrar": "registerTool",
+          "ref": "plugins/lightclawbot/dist/src/download-tool.js:49",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-dist-src-upload-tool-js-37",
+          "fixture": "lightclawbot",
+          "registrar": "registerTool",
+          "ref": "plugins/lightclawbot/dist/src/upload-tool.js:37",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-reply-pipeline:lightclawbot:plugins-lightclawbot-dist-src-inbound-js-8",
+          "fixture": "lightclawbot",
+          "specifier": "openclaw/plugin-sdk/channel-reply-pipeline",
+          "ref": "plugins/lightclawbot/dist/src/inbound.js:8",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:lightclawbot:plugins-lightclawbot-dist-index-js-1",
+          "fixture": "lightclawbot",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/lightclawbot/dist/index.js:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:lightclawbot:plugins-lightclawbot-dist-src-channel-js-8",
+          "fixture": "lightclawbot",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/lightclawbot/dist/src/channel.js:8",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:lightclawbot:plugins-lightclawbot-dist-index-js",
+          "fixture": "lightclawbot",
+          "kind": "extension",
+          "specifier": "./dist/index.js",
+          "ref": "plugins/lightclawbot/dist/index.js",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
       "id": "memu-engine",
       "priority": "medium",
       "registrations": [
@@ -4073,6 +5571,19 @@
       ]
     },
     {
+      "id": "api.capture.runtime-registrars:lightclawbot",
+      "fixture": "lightclawbot",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerChannel @ plugins/lightclawbot/dist/index.js:13"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:lossless-claw",
       "fixture": "lossless-claw",
       "priority": "P1",
@@ -4106,6 +5617,33 @@
       "target": "inspector-capture-api",
       "evidence": [
         "registerHook @ plugins/memos-cloud/index.js:467"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:mocrane-wecom",
+      "fixture": "mocrane-wecom",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerChannel @ plugins/mocrane-wecom/index.ts:31",
+        "registerHttpRoute @ plugins/mocrane-wecom/index.ts:34"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:openclaw-weixin",
+      "fixture": "openclaw-weixin",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerChannel @ plugins/openclaw-weixin/index.ts:22"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -4161,6 +5699,22 @@
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27",
         "registerHttpRoute @ plugins/wecom/index.js:45"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:yuanbao",
+      "fixture": "yuanbao",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerChannel @ plugins/yuanbao/dist/index.js:29",
+        "registerCommand @ plugins/yuanbao/dist/index.js:31",
+        "registerCommand @ plugins/yuanbao/dist/index.js:32",
+        "registerCommand @ plugins/yuanbao/dist/index.js:34"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -4236,6 +5790,19 @@
       ]
     },
     {
+      "id": "hook.llm-observer.privacy-payload:memory-tencentdb",
+      "fixture": "memory-tencentdb",
+      "priority": "P1",
+      "target": "hook-runner",
+      "evidence": [
+        "agent_end @ plugins/memory-tencentdb/index.ts:820"
+      ],
+      "assertions": [
+        "synthetic event payload is accepted",
+        "return semantics are preserved"
+      ]
+    },
+    {
       "id": "hook.llm-observer.privacy-payload:memos-cloud",
       "fixture": "memos-cloud",
       "priority": "P1",
@@ -4292,6 +5859,45 @@
       ]
     },
     {
+      "id": "channel.runtime.envelope-config-metadata:ddingtalk",
+      "fixture": "ddingtalk",
+      "priority": "P2",
+      "target": "channel-runtime",
+      "evidence": [
+        "defineChannelPluginEntry @ plugins/ddingtalk/index.ts:8"
+      ],
+      "assertions": [
+        "message envelope is stable",
+        "sender/config metadata is preserved"
+      ]
+    },
+    {
+      "id": "channel.runtime.envelope-config-metadata:mocrane-wecom",
+      "fixture": "mocrane-wecom",
+      "priority": "P2",
+      "target": "channel-runtime",
+      "evidence": [
+        "registerChannel @ plugins/mocrane-wecom/index.ts:31"
+      ],
+      "assertions": [
+        "message envelope is stable",
+        "sender/config metadata is preserved"
+      ]
+    },
+    {
+      "id": "channel.runtime.envelope-config-metadata:openclaw-weixin",
+      "fixture": "openclaw-weixin",
+      "priority": "P2",
+      "target": "channel-runtime",
+      "evidence": [
+        "registerChannel @ plugins/openclaw-weixin/index.ts:22"
+      ],
+      "assertions": [
+        "message envelope is stable",
+        "sender/config metadata is preserved"
+      ]
+    },
+    {
       "id": "channel.runtime.envelope-config-metadata:qqbot",
       "fixture": "qqbot",
       "priority": "P2",
@@ -4311,6 +5917,19 @@
       "target": "channel-runtime",
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27"
+      ],
+      "assertions": [
+        "message envelope is stable",
+        "sender/config metadata is preserved"
+      ]
+    },
+    {
+      "id": "channel.runtime.envelope-config-metadata:yuanbao",
+      "fixture": "yuanbao",
+      "priority": "P2",
+      "target": "channel-runtime",
+      "evidence": [
+        "registerChannel @ plugins/yuanbao/dist/index.js:29"
       ],
       "assertions": [
         "message envelope is stable",
@@ -4465,6 +6084,19 @@
       ]
     },
     {
+      "id": "package.compat.plugin-api-range:ddingtalk",
+      "fixture": "ddingtalk",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/ddingtalk/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.compat.plugin-api-range:lossless-claw",
       "fixture": "lossless-claw",
       "priority": "P2",
@@ -4484,6 +6116,32 @@
       "target": "package-loader",
       "evidence": [
         "plugins/mcp-adapter/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:mocrane-wecom",
+      "fixture": "mocrane-wecom",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/mocrane-wecom/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:openclaw-weixin",
+      "fixture": "openclaw-weixin",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/openclaw-weixin/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -4634,6 +6292,21 @@
       ]
     },
     {
+      "id": "package.entrypoint.isolated-dependency-install:ddingtalk",
+      "fixture": "ddingtalk",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "dingtalk-stream @ plugins/ddingtalk/package.json",
+        "zod @ plugins/ddingtalk/package.json",
+        "openclaw @ plugins/ddingtalk/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.entrypoint.isolated-dependency-install:hasdata",
       "fixture": "hasdata",
       "priority": "P2",
@@ -4709,6 +6382,57 @@
       ]
     },
     {
+      "id": "package.entrypoint.isolated-dependency-install:memory-tencentdb",
+      "fixture": "memory-tencentdb",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "@node-rs/jieba @ plugins/memory-tencentdb/package.json",
+        "@tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/package.json",
+        "json5 @ plugins/memory-tencentdb/package.json",
+        "sqlite-vec @ plugins/memory-tencentdb/package.json",
+        "undici @ plugins/memory-tencentdb/package.json",
+        "node-llama-cpp @ plugins/memory-tencentdb/package.json",
+        "openclaw @ plugins/memory-tencentdb/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:mocrane-wecom",
+      "fixture": "mocrane-wecom",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "@wecom/aibot-node-sdk @ plugins/mocrane-wecom/package.json",
+        "fast-xml-parser @ plugins/mocrane-wecom/package.json",
+        "file-type @ plugins/mocrane-wecom/package.json",
+        "undici @ plugins/mocrane-wecom/package.json",
+        "zod @ plugins/mocrane-wecom/package.json",
+        "openclaw @ plugins/mocrane-wecom/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:openclaw-weixin",
+      "fixture": "openclaw-weixin",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "qrcode-terminal @ plugins/openclaw-weixin/package.json",
+        "zod @ plugins/openclaw-weixin/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.entrypoint.isolated-dependency-install:opik-openclaw",
       "fixture": "opik-openclaw",
       "priority": "P2",
@@ -4758,6 +6482,23 @@
       ]
     },
     {
+      "id": "package.entrypoint.isolated-dependency-install:yuanbao",
+      "fixture": "yuanbao",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "cos-nodejs-sdk-v5 @ plugins/yuanbao/package.json",
+        "protobufjs @ plugins/yuanbao/package.json",
+        "uuid @ plugins/yuanbao/package.json",
+        "ws @ plugins/yuanbao/package.json",
+        "openclaw @ plugins/yuanbao/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.entrypoint.typescript-loader:a2a-gateway",
       "fixture": "a2a-gateway",
       "priority": "P2",
@@ -4790,6 +6531,19 @@
       "target": "package-loader",
       "evidence": [
         "extension:plugins/connectclaw/packages/plugin/index.ts"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:ddingtalk",
+      "fixture": "ddingtalk",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/ddingtalk/index.ts"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -4842,6 +6596,45 @@
       "target": "package-loader",
       "evidence": [
         "extension:plugins/mcp-adapter/index.ts"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:memory-tencentdb",
+      "fixture": "memory-tencentdb",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/memory-tencentdb/index.ts"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:mocrane-wecom",
+      "fixture": "mocrane-wecom",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/mocrane-wecom/index.ts"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:openclaw-weixin",
+      "fixture": "openclaw-weixin",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/openclaw-weixin/index.ts"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -4994,6 +6787,44 @@
       ]
     },
     {
+      "id": "sdk.import.root-barrel-cold-import:mocrane-wecom",
+      "fixture": "mocrane-wecom",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/accounts.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/agent/handler.ts:9",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/channel.ts:5",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:17",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:18",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:19",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:20",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:21",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:22",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:23",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:27",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:30",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/accounts.ts:5",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/media.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/network.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/routing.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/dynamic-agent.ts:8",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/gateway-monitor.ts:5",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor.ts:6",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor/types.ts:2",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/onboarding.ts:9",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/outbound.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/shared/command-auth.ts:1",
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/ws-adapter.ts:14"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
       "id": "sdk.import.root-barrel-cold-import:opik-openclaw",
       "fixture": "opik-openclaw",
       "priority": "P2",
@@ -5029,6 +6860,19 @@
         "openclaw/plugin-sdk @ plugins/qqbot/src/runtime.ts:1",
         "openclaw/plugin-sdk @ plugins/qqbot/src/tools/channel.ts:1",
         "openclaw/plugin-sdk @ plugins/qqbot/src/tools/remind.ts:1"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:yuanbao",
+      "fixture": "yuanbao",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/yuanbao/dist/index.js:1"
       ],
       "assertions": [
         "package export exists",
@@ -5140,6 +6984,33 @@
       ]
     },
     {
+      "id": "tool.registration.schema-capture:memory-tencentdb",
+      "fixture": "memory-tencentdb",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/memory-tencentdb/index.ts:268",
+        "registerTool @ plugins/memory-tencentdb/index.ts:365"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:mocrane-wecom",
+      "fixture": "mocrane-wecom",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/mocrane-wecom/index.ts:43"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    },
+    {
       "id": "tool.registration.schema-capture:qqbot",
       "fixture": "qqbot",
       "priority": "P2",
@@ -5169,6 +7040,34 @@
       ]
     },
     {
+      "id": "tool.registration.schema-capture:yuanbao",
+      "fixture": "yuanbao",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/yuanbao/dist/src/tools/group.js:43",
+        "registerTool @ plugins/yuanbao/dist/src/tools/member.js:120",
+        "registerTool @ plugins/yuanbao/dist/src/tools/remind.js:271"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    },
+    {
+      "id": "channel.runtime.envelope-config-metadata:lightclawbot",
+      "fixture": "lightclawbot",
+      "priority": "P3",
+      "target": "channel-runtime",
+      "evidence": [
+        "registerChannel @ plugins/lightclawbot/dist/index.js:13"
+      ],
+      "assertions": [
+        "message envelope is stable",
+        "sender/config metadata is preserved"
+      ]
+    },
+    {
       "id": "hook.compat.before-agent-start-migration:memos-cloud",
       "fixture": "memos-cloud",
       "priority": "P3",
@@ -5188,6 +7087,19 @@
       "target": "manifest-loader",
       "evidence": [
         "inworld"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:lightclawbot",
+      "fixture": "lightclawbot",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "capabilities @ plugins/lightclawbot/openclaw.plugin.json"
       ],
       "assertions": [
         "metadata key is accepted",
@@ -5218,6 +7130,19 @@
       "assertions": [
         "metadata key is accepted",
         "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:lightclawbot",
+      "fixture": "lightclawbot",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/lightclawbot/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
       ]
     },
     {
@@ -5341,6 +7266,20 @@
       ]
     },
     {
+      "id": "package.entrypoint.isolated-dependency-install:lightclawbot",
+      "fixture": "lightclawbot",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "socket.io-client @ plugins/lightclawbot/package.json",
+        "openclaw @ plugins/lightclawbot/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.entrypoint.isolated-dependency-install:secureclaw",
       "fixture": "secureclaw",
       "priority": "P3",
@@ -5447,6 +7386,20 @@
       ]
     },
     {
+      "id": "package.metadata.version-alignment:lightclawbot",
+      "fixture": "lightclawbot",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "package:1.1.2",
+        "manifest:1.0.0"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "sdk.import.root-barrel-cold-import:apify",
       "fixture": "apify",
       "priority": "P3",
@@ -5497,6 +7450,20 @@
       "target": "tool-runtime",
       "evidence": [
         "registerTool @ plugins/apify/src/index.ts:13"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:lightclawbot",
+      "fixture": "lightclawbot",
+      "priority": "P3",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/lightclawbot/dist/src/download-tool.js:49",
+        "registerTool @ plugins/lightclawbot/dist/src/upload-tool.js:37"
       ],
       "assertions": [
         "tool schema is captured",

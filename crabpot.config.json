@@ -205,6 +205,96 @@
       "why": "NPM-installed dynamic tool fixture for Composio/MCP integration, prompt context injection, CLI setup, external API auth, and large remote tool catalogs."
     },
     {
+      "id": "memory-tencentdb",
+      "name": "TencentDB Agent Memory",
+      "package": {
+        "name": "@tencentdb-agent-memory/memory-tencentdb",
+        "version": "0.2.3",
+        "tag": "latest"
+      },
+      "path": "plugins/memory-tencentdb",
+      "priority": "high",
+      "seams": ["memory-runtime", "prompt-mutation", "session-lifecycle", "vector-store", "cli"],
+      "expect": {
+        "hooks": ["before_prompt_build", "gateway_stop", "agent_end"],
+        "registrations": ["registerTool", "registerCli"]
+      },
+      "why": "NPM-pinned memory fixture covering automatic recall/capture hooks, TencentDB vector storage, SQLite fallback, cleanup lifecycle, and seed/export CLI commands."
+    },
+    {
+      "id": "ddingtalk",
+      "name": "DingTalk Channel",
+      "repo": "https://github.com/largezhou/openclaw-dingtalk.git",
+      "path": "plugins/ddingtalk",
+      "priority": "high",
+      "seams": ["channel", "media", "account-auth", "webhook", "config-schema"],
+      "expect": {
+        "registrations": ["defineChannelPluginEntry"]
+      },
+      "why": "DingTalk channel fixture from the latest npm-backed repo, covering enterprise IM auth, channel setup, media handling, and webhook-style message ingress."
+    },
+    {
+      "id": "mocrane-wecom",
+      "name": "Mocrane WeCom",
+      "repo": "https://github.com/TencentCloud-Lighthouse/openclaw-wecom.git",
+      "path": "plugins/mocrane-wecom",
+      "priority": "high",
+      "seams": ["channel", "dynamic-agent-routing", "mcp", "skills", "sdk-compat"],
+      "expect": {
+        "hooks": ["before_prompt_build"],
+        "registrations": ["registerChannel", "registerTool", "registerHttpRoute"]
+      },
+      "why": "Latest @mocrane/wecom-backed fixture covering WeCom channel routing, MCP proxy tooling, skill bundles, HTTP routes, and broad SDK compatibility shims."
+    },
+    {
+      "id": "yuanbao",
+      "name": "Tencent Yuanbao Bot",
+      "package": {
+        "name": "openclaw-plugin-yuanbao",
+        "version": "2.11.0",
+        "tag": "latest"
+      },
+      "path": "plugins/yuanbao",
+      "priority": "high",
+      "seams": ["channel", "media", "command", "account-auth", "sdk-compat"],
+      "expect": {
+        "registrations": ["registerChannel", "registerTool", "registerCommand"]
+      },
+      "why": "NPM-pinned Yuanbao channel fixture covering bot auth, media messaging, built-in commands, command queue state compatibility, and root SDK imports."
+    },
+    {
+      "id": "openclaw-weixin",
+      "name": "OpenClaw Weixin",
+      "package": {
+        "name": "@tencent-weixin/openclaw-weixin",
+        "version": "2.1.10",
+        "tag": "latest"
+      },
+      "path": "plugins/openclaw-weixin",
+      "priority": "high",
+      "seams": ["channel", "media", "account-auth", "pairing", "sdk-subpaths"],
+      "expect": {
+        "registrations": ["registerChannel"]
+      },
+      "why": "NPM-pinned Weixin channel fixture covering scan-login pairing, account isolation, media upload/download, and narrow SDK subpath usage."
+    },
+    {
+      "id": "lightclawbot",
+      "name": "LightClawBot",
+      "package": {
+        "name": "lightclawbot",
+        "version": "1.1.2",
+        "tag": "latest"
+      },
+      "path": "plugins/lightclawbot",
+      "priority": "medium",
+      "seams": ["channel", "cron", "proactive-messaging", "media", "bundled-deps"],
+      "expect": {
+        "registrations": ["registerChannel", "registerTool"]
+      },
+      "why": "NPM-pinned channel fixture covering cron/proactive messaging metadata, file upload tooling, bundled Socket.IO dependencies, and built JavaScript-only plugin packages."
+    },
+    {
       "id": "memu-engine",
       "name": "MemU Engine",
       "repo": "https://github.com/duxiaoxiong/memu-engine-for-OpenClaw.git",

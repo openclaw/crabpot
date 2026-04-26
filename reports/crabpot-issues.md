@@ -7,16 +7,16 @@ Status: PASS
 
 | Metric               | Value |
 | -------------------- | ----- |
-| Issue findings       | 111   |
+| Issue findings       | 143   |
 | 🔴 P0                | 2     |
-| 🟠 P1                | 21    |
+| 🟠 P1                | 26    |
 | Live issues          | 2     |
 | Live P0 issues       | 2     |
 | Compat gaps          | 1     |
-| Deprecation warnings | 19    |
-| Inspector gaps       | 73    |
-| Upstream metadata    | 16    |
-| Contract probes      | 109   |
+| Deprecation warnings | 21    |
+| Inspector gaps       | 97    |
+| Upstream metadata    | 22    |
+| Contract probes      | 141   |
 
 ## Triage Overview
 
@@ -24,9 +24,9 @@ Status: PASS
 | ------------------- | ----- | -- | --------------------------------------------------------------------------------------------------------------- |
 | live-issue          | 2     | 2  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam. |
 | compat-gap          | 1     | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                          |
-| deprecation-warning | 19    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                |
-| inspector-gap       | 73    | -  | Crabpot needs stronger capture/probe evidence before making contract judgments.                                 |
-| upstream-metadata   | 16    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.        |
+| deprecation-warning | 21    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                |
+| inspector-gap       | 97    | -  | Crabpot needs stronger capture/probe evidence before making contract judgments.                                 |
+| upstream-metadata   | 22    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.        |
 | fixture-regression  | 0     | -  | Fixture no longer exposes a seam Crabpot expected; investigate fixture pin or scanner drift.                    |
 
 ## P0 Live Issues
@@ -206,6 +206,37 @@ Status: PASS
   - evidence:
     - [openclaw/plugin-sdk @ index.ts:1](https://github.com/duxiaoxiong/memu-engine-for-OpenClaw/blob/a5a22c5faf21e30d17a1b47635829e7dd0728ae5/index.ts#L1)
 
+- 🟡 P2 **mocrane-wecom** `deprecation-warning` `core-compat-adapter`
+  - **legacy-root-sdk-import**: mocrane-wecom: root plugin SDK barrel is still used by fixtures
+  - state: open · compat:deprecated · deprecated
+  - evidence:
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/index.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/accounts.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/agent/handler.ts:9
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/channel.ts:5
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:17
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:18
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:19
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:20
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:21
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:22
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:23
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:27
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:30
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/accounts.ts:5
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/media.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/network.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/routing.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/dynamic-agent.ts:8
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/gateway-monitor.ts:5
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor.ts:6
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor/types.ts:2
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/onboarding.ts:9
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/outbound.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/runtime.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/shared/command-auth.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/ws-adapter.ts:14
+
 - 🟡 P2 **opik-openclaw** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: opik-openclaw: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
@@ -233,6 +264,12 @@ Status: PASS
     - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/runtime.ts#L1)
     - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/channel.ts#L1)
     - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/remind.ts#L1)
+
+- 🟡 P2 **yuanbao** `deprecation-warning` `core-compat-adapter`
+  - **legacy-root-sdk-import**: yuanbao: root plugin SDK barrel is still used by fixtures
+  - state: open · compat:deprecated · deprecated
+  - evidence:
+    - openclaw/plugin-sdk @ plugins/yuanbao/dist/index.js:1
 
 ## Inspector Proof Gaps
 
@@ -303,6 +340,12 @@ Status: PASS
     - [registerCommand @ index.ts:68](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L68)
     - [registerService @ index.ts:134](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L134)
 
+- 🟠 P1 **lightclawbot** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: lightclawbot: runtime registrations need capture before contract judgment
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/lightclawbot/dist/index.js:13
+
 - 🟠 P1 **llm-trace-phoenix** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: llm-trace-phoenix: conversation-access hooks need privacy-boundary probes
   - state: open · compat:none
@@ -323,6 +366,12 @@ Status: PASS
   - evidence:
     - [registerService @ index.ts:15](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L15)
 
+- 🟠 P1 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: memory-tencentdb: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:none
+  - evidence:
+    - agent_end @ plugins/memory-tencentdb/index.ts:820
+
 - 🟠 P1 **memos-cloud** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: memos-cloud: conversation-access hooks need privacy-boundary probes
   - state: open · compat:none
@@ -334,6 +383,19 @@ Status: PASS
   - state: open · compat:none
   - evidence:
     - [registerHook @ index.js:467](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/03fcc33c5fd285971d4b3dbaa8bbb31cb727db7c/index.js#L467)
+
+- 🟠 P1 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: mocrane-wecom: runtime registrations need capture before contract judgment
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/mocrane-wecom/index.ts:31
+    - registerHttpRoute @ plugins/mocrane-wecom/index.ts:34
+
+- 🟠 P1 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: openclaw-weixin: runtime registrations need capture before contract judgment
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/openclaw-weixin/index.ts:22
 
 - 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: opik-openclaw: before_tool_call needs terminal/block/approval probes
@@ -381,6 +443,15 @@ Status: PASS
   - evidence:
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/b7849ac055c8fa699d01b48e83cf24028907307d/index.js#L27)
     - [registerHttpRoute @ index.js:45](https://github.com/sunnoy/openclaw-plugin-wecom/blob/b7849ac055c8fa699d01b48e83cf24028907307d/index.js#L45)
+
+- 🟠 P1 **yuanbao** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: yuanbao: runtime registrations need capture before contract judgment
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/yuanbao/dist/index.js:29
+    - registerCommand @ plugins/yuanbao/dist/index.js:31
+    - registerCommand @ plugins/yuanbao/dist/index.js:32
+    - registerCommand @ plugins/yuanbao/dist/index.js:34
 
 - 🟡 P2 **a2a-gateway** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: a2a-gateway: cold import requires isolated dependency installation
@@ -518,6 +589,26 @@ Status: PASS
   - evidence:
     - [registerTool @ tools.ts:6](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/tools.ts#L6)
 
+- 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
+  - **channel-contract-probe**: ddingtalk: channel runtime needs envelope/config probes
+  - state: open · compat:none
+  - evidence:
+    - defineChannelPluginEntry @ plugins/ddingtalk/index.ts:8
+
+- 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: ddingtalk: cold import requires isolated dependency installation
+  - state: open · compat:none
+  - evidence:
+    - dingtalk-stream @ plugins/ddingtalk/package.json
+    - zod @ plugins/ddingtalk/package.json
+    - openclaw @ plugins/ddingtalk/package.json
+
+- 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
+  - **package-typescript-source-entrypoint**: ddingtalk: cold import needs TypeScript source entrypoint support
+  - state: open · compat:none
+  - evidence:
+    - extension:plugins/ddingtalk/index.ts
+
 - 🟡 P2 **hasdata** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hasdata: cold import requires isolated dependency installation
   - state: open · compat:none
@@ -594,6 +685,26 @@ Status: PASS
   - evidence:
     - [extension @ index.ts](https://github.com/livingghost/openclaw-inworld-tts/blob/d2abaeea330ebef7530f43f8b395671f6f404aea/index.ts)
 
+- 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
+  - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/lightclawbot/dist/index.js:13
+
+- 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: lightclawbot: cold import requires isolated dependency installation
+  - state: open · compat:none
+  - evidence:
+    - socket.io-client @ plugins/lightclawbot/package.json
+    - openclaw @ plugins/lightclawbot/package.json
+
+- 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
+  - **runtime-tool-capture**: lightclawbot: runtime tool schema needs registration capture
+  - state: open · compat:none
+  - evidence:
+    - registerTool @ plugins/lightclawbot/dist/src/download-tool.js:49
+    - registerTool @ plugins/lightclawbot/dist/src/upload-tool.js:37
+
 - 🟡 P2 **llm-trace-phoenix** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: llm-trace-phoenix: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
@@ -643,6 +754,31 @@ Status: PASS
   - evidence:
     - [registerTool @ index.ts:30](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L30)
 
+- 🟡 P2 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: memory-tencentdb: cold import requires isolated dependency installation
+  - state: open · compat:none
+  - evidence:
+    - @node-rs/jieba @ plugins/memory-tencentdb/package.json
+    - @tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/package.json
+    - json5 @ plugins/memory-tencentdb/package.json
+    - sqlite-vec @ plugins/memory-tencentdb/package.json
+    - undici @ plugins/memory-tencentdb/package.json
+    - node-llama-cpp @ plugins/memory-tencentdb/package.json
+    - openclaw @ plugins/memory-tencentdb/package.json
+
+- 🟡 P2 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
+  - **package-typescript-source-entrypoint**: memory-tencentdb: cold import needs TypeScript source entrypoint support
+  - state: open · compat:none
+  - evidence:
+    - extension:plugins/memory-tencentdb/index.ts
+
+- 🟡 P2 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
+  - **runtime-tool-capture**: memory-tencentdb: runtime tool schema needs registration capture
+  - state: open · compat:none
+  - evidence:
+    - registerTool @ plugins/memory-tencentdb/index.ts:268
+    - registerTool @ plugins/memory-tencentdb/index.ts:365
+
 - 🟡 P2 **memu-engine** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: memu-engine: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
@@ -654,6 +790,54 @@ Status: PASS
   - state: open · compat:none
   - evidence:
     - [registerTool @ index.ts:1252](https://github.com/duxiaoxiong/memu-engine-for-OpenClaw/blob/a5a22c5faf21e30d17a1b47635829e7dd0728ae5/index.ts#L1252)
+
+- 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
+  - **channel-contract-probe**: mocrane-wecom: channel runtime needs envelope/config probes
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/mocrane-wecom/index.ts:31
+
+- 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: mocrane-wecom: cold import requires isolated dependency installation
+  - state: open · compat:none
+  - evidence:
+    - @wecom/aibot-node-sdk @ plugins/mocrane-wecom/package.json
+    - fast-xml-parser @ plugins/mocrane-wecom/package.json
+    - file-type @ plugins/mocrane-wecom/package.json
+    - undici @ plugins/mocrane-wecom/package.json
+    - zod @ plugins/mocrane-wecom/package.json
+    - openclaw @ plugins/mocrane-wecom/package.json
+
+- 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
+  - **package-typescript-source-entrypoint**: mocrane-wecom: cold import needs TypeScript source entrypoint support
+  - state: open · compat:none
+  - evidence:
+    - extension:plugins/mocrane-wecom/index.ts
+
+- 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
+  - **runtime-tool-capture**: mocrane-wecom: runtime tool schema needs registration capture
+  - state: open · compat:none
+  - evidence:
+    - registerTool @ plugins/mocrane-wecom/index.ts:43
+
+- 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
+  - **channel-contract-probe**: openclaw-weixin: channel runtime needs envelope/config probes
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/openclaw-weixin/index.ts:22
+
+- 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: openclaw-weixin: cold import requires isolated dependency installation
+  - state: open · compat:none
+  - evidence:
+    - qrcode-terminal @ plugins/openclaw-weixin/package.json
+    - zod @ plugins/openclaw-weixin/package.json
+
+- 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
+  - **package-typescript-source-entrypoint**: openclaw-weixin: cold import needs TypeScript source entrypoint support
+  - state: open · compat:none
+  - evidence:
+    - extension:plugins/openclaw-weixin/index.ts
 
 - 🟡 P2 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: opik-openclaw: cold import requires package build output
@@ -755,6 +939,30 @@ Status: PASS
     - [registerTool @ index.js:29](https://github.com/sunnoy/openclaw-plugin-wecom/blob/b7849ac055c8fa699d01b48e83cf24028907307d/index.js#L29)
     - [registerTool @ index.js:33](https://github.com/sunnoy/openclaw-plugin-wecom/blob/b7849ac055c8fa699d01b48e83cf24028907307d/index.js#L33)
 
+- 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
+  - **channel-contract-probe**: yuanbao: channel runtime needs envelope/config probes
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/yuanbao/dist/index.js:29
+
+- 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: yuanbao: cold import requires isolated dependency installation
+  - state: open · compat:none
+  - evidence:
+    - cos-nodejs-sdk-v5 @ plugins/yuanbao/package.json
+    - protobufjs @ plugins/yuanbao/package.json
+    - uuid @ plugins/yuanbao/package.json
+    - ws @ plugins/yuanbao/package.json
+    - openclaw @ plugins/yuanbao/package.json
+
+- 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
+  - **runtime-tool-capture**: yuanbao: runtime tool schema needs registration capture
+  - state: open · compat:none
+  - evidence:
+    - registerTool @ plugins/yuanbao/dist/src/tools/group.js:43
+    - registerTool @ plugins/yuanbao/dist/src/tools/member.js:120
+    - registerTool @ plugins/yuanbao/dist/src/tools/remind.js:271
+
 ## Upstream Metadata Issues
 
 - 🟡 P2 **a2a-gateway** `upstream-metadata` `plugin-upstream-fix`
@@ -796,6 +1004,31 @@ Status: PASS
   - evidence:
     - [package.json](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/package.json)
 
+- 🟡 P2 **ddingtalk** `upstream-metadata` `plugin-upstream-fix`
+  - **package-plugin-api-compat-missing**: ddingtalk: plugin API compatibility range is missing
+  - state: open · compat:none
+  - evidence:
+    - plugins/ddingtalk/package.json
+
+- 🟡 P2 **lightclawbot** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: lightclawbot: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - capabilities @ plugins/lightclawbot/openclaw.plugin.json
+
+- 🟡 P2 **lightclawbot** `upstream-metadata` `plugin-upstream-fix`
+  - **package-manifest-version-drift**: lightclawbot: package and manifest versions drift
+  - state: open · compat:none
+  - evidence:
+    - package:1.1.2
+    - manifest:1.0.0
+
+- 🟡 P2 **lightclawbot** `upstream-metadata` `plugin-upstream-fix`
+  - **package-plugin-api-compat-missing**: lightclawbot: plugin API compatibility range is missing
+  - state: open · compat:none
+  - evidence:
+    - plugins/lightclawbot/package.json
+
 - 🟡 P2 **lossless-claw** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: lossless-claw: plugin API compatibility range is missing
   - state: open · compat:none
@@ -825,6 +1058,18 @@ Status: PASS
   - state: open · compat:none
   - evidence:
     - [package.json](https://github.com/duxiaoxiong/memu-engine-for-OpenClaw/blob/a5a22c5faf21e30d17a1b47635829e7dd0728ae5/package.json)
+
+- 🟡 P2 **mocrane-wecom** `upstream-metadata` `plugin-upstream-fix`
+  - **package-plugin-api-compat-missing**: mocrane-wecom: plugin API compatibility range is missing
+  - state: open · compat:none
+  - evidence:
+    - plugins/mocrane-wecom/package.json
+
+- 🟡 P2 **openclaw-weixin** `upstream-metadata` `plugin-upstream-fix`
+  - **package-plugin-api-compat-missing**: openclaw-weixin: plugin API compatibility range is missing
+  - state: open · compat:none
+  - evidence:
+    - plugins/openclaw-weixin/package.json
 
 - 🟡 P2 **qqbot** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: qqbot: manifest uses unsupported top-level fields
@@ -946,6 +1191,12 @@ Status: PASS
     - [registerCommand @ index.ts:68](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L68)
     - [registerService @ index.ts:134](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L134)
 
+- 🟠 P1 **lightclawbot** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: lightclawbot: runtime registrations need capture before contract judgment
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/lightclawbot/dist/index.js:13
+
 - 🟠 P1 **llm-trace-phoenix** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: llm-trace-phoenix: conversation-access hooks need privacy-boundary probes
   - state: open · compat:none
@@ -966,6 +1217,12 @@ Status: PASS
   - evidence:
     - [registerService @ index.ts:15](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L15)
 
+- 🟠 P1 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: memory-tencentdb: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:none
+  - evidence:
+    - agent_end @ plugins/memory-tencentdb/index.ts:820
+
 - 🟠 P1 **memos-cloud** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: memos-cloud: conversation-access hooks need privacy-boundary probes
   - state: open · compat:none
@@ -977,6 +1234,19 @@ Status: PASS
   - state: open · compat:none
   - evidence:
     - [registerHook @ index.js:467](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/03fcc33c5fd285971d4b3dbaa8bbb31cb727db7c/index.js#L467)
+
+- 🟠 P1 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: mocrane-wecom: runtime registrations need capture before contract judgment
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/mocrane-wecom/index.ts:31
+    - registerHttpRoute @ plugins/mocrane-wecom/index.ts:34
+
+- 🟠 P1 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: openclaw-weixin: runtime registrations need capture before contract judgment
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/openclaw-weixin/index.ts:22
 
 - 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: opik-openclaw: before_tool_call needs terminal/block/approval probes
@@ -1024,6 +1294,15 @@ Status: PASS
   - evidence:
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/b7849ac055c8fa699d01b48e83cf24028907307d/index.js#L27)
     - [registerHttpRoute @ index.js:45](https://github.com/sunnoy/openclaw-plugin-wecom/blob/b7849ac055c8fa699d01b48e83cf24028907307d/index.js#L45)
+
+- 🟠 P1 **yuanbao** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: yuanbao: runtime registrations need capture before contract judgment
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/yuanbao/dist/index.js:29
+    - registerCommand @ plugins/yuanbao/dist/index.js:31
+    - registerCommand @ plugins/yuanbao/dist/index.js:32
+    - registerCommand @ plugins/yuanbao/dist/index.js:34
 
 - 🟡 P2 **a2a-gateway** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: a2a-gateway: root plugin SDK barrel is still used by fixtures
@@ -1254,6 +1533,32 @@ Status: PASS
   - evidence:
     - [registerTool @ tools.ts:6](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/tools.ts#L6)
 
+- 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
+  - **channel-contract-probe**: ddingtalk: channel runtime needs envelope/config probes
+  - state: open · compat:none
+  - evidence:
+    - defineChannelPluginEntry @ plugins/ddingtalk/index.ts:8
+
+- 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: ddingtalk: cold import requires isolated dependency installation
+  - state: open · compat:none
+  - evidence:
+    - dingtalk-stream @ plugins/ddingtalk/package.json
+    - zod @ plugins/ddingtalk/package.json
+    - openclaw @ plugins/ddingtalk/package.json
+
+- 🟡 P2 **ddingtalk** `upstream-metadata` `plugin-upstream-fix`
+  - **package-plugin-api-compat-missing**: ddingtalk: plugin API compatibility range is missing
+  - state: open · compat:none
+  - evidence:
+    - plugins/ddingtalk/package.json
+
+- 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
+  - **package-typescript-source-entrypoint**: ddingtalk: cold import needs TypeScript source entrypoint support
+  - state: open · compat:none
+  - evidence:
+    - extension:plugins/ddingtalk/index.ts
+
 - 🟡 P2 **hasdata** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hasdata: cold import requires isolated dependency installation
   - state: open · compat:none
@@ -1380,6 +1685,45 @@ Status: PASS
   - evidence:
     - inworld
 
+- 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
+  - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/lightclawbot/dist/index.js:13
+
+- 🟡 P2 **lightclawbot** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: lightclawbot: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - capabilities @ plugins/lightclawbot/openclaw.plugin.json
+
+- 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: lightclawbot: cold import requires isolated dependency installation
+  - state: open · compat:none
+  - evidence:
+    - socket.io-client @ plugins/lightclawbot/package.json
+    - openclaw @ plugins/lightclawbot/package.json
+
+- 🟡 P2 **lightclawbot** `upstream-metadata` `plugin-upstream-fix`
+  - **package-manifest-version-drift**: lightclawbot: package and manifest versions drift
+  - state: open · compat:none
+  - evidence:
+    - package:1.1.2
+    - manifest:1.0.0
+
+- 🟡 P2 **lightclawbot** `upstream-metadata` `plugin-upstream-fix`
+  - **package-plugin-api-compat-missing**: lightclawbot: plugin API compatibility range is missing
+  - state: open · compat:none
+  - evidence:
+    - plugins/lightclawbot/package.json
+
+- 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
+  - **runtime-tool-capture**: lightclawbot: runtime tool schema needs registration capture
+  - state: open · compat:none
+  - evidence:
+    - registerTool @ plugins/lightclawbot/dist/src/download-tool.js:49
+    - registerTool @ plugins/lightclawbot/dist/src/upload-tool.js:37
+
 - 🟡 P2 **llm-trace-phoenix** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: llm-trace-phoenix: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
@@ -1460,6 +1804,31 @@ Status: PASS
   - evidence:
     - [registerTool @ index.ts:30](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L30)
 
+- 🟡 P2 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: memory-tencentdb: cold import requires isolated dependency installation
+  - state: open · compat:none
+  - evidence:
+    - @node-rs/jieba @ plugins/memory-tencentdb/package.json
+    - @tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/package.json
+    - json5 @ plugins/memory-tencentdb/package.json
+    - sqlite-vec @ plugins/memory-tencentdb/package.json
+    - undici @ plugins/memory-tencentdb/package.json
+    - node-llama-cpp @ plugins/memory-tencentdb/package.json
+    - openclaw @ plugins/memory-tencentdb/package.json
+
+- 🟡 P2 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
+  - **package-typescript-source-entrypoint**: memory-tencentdb: cold import needs TypeScript source entrypoint support
+  - state: open · compat:none
+  - evidence:
+    - extension:plugins/memory-tencentdb/index.ts
+
+- 🟡 P2 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
+  - **runtime-tool-capture**: memory-tencentdb: runtime tool schema needs registration capture
+  - state: open · compat:none
+  - evidence:
+    - registerTool @ plugins/memory-tencentdb/index.ts:268
+    - registerTool @ plugins/memory-tencentdb/index.ts:365
+
 - 🟡 P2 **memos-cloud** `deprecation-warning` `core-compat-adapter`
   - **legacy-before-agent-start**: memos-cloud: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
@@ -1501,6 +1870,97 @@ Status: PASS
   - state: open · compat:none
   - evidence:
     - [registerTool @ index.ts:1252](https://github.com/duxiaoxiong/memu-engine-for-OpenClaw/blob/a5a22c5faf21e30d17a1b47635829e7dd0728ae5/index.ts#L1252)
+
+- 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
+  - **channel-contract-probe**: mocrane-wecom: channel runtime needs envelope/config probes
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/mocrane-wecom/index.ts:31
+
+- 🟡 P2 **mocrane-wecom** `deprecation-warning` `core-compat-adapter`
+  - **legacy-root-sdk-import**: mocrane-wecom: root plugin SDK barrel is still used by fixtures
+  - state: open · compat:deprecated · deprecated
+  - evidence:
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/index.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/accounts.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/agent/handler.ts:9
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/channel.ts:5
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:17
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:18
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:19
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:20
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:21
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:22
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:23
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:27
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:30
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/accounts.ts:5
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/media.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/network.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/routing.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/dynamic-agent.ts:8
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/gateway-monitor.ts:5
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor.ts:6
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor/types.ts:2
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/onboarding.ts:9
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/outbound.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/runtime.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/shared/command-auth.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/ws-adapter.ts:14
+
+- 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: mocrane-wecom: cold import requires isolated dependency installation
+  - state: open · compat:none
+  - evidence:
+    - @wecom/aibot-node-sdk @ plugins/mocrane-wecom/package.json
+    - fast-xml-parser @ plugins/mocrane-wecom/package.json
+    - file-type @ plugins/mocrane-wecom/package.json
+    - undici @ plugins/mocrane-wecom/package.json
+    - zod @ plugins/mocrane-wecom/package.json
+    - openclaw @ plugins/mocrane-wecom/package.json
+
+- 🟡 P2 **mocrane-wecom** `upstream-metadata` `plugin-upstream-fix`
+  - **package-plugin-api-compat-missing**: mocrane-wecom: plugin API compatibility range is missing
+  - state: open · compat:none
+  - evidence:
+    - plugins/mocrane-wecom/package.json
+
+- 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
+  - **package-typescript-source-entrypoint**: mocrane-wecom: cold import needs TypeScript source entrypoint support
+  - state: open · compat:none
+  - evidence:
+    - extension:plugins/mocrane-wecom/index.ts
+
+- 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
+  - **runtime-tool-capture**: mocrane-wecom: runtime tool schema needs registration capture
+  - state: open · compat:none
+  - evidence:
+    - registerTool @ plugins/mocrane-wecom/index.ts:43
+
+- 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
+  - **channel-contract-probe**: openclaw-weixin: channel runtime needs envelope/config probes
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/openclaw-weixin/index.ts:22
+
+- 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: openclaw-weixin: cold import requires isolated dependency installation
+  - state: open · compat:none
+  - evidence:
+    - qrcode-terminal @ plugins/openclaw-weixin/package.json
+    - zod @ plugins/openclaw-weixin/package.json
+
+- 🟡 P2 **openclaw-weixin** `upstream-metadata` `plugin-upstream-fix`
+  - **package-plugin-api-compat-missing**: openclaw-weixin: plugin API compatibility range is missing
+  - state: open · compat:none
+  - evidence:
+    - plugins/openclaw-weixin/package.json
+
+- 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
+  - **package-typescript-source-entrypoint**: openclaw-weixin: cold import needs TypeScript source entrypoint support
+  - state: open · compat:none
+  - evidence:
+    - extension:plugins/openclaw-weixin/index.ts
 
 - 🟡 P2 **opik-openclaw** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: opik-openclaw: root plugin SDK barrel is still used by fixtures
@@ -1661,6 +2121,36 @@ Status: PASS
     - [registerTool @ index.js:29](https://github.com/sunnoy/openclaw-plugin-wecom/blob/b7849ac055c8fa699d01b48e83cf24028907307d/index.js#L29)
     - [registerTool @ index.js:33](https://github.com/sunnoy/openclaw-plugin-wecom/blob/b7849ac055c8fa699d01b48e83cf24028907307d/index.js#L33)
 
+- 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
+  - **channel-contract-probe**: yuanbao: channel runtime needs envelope/config probes
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/yuanbao/dist/index.js:29
+
+- 🟡 P2 **yuanbao** `deprecation-warning` `core-compat-adapter`
+  - **legacy-root-sdk-import**: yuanbao: root plugin SDK barrel is still used by fixtures
+  - state: open · compat:deprecated · deprecated
+  - evidence:
+    - openclaw/plugin-sdk @ plugins/yuanbao/dist/index.js:1
+
+- 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: yuanbao: cold import requires isolated dependency installation
+  - state: open · compat:none
+  - evidence:
+    - cos-nodejs-sdk-v5 @ plugins/yuanbao/package.json
+    - protobufjs @ plugins/yuanbao/package.json
+    - uuid @ plugins/yuanbao/package.json
+    - ws @ plugins/yuanbao/package.json
+    - openclaw @ plugins/yuanbao/package.json
+
+- 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
+  - **runtime-tool-capture**: yuanbao: runtime tool schema needs registration capture
+  - state: open · compat:none
+  - evidence:
+    - registerTool @ plugins/yuanbao/dist/src/tools/group.js:43
+    - registerTool @ plugins/yuanbao/dist/src/tools/member.js:120
+    - registerTool @ plugins/yuanbao/dist/src/tools/remind.js:271
+
 ## Contract Probe Backlog
 
 - 🟠 P1 **a2a-gateway** `inspector-capture-api`
@@ -1716,6 +2206,12 @@ Status: PASS
     - [registerCommand @ index.ts:68](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L68)
     - [registerService @ index.ts:134](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L134)
 
+- 🟠 P1 **lightclawbot** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:lightclawbot`
+  - evidence:
+    - registerChannel @ plugins/lightclawbot/dist/index.js:13
+
 - 🟠 P1 **lossless-claw** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:lossless-claw`
@@ -1734,6 +2230,19 @@ Status: PASS
   - id: `api.capture.runtime-registrars:memos-cloud`
   - evidence:
     - [registerHook @ index.js:467](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/03fcc33c5fd285971d4b3dbaa8bbb31cb727db7c/index.js#L467)
+
+- 🟠 P1 **mocrane-wecom** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:mocrane-wecom`
+  - evidence:
+    - registerChannel @ plugins/mocrane-wecom/index.ts:31
+    - registerHttpRoute @ plugins/mocrane-wecom/index.ts:34
+
+- 🟠 P1 **openclaw-weixin** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:openclaw-weixin`
+  - evidence:
+    - registerChannel @ plugins/openclaw-weixin/index.ts:22
 
 - 🟠 P1 **opik-openclaw** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -1761,6 +2270,15 @@ Status: PASS
   - evidence:
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/b7849ac055c8fa699d01b48e83cf24028907307d/index.js#L27)
     - [registerHttpRoute @ index.js:45](https://github.com/sunnoy/openclaw-plugin-wecom/blob/b7849ac055c8fa699d01b48e83cf24028907307d/index.js#L45)
+
+- 🟠 P1 **yuanbao** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:yuanbao`
+  - evidence:
+    - registerChannel @ plugins/yuanbao/dist/index.js:29
+    - registerCommand @ plugins/yuanbao/dist/index.js:31
+    - registerCommand @ plugins/yuanbao/dist/index.js:32
+    - registerCommand @ plugins/yuanbao/dist/index.js:34
 
 - 🟠 P1 **opik-openclaw** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
@@ -1795,6 +2313,12 @@ Status: PASS
     - [llm_input @ index.ts:154](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L154)
     - [llm_output @ index.ts:168](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L168)
 
+- 🟠 P1 **memory-tencentdb** `hook-runner`
+  - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
+  - id: `hook.llm-observer.privacy-payload:memory-tencentdb`
+  - evidence:
+    - agent_end @ plugins/memory-tencentdb/index.ts:820
+
 - 🟠 P1 **memos-cloud** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:memos-cloud`
@@ -1823,6 +2347,24 @@ Status: PASS
   - evidence:
     - [defineChannelPluginEntry @ channel.ts:333](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/src/channel.ts#L333)
 
+- 🟡 P2 **ddingtalk** `channel-runtime`
+  - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
+  - id: `channel.runtime.envelope-config-metadata:ddingtalk`
+  - evidence:
+    - defineChannelPluginEntry @ plugins/ddingtalk/index.ts:8
+
+- 🟡 P2 **mocrane-wecom** `channel-runtime`
+  - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
+  - id: `channel.runtime.envelope-config-metadata:mocrane-wecom`
+  - evidence:
+    - registerChannel @ plugins/mocrane-wecom/index.ts:31
+
+- 🟡 P2 **openclaw-weixin** `channel-runtime`
+  - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
+  - id: `channel.runtime.envelope-config-metadata:openclaw-weixin`
+  - evidence:
+    - registerChannel @ plugins/openclaw-weixin/index.ts:22
+
 - 🟡 P2 **qqbot** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:qqbot`
@@ -1834,6 +2376,12 @@ Status: PASS
   - id: `channel.runtime.envelope-config-metadata:wecom`
   - evidence:
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/b7849ac055c8fa699d01b48e83cf24028907307d/index.js#L27)
+
+- 🟡 P2 **yuanbao** `channel-runtime`
+  - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
+  - id: `channel.runtime.envelope-config-metadata:yuanbao`
+  - evidence:
+    - registerChannel @ plugins/yuanbao/dist/index.js:29
 
 - 🟡 P2 **connectclaw** `hook-runner`
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
@@ -1905,6 +2453,12 @@ Status: PASS
   - evidence:
     - [package.json](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/package.json)
 
+- 🟡 P2 **ddingtalk** `package-loader`
+  - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
+  - id: `package.compat.plugin-api-range:ddingtalk`
+  - evidence:
+    - plugins/ddingtalk/package.json
+
 - 🟡 P2 **lossless-claw** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:lossless-claw`
@@ -1916,6 +2470,18 @@ Status: PASS
   - id: `package.compat.plugin-api-range:mcp-adapter`
   - evidence:
     - [package.json](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/package.json)
+
+- 🟡 P2 **mocrane-wecom** `package-loader`
+  - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
+  - id: `package.compat.plugin-api-range:mocrane-wecom`
+  - evidence:
+    - plugins/mocrane-wecom/package.json
+
+- 🟡 P2 **openclaw-weixin** `package-loader`
+  - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
+  - id: `package.compat.plugin-api-range:openclaw-weixin`
+  - evidence:
+    - plugins/openclaw-weixin/package.json
 
 - 🟡 P2 **qqbot** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -1990,6 +2556,14 @@ Status: PASS
   - evidence:
     - [openclaw @ package.json](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/package.json)
 
+- 🟡 P2 **ddingtalk** `package-loader`
+  - contract: Inspector installs package dependencies in an isolated workspace before cold import.
+  - id: `package.entrypoint.isolated-dependency-install:ddingtalk`
+  - evidence:
+    - dingtalk-stream @ plugins/ddingtalk/package.json
+    - zod @ plugins/ddingtalk/package.json
+    - openclaw @ plugins/ddingtalk/package.json
+
 - 🟡 P2 **hasdata** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:hasdata`
@@ -2030,6 +2604,36 @@ Status: PASS
   - evidence:
     - [@modelcontextprotocol/sdk @ package.json](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/package.json)
 
+- 🟡 P2 **memory-tencentdb** `package-loader`
+  - contract: Inspector installs package dependencies in an isolated workspace before cold import.
+  - id: `package.entrypoint.isolated-dependency-install:memory-tencentdb`
+  - evidence:
+    - @node-rs/jieba @ plugins/memory-tencentdb/package.json
+    - @tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/package.json
+    - json5 @ plugins/memory-tencentdb/package.json
+    - sqlite-vec @ plugins/memory-tencentdb/package.json
+    - undici @ plugins/memory-tencentdb/package.json
+    - node-llama-cpp @ plugins/memory-tencentdb/package.json
+    - openclaw @ plugins/memory-tencentdb/package.json
+
+- 🟡 P2 **mocrane-wecom** `package-loader`
+  - contract: Inspector installs package dependencies in an isolated workspace before cold import.
+  - id: `package.entrypoint.isolated-dependency-install:mocrane-wecom`
+  - evidence:
+    - @wecom/aibot-node-sdk @ plugins/mocrane-wecom/package.json
+    - fast-xml-parser @ plugins/mocrane-wecom/package.json
+    - file-type @ plugins/mocrane-wecom/package.json
+    - undici @ plugins/mocrane-wecom/package.json
+    - zod @ plugins/mocrane-wecom/package.json
+    - openclaw @ plugins/mocrane-wecom/package.json
+
+- 🟡 P2 **openclaw-weixin** `package-loader`
+  - contract: Inspector installs package dependencies in an isolated workspace before cold import.
+  - id: `package.entrypoint.isolated-dependency-install:openclaw-weixin`
+  - evidence:
+    - qrcode-terminal @ plugins/openclaw-weixin/package.json
+    - zod @ plugins/openclaw-weixin/package.json
+
 - 🟡 P2 **opik-openclaw** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:opik-openclaw`
@@ -2058,6 +2662,16 @@ Status: PASS
     - [openclaw @ package.json](https://github.com/sunnoy/openclaw-plugin-wecom/blob/b7849ac055c8fa699d01b48e83cf24028907307d/package.json)
     - [undici @ package.json](https://github.com/sunnoy/openclaw-plugin-wecom/blob/b7849ac055c8fa699d01b48e83cf24028907307d/package.json)
 
+- 🟡 P2 **yuanbao** `package-loader`
+  - contract: Inspector installs package dependencies in an isolated workspace before cold import.
+  - id: `package.entrypoint.isolated-dependency-install:yuanbao`
+  - evidence:
+    - cos-nodejs-sdk-v5 @ plugins/yuanbao/package.json
+    - protobufjs @ plugins/yuanbao/package.json
+    - uuid @ plugins/yuanbao/package.json
+    - ws @ plugins/yuanbao/package.json
+    - openclaw @ plugins/yuanbao/package.json
+
 - 🟡 P2 **a2a-gateway** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:a2a-gateway`
@@ -2075,6 +2689,12 @@ Status: PASS
   - id: `package.entrypoint.typescript-loader:connectclaw`
   - evidence:
     - [extension @ index.ts](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/index.ts)
+
+- 🟡 P2 **ddingtalk** `package-loader`
+  - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
+  - id: `package.entrypoint.typescript-loader:ddingtalk`
+  - evidence:
+    - extension:plugins/ddingtalk/index.ts
 
 - 🟡 P2 **hasdata** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -2099,6 +2719,24 @@ Status: PASS
   - id: `package.entrypoint.typescript-loader:mcp-adapter`
   - evidence:
     - [extension @ index.ts](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts)
+
+- 🟡 P2 **memory-tencentdb** `package-loader`
+  - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
+  - id: `package.entrypoint.typescript-loader:memory-tencentdb`
+  - evidence:
+    - extension:plugins/memory-tencentdb/index.ts
+
+- 🟡 P2 **mocrane-wecom** `package-loader`
+  - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
+  - id: `package.entrypoint.typescript-loader:mocrane-wecom`
+  - evidence:
+    - extension:plugins/mocrane-wecom/index.ts
+
+- 🟡 P2 **openclaw-weixin** `package-loader`
+  - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
+  - id: `package.entrypoint.typescript-loader:openclaw-weixin`
+  - evidence:
+    - extension:plugins/openclaw-weixin/index.ts
 
 - 🟡 P2 **opik-openclaw** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -2182,6 +2820,37 @@ Status: PASS
     - [openclaw/plugin-sdk @ lcm-command.ts:9](https://github.com/Martian-Engineering/lossless-claw/blob/8d634cdf4b7544c9093c2e701fbbe5075d1e3de6/src/plugin/lcm-command.ts#L9)
     - [openclaw/plugin-sdk @ common.ts:1](https://github.com/Martian-Engineering/lossless-claw/blob/8d634cdf4b7544c9093c2e701fbbe5075d1e3de6/src/tools/common.ts#L1)
 
+- 🟡 P2 **mocrane-wecom** `sdk-alias`
+  - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
+  - id: `sdk.import.root-barrel-cold-import:mocrane-wecom`
+  - evidence:
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/index.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/accounts.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/agent/handler.ts:9
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/channel.ts:5
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:17
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:18
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:19
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:20
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:21
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:22
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:23
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:27
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:30
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/accounts.ts:5
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/media.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/network.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/routing.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/dynamic-agent.ts:8
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/gateway-monitor.ts:5
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor.ts:6
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor/types.ts:2
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/onboarding.ts:9
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/outbound.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/runtime.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/shared/command-auth.ts:1
+    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/ws-adapter.ts:14
+
 - 🟡 P2 **opik-openclaw** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:opik-openclaw`
@@ -2209,6 +2878,12 @@ Status: PASS
     - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/runtime.ts#L1)
     - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/channel.ts#L1)
     - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/remind.ts#L1)
+
+- 🟡 P2 **yuanbao** `sdk-alias`
+  - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
+  - id: `sdk.import.root-barrel-cold-import:yuanbao`
+  - evidence:
+    - openclaw/plugin-sdk @ plugins/yuanbao/dist/index.js:1
 
 - 🟡 P2 **a2a-gateway** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
@@ -2265,6 +2940,19 @@ Status: PASS
   - evidence:
     - [registerTool @ index.ts:30](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L30)
 
+- 🟡 P2 **memory-tencentdb** `tool-runtime`
+  - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
+  - id: `tool.registration.schema-capture:memory-tencentdb`
+  - evidence:
+    - registerTool @ plugins/memory-tencentdb/index.ts:268
+    - registerTool @ plugins/memory-tencentdb/index.ts:365
+
+- 🟡 P2 **mocrane-wecom** `tool-runtime`
+  - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
+  - id: `tool.registration.schema-capture:mocrane-wecom`
+  - evidence:
+    - registerTool @ plugins/mocrane-wecom/index.ts:43
+
 - 🟡 P2 **qqbot** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
   - id: `tool.registration.schema-capture:qqbot`
@@ -2280,6 +2968,20 @@ Status: PASS
     - [registerTool @ index.js:29](https://github.com/sunnoy/openclaw-plugin-wecom/blob/b7849ac055c8fa699d01b48e83cf24028907307d/index.js#L29)
     - [registerTool @ index.js:33](https://github.com/sunnoy/openclaw-plugin-wecom/blob/b7849ac055c8fa699d01b48e83cf24028907307d/index.js#L33)
 
+- 🟡 P2 **yuanbao** `tool-runtime`
+  - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
+  - id: `tool.registration.schema-capture:yuanbao`
+  - evidence:
+    - registerTool @ plugins/yuanbao/dist/src/tools/group.js:43
+    - registerTool @ plugins/yuanbao/dist/src/tools/member.js:120
+    - registerTool @ plugins/yuanbao/dist/src/tools/remind.js:271
+
+- 🟢 P3 **lightclawbot** `channel-runtime`
+  - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
+  - id: `channel.runtime.envelope-config-metadata:lightclawbot`
+  - evidence:
+    - registerChannel @ plugins/lightclawbot/dist/index.js:13
+
 - 🟢 P3 **memos-cloud** `hook-runner`
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
   - id: `hook.compat.before-agent-start-migration:memos-cloud`
@@ -2292,6 +2994,12 @@ Status: PASS
   - evidence:
     - inworld
 
+- 🟢 P3 **lightclawbot** `manifest-loader`
+  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
+  - id: `manifest.schema.top-level-fields:lightclawbot`
+  - evidence:
+    - capabilities @ plugins/lightclawbot/openclaw.plugin.json
+
 - 🟢 P3 **memos-cloud** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
   - id: `manifest.schema.top-level-fields:memos-cloud`
@@ -2303,6 +3011,12 @@ Status: PASS
   - id: `manifest.schema.top-level-fields:web-search-plus`
   - evidence:
     - [displayName @ openclaw.plugin.json](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/6e4c765cd04eb449c806748c3130793fe0b05e5e/openclaw.plugin.json)
+
+- 🟢 P3 **lightclawbot** `package-loader`
+  - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
+  - id: `package.compat.plugin-api-range:lightclawbot`
+  - evidence:
+    - plugins/lightclawbot/package.json
 
 - 🟢 P3 **memos-cloud** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -2361,6 +3075,13 @@ Status: PASS
   - evidence:
     - [openclaw @ package.json](https://github.com/livingghost/openclaw-inworld-tts/blob/d2abaeea330ebef7530f43f8b395671f6f404aea/package.json)
 
+- 🟢 P3 **lightclawbot** `package-loader`
+  - contract: Inspector installs package dependencies in an isolated workspace before cold import.
+  - id: `package.entrypoint.isolated-dependency-install:lightclawbot`
+  - evidence:
+    - socket.io-client @ plugins/lightclawbot/package.json
+    - openclaw @ plugins/lightclawbot/package.json
+
 - 🟢 P3 **secureclaw** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:secureclaw`
@@ -2411,6 +3132,13 @@ Status: PASS
   - evidence:
     - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/6e4c765cd04eb449c806748c3130793fe0b05e5e/index.ts)
 
+- 🟢 P3 **lightclawbot** `package-loader`
+  - contract: Package and OpenClaw manifest versions stay aligned for release compatibility reporting.
+  - id: `package.metadata.version-alignment:lightclawbot`
+  - evidence:
+    - package:1.1.2
+    - manifest:1.0.0
+
 - 🟢 P3 **apify** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:apify`
@@ -2439,6 +3167,13 @@ Status: PASS
   - id: `tool.registration.schema-capture:apify`
   - evidence:
     - [registerTool @ index.ts:13](https://github.com/apify/apify-openclaw-plugin/blob/41f49794d230f7ad092d1c699ee4d91fecf6ba91/src/index.ts#L13)
+
+- 🟢 P3 **lightclawbot** `tool-runtime`
+  - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
+  - id: `tool.registration.schema-capture:lightclawbot`
+  - evidence:
+    - registerTool @ plugins/lightclawbot/dist/src/download-tool.js:49
+    - registerTool @ plugins/lightclawbot/dist/src/upload-tool.js:37
 
 - 🟢 P3 **memu-engine** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.

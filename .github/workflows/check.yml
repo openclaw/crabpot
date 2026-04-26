@@ -30,6 +30,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 22
+      - run: node scripts/sync-fixtures.mjs --materialize
       - run: npm test
       - run: node scripts/sync-fixtures.mjs --check
       - run: node scripts/run-contract-smoke.mjs --strict --openclaw ./openclaw
@@ -80,6 +81,7 @@ jobs:
           repository: openclaw/openclaw
           path: openclaw
       - run: node --version
+      - run: node scripts/sync-fixtures.mjs --materialize
       - run: npm test
       - run: node scripts/sync-fixtures.mjs --check
       - run: node scripts/inspect-fixtures.mjs --check

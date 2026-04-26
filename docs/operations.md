@@ -3,10 +3,14 @@
 ## Adding a fixture
 
 1. Add an entry to `crabpot.config.json`.
-2. Run `npm test`.
-3. Run `node scripts/sync-fixtures.mjs --materialize`.
+2. Run `node scripts/sync-fixtures.mjs --materialize`.
+3. Run `npm test`.
 4. Review `.gitmodules` and the pinned submodule commit.
 5. Commit the manifest and submodule pointer together.
+
+Repo-backed fixtures use `repo` and are pinned as shallow git submodules.
+Npm-only fixtures use `package.name` plus a pinned `package.version`; their code
+is unpacked into ignored `plugins/<id>` directories during materialization.
 
 ## Updating fixtures
 

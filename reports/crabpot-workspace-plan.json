@@ -10,17 +10,17 @@
     "configuredPath": "../openclaw"
   },
   "summary": {
-    "fixtureCount": 21,
-    "entrypointCount": 24,
-    "installStepCount": 14,
-    "auditStepCount": 14,
+    "fixtureCount": 27,
+    "entrypointCount": 30,
+    "installStepCount": 20,
+    "auditStepCount": 20,
     "buildStepCount": 7,
-    "artifactStepCount": 24,
-    "captureStepCount": 24,
-    "syntheticProbeStepCount": 24,
-    "targetOpenClawLinkStepCount": 13,
-    "tsLoaderEntrypointCount": 14,
-    "jitiAlternativeCount": 14,
+    "artifactStepCount": 30,
+    "captureStepCount": 30,
+    "syntheticProbeStepCount": 30,
+    "targetOpenClawLinkStepCount": 19,
+    "tsLoaderEntrypointCount": 18,
+    "jitiAlternativeCount": 18,
     "missingBuildScriptCount": 0,
     "sdkAliasRequiredCount": 1
   },
@@ -1210,6 +1210,524 @@
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/composio",
               "artifactPath": ".crabpot/results/composio/cold-import-extension-composio-plugins-composio-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memory-tencentdb",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-index-ts",
+          "fixture": "memory-tencentdb",
+          "packagePath": "plugins/memory-tencentdb/package.json",
+          "packageName": "@tencentdb-agent-memory/memory-tencentdb",
+          "entrypoint": "plugins/memory-tencentdb/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": null,
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/memory-tencentdb/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@node-rs/jieba, @tencentdb-agent-memory/tcvdb-text, json5, sqlite-vec, undici, node-llama-cpp, openclaw"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/memory-tencentdb && rsync -a --delete plugins/memory-tencentdb/ .crabpot/workspaces/memory-tencentdb/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/memory-tencentdb",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/memory-tencentdb",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/memory-tencentdb",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/memory-tencentdb/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/memory-tencentdb",
+              "artifactPath": ".crabpot/results/memory-tencentdb/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-index-ts.capture.json",
+              "cwd": ".crabpot/workspaces/memory-tencentdb",
+              "artifactPath": ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-index-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-index-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/memory-tencentdb",
+              "artifactPath": ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ddingtalk",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
+          "fixture": "ddingtalk",
+          "packagePath": "plugins/ddingtalk/package.json",
+          "packageName": "@largezhou/ddingtalk",
+          "entrypoint": "plugins/ddingtalk/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "pnpm",
+          "lockfile": "plugins/ddingtalk/pnpm-lock.yaml",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/ddingtalk/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "dingtalk-stream, zod, openclaw"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/ddingtalk && rsync -a --delete plugins/ddingtalk/ .crabpot/workspaces/ddingtalk/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/ddingtalk",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/ddingtalk",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "pnpm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/ddingtalk",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "pnpm audit --json > ../../results/ddingtalk/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/ddingtalk",
+              "artifactPath": ".crabpot/results/ddingtalk/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.capture.json",
+              "cwd": ".crabpot/workspaces/ddingtalk",
+              "artifactPath": ".crabpot/results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/ddingtalk",
+              "artifactPath": ".crabpot/results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mocrane-wecom",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:mocrane-wecom:plugins-mocrane-wecom-index-ts",
+          "fixture": "mocrane-wecom",
+          "packagePath": "plugins/mocrane-wecom/package.json",
+          "packageName": "@mocrane/wecom",
+          "entrypoint": "plugins/mocrane-wecom/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/mocrane-wecom/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/mocrane-wecom/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@wecom/aibot-node-sdk, fast-xml-parser, file-type, undici, zod, openclaw"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/mocrane-wecom && rsync -a --delete plugins/mocrane-wecom/ .crabpot/workspaces/mocrane-wecom/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/mocrane-wecom",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/mocrane-wecom",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/mocrane-wecom",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/mocrane-wecom/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/mocrane-wecom",
+              "artifactPath": ".crabpot/results/mocrane-wecom/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.capture.json",
+              "cwd": ".crabpot/workspaces/mocrane-wecom",
+              "artifactPath": ".crabpot/results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/mocrane-wecom",
+              "artifactPath": ".crabpot/results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yuanbao",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:yuanbao:plugins-yuanbao-dist-index-js",
+          "fixture": "yuanbao",
+          "packagePath": "plugins/yuanbao/package.json",
+          "packageName": "openclaw-plugin-yuanbao",
+          "entrypoint": "plugins/yuanbao/dist/index.js",
+          "status": "dependency-install-required",
+          "packageManager": "npm",
+          "lockfile": null,
+          "loaderStrategy": {
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link"
+          ],
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "cos-nodejs-sdk-v5, protobufjs, uuid, ws, openclaw"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/yuanbao && rsync -a --delete plugins/yuanbao/ .crabpot/workspaces/yuanbao/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/yuanbao",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/yuanbao",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/yuanbao",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/yuanbao/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/yuanbao",
+              "artifactPath": ".crabpot/results/yuanbao/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-dist-index-js.capture.json",
+              "cwd": ".crabpot/workspaces/yuanbao",
+              "artifactPath": ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-dist-index-js.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-dist-index-js.synthetic.json",
+              "cwd": ".crabpot/workspaces/yuanbao",
+              "artifactPath": ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-dist-index-js.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "openclaw-weixin",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-index-ts",
+          "fixture": "openclaw-weixin",
+          "packagePath": "plugins/openclaw-weixin/package.json",
+          "packageName": "@tencent-weixin/openclaw-weixin",
+          "entrypoint": "plugins/openclaw-weixin/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": null,
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/openclaw-weixin/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "qrcode-terminal, zod"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/openclaw-weixin && rsync -a --delete plugins/openclaw-weixin/ .crabpot/workspaces/openclaw-weixin/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/openclaw-weixin",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/openclaw-weixin",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/openclaw-weixin",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/openclaw-weixin/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/openclaw-weixin",
+              "artifactPath": ".crabpot/results/openclaw-weixin/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-index-ts.capture.json",
+              "cwd": ".crabpot/workspaces/openclaw-weixin",
+              "artifactPath": ".crabpot/results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-index-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-index-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/openclaw-weixin",
+              "artifactPath": ".crabpot/results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lightclawbot",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:lightclawbot:plugins-lightclawbot-dist-index-js",
+          "fixture": "lightclawbot",
+          "packagePath": "plugins/lightclawbot/package.json",
+          "packageName": "lightclawbot",
+          "entrypoint": "plugins/lightclawbot/dist/index.js",
+          "status": "dependency-install-required",
+          "packageManager": "npm",
+          "lockfile": null,
+          "loaderStrategy": {
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link"
+          ],
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "socket.io-client, openclaw"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/lightclawbot && rsync -a --delete plugins/lightclawbot/ .crabpot/workspaces/lightclawbot/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/lightclawbot",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/lightclawbot",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/lightclawbot",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/lightclawbot/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/lightclawbot",
+              "artifactPath": ".crabpot/results/lightclawbot/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-dist-index-js.capture.json",
+              "cwd": ".crabpot/workspaces/lightclawbot",
+              "artifactPath": ".crabpot/results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-dist-index-js.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-dist-index-js.synthetic.json",
+              "cwd": ".crabpot/workspaces/lightclawbot",
+              "artifactPath": ".crabpot/results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-dist-index-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]

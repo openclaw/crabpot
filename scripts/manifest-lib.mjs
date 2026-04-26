@@ -45,8 +45,21 @@ export function validateManifest(manifest) {
     }
     paths.add(fixture.path);
 
-    if (!fixture.repo?.startsWith("https://github.com/") || !fixture.repo.endsWith(".git")) {
+    const hasRepo = typeof fixture.repo === "string";
+    const hasPackage = fixture.package && typeof fixture.package === "object";
+    if (hasRepo === hasPackage) {
+      errors.push(`${fixture.id}: fixture must declare exactly one of repo or package`);
+    }
+    if (hasRepo && (!fixture.repo.startsWith("https://github.com/") || !fixture.repo.endsWith(".git"))) {
       errors.push(`${fixture.id}: repo must be a GitHub HTTPS .git URL`);
+    }
+    if (hasPackage) {
+      if (!fixture.package.name || typeof fixture.package.name !== "string") {
+        errors.push(`${fixture.id}: package.name must be set`);
+      }
+      if (!fixture.package.version || typeof fixture.package.version !== "string") {
+        errors.push(`${fixture.id}: package.version must be set`);
+      }
     }
     if (!["high", "medium", "low"].includes(fixture.priority)) {
       errors.push(`${fixture.id}: priority must be high, medium, or low`);

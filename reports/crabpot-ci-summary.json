@@ -1,21 +1,21 @@
 {
   "generatedAt": "deterministic",
   "mode": "local",
-  "openclawLabel": "openclaw/openclaw@local",
+  "openclawLabel": "",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 42,
-    "suggestions": 69,
-    "issues": 111,
+    "warnings": 51,
+    "suggestions": 92,
+    "issues": 143,
     "p0Issues": 2,
-    "p1Issues": 21,
+    "p1Issues": 26,
     "liveIssues": 2,
     "liveP0Issues": 2,
     "compatGaps": 1,
-    "deprecationWarnings": 19,
-    "inspectorGaps": 73,
-    "upstreamIssues": 16,
+    "deprecationWarnings": 21,
+    "inspectorGaps": 97,
+    "upstreamIssues": 22,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -25,12 +25,13 @@
     "executionPass": 6,
     "executionFail": 0,
     "executionBlocked": 2,
-    "platformWindowsRisks": 121,
-    "platformContainerRisks": 38,
-    "loaderJitiCandidates": 14,
-    "importLoopP50Ms": 153,
-    "importLoopMaxRssMb": 46.3,
-    "importLoopMaxCpuMs": 27
+    "platformWindowsRisks": 153,
+    "platformContainerRisks": 47,
+    "loaderJitiCandidates": 18,
+    "importLoopP50Ms": 623,
+    "importLoopP95Ms": 920,
+    "importLoopMaxRssMb": 0,
+    "importLoopMaxCpuMs": 0
   },
   "topIssues": [
     {
@@ -124,6 +125,14 @@
     {
       "severity": "P1",
       "issueClass": "inspector-gap",
+      "fixture": "lightclawbot",
+      "code": "registration-capture-gap",
+      "title": "lightclawbot: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
       "fixture": "llm-trace-phoenix",
       "code": "conversation-access-hook",
       "title": "llm-trace-phoenix: conversation-access hooks need privacy-boundary probes",
@@ -148,6 +157,14 @@
     {
       "severity": "P1",
       "issueClass": "inspector-gap",
+      "fixture": "memory-tencentdb",
+      "code": "conversation-access-hook",
+      "title": "memory-tencentdb: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
       "fixture": "memos-cloud",
       "code": "conversation-access-hook",
       "title": "memos-cloud: conversation-access hooks need privacy-boundary probes",
@@ -164,33 +181,17 @@
     {
       "severity": "P1",
       "issueClass": "inspector-gap",
-      "fixture": "opik-openclaw",
-      "code": "before-tool-call-probe",
-      "title": "opik-openclaw: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "opik-openclaw",
-      "code": "conversation-access-hook",
-      "title": "opik-openclaw: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "opik-openclaw",
+      "fixture": "mocrane-wecom",
       "code": "registration-capture-gap",
-      "title": "opik-openclaw: runtime registrations need capture before contract judgment",
+      "title": "mocrane-wecom: runtime registrations need capture before contract judgment",
       "decision": "inspector-follow-up"
     },
     {
       "severity": "P1",
       "issueClass": "inspector-gap",
-      "fixture": "qqbot",
+      "fixture": "openclaw-weixin",
       "code": "registration-capture-gap",
-      "title": "qqbot: runtime registrations need capture before contract judgment",
+      "title": "openclaw-weixin: runtime registrations need capture before contract judgment",
       "decision": "inspector-follow-up"
     }
   ],

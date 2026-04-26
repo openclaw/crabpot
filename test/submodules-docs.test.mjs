@@ -17,17 +17,21 @@ test("plugin submodule README stays aligned with manifest and gitmodules", async
   const gitmodules = await readFile(".gitmodules", "utf8");
   const readme = await readFile("plugins/README.md", "utf8");
   const submodules = parseGitmodules(gitmodules);
+  const gitFixtures = manifest.fixtures.filter((fixture) => fixture.repo);
 
-  assert.equal(submodules.length, manifest.fixtures.length);
+  assert.equal(submodules.length, gitFixtures.length);
   assert.match(readme, /## Add A Plugin/);
   assert.match(readme, /## Remove A Plugin/);
   assert.match(readme, /package-ecosystem: "gitsubmodule"/);
 
-  for (const fixture of manifest.fixtures) {
+  for (const fixture of gitFixtures) {
     const submodule = submodules.find((item) => item.path === fixture.path);
     assert.ok(submodule, `${fixture.id} must have a .gitmodules entry`);
     assert.equal(submodule.url, fixture.repo, `${fixture.id} repo URL should match .gitmodules`);
     assert.equal(submodule.shallow, "true", `${fixture.id} should stay shallow`);
+  }
+
+  for (const fixture of manifest.fixtures) {
     assert.match(readme, new RegExp(`\\| \`${escapeRegExp(fixture.id)}\` \\| \`${escapeRegExp(fixture.path)}\` \\|`));
   }
 });

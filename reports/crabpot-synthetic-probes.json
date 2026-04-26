@@ -1,15 +1,15 @@
 {
   "generatedAt": "deterministic",
   "summary": {
-    "fixtureCount": 21,
-    "probeCount": 118,
-    "hookProbeCount": 43,
-    "registrationProbeCount": 75,
-    "readyCount": 118,
+    "fixtureCount": 27,
+    "probeCount": 141,
+    "hookProbeCount": 48,
+    "registrationProbeCount": 93,
+    "readyCount": 141,
     "blockedCount": 0,
-    "directExecutionCount": 54,
-    "optInExecutionCount": 13,
-    "metadataOnlyCount": 8
+    "directExecutionCount": 67,
+    "optInExecutionCount": 17,
+    "metadataOnlyCount": 9
   },
   "probes": [
     {
@@ -996,6 +996,143 @@
         "channelId": "fixture-channel"
       },
       "source": "plugins/composio/index.ts:33"
+    },
+    {
+      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-index-ts-820",
+      "fixture": "memory-tencentdb",
+      "kind": "hook",
+      "seam": "agent_end",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "final conversation payload is redacted as expected",
+        "agent id and run metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "status": "completed",
+        "transcript": [
+          {
+            "role": "assistant",
+            "content": "[redacted fixture output]"
+          }
+        ]
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/memory-tencentdb/index.ts:820"
+    },
+    {
+      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-index-ts-464",
+      "fixture": "memory-tencentdb",
+      "kind": "hook",
+      "seam": "before_prompt_build",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "prompt mutation result is preserved",
+        "agent and conversation metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "messages": [
+          {
+            "role": "user",
+            "content": "fixture prompt"
+          }
+        ],
+        "metadata": {
+          "source": "crabpot"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/memory-tencentdb/index.ts:464"
+    },
+    {
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-index-ts-745",
+      "fixture": "memory-tencentdb",
+      "kind": "hook",
+      "seam": "gateway_stop",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "gateway_stop",
+        "fixture": "memory-tencentdb"
+      },
+      "syntheticContext": {
+        "hook": "gateway_stop",
+        "fixture": "memory-tencentdb"
+      },
+      "source": "plugins/memory-tencentdb/index.ts:745"
+    },
+    {
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-index-ts-939",
+      "fixture": "memory-tencentdb",
+      "kind": "hook",
+      "seam": "gateway_stop",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "gateway_stop",
+        "fixture": "memory-tencentdb"
+      },
+      "syntheticContext": {
+        "hook": "gateway_stop",
+        "fixture": "memory-tencentdb"
+      },
+      "source": "plugins/memory-tencentdb/index.ts:939"
+    },
+    {
+      "id": "hook.before_prompt_build:mocrane-wecom:plugins-mocrane-wecom-index-ts-48",
+      "fixture": "mocrane-wecom",
+      "kind": "hook",
+      "seam": "before_prompt_build",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "prompt mutation result is preserved",
+        "agent and conversation metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "messages": [
+          {
+            "role": "user",
+            "content": "fixture prompt"
+          }
+        ],
+        "metadata": {
+          "source": "crabpot"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/mocrane-wecom/index.ts:48"
     },
     {
       "id": "hook.gateway_start:secureclaw:plugins-secureclaw-secureclaw-src-index-ts-314",
@@ -2801,6 +2938,545 @@
         ]
       },
       "source": "plugins/composio/src/tools.ts:89"
+    },
+    {
+      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-index-ts-957",
+      "fixture": "memory-tencentdb",
+      "kind": "registration",
+      "seam": "registerCli",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command name is stable",
+        "argument schema is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "args": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/memory-tencentdb/index.ts:957"
+    },
+    {
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-index-ts-268",
+      "fixture": "memory-tencentdb",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/memory-tencentdb/index.ts:268"
+    },
+    {
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-index-ts-365",
+      "fixture": "memory-tencentdb",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/memory-tencentdb/index.ts:365"
+    },
+    {
+      "id": "registration.defineChannelPluginEntry:ddingtalk:plugins-ddingtalk-index-ts-8",
+      "fixture": "ddingtalk",
+      "kind": "registration",
+      "seam": "defineChannelPluginEntry",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "setup/config schema can be read",
+        "message envelope metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "setup": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "entry wrapper metadata is captured before channel runtime execution"
+      },
+      "source": "plugins/ddingtalk/index.ts:8"
+    },
+    {
+      "id": "registration.registerChannel:mocrane-wecom:plugins-mocrane-wecom-index-ts-31",
+      "fixture": "mocrane-wecom",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "receive"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/mocrane-wecom/index.ts:31"
+    },
+    {
+      "id": "registration.registerHttpRoute:mocrane-wecom:plugins-mocrane-wecom-index-ts-34",
+      "fixture": "mocrane-wecom",
+      "kind": "registration",
+      "seam": "registerHttpRoute",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "route method and path are captured",
+        "auth policy metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "method": "POST",
+          "path": "/fixture/probe",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/mocrane-wecom/index.ts:34"
+    },
+    {
+      "id": "registration.registerTool:mocrane-wecom:plugins-mocrane-wecom-index-ts-43",
+      "fixture": "mocrane-wecom",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/mocrane-wecom/index.ts:43"
+    },
+    {
+      "id": "registration.registerChannel:yuanbao:plugins-yuanbao-dist-index-js-29",
+      "fixture": "yuanbao",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "receive"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/yuanbao/dist/index.js:29"
+    },
+    {
+      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-dist-index-js-31",
+      "fixture": "yuanbao",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/yuanbao/dist/index.js:31"
+    },
+    {
+      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-dist-index-js-32",
+      "fixture": "yuanbao",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/yuanbao/dist/index.js:32"
+    },
+    {
+      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-dist-index-js-34",
+      "fixture": "yuanbao",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/yuanbao/dist/index.js:34"
+    },
+    {
+      "id": "registration.registerTool:yuanbao:plugins-yuanbao-dist-src-tools-group-js-43",
+      "fixture": "yuanbao",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/yuanbao/dist/src/tools/group.js:43"
+    },
+    {
+      "id": "registration.registerTool:yuanbao:plugins-yuanbao-dist-src-tools-member-js-120",
+      "fixture": "yuanbao",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/yuanbao/dist/src/tools/member.js:120"
+    },
+    {
+      "id": "registration.registerTool:yuanbao:plugins-yuanbao-dist-src-tools-remind-js-271",
+      "fixture": "yuanbao",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/yuanbao/dist/src/tools/remind.js:271"
+    },
+    {
+      "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-index-ts-22",
+      "fixture": "openclaw-weixin",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "receive"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/openclaw-weixin/index.ts:22"
+    },
+    {
+      "id": "registration.registerChannel:lightclawbot:plugins-lightclawbot-dist-index-js-13",
+      "fixture": "lightclawbot",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "receive"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/lightclawbot/dist/index.js:13"
+    },
+    {
+      "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-dist-src-download-tool-js-49",
+      "fixture": "lightclawbot",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/lightclawbot/dist/src/download-tool.js:49"
+    },
+    {
+      "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-dist-src-upload-tool-js-37",
+      "fixture": "lightclawbot",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/lightclawbot/dist/src/upload-tool.js:37"
     },
     {
       "id": "registration.registerTool:memu-engine:plugins-memu-engine-index-ts-1252",
