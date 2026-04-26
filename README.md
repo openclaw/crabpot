@@ -10,15 +10,15 @@ is to catch contract drift before external plugin authors do.
 <!-- crabpot-summary:start -->
 ## Dashboard
 
-Last dashboard update: Apr 26, 2026, 04:09 UTC
+Last dashboard update: Apr 26, 2026, 04:23 UTC
 
 State: PASS
 
 Mode: check
 
-OpenClaw: openclaw/openclaw@local
+OpenClaw: openclaw/openclaw@main
 
-Run: https://github.com/openclaw/crabpot/actions/runs/24946139651
+Run: https://github.com/openclaw/crabpot/actions/runs/24948105684
 
 ### Result Grid
 
@@ -47,7 +47,7 @@ Run: https://github.com/openclaw/crabpot/actions/runs/24946139651
 | Workspace plan         | 24 entrypoints / 14 installs / 7 builds |
 | Platform risks         | 121 Windows / 38 container              |
 | Jiti loader candidates | 14                                      |
-| Import loop            | p50 153ms / max RSS 46.3MB / CPU 27ms   |
+| Import loop            | p50 38ms / max RSS 0MB / CPU 0ms        |
 | Runtime profile        | p50 231ms / max RSS 70.4MB              |
 
 ### Top Discovered Issues
