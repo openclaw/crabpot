@@ -9,7 +9,8 @@ test("dependabot is configured to update plugin submodules", async () => {
   assert.match(dependabot, /version:\s*2/);
   assert.match(dependabot, /package-ecosystem:\s*"gitsubmodule"/);
   assert.match(dependabot, /directory:\s*"\/"/);
-  assert.match(dependabot, /interval:\s*"weekly"/);
+  assert.match(dependabot, /interval:\s*"daily"/);
+  assert.doesNotMatch(dependabot, /interval:\s*"weekly"/);
 });
 
 test("dependabot is configured to update npm fixture shims", async () => {

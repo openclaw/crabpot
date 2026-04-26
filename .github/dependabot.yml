@@ -4,8 +4,7 @@ updates:
   - package-ecosystem: "gitsubmodule"
     directory: "/"
     schedule:
-      interval: "weekly"
-      day: "monday"
+      interval: "daily"
       time: "09:00"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 10
@@ -16,8 +15,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/plugins/memory-tencentdb"
     schedule:
-      interval: "weekly"
-      day: "monday"
+      interval: "daily"
       time: "09:10"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
@@ -28,8 +26,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/plugins/yuanbao"
     schedule:
-      interval: "weekly"
-      day: "monday"
+      interval: "daily"
       time: "09:20"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
@@ -40,8 +37,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/plugins/openclaw-weixin"
     schedule:
-      interval: "weekly"
-      day: "monday"
+      interval: "daily"
       time: "09:30"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
@@ -52,8 +48,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/plugins/lightclawbot"
     schedule:
-      interval: "weekly"
-      day: "monday"
+      interval: "daily"
       time: "09:40"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
