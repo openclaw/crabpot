@@ -48,6 +48,18 @@ test("default check workflow uploads policy and summary reports", async () => {
   assert.match(workflow, /actions\/upload-artifact@v7/);
 });
 
+test("default check workflow retests plugin submodule gitlink changes", async () => {
+  const workflow = await readFile(".github/workflows/check.yml", "utf8");
+  const triggerBlock = workflow.slice(workflow.indexOf("on:"), workflow.indexOf("permissions:"));
+
+  assert.match(triggerBlock, /pull_request:/);
+  assert.match(triggerBlock, /push:\n\s+branches: \[main\]/);
+  assert.match(workflow, /submodules: recursive/);
+  assert.doesNotMatch(triggerBlock, /paths:/);
+  assert.doesNotMatch(triggerBlock, /paths-ignore:/);
+  assert.match(workflow, /plugins\/\*\* must retest/);
+});
+
 test("workflows use Node 24 action majors", async () => {
   const workflows = [
     await readFile(".github/workflows/check.yml", "utf8"),

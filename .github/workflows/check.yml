@@ -1,6 +1,8 @@
 name: Check
 
 on:
+  # Keep these events path-unfiltered. Plugin submodule gitlink bumps under
+  # plugins/** must retest on Dependabot PRs and again after merge to main.
   pull_request:
   push:
     branches: [main]
