@@ -309,13 +309,6 @@ export function renderReadmeSummary(summary) {
       ]),
       ["Severity", "Class", "Fixture", "Code", "Decision", "Title"],
     ),
-    "",
-    "### Report Artifacts",
-    "",
-    markdownTable(
-      Object.entries(summary.artifactPaths).map(([name, artifactPath]) => [name, artifactPath ?? "-"]),
-      ["Artifact", "Path"],
-    ),
   ]
     .filter((line) => line !== "")
     .join("\n\n");

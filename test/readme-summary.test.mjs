@@ -75,6 +75,7 @@ test("readme summary rolls up report counts and top issues", async () => {
   );
   assert.doesNotMatch(markdown, /\[red\]/);
   assert.doesNotMatch(markdown, /CRABPOT-AAAA1111/);
+  assert.doesNotMatch(markdown, /Report Artifacts/);
   assert.match(markdown, /8 ready \/ 1 blocked \/ 9 total/);
   assert.match(markdown, /4 Windows \/ 2 container/);
   assert.match(markdown, /\| Jiti loader candidates\s+\| 5\s+\|/);

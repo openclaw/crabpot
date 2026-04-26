@@ -64,23 +64,6 @@ Run: https://github.com/openclaw/crabpot/actions/runs/24948858555
 | 🟠 P1    | inspector-gap | honcho           | conversation-access-hook | inspector-follow-up | [honcho: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)                |
 | 🟠 P1    | inspector-gap | honcho           | registration-capture-gap | inspector-follow-up | [honcho: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)           |
 | 🟠 P1    | inspector-gap | hyperspell       | conversation-access-hook | inspector-follow-up | [hyperspell: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)            |
-
-### Report Artifacts
-
-| Artifact       | Path                                     |
-| -------------- | ---------------------------------------- |
-| compatibility  | reports/crabpot-report.json              |
-| ciSummary      | reports/crabpot-ci-summary.json          |
-| synthetic      | reports/crabpot-synthetic-probes.json    |
-| coldImport     | reports/crabpot-cold-import.json         |
-| workspace      | reports/crabpot-workspace-plan.json      |
-| platform       | reports/crabpot-platform-probes.json     |
-| importLoop     | reports/crabpot-import-loop-profile.json |
-| execution      | reports/crabpot-execution-results.json   |
-| runtimeProfile | reports/crabpot-runtime-profile.json     |
-| refDiff        | reports/crabpot-ref-diff.json            |
-| profileDiff    | reports/crabpot-profile-diff.json        |
-| ciPolicy       | reports/crabpot-ci-policy.json           |
 <!-- crabpot-summary:end -->
 ## What this tests
 
