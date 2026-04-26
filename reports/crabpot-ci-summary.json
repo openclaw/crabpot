@@ -21,17 +21,17 @@
     "policyFailures": 0,
     "policyWarnings": 3,
     "profileFailures": 0,
-    "profileWarnings": 0,
+    "profileWarnings": 1,
     "executionPass": 6,
     "executionFail": 0,
     "executionBlocked": 2,
     "platformWindowsRisks": 153,
     "platformContainerRisks": 47,
     "loaderJitiCandidates": 18,
-    "importLoopP50Ms": 623,
-    "importLoopP95Ms": 920,
-    "importLoopMaxRssMb": 0,
-    "importLoopMaxCpuMs": 0
+    "importLoopP50Ms": 932,
+    "importLoopP95Ms": 956,
+    "importLoopMaxRssMb": 45,
+    "importLoopMaxCpuMs": 153
   },
   "topIssues": [
     {
@@ -229,7 +229,18 @@
       ]
     }
   ],
-  "profileFindings": [],
+  "profileFindings": [
+    {
+      "id": "profile.wall-p95",
+      "action": "warn",
+      "metric": "p95WallMs",
+      "message": "p95WallMs regressed 345.6% over baseline",
+      "baseline": 1273,
+      "current": 5673,
+      "delta": 4400,
+      "percent": 345.6
+    }
+  ],
   "artifacts": {
     "compatibility": "reports/crabpot-report.json",
     "capture": "reports/crabpot-capture.json",

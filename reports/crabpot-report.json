@@ -152,7 +152,7 @@
       "registerWebSearchProvider"
     ],
     "packagePath": "../openclaw/package.json",
-    "sdkExportCount": 307,
+    "sdkExportCount": 308,
     "sdkExports": [
       "openclaw/plugin-sdk",
       "openclaw/plugin-sdk/account-core",
@@ -248,6 +248,7 @@
       "openclaw/plugin-sdk/device-bootstrap",
       "openclaw/plugin-sdk/diagnostic-runtime",
       "openclaw/plugin-sdk/diagnostics-otel",
+      "openclaw/plugin-sdk/diagnostics-prometheus",
       "openclaw/plugin-sdk/diffs",
       "openclaw/plugin-sdk/direct-dm",
       "openclaw/plugin-sdk/direct-dm-access",

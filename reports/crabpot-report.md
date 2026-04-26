@@ -216,32 +216,32 @@ Status: PASS
   - **legacy-root-sdk-import**: mocrane-wecom: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/index.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/accounts.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/agent/handler.ts:9
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/channel.ts:5
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:17
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:18
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:19
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:20
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:21
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:22
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:23
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:27
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:30
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/accounts.ts:5
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/media.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/network.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/routing.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/dynamic-agent.ts:8
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/gateway-monitor.ts:5
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor.ts:6
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor/types.ts:2
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/onboarding.ts:9
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/outbound.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/runtime.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/shared/command-auth.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/ws-adapter.ts:14
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L1)
+    - [openclaw/plugin-sdk @ accounts.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/accounts.ts#L1)
+    - [openclaw/plugin-sdk @ handler.ts:9](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/agent/handler.ts#L9)
+    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/channel.ts#L5)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:17](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L17)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:18](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L18)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:19](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L19)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:20](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L20)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:21](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L21)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:22](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L22)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:23](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L23)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:27](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L27)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:30](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L30)
+    - [openclaw/plugin-sdk @ accounts.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/accounts.ts#L5)
+    - [openclaw/plugin-sdk @ media.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/media.ts#L1)
+    - [openclaw/plugin-sdk @ network.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/network.ts#L1)
+    - [openclaw/plugin-sdk @ routing.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/routing.ts#L1)
+    - [openclaw/plugin-sdk @ dynamic-agent.ts:8](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/dynamic-agent.ts#L8)
+    - [openclaw/plugin-sdk @ gateway-monitor.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/gateway-monitor.ts#L5)
+    - [openclaw/plugin-sdk @ monitor.ts:6](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/monitor.ts#L6)
+    - [openclaw/plugin-sdk @ types.ts:2](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/monitor/types.ts#L2)
+    - [openclaw/plugin-sdk @ onboarding.ts:9](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/onboarding.ts#L9)
+    - [openclaw/plugin-sdk @ outbound.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/outbound.ts#L1)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ command-auth.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/shared/command-auth.ts#L1)
+    - [openclaw/plugin-sdk @ ws-adapter.ts:14](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/ws-adapter.ts#L14)
 
 - 🟡 P2 **opik-openclaw** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: opik-openclaw: root plugin SDK barrel is still used by fixtures
@@ -394,8 +394,8 @@ Status: PASS
   - **registration-capture-gap**: mocrane-wecom: runtime registrations need capture before contract judgment
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/mocrane-wecom/index.ts:31
-    - registerHttpRoute @ plugins/mocrane-wecom/index.ts:34
+    - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
+    - [registerHttpRoute @ index.ts:34](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L34)
 
 - 🟠 P1 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: openclaw-weixin: runtime registrations need capture before contract judgment
@@ -599,21 +599,21 @@ Status: PASS
   - **channel-contract-probe**: ddingtalk: channel runtime needs envelope/config probes
   - state: open · compat:none
   - evidence:
-    - defineChannelPluginEntry @ plugins/ddingtalk/index.ts:8
+    - [defineChannelPluginEntry @ index.ts:8](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts#L8)
 
 - 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: ddingtalk: cold import requires isolated dependency installation
   - state: open · compat:none
   - evidence:
-    - dingtalk-stream @ plugins/ddingtalk/package.json
-    - zod @ plugins/ddingtalk/package.json
-    - openclaw @ plugins/ddingtalk/package.json
+    - [dingtalk-stream @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
+    - [zod @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
+    - [openclaw @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
 
 - 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: ddingtalk: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - extension:plugins/ddingtalk/index.ts
+    - [extension @ index.ts](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts)
 
 - 🟡 P2 **hasdata** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hasdata: cold import requires isolated dependency installation
@@ -801,30 +801,30 @@ Status: PASS
   - **channel-contract-probe**: mocrane-wecom: channel runtime needs envelope/config probes
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/mocrane-wecom/index.ts:31
+    - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
 
 - 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: mocrane-wecom: cold import requires isolated dependency installation
   - state: open · compat:none
   - evidence:
-    - @wecom/aibot-node-sdk @ plugins/mocrane-wecom/package.json
-    - fast-xml-parser @ plugins/mocrane-wecom/package.json
-    - file-type @ plugins/mocrane-wecom/package.json
-    - undici @ plugins/mocrane-wecom/package.json
-    - zod @ plugins/mocrane-wecom/package.json
-    - openclaw @ plugins/mocrane-wecom/package.json
+    - [@wecom/aibot-node-sdk @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
+    - [fast-xml-parser @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
+    - [file-type @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
+    - [undici @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
+    - [zod @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
+    - [openclaw @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
 
 - 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: mocrane-wecom: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - extension:plugins/mocrane-wecom/index.ts
+    - [extension @ index.ts](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts)
 
 - 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: mocrane-wecom: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - registerTool @ plugins/mocrane-wecom/index.ts:43
+    - [registerTool @ index.ts:43](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L43)
 
 - 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: openclaw-weixin: channel runtime needs envelope/config probes
@@ -1014,7 +1014,7 @@ Status: PASS
   - **package-plugin-api-compat-missing**: ddingtalk: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - plugins/ddingtalk/package.json
+    - [package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
 
 - 🟡 P2 **lightclawbot** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: lightclawbot: manifest uses unsupported top-level fields
@@ -1069,7 +1069,7 @@ Status: PASS
   - **package-plugin-api-compat-missing**: mocrane-wecom: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - plugins/mocrane-wecom/package.json
+    - [package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
 
 - 🟡 P2 **openclaw-weixin** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: openclaw-weixin: plugin API compatibility range is missing
@@ -1129,7 +1129,7 @@ _none_
 | Captured registration    | ../openclaw/src/plugins/captured-registration.ts                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Captured registrars      | 18                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Package metadata         | ../openclaw/package.json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Plugin SDK exports       | 307                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Plugin SDK exports       | 308                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Manifest types           | ../openclaw/src/plugins/manifest.ts                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Manifest fields          | 32                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Manifest contract fields | 16                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -1424,8 +1424,8 @@ _none_
   - **registration-capture-gap**: mocrane-wecom: runtime registrations need capture before contract judgment
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/mocrane-wecom/index.ts:31
-    - registerHttpRoute @ plugins/mocrane-wecom/index.ts:34
+    - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
+    - [registerHttpRoute @ index.ts:34](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L34)
 
 - 🟠 P1 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: openclaw-weixin: runtime registrations need capture before contract judgment
@@ -1722,27 +1722,27 @@ _none_
   - **channel-contract-probe**: ddingtalk: channel runtime needs envelope/config probes
   - state: open · compat:none
   - evidence:
-    - defineChannelPluginEntry @ plugins/ddingtalk/index.ts:8
+    - [defineChannelPluginEntry @ index.ts:8](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts#L8)
 
 - 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: ddingtalk: cold import requires isolated dependency installation
   - state: open · compat:none
   - evidence:
-    - dingtalk-stream @ plugins/ddingtalk/package.json
-    - zod @ plugins/ddingtalk/package.json
-    - openclaw @ plugins/ddingtalk/package.json
+    - [dingtalk-stream @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
+    - [zod @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
+    - [openclaw @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
 
 - 🟡 P2 **ddingtalk** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: ddingtalk: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - plugins/ddingtalk/package.json
+    - [package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
 
 - 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: ddingtalk: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - extension:plugins/ddingtalk/index.ts
+    - [extension @ index.ts](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts)
 
 - 🟡 P2 **hasdata** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hasdata: cold import requires isolated dependency installation
@@ -2060,67 +2060,67 @@ _none_
   - **channel-contract-probe**: mocrane-wecom: channel runtime needs envelope/config probes
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/mocrane-wecom/index.ts:31
+    - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
 
 - 🟡 P2 **mocrane-wecom** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: mocrane-wecom: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/index.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/accounts.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/agent/handler.ts:9
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/channel.ts:5
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:17
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:18
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:19
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:20
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:21
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:22
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:23
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:27
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:30
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/accounts.ts:5
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/media.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/network.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/routing.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/dynamic-agent.ts:8
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/gateway-monitor.ts:5
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor.ts:6
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor/types.ts:2
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/onboarding.ts:9
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/outbound.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/runtime.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/shared/command-auth.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/ws-adapter.ts:14
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L1)
+    - [openclaw/plugin-sdk @ accounts.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/accounts.ts#L1)
+    - [openclaw/plugin-sdk @ handler.ts:9](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/agent/handler.ts#L9)
+    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/channel.ts#L5)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:17](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L17)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:18](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L18)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:19](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L19)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:20](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L20)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:21](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L21)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:22](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L22)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:23](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L23)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:27](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L27)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:30](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L30)
+    - [openclaw/plugin-sdk @ accounts.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/accounts.ts#L5)
+    - [openclaw/plugin-sdk @ media.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/media.ts#L1)
+    - [openclaw/plugin-sdk @ network.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/network.ts#L1)
+    - [openclaw/plugin-sdk @ routing.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/routing.ts#L1)
+    - [openclaw/plugin-sdk @ dynamic-agent.ts:8](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/dynamic-agent.ts#L8)
+    - [openclaw/plugin-sdk @ gateway-monitor.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/gateway-monitor.ts#L5)
+    - [openclaw/plugin-sdk @ monitor.ts:6](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/monitor.ts#L6)
+    - [openclaw/plugin-sdk @ types.ts:2](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/monitor/types.ts#L2)
+    - [openclaw/plugin-sdk @ onboarding.ts:9](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/onboarding.ts#L9)
+    - [openclaw/plugin-sdk @ outbound.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/outbound.ts#L1)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ command-auth.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/shared/command-auth.ts#L1)
+    - [openclaw/plugin-sdk @ ws-adapter.ts:14](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/ws-adapter.ts#L14)
 
 - 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: mocrane-wecom: cold import requires isolated dependency installation
   - state: open · compat:none
   - evidence:
-    - @wecom/aibot-node-sdk @ plugins/mocrane-wecom/package.json
-    - fast-xml-parser @ plugins/mocrane-wecom/package.json
-    - file-type @ plugins/mocrane-wecom/package.json
-    - undici @ plugins/mocrane-wecom/package.json
-    - zod @ plugins/mocrane-wecom/package.json
-    - openclaw @ plugins/mocrane-wecom/package.json
+    - [@wecom/aibot-node-sdk @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
+    - [fast-xml-parser @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
+    - [file-type @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
+    - [undici @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
+    - [zod @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
+    - [openclaw @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
 
 - 🟡 P2 **mocrane-wecom** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: mocrane-wecom: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - plugins/mocrane-wecom/package.json
+    - [package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
 
 - 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: mocrane-wecom: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - extension:plugins/mocrane-wecom/index.ts
+    - [extension @ index.ts](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts)
 
 - 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: mocrane-wecom: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - registerTool @ plugins/mocrane-wecom/index.ts:43
+    - [registerTool @ index.ts:43](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L43)
 
 - 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: openclaw-weixin: channel runtime needs envelope/config probes
@@ -2420,8 +2420,8 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:mocrane-wecom`
   - evidence:
-    - registerChannel @ plugins/mocrane-wecom/index.ts:31
-    - registerHttpRoute @ plugins/mocrane-wecom/index.ts:34
+    - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
+    - [registerHttpRoute @ index.ts:34](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L34)
 
 - 🟠 P1 **openclaw-weixin** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -2536,13 +2536,13 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:ddingtalk`
   - evidence:
-    - defineChannelPluginEntry @ plugins/ddingtalk/index.ts:8
+    - [defineChannelPluginEntry @ index.ts:8](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts#L8)
 
 - 🟡 P2 **mocrane-wecom** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:mocrane-wecom`
   - evidence:
-    - registerChannel @ plugins/mocrane-wecom/index.ts:31
+    - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
 
 - 🟡 P2 **openclaw-weixin** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -2642,7 +2642,7 @@ _none_
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:ddingtalk`
   - evidence:
-    - plugins/ddingtalk/package.json
+    - [package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
 
 - 🟡 P2 **lossless-claw** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -2660,7 +2660,7 @@ _none_
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:mocrane-wecom`
   - evidence:
-    - plugins/mocrane-wecom/package.json
+    - [package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
 
 - 🟡 P2 **openclaw-weixin** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -2745,9 +2745,9 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:ddingtalk`
   - evidence:
-    - dingtalk-stream @ plugins/ddingtalk/package.json
-    - zod @ plugins/ddingtalk/package.json
-    - openclaw @ plugins/ddingtalk/package.json
+    - [dingtalk-stream @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
+    - [zod @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
+    - [openclaw @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
 
 - 🟡 P2 **hasdata** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -2805,12 +2805,12 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:mocrane-wecom`
   - evidence:
-    - @wecom/aibot-node-sdk @ plugins/mocrane-wecom/package.json
-    - fast-xml-parser @ plugins/mocrane-wecom/package.json
-    - file-type @ plugins/mocrane-wecom/package.json
-    - undici @ plugins/mocrane-wecom/package.json
-    - zod @ plugins/mocrane-wecom/package.json
-    - openclaw @ plugins/mocrane-wecom/package.json
+    - [@wecom/aibot-node-sdk @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
+    - [fast-xml-parser @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
+    - [file-type @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
+    - [undici @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
+    - [zod @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
+    - [openclaw @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
 
 - 🟡 P2 **openclaw-weixin** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -2879,7 +2879,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:ddingtalk`
   - evidence:
-    - extension:plugins/ddingtalk/index.ts
+    - [extension @ index.ts](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts)
 
 - 🟡 P2 **hasdata** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -2915,7 +2915,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:mocrane-wecom`
   - evidence:
-    - extension:plugins/mocrane-wecom/index.ts
+    - [extension @ index.ts](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts)
 
 - 🟡 P2 **openclaw-weixin** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -3009,32 +3009,32 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:mocrane-wecom`
   - evidence:
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/index.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/accounts.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/agent/handler.ts:9
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/channel.ts:5
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:17
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:18
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:19
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:20
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:21
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:22
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:23
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:27
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:30
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/accounts.ts:5
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/media.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/network.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/config/routing.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/dynamic-agent.ts:8
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/gateway-monitor.ts:5
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor.ts:6
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/monitor/types.ts:2
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/onboarding.ts:9
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/outbound.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/runtime.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/shared/command-auth.ts:1
-    - openclaw/plugin-sdk @ plugins/mocrane-wecom/src/ws-adapter.ts:14
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L1)
+    - [openclaw/plugin-sdk @ accounts.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/accounts.ts#L1)
+    - [openclaw/plugin-sdk @ handler.ts:9](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/agent/handler.ts#L9)
+    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/channel.ts#L5)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:17](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L17)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:18](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L18)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:19](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L19)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:20](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L20)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:21](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L21)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:22](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L22)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:23](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L23)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:27](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L27)
+    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:30](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L30)
+    - [openclaw/plugin-sdk @ accounts.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/accounts.ts#L5)
+    - [openclaw/plugin-sdk @ media.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/media.ts#L1)
+    - [openclaw/plugin-sdk @ network.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/network.ts#L1)
+    - [openclaw/plugin-sdk @ routing.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/routing.ts#L1)
+    - [openclaw/plugin-sdk @ dynamic-agent.ts:8](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/dynamic-agent.ts#L8)
+    - [openclaw/plugin-sdk @ gateway-monitor.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/gateway-monitor.ts#L5)
+    - [openclaw/plugin-sdk @ monitor.ts:6](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/monitor.ts#L6)
+    - [openclaw/plugin-sdk @ types.ts:2](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/monitor/types.ts#L2)
+    - [openclaw/plugin-sdk @ onboarding.ts:9](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/onboarding.ts#L9)
+    - [openclaw/plugin-sdk @ outbound.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/outbound.ts#L1)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ command-auth.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/shared/command-auth.ts#L1)
+    - [openclaw/plugin-sdk @ ws-adapter.ts:14](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/ws-adapter.ts#L14)
 
 - 🟡 P2 **opik-openclaw** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
@@ -3136,7 +3136,7 @@ _none_
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
   - id: `tool.registration.schema-capture:mocrane-wecom`
   - evidence:
-    - registerTool @ plugins/mocrane-wecom/index.ts:43
+    - [registerTool @ index.ts:43](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L43)
 
 - 🟡 P2 **qqbot** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
