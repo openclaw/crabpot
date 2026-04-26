@@ -2,7 +2,7 @@
 import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { readManifest, repoRoot } from "./manifest-lib.mjs";
+import { fixtureCheckoutPath, fixtureSourceRoot, readManifest, repoRoot } from "./manifest-lib.mjs";
 
 const args = process.argv.slice(2);
 const strict = args.includes("--strict");
@@ -22,8 +22,8 @@ const rows = [];
 const missing = [];
 
 for (const fixture of manifest.fixtures) {
-  const checkoutPath = path.join(repoRoot, fixture.path);
-  const pluginRoot = fixture.subdir ? path.join(checkoutPath, fixture.subdir) : checkoutPath;
+  const checkoutPath = fixtureCheckoutPath(fixture);
+  const pluginRoot = fixtureSourceRoot(fixture);
 
   if (!existsSync(checkoutPath)) {
     rows.push(row(fixture, "missing", "not materialized"));
@@ -88,4 +88,3 @@ async function readPackageName(filePath) {
     return "invalid package.json";
   }
 }
-

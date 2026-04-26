@@ -3,7 +3,7 @@ import { existsSync } from "node:fs";
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { readManifest, repoRoot } from "./manifest-lib.mjs";
+import { fixtureCheckoutPath, fixtureSourceRoot, readManifest, repoRoot } from "./manifest-lib.mjs";
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   await main();
@@ -61,8 +61,8 @@ export async function inspectManifest() {
 }
 
 export async function inspectFixture(fixture) {
-  const checkoutPath = path.join(repoRoot, fixture.path);
-  const sourceRoot = fixture.subdir ? path.join(checkoutPath, fixture.subdir) : checkoutPath;
+  const checkoutPath = fixtureCheckoutPath(fixture);
+  const sourceRoot = fixtureSourceRoot(fixture);
 
   if (!existsSync(checkoutPath)) {
     return emptyInspection(fixture, "missing");

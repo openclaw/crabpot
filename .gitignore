@@ -7,7 +7,4 @@ coverage/
 dist/
 tmp/
 .crabpot/
-plugins/lightclawbot/
-plugins/memory-tencentdb/
-plugins/openclaw-weixin/
-plugins/yuanbao/
+plugins/*/.crabpot-package/

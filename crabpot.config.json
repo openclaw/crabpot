@@ -209,7 +209,6 @@
       "name": "TencentDB Agent Memory",
       "package": {
         "name": "@tencentdb-agent-memory/memory-tencentdb",
-        "version": "0.2.3",
         "tag": "latest"
       },
       "path": "plugins/memory-tencentdb",
@@ -251,7 +250,6 @@
       "name": "Tencent Yuanbao Bot",
       "package": {
         "name": "openclaw-plugin-yuanbao",
-        "version": "2.11.0",
         "tag": "latest"
       },
       "path": "plugins/yuanbao",
@@ -267,7 +265,6 @@
       "name": "OpenClaw Weixin",
       "package": {
         "name": "@tencent-weixin/openclaw-weixin",
-        "version": "2.1.10",
         "tag": "latest"
       },
       "path": "plugins/openclaw-weixin",
@@ -283,7 +280,6 @@
       "name": "LightClawBot",
       "package": {
         "name": "lightclawbot",
-        "version": "1.1.2",
         "tag": "latest"
       },
       "path": "plugins/lightclawbot",

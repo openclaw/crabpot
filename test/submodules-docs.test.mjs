@@ -12,6 +12,18 @@ test("dependabot is configured to update plugin submodules", async () => {
   assert.match(dependabot, /interval:\s*"weekly"/);
 });
 
+test("dependabot is configured to update npm fixture shims", async () => {
+  const manifest = await readManifest();
+  const dependabot = await readFile(".github/dependabot.yml", "utf8");
+
+  for (const fixture of manifest.fixtures.filter((item) => item.package)) {
+    assert.match(
+      dependabot,
+      new RegExp(`package-ecosystem:\\s*"npm"[\\s\\S]*directory:\\s*"\\/${escapeRegExp(fixture.path)}"`),
+    );
+  }
+});
+
 test("plugin submodule README stays aligned with manifest and gitmodules", async () => {
   const manifest = await readManifest();
   const gitmodules = await readFile(".gitmodules", "utf8");
@@ -23,6 +35,8 @@ test("plugin submodule README stays aligned with manifest and gitmodules", async
   assert.match(readme, /## Add A Plugin/);
   assert.match(readme, /## Remove A Plugin/);
   assert.match(readme, /package-ecosystem: "gitsubmodule"/);
+  assert.match(readme, /package-ecosystem: "npm"/);
+  assert.match(readme, /plugins\/<id>\/package\.json/);
 
   for (const fixture of gitFixtures) {
     const submodule = submodules.find((item) => item.path === fixture.path);

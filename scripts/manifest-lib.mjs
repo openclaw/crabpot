@@ -3,6 +3,7 @@ import path from "node:path";
 
 export const repoRoot = path.resolve(import.meta.dirname, "..");
 export const manifestPath = path.join(repoRoot, "crabpot.config.json");
+export const npmPackagePayloadDir = ".crabpot-package";
 
 export async function readManifest() {
   const raw = await readFile(manifestPath, "utf8");
@@ -57,9 +58,6 @@ export function validateManifest(manifest) {
       if (!fixture.package.name || typeof fixture.package.name !== "string") {
         errors.push(`${fixture.id}: package.name must be set`);
       }
-      if (!fixture.package.version || typeof fixture.package.version !== "string") {
-        errors.push(`${fixture.id}: package.version must be set`);
-      }
     }
     if (!["high", "medium", "low"].includes(fixture.priority)) {
       errors.push(`${fixture.id}: priority must be high, medium, or low`);
@@ -78,4 +76,19 @@ export function validateManifest(manifest) {
   if (errors.length > 0) {
     throw new Error(errors.join("\n"));
   }
+}
+
+export function fixtureCheckoutPath(fixture) {
+  return path.join(repoRoot, fixture.path);
+}
+
+export function fixtureSourceRoot(fixture) {
+  const checkoutPath = fixtureCheckoutPath(fixture);
+  if (fixture.subdir) {
+    return path.join(checkoutPath, fixture.subdir);
+  }
+  if (fixture.package) {
+    return path.join(checkoutPath, npmPackagePayloadDir);
+  }
+  return checkoutPath;
 }

@@ -29,7 +29,7 @@
           "repo": { "type": "string", "pattern": "^https://github.com/.+\\.git$" },
           "package": {
             "type": "object",
-            "required": ["name", "version"],
+            "required": ["name"],
             "additionalProperties": false,
             "properties": {
               "name": { "type": "string", "minLength": 1 },

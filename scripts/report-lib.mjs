@@ -4,7 +4,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { inspectManifest } from "./inspect-fixtures.mjs";
-import { readManifest, repoRoot } from "./manifest-lib.mjs";
+import { fixtureCheckoutPath, fixtureSourceRoot, readManifest, repoRoot } from "./manifest-lib.mjs";
 
 export const defaultReportDir = path.join(repoRoot, "reports");
 export const defaultMarkdownReportPath = path.join(defaultReportDir, "crabpot-report.md");
@@ -1401,8 +1401,8 @@ function classifyPackageContracts({ fixture, inspection, fixtureReport, warnings
 }
 
 async function buildFixtureReport(fixture, inspection) {
-  const checkoutPath = path.join(repoRoot, fixture.path);
-  const sourceRoot = fixture.subdir ? path.join(checkoutPath, fixture.subdir) : checkoutPath;
+  const checkoutPath = fixtureCheckoutPath(fixture);
+  const sourceRoot = fixtureSourceRoot(fixture);
 
   const pluginManifests = await readPluginManifests(checkoutPath, sourceRoot);
   const packageSummaries = await readPackageSummaries(checkoutPath, sourceRoot);

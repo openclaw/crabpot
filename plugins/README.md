@@ -1,22 +1,25 @@
 # Crabpot Plugin Fixtures
 
 Crabpot keeps external plugins under `plugins/`. Most fixtures are git
-submodules. Some npm-only fixtures are pinned by package version and unpacked on
-demand into ignored `plugins/<id>` directories. The parent repo owns only pins,
-fixture metadata, generated reports, and tests. Plugin source stays
-upstream-owned.
+submodules. Npm-only fixtures use committed `plugins/<id>/package.json` shim
+packages with one exact dependency pin; `node scripts/sync-fixtures.mjs --materialize`
+unpacks the package payload into ignored `plugins/<id>/.crabpot-package/`
+directories for static inspection. The parent repo owns only pins, fixture
+metadata, generated reports, and tests. Plugin source stays upstream-owned.
 
-Dependabot watches `.gitmodules` with the `gitsubmodule` ecosystem and opens PRs
-when a submodule has a newer upstream commit. Npm-sourced fixtures are pinned in
-`crabpot.config.json` and are refreshed manually until we add package-update
-automation. Update PRs should change only the relevant pin unless plugin behavior
-requires reports or contract classifier changes.
+Dependabot watches `.gitmodules` with the `gitsubmodule` ecosystem and the npm
+shim package directories with the `npm` ecosystem. Update PRs should change only
+the relevant pin unless plugin behavior requires report or contract classifier
+changes. Dependabot PRs can be auto-merged after CI refreshes the generated
+reports and dashboard.
 
 The root `.github/dependabot.yml` owns this:
 
 ```yaml
 package-ecosystem: "gitsubmodule"
 directory: "/"
+package-ecosystem: "npm"
+directory: "/plugins/<id>"
 ```
 
 ## How It Works
@@ -25,8 +28,9 @@ directory: "/"
 - `crabpot.config.json` declares the fixture id, seam coverage, expected hooks,
   expected registrations, source pin, and why the plugin belongs in Crabpot.
 - The gitlink at `plugins/<id>` pins the exact upstream commit Crabpot tests.
-- Npm fixtures use `package.name` + `package.version`; `node scripts/sync-fixtures.mjs --materialize`
-  unpacks them into ignored `plugins/<id>` directories.
+- Npm fixtures use `crabpot.config.json` for package identity and
+  `plugins/<id>/package.json` for the exact dependency pin; materialization
+  unpacks the package into ignored `plugins/<id>/.crabpot-package/`.
 - `scripts/inspect-fixtures.mjs` reads source statically and checks expected
   hooks, registrations, manifests, packages, and SDK imports.
 - `scripts/generate-report.mjs` compares observed plugin seams with the target
@@ -83,15 +87,23 @@ directory: "/"
    npm view <package> version
    ```
 
-5. Add a fixture entry to `crabpot.config.json` with:
+5. Create `plugins/<id>/package.json` with one exact dependency on the upstream
+   npm package and generate its lockfile:
+
+   ```sh
+   npm install --package-lock-only --ignore-scripts --prefix plugins/<id>
+   ```
+
+6. Add a fixture entry to `crabpot.config.json` with:
    - `id`, `name`, `path`, and optional `subdir`
-   - exactly one of `repo` or `package: { name, version, tag }`
+   - exactly one of `repo` or `package: { name, tag }`
    - `priority`
    - seam labels
    - expected hooks, registrations, or manifest contracts
    - a specific `why`
-6. Add the fixture to the inventory table above.
-7. Run:
+7. Add an npm update block to `.github/dependabot.yml` for the new shim path.
+8. Add the fixture to the inventory table above.
+9. Run:
 
    ```sh
    node scripts/sync-fixtures.mjs --materialize
@@ -124,12 +136,13 @@ directory: "/"
    rm -rf .git/modules/plugins/<id>
    ```
 
-5. For an npm fixture, remove the ignored local unpacked directory.
+5. For an npm fixture, remove `plugins/<id>/package.json`, `plugins/<id>/package-lock.json`,
+   its Dependabot npm block, and the ignored local `.crabpot-package/` directory.
 6. Regenerate reports and run `npm run check`.
 
 ## Update A Pin Manually
 
-Dependabot should handle routine updates. For a manual bump:
+Dependabot should handle routine updates. For a manual repo-backed bump:
 
 ```sh
 git submodule update --remote --depth 1 plugins/<id>
@@ -140,3 +153,7 @@ npm run check
 
 Commit the gitlink bump with any necessary fixture/report changes. Do not edit
 upstream plugin source in this repository.
+
+For an npm fixture, update the exact dependency in `plugins/<id>/package.json`,
+regenerate `plugins/<id>/package-lock.json`, then run the same report/check
+commands. Dependabot uses the same files.

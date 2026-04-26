@@ -4,7 +4,7 @@ import { mkdir, mkdtemp, readFile, readdir, rm } from "node:fs/promises";
 import os from "node:os";
 import { spawnSync } from "node:child_process";
 import path from "node:path";
-import { readManifest, repoRoot } from "./manifest-lib.mjs";
+import { fixtureSourceRoot, readManifest, repoRoot } from "./manifest-lib.mjs";
 
 const args = new Set(process.argv.slice(2));
 const materialize = args.has("--materialize");
@@ -14,6 +14,7 @@ const manifest = await readManifest();
 
 if (check) {
   await checkGitmodules(manifest);
+  await checkNpmFixtureShims(manifest);
   console.log(`crabpot: manifest ok (${manifest.fixtures.length} fixtures)`);
   process.exit(0);
 }
@@ -60,9 +61,25 @@ async function checkGitmodules(manifest) {
   }
 }
 
+async function checkNpmFixtureShims(manifest) {
+  const errors = [];
+  for (const fixture of manifest.fixtures.filter((item) => item.package)) {
+    try {
+      await readNpmFixtureDependency(fixture);
+    } catch (error) {
+      errors.push(error.message);
+    }
+  }
+  if (errors.length > 0) {
+    throw new Error(`npm fixture shims are invalid:\n${errors.join("\n")}`);
+  }
+}
+
 async function materializeNpmFixture(fixture, target) {
-  const spec = `${fixture.package.name}@${fixture.package.version}`;
+  const dependency = await readNpmFixtureDependency(fixture);
+  const spec = `${dependency.name}@${dependency.version}`;
   const tempDir = await mkdtemp(path.join(os.tmpdir(), "crabpot-npm-fixture-"));
+  const payloadDir = fixtureSourceRoot(fixture);
   try {
     const pack = spawnSync("npm", ["pack", spec, "--pack-destination", tempDir, "--json"], {
       cwd: repoRoot,
@@ -80,12 +97,35 @@ async function materializeNpmFixture(fixture, target) {
       throw new Error(`npm pack ${spec} did not return a tarball filename`);
     }
 
-    await rm(target, { recursive: true, force: true });
     await mkdir(target, { recursive: true });
-    run("tar", ["-xzf", path.join(tempDir, packed.filename), "-C", target, "--strip-components", "1"]);
+    await rm(payloadDir, { recursive: true, force: true });
+    await mkdir(payloadDir, { recursive: true });
+    run("tar", ["-xzf", path.join(tempDir, packed.filename), "-C", payloadDir, "--strip-components", "1"]);
   } finally {
     await rm(tempDir, { recursive: true, force: true });
   }
+}
+
+async function readNpmFixtureDependency(fixture) {
+  const shimPath = path.join(repoRoot, fixture.path, "package.json");
+  if (!existsSync(shimPath)) {
+    throw new Error(`${fixture.id}: missing npm shim ${path.relative(repoRoot, shimPath)}`);
+  }
+  const packageJson = JSON.parse(await readFile(shimPath, "utf8"));
+  const declared =
+    packageJson.dependencies?.[fixture.package.name] ??
+    packageJson.devDependencies?.[fixture.package.name] ??
+    packageJson.optionalDependencies?.[fixture.package.name];
+  if (typeof declared !== "string") {
+    throw new Error(`${fixture.id}: shim does not depend on ${fixture.package.name}`);
+  }
+  if (!/^\d+\.\d+\.\d+/.test(declared)) {
+    throw new Error(`${fixture.id}: ${fixture.package.name} must use an exact semver pin, got ${declared}`);
+  }
+  return {
+    name: fixture.package.name,
+    version: declared,
+  };
 }
 
 async function hasEntries(target) {
