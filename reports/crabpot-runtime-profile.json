@@ -8,7 +8,7 @@
     "hookNames": 32,
     "apiRegistrars": 40,
     "capturedRegistrars": 18,
-    "sdkExports": 308,
+    "sdkExports": 307,
     "manifestFields": 32,
     "manifestContractFields": 16
   },
@@ -30,21 +30,21 @@
   },
   "summary": {
     "commandCount": 9,
-    "p50WallMs": 3718,
-    "p95WallMs": 5673,
-    "maxPeakRssMb": 75.5,
-    "maxRssDeltaMb": 74.1,
-    "maxCpuMsEstimate": 778,
-    "maxHarnessHeapDeltaMb": 1.6
+    "p50WallMs": 3210,
+    "p95WallMs": 4615,
+    "maxPeakRssMb": 79.3,
+    "maxRssDeltaMb": 45.3,
+    "maxCpuMsEstimate": 774,
+    "maxHarnessHeapDeltaMb": 1.9
   },
   "groups": [
     {
       "category": "baseline",
       "commandCount": 1,
-      "p50WallMs": 939,
-      "p95WallMs": 939,
-      "maxPeakRssMb": 24.1,
-      "maxCpuMsEstimate": 85,
+      "p50WallMs": 959,
+      "p95WallMs": 959,
+      "maxPeakRssMb": 40.1,
+      "maxCpuMsEstimate": 66,
       "commands": [
         "node-boot"
       ]
@@ -52,10 +52,10 @@
     {
       "category": "fixture-scan",
       "commandCount": 1,
-      "p50WallMs": 2773,
-      "p95WallMs": 2773,
-      "maxPeakRssMb": 67.7,
-      "maxCpuMsEstimate": 607,
+      "p50WallMs": 3736,
+      "p95WallMs": 3736,
+      "maxPeakRssMb": 69.5,
+      "maxCpuMsEstimate": 751,
       "commands": [
         "fixture-inspection"
       ]
@@ -63,10 +63,10 @@
     {
       "category": "target-registry",
       "commandCount": 1,
-      "p50WallMs": 3540,
-      "p95WallMs": 3540,
-      "maxPeakRssMb": 74.3,
-      "maxCpuMsEstimate": 644,
+      "p50WallMs": 3935,
+      "p95WallMs": 3935,
+      "maxPeakRssMb": 72.1,
+      "maxCpuMsEstimate": 693,
       "commands": [
         "compat-report-registry"
       ]
@@ -74,10 +74,10 @@
     {
       "category": "contract-capture",
       "commandCount": 1,
-      "p50WallMs": 3718,
-      "p95WallMs": 3718,
-      "maxPeakRssMb": 74.5,
-      "maxCpuMsEstimate": 758,
+      "p50WallMs": 3210,
+      "p95WallMs": 3210,
+      "maxPeakRssMb": 74.7,
+      "maxCpuMsEstimate": 639,
       "commands": [
         "contract-capture"
       ]
@@ -85,10 +85,10 @@
     {
       "category": "synthetic-probes",
       "commandCount": 1,
-      "p50WallMs": 4094,
-      "p95WallMs": 4094,
-      "maxPeakRssMb": 72.9,
-      "maxCpuMsEstimate": 778,
+      "p50WallMs": 4615,
+      "p95WallMs": 4615,
+      "maxPeakRssMb": 74.9,
+      "maxCpuMsEstimate": 734,
       "commands": [
         "synthetic-probe-plan"
       ]
@@ -96,10 +96,10 @@
     {
       "category": "cold-import",
       "commandCount": 1,
-      "p50WallMs": 5243,
-      "p95WallMs": 5243,
-      "maxPeakRssMb": 75.5,
-      "maxCpuMsEstimate": 750,
+      "p50WallMs": 1815,
+      "p95WallMs": 1815,
+      "maxPeakRssMb": 73.2,
+      "maxCpuMsEstimate": 624,
       "commands": [
         "cold-import-readiness"
       ]
@@ -107,10 +107,10 @@
     {
       "category": "workspace-plan",
       "commandCount": 1,
-      "p50WallMs": 5673,
-      "p95WallMs": 5673,
-      "maxPeakRssMb": 71.7,
-      "maxCpuMsEstimate": 755,
+      "p50WallMs": 3167,
+      "p95WallMs": 3167,
+      "maxPeakRssMb": 76.3,
+      "maxCpuMsEstimate": 747,
       "commands": [
         "workspace-plan"
       ]
@@ -118,10 +118,10 @@
     {
       "category": "platform-probes",
       "commandCount": 1,
-      "p50WallMs": 5314,
-      "p95WallMs": 5314,
-      "maxPeakRssMb": 74.9,
-      "maxCpuMsEstimate": 696,
+      "p50WallMs": 2496,
+      "p95WallMs": 2496,
+      "maxPeakRssMb": 79.3,
+      "maxCpuMsEstimate": 774,
       "commands": [
         "platform-probes"
       ]
@@ -129,10 +129,10 @@
     {
       "category": "import-loop",
       "commandCount": 1,
-      "p50WallMs": 3589,
-      "p95WallMs": 3589,
-      "maxPeakRssMb": 49.4,
-      "maxCpuMsEstimate": 183,
+      "p50WallMs": 3878,
+      "p95WallMs": 3878,
+      "maxPeakRssMb": 48.7,
+      "maxCpuMsEstimate": 217,
       "commands": [
         "import-loop-profile"
       ]
@@ -146,26 +146,26 @@
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node -e 0",
       "samples": [
         {
-          "wallMs": 939,
-          "peakRssMb": 24.1,
+          "wallMs": 959,
+          "peakRssMb": 40.1,
           "rssDeltaMb": 0,
-          "peakCpuPercent": 9.1,
-          "cpuMsEstimate": 85,
-          "harnessHeapDeltaMb": 1.3,
+          "peakCpuPercent": 6.9,
+          "cpuMsEstimate": 66,
+          "harnessHeapDeltaMb": 1,
           "exitCode": 0,
           "stdoutPreview": "",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 939,
-        "median": 939,
-        "max": 939
+        "min": 959,
+        "median": 959,
+        "max": 959
       },
       "peakRssMb": {
-        "min": 24.1,
-        "median": 24.1,
-        "max": 24.1
+        "min": 40.1,
+        "median": 40.1,
+        "max": 40.1
       },
       "rssDeltaMb": {
         "min": 0,
@@ -173,19 +173,19 @@
         "max": 0
       },
       "peakCpuPercent": {
-        "min": 9.1,
-        "median": 9.1,
-        "max": 9.1
+        "min": 6.9,
+        "median": 6.9,
+        "max": 6.9
       },
       "cpuMsEstimate": {
-        "min": 85,
-        "median": 85,
-        "max": 85
+        "min": 66,
+        "median": 66,
+        "max": 66
       },
       "harnessHeapDeltaMb": {
-        "min": 1.3,
-        "median": 1.3,
-        "max": 1.3
+        "min": 1,
+        "median": 1,
+        "max": 1
       },
       "exitCodes": [
         0
@@ -198,46 +198,46 @@
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/inspect-fixtures.mjs --check",
       "samples": [
         {
-          "wallMs": 2773,
-          "peakRssMb": 67.7,
-          "rssDeltaMb": 25.8,
-          "peakCpuPercent": 28.3,
-          "cpuMsEstimate": 607,
-          "harnessHeapDeltaMb": 1.4,
+          "wallMs": 3736,
+          "peakRssMb": 69.5,
+          "rssDeltaMb": 33.8,
+          "peakCpuPercent": 34.8,
+          "cpuMsEstimate": 751,
+          "harnessHeapDeltaMb": 1.9,
           "exitCode": 0,
           "stdoutPreview": "│ 26      │ 'inworld-tts'       │ 'ok'   │ ''                                                                                                                                                               │ 'definePluginEntry,registerSpeechProvider'                                                     │ 'speechProviders' │\n└─────────┴─────────────────────┴────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────────────────────────────────────────────────────────────────────────────────────────┴───────────────────┘",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 2773,
-        "median": 2773,
-        "max": 2773
+        "min": 3736,
+        "median": 3736,
+        "max": 3736
       },
       "peakRssMb": {
-        "min": 67.7,
-        "median": 67.7,
-        "max": 67.7
+        "min": 69.5,
+        "median": 69.5,
+        "max": 69.5
       },
       "rssDeltaMb": {
-        "min": 25.8,
-        "median": 25.8,
-        "max": 25.8
+        "min": 33.8,
+        "median": 33.8,
+        "max": 33.8
       },
       "peakCpuPercent": {
-        "min": 28.3,
-        "median": 28.3,
-        "max": 28.3
+        "min": 34.8,
+        "median": 34.8,
+        "max": 34.8
       },
       "cpuMsEstimate": {
-        "min": 607,
-        "median": 607,
-        "max": 607
+        "min": 751,
+        "median": 751,
+        "max": 751
       },
       "harnessHeapDeltaMb": {
-        "min": 1.4,
-        "median": 1.4,
-        "max": 1.4
+        "min": 1.9,
+        "median": 1.9,
+        "max": 1.9
       },
       "exitCodes": [
         0
@@ -250,46 +250,46 @@
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/generate-report.mjs --check",
       "samples": [
         {
-          "wallMs": 3540,
-          "peakRssMb": 74.3,
-          "rssDeltaMb": 74.1,
-          "peakCpuPercent": 26.7,
-          "cpuMsEstimate": 644,
-          "harnessHeapDeltaMb": 1.6,
+          "wallMs": 3935,
+          "peakRssMb": 72.1,
+          "rssDeltaMb": 31.5,
+          "peakCpuPercent": 27.3,
+          "cpuMsEstimate": 693,
+          "harnessHeapDeltaMb": 1.7,
           "exitCode": 0,
           "stdoutPreview": "crabpot report check: pass; 0 breakages, 51 warnings, 92 suggestions, 143 issues\nreport targets: /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-report.md, /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-report.json, /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-issues.md",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 3540,
-        "median": 3540,
-        "max": 3540
+        "min": 3935,
+        "median": 3935,
+        "max": 3935
       },
       "peakRssMb": {
-        "min": 74.3,
-        "median": 74.3,
-        "max": 74.3
+        "min": 72.1,
+        "median": 72.1,
+        "max": 72.1
       },
       "rssDeltaMb": {
-        "min": 74.1,
-        "median": 74.1,
-        "max": 74.1
+        "min": 31.5,
+        "median": 31.5,
+        "max": 31.5
       },
       "peakCpuPercent": {
-        "min": 26.7,
-        "median": 26.7,
-        "max": 26.7
+        "min": 27.3,
+        "median": 27.3,
+        "max": 27.3
       },
       "cpuMsEstimate": {
-        "min": 644,
-        "median": 644,
-        "max": 644
+        "min": 693,
+        "median": 693,
+        "max": 693
       },
       "harnessHeapDeltaMb": {
-        "min": 1.6,
-        "median": 1.6,
-        "max": 1.6
+        "min": 1.7,
+        "median": 1.7,
+        "max": 1.7
       },
       "exitCodes": [
         0
@@ -302,46 +302,46 @@
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/capture-contracts.mjs --check",
       "samples": [
         {
-          "wallMs": 3718,
-          "peakRssMb": 74.5,
-          "rssDeltaMb": 32,
-          "peakCpuPercent": 33.1,
-          "cpuMsEstimate": 758,
-          "harnessHeapDeltaMb": -16.3,
+          "wallMs": 3210,
+          "peakRssMb": 74.7,
+          "rssDeltaMb": 33.2,
+          "peakCpuPercent": 31,
+          "cpuMsEstimate": 639,
+          "harnessHeapDeltaMb": -16.5,
           "exitCode": 0,
           "stdoutPreview": "contract capture: 93 registrations, 48 hooks, 165 sdk imports, 141 issue probes",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 3718,
-        "median": 3718,
-        "max": 3718
+        "min": 3210,
+        "median": 3210,
+        "max": 3210
       },
       "peakRssMb": {
-        "min": 74.5,
-        "median": 74.5,
-        "max": 74.5
+        "min": 74.7,
+        "median": 74.7,
+        "max": 74.7
       },
       "rssDeltaMb": {
-        "min": 32,
-        "median": 32,
-        "max": 32
+        "min": 33.2,
+        "median": 33.2,
+        "max": 33.2
       },
       "peakCpuPercent": {
-        "min": 33.1,
-        "median": 33.1,
-        "max": 33.1
+        "min": 31,
+        "median": 31,
+        "max": 31
       },
       "cpuMsEstimate": {
-        "min": 758,
-        "median": 758,
-        "max": 758
+        "min": 639,
+        "median": 639,
+        "max": 639
       },
       "harnessHeapDeltaMb": {
-        "min": -16.3,
-        "median": -16.3,
-        "max": -16.3
+        "min": -16.5,
+        "median": -16.5,
+        "max": -16.5
       },
       "exitCodes": [
         0
@@ -354,46 +354,46 @@
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/synthetic-probes.mjs --check",
       "samples": [
         {
-          "wallMs": 4094,
-          "peakRssMb": 72.9,
-          "rssDeltaMb": 70,
-          "peakCpuPercent": 37.5,
-          "cpuMsEstimate": 778,
-          "harnessHeapDeltaMb": 0,
+          "wallMs": 4615,
+          "peakRssMb": 74.9,
+          "rssDeltaMb": 34,
+          "peakCpuPercent": 34,
+          "cpuMsEstimate": 734,
+          "harnessHeapDeltaMb": -0.6,
           "exitCode": 0,
           "stdoutPreview": "synthetic probes: 141 ready, 0 blocked, 141 total",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 4094,
-        "median": 4094,
-        "max": 4094
+        "min": 4615,
+        "median": 4615,
+        "max": 4615
       },
       "peakRssMb": {
-        "min": 72.9,
-        "median": 72.9,
-        "max": 72.9
+        "min": 74.9,
+        "median": 74.9,
+        "max": 74.9
       },
       "rssDeltaMb": {
-        "min": 70,
-        "median": 70,
-        "max": 70
+        "min": 34,
+        "median": 34,
+        "max": 34
       },
       "peakCpuPercent": {
-        "min": 37.5,
-        "median": 37.5,
-        "max": 37.5
+        "min": 34,
+        "median": 34,
+        "max": 34
       },
       "cpuMsEstimate": {
-        "min": 778,
-        "median": 778,
-        "max": 778
+        "min": 734,
+        "median": 734,
+        "max": 734
       },
       "harnessHeapDeltaMb": {
-        "min": 0,
-        "median": 0,
-        "max": 0
+        "min": -0.6,
+        "median": -0.6,
+        "max": -0.6
       },
       "exitCodes": [
         0
@@ -406,46 +406,46 @@
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/cold-import-readiness.mjs --check",
       "samples": [
         {
-          "wallMs": 5243,
-          "peakRssMb": 75.5,
-          "rssDeltaMb": 51.5,
-          "peakCpuPercent": 31.8,
-          "cpuMsEstimate": 750,
-          "harnessHeapDeltaMb": 0.5,
+          "wallMs": 1815,
+          "peakRssMb": 73.2,
+          "rssDeltaMb": 45.3,
+          "peakCpuPercent": 46.2,
+          "cpuMsEstimate": 624,
+          "harnessHeapDeltaMb": 0,
           "exitCode": 0,
           "stdoutPreview": "cold import readiness: 30 entrypoints, 0 ready, 30 blocked",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 5243,
-        "median": 5243,
-        "max": 5243
+        "min": 1815,
+        "median": 1815,
+        "max": 1815
       },
       "peakRssMb": {
-        "min": 75.5,
-        "median": 75.5,
-        "max": 75.5
+        "min": 73.2,
+        "median": 73.2,
+        "max": 73.2
       },
       "rssDeltaMb": {
-        "min": 51.5,
-        "median": 51.5,
-        "max": 51.5
+        "min": 45.3,
+        "median": 45.3,
+        "max": 45.3
       },
       "peakCpuPercent": {
-        "min": 31.8,
-        "median": 31.8,
-        "max": 31.8
+        "min": 46.2,
+        "median": 46.2,
+        "max": 46.2
       },
       "cpuMsEstimate": {
-        "min": 750,
-        "median": 750,
-        "max": 750
+        "min": 624,
+        "median": 624,
+        "max": 624
       },
       "harnessHeapDeltaMb": {
-        "min": 0.5,
-        "median": 0.5,
-        "max": 0.5
+        "min": 0,
+        "median": 0,
+        "max": 0
       },
       "exitCodes": [
         0
@@ -458,46 +458,46 @@
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/workspace-plan.mjs --check",
       "samples": [
         {
-          "wallMs": 5673,
-          "peakRssMb": 71.7,
-          "rssDeltaMb": 31.3,
-          "peakCpuPercent": 25,
-          "cpuMsEstimate": 755,
-          "harnessHeapDeltaMb": -0.5,
+          "wallMs": 3167,
+          "peakRssMb": 76.3,
+          "rssDeltaMb": 35.8,
+          "peakCpuPercent": 42.5,
+          "cpuMsEstimate": 747,
+          "harnessHeapDeltaMb": 0.5,
           "exitCode": 0,
           "stdoutPreview": "workspace plan: 30 entrypoints, 20 installs, 20 audits, 7 builds, 30 captures, 30 synthetic probes, 30 artifact dirs",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 5673,
-        "median": 5673,
-        "max": 5673
+        "min": 3167,
+        "median": 3167,
+        "max": 3167
       },
       "peakRssMb": {
-        "min": 71.7,
-        "median": 71.7,
-        "max": 71.7
+        "min": 76.3,
+        "median": 76.3,
+        "max": 76.3
       },
       "rssDeltaMb": {
-        "min": 31.3,
-        "median": 31.3,
-        "max": 31.3
+        "min": 35.8,
+        "median": 35.8,
+        "max": 35.8
       },
       "peakCpuPercent": {
-        "min": 25,
-        "median": 25,
-        "max": 25
+        "min": 42.5,
+        "median": 42.5,
+        "max": 42.5
       },
       "cpuMsEstimate": {
-        "min": 755,
-        "median": 755,
-        "max": 755
+        "min": 747,
+        "median": 747,
+        "max": 747
       },
       "harnessHeapDeltaMb": {
-        "min": -0.5,
-        "median": -0.5,
-        "max": -0.5
+        "min": 0.5,
+        "median": 0.5,
+        "max": 0.5
       },
       "exitCodes": [
         0
@@ -510,46 +510,46 @@
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/platform-probes.mjs --check",
       "samples": [
         {
-          "wallMs": 5314,
-          "peakRssMb": 74.9,
-          "rssDeltaMb": 59.6,
-          "peakCpuPercent": 17.9,
-          "cpuMsEstimate": 696,
-          "harnessHeapDeltaMb": 0.4,
+          "wallMs": 2496,
+          "peakRssMb": 79.3,
+          "rssDeltaMb": 38.3,
+          "peakCpuPercent": 39.9,
+          "cpuMsEstimate": 774,
+          "harnessHeapDeltaMb": 0.3,
           "exitCode": 0,
           "stdoutPreview": "platform probes: 30 entrypoints, 18 TS loader, 153 Windows-risk steps, 47 container-risk steps",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 5314,
-        "median": 5314,
-        "max": 5314
+        "min": 2496,
+        "median": 2496,
+        "max": 2496
       },
       "peakRssMb": {
-        "min": 74.9,
-        "median": 74.9,
-        "max": 74.9
+        "min": 79.3,
+        "median": 79.3,
+        "max": 79.3
       },
       "rssDeltaMb": {
-        "min": 59.6,
-        "median": 59.6,
-        "max": 59.6
+        "min": 38.3,
+        "median": 38.3,
+        "max": 38.3
       },
       "peakCpuPercent": {
-        "min": 17.9,
-        "median": 17.9,
-        "max": 17.9
+        "min": 39.9,
+        "median": 39.9,
+        "max": 39.9
       },
       "cpuMsEstimate": {
-        "min": 696,
-        "median": 696,
-        "max": 696
+        "min": 774,
+        "median": 774,
+        "max": 774
       },
       "harnessHeapDeltaMb": {
-        "min": 0.4,
-        "median": 0.4,
-        "max": 0.4
+        "min": 0.3,
+        "median": 0.3,
+        "max": 0.3
       },
       "exitCodes": [
         0
@@ -562,46 +562,46 @@
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/import-loop-profile.mjs --check --runs 2",
       "samples": [
         {
-          "wallMs": 3589,
-          "peakRssMb": 49.4,
-          "rssDeltaMb": 6.3,
-          "peakCpuPercent": 17,
-          "cpuMsEstimate": 183,
-          "harnessHeapDeltaMb": 0.3,
+          "wallMs": 3878,
+          "peakRssMb": 48.7,
+          "rssDeltaMb": 15.3,
+          "peakCpuPercent": 15.6,
+          "cpuMsEstimate": 217,
+          "harnessHeapDeltaMb": -0.4,
           "exitCode": 0,
-          "stdoutPreview": "import loop profile: 2 runs, p50 1247ms, max RSS 46.2MB",
+          "stdoutPreview": "import loop profile: 2 runs, p50 1112ms, max RSS 45.2MB",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 3589,
-        "median": 3589,
-        "max": 3589
+        "min": 3878,
+        "median": 3878,
+        "max": 3878
       },
       "peakRssMb": {
-        "min": 49.4,
-        "median": 49.4,
-        "max": 49.4
+        "min": 48.7,
+        "median": 48.7,
+        "max": 48.7
       },
       "rssDeltaMb": {
-        "min": 6.3,
-        "median": 6.3,
-        "max": 6.3
+        "min": 15.3,
+        "median": 15.3,
+        "max": 15.3
       },
       "peakCpuPercent": {
-        "min": 17,
-        "median": 17,
-        "max": 17
+        "min": 15.6,
+        "median": 15.6,
+        "max": 15.6
       },
       "cpuMsEstimate": {
-        "min": 183,
-        "median": 183,
-        "max": 183
+        "min": 217,
+        "median": 217,
+        "max": 217
       },
       "harnessHeapDeltaMb": {
-        "min": 0.3,
-        "median": 0.3,
-        "max": 0.3
+        "min": -0.4,
+        "median": -0.4,
+        "max": -0.4
       },
       "exitCodes": [
         0

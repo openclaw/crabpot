@@ -3,7 +3,7 @@
   "targetOpenClaw": {
     "status": "ok",
     "configuredPath": "../openclaw",
-    "sdkExportCount": 308
+    "sdkExportCount": 307
   },
   "summary": {
     "fixtureCount": 27,
@@ -444,18 +444,18 @@
       "priority": "high",
       "entrypoints": [
         {
-          "id": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-index-ts",
+          "id": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
           "fixture": "memory-tencentdb",
-          "packagePath": "plugins/memory-tencentdb/package.json",
+          "packagePath": "plugins/memory-tencentdb/.crabpot-package/package.json",
           "kind": "extension",
           "specifier": "./index.ts",
-          "path": "plugins/memory-tencentdb/index.ts",
+          "path": "plugins/memory-tencentdb/.crabpot-package/index.ts",
           "status": "ts-loader-required",
           "blockers": [
             {
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
-              "evidence": "plugins/memory-tencentdb/index.ts"
+              "evidence": "plugins/memory-tencentdb/.crabpot-package/index.ts"
             },
             {
               "code": "dependency-install-required",
@@ -537,12 +537,12 @@
       "priority": "high",
       "entrypoints": [
         {
-          "id": "cold-import.extension:yuanbao:plugins-yuanbao-dist-index-js",
+          "id": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
           "fixture": "yuanbao",
-          "packagePath": "plugins/yuanbao/package.json",
+          "packagePath": "plugins/yuanbao/.crabpot-package/package.json",
           "kind": "extension",
           "specifier": "./dist/index.js",
-          "path": "plugins/yuanbao/dist/index.js",
+          "path": "plugins/yuanbao/.crabpot-package/dist/index.js",
           "status": "dependency-install-required",
           "blockers": [
             {
@@ -562,18 +562,18 @@
       "priority": "high",
       "entrypoints": [
         {
-          "id": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-index-ts",
+          "id": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts",
           "fixture": "openclaw-weixin",
-          "packagePath": "plugins/openclaw-weixin/package.json",
+          "packagePath": "plugins/openclaw-weixin/.crabpot-package/package.json",
           "kind": "extension",
           "specifier": "./index.ts",
-          "path": "plugins/openclaw-weixin/index.ts",
+          "path": "plugins/openclaw-weixin/.crabpot-package/index.ts",
           "status": "ts-loader-required",
           "blockers": [
             {
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
-              "evidence": "plugins/openclaw-weixin/index.ts"
+              "evidence": "plugins/openclaw-weixin/.crabpot-package/index.ts"
             },
             {
               "code": "dependency-install-required",
@@ -593,12 +593,12 @@
       "priority": "medium",
       "entrypoints": [
         {
-          "id": "cold-import.extension:lightclawbot:plugins-lightclawbot-dist-index-js",
+          "id": "cold-import.extension:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js",
           "fixture": "lightclawbot",
-          "packagePath": "plugins/lightclawbot/package.json",
+          "packagePath": "plugins/lightclawbot/.crabpot-package/package.json",
           "kind": "extension",
           "specifier": "./dist/index.js",
-          "path": "plugins/lightclawbot/dist/index.js",
+          "path": "plugins/lightclawbot/.crabpot-package/dist/index.js",
           "status": "dependency-install-required",
           "blockers": [
             {

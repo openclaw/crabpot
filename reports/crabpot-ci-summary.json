@@ -28,10 +28,10 @@
     "platformWindowsRisks": 153,
     "platformContainerRisks": 47,
     "loaderJitiCandidates": 18,
-    "importLoopP50Ms": 932,
-    "importLoopP95Ms": 956,
-    "importLoopMaxRssMb": 45,
-    "importLoopMaxCpuMs": 153
+    "importLoopP50Ms": 950,
+    "importLoopP95Ms": 1023,
+    "importLoopMaxRssMb": 45.5,
+    "importLoopMaxCpuMs": 208
   },
   "topIssues": [
     {
@@ -234,11 +234,11 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 345.6% over baseline",
+      "message": "p95WallMs regressed 262.5% over baseline",
       "baseline": 1273,
-      "current": 5673,
-      "delta": 4400,
-      "percent": 345.6
+      "current": 4615,
+      "delta": 3342,
+      "percent": 262.5
     }
   ],
   "artifacts": {

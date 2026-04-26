@@ -1220,14 +1220,14 @@
       "id": "memory-tencentdb",
       "entrypoints": [
         {
-          "id": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-index-ts",
+          "id": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
           "fixture": "memory-tencentdb",
-          "packagePath": "plugins/memory-tencentdb/package.json",
+          "packagePath": "plugins/memory-tencentdb/.crabpot-package/package.json",
           "packageName": "@tencentdb-agent-memory/memory-tencentdb",
-          "entrypoint": "plugins/memory-tencentdb/index.ts",
+          "entrypoint": "plugins/memory-tencentdb/.crabpot-package/index.ts",
           "status": "ts-loader-required",
           "packageManager": "npm",
-          "lockfile": null,
+          "lockfile": "plugins/memory-tencentdb/package-lock.json",
           "loaderStrategy": {
             "source": "typescript-source",
             "primary": "tsx",
@@ -1247,7 +1247,7 @@
             {
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
-              "evidence": "plugins/memory-tencentdb/index.ts"
+              "evidence": "plugins/memory-tencentdb/.crabpot-package/index.ts"
             },
             {
               "code": "dependency-install-required",
@@ -1258,7 +1258,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "mkdir -p .crabpot/workspaces/memory-tencentdb && rsync -a --delete plugins/memory-tencentdb/ .crabpot/workspaces/memory-tencentdb/",
+              "command": "mkdir -p .crabpot/workspaces/memory-tencentdb && rsync -a --delete plugins/memory-tencentdb/.crabpot-package/ .crabpot/workspaces/memory-tencentdb/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -1289,16 +1289,16 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/memory-tencentdb",
-              "artifactPath": ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-index-ts.capture.json",
+              "artifactPath": ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/memory-tencentdb",
-              "artifactPath": ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-index-ts.synthetic.json",
+              "artifactPath": ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -1487,14 +1487,14 @@
       "id": "yuanbao",
       "entrypoints": [
         {
-          "id": "cold-import.extension:yuanbao:plugins-yuanbao-dist-index-js",
+          "id": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
           "fixture": "yuanbao",
-          "packagePath": "plugins/yuanbao/package.json",
+          "packagePath": "plugins/yuanbao/.crabpot-package/package.json",
           "packageName": "openclaw-plugin-yuanbao",
-          "entrypoint": "plugins/yuanbao/dist/index.js",
+          "entrypoint": "plugins/yuanbao/.crabpot-package/dist/index.js",
           "status": "dependency-install-required",
           "packageManager": "npm",
-          "lockfile": null,
+          "lockfile": "plugins/yuanbao/package-lock.json",
           "loaderStrategy": {
             "source": "native-node",
             "primary": "node",
@@ -1517,7 +1517,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "mkdir -p .crabpot/workspaces/yuanbao && rsync -a --delete plugins/yuanbao/ .crabpot/workspaces/yuanbao/",
+              "command": "mkdir -p .crabpot/workspaces/yuanbao && rsync -a --delete plugins/yuanbao/.crabpot-package/ .crabpot/workspaces/yuanbao/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -1548,16 +1548,16 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-dist-index-js.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.capture.json",
               "cwd": ".crabpot/workspaces/yuanbao",
-              "artifactPath": ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-dist-index-js.capture.json",
+              "artifactPath": ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-dist-index-js.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.synthetic.json",
               "cwd": ".crabpot/workspaces/yuanbao",
-              "artifactPath": ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-dist-index-js.synthetic.json",
+              "artifactPath": ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -1568,14 +1568,14 @@
       "id": "openclaw-weixin",
       "entrypoints": [
         {
-          "id": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-index-ts",
+          "id": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts",
           "fixture": "openclaw-weixin",
-          "packagePath": "plugins/openclaw-weixin/package.json",
+          "packagePath": "plugins/openclaw-weixin/.crabpot-package/package.json",
           "packageName": "@tencent-weixin/openclaw-weixin",
-          "entrypoint": "plugins/openclaw-weixin/index.ts",
+          "entrypoint": "plugins/openclaw-weixin/.crabpot-package/index.ts",
           "status": "ts-loader-required",
           "packageManager": "npm",
-          "lockfile": null,
+          "lockfile": "plugins/openclaw-weixin/package-lock.json",
           "loaderStrategy": {
             "source": "typescript-source",
             "primary": "tsx",
@@ -1595,7 +1595,7 @@
             {
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
-              "evidence": "plugins/openclaw-weixin/index.ts"
+              "evidence": "plugins/openclaw-weixin/.crabpot-package/index.ts"
             },
             {
               "code": "dependency-install-required",
@@ -1606,7 +1606,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "mkdir -p .crabpot/workspaces/openclaw-weixin && rsync -a --delete plugins/openclaw-weixin/ .crabpot/workspaces/openclaw-weixin/",
+              "command": "mkdir -p .crabpot/workspaces/openclaw-weixin && rsync -a --delete plugins/openclaw-weixin/.crabpot-package/ .crabpot/workspaces/openclaw-weixin/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -1637,16 +1637,16 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/openclaw-weixin",
-              "artifactPath": ".crabpot/results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-index-ts.capture.json",
+              "artifactPath": ".crabpot/results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/openclaw-weixin",
-              "artifactPath": ".crabpot/results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-index-ts.synthetic.json",
+              "artifactPath": ".crabpot/results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -1657,14 +1657,14 @@
       "id": "lightclawbot",
       "entrypoints": [
         {
-          "id": "cold-import.extension:lightclawbot:plugins-lightclawbot-dist-index-js",
+          "id": "cold-import.extension:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js",
           "fixture": "lightclawbot",
-          "packagePath": "plugins/lightclawbot/package.json",
+          "packagePath": "plugins/lightclawbot/.crabpot-package/package.json",
           "packageName": "lightclawbot",
-          "entrypoint": "plugins/lightclawbot/dist/index.js",
+          "entrypoint": "plugins/lightclawbot/.crabpot-package/dist/index.js",
           "status": "dependency-install-required",
           "packageManager": "npm",
-          "lockfile": null,
+          "lockfile": "plugins/lightclawbot/package-lock.json",
           "loaderStrategy": {
             "source": "native-node",
             "primary": "node",
@@ -1687,7 +1687,7 @@
           "steps": [
             {
               "kind": "prepare",
-              "command": "mkdir -p .crabpot/workspaces/lightclawbot && rsync -a --delete plugins/lightclawbot/ .crabpot/workspaces/lightclawbot/",
+              "command": "mkdir -p .crabpot/workspaces/lightclawbot && rsync -a --delete plugins/lightclawbot/.crabpot-package/ .crabpot/workspaces/lightclawbot/",
               "cwd": ".",
               "reason": "copy fixture package into an isolated mutable workspace"
             },
@@ -1718,16 +1718,16 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-dist-index-js.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-crabpot-package-dist-index-js.capture.json",
               "cwd": ".crabpot/workspaces/lightclawbot",
-              "artifactPath": ".crabpot/results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-dist-index-js.capture.json",
+              "artifactPath": ".crabpot/results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-crabpot-package-dist-index-js.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-dist-index-js.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-crabpot-package-dist-index-js.synthetic.json",
               "cwd": ".crabpot/workspaces/lightclawbot",
-              "artifactPath": ".crabpot/results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-dist-index-js.synthetic.json",
+              "artifactPath": ".crabpot/results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-crabpot-package-dist-index-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]

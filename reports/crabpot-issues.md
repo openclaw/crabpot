@@ -269,7 +269,7 @@ Status: PASS
   - **legacy-root-sdk-import**: yuanbao: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk @ plugins/yuanbao/dist/index.js:1
+    - openclaw/plugin-sdk @ plugins/yuanbao/.crabpot-package/dist/index.js:1
 
 ## Inspector Proof Gaps
 
@@ -344,7 +344,7 @@ Status: PASS
   - **registration-capture-gap**: lightclawbot: runtime registrations need capture before contract judgment
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/lightclawbot/dist/index.js:13
+    - registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13
 
 - 🟠 P1 **llm-trace-phoenix** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: llm-trace-phoenix: conversation-access hooks need privacy-boundary probes
@@ -370,7 +370,7 @@ Status: PASS
   - **conversation-access-hook**: memory-tencentdb: conversation-access hooks need privacy-boundary probes
   - state: open · compat:none
   - evidence:
-    - agent_end @ plugins/memory-tencentdb/index.ts:820
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:820
 
 - 🟠 P1 **memos-cloud** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: memos-cloud: conversation-access hooks need privacy-boundary probes
@@ -395,7 +395,7 @@ Status: PASS
   - **registration-capture-gap**: openclaw-weixin: runtime registrations need capture before contract judgment
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/openclaw-weixin/index.ts:22
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
 
 - 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: opik-openclaw: before_tool_call needs terminal/block/approval probes
@@ -448,10 +448,10 @@ Status: PASS
   - **registration-capture-gap**: yuanbao: runtime registrations need capture before contract judgment
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/yuanbao/dist/index.js:29
-    - registerCommand @ plugins/yuanbao/dist/index.js:31
-    - registerCommand @ plugins/yuanbao/dist/index.js:32
-    - registerCommand @ plugins/yuanbao/dist/index.js:34
+    - registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:31
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:32
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:34
 
 - 🟡 P2 **a2a-gateway** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: a2a-gateway: cold import requires isolated dependency installation
@@ -689,21 +689,21 @@ Status: PASS
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/lightclawbot/dist/index.js:13
+    - registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: lightclawbot: cold import requires isolated dependency installation
   - state: open · compat:none
   - evidence:
-    - socket.io-client @ plugins/lightclawbot/package.json
-    - openclaw @ plugins/lightclawbot/package.json
+    - socket.io-client @ plugins/lightclawbot/.crabpot-package/package.json
+    - openclaw @ plugins/lightclawbot/.crabpot-package/package.json
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: lightclawbot: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - registerTool @ plugins/lightclawbot/dist/src/download-tool.js:49
-    - registerTool @ plugins/lightclawbot/dist/src/upload-tool.js:37
+    - registerTool @ plugins/lightclawbot/.crabpot-package/dist/src/download-tool.js:49
+    - registerTool @ plugins/lightclawbot/.crabpot-package/dist/src/upload-tool.js:37
 
 - 🟡 P2 **llm-trace-phoenix** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: llm-trace-phoenix: cold import needs TypeScript source entrypoint support
@@ -758,26 +758,26 @@ Status: PASS
   - **package-dependency-install-required**: memory-tencentdb: cold import requires isolated dependency installation
   - state: open · compat:none
   - evidence:
-    - @node-rs/jieba @ plugins/memory-tencentdb/package.json
-    - @tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/package.json
-    - json5 @ plugins/memory-tencentdb/package.json
-    - sqlite-vec @ plugins/memory-tencentdb/package.json
-    - undici @ plugins/memory-tencentdb/package.json
-    - node-llama-cpp @ plugins/memory-tencentdb/package.json
-    - openclaw @ plugins/memory-tencentdb/package.json
+    - @node-rs/jieba @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - @tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - json5 @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - sqlite-vec @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - undici @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - node-llama-cpp @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - openclaw @ plugins/memory-tencentdb/.crabpot-package/package.json
 
 - 🟡 P2 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: memory-tencentdb: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - extension:plugins/memory-tencentdb/index.ts
+    - extension:plugins/memory-tencentdb/.crabpot-package/index.ts
 
 - 🟡 P2 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: memory-tencentdb: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - registerTool @ plugins/memory-tencentdb/index.ts:268
-    - registerTool @ plugins/memory-tencentdb/index.ts:365
+    - registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:268
+    - registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:365
 
 - 🟡 P2 **memu-engine** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: memu-engine: cold import needs TypeScript source entrypoint support
@@ -824,20 +824,20 @@ Status: PASS
   - **channel-contract-probe**: openclaw-weixin: channel runtime needs envelope/config probes
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/openclaw-weixin/index.ts:22
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
 
 - 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: openclaw-weixin: cold import requires isolated dependency installation
   - state: open · compat:none
   - evidence:
-    - qrcode-terminal @ plugins/openclaw-weixin/package.json
-    - zod @ plugins/openclaw-weixin/package.json
+    - qrcode-terminal @ plugins/openclaw-weixin/.crabpot-package/package.json
+    - zod @ plugins/openclaw-weixin/.crabpot-package/package.json
 
 - 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: openclaw-weixin: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - extension:plugins/openclaw-weixin/index.ts
+    - extension:plugins/openclaw-weixin/.crabpot-package/index.ts
 
 - 🟡 P2 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: opik-openclaw: cold import requires package build output
@@ -943,25 +943,25 @@ Status: PASS
   - **channel-contract-probe**: yuanbao: channel runtime needs envelope/config probes
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/yuanbao/dist/index.js:29
+    - registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: yuanbao: cold import requires isolated dependency installation
   - state: open · compat:none
   - evidence:
-    - cos-nodejs-sdk-v5 @ plugins/yuanbao/package.json
-    - protobufjs @ plugins/yuanbao/package.json
-    - uuid @ plugins/yuanbao/package.json
-    - ws @ plugins/yuanbao/package.json
-    - openclaw @ plugins/yuanbao/package.json
+    - cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json
+    - protobufjs @ plugins/yuanbao/.crabpot-package/package.json
+    - uuid @ plugins/yuanbao/.crabpot-package/package.json
+    - ws @ plugins/yuanbao/.crabpot-package/package.json
+    - openclaw @ plugins/yuanbao/.crabpot-package/package.json
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: yuanbao: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - registerTool @ plugins/yuanbao/dist/src/tools/group.js:43
-    - registerTool @ plugins/yuanbao/dist/src/tools/member.js:120
-    - registerTool @ plugins/yuanbao/dist/src/tools/remind.js:271
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/group.js:43
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/member.js:120
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/remind.js:271
 
 ## Upstream Metadata Issues
 
@@ -1014,7 +1014,7 @@ Status: PASS
   - **manifest-unknown-fields**: lightclawbot: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - capabilities @ plugins/lightclawbot/openclaw.plugin.json
+    - capabilities @ plugins/lightclawbot/.crabpot-package/openclaw.plugin.json
 
 - 🟡 P2 **lightclawbot** `upstream-metadata` `plugin-upstream-fix`
   - **package-manifest-version-drift**: lightclawbot: package and manifest versions drift
@@ -1027,7 +1027,7 @@ Status: PASS
   - **package-plugin-api-compat-missing**: lightclawbot: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - plugins/lightclawbot/package.json
+    - plugins/lightclawbot/.crabpot-package/package.json
 
 - 🟡 P2 **lossless-claw** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: lossless-claw: plugin API compatibility range is missing
@@ -1069,7 +1069,7 @@ Status: PASS
   - **package-plugin-api-compat-missing**: openclaw-weixin: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - plugins/openclaw-weixin/package.json
+    - plugins/openclaw-weixin/.crabpot-package/package.json
 
 - 🟡 P2 **qqbot** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: qqbot: manifest uses unsupported top-level fields
@@ -1195,7 +1195,7 @@ Status: PASS
   - **registration-capture-gap**: lightclawbot: runtime registrations need capture before contract judgment
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/lightclawbot/dist/index.js:13
+    - registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13
 
 - 🟠 P1 **llm-trace-phoenix** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: llm-trace-phoenix: conversation-access hooks need privacy-boundary probes
@@ -1221,7 +1221,7 @@ Status: PASS
   - **conversation-access-hook**: memory-tencentdb: conversation-access hooks need privacy-boundary probes
   - state: open · compat:none
   - evidence:
-    - agent_end @ plugins/memory-tencentdb/index.ts:820
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:820
 
 - 🟠 P1 **memos-cloud** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: memos-cloud: conversation-access hooks need privacy-boundary probes
@@ -1246,7 +1246,7 @@ Status: PASS
   - **registration-capture-gap**: openclaw-weixin: runtime registrations need capture before contract judgment
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/openclaw-weixin/index.ts:22
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
 
 - 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: opik-openclaw: before_tool_call needs terminal/block/approval probes
@@ -1299,10 +1299,10 @@ Status: PASS
   - **registration-capture-gap**: yuanbao: runtime registrations need capture before contract judgment
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/yuanbao/dist/index.js:29
-    - registerCommand @ plugins/yuanbao/dist/index.js:31
-    - registerCommand @ plugins/yuanbao/dist/index.js:32
-    - registerCommand @ plugins/yuanbao/dist/index.js:34
+    - registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:31
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:32
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:34
 
 - 🟡 P2 **a2a-gateway** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: a2a-gateway: root plugin SDK barrel is still used by fixtures
@@ -1689,20 +1689,20 @@ Status: PASS
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/lightclawbot/dist/index.js:13
+    - registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13
 
 - 🟡 P2 **lightclawbot** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: lightclawbot: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - capabilities @ plugins/lightclawbot/openclaw.plugin.json
+    - capabilities @ plugins/lightclawbot/.crabpot-package/openclaw.plugin.json
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: lightclawbot: cold import requires isolated dependency installation
   - state: open · compat:none
   - evidence:
-    - socket.io-client @ plugins/lightclawbot/package.json
-    - openclaw @ plugins/lightclawbot/package.json
+    - socket.io-client @ plugins/lightclawbot/.crabpot-package/package.json
+    - openclaw @ plugins/lightclawbot/.crabpot-package/package.json
 
 - 🟡 P2 **lightclawbot** `upstream-metadata` `plugin-upstream-fix`
   - **package-manifest-version-drift**: lightclawbot: package and manifest versions drift
@@ -1715,14 +1715,14 @@ Status: PASS
   - **package-plugin-api-compat-missing**: lightclawbot: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - plugins/lightclawbot/package.json
+    - plugins/lightclawbot/.crabpot-package/package.json
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: lightclawbot: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - registerTool @ plugins/lightclawbot/dist/src/download-tool.js:49
-    - registerTool @ plugins/lightclawbot/dist/src/upload-tool.js:37
+    - registerTool @ plugins/lightclawbot/.crabpot-package/dist/src/download-tool.js:49
+    - registerTool @ plugins/lightclawbot/.crabpot-package/dist/src/upload-tool.js:37
 
 - 🟡 P2 **llm-trace-phoenix** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: llm-trace-phoenix: root plugin SDK barrel is still used by fixtures
@@ -1808,26 +1808,26 @@ Status: PASS
   - **package-dependency-install-required**: memory-tencentdb: cold import requires isolated dependency installation
   - state: open · compat:none
   - evidence:
-    - @node-rs/jieba @ plugins/memory-tencentdb/package.json
-    - @tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/package.json
-    - json5 @ plugins/memory-tencentdb/package.json
-    - sqlite-vec @ plugins/memory-tencentdb/package.json
-    - undici @ plugins/memory-tencentdb/package.json
-    - node-llama-cpp @ plugins/memory-tencentdb/package.json
-    - openclaw @ plugins/memory-tencentdb/package.json
+    - @node-rs/jieba @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - @tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - json5 @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - sqlite-vec @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - undici @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - node-llama-cpp @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - openclaw @ plugins/memory-tencentdb/.crabpot-package/package.json
 
 - 🟡 P2 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: memory-tencentdb: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - extension:plugins/memory-tencentdb/index.ts
+    - extension:plugins/memory-tencentdb/.crabpot-package/index.ts
 
 - 🟡 P2 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: memory-tencentdb: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - registerTool @ plugins/memory-tencentdb/index.ts:268
-    - registerTool @ plugins/memory-tencentdb/index.ts:365
+    - registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:268
+    - registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:365
 
 - 🟡 P2 **memos-cloud** `deprecation-warning` `core-compat-adapter`
   - **legacy-before-agent-start**: memos-cloud: legacy before_agent_start hook compatibility is still used
@@ -1941,26 +1941,26 @@ Status: PASS
   - **channel-contract-probe**: openclaw-weixin: channel runtime needs envelope/config probes
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/openclaw-weixin/index.ts:22
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
 
 - 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: openclaw-weixin: cold import requires isolated dependency installation
   - state: open · compat:none
   - evidence:
-    - qrcode-terminal @ plugins/openclaw-weixin/package.json
-    - zod @ plugins/openclaw-weixin/package.json
+    - qrcode-terminal @ plugins/openclaw-weixin/.crabpot-package/package.json
+    - zod @ plugins/openclaw-weixin/.crabpot-package/package.json
 
 - 🟡 P2 **openclaw-weixin** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: openclaw-weixin: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - plugins/openclaw-weixin/package.json
+    - plugins/openclaw-weixin/.crabpot-package/package.json
 
 - 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: openclaw-weixin: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - extension:plugins/openclaw-weixin/index.ts
+    - extension:plugins/openclaw-weixin/.crabpot-package/index.ts
 
 - 🟡 P2 **opik-openclaw** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: opik-openclaw: root plugin SDK barrel is still used by fixtures
@@ -2125,31 +2125,31 @@ Status: PASS
   - **channel-contract-probe**: yuanbao: channel runtime needs envelope/config probes
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/yuanbao/dist/index.js:29
+    - registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29
 
 - 🟡 P2 **yuanbao** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: yuanbao: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk @ plugins/yuanbao/dist/index.js:1
+    - openclaw/plugin-sdk @ plugins/yuanbao/.crabpot-package/dist/index.js:1
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: yuanbao: cold import requires isolated dependency installation
   - state: open · compat:none
   - evidence:
-    - cos-nodejs-sdk-v5 @ plugins/yuanbao/package.json
-    - protobufjs @ plugins/yuanbao/package.json
-    - uuid @ plugins/yuanbao/package.json
-    - ws @ plugins/yuanbao/package.json
-    - openclaw @ plugins/yuanbao/package.json
+    - cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json
+    - protobufjs @ plugins/yuanbao/.crabpot-package/package.json
+    - uuid @ plugins/yuanbao/.crabpot-package/package.json
+    - ws @ plugins/yuanbao/.crabpot-package/package.json
+    - openclaw @ plugins/yuanbao/.crabpot-package/package.json
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: yuanbao: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - registerTool @ plugins/yuanbao/dist/src/tools/group.js:43
-    - registerTool @ plugins/yuanbao/dist/src/tools/member.js:120
-    - registerTool @ plugins/yuanbao/dist/src/tools/remind.js:271
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/group.js:43
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/member.js:120
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/remind.js:271
 
 ## Contract Probe Backlog
 
@@ -2210,7 +2210,7 @@ Status: PASS
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:lightclawbot`
   - evidence:
-    - registerChannel @ plugins/lightclawbot/dist/index.js:13
+    - registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13
 
 - 🟠 P1 **lossless-claw** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -2242,7 +2242,7 @@ Status: PASS
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:openclaw-weixin`
   - evidence:
-    - registerChannel @ plugins/openclaw-weixin/index.ts:22
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
 
 - 🟠 P1 **opik-openclaw** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -2275,10 +2275,10 @@ Status: PASS
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:yuanbao`
   - evidence:
-    - registerChannel @ plugins/yuanbao/dist/index.js:29
-    - registerCommand @ plugins/yuanbao/dist/index.js:31
-    - registerCommand @ plugins/yuanbao/dist/index.js:32
-    - registerCommand @ plugins/yuanbao/dist/index.js:34
+    - registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:31
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:32
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:34
 
 - 🟠 P1 **opik-openclaw** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
@@ -2317,7 +2317,7 @@ Status: PASS
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:memory-tencentdb`
   - evidence:
-    - agent_end @ plugins/memory-tencentdb/index.ts:820
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:820
 
 - 🟠 P1 **memos-cloud** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
@@ -2363,7 +2363,7 @@ Status: PASS
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:openclaw-weixin`
   - evidence:
-    - registerChannel @ plugins/openclaw-weixin/index.ts:22
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
 
 - 🟡 P2 **qqbot** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -2381,7 +2381,7 @@ Status: PASS
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:yuanbao`
   - evidence:
-    - registerChannel @ plugins/yuanbao/dist/index.js:29
+    - registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29
 
 - 🟡 P2 **connectclaw** `hook-runner`
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
@@ -2481,7 +2481,7 @@ Status: PASS
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:openclaw-weixin`
   - evidence:
-    - plugins/openclaw-weixin/package.json
+    - plugins/openclaw-weixin/.crabpot-package/package.json
 
 - 🟡 P2 **qqbot** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -2608,13 +2608,13 @@ Status: PASS
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:memory-tencentdb`
   - evidence:
-    - @node-rs/jieba @ plugins/memory-tencentdb/package.json
-    - @tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/package.json
-    - json5 @ plugins/memory-tencentdb/package.json
-    - sqlite-vec @ plugins/memory-tencentdb/package.json
-    - undici @ plugins/memory-tencentdb/package.json
-    - node-llama-cpp @ plugins/memory-tencentdb/package.json
-    - openclaw @ plugins/memory-tencentdb/package.json
+    - @node-rs/jieba @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - @tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - json5 @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - sqlite-vec @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - undici @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - node-llama-cpp @ plugins/memory-tencentdb/.crabpot-package/package.json
+    - openclaw @ plugins/memory-tencentdb/.crabpot-package/package.json
 
 - 🟡 P2 **mocrane-wecom** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -2631,8 +2631,8 @@ Status: PASS
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:openclaw-weixin`
   - evidence:
-    - qrcode-terminal @ plugins/openclaw-weixin/package.json
-    - zod @ plugins/openclaw-weixin/package.json
+    - qrcode-terminal @ plugins/openclaw-weixin/.crabpot-package/package.json
+    - zod @ plugins/openclaw-weixin/.crabpot-package/package.json
 
 - 🟡 P2 **opik-openclaw** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -2666,11 +2666,11 @@ Status: PASS
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:yuanbao`
   - evidence:
-    - cos-nodejs-sdk-v5 @ plugins/yuanbao/package.json
-    - protobufjs @ plugins/yuanbao/package.json
-    - uuid @ plugins/yuanbao/package.json
-    - ws @ plugins/yuanbao/package.json
-    - openclaw @ plugins/yuanbao/package.json
+    - cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json
+    - protobufjs @ plugins/yuanbao/.crabpot-package/package.json
+    - uuid @ plugins/yuanbao/.crabpot-package/package.json
+    - ws @ plugins/yuanbao/.crabpot-package/package.json
+    - openclaw @ plugins/yuanbao/.crabpot-package/package.json
 
 - 🟡 P2 **a2a-gateway** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -2724,7 +2724,7 @@ Status: PASS
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:memory-tencentdb`
   - evidence:
-    - extension:plugins/memory-tencentdb/index.ts
+    - extension:plugins/memory-tencentdb/.crabpot-package/index.ts
 
 - 🟡 P2 **mocrane-wecom** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -2736,7 +2736,7 @@ Status: PASS
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:openclaw-weixin`
   - evidence:
-    - extension:plugins/openclaw-weixin/index.ts
+    - extension:plugins/openclaw-weixin/.crabpot-package/index.ts
 
 - 🟡 P2 **opik-openclaw** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -2883,7 +2883,7 @@ Status: PASS
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:yuanbao`
   - evidence:
-    - openclaw/plugin-sdk @ plugins/yuanbao/dist/index.js:1
+    - openclaw/plugin-sdk @ plugins/yuanbao/.crabpot-package/dist/index.js:1
 
 - 🟡 P2 **a2a-gateway** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
@@ -2944,8 +2944,8 @@ Status: PASS
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
   - id: `tool.registration.schema-capture:memory-tencentdb`
   - evidence:
-    - registerTool @ plugins/memory-tencentdb/index.ts:268
-    - registerTool @ plugins/memory-tencentdb/index.ts:365
+    - registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:268
+    - registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:365
 
 - 🟡 P2 **mocrane-wecom** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
@@ -2972,15 +2972,15 @@ Status: PASS
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
   - id: `tool.registration.schema-capture:yuanbao`
   - evidence:
-    - registerTool @ plugins/yuanbao/dist/src/tools/group.js:43
-    - registerTool @ plugins/yuanbao/dist/src/tools/member.js:120
-    - registerTool @ plugins/yuanbao/dist/src/tools/remind.js:271
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/group.js:43
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/member.js:120
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/remind.js:271
 
 - 🟢 P3 **lightclawbot** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:lightclawbot`
   - evidence:
-    - registerChannel @ plugins/lightclawbot/dist/index.js:13
+    - registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13
 
 - 🟢 P3 **memos-cloud** `hook-runner`
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
@@ -2998,7 +2998,7 @@ Status: PASS
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
   - id: `manifest.schema.top-level-fields:lightclawbot`
   - evidence:
-    - capabilities @ plugins/lightclawbot/openclaw.plugin.json
+    - capabilities @ plugins/lightclawbot/.crabpot-package/openclaw.plugin.json
 
 - 🟢 P3 **memos-cloud** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
@@ -3016,7 +3016,7 @@ Status: PASS
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:lightclawbot`
   - evidence:
-    - plugins/lightclawbot/package.json
+    - plugins/lightclawbot/.crabpot-package/package.json
 
 - 🟢 P3 **memos-cloud** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -3079,8 +3079,8 @@ Status: PASS
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:lightclawbot`
   - evidence:
-    - socket.io-client @ plugins/lightclawbot/package.json
-    - openclaw @ plugins/lightclawbot/package.json
+    - socket.io-client @ plugins/lightclawbot/.crabpot-package/package.json
+    - openclaw @ plugins/lightclawbot/.crabpot-package/package.json
 
 - 🟢 P3 **secureclaw** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -3172,8 +3172,8 @@ Status: PASS
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
   - id: `tool.registration.schema-capture:lightclawbot`
   - evidence:
-    - registerTool @ plugins/lightclawbot/dist/src/download-tool.js:49
-    - registerTool @ plugins/lightclawbot/dist/src/upload-tool.js:37
+    - registerTool @ plugins/lightclawbot/.crabpot-package/dist/src/download-tool.js:49
+    - registerTool @ plugins/lightclawbot/.crabpot-package/dist/src/upload-tool.js:37
 
 - 🟢 P3 **memu-engine** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.

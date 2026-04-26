@@ -7,33 +7,33 @@ Status: PASS
 
 ## Counts
 
-| Metric                      | Value                                                |
-| --------------------------- | ---------------------------------------------------- |
-| Breakages                   | 0                                                    |
-| Warnings                    | 51                                                   |
-| Suggestions                 | 92                                                   |
-| Issues                      | 143                                                  |
-| P0 issues                   | 2                                                    |
-| P1 issues                   | 26                                                   |
-| Live issues                 | 2                                                    |
-| Live P0 issues              | 2                                                    |
-| Compat gaps                 | 1                                                    |
-| Deprecation warnings        | 21                                                   |
-| Inspector gaps              | 97                                                   |
-| Upstream metadata           | 22                                                   |
-| Ref diff failures           | 0                                                    |
-| Ref diff warnings           | 0                                                    |
-| Policy failures             | 0                                                    |
-| Policy warnings             | 3                                                    |
-| Profile failures            | 0                                                    |
-| Profile warnings            | 1                                                    |
-| Execution pass              | 6                                                    |
-| Execution fail              | 0                                                    |
-| Execution blocked           | 2                                                    |
-| Windows portability risks   | 153                                                  |
-| Container portability risks | 47                                                   |
-| Jiti loader candidates      | 18                                                   |
-| Import loop                 | p50 932 ms / p95 956 ms / max RSS 45 MB / CPU 153 ms |
+| Metric                      | Value                                                   |
+| --------------------------- | ------------------------------------------------------- |
+| Breakages                   | 0                                                       |
+| Warnings                    | 51                                                      |
+| Suggestions                 | 92                                                      |
+| Issues                      | 143                                                     |
+| P0 issues                   | 2                                                       |
+| P1 issues                   | 26                                                      |
+| Live issues                 | 2                                                       |
+| Live P0 issues              | 2                                                       |
+| Compat gaps                 | 1                                                       |
+| Deprecation warnings        | 21                                                      |
+| Inspector gaps              | 97                                                      |
+| Upstream metadata           | 22                                                      |
+| Ref diff failures           | 0                                                       |
+| Ref diff warnings           | 0                                                       |
+| Policy failures             | 0                                                       |
+| Policy warnings             | 3                                                       |
+| Profile failures            | 0                                                       |
+| Profile warnings            | 1                                                       |
+| Execution pass              | 6                                                       |
+| Execution fail              | 0                                                       |
+| Execution blocked           | 2                                                       |
+| Windows portability risks   | 153                                                     |
+| Container portability risks | 47                                                      |
+| Jiti loader candidates      | 18                                                      |
+| Import loop                 | p50 950 ms / p95 1023 ms / max RSS 45.5 MB / CPU 208 ms |
 
 ## Top Issues
 
@@ -76,7 +76,7 @@ _none_
 
 | Action | ID               | Metric    | Baseline | Current | Message                                  |
 | ------ | ---------------- | --------- | -------- | ------- | ---------------------------------------- |
-| warn   | profile.wall-p95 | p95WallMs | 1273     | 5673    | p95WallMs regressed 345.6% over baseline |
+| warn   | profile.wall-p95 | p95WallMs | 1273     | 4615    | p95WallMs regressed 262.5% over baseline |
 
 ## Artifacts
 

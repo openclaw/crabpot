@@ -4,7 +4,7 @@
     "status": "ok",
     "configuredPath": "../openclaw",
     "capturedRegistrarCount": 18,
-    "sdkExportCount": 308
+    "sdkExportCount": 307
   },
   "summary": {
     "fixtureCount": 27,
@@ -3129,10 +3129,10 @@
       "priority": "high",
       "registrations": [
         {
-          "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-index-ts-957",
+          "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-957",
           "fixture": "memory-tencentdb",
           "registrar": "registerCli",
-          "ref": "plugins/memory-tencentdb/index.ts:957",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:957",
           "support": "target-captured",
           "assertions": [
             "command name is stable",
@@ -3151,10 +3151,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-index-ts-268",
+          "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-268",
           "fixture": "memory-tencentdb",
           "registrar": "registerTool",
-          "ref": "plugins/memory-tencentdb/index.ts:268",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:268",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -3173,10 +3173,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-index-ts-365",
+          "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-365",
           "fixture": "memory-tencentdb",
           "registrar": "registerTool",
-          "ref": "plugins/memory-tencentdb/index.ts:365",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:365",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -3197,10 +3197,10 @@
       ],
       "hooks": [
         {
-          "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-index-ts-820",
+          "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-820",
           "fixture": "memory-tencentdb",
           "hook": "agent_end",
-          "ref": "plugins/memory-tencentdb/index.ts:820",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:820",
           "support": "synthetic-event-required",
           "assertions": [
             "final conversation payload is redacted as expected",
@@ -3226,10 +3226,10 @@
           }
         },
         {
-          "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-index-ts-464",
+          "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-464",
           "fixture": "memory-tencentdb",
           "hook": "before_prompt_build",
-          "ref": "plugins/memory-tencentdb/index.ts:464",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:464",
           "support": "synthetic-event-required",
           "assertions": [
             "prompt mutation result is preserved",
@@ -3257,10 +3257,10 @@
           }
         },
         {
-          "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-index-ts-745",
+          "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-745",
           "fixture": "memory-tencentdb",
           "hook": "gateway_stop",
-          "ref": "plugins/memory-tencentdb/index.ts:745",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:745",
           "support": "synthetic-event-required",
           "assertions": [
             "hook payload and return value are captured"
@@ -3275,10 +3275,10 @@
           }
         },
         {
-          "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-index-ts-939",
+          "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-939",
           "fixture": "memory-tencentdb",
           "hook": "gateway_stop",
-          "ref": "plugins/memory-tencentdb/index.ts:939",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:939",
           "support": "synthetic-event-required",
           "assertions": [
             "hook payload and return value are captured"
@@ -3295,10 +3295,10 @@
       ],
       "sdkImports": [
         {
-          "id": "sdk.openclaw/plugin-sdk/core:memory-tencentdb:plugins-memory-tencentdb-index-ts-15",
+          "id": "sdk.openclaw/plugin-sdk/core:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-15",
           "fixture": "memory-tencentdb",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/memory-tencentdb/index.ts:15",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:15",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -3306,10 +3306,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/core:memory-tencentdb:plugins-memory-tencentdb-src-utils-clean-context-runner-ts-17",
+          "id": "sdk.openclaw/plugin-sdk/core:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-src-utils-clean-context-runner-ts-17",
           "fixture": "memory-tencentdb",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/memory-tencentdb/src/utils/clean-context-runner.ts:17",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/src/utils/clean-context-runner.ts:17",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -3319,11 +3319,11 @@
       ],
       "packageEntrypoints": [
         {
-          "id": "package.extension:memory-tencentdb:plugins-memory-tencentdb-index-ts",
+          "id": "package.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
           "fixture": "memory-tencentdb",
           "kind": "extension",
           "specifier": "./index.ts",
-          "ref": "plugins/memory-tencentdb/index.ts",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts",
           "support": "source-present",
           "assertions": [
             "entrypoint path resolves",
@@ -3955,10 +3955,10 @@
       "priority": "high",
       "registrations": [
         {
-          "id": "registration.registerChannel:yuanbao:plugins-yuanbao-dist-index-js-29",
+          "id": "registration.registerChannel:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-29",
           "fixture": "yuanbao",
           "registrar": "registerChannel",
-          "ref": "plugins/yuanbao/dist/index.js:29",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:29",
           "support": "inspector-shim-required",
           "assertions": [
             "channel id is stable",
@@ -3974,10 +3974,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:yuanbao:plugins-yuanbao-dist-index-js-31",
+          "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-31",
           "fixture": "yuanbao",
           "registrar": "registerCommand",
-          "ref": "plugins/yuanbao/dist/index.js:31",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:31",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -3991,10 +3991,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:yuanbao:plugins-yuanbao-dist-index-js-32",
+          "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-32",
           "fixture": "yuanbao",
           "registrar": "registerCommand",
-          "ref": "plugins/yuanbao/dist/index.js:32",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:32",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -4008,10 +4008,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:yuanbao:plugins-yuanbao-dist-index-js-34",
+          "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-34",
           "fixture": "yuanbao",
           "registrar": "registerCommand",
-          "ref": "plugins/yuanbao/dist/index.js:34",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:34",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -4025,10 +4025,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:yuanbao:plugins-yuanbao-dist-src-tools-group-js-43",
+          "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-tools-group-js-43",
           "fixture": "yuanbao",
           "registrar": "registerTool",
-          "ref": "plugins/yuanbao/dist/src/tools/group.js:43",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/tools/group.js:43",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -4047,10 +4047,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:yuanbao:plugins-yuanbao-dist-src-tools-member-js-120",
+          "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-tools-member-js-120",
           "fixture": "yuanbao",
           "registrar": "registerTool",
-          "ref": "plugins/yuanbao/dist/src/tools/member.js:120",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/tools/member.js:120",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -4069,10 +4069,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:yuanbao:plugins-yuanbao-dist-src-tools-remind-js-271",
+          "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-tools-remind-js-271",
           "fixture": "yuanbao",
           "registrar": "registerTool",
-          "ref": "plugins/yuanbao/dist/src/tools/remind.js:271",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/tools/remind.js:271",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -4094,10 +4094,10 @@
       "hooks": [],
       "sdkImports": [
         {
-          "id": "sdk.openclaw/plugin-sdk:yuanbao:plugins-yuanbao-dist-index-js-1",
+          "id": "sdk.openclaw/plugin-sdk:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-1",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk",
-          "ref": "plugins/yuanbao/dist/index.js:1",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4105,10 +4105,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/account-id:yuanbao:plugins-yuanbao-dist-src-accounts-js-2",
+          "id": "sdk.openclaw/plugin-sdk/account-id:yuanbao:plugins-yuanbao-crabpot-package-dist-src-accounts-js-2",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/account-id",
-          "ref": "plugins/yuanbao/dist/src/accounts.js:2",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/accounts.js:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4116,10 +4116,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/command-auth:yuanbao:plugins-yuanbao-dist-src-commands-slash-commands-index-js-9",
+          "id": "sdk.openclaw/plugin-sdk/command-auth:yuanbao:plugins-yuanbao-crabpot-package-dist-src-commands-slash-commands-index-js-9",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/command-auth",
-          "ref": "plugins/yuanbao/dist/src/commands/slash-commands/index.js:9",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/commands/slash-commands/index.js:9",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4127,10 +4127,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/core:yuanbao:plugins-yuanbao-dist-src-accounts-js-1",
+          "id": "sdk.openclaw/plugin-sdk/core:yuanbao:plugins-yuanbao-crabpot-package-dist-src-accounts-js-1",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/yuanbao/dist/src/accounts.js:1",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/accounts.js:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4138,10 +4138,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/core:yuanbao:plugins-yuanbao-dist-src-channel-js-1",
+          "id": "sdk.openclaw/plugin-sdk/core:yuanbao:plugins-yuanbao-crabpot-package-dist-src-channel-js-1",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/yuanbao/dist/src/channel.js:1",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/channel.js:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4149,10 +4149,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/core:yuanbao:plugins-yuanbao-dist-src-onboarding-js-1",
+          "id": "sdk.openclaw/plugin-sdk/core:yuanbao:plugins-yuanbao-crabpot-package-dist-src-onboarding-js-1",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/yuanbao/dist/src/onboarding.js:1",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/onboarding.js:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4160,10 +4160,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/matrix:yuanbao:plugins-yuanbao-dist-src-commands-upgrade-utils-js-2",
+          "id": "sdk.openclaw/plugin-sdk/matrix:yuanbao:plugins-yuanbao-crabpot-package-dist-src-commands-upgrade-utils-js-2",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/matrix",
-          "ref": "plugins/yuanbao/dist/src/commands/upgrade/utils.js:2",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4171,10 +4171,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/matrix:yuanbao:plugins-yuanbao-dist-src-module-log-upload-extractor-js-2",
+          "id": "sdk.openclaw/plugin-sdk/matrix:yuanbao:plugins-yuanbao-crabpot-package-dist-src-module-log-upload-extractor-js-2",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/matrix",
-          "ref": "plugins/yuanbao/dist/src/module/log-upload/extractor.js:2",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4182,10 +4182,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/mattermost:yuanbao:plugins-yuanbao-dist-src-channel-js-2",
+          "id": "sdk.openclaw/plugin-sdk/mattermost:yuanbao:plugins-yuanbao-crabpot-package-dist-src-channel-js-2",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/mattermost",
-          "ref": "plugins/yuanbao/dist/src/channel.js:2",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/channel.js:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4193,10 +4193,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/mattermost:yuanbao:plugins-yuanbao-dist-src-message-handler-inbound-js-1",
+          "id": "sdk.openclaw/plugin-sdk/mattermost:yuanbao:plugins-yuanbao-crabpot-package-dist-src-message-handler-inbound-js-1",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/mattermost",
-          "ref": "plugins/yuanbao/dist/src/message-handler/inbound.js:1",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4206,11 +4206,11 @@
       ],
       "packageEntrypoints": [
         {
-          "id": "package.extension:yuanbao:plugins-yuanbao-dist-index-js",
+          "id": "package.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
           "fixture": "yuanbao",
           "kind": "extension",
           "specifier": "./dist/index.js",
-          "ref": "plugins/yuanbao/dist/index.js",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js",
           "support": "source-present",
           "assertions": [
             "entrypoint path resolves",
@@ -4224,10 +4224,10 @@
       "priority": "high",
       "registrations": [
         {
-          "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-index-ts-22",
+          "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts-22",
           "fixture": "openclaw-weixin",
           "registrar": "registerChannel",
-          "ref": "plugins/openclaw-weixin/index.ts:22",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/index.ts:22",
           "support": "inspector-shim-required",
           "assertions": [
             "channel id is stable",
@@ -4246,10 +4246,10 @@
       "hooks": [],
       "sdkImports": [
         {
-          "id": "sdk.openclaw/plugin-sdk/account-id:openclaw-weixin:plugins-openclaw-weixin-src-auth-accounts-ts-4",
+          "id": "sdk.openclaw/plugin-sdk/account-id:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-auth-accounts-ts-4",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/account-id",
-          "ref": "plugins/openclaw-weixin/src/auth/accounts.ts:4",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4257,10 +4257,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/account-id:openclaw-weixin:plugins-openclaw-weixin-src-channel-ts-4",
+          "id": "sdk.openclaw/plugin-sdk/account-id:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-channel-ts-4",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/account-id",
-          "ref": "plugins/openclaw-weixin/src/channel.ts:4",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/channel.ts:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4268,10 +4268,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-config-schema:openclaw-weixin:plugins-openclaw-weixin-index-ts-2",
+          "id": "sdk.openclaw/plugin-sdk/channel-config-schema:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts-2",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/channel-config-schema",
-          "ref": "plugins/openclaw-weixin/index.ts:2",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/index.ts:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4279,10 +4279,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-contract:openclaw-weixin:plugins-openclaw-weixin-src-monitor-monitor-ts-1",
+          "id": "sdk.openclaw/plugin-sdk/channel-contract:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-monitor-monitor-ts-1",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/channel-contract",
-          "ref": "plugins/openclaw-weixin/src/monitor/monitor.ts:1",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/monitor/monitor.ts:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4290,10 +4290,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-runtime:openclaw-weixin:plugins-openclaw-weixin-src-messaging-process-message-ts-3",
+          "id": "sdk.openclaw/plugin-sdk/channel-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-messaging-process-message-ts-3",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/channel-runtime",
-          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:3",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4301,10 +4301,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/command-auth:openclaw-weixin:plugins-openclaw-weixin-src-messaging-process-message-ts-7",
+          "id": "sdk.openclaw/plugin-sdk/command-auth:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-messaging-process-message-ts-7",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/command-auth",
-          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:7",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4312,10 +4312,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/config-runtime:openclaw-weixin:plugins-openclaw-weixin-src-auth-accounts-ts-299",
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-auth-accounts-ts-299",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/config-runtime",
-          "ref": "plugins/openclaw-weixin/src/auth/accounts.ts:299",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:299",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4323,10 +4323,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-src-auth-accounts-ts-5",
+          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-auth-accounts-ts-5",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/openclaw-weixin/src/auth/accounts.ts:5",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4334,10 +4334,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-src-channel-ts-3",
+          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-channel-ts-3",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/openclaw-weixin/src/channel.ts:3",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/channel.ts:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4345,10 +4345,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-src-messaging-process-message-ts-41",
+          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-messaging-process-message-ts-41",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:41",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts:41",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4356,10 +4356,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-src-messaging-process-message-ts-9",
+          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-messaging-process-message-ts-9",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:9",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts:9",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4367,10 +4367,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-src-monitor-monitor-ts-2",
+          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-monitor-monitor-ts-2",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/openclaw-weixin/src/monitor/monitor.ts:2",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/monitor/monitor.ts:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4378,10 +4378,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-src-monitor-monitor-ts-26",
+          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-monitor-monitor-ts-26",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/openclaw-weixin/src/monitor/monitor.ts:26",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/monitor/monitor.ts:26",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4389,10 +4389,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-src-runtime-ts-1",
+          "id": "sdk.openclaw/plugin-sdk/core:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-runtime-ts-1",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/openclaw-weixin/src/runtime.ts:1",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/runtime.ts:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4400,10 +4400,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/hook-runtime:openclaw-weixin:plugins-openclaw-weixin-src-messaging-outbound-hooks-ts-6",
+          "id": "sdk.openclaw/plugin-sdk/hook-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-messaging-outbound-hooks-ts-6",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/hook-runtime",
-          "ref": "plugins/openclaw-weixin/src/messaging/outbound-hooks.ts:6",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4411,10 +4411,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/infra-runtime:openclaw-weixin:plugins-openclaw-weixin-src-auth-pairing-ts-4",
+          "id": "sdk.openclaw/plugin-sdk/infra-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-auth-pairing-ts-4",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/infra-runtime",
-          "ref": "plugins/openclaw-weixin/src/auth/pairing.ts:4",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/pairing.ts:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4422,10 +4422,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/infra-runtime:openclaw-weixin:plugins-openclaw-weixin-src-channel-ts-5",
+          "id": "sdk.openclaw/plugin-sdk/infra-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-channel-ts-5",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/infra-runtime",
-          "ref": "plugins/openclaw-weixin/src/channel.ts:5",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/channel.ts:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4433,10 +4433,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/infra-runtime:openclaw-weixin:plugins-openclaw-weixin-src-messaging-process-message-ts-8",
+          "id": "sdk.openclaw/plugin-sdk/infra-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-messaging-process-message-ts-8",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/infra-runtime",
-          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:8",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4444,10 +4444,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/infra-runtime:openclaw-weixin:plugins-openclaw-weixin-src-util-logger-ts-5",
+          "id": "sdk.openclaw/plugin-sdk/infra-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-util-logger-ts-5",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/infra-runtime",
-          "ref": "plugins/openclaw-weixin/src/util/logger.ts:5",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/util/logger.ts:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4455,10 +4455,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/plugin-entry:openclaw-weixin:plugins-openclaw-weixin-index-ts-1",
+          "id": "sdk.openclaw/plugin-sdk/plugin-entry:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts-1",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/plugin-entry",
-          "ref": "plugins/openclaw-weixin/index.ts:1",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/index.ts:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4466,10 +4466,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/plugin-runtime:openclaw-weixin:plugins-openclaw-weixin-src-messaging-outbound-hooks-ts-7",
+          "id": "sdk.openclaw/plugin-sdk/plugin-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-messaging-outbound-hooks-ts-7",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/plugin-runtime",
-          "ref": "plugins/openclaw-weixin/src/messaging/outbound-hooks.ts:7",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4477,10 +4477,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-runtime:openclaw-weixin:plugins-openclaw-weixin-src-messaging-send-ts-1",
+          "id": "sdk.openclaw/plugin-sdk/reply-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-messaging-send-ts-1",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/reply-runtime",
-          "ref": "plugins/openclaw-weixin/src/messaging/send.ts:1",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/send.ts:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4490,11 +4490,11 @@
       ],
       "packageEntrypoints": [
         {
-          "id": "package.extension:openclaw-weixin:plugins-openclaw-weixin-index-ts",
+          "id": "package.extension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts",
           "fixture": "openclaw-weixin",
           "kind": "extension",
           "specifier": "./index.ts",
-          "ref": "plugins/openclaw-weixin/index.ts",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/index.ts",
           "support": "source-present",
           "assertions": [
             "entrypoint path resolves",
@@ -4508,10 +4508,10 @@
       "priority": "medium",
       "registrations": [
         {
-          "id": "registration.registerChannel:lightclawbot:plugins-lightclawbot-dist-index-js-13",
+          "id": "registration.registerChannel:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js-13",
           "fixture": "lightclawbot",
           "registrar": "registerChannel",
-          "ref": "plugins/lightclawbot/dist/index.js:13",
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/index.js:13",
           "support": "inspector-shim-required",
           "assertions": [
             "channel id is stable",
@@ -4527,10 +4527,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-dist-src-download-tool-js-49",
+          "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-download-tool-js-49",
           "fixture": "lightclawbot",
           "registrar": "registerTool",
-          "ref": "plugins/lightclawbot/dist/src/download-tool.js:49",
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/download-tool.js:49",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -4549,10 +4549,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-dist-src-upload-tool-js-37",
+          "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-upload-tool-js-37",
           "fixture": "lightclawbot",
           "registrar": "registerTool",
-          "ref": "plugins/lightclawbot/dist/src/upload-tool.js:37",
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/upload-tool.js:37",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -4574,10 +4574,10 @@
       "hooks": [],
       "sdkImports": [
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-reply-pipeline:lightclawbot:plugins-lightclawbot-dist-src-inbound-js-8",
+          "id": "sdk.openclaw/plugin-sdk/channel-reply-pipeline:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-inbound-js-8",
           "fixture": "lightclawbot",
           "specifier": "openclaw/plugin-sdk/channel-reply-pipeline",
-          "ref": "plugins/lightclawbot/dist/src/inbound.js:8",
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4585,10 +4585,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/core:lightclawbot:plugins-lightclawbot-dist-index-js-1",
+          "id": "sdk.openclaw/plugin-sdk/core:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js-1",
           "fixture": "lightclawbot",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/lightclawbot/dist/index.js:1",
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/index.js:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4596,10 +4596,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/core:lightclawbot:plugins-lightclawbot-dist-src-channel-js-8",
+          "id": "sdk.openclaw/plugin-sdk/core:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-channel-js-8",
           "fixture": "lightclawbot",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/lightclawbot/dist/src/channel.js:8",
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/channel.js:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -4609,11 +4609,11 @@
       ],
       "packageEntrypoints": [
         {
-          "id": "package.extension:lightclawbot:plugins-lightclawbot-dist-index-js",
+          "id": "package.extension:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js",
           "fixture": "lightclawbot",
           "kind": "extension",
           "specifier": "./dist/index.js",
-          "ref": "plugins/lightclawbot/dist/index.js",
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/index.js",
           "support": "source-present",
           "assertions": [
             "entrypoint path resolves",
@@ -5576,7 +5576,7 @@
       "priority": "P1",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerChannel @ plugins/lightclawbot/dist/index.js:13"
+        "registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -5643,7 +5643,7 @@
       "priority": "P1",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/index.ts:22"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -5711,10 +5711,10 @@
       "priority": "P1",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerChannel @ plugins/yuanbao/dist/index.js:29",
-        "registerCommand @ plugins/yuanbao/dist/index.js:31",
-        "registerCommand @ plugins/yuanbao/dist/index.js:32",
-        "registerCommand @ plugins/yuanbao/dist/index.js:34"
+        "registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:31",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:32",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:34"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -5795,7 +5795,7 @@
       "priority": "P1",
       "target": "hook-runner",
       "evidence": [
-        "agent_end @ plugins/memory-tencentdb/index.ts:820"
+        "agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:820"
       ],
       "assertions": [
         "synthetic event payload is accepted",
@@ -5890,7 +5890,7 @@
       "priority": "P2",
       "target": "channel-runtime",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/index.ts:22"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
       ],
       "assertions": [
         "message envelope is stable",
@@ -5929,7 +5929,7 @@
       "priority": "P2",
       "target": "channel-runtime",
       "evidence": [
-        "registerChannel @ plugins/yuanbao/dist/index.js:29"
+        "registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29"
       ],
       "assertions": [
         "message envelope is stable",
@@ -6141,7 +6141,7 @@
       "priority": "P2",
       "target": "package-loader",
       "evidence": [
-        "plugins/openclaw-weixin/package.json"
+        "plugins/openclaw-weixin/.crabpot-package/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -6387,13 +6387,13 @@
       "priority": "P2",
       "target": "package-loader",
       "evidence": [
-        "@node-rs/jieba @ plugins/memory-tencentdb/package.json",
-        "@tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/package.json",
-        "json5 @ plugins/memory-tencentdb/package.json",
-        "sqlite-vec @ plugins/memory-tencentdb/package.json",
-        "undici @ plugins/memory-tencentdb/package.json",
-        "node-llama-cpp @ plugins/memory-tencentdb/package.json",
-        "openclaw @ plugins/memory-tencentdb/package.json"
+        "@node-rs/jieba @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "@tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "json5 @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "sqlite-vec @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "undici @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "node-llama-cpp @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "openclaw @ plugins/memory-tencentdb/.crabpot-package/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -6424,8 +6424,8 @@
       "priority": "P2",
       "target": "package-loader",
       "evidence": [
-        "qrcode-terminal @ plugins/openclaw-weixin/package.json",
-        "zod @ plugins/openclaw-weixin/package.json"
+        "qrcode-terminal @ plugins/openclaw-weixin/.crabpot-package/package.json",
+        "zod @ plugins/openclaw-weixin/.crabpot-package/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -6487,11 +6487,11 @@
       "priority": "P2",
       "target": "package-loader",
       "evidence": [
-        "cos-nodejs-sdk-v5 @ plugins/yuanbao/package.json",
-        "protobufjs @ plugins/yuanbao/package.json",
-        "uuid @ plugins/yuanbao/package.json",
-        "ws @ plugins/yuanbao/package.json",
-        "openclaw @ plugins/yuanbao/package.json"
+        "cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json",
+        "protobufjs @ plugins/yuanbao/.crabpot-package/package.json",
+        "uuid @ plugins/yuanbao/.crabpot-package/package.json",
+        "ws @ plugins/yuanbao/.crabpot-package/package.json",
+        "openclaw @ plugins/yuanbao/.crabpot-package/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -6608,7 +6608,7 @@
       "priority": "P2",
       "target": "package-loader",
       "evidence": [
-        "extension:plugins/memory-tencentdb/index.ts"
+        "extension:plugins/memory-tencentdb/.crabpot-package/index.ts"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -6634,7 +6634,7 @@
       "priority": "P2",
       "target": "package-loader",
       "evidence": [
-        "extension:plugins/openclaw-weixin/index.ts"
+        "extension:plugins/openclaw-weixin/.crabpot-package/index.ts"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -6872,7 +6872,7 @@
       "priority": "P2",
       "target": "sdk-alias",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/yuanbao/dist/index.js:1"
+        "openclaw/plugin-sdk @ plugins/yuanbao/.crabpot-package/dist/index.js:1"
       ],
       "assertions": [
         "package export exists",
@@ -6989,8 +6989,8 @@
       "priority": "P2",
       "target": "tool-runtime",
       "evidence": [
-        "registerTool @ plugins/memory-tencentdb/index.ts:268",
-        "registerTool @ plugins/memory-tencentdb/index.ts:365"
+        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:268",
+        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:365"
       ],
       "assertions": [
         "tool schema is captured",
@@ -7045,9 +7045,9 @@
       "priority": "P2",
       "target": "tool-runtime",
       "evidence": [
-        "registerTool @ plugins/yuanbao/dist/src/tools/group.js:43",
-        "registerTool @ plugins/yuanbao/dist/src/tools/member.js:120",
-        "registerTool @ plugins/yuanbao/dist/src/tools/remind.js:271"
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/group.js:43",
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/member.js:120",
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/remind.js:271"
       ],
       "assertions": [
         "tool schema is captured",
@@ -7060,7 +7060,7 @@
       "priority": "P3",
       "target": "channel-runtime",
       "evidence": [
-        "registerChannel @ plugins/lightclawbot/dist/index.js:13"
+        "registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13"
       ],
       "assertions": [
         "message envelope is stable",
@@ -7099,7 +7099,7 @@
       "priority": "P3",
       "target": "manifest-loader",
       "evidence": [
-        "capabilities @ plugins/lightclawbot/openclaw.plugin.json"
+        "capabilities @ plugins/lightclawbot/.crabpot-package/openclaw.plugin.json"
       ],
       "assertions": [
         "metadata key is accepted",
@@ -7138,7 +7138,7 @@
       "priority": "P3",
       "target": "package-loader",
       "evidence": [
-        "plugins/lightclawbot/package.json"
+        "plugins/lightclawbot/.crabpot-package/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -7271,8 +7271,8 @@
       "priority": "P3",
       "target": "package-loader",
       "evidence": [
-        "socket.io-client @ plugins/lightclawbot/package.json",
-        "openclaw @ plugins/lightclawbot/package.json"
+        "socket.io-client @ plugins/lightclawbot/.crabpot-package/package.json",
+        "openclaw @ plugins/lightclawbot/.crabpot-package/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -7462,8 +7462,8 @@
       "priority": "P3",
       "target": "tool-runtime",
       "evidence": [
-        "registerTool @ plugins/lightclawbot/dist/src/download-tool.js:49",
-        "registerTool @ plugins/lightclawbot/dist/src/upload-tool.js:37"
+        "registerTool @ plugins/lightclawbot/.crabpot-package/dist/src/download-tool.js:49",
+        "registerTool @ plugins/lightclawbot/.crabpot-package/dist/src/upload-tool.js:37"
       ],
       "assertions": [
         "tool schema is captured",

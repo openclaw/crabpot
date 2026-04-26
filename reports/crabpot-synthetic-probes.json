@@ -998,7 +998,7 @@
       "source": "plugins/composio/index.ts:33"
     },
     {
-      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-index-ts-820",
+      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-820",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "agent_end",
@@ -1026,10 +1026,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/index.ts:820"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:820"
     },
     {
-      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-index-ts-464",
+      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-464",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -1059,10 +1059,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/index.ts:464"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:464"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-index-ts-745",
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-745",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -1079,10 +1079,10 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/index.ts:745"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:745"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-index-ts-939",
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-939",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -1099,7 +1099,7 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/index.ts:939"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:939"
     },
     {
       "id": "hook.before_prompt_build:mocrane-wecom:plugins-mocrane-wecom-index-ts-48",
@@ -2940,7 +2940,7 @@
       "source": "plugins/composio/src/tools.ts:89"
     },
     {
-      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-index-ts-957",
+      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-957",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerCli",
@@ -2969,10 +2969,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/index.ts:957"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:957"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-index-ts-268",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-268",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -3001,10 +3001,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/index.ts:268"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:268"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-index-ts-365",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-365",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -3033,7 +3033,7 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/index.ts:365"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:365"
     },
     {
       "id": "registration.defineChannelPluginEntry:ddingtalk:plugins-ddingtalk-index-ts-8",
@@ -3151,7 +3151,7 @@
       "source": "plugins/mocrane-wecom/index.ts:43"
     },
     {
-      "id": "registration.registerChannel:yuanbao:plugins-yuanbao-dist-index-js-29",
+      "id": "registration.registerChannel:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-29",
       "fixture": "yuanbao",
       "kind": "registration",
       "seam": "registerChannel",
@@ -3177,10 +3177,10 @@
         ],
         "option": "includeChannelRuntime"
       },
-      "source": "plugins/yuanbao/dist/index.js:29"
+      "source": "plugins/yuanbao/.crabpot-package/dist/index.js:29"
     },
     {
-      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-dist-index-js-31",
+      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-31",
       "fixture": "yuanbao",
       "kind": "registration",
       "seam": "registerCommand",
@@ -3204,10 +3204,10 @@
           "execute"
         ]
       },
-      "source": "plugins/yuanbao/dist/index.js:31"
+      "source": "plugins/yuanbao/.crabpot-package/dist/index.js:31"
     },
     {
-      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-dist-index-js-32",
+      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-32",
       "fixture": "yuanbao",
       "kind": "registration",
       "seam": "registerCommand",
@@ -3231,10 +3231,10 @@
           "execute"
         ]
       },
-      "source": "plugins/yuanbao/dist/index.js:32"
+      "source": "plugins/yuanbao/.crabpot-package/dist/index.js:32"
     },
     {
-      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-dist-index-js-34",
+      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-34",
       "fixture": "yuanbao",
       "kind": "registration",
       "seam": "registerCommand",
@@ -3258,10 +3258,10 @@
           "execute"
         ]
       },
-      "source": "plugins/yuanbao/dist/index.js:34"
+      "source": "plugins/yuanbao/.crabpot-package/dist/index.js:34"
     },
     {
-      "id": "registration.registerTool:yuanbao:plugins-yuanbao-dist-src-tools-group-js-43",
+      "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-tools-group-js-43",
       "fixture": "yuanbao",
       "kind": "registration",
       "seam": "registerTool",
@@ -3290,10 +3290,10 @@
           "execute"
         ]
       },
-      "source": "plugins/yuanbao/dist/src/tools/group.js:43"
+      "source": "plugins/yuanbao/.crabpot-package/dist/src/tools/group.js:43"
     },
     {
-      "id": "registration.registerTool:yuanbao:plugins-yuanbao-dist-src-tools-member-js-120",
+      "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-tools-member-js-120",
       "fixture": "yuanbao",
       "kind": "registration",
       "seam": "registerTool",
@@ -3322,10 +3322,10 @@
           "execute"
         ]
       },
-      "source": "plugins/yuanbao/dist/src/tools/member.js:120"
+      "source": "plugins/yuanbao/.crabpot-package/dist/src/tools/member.js:120"
     },
     {
-      "id": "registration.registerTool:yuanbao:plugins-yuanbao-dist-src-tools-remind-js-271",
+      "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-tools-remind-js-271",
       "fixture": "yuanbao",
       "kind": "registration",
       "seam": "registerTool",
@@ -3354,10 +3354,10 @@
           "execute"
         ]
       },
-      "source": "plugins/yuanbao/dist/src/tools/remind.js:271"
+      "source": "plugins/yuanbao/.crabpot-package/dist/src/tools/remind.js:271"
     },
     {
-      "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-index-ts-22",
+      "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts-22",
       "fixture": "openclaw-weixin",
       "kind": "registration",
       "seam": "registerChannel",
@@ -3383,10 +3383,10 @@
         ],
         "option": "includeChannelRuntime"
       },
-      "source": "plugins/openclaw-weixin/index.ts:22"
+      "source": "plugins/openclaw-weixin/.crabpot-package/index.ts:22"
     },
     {
-      "id": "registration.registerChannel:lightclawbot:plugins-lightclawbot-dist-index-js-13",
+      "id": "registration.registerChannel:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js-13",
       "fixture": "lightclawbot",
       "kind": "registration",
       "seam": "registerChannel",
@@ -3412,10 +3412,10 @@
         ],
         "option": "includeChannelRuntime"
       },
-      "source": "plugins/lightclawbot/dist/index.js:13"
+      "source": "plugins/lightclawbot/.crabpot-package/dist/index.js:13"
     },
     {
-      "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-dist-src-download-tool-js-49",
+      "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-download-tool-js-49",
       "fixture": "lightclawbot",
       "kind": "registration",
       "seam": "registerTool",
@@ -3444,10 +3444,10 @@
           "execute"
         ]
       },
-      "source": "plugins/lightclawbot/dist/src/download-tool.js:49"
+      "source": "plugins/lightclawbot/.crabpot-package/dist/src/download-tool.js:49"
     },
     {
-      "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-dist-src-upload-tool-js-37",
+      "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-upload-tool-js-37",
       "fixture": "lightclawbot",
       "kind": "registration",
       "seam": "registerTool",
@@ -3476,7 +3476,7 @@
           "execute"
         ]
       },
-      "source": "plugins/lightclawbot/dist/src/upload-tool.js:37"
+      "source": "plugins/lightclawbot/.crabpot-package/dist/src/upload-tool.js:37"
     },
     {
       "id": "registration.registerTool:memu-engine:plugins-memu-engine-index-ts-1252",

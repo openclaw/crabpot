@@ -4,10 +4,10 @@
   "entrypoint": "test/fixtures/lazy-import-plugin.mjs",
   "summary": {
     "runs": 3,
-    "p50WallMs": 932,
-    "p95WallMs": 956,
-    "maxPeakRssMb": 45,
-    "maxCpuMsEstimate": 153,
+    "p50WallMs": 950,
+    "p95WallMs": 1023,
+    "maxPeakRssMb": 45.5,
+    "maxCpuMsEstimate": 208,
     "capturedCount": 6,
     "failCount": 0
   },
@@ -17,10 +17,10 @@
       "exitCode": 0,
       "status": "captured",
       "capturedCount": 2,
-      "wallMs": 956,
-      "peakRssMb": 45,
-      "peakCpuPercent": 6.4,
-      "cpuMsEstimate": 61,
+      "wallMs": 950,
+      "peakRssMb": 44.2,
+      "peakCpuPercent": 21.9,
+      "cpuMsEstimate": 208,
       "stderrPreview": ""
     },
     {
@@ -28,10 +28,10 @@
       "exitCode": 0,
       "status": "captured",
       "capturedCount": 2,
-      "wallMs": 932,
-      "peakRssMb": 41.9,
-      "peakCpuPercent": 11.3,
-      "cpuMsEstimate": 105,
+      "wallMs": 1023,
+      "peakRssMb": 11.7,
+      "peakCpuPercent": 1.6,
+      "cpuMsEstimate": 16,
       "stderrPreview": ""
     },
     {
@@ -39,10 +39,10 @@
       "exitCode": 0,
       "status": "captured",
       "capturedCount": 2,
-      "wallMs": 741,
-      "peakRssMb": 44.6,
-      "peakCpuPercent": 20.7,
-      "cpuMsEstimate": 153,
+      "wallMs": 740,
+      "peakRssMb": 45.5,
+      "peakCpuPercent": 24.8,
+      "cpuMsEstimate": 184,
       "stderrPreview": ""
     }
   ]

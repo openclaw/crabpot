@@ -152,7 +152,7 @@
       "registerWebSearchProvider"
     ],
     "packagePath": "../openclaw/package.json",
-    "sdkExportCount": 308,
+    "sdkExportCount": 307,
     "sdkExports": [
       "openclaw/plugin-sdk",
       "openclaw/plugin-sdk/account-core",
@@ -248,7 +248,6 @@
       "openclaw/plugin-sdk/device-bootstrap",
       "openclaw/plugin-sdk/diagnostic-runtime",
       "openclaw/plugin-sdk/diagnostics-otel",
-      "openclaw/plugin-sdk/diagnostics-prometheus",
       "openclaw/plugin-sdk/diffs",
       "openclaw/plugin-sdk/direct-dm",
       "openclaw/plugin-sdk/direct-dm-access",
@@ -3630,27 +3629,27 @@
       "hookDetails": [
         {
           "name": "agent_end",
-          "file": "plugins/memory-tencentdb/index.ts",
+          "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
           "line": 820,
-          "ref": "plugins/memory-tencentdb/index.ts:820"
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:820"
         },
         {
           "name": "before_prompt_build",
-          "file": "plugins/memory-tencentdb/index.ts",
+          "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
           "line": 464,
-          "ref": "plugins/memory-tencentdb/index.ts:464"
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:464"
         },
         {
           "name": "gateway_stop",
-          "file": "plugins/memory-tencentdb/index.ts",
+          "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
           "line": 745,
-          "ref": "plugins/memory-tencentdb/index.ts:745"
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:745"
         },
         {
           "name": "gateway_stop",
-          "file": "plugins/memory-tencentdb/index.ts",
+          "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
           "line": 939,
-          "ref": "plugins/memory-tencentdb/index.ts:939"
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:939"
         }
       ],
       "registrations": [
@@ -3660,113 +3659,113 @@
       "registrationDetails": [
         {
           "name": "registerCli",
-          "file": "plugins/memory-tencentdb/index.ts",
+          "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
           "line": 957,
-          "ref": "plugins/memory-tencentdb/index.ts:957"
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:957"
         },
         {
           "name": "registerTool",
-          "file": "plugins/memory-tencentdb/index.ts",
+          "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
           "line": 268,
-          "ref": "plugins/memory-tencentdb/index.ts:268"
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:268"
         },
         {
           "name": "registerTool",
-          "file": "plugins/memory-tencentdb/index.ts",
+          "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
           "line": 365,
-          "ref": "plugins/memory-tencentdb/index.ts:365"
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:365"
         }
       ],
       "manifestContracts": [],
       "manifestFiles": [
-        "plugins/memory-tencentdb/openclaw.plugin.json"
+        "plugins/memory-tencentdb/.crabpot-package/openclaw.plugin.json"
       ],
       "sourceFiles": [
-        "plugins/memory-tencentdb/bin/export-tencent-vdb.mjs",
-        "plugins/memory-tencentdb/bin/migrate-sqlite-to-tcvdb.mjs",
-        "plugins/memory-tencentdb/bin/read-local-memory.mjs",
-        "plugins/memory-tencentdb/index.ts",
-        "plugins/memory-tencentdb/scripts/export-tencent-vdb/dist/export-tencent-vdb.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/scripts/migrate-sqlite-to-tcvdb/cli-entry.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/scripts/migrate-sqlite-to-tcvdb/config-write.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/scripts/migrate-sqlite-to-tcvdb/manifest-write.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/scripts/migrate-sqlite-to-tcvdb/sqlite-to-tcvdb.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/profile/profile-sync.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/record/l1-writer.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/scene/scene-format.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/scene/scene-index.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/scene/scene-navigation.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/bm25-local.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/embedding.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/sqlite.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/tcvdb-client.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/tcvdb.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/types.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/profile/profile-sync.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/record/l1-writer.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/scene/scene-format.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/scene/scene-index.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/scene/scene-navigation.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/store/bm25-local.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/store/embedding.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/store/sqlite.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/store/tcvdb-client.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/store/tcvdb.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/store/types.js",
-        "plugins/memory-tencentdb/scripts/migrate-sqlite-to-tcvdb/dist/src/utils/manifest.js",
-        "plugins/memory-tencentdb/scripts/read-local-memory/dist/read-local-memory.js",
-        "plugins/memory-tencentdb/src/cli/commands/seed.ts",
-        "plugins/memory-tencentdb/src/cli/index.ts",
-        "plugins/memory-tencentdb/src/config.ts",
-        "plugins/memory-tencentdb/src/conversation/l0-recorder.ts",
-        "plugins/memory-tencentdb/src/hooks/auto-capture.ts",
-        "plugins/memory-tencentdb/src/hooks/auto-recall.ts",
-        "plugins/memory-tencentdb/src/persona/persona-generator.ts",
-        "plugins/memory-tencentdb/src/persona/persona-trigger.ts",
-        "plugins/memory-tencentdb/src/profile/profile-sync.ts",
-        "plugins/memory-tencentdb/src/prompts/l1-dedup.ts",
-        "plugins/memory-tencentdb/src/prompts/l1-extraction.ts",
-        "plugins/memory-tencentdb/src/prompts/persona-generation.ts",
-        "plugins/memory-tencentdb/src/prompts/scene-extraction.ts",
-        "plugins/memory-tencentdb/src/record/l1-dedup.ts",
-        "plugins/memory-tencentdb/src/record/l1-extractor.ts",
-        "plugins/memory-tencentdb/src/record/l1-reader.ts",
-        "plugins/memory-tencentdb/src/record/l1-writer.ts",
-        "plugins/memory-tencentdb/src/report/reporter.ts",
-        "plugins/memory-tencentdb/src/scene/scene-extractor.ts",
-        "plugins/memory-tencentdb/src/scene/scene-format.ts",
-        "plugins/memory-tencentdb/src/scene/scene-index.ts",
-        "plugins/memory-tencentdb/src/scene/scene-navigation.ts",
-        "plugins/memory-tencentdb/src/seed/input.ts",
-        "plugins/memory-tencentdb/src/seed/seed-runtime.ts",
-        "plugins/memory-tencentdb/src/seed/types.ts",
-        "plugins/memory-tencentdb/src/store/bm25-client.ts",
-        "plugins/memory-tencentdb/src/store/bm25-local.ts",
-        "plugins/memory-tencentdb/src/store/embedding.ts",
-        "plugins/memory-tencentdb/src/store/factory.ts",
-        "plugins/memory-tencentdb/src/store/search-utils.ts",
-        "plugins/memory-tencentdb/src/store/sqlite.ts",
-        "plugins/memory-tencentdb/src/store/tcvdb-client.ts",
-        "plugins/memory-tencentdb/src/store/tcvdb.ts",
-        "plugins/memory-tencentdb/src/store/types.ts",
-        "plugins/memory-tencentdb/src/tools/conversation-search.ts",
-        "plugins/memory-tencentdb/src/tools/memory-search.ts",
-        "plugins/memory-tencentdb/src/utils/backup.ts",
-        "plugins/memory-tencentdb/src/utils/checkpoint.ts",
-        "plugins/memory-tencentdb/src/utils/clean-context-runner.ts",
-        "plugins/memory-tencentdb/src/utils/managed-timer.ts",
-        "plugins/memory-tencentdb/src/utils/manifest.ts",
-        "plugins/memory-tencentdb/src/utils/memory-cleaner.ts",
-        "plugins/memory-tencentdb/src/utils/pipeline-factory.ts",
-        "plugins/memory-tencentdb/src/utils/pipeline-manager.ts",
-        "plugins/memory-tencentdb/src/utils/sanitize.ts",
-        "plugins/memory-tencentdb/src/utils/serial-queue.ts",
-        "plugins/memory-tencentdb/src/utils/session-filter.ts",
-        "plugins/memory-tencentdb/src/utils/text-utils.ts"
+        "plugins/memory-tencentdb/.crabpot-package/bin/export-tencent-vdb.mjs",
+        "plugins/memory-tencentdb/.crabpot-package/bin/migrate-sqlite-to-tcvdb.mjs",
+        "plugins/memory-tencentdb/.crabpot-package/bin/read-local-memory.mjs",
+        "plugins/memory-tencentdb/.crabpot-package/index.ts",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/export-tencent-vdb/dist/export-tencent-vdb.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/scripts/migrate-sqlite-to-tcvdb/cli-entry.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/scripts/migrate-sqlite-to-tcvdb/config-write.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/scripts/migrate-sqlite-to-tcvdb/manifest-write.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/scripts/migrate-sqlite-to-tcvdb/sqlite-to-tcvdb.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/core/profile/profile-sync.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/core/record/l1-writer.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/core/scene/scene-format.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/core/scene/scene-index.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/core/scene/scene-navigation.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/bm25-local.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/embedding.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/sqlite.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/tcvdb-client.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/tcvdb.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/types.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/profile/profile-sync.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/record/l1-writer.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/scene/scene-format.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/scene/scene-index.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/scene/scene-navigation.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/store/bm25-local.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/store/embedding.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/store/sqlite.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/store/tcvdb-client.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/store/tcvdb.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/store/types.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/utils/manifest.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/read-local-memory/dist/read-local-memory.js",
+        "plugins/memory-tencentdb/.crabpot-package/src/cli/commands/seed.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/cli/index.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/config.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/conversation/l0-recorder.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/hooks/auto-capture.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/hooks/auto-recall.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/persona/persona-generator.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/persona/persona-trigger.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/profile/profile-sync.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/prompts/l1-dedup.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/prompts/l1-extraction.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/prompts/persona-generation.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/prompts/scene-extraction.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/record/l1-dedup.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/record/l1-extractor.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/record/l1-reader.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/record/l1-writer.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/report/reporter.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/scene/scene-extractor.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/scene/scene-format.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/scene/scene-index.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/scene/scene-navigation.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/seed/input.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/seed/seed-runtime.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/seed/types.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/store/bm25-client.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/store/bm25-local.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/store/embedding.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/store/factory.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/store/search-utils.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/store/sqlite.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/store/tcvdb-client.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/store/tcvdb.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/store/types.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/tools/conversation-search.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/tools/memory-search.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/utils/backup.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/utils/checkpoint.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/utils/clean-context-runner.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/utils/managed-timer.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/utils/manifest.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/utils/memory-cleaner.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/utils/pipeline-factory.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/utils/pipeline-manager.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/utils/sanitize.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/utils/serial-queue.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/utils/session-filter.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/utils/text-utils.ts"
       ],
       "pluginManifests": [
         {
-          "path": "plugins/memory-tencentdb/openclaw.plugin.json",
+          "path": "plugins/memory-tencentdb/.crabpot-package/openclaw.plugin.json",
           "id": "memory-tencentdb",
           "name": "Memory (TencentDB)",
           "version": null,
@@ -3783,7 +3782,7 @@
         }
       ],
       "package": {
-        "path": "plugins/memory-tencentdb/package.json",
+        "path": "plugins/memory-tencentdb/.crabpot-package/package.json",
         "name": "@tencentdb-agent-memory/memory-tencentdb",
         "version": "0.2.3",
         "type": "module",
@@ -3813,7 +3812,7 @@
             {
               "kind": "extension",
               "specifier": "./index.ts",
-              "relativePath": "plugins/memory-tencentdb/index.ts",
+              "relativePath": "plugins/memory-tencentdb/.crabpot-package/index.ts",
               "exists": true,
               "requiresBuild": false
             }
@@ -3822,7 +3821,7 @@
       },
       "packages": [
         {
-          "path": "plugins/memory-tencentdb/package.json",
+          "path": "plugins/memory-tencentdb/.crabpot-package/package.json",
           "name": "@tencentdb-agent-memory/memory-tencentdb",
           "version": "0.2.3",
           "type": "module",
@@ -3852,12 +3851,25 @@
               {
                 "kind": "extension",
                 "specifier": "./index.ts",
-                "relativePath": "plugins/memory-tencentdb/index.ts",
+                "relativePath": "plugins/memory-tencentdb/.crabpot-package/index.ts",
                 "exists": true,
                 "requiresBuild": false
               }
             ]
           }
+        },
+        {
+          "path": "plugins/memory-tencentdb/package.json",
+          "name": "@crabpot/fixture-memory-tencentdb",
+          "version": "0.0.0",
+          "type": null,
+          "main": null,
+          "dependencies": [
+            "@tencentdb-agent-memory/memory-tencentdb"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": null
         }
       ],
       "sdkImports": [
@@ -3866,15 +3878,15 @@
       "sdkImportDetails": [
         {
           "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/memory-tencentdb/index.ts",
+          "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
           "line": 15,
-          "ref": "plugins/memory-tencentdb/index.ts:15"
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:15"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/memory-tencentdb/src/utils/clean-context-runner.ts",
+          "file": "plugins/memory-tencentdb/.crabpot-package/src/utils/clean-context-runner.ts",
           "line": 17,
-          "ref": "plugins/memory-tencentdb/src/utils/clean-context-runner.ts:17"
+          "ref": "plugins/memory-tencentdb/.crabpot-package/src/utils/clean-context-runner.ts:17"
         }
       ]
     },
@@ -4503,139 +4515,139 @@
       "registrationDetails": [
         {
           "name": "registerChannel",
-          "file": "plugins/yuanbao/dist/index.js",
+          "file": "plugins/yuanbao/.crabpot-package/dist/index.js",
           "line": 29,
-          "ref": "plugins/yuanbao/dist/index.js:29"
+          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:29"
         },
         {
           "name": "registerCommand",
-          "file": "plugins/yuanbao/dist/index.js",
+          "file": "plugins/yuanbao/.crabpot-package/dist/index.js",
           "line": 31,
-          "ref": "plugins/yuanbao/dist/index.js:31"
+          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:31"
         },
         {
           "name": "registerCommand",
-          "file": "plugins/yuanbao/dist/index.js",
+          "file": "plugins/yuanbao/.crabpot-package/dist/index.js",
           "line": 32,
-          "ref": "plugins/yuanbao/dist/index.js:32"
+          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:32"
         },
         {
           "name": "registerCommand",
-          "file": "plugins/yuanbao/dist/index.js",
+          "file": "plugins/yuanbao/.crabpot-package/dist/index.js",
           "line": 34,
-          "ref": "plugins/yuanbao/dist/index.js:34"
+          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:34"
         },
         {
           "name": "registerTool",
-          "file": "plugins/yuanbao/dist/src/tools/group.js",
+          "file": "plugins/yuanbao/.crabpot-package/dist/src/tools/group.js",
           "line": 43,
-          "ref": "plugins/yuanbao/dist/src/tools/group.js:43"
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/tools/group.js:43"
         },
         {
           "name": "registerTool",
-          "file": "plugins/yuanbao/dist/src/tools/member.js",
+          "file": "plugins/yuanbao/.crabpot-package/dist/src/tools/member.js",
           "line": 120,
-          "ref": "plugins/yuanbao/dist/src/tools/member.js:120"
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/tools/member.js:120"
         },
         {
           "name": "registerTool",
-          "file": "plugins/yuanbao/dist/src/tools/remind.js",
+          "file": "plugins/yuanbao/.crabpot-package/dist/src/tools/remind.js",
           "line": 271,
-          "ref": "plugins/yuanbao/dist/src/tools/remind.js:271"
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/tools/remind.js:271"
         }
       ],
       "manifestContracts": [],
       "manifestFiles": [
-        "plugins/yuanbao/openclaw.plugin.json"
+        "plugins/yuanbao/.crabpot-package/openclaw.plugin.json"
       ],
       "sourceFiles": [
-        "plugins/yuanbao/dist/index.js",
-        "plugins/yuanbao/dist/src/accounts.js",
-        "plugins/yuanbao/dist/src/agent-isolation.js",
-        "plugins/yuanbao/dist/src/channel.js",
-        "plugins/yuanbao/dist/src/commands/log-upload.js",
-        "plugins/yuanbao/dist/src/commands/slash-commands/index.js",
-        "plugins/yuanbao/dist/src/commands/upgrade/index.js",
-        "plugins/yuanbao/dist/src/commands/upgrade/upgrade.js",
-        "plugins/yuanbao/dist/src/commands/upgrade/utils.js",
-        "plugins/yuanbao/dist/src/config-schema.js",
-        "plugins/yuanbao/dist/src/directory-adapter.js",
-        "plugins/yuanbao/dist/src/dm/agent-prompt.js",
-        "plugins/yuanbao/dist/src/dm/directory-cache.js",
-        "plugins/yuanbao/dist/src/dm/directory.js",
-        "plugins/yuanbao/dist/src/dm/dm-access.js",
-        "plugins/yuanbao/dist/src/dm/error-handler.js",
-        "plugins/yuanbao/dist/src/dm/handle-action.js",
-        "plugins/yuanbao/dist/src/dm/inbound.js",
-        "plugins/yuanbao/dist/src/dm/index.js",
-        "plugins/yuanbao/dist/src/dm/send-dm.js",
-        "plugins/yuanbao/dist/src/dm/targets.js",
-        "plugins/yuanbao/dist/src/logger.js",
-        "plugins/yuanbao/dist/src/media.js",
-        "plugins/yuanbao/dist/src/message-handler/callbacks/recall.js",
-        "plugins/yuanbao/dist/src/message-handler/chat-history.js",
-        "plugins/yuanbao/dist/src/message-handler/context.js",
-        "plugins/yuanbao/dist/src/message-handler/extract.js",
-        "plugins/yuanbao/dist/src/message-handler/handlers/custom/index.js",
-        "plugins/yuanbao/dist/src/message-handler/handlers/custom/link-card.js",
-        "plugins/yuanbao/dist/src/message-handler/handlers/face.js",
-        "plugins/yuanbao/dist/src/message-handler/handlers/file.js",
-        "plugins/yuanbao/dist/src/message-handler/handlers/image.js",
-        "plugins/yuanbao/dist/src/message-handler/handlers/index.js",
-        "plugins/yuanbao/dist/src/message-handler/handlers/sound.js",
-        "plugins/yuanbao/dist/src/message-handler/handlers/text.js",
-        "plugins/yuanbao/dist/src/message-handler/handlers/types.js",
-        "plugins/yuanbao/dist/src/message-handler/handlers/video.js",
-        "plugins/yuanbao/dist/src/message-handler/inbound.js",
-        "plugins/yuanbao/dist/src/message-handler/index.js",
-        "plugins/yuanbao/dist/src/message-handler/outbound.js",
-        "plugins/yuanbao/dist/src/message-handler/quote.js",
-        "plugins/yuanbao/dist/src/message-handler/system-callbacks.js",
-        "plugins/yuanbao/dist/src/message-tool/action-runtime.js",
-        "plugins/yuanbao/dist/src/message-tool/hints.js",
-        "plugins/yuanbao/dist/src/message-tool/index.js",
-        "plugins/yuanbao/dist/src/messaging-adapter.js",
-        "plugins/yuanbao/dist/src/module/log-upload/cos-upload.js",
-        "plugins/yuanbao/dist/src/module/log-upload/extractor.js",
-        "plugins/yuanbao/dist/src/module/log-upload/index.js",
-        "plugins/yuanbao/dist/src/module/log-upload/types.js",
-        "plugins/yuanbao/dist/src/module/member.js",
-        "plugins/yuanbao/dist/src/module/reply-heartbeat.js",
-        "plugins/yuanbao/dist/src/onboarding.js",
-        "plugins/yuanbao/dist/src/outbound-queue.js",
-        "plugins/yuanbao/dist/src/runtime.js",
-        "plugins/yuanbao/dist/src/setup.js",
-        "plugins/yuanbao/dist/src/sticker/init-builtin-stickers.js",
-        "plugins/yuanbao/dist/src/sticker/sticker-cache.js",
-        "plugins/yuanbao/dist/src/sticker/sticker-sender.js",
-        "plugins/yuanbao/dist/src/sticker/sticker-types.js",
-        "plugins/yuanbao/dist/src/targets.js",
-        "plugins/yuanbao/dist/src/tools/group.js",
-        "plugins/yuanbao/dist/src/tools/index.js",
-        "plugins/yuanbao/dist/src/tools/member.js",
-        "plugins/yuanbao/dist/src/tools/remind.js",
-        "plugins/yuanbao/dist/src/tools/utils.js",
-        "plugins/yuanbao/dist/src/trace/context.js",
-        "plugins/yuanbao/dist/src/types.js",
-        "plugins/yuanbao/dist/src/utils.js",
-        "plugins/yuanbao/dist/src/utils/get-env.js",
-        "plugins/yuanbao/dist/src/utils/markdown-stream.js",
-        "plugins/yuanbao/dist/src/utils/markdown-table-sanitize.js",
-        "plugins/yuanbao/dist/src/utils/ttl-db.js",
-        "plugins/yuanbao/dist/src/yuanbao-server/api.js",
-        "plugins/yuanbao/dist/src/yuanbao-server/http/main.js",
-        "plugins/yuanbao/dist/src/yuanbao-server/http/request.js",
-        "plugins/yuanbao/dist/src/yuanbao-server/ws/biz-codec.js",
-        "plugins/yuanbao/dist/src/yuanbao-server/ws/client.js",
-        "plugins/yuanbao/dist/src/yuanbao-server/ws/conn-codec.js",
-        "plugins/yuanbao/dist/src/yuanbao-server/ws/gateway.js",
-        "plugins/yuanbao/dist/src/yuanbao-server/ws/index.js",
-        "plugins/yuanbao/dist/src/yuanbao-server/ws/runtime.js",
-        "plugins/yuanbao/dist/src/yuanbao-server/ws/types.js"
+        "plugins/yuanbao/.crabpot-package/dist/index.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/accounts.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/agent-isolation.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/channel.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/commands/log-upload.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/commands/slash-commands/index.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/index.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/upgrade.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/config-schema.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/directory-adapter.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/dm/agent-prompt.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/dm/directory-cache.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/dm/directory.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/dm/dm-access.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/dm/error-handler.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/dm/handle-action.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/dm/inbound.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/dm/index.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/dm/send-dm.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/dm/targets.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/logger.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/media.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/callbacks/recall.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/chat-history.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/context.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/extract.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/handlers/custom/index.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/handlers/custom/link-card.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/handlers/face.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/handlers/file.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/handlers/image.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/handlers/index.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/handlers/sound.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/handlers/text.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/handlers/types.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/handlers/video.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/index.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/outbound.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/quote.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-handler/system-callbacks.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-tool/action-runtime.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-tool/hints.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/message-tool/index.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/messaging-adapter.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/cos-upload.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/index.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/types.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/module/member.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/module/reply-heartbeat.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/onboarding.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/outbound-queue.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/runtime.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/setup.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/sticker/init-builtin-stickers.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/sticker/sticker-cache.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/sticker/sticker-sender.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/sticker/sticker-types.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/targets.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/tools/group.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/tools/index.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/tools/member.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/tools/remind.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/tools/utils.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/trace/context.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/types.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/utils.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/utils/get-env.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/utils/markdown-stream.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/utils/markdown-table-sanitize.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/utils/ttl-db.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/yuanbao-server/api.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/yuanbao-server/http/main.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/yuanbao-server/http/request.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/yuanbao-server/ws/biz-codec.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/yuanbao-server/ws/client.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/yuanbao-server/ws/conn-codec.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/yuanbao-server/ws/gateway.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/yuanbao-server/ws/index.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/yuanbao-server/ws/runtime.js",
+        "plugins/yuanbao/.crabpot-package/dist/src/yuanbao-server/ws/types.js"
       ],
       "pluginManifests": [
         {
-          "path": "plugins/yuanbao/openclaw.plugin.json",
+          "path": "plugins/yuanbao/.crabpot-package/openclaw.plugin.json",
           "id": "openclaw-plugin-yuanbao",
           "name": "元宝 Bot",
           "version": "2.11.0",
@@ -4654,7 +4666,7 @@
         }
       ],
       "package": {
-        "path": "plugins/yuanbao/package.json",
+        "path": "plugins/yuanbao/.crabpot-package/package.json",
         "name": "openclaw-plugin-yuanbao",
         "version": "2.11.0",
         "type": "module",
@@ -4682,7 +4694,7 @@
             {
               "kind": "extension",
               "specifier": "./dist/index.js",
-              "relativePath": "plugins/yuanbao/dist/index.js",
+              "relativePath": "plugins/yuanbao/.crabpot-package/dist/index.js",
               "exists": true,
               "requiresBuild": true
             }
@@ -4691,7 +4703,7 @@
       },
       "packages": [
         {
-          "path": "plugins/yuanbao/package.json",
+          "path": "plugins/yuanbao/.crabpot-package/package.json",
           "name": "openclaw-plugin-yuanbao",
           "version": "2.11.0",
           "type": "module",
@@ -4719,12 +4731,25 @@
               {
                 "kind": "extension",
                 "specifier": "./dist/index.js",
-                "relativePath": "plugins/yuanbao/dist/index.js",
+                "relativePath": "plugins/yuanbao/.crabpot-package/dist/index.js",
                 "exists": true,
                 "requiresBuild": true
               }
             ]
           }
+        },
+        {
+          "path": "plugins/yuanbao/package.json",
+          "name": "@crabpot/fixture-yuanbao",
+          "version": "0.0.0",
+          "type": null,
+          "main": null,
+          "dependencies": [
+            "openclaw-plugin-yuanbao"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": null
         }
       ],
       "sdkImports": [
@@ -4738,63 +4763,63 @@
       "sdkImportDetails": [
         {
           "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/yuanbao/dist/index.js",
+          "file": "plugins/yuanbao/.crabpot-package/dist/index.js",
           "line": 1,
-          "ref": "plugins/yuanbao/dist/index.js:1"
+          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:1"
         },
         {
           "specifier": "openclaw/plugin-sdk/account-id",
-          "file": "plugins/yuanbao/dist/src/accounts.js",
+          "file": "plugins/yuanbao/.crabpot-package/dist/src/accounts.js",
           "line": 2,
-          "ref": "plugins/yuanbao/dist/src/accounts.js:2"
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/accounts.js:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/command-auth",
-          "file": "plugins/yuanbao/dist/src/commands/slash-commands/index.js",
+          "file": "plugins/yuanbao/.crabpot-package/dist/src/commands/slash-commands/index.js",
           "line": 9,
-          "ref": "plugins/yuanbao/dist/src/commands/slash-commands/index.js:9"
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/commands/slash-commands/index.js:9"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/yuanbao/dist/src/accounts.js",
+          "file": "plugins/yuanbao/.crabpot-package/dist/src/accounts.js",
           "line": 1,
-          "ref": "plugins/yuanbao/dist/src/accounts.js:1"
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/accounts.js:1"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/yuanbao/dist/src/channel.js",
+          "file": "plugins/yuanbao/.crabpot-package/dist/src/channel.js",
           "line": 1,
-          "ref": "plugins/yuanbao/dist/src/channel.js:1"
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/channel.js:1"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/yuanbao/dist/src/onboarding.js",
+          "file": "plugins/yuanbao/.crabpot-package/dist/src/onboarding.js",
           "line": 1,
-          "ref": "plugins/yuanbao/dist/src/onboarding.js:1"
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/onboarding.js:1"
         },
         {
           "specifier": "openclaw/plugin-sdk/matrix",
-          "file": "plugins/yuanbao/dist/src/commands/upgrade/utils.js",
+          "file": "plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js",
           "line": 2,
-          "ref": "plugins/yuanbao/dist/src/commands/upgrade/utils.js:2"
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/matrix",
-          "file": "plugins/yuanbao/dist/src/module/log-upload/extractor.js",
+          "file": "plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js",
           "line": 2,
-          "ref": "plugins/yuanbao/dist/src/module/log-upload/extractor.js:2"
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/mattermost",
-          "file": "plugins/yuanbao/dist/src/channel.js",
+          "file": "plugins/yuanbao/.crabpot-package/dist/src/channel.js",
           "line": 2,
-          "ref": "plugins/yuanbao/dist/src/channel.js:2"
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/channel.js:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/mattermost",
-          "file": "plugins/yuanbao/dist/src/message-handler/inbound.js",
+          "file": "plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js",
           "line": 1,
-          "ref": "plugins/yuanbao/dist/src/message-handler/inbound.js:1"
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1"
         }
       ]
     },
@@ -4819,55 +4844,55 @@
       "registrationDetails": [
         {
           "name": "registerChannel",
-          "file": "plugins/openclaw-weixin/index.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/index.ts",
           "line": 22,
-          "ref": "plugins/openclaw-weixin/index.ts:22"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/index.ts:22"
         }
       ],
       "manifestContracts": [],
       "manifestFiles": [
-        "plugins/openclaw-weixin/openclaw.plugin.json"
+        "plugins/openclaw-weixin/.crabpot-package/openclaw.plugin.json"
       ],
       "sourceFiles": [
-        "plugins/openclaw-weixin/index.ts",
-        "plugins/openclaw-weixin/src/api/api.ts",
-        "plugins/openclaw-weixin/src/api/config-cache.ts",
-        "plugins/openclaw-weixin/src/api/session-guard.ts",
-        "plugins/openclaw-weixin/src/api/types.ts",
-        "plugins/openclaw-weixin/src/auth/accounts.ts",
-        "plugins/openclaw-weixin/src/auth/login-qr.ts",
-        "plugins/openclaw-weixin/src/auth/pairing.ts",
-        "plugins/openclaw-weixin/src/cdn/aes-ecb.ts",
-        "plugins/openclaw-weixin/src/cdn/cdn-upload.ts",
-        "plugins/openclaw-weixin/src/cdn/cdn-url.ts",
-        "plugins/openclaw-weixin/src/cdn/pic-decrypt.ts",
-        "plugins/openclaw-weixin/src/cdn/upload.ts",
-        "plugins/openclaw-weixin/src/channel.ts",
-        "plugins/openclaw-weixin/src/compat.ts",
-        "plugins/openclaw-weixin/src/config/config-schema.ts",
-        "plugins/openclaw-weixin/src/media/media-download.ts",
-        "plugins/openclaw-weixin/src/media/mime.ts",
-        "plugins/openclaw-weixin/src/media/silk-transcode.ts",
-        "plugins/openclaw-weixin/src/messaging/debug-mode.ts",
-        "plugins/openclaw-weixin/src/messaging/error-notice.ts",
-        "plugins/openclaw-weixin/src/messaging/inbound.ts",
-        "plugins/openclaw-weixin/src/messaging/markdown-filter.ts",
-        "plugins/openclaw-weixin/src/messaging/outbound-hooks.ts",
-        "plugins/openclaw-weixin/src/messaging/process-message.ts",
-        "plugins/openclaw-weixin/src/messaging/send-media.ts",
-        "plugins/openclaw-weixin/src/messaging/send.ts",
-        "plugins/openclaw-weixin/src/messaging/slash-commands.ts",
-        "plugins/openclaw-weixin/src/monitor/monitor.ts",
-        "plugins/openclaw-weixin/src/runtime.ts",
-        "plugins/openclaw-weixin/src/storage/state-dir.ts",
-        "plugins/openclaw-weixin/src/storage/sync-buf.ts",
-        "plugins/openclaw-weixin/src/util/logger.ts",
-        "plugins/openclaw-weixin/src/util/random.ts",
-        "plugins/openclaw-weixin/src/util/redact.ts"
+        "plugins/openclaw-weixin/.crabpot-package/index.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/api/api.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/api/config-cache.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/api/session-guard.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/api/types.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/auth/login-qr.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/auth/pairing.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/cdn/aes-ecb.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/cdn/cdn-upload.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/cdn/cdn-url.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/cdn/pic-decrypt.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/cdn/upload.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/channel.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/compat.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/config/config-schema.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/media/media-download.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/media/mime.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/media/silk-transcode.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/messaging/debug-mode.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/messaging/error-notice.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/messaging/inbound.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/messaging/markdown-filter.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/messaging/send-media.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/messaging/send.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/messaging/slash-commands.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/monitor/monitor.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/runtime.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/storage/state-dir.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/storage/sync-buf.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/util/logger.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/util/random.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/util/redact.ts"
       ],
       "pluginManifests": [
         {
-          "path": "plugins/openclaw-weixin/openclaw.plugin.json",
+          "path": "plugins/openclaw-weixin/.crabpot-package/openclaw.plugin.json",
           "id": "openclaw-weixin",
           "name": null,
           "version": "2.1.10",
@@ -4884,7 +4909,7 @@
         }
       ],
       "package": {
-        "path": "plugins/openclaw-weixin/package.json",
+        "path": "plugins/openclaw-weixin/.crabpot-package/package.json",
         "name": "@tencent-weixin/openclaw-weixin",
         "version": "2.1.10",
         "type": "module",
@@ -4908,7 +4933,7 @@
             {
               "kind": "extension",
               "specifier": "./index.ts",
-              "relativePath": "plugins/openclaw-weixin/index.ts",
+              "relativePath": "plugins/openclaw-weixin/.crabpot-package/index.ts",
               "exists": true,
               "requiresBuild": false
             }
@@ -4917,7 +4942,7 @@
       },
       "packages": [
         {
-          "path": "plugins/openclaw-weixin/package.json",
+          "path": "plugins/openclaw-weixin/.crabpot-package/package.json",
           "name": "@tencent-weixin/openclaw-weixin",
           "version": "2.1.10",
           "type": "module",
@@ -4941,12 +4966,25 @@
               {
                 "kind": "extension",
                 "specifier": "./index.ts",
-                "relativePath": "plugins/openclaw-weixin/index.ts",
+                "relativePath": "plugins/openclaw-weixin/.crabpot-package/index.ts",
                 "exists": true,
                 "requiresBuild": false
               }
             ]
           }
+        },
+        {
+          "path": "plugins/openclaw-weixin/package.json",
+          "name": "@crabpot/fixture-openclaw-weixin",
+          "version": "0.0.0",
+          "type": null,
+          "main": null,
+          "dependencies": [
+            "@tencent-weixin/openclaw-weixin"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": null
         }
       ],
       "sdkImports": [
@@ -4966,135 +5004,135 @@
       "sdkImportDetails": [
         {
           "specifier": "openclaw/plugin-sdk/account-id",
-          "file": "plugins/openclaw-weixin/src/auth/accounts.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts",
           "line": 4,
-          "ref": "plugins/openclaw-weixin/src/auth/accounts.ts:4"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:4"
         },
         {
           "specifier": "openclaw/plugin-sdk/account-id",
-          "file": "plugins/openclaw-weixin/src/channel.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/channel.ts",
           "line": 4,
-          "ref": "plugins/openclaw-weixin/src/channel.ts:4"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/channel.ts:4"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-config-schema",
-          "file": "plugins/openclaw-weixin/index.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/index.ts",
           "line": 2,
-          "ref": "plugins/openclaw-weixin/index.ts:2"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/index.ts:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-contract",
-          "file": "plugins/openclaw-weixin/src/monitor/monitor.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/monitor/monitor.ts",
           "line": 1,
-          "ref": "plugins/openclaw-weixin/src/monitor/monitor.ts:1"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/monitor/monitor.ts:1"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-runtime",
-          "file": "plugins/openclaw-weixin/src/messaging/process-message.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts",
           "line": 3,
-          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:3"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts:3"
         },
         {
           "specifier": "openclaw/plugin-sdk/command-auth",
-          "file": "plugins/openclaw-weixin/src/messaging/process-message.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts",
           "line": 7,
-          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:7"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/config-runtime",
-          "file": "plugins/openclaw-weixin/src/auth/accounts.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts",
           "line": 299,
-          "ref": "plugins/openclaw-weixin/src/auth/accounts.ts:299"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:299"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/openclaw-weixin/src/auth/accounts.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts",
           "line": 5,
-          "ref": "plugins/openclaw-weixin/src/auth/accounts.ts:5"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/openclaw-weixin/src/channel.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/channel.ts",
           "line": 3,
-          "ref": "plugins/openclaw-weixin/src/channel.ts:3"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/channel.ts:3"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/openclaw-weixin/src/messaging/process-message.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts",
           "line": 41,
-          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:41"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts:41"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/openclaw-weixin/src/messaging/process-message.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts",
           "line": 9,
-          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:9"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts:9"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/openclaw-weixin/src/monitor/monitor.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/monitor/monitor.ts",
           "line": 2,
-          "ref": "plugins/openclaw-weixin/src/monitor/monitor.ts:2"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/monitor/monitor.ts:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/openclaw-weixin/src/monitor/monitor.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/monitor/monitor.ts",
           "line": 26,
-          "ref": "plugins/openclaw-weixin/src/monitor/monitor.ts:26"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/monitor/monitor.ts:26"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/openclaw-weixin/src/runtime.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/runtime.ts",
           "line": 1,
-          "ref": "plugins/openclaw-weixin/src/runtime.ts:1"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/runtime.ts:1"
         },
         {
           "specifier": "openclaw/plugin-sdk/hook-runtime",
-          "file": "plugins/openclaw-weixin/src/messaging/outbound-hooks.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts",
           "line": 6,
-          "ref": "plugins/openclaw-weixin/src/messaging/outbound-hooks.ts:6"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/infra-runtime",
-          "file": "plugins/openclaw-weixin/src/auth/pairing.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/auth/pairing.ts",
           "line": 4,
-          "ref": "plugins/openclaw-weixin/src/auth/pairing.ts:4"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/pairing.ts:4"
         },
         {
           "specifier": "openclaw/plugin-sdk/infra-runtime",
-          "file": "plugins/openclaw-weixin/src/channel.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/channel.ts",
           "line": 5,
-          "ref": "plugins/openclaw-weixin/src/channel.ts:5"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/channel.ts:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/infra-runtime",
-          "file": "plugins/openclaw-weixin/src/messaging/process-message.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts",
           "line": 8,
-          "ref": "plugins/openclaw-weixin/src/messaging/process-message.ts:8"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts:8"
         },
         {
           "specifier": "openclaw/plugin-sdk/infra-runtime",
-          "file": "plugins/openclaw-weixin/src/util/logger.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/util/logger.ts",
           "line": 5,
-          "ref": "plugins/openclaw-weixin/src/util/logger.ts:5"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/util/logger.ts:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/plugin-entry",
-          "file": "plugins/openclaw-weixin/index.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/index.ts",
           "line": 1,
-          "ref": "plugins/openclaw-weixin/index.ts:1"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/index.ts:1"
         },
         {
           "specifier": "openclaw/plugin-sdk/plugin-runtime",
-          "file": "plugins/openclaw-weixin/src/messaging/outbound-hooks.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts",
           "line": 7,
-          "ref": "plugins/openclaw-weixin/src/messaging/outbound-hooks.ts:7"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-runtime",
-          "file": "plugins/openclaw-weixin/src/messaging/send.ts",
+          "file": "plugins/openclaw-weixin/.crabpot-package/src/messaging/send.ts",
           "line": 1,
-          "ref": "plugins/openclaw-weixin/src/messaging/send.ts:1"
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/send.ts:1"
         }
       ]
     },
@@ -5120,57 +5158,57 @@
       "registrationDetails": [
         {
           "name": "registerChannel",
-          "file": "plugins/lightclawbot/dist/index.js",
+          "file": "plugins/lightclawbot/.crabpot-package/dist/index.js",
           "line": 13,
-          "ref": "plugins/lightclawbot/dist/index.js:13"
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/index.js:13"
         },
         {
           "name": "registerTool",
-          "file": "plugins/lightclawbot/dist/src/download-tool.js",
+          "file": "plugins/lightclawbot/.crabpot-package/dist/src/download-tool.js",
           "line": 49,
-          "ref": "plugins/lightclawbot/dist/src/download-tool.js:49"
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/download-tool.js:49"
         },
         {
           "name": "registerTool",
-          "file": "plugins/lightclawbot/dist/src/upload-tool.js",
+          "file": "plugins/lightclawbot/.crabpot-package/dist/src/upload-tool.js",
           "line": 37,
-          "ref": "plugins/lightclawbot/dist/src/upload-tool.js:37"
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/upload-tool.js:37"
         }
       ],
       "manifestContracts": [],
       "manifestFiles": [
-        "plugins/lightclawbot/openclaw.plugin.json"
+        "plugins/lightclawbot/.crabpot-package/openclaw.plugin.json"
       ],
       "sourceFiles": [
-        "plugins/lightclawbot/dist/index.js",
-        "plugins/lightclawbot/dist/src/channel.js",
-        "plugins/lightclawbot/dist/src/config.js",
-        "plugins/lightclawbot/dist/src/dedup.js",
-        "plugins/lightclawbot/dist/src/download-tool.js",
-        "plugins/lightclawbot/dist/src/file-storage.js",
-        "plugins/lightclawbot/dist/src/format-urls.js",
-        "plugins/lightclawbot/dist/src/gateway.js",
-        "plugins/lightclawbot/dist/src/history/cron-utils.js",
-        "plugins/lightclawbot/dist/src/history/index.js",
-        "plugins/lightclawbot/dist/src/history/message-parser.js",
-        "plugins/lightclawbot/dist/src/history/session-reader.js",
-        "plugins/lightclawbot/dist/src/history/session-store.js",
-        "plugins/lightclawbot/dist/src/history/text-processing.js",
-        "plugins/lightclawbot/dist/src/history/types.js",
-        "plugins/lightclawbot/dist/src/inbound.js",
-        "plugins/lightclawbot/dist/src/media.js",
-        "plugins/lightclawbot/dist/src/outbound.js",
-        "plugins/lightclawbot/dist/src/runtime.js",
-        "plugins/lightclawbot/dist/src/socket/handlers.js",
-        "plugins/lightclawbot/dist/src/socket/index.js",
-        "plugins/lightclawbot/dist/src/socket/registry.js",
-        "plugins/lightclawbot/dist/src/socket/reliable-emitter.js",
-        "plugins/lightclawbot/dist/src/types.js",
-        "plugins/lightclawbot/dist/src/upload-tool.js"
+        "plugins/lightclawbot/.crabpot-package/dist/index.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/channel.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/config.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/dedup.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/download-tool.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/file-storage.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/format-urls.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/gateway.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/history/cron-utils.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/history/index.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/history/message-parser.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/history/session-reader.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/history/session-store.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/history/text-processing.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/history/types.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/inbound.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/media.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/outbound.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/runtime.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/socket/handlers.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/socket/index.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/socket/registry.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/socket/reliable-emitter.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/types.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/upload-tool.js"
       ],
       "pluginManifests": [
         {
-          "path": "plugins/lightclawbot/openclaw.plugin.json",
+          "path": "plugins/lightclawbot/.crabpot-package/openclaw.plugin.json",
           "id": "lightclawbot",
           "name": "LightClawBot Channel",
           "version": "1.0.0",
@@ -5191,7 +5229,7 @@
         }
       ],
       "package": {
-        "path": "plugins/lightclawbot/package.json",
+        "path": "plugins/lightclawbot/.crabpot-package/package.json",
         "name": "lightclawbot",
         "version": "1.1.2",
         "type": "module",
@@ -5216,7 +5254,7 @@
             {
               "kind": "extension",
               "specifier": "./dist/index.js",
-              "relativePath": "plugins/lightclawbot/dist/index.js",
+              "relativePath": "plugins/lightclawbot/.crabpot-package/dist/index.js",
               "exists": true,
               "requiresBuild": true
             }
@@ -5225,7 +5263,7 @@
       },
       "packages": [
         {
-          "path": "plugins/lightclawbot/package.json",
+          "path": "plugins/lightclawbot/.crabpot-package/package.json",
           "name": "lightclawbot",
           "version": "1.1.2",
           "type": "module",
@@ -5250,12 +5288,25 @@
               {
                 "kind": "extension",
                 "specifier": "./dist/index.js",
-                "relativePath": "plugins/lightclawbot/dist/index.js",
+                "relativePath": "plugins/lightclawbot/.crabpot-package/dist/index.js",
                 "exists": true,
                 "requiresBuild": true
               }
             ]
           }
+        },
+        {
+          "path": "plugins/lightclawbot/package.json",
+          "name": "@crabpot/fixture-lightclawbot",
+          "version": "0.0.0",
+          "type": null,
+          "main": null,
+          "dependencies": [
+            "lightclawbot"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": null
         }
       ],
       "sdkImports": [
@@ -5265,21 +5316,21 @@
       "sdkImportDetails": [
         {
           "specifier": "openclaw/plugin-sdk/channel-reply-pipeline",
-          "file": "plugins/lightclawbot/dist/src/inbound.js",
+          "file": "plugins/lightclawbot/.crabpot-package/dist/src/inbound.js",
           "line": 8,
-          "ref": "plugins/lightclawbot/dist/src/inbound.js:8"
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:8"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/lightclawbot/dist/index.js",
+          "file": "plugins/lightclawbot/.crabpot-package/dist/index.js",
           "line": 1,
-          "ref": "plugins/lightclawbot/dist/index.js:1"
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/index.js:1"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/lightclawbot/dist/src/channel.js",
+          "file": "plugins/lightclawbot/.crabpot-package/dist/src/channel.js",
           "line": 8,
-          "ref": "plugins/lightclawbot/dist/src/channel.js:8"
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/channel.js:8"
         }
       ]
     },
@@ -6921,7 +6972,7 @@
       "level": "warning",
       "message": "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
       "evidence": [
-        "agent_end @ plugins/memory-tencentdb/index.ts:820"
+        "agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:820"
       ]
     },
     {
@@ -6983,7 +7034,7 @@
       "level": "warning",
       "message": "fixture imports the root plugin SDK barrel",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/yuanbao/dist/index.js:1"
+        "openclaw/plugin-sdk @ plugins/yuanbao/.crabpot-package/dist/index.js:1"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
@@ -6993,7 +7044,7 @@
       "level": "warning",
       "message": "package openclaw metadata does not declare compat.pluginApi",
       "evidence": [
-        "plugins/openclaw-weixin/package.json"
+        "plugins/openclaw-weixin/.crabpot-package/package.json"
       ]
     },
     {
@@ -7002,7 +7053,7 @@
       "level": "warning",
       "message": "manifest uses top-level fields that are not present in the target OpenClaw PluginManifest type",
       "evidence": [
-        "capabilities @ plugins/lightclawbot/openclaw.plugin.json"
+        "capabilities @ plugins/lightclawbot/.crabpot-package/openclaw.plugin.json"
       ]
     },
     {
@@ -7021,7 +7072,7 @@
       "level": "warning",
       "message": "package openclaw metadata does not declare compat.pluginApi",
       "evidence": [
-        "plugins/lightclawbot/package.json"
+        "plugins/lightclawbot/.crabpot-package/package.json"
       ]
     },
     {
@@ -7641,7 +7692,7 @@
       "level": "suggestion",
       "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
       "evidence": [
-        "extension:plugins/memory-tencentdb/index.ts"
+        "extension:plugins/memory-tencentdb/.crabpot-package/index.ts"
       ]
     },
     {
@@ -7650,13 +7701,13 @@
       "level": "suggestion",
       "message": "package declares runtime dependencies that must be installed before cold import",
       "evidence": [
-        "@node-rs/jieba @ plugins/memory-tencentdb/package.json",
-        "@tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/package.json",
-        "json5 @ plugins/memory-tencentdb/package.json",
-        "sqlite-vec @ plugins/memory-tencentdb/package.json",
-        "undici @ plugins/memory-tencentdb/package.json",
-        "node-llama-cpp @ plugins/memory-tencentdb/package.json",
-        "openclaw @ plugins/memory-tencentdb/package.json"
+        "@node-rs/jieba @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "@tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "json5 @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "sqlite-vec @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "undici @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "node-llama-cpp @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "openclaw @ plugins/memory-tencentdb/.crabpot-package/package.json"
       ]
     },
     {
@@ -7665,8 +7716,8 @@
       "level": "suggestion",
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
-        "registerTool @ plugins/memory-tencentdb/index.ts:268",
-        "registerTool @ plugins/memory-tencentdb/index.ts:365"
+        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:268",
+        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:365"
       ]
     },
     {
@@ -7755,11 +7806,11 @@
       "level": "suggestion",
       "message": "package declares runtime dependencies that must be installed before cold import",
       "evidence": [
-        "cos-nodejs-sdk-v5 @ plugins/yuanbao/package.json",
-        "protobufjs @ plugins/yuanbao/package.json",
-        "uuid @ plugins/yuanbao/package.json",
-        "ws @ plugins/yuanbao/package.json",
-        "openclaw @ plugins/yuanbao/package.json"
+        "cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json",
+        "protobufjs @ plugins/yuanbao/.crabpot-package/package.json",
+        "uuid @ plugins/yuanbao/.crabpot-package/package.json",
+        "ws @ plugins/yuanbao/.crabpot-package/package.json",
+        "openclaw @ plugins/yuanbao/.crabpot-package/package.json"
       ]
     },
     {
@@ -7768,10 +7819,10 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerChannel @ plugins/yuanbao/dist/index.js:29",
-        "registerCommand @ plugins/yuanbao/dist/index.js:31",
-        "registerCommand @ plugins/yuanbao/dist/index.js:32",
-        "registerCommand @ plugins/yuanbao/dist/index.js:34"
+        "registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:31",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:32",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:34"
       ]
     },
     {
@@ -7780,7 +7831,7 @@
       "level": "suggestion",
       "message": "add channel envelope, config-schema, and runtime metadata probes",
       "evidence": [
-        "registerChannel @ plugins/yuanbao/dist/index.js:29"
+        "registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29"
       ]
     },
     {
@@ -7789,9 +7840,9 @@
       "level": "suggestion",
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
-        "registerTool @ plugins/yuanbao/dist/src/tools/group.js:43",
-        "registerTool @ plugins/yuanbao/dist/src/tools/member.js:120",
-        "registerTool @ plugins/yuanbao/dist/src/tools/remind.js:271"
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/group.js:43",
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/member.js:120",
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/remind.js:271"
       ]
     },
     {
@@ -7800,7 +7851,7 @@
       "level": "suggestion",
       "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
       "evidence": [
-        "extension:plugins/openclaw-weixin/index.ts"
+        "extension:plugins/openclaw-weixin/.crabpot-package/index.ts"
       ]
     },
     {
@@ -7809,8 +7860,8 @@
       "level": "suggestion",
       "message": "package declares runtime dependencies that must be installed before cold import",
       "evidence": [
-        "qrcode-terminal @ plugins/openclaw-weixin/package.json",
-        "zod @ plugins/openclaw-weixin/package.json"
+        "qrcode-terminal @ plugins/openclaw-weixin/.crabpot-package/package.json",
+        "zod @ plugins/openclaw-weixin/.crabpot-package/package.json"
       ]
     },
     {
@@ -7819,7 +7870,7 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/index.ts:22"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
       ]
     },
     {
@@ -7828,7 +7879,7 @@
       "level": "suggestion",
       "message": "add channel envelope, config-schema, and runtime metadata probes",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/index.ts:22"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
       ]
     },
     {
@@ -7837,8 +7888,8 @@
       "level": "suggestion",
       "message": "package declares runtime dependencies that must be installed before cold import",
       "evidence": [
-        "socket.io-client @ plugins/lightclawbot/package.json",
-        "openclaw @ plugins/lightclawbot/package.json"
+        "socket.io-client @ plugins/lightclawbot/.crabpot-package/package.json",
+        "openclaw @ plugins/lightclawbot/.crabpot-package/package.json"
       ]
     },
     {
@@ -7847,7 +7898,7 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerChannel @ plugins/lightclawbot/dist/index.js:13"
+        "registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13"
       ]
     },
     {
@@ -7856,7 +7907,7 @@
       "level": "suggestion",
       "message": "add channel envelope, config-schema, and runtime metadata probes",
       "evidence": [
-        "registerChannel @ plugins/lightclawbot/dist/index.js:13"
+        "registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13"
       ]
     },
     {
@@ -7865,8 +7916,8 @@
       "level": "suggestion",
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
-        "registerTool @ plugins/lightclawbot/dist/src/download-tool.js:49",
-        "registerTool @ plugins/lightclawbot/dist/src/upload-tool.js:37"
+        "registerTool @ plugins/lightclawbot/.crabpot-package/dist/src/download-tool.js:49",
+        "registerTool @ plugins/lightclawbot/.crabpot-package/dist/src/upload-tool.js:37"
       ]
     },
     {
@@ -8301,7 +8352,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-67575E70",
+      "id": "CRABPOT-FC7D9F68",
       "fixture": "lightclawbot",
       "severity": "P1",
       "owner": "inspector",
@@ -8314,7 +8365,7 @@
       "compatStatus": "none",
       "title": "lightclawbot: runtime registrations need capture before contract judgment",
       "evidence": [
-        "registerChannel @ plugins/lightclawbot/dist/index.js:13"
+        "registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13"
       ],
       "compatRecord": null
     },
@@ -8375,7 +8426,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-2EF307D7",
+      "id": "CRABPOT-13CBAB83",
       "fixture": "memory-tencentdb",
       "severity": "P1",
       "owner": "core",
@@ -8388,7 +8439,7 @@
       "compatStatus": "none",
       "title": "memory-tencentdb: conversation-access hooks need privacy-boundary probes",
       "evidence": [
-        "agent_end @ plugins/memory-tencentdb/index.ts:820"
+        "agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:820"
       ],
       "compatRecord": null
     },
@@ -8448,7 +8499,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-8845BC02",
+      "id": "CRABPOT-16F9C1CD",
       "fixture": "openclaw-weixin",
       "severity": "P1",
       "owner": "inspector",
@@ -8461,7 +8512,7 @@
       "compatStatus": "none",
       "title": "openclaw-weixin: runtime registrations need capture before contract judgment",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/index.ts:22"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
       ],
       "compatRecord": null
     },
@@ -8597,7 +8648,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-E46C8387",
+      "id": "CRABPOT-AC08DE1B",
       "fixture": "yuanbao",
       "severity": "P1",
       "owner": "inspector",
@@ -8610,10 +8661,10 @@
       "compatStatus": "none",
       "title": "yuanbao: runtime registrations need capture before contract judgment",
       "evidence": [
-        "registerChannel @ plugins/yuanbao/dist/index.js:29",
-        "registerCommand @ plugins/yuanbao/dist/index.js:31",
-        "registerCommand @ plugins/yuanbao/dist/index.js:32",
-        "registerCommand @ plugins/yuanbao/dist/index.js:34"
+        "registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:31",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:32",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:34"
       ],
       "compatRecord": null
     },
@@ -9635,7 +9686,7 @@
       "compatRecord": "provider-auth-env-vars"
     },
     {
-      "id": "CRABPOT-35AA276B",
+      "id": "CRABPOT-2F7EFF13",
       "fixture": "lightclawbot",
       "severity": "P2",
       "owner": "inspector",
@@ -9648,12 +9699,12 @@
       "compatStatus": "none",
       "title": "lightclawbot: channel runtime needs envelope/config probes",
       "evidence": [
-        "registerChannel @ plugins/lightclawbot/dist/index.js:13"
+        "registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13"
       ],
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-9AD77D55",
+      "id": "CRABPOT-8B95396A",
       "fixture": "lightclawbot",
       "severity": "P2",
       "owner": "plugin",
@@ -9666,12 +9717,12 @@
       "compatStatus": "none",
       "title": "lightclawbot: manifest uses unsupported top-level fields",
       "evidence": [
-        "capabilities @ plugins/lightclawbot/openclaw.plugin.json"
+        "capabilities @ plugins/lightclawbot/.crabpot-package/openclaw.plugin.json"
       ],
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-B4214D87",
+      "id": "CRABPOT-103FCCDC",
       "fixture": "lightclawbot",
       "severity": "P2",
       "owner": "inspector",
@@ -9684,8 +9735,8 @@
       "compatStatus": "none",
       "title": "lightclawbot: cold import requires isolated dependency installation",
       "evidence": [
-        "socket.io-client @ plugins/lightclawbot/package.json",
-        "openclaw @ plugins/lightclawbot/package.json"
+        "socket.io-client @ plugins/lightclawbot/.crabpot-package/package.json",
+        "openclaw @ plugins/lightclawbot/.crabpot-package/package.json"
       ],
       "compatRecord": null
     },
@@ -9709,7 +9760,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-1DBCA352",
+      "id": "CRABPOT-A87C03BA",
       "fixture": "lightclawbot",
       "severity": "P2",
       "owner": "plugin",
@@ -9722,12 +9773,12 @@
       "compatStatus": "none",
       "title": "lightclawbot: plugin API compatibility range is missing",
       "evidence": [
-        "plugins/lightclawbot/package.json"
+        "plugins/lightclawbot/.crabpot-package/package.json"
       ],
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-BF2A47B8",
+      "id": "CRABPOT-4F060C14",
       "fixture": "lightclawbot",
       "severity": "P2",
       "owner": "inspector",
@@ -9740,8 +9791,8 @@
       "compatStatus": "none",
       "title": "lightclawbot: runtime tool schema needs registration capture",
       "evidence": [
-        "registerTool @ plugins/lightclawbot/dist/src/download-tool.js:49",
-        "registerTool @ plugins/lightclawbot/dist/src/upload-tool.js:37"
+        "registerTool @ plugins/lightclawbot/.crabpot-package/dist/src/download-tool.js:49",
+        "registerTool @ plugins/lightclawbot/.crabpot-package/dist/src/upload-tool.js:37"
       ],
       "compatRecord": null
     },
@@ -9958,7 +10009,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-612B002D",
+      "id": "CRABPOT-50A82834",
       "fixture": "memory-tencentdb",
       "severity": "P2",
       "owner": "inspector",
@@ -9971,18 +10022,18 @@
       "compatStatus": "none",
       "title": "memory-tencentdb: cold import requires isolated dependency installation",
       "evidence": [
-        "@node-rs/jieba @ plugins/memory-tencentdb/package.json",
-        "@tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/package.json",
-        "json5 @ plugins/memory-tencentdb/package.json",
-        "sqlite-vec @ plugins/memory-tencentdb/package.json",
-        "undici @ plugins/memory-tencentdb/package.json",
-        "node-llama-cpp @ plugins/memory-tencentdb/package.json",
-        "openclaw @ plugins/memory-tencentdb/package.json"
+        "@node-rs/jieba @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "@tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "json5 @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "sqlite-vec @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "undici @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "node-llama-cpp @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "openclaw @ plugins/memory-tencentdb/.crabpot-package/package.json"
       ],
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-11EBBC27",
+      "id": "CRABPOT-C5CE2AD7",
       "fixture": "memory-tencentdb",
       "severity": "P2",
       "owner": "inspector",
@@ -9995,12 +10046,12 @@
       "compatStatus": "none",
       "title": "memory-tencentdb: cold import needs TypeScript source entrypoint support",
       "evidence": [
-        "extension:plugins/memory-tencentdb/index.ts"
+        "extension:plugins/memory-tencentdb/.crabpot-package/index.ts"
       ],
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-273DA0FD",
+      "id": "CRABPOT-E4DFF1EE",
       "fixture": "memory-tencentdb",
       "severity": "P2",
       "owner": "inspector",
@@ -10013,8 +10064,8 @@
       "compatStatus": "none",
       "title": "memory-tencentdb: runtime tool schema needs registration capture",
       "evidence": [
-        "registerTool @ plugins/memory-tencentdb/index.ts:268",
-        "registerTool @ plugins/memory-tencentdb/index.ts:365"
+        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:268",
+        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:365"
       ],
       "compatRecord": null
     },
@@ -10283,7 +10334,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-8D96316B",
+      "id": "CRABPOT-63C4338C",
       "fixture": "openclaw-weixin",
       "severity": "P2",
       "owner": "inspector",
@@ -10296,12 +10347,12 @@
       "compatStatus": "none",
       "title": "openclaw-weixin: channel runtime needs envelope/config probes",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/index.ts:22"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
       ],
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-64A3A1AC",
+      "id": "CRABPOT-D27E96E8",
       "fixture": "openclaw-weixin",
       "severity": "P2",
       "owner": "inspector",
@@ -10314,13 +10365,13 @@
       "compatStatus": "none",
       "title": "openclaw-weixin: cold import requires isolated dependency installation",
       "evidence": [
-        "qrcode-terminal @ plugins/openclaw-weixin/package.json",
-        "zod @ plugins/openclaw-weixin/package.json"
+        "qrcode-terminal @ plugins/openclaw-weixin/.crabpot-package/package.json",
+        "zod @ plugins/openclaw-weixin/.crabpot-package/package.json"
       ],
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-30B3AED3",
+      "id": "CRABPOT-2EF6EB7E",
       "fixture": "openclaw-weixin",
       "severity": "P2",
       "owner": "plugin",
@@ -10333,12 +10384,12 @@
       "compatStatus": "none",
       "title": "openclaw-weixin: plugin API compatibility range is missing",
       "evidence": [
-        "plugins/openclaw-weixin/package.json"
+        "plugins/openclaw-weixin/.crabpot-package/package.json"
       ],
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-5E4837C5",
+      "id": "CRABPOT-330EF0B5",
       "fixture": "openclaw-weixin",
       "severity": "P2",
       "owner": "inspector",
@@ -10351,7 +10402,7 @@
       "compatStatus": "none",
       "title": "openclaw-weixin: cold import needs TypeScript source entrypoint support",
       "evidence": [
-        "extension:plugins/openclaw-weixin/index.ts"
+        "extension:plugins/openclaw-weixin/.crabpot-package/index.ts"
       ],
       "compatRecord": null
     },
@@ -10767,7 +10818,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-51B07E65",
+      "id": "CRABPOT-0126DB88",
       "fixture": "yuanbao",
       "severity": "P2",
       "owner": "inspector",
@@ -10780,12 +10831,12 @@
       "compatStatus": "none",
       "title": "yuanbao: channel runtime needs envelope/config probes",
       "evidence": [
-        "registerChannel @ plugins/yuanbao/dist/index.js:29"
+        "registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29"
       ],
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-DAE3C162",
+      "id": "CRABPOT-73D1AA43",
       "fixture": "yuanbao",
       "severity": "P2",
       "owner": "core",
@@ -10798,12 +10849,12 @@
       "compatStatus": "deprecated",
       "title": "yuanbao: root plugin SDK barrel is still used by fixtures",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/yuanbao/dist/index.js:1"
+        "openclaw/plugin-sdk @ plugins/yuanbao/.crabpot-package/dist/index.js:1"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
     {
-      "id": "CRABPOT-19459517",
+      "id": "CRABPOT-D97E712C",
       "fixture": "yuanbao",
       "severity": "P2",
       "owner": "inspector",
@@ -10816,16 +10867,16 @@
       "compatStatus": "none",
       "title": "yuanbao: cold import requires isolated dependency installation",
       "evidence": [
-        "cos-nodejs-sdk-v5 @ plugins/yuanbao/package.json",
-        "protobufjs @ plugins/yuanbao/package.json",
-        "uuid @ plugins/yuanbao/package.json",
-        "ws @ plugins/yuanbao/package.json",
-        "openclaw @ plugins/yuanbao/package.json"
+        "cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json",
+        "protobufjs @ plugins/yuanbao/.crabpot-package/package.json",
+        "uuid @ plugins/yuanbao/.crabpot-package/package.json",
+        "ws @ plugins/yuanbao/.crabpot-package/package.json",
+        "openclaw @ plugins/yuanbao/.crabpot-package/package.json"
       ],
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-69E8E16F",
+      "id": "CRABPOT-EF7AC0FB",
       "fixture": "yuanbao",
       "severity": "P2",
       "owner": "inspector",
@@ -10838,9 +10889,9 @@
       "compatStatus": "none",
       "title": "yuanbao: runtime tool schema needs registration capture",
       "evidence": [
-        "registerTool @ plugins/yuanbao/dist/src/tools/group.js:43",
-        "registerTool @ plugins/yuanbao/dist/src/tools/member.js:120",
-        "registerTool @ plugins/yuanbao/dist/src/tools/remind.js:271"
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/group.js:43",
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/member.js:120",
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/remind.js:271"
       ],
       "compatRecord": null
     }
@@ -10930,7 +10981,7 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerChannel @ plugins/lightclawbot/dist/index.js:13"
+        "registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13"
       ]
     },
     {
@@ -10982,7 +11033,7 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/index.ts:22"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
       ]
     },
     {
@@ -11035,10 +11086,10 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerChannel @ plugins/yuanbao/dist/index.js:29",
-        "registerCommand @ plugins/yuanbao/dist/index.js:31",
-        "registerCommand @ plugins/yuanbao/dist/index.js:32",
-        "registerCommand @ plugins/yuanbao/dist/index.js:34"
+        "registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:31",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:32",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:34"
       ]
     },
     {
@@ -11101,7 +11152,7 @@
       "target": "hook-runner",
       "contract": "LLM observer hooks receive documented prompt/output fields with expected redaction behavior.",
       "evidence": [
-        "agent_end @ plugins/memory-tencentdb/index.ts:820"
+        "agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:820"
       ]
     },
     {
@@ -11175,7 +11226,7 @@
       "target": "channel-runtime",
       "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/index.ts:22"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
       ]
     },
     {
@@ -11205,7 +11256,7 @@
       "target": "channel-runtime",
       "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
       "evidence": [
-        "registerChannel @ plugins/yuanbao/dist/index.js:29"
+        "registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29"
       ]
     },
     {
@@ -11369,7 +11420,7 @@
       "target": "package-loader",
       "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
       "evidence": [
-        "plugins/openclaw-weixin/package.json"
+        "plugins/openclaw-weixin/.crabpot-package/package.json"
       ]
     },
     {
@@ -11564,13 +11615,13 @@
       "target": "package-loader",
       "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
       "evidence": [
-        "@node-rs/jieba @ plugins/memory-tencentdb/package.json",
-        "@tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/package.json",
-        "json5 @ plugins/memory-tencentdb/package.json",
-        "sqlite-vec @ plugins/memory-tencentdb/package.json",
-        "undici @ plugins/memory-tencentdb/package.json",
-        "node-llama-cpp @ plugins/memory-tencentdb/package.json",
-        "openclaw @ plugins/memory-tencentdb/package.json"
+        "@node-rs/jieba @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "@tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "json5 @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "sqlite-vec @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "undici @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "node-llama-cpp @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "openclaw @ plugins/memory-tencentdb/.crabpot-package/package.json"
       ]
     },
     {
@@ -11595,8 +11646,8 @@
       "target": "package-loader",
       "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
       "evidence": [
-        "qrcode-terminal @ plugins/openclaw-weixin/package.json",
-        "zod @ plugins/openclaw-weixin/package.json"
+        "qrcode-terminal @ plugins/openclaw-weixin/.crabpot-package/package.json",
+        "zod @ plugins/openclaw-weixin/.crabpot-package/package.json"
       ]
     },
     {
@@ -11646,11 +11697,11 @@
       "target": "package-loader",
       "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
       "evidence": [
-        "cos-nodejs-sdk-v5 @ plugins/yuanbao/package.json",
-        "protobufjs @ plugins/yuanbao/package.json",
-        "uuid @ plugins/yuanbao/package.json",
-        "ws @ plugins/yuanbao/package.json",
-        "openclaw @ plugins/yuanbao/package.json"
+        "cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json",
+        "protobufjs @ plugins/yuanbao/.crabpot-package/package.json",
+        "uuid @ plugins/yuanbao/.crabpot-package/package.json",
+        "ws @ plugins/yuanbao/.crabpot-package/package.json",
+        "openclaw @ plugins/yuanbao/.crabpot-package/package.json"
       ]
     },
     {
@@ -11740,7 +11791,7 @@
       "target": "package-loader",
       "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
       "evidence": [
-        "extension:plugins/memory-tencentdb/index.ts"
+        "extension:plugins/memory-tencentdb/.crabpot-package/index.ts"
       ]
     },
     {
@@ -11760,7 +11811,7 @@
       "target": "package-loader",
       "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
       "evidence": [
-        "extension:plugins/openclaw-weixin/index.ts"
+        "extension:plugins/openclaw-weixin/.crabpot-package/index.ts"
       ]
     },
     {
@@ -11959,7 +12010,7 @@
       "target": "sdk-alias",
       "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/yuanbao/dist/index.js:1"
+        "openclaw/plugin-sdk @ plugins/yuanbao/.crabpot-package/dist/index.js:1"
       ]
     },
     {
@@ -12052,8 +12103,8 @@
       "target": "tool-runtime",
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
-        "registerTool @ plugins/memory-tencentdb/index.ts:268",
-        "registerTool @ plugins/memory-tencentdb/index.ts:365"
+        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:268",
+        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:365"
       ]
     },
     {
@@ -12096,9 +12147,9 @@
       "target": "tool-runtime",
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
-        "registerTool @ plugins/yuanbao/dist/src/tools/group.js:43",
-        "registerTool @ plugins/yuanbao/dist/src/tools/member.js:120",
-        "registerTool @ plugins/yuanbao/dist/src/tools/remind.js:271"
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/group.js:43",
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/member.js:120",
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/remind.js:271"
       ]
     },
     {
@@ -12108,7 +12159,7 @@
       "target": "channel-runtime",
       "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
       "evidence": [
-        "registerChannel @ plugins/lightclawbot/dist/index.js:13"
+        "registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13"
       ]
     },
     {
@@ -12138,7 +12189,7 @@
       "target": "manifest-loader",
       "contract": "Manifest top-level fields are represented in target OpenClaw PluginManifest.",
       "evidence": [
-        "capabilities @ plugins/lightclawbot/openclaw.plugin.json"
+        "capabilities @ plugins/lightclawbot/.crabpot-package/openclaw.plugin.json"
       ]
     },
     {
@@ -12168,7 +12219,7 @@
       "target": "package-loader",
       "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
       "evidence": [
-        "plugins/lightclawbot/package.json"
+        "plugins/lightclawbot/.crabpot-package/package.json"
       ]
     },
     {
@@ -12271,8 +12322,8 @@
       "target": "package-loader",
       "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
       "evidence": [
-        "socket.io-client @ plugins/lightclawbot/package.json",
-        "openclaw @ plugins/lightclawbot/package.json"
+        "socket.io-client @ plugins/lightclawbot/.crabpot-package/package.json",
+        "openclaw @ plugins/lightclawbot/.crabpot-package/package.json"
       ]
     },
     {
@@ -12420,8 +12471,8 @@
       "target": "tool-runtime",
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
-        "registerTool @ plugins/lightclawbot/dist/src/download-tool.js:49",
-        "registerTool @ plugins/lightclawbot/dist/src/upload-tool.js:37"
+        "registerTool @ plugins/lightclawbot/.crabpot-package/dist/src/download-tool.js:49",
+        "registerTool @ plugins/lightclawbot/.crabpot-package/dist/src/upload-tool.js:37"
       ]
     },
     {
@@ -13297,7 +13348,7 @@
       "level": "log",
       "message": "plugin manifest fields were compared with target OpenClaw manifest types",
       "evidence": [
-        "plugins/memory-tencentdb/openclaw.plugin.json"
+        "plugins/memory-tencentdb/.crabpot-package/openclaw.plugin.json"
       ]
     },
     {
@@ -13306,7 +13357,7 @@
       "level": "log",
       "message": "selected package metadata for plugin contract checks",
       "evidence": [
-        "plugins/memory-tencentdb/package.json",
+        "plugins/memory-tencentdb/.crabpot-package/package.json",
         "@tencentdb-agent-memory/memory-tencentdb",
         "version:0.2.3"
       ]
@@ -13480,7 +13531,7 @@
       "level": "log",
       "message": "plugin manifest fields were compared with target OpenClaw manifest types",
       "evidence": [
-        "plugins/yuanbao/openclaw.plugin.json"
+        "plugins/yuanbao/.crabpot-package/openclaw.plugin.json"
       ]
     },
     {
@@ -13489,7 +13540,7 @@
       "level": "log",
       "message": "selected package metadata for plugin contract checks",
       "evidence": [
-        "plugins/yuanbao/package.json",
+        "plugins/yuanbao/.crabpot-package/package.json",
         "openclaw-plugin-yuanbao",
         "version:2.11.0"
       ]
@@ -13545,7 +13596,7 @@
       "level": "log",
       "message": "plugin manifest fields were compared with target OpenClaw manifest types",
       "evidence": [
-        "plugins/openclaw-weixin/openclaw.plugin.json"
+        "plugins/openclaw-weixin/.crabpot-package/openclaw.plugin.json"
       ]
     },
     {
@@ -13554,7 +13605,7 @@
       "level": "log",
       "message": "selected package metadata for plugin contract checks",
       "evidence": [
-        "plugins/openclaw-weixin/package.json",
+        "plugins/openclaw-weixin/.crabpot-package/package.json",
         "@tencent-weixin/openclaw-weixin",
         "version:2.1.10"
       ]
@@ -13602,7 +13653,7 @@
       "level": "log",
       "message": "plugin manifest fields were compared with target OpenClaw manifest types",
       "evidence": [
-        "plugins/lightclawbot/openclaw.plugin.json"
+        "plugins/lightclawbot/.crabpot-package/openclaw.plugin.json"
       ]
     },
     {
@@ -13611,7 +13662,7 @@
       "level": "log",
       "message": "selected package metadata for plugin contract checks",
       "evidence": [
-        "plugins/lightclawbot/package.json",
+        "plugins/lightclawbot/.crabpot-package/package.json",
         "lightclawbot",
         "version:1.1.2"
       ]
@@ -14815,7 +14866,7 @@
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
-      "evidence": "plugins/memory-tencentdb/index.ts"
+      "evidence": "plugins/memory-tencentdb/.crabpot-package/index.ts"
     },
     {
       "fixture": "memory-tencentdb",
@@ -14955,14 +15006,14 @@
       "decision": "plugin-upstream-fix",
       "seam": "package-metadata",
       "action": "Ask the plugin to declare the plugin API range it was built against.",
-      "evidence": "plugins/openclaw-weixin/package.json"
+      "evidence": "plugins/openclaw-weixin/.crabpot-package/package.json"
     },
     {
       "fixture": "openclaw-weixin",
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
-      "evidence": "plugins/openclaw-weixin/index.ts"
+      "evidence": "plugins/openclaw-weixin/.crabpot-package/index.ts"
     },
     {
       "fixture": "openclaw-weixin",
@@ -15004,7 +15055,7 @@
       "decision": "plugin-upstream-fix",
       "seam": "package-metadata",
       "action": "Ask the plugin to declare the plugin API range it was built against.",
-      "evidence": "plugins/lightclawbot/package.json"
+      "evidence": "plugins/lightclawbot/.crabpot-package/package.json"
     },
     {
       "fixture": "lightclawbot",

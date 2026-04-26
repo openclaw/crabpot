@@ -38,12 +38,12 @@ Targets: linux, macos, windows, container
 | hyperspell        | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/hyperspell/index.ts                                         |
 | honcho            | build-required              | node    | -            | no          | no            | plugins/honcho/dist/index.js                                        |
 | composio          | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/composio/index.ts                                           |
-| memory-tencentdb  | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/memory-tencentdb/index.ts                                   |
+| memory-tencentdb  | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/memory-tencentdb/.crabpot-package/index.ts                  |
 | ddingtalk         | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/ddingtalk/index.ts                                          |
 | mocrane-wecom     | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/mocrane-wecom/index.ts                                      |
-| yuanbao           | dependency-install-required | node    | -            | no          | no            | plugins/yuanbao/dist/index.js                                       |
-| openclaw-weixin   | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/openclaw-weixin/index.ts                                    |
-| lightclawbot      | dependency-install-required | node    | -            | no          | no            | plugins/lightclawbot/dist/index.js                                  |
+| yuanbao           | dependency-install-required | node    | -            | no          | no            | plugins/yuanbao/.crabpot-package/dist/index.js                      |
+| openclaw-weixin   | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/openclaw-weixin/.crabpot-package/index.ts                   |
+| lightclawbot      | dependency-install-required | node    | -            | no          | no            | plugins/lightclawbot/.crabpot-package/dist/index.js                 |
 | memu-engine       | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/memu-engine/index.ts                                        |
 | secureclaw        | build-required              | node    | -            | no          | no            | plugins/secureclaw/secureclaw/dist/index.js                         |
 | memos-cloud       | review-required             | node    | -            | no          | no            | plugins/memos-cloud/index.js                                        |

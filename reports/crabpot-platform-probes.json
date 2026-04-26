@@ -248,9 +248,9 @@
     },
     {
       "fixture": "memory-tencentdb",
-      "id": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-index-ts",
+      "id": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
       "status": "ts-loader-required",
-      "entrypoint": "plugins/memory-tencentdb/index.ts",
+      "entrypoint": "plugins/memory-tencentdb/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",
       "loaderPrimary": "tsx",
@@ -296,9 +296,9 @@
     },
     {
       "fixture": "yuanbao",
-      "id": "cold-import.extension:yuanbao:plugins-yuanbao-dist-index-js",
+      "id": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
       "status": "dependency-install-required",
-      "entrypoint": "plugins/yuanbao/dist/index.js",
+      "entrypoint": "plugins/yuanbao/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -310,9 +310,9 @@
     },
     {
       "fixture": "openclaw-weixin",
-      "id": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-index-ts",
+      "id": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts",
       "status": "ts-loader-required",
-      "entrypoint": "plugins/openclaw-weixin/index.ts",
+      "entrypoint": "plugins/openclaw-weixin/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",
       "loaderPrimary": "tsx",
@@ -326,9 +326,9 @@
     },
     {
       "fixture": "lightclawbot",
-      "id": "cold-import.extension:lightclawbot:plugins-lightclawbot-dist-index-js",
+      "id": "cold-import.extension:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js",
       "status": "dependency-install-required",
-      "entrypoint": "plugins/lightclawbot/dist/index.js",
+      "entrypoint": "plugins/lightclawbot/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -1548,7 +1548,7 @@
     },
     {
       "fixture": "memory-tencentdb",
-      "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-index-ts",
+      "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
       "kind": "prepare",
       "platforms": [
         "container",
@@ -1558,12 +1558,12 @@
         "posix-mkdir",
         "rsync-required"
       ],
-      "command": "mkdir -p .crabpot/workspaces/memory-tencentdb && rsync -a --delete plugins/memory-tencentdb/ .crabpot/workspaces/memory-tencentdb/",
+      "command": "mkdir -p .crabpot/workspaces/memory-tencentdb && rsync -a --delete plugins/memory-tencentdb/.crabpot-package/ .crabpot/workspaces/memory-tencentdb/",
       "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
     },
     {
       "fixture": "memory-tencentdb",
-      "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-index-ts",
+      "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
       "kind": "prepare-artifacts",
       "platforms": [
         "windows"
@@ -1576,7 +1576,7 @@
     },
     {
       "fixture": "memory-tencentdb",
-      "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-index-ts",
+      "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
       "kind": "audit",
       "platforms": [
         "windows"
@@ -1590,7 +1590,7 @@
     },
     {
       "fixture": "memory-tencentdb",
-      "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-index-ts",
+      "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
       "kind": "capture",
       "platforms": [
         "windows"
@@ -1599,12 +1599,12 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
       "fixture": "memory-tencentdb",
-      "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-index-ts",
+      "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
       "kind": "synthetic-probe",
       "platforms": [
         "windows"
@@ -1613,7 +1613,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1794,7 +1794,7 @@
     },
     {
       "fixture": "yuanbao",
-      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-dist-index-js",
+      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
       "kind": "prepare",
       "platforms": [
         "container",
@@ -1804,12 +1804,12 @@
         "posix-mkdir",
         "rsync-required"
       ],
-      "command": "mkdir -p .crabpot/workspaces/yuanbao && rsync -a --delete plugins/yuanbao/ .crabpot/workspaces/yuanbao/",
+      "command": "mkdir -p .crabpot/workspaces/yuanbao && rsync -a --delete plugins/yuanbao/.crabpot-package/ .crabpot/workspaces/yuanbao/",
       "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
     },
     {
       "fixture": "yuanbao",
-      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-dist-index-js",
+      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
       "kind": "prepare-artifacts",
       "platforms": [
         "windows"
@@ -1822,7 +1822,7 @@
     },
     {
       "fixture": "yuanbao",
-      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-dist-index-js",
+      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
       "kind": "audit",
       "platforms": [
         "windows"
@@ -1836,7 +1836,7 @@
     },
     {
       "fixture": "yuanbao",
-      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-dist-index-js",
+      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
       "kind": "capture",
       "platforms": [
         "windows"
@@ -1844,12 +1844,12 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-dist-index-js.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
       "fixture": "yuanbao",
-      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-dist-index-js",
+      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
       "kind": "synthetic-probe",
       "platforms": [
         "windows"
@@ -1857,12 +1857,12 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-dist-index-js.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
       "fixture": "openclaw-weixin",
-      "entrypoint": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-index-ts",
+      "entrypoint": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts",
       "kind": "prepare",
       "platforms": [
         "container",
@@ -1872,12 +1872,12 @@
         "posix-mkdir",
         "rsync-required"
       ],
-      "command": "mkdir -p .crabpot/workspaces/openclaw-weixin && rsync -a --delete plugins/openclaw-weixin/ .crabpot/workspaces/openclaw-weixin/",
+      "command": "mkdir -p .crabpot/workspaces/openclaw-weixin && rsync -a --delete plugins/openclaw-weixin/.crabpot-package/ .crabpot/workspaces/openclaw-weixin/",
       "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
     },
     {
       "fixture": "openclaw-weixin",
-      "entrypoint": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-index-ts",
+      "entrypoint": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts",
       "kind": "prepare-artifacts",
       "platforms": [
         "windows"
@@ -1890,7 +1890,7 @@
     },
     {
       "fixture": "openclaw-weixin",
-      "entrypoint": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-index-ts",
+      "entrypoint": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts",
       "kind": "audit",
       "platforms": [
         "windows"
@@ -1904,7 +1904,7 @@
     },
     {
       "fixture": "openclaw-weixin",
-      "entrypoint": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-index-ts",
+      "entrypoint": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts",
       "kind": "capture",
       "platforms": [
         "windows"
@@ -1913,12 +1913,12 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
       "fixture": "openclaw-weixin",
-      "entrypoint": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-index-ts",
+      "entrypoint": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts",
       "kind": "synthetic-probe",
       "platforms": [
         "windows"
@@ -1927,12 +1927,12 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
       "fixture": "lightclawbot",
-      "entrypoint": "cold-import.extension:lightclawbot:plugins-lightclawbot-dist-index-js",
+      "entrypoint": "cold-import.extension:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js",
       "kind": "prepare",
       "platforms": [
         "container",
@@ -1942,12 +1942,12 @@
         "posix-mkdir",
         "rsync-required"
       ],
-      "command": "mkdir -p .crabpot/workspaces/lightclawbot && rsync -a --delete plugins/lightclawbot/ .crabpot/workspaces/lightclawbot/",
+      "command": "mkdir -p .crabpot/workspaces/lightclawbot && rsync -a --delete plugins/lightclawbot/.crabpot-package/ .crabpot/workspaces/lightclawbot/",
       "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
     },
     {
       "fixture": "lightclawbot",
-      "entrypoint": "cold-import.extension:lightclawbot:plugins-lightclawbot-dist-index-js",
+      "entrypoint": "cold-import.extension:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js",
       "kind": "prepare-artifacts",
       "platforms": [
         "windows"
@@ -1960,7 +1960,7 @@
     },
     {
       "fixture": "lightclawbot",
-      "entrypoint": "cold-import.extension:lightclawbot:plugins-lightclawbot-dist-index-js",
+      "entrypoint": "cold-import.extension:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js",
       "kind": "audit",
       "platforms": [
         "windows"
@@ -1974,7 +1974,7 @@
     },
     {
       "fixture": "lightclawbot",
-      "entrypoint": "cold-import.extension:lightclawbot:plugins-lightclawbot-dist-index-js",
+      "entrypoint": "cold-import.extension:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js",
       "kind": "capture",
       "platforms": [
         "windows"
@@ -1982,12 +1982,12 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-dist-index-js.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-crabpot-package-dist-index-js.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
       "fixture": "lightclawbot",
-      "entrypoint": "cold-import.extension:lightclawbot:plugins-lightclawbot-dist-index-js",
+      "entrypoint": "cold-import.extension:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js",
       "kind": "synthetic-probe",
       "platforms": [
         "windows"
@@ -1995,7 +1995,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-dist-index-js.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-crabpot-package-dist-index-js.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {

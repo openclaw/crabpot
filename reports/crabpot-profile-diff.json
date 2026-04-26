@@ -35,12 +35,12 @@
     "runs": 1,
     "summary": {
       "commandCount": 9,
-      "p50WallMs": 3718,
-      "p95WallMs": 5673,
-      "maxPeakRssMb": 75.5,
-      "maxRssDeltaMb": 74.1,
-      "maxCpuMsEstimate": 778,
-      "maxHarnessHeapDeltaMb": 1.6
+      "p50WallMs": 3210,
+      "p95WallMs": 4615,
+      "maxPeakRssMb": 79.3,
+      "maxRssDeltaMb": 45.3,
+      "maxCpuMsEstimate": 774,
+      "maxHarnessHeapDeltaMb": 1.9
     },
     "targetOpenClaw": {
       "status": "ok",
@@ -49,7 +49,7 @@
       "hookNames": 32,
       "apiRegistrars": 40,
       "capturedRegistrars": 18,
-      "sdkExports": 308,
+      "sdkExports": 307,
       "manifestFields": 32,
       "manifestContractFields": 16
     },
@@ -80,11 +80,11 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 345.6% over baseline",
+      "message": "p95WallMs regressed 262.5% over baseline",
       "baseline": 1273,
-      "current": 5673,
-      "delta": 4400,
-      "percent": 345.6
+      "current": 4615,
+      "delta": 3342,
+      "percent": 262.5
     },
     {
       "id": "profile.peak-rss",
@@ -92,8 +92,8 @@
       "metric": "maxPeakRssMb",
       "message": "maxPeakRssMb stayed within 50 absolute regression threshold",
       "baseline": 65.1,
-      "current": 75.5,
-      "delta": 10.400000000000006
+      "current": 79.3,
+      "delta": 14.200000000000003
     },
     {
       "id": "profile.node-boot",
@@ -101,8 +101,8 @@
       "metric": "nodeBootWallMs",
       "message": "nodeBootWallMs stayed within 500 absolute regression threshold",
       "baseline": 917,
-      "current": 939,
-      "delta": 22
+      "current": 959,
+      "delta": 42
     },
     {
       "id": "registry.compatRecords",
@@ -146,8 +146,8 @@
       "metric": "sdkExports",
       "message": "registry surface delta is tracked as context",
       "baseline": 307,
-      "current": 308,
-      "delta": 1
+      "current": 307,
+      "delta": 0
     },
     {
       "id": "registry.manifestFields",
