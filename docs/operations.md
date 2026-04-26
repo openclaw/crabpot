@@ -108,6 +108,7 @@ records, and manifest fields.
 Run the quality gate directly when changing classifiers:
 
 ```bash
+npm run plugin-inspector:smoke
 npm run contract:coverage
 npm run contract:capture -- --check
 npm run contract:synthetic -- --check
