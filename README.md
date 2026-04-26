@@ -38,7 +38,7 @@ Run: https://github.com/openclaw/crabpot/actions/runs/24945438889
 | Upstream metadata    | 10                                      |
 | Contract probes      | 77                                      |
 | Policy failures      | 0                                       |
-| Policy warnings      | 2                                       |
+| Policy warnings      | 3                                       |
 | Ref diff failures    | 0                                       |
 | Profile failures     | 0                                       |
 | Execution probes     | 6 pass / 0 fail / 2 blocked             |

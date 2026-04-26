@@ -23,33 +23,106 @@
   },
   "summary": {
     "commandCount": 7,
-    "p50WallMs": 1041,
-    "p95WallMs": 1494,
-    "maxPeakRssMb": 71
+    "p50WallMs": 454,
+    "p95WallMs": 951,
+    "maxPeakRssMb": 61.8
   },
+  "groups": [
+    {
+      "category": "baseline",
+      "commandCount": 1,
+      "p50WallMs": 951,
+      "p95WallMs": 951,
+      "maxPeakRssMb": 0.3,
+      "commands": [
+        "node-boot"
+      ]
+    },
+    {
+      "category": "fixture-scan",
+      "commandCount": 1,
+      "p50WallMs": 215,
+      "p95WallMs": 215,
+      "maxPeakRssMb": 61.8,
+      "commands": [
+        "fixture-inspection"
+      ]
+    },
+    {
+      "category": "target-registry",
+      "commandCount": 1,
+      "p50WallMs": 454,
+      "p95WallMs": 454,
+      "maxPeakRssMb": 53.5,
+      "commands": [
+        "compat-report-registry"
+      ]
+    },
+    {
+      "category": "contract-capture",
+      "commandCount": 1,
+      "p50WallMs": 449,
+      "p95WallMs": 449,
+      "maxPeakRssMb": 61.3,
+      "commands": [
+        "contract-capture"
+      ]
+    },
+    {
+      "category": "synthetic-probes",
+      "commandCount": 1,
+      "p50WallMs": 766,
+      "p95WallMs": 766,
+      "maxPeakRssMb": 61.5,
+      "commands": [
+        "synthetic-probe-plan"
+      ]
+    },
+    {
+      "category": "cold-import",
+      "commandCount": 1,
+      "p50WallMs": 303,
+      "p95WallMs": 303,
+      "maxPeakRssMb": 61.6,
+      "commands": [
+        "cold-import-readiness"
+      ]
+    },
+    {
+      "category": "workspace-plan",
+      "commandCount": 1,
+      "p50WallMs": 561,
+      "p95WallMs": 561,
+      "maxPeakRssMb": 2.7,
+      "commands": [
+        "workspace-plan"
+      ]
+    }
+  ],
   "commands": [
     {
       "id": "node-boot",
       "label": "Node boot",
+      "category": "baseline",
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node -e 0",
       "samples": [
         {
-          "wallMs": 284,
-          "peakRssMb": 2.3,
+          "wallMs": 951,
+          "peakRssMb": 0.3,
           "exitCode": 0,
           "stdoutPreview": "",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 284,
-        "median": 284,
-        "max": 284
+        "min": 951,
+        "median": 951,
+        "max": 951
       },
       "peakRssMb": {
-        "min": 2.3,
-        "median": 2.3,
-        "max": 2.3
+        "min": 0.3,
+        "median": 0.3,
+        "max": 0.3
       },
       "exitCodes": [
         0
@@ -58,25 +131,26 @@
     {
       "id": "fixture-inspection",
       "label": "Fixture inspection",
+      "category": "fixture-scan",
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/inspect-fixtures.mjs --check",
       "samples": [
         {
-          "wallMs": 845,
-          "peakRssMb": 62,
+          "wallMs": 215,
+          "peakRssMb": 61.8,
           "exitCode": 0,
           "stdoutPreview": "│ 14      │ 'inworld-tts'       │ 'ok'   │ ''                                                                                                                                                               │ 'definePluginEntry,registerSpeechProvider'                   │ 'speechProviders' │\n└─────────┴─────────────────────┴────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴──────────────────────────────────────────────────────────────┴───────────────────┘",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 845,
-        "median": 845,
-        "max": 845
+        "min": 215,
+        "median": 215,
+        "max": 215
       },
       "peakRssMb": {
-        "min": 62,
-        "median": 62,
-        "max": 62
+        "min": 61.8,
+        "median": 61.8,
+        "max": 61.8
       },
       "exitCodes": [
         0
@@ -85,25 +159,26 @@
     {
       "id": "compat-report-registry",
       "label": "Compatibility report plus target registry parse",
+      "category": "target-registry",
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/generate-report.mjs --check",
       "samples": [
         {
-          "wallMs": 825,
-          "peakRssMb": 62.1,
+          "wallMs": 454,
+          "peakRssMb": 53.5,
           "exitCode": 0,
           "stdoutPreview": "crabpot report check: pass; 0 breakages, 26 warnings, 52 suggestions, 78 issues\nreport targets: /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-report.md, /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-report.json, /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-issues.md",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 825,
-        "median": 825,
-        "max": 825
+        "min": 454,
+        "median": 454,
+        "max": 454
       },
       "peakRssMb": {
-        "min": 62.1,
-        "median": 62.1,
-        "max": 62.1
+        "min": 53.5,
+        "median": 53.5,
+        "max": 53.5
       },
       "exitCodes": [
         0
@@ -112,25 +187,26 @@
     {
       "id": "contract-capture",
       "label": "Contract capture inventory",
+      "category": "contract-capture",
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/capture-contracts.mjs --check",
       "samples": [
         {
-          "wallMs": 1494,
-          "peakRssMb": 58.6,
+          "wallMs": 449,
+          "peakRssMb": 61.3,
           "exitCode": 0,
           "stdoutPreview": "contract capture: 43 registrations, 24 hooks, 64 sdk imports, 77 issue probes",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 1494,
-        "median": 1494,
-        "max": 1494
+        "min": 449,
+        "median": 449,
+        "max": 449
       },
       "peakRssMb": {
-        "min": 58.6,
-        "median": 58.6,
-        "max": 58.6
+        "min": 61.3,
+        "median": 61.3,
+        "max": 61.3
       },
       "exitCodes": [
         0
@@ -139,25 +215,26 @@
     {
       "id": "synthetic-probe-plan",
       "label": "Synthetic probe plan",
+      "category": "synthetic-probes",
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/synthetic-probes.mjs --check",
       "samples": [
         {
-          "wallMs": 1267,
-          "peakRssMb": 71,
+          "wallMs": 766,
+          "peakRssMb": 61.5,
           "exitCode": 0,
           "stdoutPreview": "synthetic probes: 67 ready, 0 blocked, 67 total",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 1267,
-        "median": 1267,
-        "max": 1267
+        "min": 766,
+        "median": 766,
+        "max": 766
       },
       "peakRssMb": {
-        "min": 71,
-        "median": 71,
-        "max": 71
+        "min": 61.5,
+        "median": 61.5,
+        "max": 61.5
       },
       "exitCodes": [
         0
@@ -166,25 +243,26 @@
     {
       "id": "cold-import-readiness",
       "label": "Cold import readiness",
+      "category": "cold-import",
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/cold-import-readiness.mjs --check",
       "samples": [
         {
-          "wallMs": 1408,
-          "peakRssMb": 66.3,
+          "wallMs": 303,
+          "peakRssMb": 61.6,
           "exitCode": 0,
           "stdoutPreview": "cold import readiness: 18 entrypoints, 0 ready, 18 blocked",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 1408,
-        "median": 1408,
-        "max": 1408
+        "min": 303,
+        "median": 303,
+        "max": 303
       },
       "peakRssMb": {
-        "min": 66.3,
-        "median": 66.3,
-        "max": 66.3
+        "min": 61.6,
+        "median": 61.6,
+        "max": 61.6
       },
       "exitCodes": [
         0
@@ -193,25 +271,26 @@
     {
       "id": "workspace-plan",
       "label": "Workspace execution plan",
+      "category": "workspace-plan",
       "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/workspace-plan.mjs --check",
       "samples": [
         {
-          "wallMs": 1041,
-          "peakRssMb": 68,
+          "wallMs": 561,
+          "peakRssMb": 2.7,
           "exitCode": 0,
           "stdoutPreview": "workspace plan: 18 entrypoints, 12 installs, 12 audits, 5 builds, 18 captures, 18 synthetic probes, 18 artifact dirs",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 1041,
-        "median": 1041,
-        "max": 1041
+        "min": 561,
+        "median": 561,
+        "max": 561
       },
       "peakRssMb": {
-        "min": 68,
-        "median": 68,
-        "max": 68
+        "min": 2.7,
+        "median": 2.7,
+        "max": 2.7
       },
       "exitCodes": [
         0

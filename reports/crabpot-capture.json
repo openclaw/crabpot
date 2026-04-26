@@ -1832,15 +1832,20 @@
           "ref": "plugins/connectclaw/packages/plugin/src/hooks.ts:17",
           "support": "synthetic-event-required",
           "assertions": [
-            "hook payload and return value are captured"
+            "legacy startup hook payload is accepted",
+            "migration metadata can map to prompt/model hooks"
           ],
           "syntheticEvent": {
-            "hook": "before_agent_start",
-            "fixture": "connectclaw"
+            "agentId": "agent-fixture",
+            "runId": "run-fixture",
+            "config": {
+              "source": "crabpot"
+            }
           },
           "syntheticContext": {
-            "hook": "before_agent_start",
-            "fixture": "connectclaw"
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture"
           }
         }
       ],

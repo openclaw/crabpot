@@ -19,7 +19,7 @@
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
-    "policyWarnings": 2,
+    "policyWarnings": 3,
     "profileFailures": 0,
     "profileWarnings": 0,
     "executionPass": 6,
@@ -150,6 +150,14 @@
   ],
   "refRegressions": [],
   "policyFindings": [
+    {
+      "id": "compatibility-report.live-p0-issues",
+      "action": "warn",
+      "message": "1 live P0 issues tracked",
+      "evidence": [
+        "codex-app-server:sdk-export-missing:untracked"
+      ]
+    },
     {
       "id": "execution-results.blocked.wecom.registerChannel.0",
       "action": "warn",

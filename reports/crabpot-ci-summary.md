@@ -24,7 +24,7 @@ Status: PASS
 | Ref diff failures    | 0     |
 | Ref diff warnings    | 0     |
 | Policy failures      | 0     |
-| Policy warnings      | 2     |
+| Policy warnings      | 3     |
 | Profile failures     | 0     |
 | Profile warnings     | 0     |
 | Execution pass       | 6     |
@@ -59,6 +59,7 @@ _none_
 
 | Action | ID                                                | Message                                                                    | Evidence                                                                                                                                                                                      |
 | ------ | ------------------------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| warn   | compatibility-report.live-p0-issues               | 1 live P0 issues tracked                                                   | codex-app-server:sdk-export-missing:untracked                                                                                                                                                 |
 | warn   | execution-results.blocked.wecom.registerChannel.0 | allowed-blocked: captured registration requires includeChannelRuntime=true | .crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json, registerChannel, captured registration requires includeChannelRuntime=true, channel-runtime-harness |
 | warn   | execution-results.blocked.wecom.registerTool.2    | expected-warning: captured registration has no object descriptor           | .crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json, registerTool, captured registration has no object descriptor, tool-factory-descriptor               |
 

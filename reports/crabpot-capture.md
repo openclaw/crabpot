@@ -89,7 +89,7 @@ Generated: deterministic
 | lossless-claw     | gateway_start            | synthetic-event-required | plugins/lossless-claw/src/plugin/index.ts:2171          | hook payload and return value are captured                                                |
 | lossless-claw     | gateway_stop             | synthetic-event-required | plugins/lossless-claw/src/plugin/index.ts:2195          | hook payload and return value are captured                                                |
 | lossless-claw     | session_end              | synthetic-event-required | plugins/lossless-claw/src/plugin/index.ts:1978          | hook payload and return value are captured                                                |
-| connectclaw       | before_agent_start       | synthetic-event-required | plugins/connectclaw/packages/plugin/src/hooks.ts:17     | hook payload and return value are captured                                                |
+| connectclaw       | before_agent_start       | synthetic-event-required | plugins/connectclaw/packages/plugin/src/hooks.ts:17     | legacy startup hook payload is accepted; migration metadata can map to prompt/model hooks |
 | codex-app-server  | inbound_claim            | synthetic-event-required | plugins/codex-app-server/index.ts:25                    | claim payload preserves channel/source identity; routing metadata is present              |
 
 ## SDK Import Probes
