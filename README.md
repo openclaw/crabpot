@@ -6,6 +6,69 @@ Compatibility trap for OpenClaw plugin contracts.
 and runs seam-focused compatibility checks against OpenClaw plugin APIs. The goal
 is to catch contract drift before external plugin authors do.
 
+
+<!-- crabpot-summary:start -->
+## Dashboard
+
+Last dashboard update: Apr 26, 2026, 00:25 UTC
+
+State: PASS
+
+Mode: local
+
+OpenClaw: ../openclaw
+
+### Result Grid
+
+| Metric            | Result                                  |
+| ----------------- | --------------------------------------- |
+| Fixtures          | 12                                      |
+| Hard breakages    | 0                                       |
+| Warnings          | 18                                      |
+| Suggestions       | 40                                      |
+| Issues            | 58                                      |
+| P1 issues         | 12                                      |
+| Contract probes   | 57                                      |
+| Policy failures   | 0                                       |
+| Policy warnings   | 2                                       |
+| Ref diff failures | 0                                       |
+| Profile failures  | 0                                       |
+| Execution probes  | 6 pass / 0 fail / 2 blocked             |
+| Synthetic probes  | 48 ready / 0 blocked / 48 total         |
+| Cold import       | 0 ready / 15 blocked / 15 entrypoints   |
+| Workspace plan    | 15 entrypoints / 10 installs / 4 builds |
+| Runtime profile   | p50 742ms / max RSS 65.1MB              |
+
+### Top Discovered Issues
+
+| ID               | Severity | Fixture           | Code                     | Decision            | Title                                                                               |
+| ---------------- | -------- | ----------------- | ------------------------ | ------------------- | ----------------------------------------------------------------------------------- |
+| CRABPOT-37E8444D | P1       | a2a-gateway       | registration-capture-gap | inspector-follow-up | a2a-gateway: runtime registrations need capture before contract judgment            |
+| CRABPOT-9D5EE194 | P1       | clawmetry         | registration-capture-gap | inspector-follow-up | clawmetry: runtime registrations need capture before contract judgment              |
+| CRABPOT-6D9E51D9 | P1       | codex-app-server  | missing-compat-record    | core-compat-adapter | codex-app-server: compat-dependent behavior lacks registry coverage                 |
+| CRABPOT-45CAC152 | P1       | codex-app-server  | registration-capture-gap | inspector-follow-up | codex-app-server: runtime registrations need capture before contract judgment       |
+| CRABPOT-C2331427 | P1       | codex-app-server  | sdk-export-missing       | core-compat-adapter | codex-app-server: plugin SDK import aliases are missing from target package exports |
+| CRABPOT-D71B126E | P1       | llm-trace-phoenix | conversation-access-hook | inspector-follow-up | llm-trace-phoenix: conversation-access hooks need privacy-boundary probes           |
+| CRABPOT-B91192E5 | P1       | mcp-adapter       | registration-capture-gap | inspector-follow-up | mcp-adapter: runtime registrations need capture before contract judgment            |
+| CRABPOT-EE3B527C | P1       | opik-openclaw     | before-tool-call-probe   | inspector-follow-up | opik-openclaw: before_tool_call needs terminal/block/approval probes                |
+| CRABPOT-6FC4ED08 | P1       | opik-openclaw     | conversation-access-hook | inspector-follow-up | opik-openclaw: conversation-access hooks need privacy-boundary probes               |
+| CRABPOT-5E85F236 | P1       | opik-openclaw     | registration-capture-gap | inspector-follow-up | opik-openclaw: runtime registrations need capture before contract judgment          |
+
+### Report Artifacts
+
+| Artifact       | Path                                   |
+| -------------- | -------------------------------------- |
+| compatibility  | reports/crabpot-report.json            |
+| ciSummary      | reports/crabpot-ci-summary.json        |
+| synthetic      | reports/crabpot-synthetic-probes.json  |
+| coldImport     | reports/crabpot-cold-import.json       |
+| workspace      | reports/crabpot-workspace-plan.json    |
+| execution      | reports/crabpot-execution-results.json |
+| runtimeProfile | reports/crabpot-runtime-profile.json   |
+| refDiff        | reports/crabpot-ref-diff.json          |
+| profileDiff    | reports/crabpot-profile-diff.json      |
+| ciPolicy       | reports/crabpot-ci-policy.json         |
+<!-- crabpot-summary:end -->
 ## What this tests
 
 - plugin manifests and install metadata
@@ -43,6 +106,7 @@ npm run workspace:plan
 npm run execution:report
 npm run profile
 npm run contract:coverage
+npm run readme:summary
 ```
 
 To materialize the fixture repos as submodules:
@@ -130,6 +194,10 @@ pass/fail/blocked counts.
 The runtime profile measures CLI boot time, wall time, and peak RSS for the
 default contract commands, then places those numbers next to the target OpenClaw
 registry surface counts.
+
+`npm run readme:summary` refreshes the dashboard block at the top of this
+README from the generated JSON reports. CI updates that block on `main` after
+the report artifacts are written.
 
 To preview a narrow execution lane without running install/build/import:
 

@@ -43,6 +43,8 @@ test("default check workflow uploads policy and summary reports", async () => {
   assert.match(workflow, /node scripts\/compare-runtime-profile\.mjs/);
   assert.match(workflow, /node scripts\/check-ci-policy\.mjs/);
   assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
+  assert.match(workflow, /node scripts\/update-readme-summary\.mjs/);
+  assert.match(workflow, /chore\(readme\): update crabpot dashboard \[skip ci\]/);
   assert.match(workflow, /actions\/upload-artifact@v7/);
 });
 
