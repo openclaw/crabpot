@@ -98,8 +98,12 @@ exists. In CI or standalone checkouts it falls back to the pinned GitHub package
 source checkout. This intentionally avoids npm publishing until the package
 boundary is reviewed.
 
-Migration path: replace the local static scanner with the packaged inspector
-while keeping `crabpot.config.json` as the fixture manifest.
+Current migration state: `scripts/inspect-fixtures.mjs` delegates static source,
+manifest, and package inspection to `plugin-inspector` while preserving
+crabpot's existing command output and exported helper names. The remaining
+local scripts still own target OpenClaw comparison, issue classification,
+synthetic probes, cold-import readiness, workspace planning, runtime profiling,
+and generated crabpot report paths.
 
 ## Compatibility issue workflow
 
