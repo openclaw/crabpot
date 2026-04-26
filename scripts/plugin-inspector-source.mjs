@@ -125,12 +125,18 @@ function run(command, commandArgs) {
   const result = spawnSync(command, commandArgs, {
     cwd: repoRoot,
     encoding: "utf8",
-    stdio: "inherit",
+    stdio: "pipe",
   });
   if (result.error) {
     throw result.error;
   }
   if (result.status !== 0) {
+    if (result.stdout) {
+      process.stderr.write(result.stdout);
+    }
+    if (result.stderr) {
+      process.stderr.write(result.stderr);
+    }
     throw new Error(`${command} ${commandArgs.join(" ")} failed with exit code ${result.status}`);
   }
 }
