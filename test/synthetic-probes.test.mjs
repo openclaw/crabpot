@@ -104,6 +104,27 @@ test("synthetic probe plan tracks metadata-only and opt-in execution modes", asy
               syntheticArguments: [{ id: "engine", factory: "function" }],
             },
             {
+              id: "registration.registerMemoryPromptSection:fixture:index",
+              registrar: "registerMemoryPromptSection",
+              ref: "src/index.ts",
+              assertions: ["memory prompt section metadata is captured"],
+              syntheticArguments: [{ id: "memory-section", render: "function" }],
+            },
+            {
+              id: "registration.registerMemoryRuntime:fixture:index",
+              registrar: "registerMemoryRuntime",
+              ref: "src/index.ts",
+              assertions: ["memory runtime metadata is captured"],
+              syntheticArguments: [{ id: "memory-runtime", create: "function" }],
+            },
+            {
+              id: "registration.registerHook:fixture:index",
+              registrar: "registerHook",
+              ref: "src/index.ts",
+              assertions: ["legacy hook registrar metadata is captured"],
+              syntheticArguments: ["before_prompt_build", "function"],
+            },
+            {
               id: "registration.registerChannel:fixture:index",
               registrar: "registerChannel",
               ref: "src/index.ts",
@@ -117,7 +138,7 @@ test("synthetic probe plan tracks metadata-only and opt-in execution modes", asy
   });
 
   assert.deepEqual(validateSyntheticProbePlan(plan), []);
-  assert.equal(plan.summary.metadataOnlyCount, 2);
+  assert.equal(plan.summary.metadataOnlyCount, 5);
   assert.equal(plan.summary.optInExecutionCount, 1);
   assert.equal(plan.summary.directExecutionCount, 0);
   assert.match(renderSyntheticProbeMarkdown(plan), /metadata-only/);

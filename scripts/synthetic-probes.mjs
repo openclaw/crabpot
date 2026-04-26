@@ -55,6 +55,21 @@ const REGISTRATION_EXECUTION_PROFILES = {
     mode: "direct",
     callableProperties: ["handler", "run", "execute"],
   },
+  registerHook: {
+    mode: "metadata-only",
+    callableProperties: [],
+    reason: "legacy hook registrar is captured as metadata; hook handlers are probed through hook events",
+  },
+  registerMemoryPromptSection: {
+    mode: "metadata-only",
+    callableProperties: [],
+    reason: "memory prompt section renderers are captured as metadata before prompt-runtime execution",
+  },
+  registerMemoryRuntime: {
+    mode: "metadata-only",
+    callableProperties: [],
+    reason: "memory runtime factories are captured as metadata; external memory startup remains isolated opt-in",
+  },
   registerService: {
     mode: "lifecycle-opt-in",
     callableProperties: ["start", "stop"],
