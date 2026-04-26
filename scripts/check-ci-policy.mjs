@@ -110,7 +110,7 @@ export async function buildCiPolicyReport(options = {}) {
   const refDiff = options.refDiff ?? (await readOptionalJson(options.refDiffPath ?? defaultRefDiffJsonPath));
 
   const checks = [
-    ...compatibilityChecks(compatibilityReport),
+    ...compatibilityChecks(compatibilityReport, { strict: options.strict }),
     ...refDiffChecks(refDiff, { strict: options.strict }),
     ...executionChecks(executionResults, policy, { strict: options.strict }),
   ].sort((left, right) => actionRank(left.action) - actionRank(right.action) || left.id.localeCompare(right.id));
@@ -135,7 +135,7 @@ export async function buildCiPolicyReport(options = {}) {
   };
 }
 
-function compatibilityChecks(report) {
+function compatibilityChecks(report, options) {
   const checks = [];
   if (!report) {
     checks.push({
@@ -159,6 +159,28 @@ function compatibilityChecks(report) {
     evidence: (report.issues ?? [])
       .filter((issue) => issue.severity === "P1")
       .map((issue) => `${issue.fixture}:${issue.code}`),
+  });
+  const issues = report.issues ?? [];
+  const liveP0Issues = issues.filter((issue) => issue.issueClass === "live-issue" && issue.severity === "P0");
+  const deprecationWarnings = issues.filter((issue) => issue.issueClass === "deprecation-warning");
+  const inspectorGaps = issues.filter((issue) => issue.issueClass === "inspector-gap");
+  checks.push({
+    id: "compatibility-report.live-p0-issues",
+    action: liveP0Issues.length > 0 ? (options.strict ? "fail" : "warn") : "pass",
+    message: `${liveP0Issues.length} live P0 issues tracked`,
+    evidence: liveP0Issues.map((issue) => `${issue.fixture}:${issue.code}:${issue.compatStatus ?? "none"}`),
+  });
+  checks.push({
+    id: "compatibility-report.deprecation-warnings",
+    action: "pass",
+    message: `${deprecationWarnings.length} deprecated compat seams tracked`,
+    evidence: deprecationWarnings.map((issue) => `${issue.fixture}:${issue.code}`),
+  });
+  checks.push({
+    id: "compatibility-report.inspector-gaps",
+    action: "pass",
+    message: `${inspectorGaps.length} inspector proof gaps tracked`,
+    evidence: inspectorGaps.map((issue) => `${issue.fixture}:${issue.code}`),
   });
   return checks;
 }

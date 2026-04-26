@@ -33,7 +33,7 @@ test("manual OpenClaw ref workflow has diff and profile modes", async () => {
   assert.match(workflow, /Compare base and head OpenClaw refs/);
   assert.match(workflow, /node scripts\/compare-openclaw-refs\.mjs/);
   assert.match(workflow, /node scripts\/compare-runtime-profile\.mjs/);
-  assert.match(workflow, /node scripts\/check-ci-policy\.mjs/);
+  assert.match(workflow, /node scripts\/check-ci-policy\.mjs \$\{\{ inputs\.strict_contract && '--strict' \|\| '' \}\}/);
   assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
 });
 

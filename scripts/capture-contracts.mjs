@@ -40,6 +40,7 @@ export const REGISTRATION_ARGUMENTS = {
 
 export const HOOK_ASSERTIONS = {
   agent_end: ["final conversation payload is redacted as expected", "agent id and run metadata are present"],
+  before_agent_start: ["legacy startup hook payload is accepted", "migration metadata can map to prompt/model hooks"],
   before_prompt_build: ["prompt mutation result is preserved", "agent and conversation metadata are present"],
   before_tool_call: ["block/allow return shapes are preserved", "terminal and approval metadata are present"],
   inbound_claim: ["claim payload preserves channel/source identity", "routing metadata is present"],
@@ -57,6 +58,11 @@ export const HOOK_EVENTS = {
     conversationId: "conversation-fixture",
     status: "completed",
     transcript: [{ role: "assistant", content: "[redacted fixture output]" }],
+  },
+  before_agent_start: {
+    agentId: "agent-fixture",
+    runId: "run-fixture",
+    config: { source: "crabpot" },
   },
   before_prompt_build: {
     runId: "run-fixture",
@@ -112,6 +118,11 @@ export const HOOK_CONTEXTS = {
     agentId: "agent-fixture",
     sessionId: "session-fixture",
     channelId: "fixture-channel",
+  },
+  before_agent_start: {
+    runId: "run-fixture",
+    agentId: "agent-fixture",
+    sessionId: "session-fixture",
   },
   before_prompt_build: {
     runId: "run-fixture",

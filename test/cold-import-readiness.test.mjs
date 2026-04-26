@@ -85,6 +85,43 @@ test("cold import readiness classifies side effects, unknown loaders, and ready 
   );
 });
 
+test("cold import readiness preserves combined blocker evidence for remediation planning", async (t) => {
+  const fixtureRoot = path.join(repoRoot, ".crabpot/test-cold-import-readiness");
+  await rm(fixtureRoot, { recursive: true, force: true });
+  await mkdir(fixtureRoot, { recursive: true });
+  t.after(() => rm(fixtureRoot, { recursive: true, force: true }));
+
+  const entrypointPath = ".crabpot/test-cold-import-readiness/sdk-side-effect.js";
+  await writeFile(
+    path.join(repoRoot, entrypointPath),
+    "process.env.API_KEY; export function register() {}\n",
+    "utf8",
+  );
+
+  const readiness = await buildColdImportReadiness({
+    report: readinessReport(
+      [{ kind: "extension", specifier: "./sdk-side-effect.js", relativePath: entrypointPath, exists: true }],
+      {
+        dependencies: ["left-pad"],
+        sdkImportDetails: [
+          {
+            specifier: "openclaw/plugin-sdk/discord",
+            ref: `${entrypointPath}:1`,
+          },
+        ],
+      },
+    ),
+  });
+  const entrypoint = readiness.fixtures[0].entrypoints[0];
+
+  assert.equal(entrypoint.status, "sdk-alias-required");
+  assert.deepEqual(
+    entrypoint.blockers.map((blocker) => blocker.code),
+    ["top-level-side-effect-review", "dependency-install-required", "sdk-alias-required"],
+  );
+  assert.deepEqual(validateColdImportReadiness(readiness), []);
+});
+
 function assertHasStatus(readiness, fixtureId, status) {
   const fixture = readiness.fixtures.find((item) => item.id === fixtureId);
   assert.ok(
@@ -93,7 +130,7 @@ function assertHasStatus(readiness, fixtureId, status) {
   );
 }
 
-function readinessReport(entrypoints) {
+function readinessReport(entrypoints, overrides = {}) {
   return {
     generatedAt: "test",
     targetOpenClaw: {
@@ -106,11 +143,11 @@ function readinessReport(entrypoints) {
       {
         id: "fixture",
         priority: "high",
-        sdkImportDetails: [],
+        sdkImportDetails: overrides.sdkImportDetails ?? [],
         packages: [
           {
             path: "plugins/fixture/package.json",
-            dependencies: [],
+            dependencies: overrides.dependencies ?? [],
             peerDependencies: [],
             optionalDependencies: [],
             openclaw: {

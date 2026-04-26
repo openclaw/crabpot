@@ -51,6 +51,11 @@ test("workspace plan maps blocked entrypoints to opt-in install/build/capture st
   const codex = entrypointFor(plan, "codex-app-server");
   assert.ok(codex.requiredCapabilities.includes("sdk-alias-compat"));
   assert.ok(codex.requiredCapabilities.includes("ts-loader"));
+
+  const hasdata = entrypointFor(plan, "hasdata");
+  assert.ok(hasdata.requiredCapabilities.includes("side-effect-sandbox"));
+  assert.ok(hasdata.blockers.some((blocker) => blocker.code === "top-level-side-effect-review"));
+  assert.ok(hasdata.steps.some((step) => step.kind === "capture" && step.command.includes("run-cold-import-capture.mjs")));
 });
 
 test("workspace plan validation keeps execution opt-in and explicit", () => {

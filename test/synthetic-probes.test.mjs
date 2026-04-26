@@ -146,6 +146,36 @@ test("synthetic probes invoke retained hook and tool handlers from a captured fi
   );
 });
 
+test("synthetic probes preserve hook return semantics and privacy fixtures", async () => {
+  const capture = await captureLocalFixture([
+    "export function register(api) {",
+    "  api.on('before_tool_call', (event) => ({ decision: 'block', reason: event.toolName }));",
+    "  api.on('before_prompt_build', async (event) => ({ messages: [...event.messages, { role: 'system', content: 'probe' }] }));",
+    "  api.on('llm_input', (event) => {",
+    "    const payload = JSON.stringify(event);",
+    "    if (payload.includes('secret')) throw new Error('privacy leak');",
+    "    return { redacted: payload.includes('[redacted fixture input]') };",
+    "  });",
+    "  api.on('agent_end', (event) => ({ transcriptEntries: event.transcript.length }));",
+    "  api.on('before_agent_start', (event) => ({ legacyStartup: event.agentId }));",
+    "}",
+  ]);
+
+  const result = await runCapturedSyntheticProbes(capture);
+
+  assert.equal(result.summary.failCount, 0);
+  assert.deepEqual(
+    result.results.map((item) => [item.seam, item.status, item.output?.keys ?? item.output?.type]),
+    [
+      ["before_tool_call", "pass", ["decision", "reason"]],
+      ["before_prompt_build", "pass", ["messages"]],
+      ["llm_input", "pass", ["redacted"]],
+      ["agent_end", "pass", ["transcriptEntries"]],
+      ["before_agent_start", "pass", ["legacyStartup"]],
+    ],
+  );
+});
+
 test("synthetic probes report handler failures without stopping the full run", async () => {
   const capture = await captureLocalFixture([
     "export function register(api) {",
@@ -157,6 +187,45 @@ test("synthetic probes report handler failures without stopping the full run", a
 
   assert.equal(result.summary.failCount, 1);
   assert.match(result.results[0].error, /nope/);
+});
+
+test("synthetic probes execute direct registrar handlers and keep opt-in registrars guarded", async () => {
+  const capture = await captureLocalFixture([
+    "export function register(api) {",
+    "  api.registerCli({ name: 'cli', run(event) { return { cli: event.registrar }; } });",
+    "  api.registerCommand({ name: 'command', handler(event) { return { command: event.property }; } });",
+    "  api.registerGatewayMethod({ name: 'gateway.method', handler(event) { return { gateway: event.source }; } });",
+    "  api.registerHttpRoute({ method: 'POST', path: '/probe', handler(event) { return { route: event.body }; } });",
+    "  api.registerInteractiveHandler({ id: 'interactive', handler(event) { return { interactive: event.headers }; } });",
+    "  api.registerSpeechProvider({ id: 'speech', speak(event) { return { speech: event.input }; } });",
+    "  api.registerChannel({ id: 'channel', send(event) { return { channel: event.source }; } });",
+    "}",
+  ]);
+
+  const guarded = await runCapturedSyntheticProbes(capture);
+  assert.equal(guarded.summary.passCount, 5);
+  assert.equal(guarded.summary.blockedCount, 2);
+  assert.ok(guarded.results.some((item) => item.reason?.includes("includeProviderCapabilities=true")));
+  assert.ok(guarded.results.some((item) => item.reason?.includes("includeChannelRuntime=true")));
+
+  const unguarded = await runCapturedSyntheticProbes(capture, {
+    includeChannelRuntime: true,
+    includeProviderCapabilities: true,
+  });
+  assert.equal(unguarded.summary.failCount, 0);
+  assert.equal(unguarded.summary.blockedCount, 0);
+  assert.deepEqual(
+    unguarded.results.map((item) => item.label),
+    [
+      "registerCli.run",
+      "registerCommand.handler",
+      "registerGatewayMethod.handler",
+      "registerHttpRoute.handler",
+      "registerInteractiveHandler.handler",
+      "registerSpeechProvider.speak",
+      "registerChannel.send",
+    ],
+  );
 });
 
 test("synthetic probes mark captured handlers blocked when retention is disabled", async () => {

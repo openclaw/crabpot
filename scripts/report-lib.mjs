@@ -565,7 +565,7 @@ function issueMetadata(finding, targetOpenClaw) {
   };
 }
 
-function classifyIssue(finding, metadata, targetOpenClaw) {
+export function classifyIssueFinding(finding, targetOpenClaw, metadata = {}) {
   const compatStatus = compatStatusFor(finding, targetOpenClaw);
   const deprecated = compatStatus === "deprecated";
   const code = finding.code;
@@ -584,6 +584,10 @@ function classifyIssue(finding, metadata, targetOpenClaw) {
     live,
     severity,
   };
+}
+
+function classifyIssue(finding, metadata, targetOpenClaw) {
+  return classifyIssueFinding(finding, targetOpenClaw, metadata);
 }
 
 function issueClassFor(code, options) {

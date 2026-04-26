@@ -46,7 +46,10 @@ test("runtime profile records boot time and target registry surface", async () =
   assert.equal(profile.targetOpenClaw.compatRecords, 2);
   assert.equal(profile.fixtureInventory.sourceFiles, 1);
   assert.ok(profile.commands.some((command) => command.id === "node-boot" && command.wallMs.max > 0));
+  assert.ok(profile.groups.some((group) => group.category === "target-registry" && group.commands.includes("compat-report-registry")));
+  assert.ok(profile.groups.every((group) => group.p50WallMs > 0));
   assert.match(renderRuntimeProfileMarkdown(profile), /Target OpenClaw Registry Surface/);
+  assert.match(renderRuntimeProfileMarkdown(profile), /Category Rollups/);
 });
 
 test("runtime profile validation catches failed samples and missing metrics", () => {

@@ -66,6 +66,38 @@ test("capture shim retains callable handlers only when explicitly enabled", asyn
   assert.deepEqual(nonRetainedApi.getRetainedContracts(), []);
 });
 
+test("capture shim covers the plugin-facing registrar matrix", () => {
+  const registrars = [
+    ["defineChannelPluginEntry", { id: "channel-entry" }],
+    ["definePluginEntry", { id: "plugin-entry" }],
+    ["registerChannel", { id: "channel" }],
+    ["registerCli", { name: "cli" }],
+    ["registerCommand", { name: "command" }],
+    ["registerContextEngine", { id: "context-engine" }],
+    ["registerGatewayMethod", { name: "gateway.method" }],
+    ["registerHttpRoute", { method: "GET", path: "/probe" }],
+    ["registerInteractiveHandler", { id: "interactive" }],
+    ["registerService", { name: "service", start() {}, stop() {} }],
+    ["registerSpeechProvider", { id: "speech" }],
+    ["registerTool", { name: "tool", execute() {} }],
+  ];
+  const api = createCaptureApi({ knownRegistrars: registrars.map(([name]) => name), retainHandlers: true });
+
+  for (const [registrar, descriptor] of registrars) {
+    api[registrar](descriptor);
+  }
+
+  const captured = api.getCapturedContracts();
+  assert.deepEqual(
+    captured.map((entry) => [entry.name, entry.known, entry.arguments[0].name]),
+    registrars.map(([registrar, descriptor]) => [registrar, true, descriptor.name ?? descriptor.id ?? null]),
+  );
+  assert.deepEqual(
+    api.getRetainedContracts().map((entry) => entry.name),
+    registrars.map(([registrar]) => registrar),
+  );
+});
+
 test("contract capture turns observed seams into executable probe assertions", async () => {
   const report = await buildReport({ generatedAt: "test" });
   const capture = await buildContractCapture({ report });
@@ -79,7 +111,10 @@ test("contract capture turns observed seams into executable probe assertions", a
   assert.ok(capture.summary.compatAliasRequiredCount > 0);
 
   assertHasRegistrationCapture(capture, "wecom", "registerHttpRoute", "inspector-shim-required");
+  assertHasRegistrationCapture(capture, "agentchat", "defineChannelPluginEntry", "inspector-shim-required");
+  assertHasRegistrationCapture(capture, "clawmetry", "definePluginEntry", "inspector-shim-required");
   assertHasHookProbe(capture, "wecom", "before_tool_call");
+  assertHasLegacyStartupHookProbe(capture, "connectclaw");
   assertHasSdkProbe(capture, "codex-app-server", "openclaw/plugin-sdk/discord", "compat-alias-required");
   assertHasIssueProbe(capture, "sdk.import.package-export-cold-import:codex-app-server");
 });
@@ -156,6 +191,20 @@ function assertHasHookProbe(capture, fixtureId, hook) {
         item.syntheticContext.toolName === "fixture_tool",
     ),
     `expected ${fixtureId} ${hook} hook probe`,
+  );
+}
+
+function assertHasLegacyStartupHookProbe(capture, fixtureId) {
+  const fixture = capture.fixtures.find((item) => item.id === fixtureId);
+  assert.ok(
+    fixture?.hooks.some(
+      (item) =>
+        item.hook === "before_agent_start" &&
+        item.assertions.some((assertion) => assertion.includes("legacy startup")) &&
+        item.syntheticEvent.agentId === "agent-fixture" &&
+        item.syntheticContext.sessionId === "session-fixture",
+    ),
+    `expected ${fixtureId} before_agent_start hook probe`,
   );
 }
 

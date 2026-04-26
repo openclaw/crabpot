@@ -15,42 +15,49 @@ const PROFILE_COMMANDS = [
   {
     id: "node-boot",
     label: "Node boot",
+    category: "baseline",
     args: ["-e", "0"],
     openclaw: false,
   },
   {
     id: "fixture-inspection",
     label: "Fixture inspection",
+    category: "fixture-scan",
     args: ["scripts/inspect-fixtures.mjs", "--check"],
     openclaw: false,
   },
   {
     id: "compat-report-registry",
     label: "Compatibility report plus target registry parse",
+    category: "target-registry",
     args: ["scripts/generate-report.mjs", "--check"],
     openclaw: true,
   },
   {
     id: "contract-capture",
     label: "Contract capture inventory",
+    category: "contract-capture",
     args: ["scripts/capture-contracts.mjs", "--check"],
     openclaw: true,
   },
   {
     id: "synthetic-probe-plan",
     label: "Synthetic probe plan",
+    category: "synthetic-probes",
     args: ["scripts/synthetic-probes.mjs", "--check"],
     openclaw: true,
   },
   {
     id: "cold-import-readiness",
     label: "Cold import readiness",
+    category: "cold-import",
     args: ["scripts/cold-import-readiness.mjs", "--check"],
     openclaw: true,
   },
   {
     id: "workspace-plan",
     label: "Workspace execution plan",
+    category: "workspace-plan",
     args: ["scripts/workspace-plan.mjs", "--check"],
     openclaw: true,
   },
@@ -150,6 +157,7 @@ export async function buildRuntimeProfile(options = {}) {
     targetOpenClaw: summarizeTargetOpenClaw(report.targetOpenClaw),
     fixtureInventory: summarizeFixtureInventory(report, inspection),
     summary: summarizeProfile(commands),
+    groups: summarizeCommandGroups(commands),
     commands,
   };
 }
@@ -198,12 +206,39 @@ function summarizeCommand(command, samples) {
   return {
     id: command.id,
     label: command.label,
+    category: command.category,
     command: [process.execPath, ...command.args].join(" "),
     samples,
     wallMs: summarizeNumbers(wallMs),
     peakRssMb: summarizeNumbers(peakRssMb),
     exitCodes: [...new Set(samples.map((sample) => sample.exitCode))].sort(),
   };
+}
+
+function summarizeCommandGroups(commands) {
+  const groups = new Map();
+  for (const command of commands) {
+    const category = command.category ?? "uncategorized";
+    const existing = groups.get(category) ?? [];
+    existing.push(command);
+    groups.set(category, existing);
+  }
+  return [...groups.entries()].map(([category, categoryCommands]) => {
+    const wallTimes = categoryCommands
+      .flatMap((command) => command.samples.map((sample) => sample.wallMs))
+      .sort((left, right) => left - right);
+    const peakRss = categoryCommands
+      .flatMap((command) => command.samples.map((sample) => sample.peakRssMb))
+      .sort((left, right) => left - right);
+    return {
+      category,
+      commandCount: categoryCommands.length,
+      p50WallMs: percentile(wallTimes, 0.5),
+      p95WallMs: percentile(wallTimes, 0.95),
+      maxPeakRssMb: peakRss.at(-1) ?? 0,
+      commands: categoryCommands.map((command) => command.id),
+    };
+  });
 }
 
 function summarizeNumbers(values) {
@@ -352,6 +387,20 @@ export function renderRuntimeProfileMarkdown(profile) {
         command.exitCodes.join(", "),
       ]),
       ["ID", "Label", "Median wall", "Max wall", "Max peak RSS", "Exit codes"],
+    ),
+    "",
+    "## Category Rollups",
+    "",
+    markdownTable(
+      (profile.groups ?? []).map((group) => [
+        group.category,
+        group.commandCount,
+        `${group.p50WallMs} ms`,
+        `${group.p95WallMs} ms`,
+        `${group.maxPeakRssMb} MB`,
+        group.commands.join(", "),
+      ]),
+      ["Category", "Commands", "P50 wall", "P95 wall", "Max peak RSS", "Command IDs"],
     ),
   ].join("\n");
 }

@@ -40,7 +40,7 @@ export function createCaptureApi(options = {}) {
         if (property in target) {
           return target[property];
         }
-        if (typeof property === "string" && property.startsWith("register")) {
+        if (typeof property === "string" && isRegistrarProperty(property)) {
           return (...args) => {
             const captureIndex =
               captured.push({
@@ -66,6 +66,10 @@ export function createCaptureApi(options = {}) {
   );
 
   return api;
+}
+
+function isRegistrarProperty(property) {
+  return property.startsWith("register") || property.startsWith("define");
 }
 
 function registrationReturnValue(name, args) {
@@ -104,5 +108,8 @@ function objectName(value) {
   if (!value || typeof value !== "object") {
     return null;
   }
-  return typeof value.name === "string" ? value.name : null;
+  if (typeof value.name === "string") {
+    return value.name;
+  }
+  return typeof value.id === "string" ? value.id : null;
 }

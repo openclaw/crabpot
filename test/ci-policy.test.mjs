@@ -104,6 +104,63 @@ test("ci policy reports package audit findings as warnings", async () => {
   assert.ok(report.checks.some((check) => check.action === "warn" && check.id === "execution-results.audit-findings"));
 });
 
+test("ci policy surfaces P0 live issues without blocking default lanes", async () => {
+  const report = await buildCiPolicyReport({
+    policy,
+    compatibilityReport: compatibilityReport({
+      issues: [
+        {
+          severity: "P0",
+          issueClass: "live-issue",
+          fixture: "codex-app-server",
+          code: "sdk-export-missing",
+          compatStatus: "untracked",
+        },
+        {
+          severity: "P2",
+          issueClass: "deprecation-warning",
+          fixture: "connectclaw",
+          code: "legacy-before-agent-start",
+        },
+        {
+          severity: "P1",
+          issueClass: "inspector-gap",
+          fixture: "wecom",
+          code: "registration-capture-gap",
+        },
+      ],
+    }),
+  });
+
+  assert.equal(report.status, "pass");
+  assert.ok(report.checks.some((check) => check.id === "compatibility-report.live-p0-issues" && check.action === "warn"));
+  assert.ok(
+    report.checks.some((check) => check.id === "compatibility-report.deprecation-warnings" && check.action === "pass"),
+  );
+  assert.ok(report.checks.some((check) => check.id === "compatibility-report.inspector-gaps" && check.action === "pass"));
+});
+
+test("ci policy strict mode fails P0 live issues", async () => {
+  const report = await buildCiPolicyReport({
+    policy,
+    strict: true,
+    compatibilityReport: compatibilityReport({
+      issues: [
+        {
+          severity: "P0",
+          issueClass: "live-issue",
+          fixture: "codex-app-server",
+          code: "sdk-export-missing",
+          compatStatus: "untracked",
+        },
+      ],
+    }),
+  });
+
+  assert.equal(report.status, "fail");
+  assert.match(validateCiPolicyReport(report).join("\n"), /compatibility-report\.live-p0-issues/);
+});
+
 test("ci policy strict mode escalates classified blocked probes", async () => {
   const report = await buildCiPolicyReport({
     policy,
@@ -147,20 +204,22 @@ test("ci policy validation rejects malformed policy files", async () => {
   );
 });
 
-function compatibilityReport() {
+function compatibilityReport(overrides = {}) {
+  const issues = overrides.issues ?? [
+    {
+      severity: "P1",
+      issueClass: "inspector-gap",
+      fixture: "fixture",
+      code: "registration-capture-gap",
+    },
+  ];
   return {
     summary: {
       breakageCount: 0,
-      p1IssueCount: 1,
+      p1IssueCount: issues.filter((issue) => issue.severity === "P1").length,
     },
     breakages: [],
-    issues: [
-      {
-        severity: "P1",
-        fixture: "fixture",
-        code: "registration-capture-gap",
-      },
-    ],
+    issues,
   };
 }
 
