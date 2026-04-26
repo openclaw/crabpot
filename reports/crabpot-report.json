@@ -520,23 +520,23 @@
   },
   "status": "pass",
   "summary": {
-    "fixtureCount": 15,
-    "highPriorityFixtures": 10,
+    "fixtureCount": 21,
+    "highPriorityFixtures": 13,
     "breakageCount": 0,
-    "warningCount": 26,
-    "suggestionCount": 52,
-    "decisionCount": 80,
-    "issueCount": 78,
-    "p0IssueCount": 1,
-    "p1IssueCount": 14,
-    "liveIssueCount": 1,
-    "liveP0IssueCount": 1,
+    "warningCount": 42,
+    "suggestionCount": 69,
+    "decisionCount": 112,
+    "issueCount": 111,
+    "p0IssueCount": 2,
+    "p1IssueCount": 21,
+    "liveIssueCount": 2,
+    "liveP0IssueCount": 2,
     "compatGapCount": 1,
-    "deprecationWarningCount": 13,
-    "inspectorGapCount": 53,
-    "upstreamIssueCount": 10,
+    "deprecationWarningCount": 20,
+    "inspectorGapCount": 73,
+    "upstreamIssueCount": 15,
     "fixtureRegressionCount": 0,
-    "contractProbeCount": 77
+    "contractProbeCount": 109
   },
   "fixtures": [
     {
@@ -2793,6 +2793,1258 @@
       ]
     },
     {
+      "id": "hyperspell",
+      "name": "Hyperspell OpenClaw",
+      "priority": "high",
+      "seams": [
+        "memory-runtime",
+        "prompt-mutation",
+        "session-lifecycle",
+        "file-watch",
+        "cli"
+      ],
+      "why": "Memory and context fixture covering legacy startup hooks, compaction/session hooks, file-change sync, CLI setup, command handlers, and tool-backed external memory search/write.",
+      "status": "ok",
+      "hooks": [
+        "after_compaction",
+        "agent_end",
+        "before_agent_start",
+        "file_changed",
+        "session_end"
+      ],
+      "hookDetails": [
+        {
+          "name": "after_compaction",
+          "file": "plugins/hyperspell/index.ts",
+          "line": 103,
+          "ref": "plugins/hyperspell/index.ts:103"
+        },
+        {
+          "name": "agent_end",
+          "file": "plugins/hyperspell/index.ts",
+          "line": 105,
+          "ref": "plugins/hyperspell/index.ts:105"
+        },
+        {
+          "name": "agent_end",
+          "file": "plugins/hyperspell/index.ts",
+          "line": 116,
+          "ref": "plugins/hyperspell/index.ts:116"
+        },
+        {
+          "name": "before_agent_start",
+          "file": "plugins/hyperspell/index.ts",
+          "line": 102,
+          "ref": "plugins/hyperspell/index.ts:102"
+        },
+        {
+          "name": "before_agent_start",
+          "file": "plugins/hyperspell/index.ts",
+          "line": 111,
+          "ref": "plugins/hyperspell/index.ts:111"
+        },
+        {
+          "name": "file_changed",
+          "file": "plugins/hyperspell/index.ts",
+          "line": 122,
+          "ref": "plugins/hyperspell/index.ts:122"
+        },
+        {
+          "name": "session_end",
+          "file": "plugins/hyperspell/index.ts",
+          "line": 104,
+          "ref": "plugins/hyperspell/index.ts:104"
+        }
+      ],
+      "registrations": [
+        "registerCli",
+        "registerCommand",
+        "registerService",
+        "registerTool"
+      ],
+      "registrationDetails": [
+        {
+          "name": "registerCli",
+          "file": "plugins/hyperspell/index.ts",
+          "line": 30,
+          "ref": "plugins/hyperspell/index.ts:30"
+        },
+        {
+          "name": "registerCommand",
+          "file": "plugins/hyperspell/commands/slash.ts",
+          "line": 166,
+          "ref": "plugins/hyperspell/commands/slash.ts:166"
+        },
+        {
+          "name": "registerCommand",
+          "file": "plugins/hyperspell/commands/slash.ts",
+          "line": 43,
+          "ref": "plugins/hyperspell/commands/slash.ts:43"
+        },
+        {
+          "name": "registerCommand",
+          "file": "plugins/hyperspell/commands/slash.ts",
+          "line": 98,
+          "ref": "plugins/hyperspell/commands/slash.ts:98"
+        },
+        {
+          "name": "registerCommand",
+          "file": "plugins/hyperspell/index.ts",
+          "line": 46,
+          "ref": "plugins/hyperspell/index.ts:46"
+        },
+        {
+          "name": "registerCommand",
+          "file": "plugins/hyperspell/index.ts",
+          "line": 57,
+          "ref": "plugins/hyperspell/index.ts:57"
+        },
+        {
+          "name": "registerCommand",
+          "file": "plugins/hyperspell/index.ts",
+          "line": 68,
+          "ref": "plugins/hyperspell/index.ts:68"
+        },
+        {
+          "name": "registerService",
+          "file": "plugins/hyperspell/index.ts",
+          "line": 134,
+          "ref": "plugins/hyperspell/index.ts:134"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/hyperspell/graph/tools.ts",
+          "line": 21,
+          "ref": "plugins/hyperspell/graph/tools.ts:21"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/hyperspell/graph/tools.ts",
+          "line": 52,
+          "ref": "plugins/hyperspell/graph/tools.ts:52"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/hyperspell/graph/tools.ts",
+          "line": 95,
+          "ref": "plugins/hyperspell/graph/tools.ts:95"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/hyperspell/index.ts",
+          "line": 89,
+          "ref": "plugins/hyperspell/index.ts:89"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/hyperspell/index.ts",
+          "line": 92,
+          "ref": "plugins/hyperspell/index.ts:92"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/hyperspell/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/hyperspell/client.ts",
+        "plugins/hyperspell/commands/setup.ts",
+        "plugins/hyperspell/commands/slash.ts",
+        "plugins/hyperspell/config.ts",
+        "plugins/hyperspell/graph/cron.ts",
+        "plugins/hyperspell/graph/index.ts",
+        "plugins/hyperspell/graph/ops.ts",
+        "plugins/hyperspell/graph/state.ts",
+        "plugins/hyperspell/graph/tools.ts",
+        "plugins/hyperspell/hooks/auto-context.ts",
+        "plugins/hyperspell/hooks/auto-trace.ts",
+        "plugins/hyperspell/hooks/emotional-state.ts",
+        "plugins/hyperspell/hooks/memory-sync.ts",
+        "plugins/hyperspell/index.ts",
+        "plugins/hyperspell/lib/browser.ts",
+        "plugins/hyperspell/lib/sender.ts",
+        "plugins/hyperspell/lib/voice-id.ts",
+        "plugins/hyperspell/logger.ts",
+        "plugins/hyperspell/sync/markdown.ts",
+        "plugins/hyperspell/tools/remember.ts",
+        "plugins/hyperspell/tools/search.ts"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/hyperspell/openclaw.plugin.json",
+          "id": "openclaw-hyperspell",
+          "name": "Hyperspell",
+          "version": "0.12.0",
+          "keys": [
+            "configSchema",
+            "description",
+            "id",
+            "kind",
+            "name",
+            "uiHints",
+            "version"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/hyperspell/package.json",
+        "name": "@hyperspell/openclaw-hyperspell",
+        "version": "0.12.0",
+        "type": "module",
+        "main": "./index.ts",
+        "dependencies": [
+          "@clack/prompts",
+          "@sinclair/typebox",
+          "hyperspell"
+        ],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./index.ts"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": ">=2026.1.29",
+          "buildOpenClawVersion": "2026.3.24-beta.2",
+          "buildPluginSdkVersion": "2026.3.24-beta.2",
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.ts",
+              "relativePath": "plugins/hyperspell/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/hyperspell/package.json",
+          "name": "@hyperspell/openclaw-hyperspell",
+          "version": "0.12.0",
+          "type": "module",
+          "main": "./index.ts",
+          "dependencies": [
+            "@clack/prompts",
+            "@sinclair/typebox",
+            "hyperspell"
+          ],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./index.ts"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": ">=2026.1.29",
+            "buildOpenClawVersion": "2026.3.24-beta.2",
+            "buildPluginSdkVersion": "2026.3.24-beta.2",
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.ts",
+                "relativePath": "plugins/hyperspell/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        }
+      ],
+      "sdkImports": [
+        "openclaw/plugin-sdk"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/hyperspell/commands/slash.ts",
+          "line": 1,
+          "ref": "plugins/hyperspell/commands/slash.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/hyperspell/graph/tools.ts",
+          "line": 2,
+          "ref": "plugins/hyperspell/graph/tools.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/hyperspell/index.ts",
+          "line": 1,
+          "ref": "plugins/hyperspell/index.ts:1"
+        }
+      ]
+    },
+    {
+      "id": "honcho",
+      "name": "Honcho OpenClaw",
+      "priority": "high",
+      "seams": [
+        "memory-runtime",
+        "prompt-mutation",
+        "gateway-lifecycle",
+        "subagent-routing",
+        "sdk-compat"
+      ],
+      "why": "Memory-runtime fixture covering plugin-entry aliases, memory runtime/prompt-section registration, gateway lifecycle, subagent capture, and managed external memory tools.",
+      "status": "ok",
+      "hooks": [
+        "agent_end",
+        "before_agent_start",
+        "before_compaction",
+        "before_prompt_build",
+        "before_reset",
+        "gateway_start",
+        "subagent_spawned"
+      ],
+      "hookDetails": [
+        {
+          "name": "agent_end",
+          "file": "plugins/honcho/hooks/capture.ts",
+          "line": 89,
+          "ref": "plugins/honcho/hooks/capture.ts:89"
+        },
+        {
+          "name": "agent_end",
+          "file": "plugins/honcho/hooks/subagent.ts",
+          "line": 34,
+          "ref": "plugins/honcho/hooks/subagent.ts:34"
+        },
+        {
+          "name": "before_agent_start",
+          "file": "plugins/honcho/hooks/subagent.ts",
+          "line": 18,
+          "ref": "plugins/honcho/hooks/subagent.ts:18"
+        },
+        {
+          "name": "before_compaction",
+          "file": "plugins/honcho/hooks/capture.ts",
+          "line": 115,
+          "ref": "plugins/honcho/hooks/capture.ts:115"
+        },
+        {
+          "name": "before_prompt_build",
+          "file": "plugins/honcho/hooks/context.ts",
+          "line": 7,
+          "ref": "plugins/honcho/hooks/context.ts:7"
+        },
+        {
+          "name": "before_reset",
+          "file": "plugins/honcho/hooks/capture.ts",
+          "line": 132,
+          "ref": "plugins/honcho/hooks/capture.ts:132"
+        },
+        {
+          "name": "gateway_start",
+          "file": "plugins/honcho/hooks/gateway.ts",
+          "line": 6,
+          "ref": "plugins/honcho/hooks/gateway.ts:6"
+        },
+        {
+          "name": "subagent_spawned",
+          "file": "plugins/honcho/hooks/subagent.ts",
+          "line": 24,
+          "ref": "plugins/honcho/hooks/subagent.ts:24"
+        }
+      ],
+      "registrations": [
+        "definePluginEntry",
+        "registerCli",
+        "registerMemoryPromptSection",
+        "registerMemoryRuntime",
+        "registerTool"
+      ],
+      "registrationDetails": [
+        {
+          "name": "definePluginEntry",
+          "file": "plugins/honcho/index.ts",
+          "line": 85,
+          "ref": "plugins/honcho/index.ts:85"
+        },
+        {
+          "name": "registerCli",
+          "file": "plugins/honcho/commands/cli.ts",
+          "line": 38,
+          "ref": "plugins/honcho/commands/cli.ts:38"
+        },
+        {
+          "name": "registerMemoryPromptSection",
+          "file": "plugins/honcho/index.ts",
+          "line": 97,
+          "ref": "plugins/honcho/index.ts:97"
+        },
+        {
+          "name": "registerMemoryRuntime",
+          "file": "plugins/honcho/runtime.ts",
+          "line": 276,
+          "ref": "plugins/honcho/runtime.ts:276"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/honcho/tools/ask.ts",
+          "line": 7,
+          "ref": "plugins/honcho/tools/ask.ts:7"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/honcho/tools/context.ts",
+          "line": 7,
+          "ref": "plugins/honcho/tools/context.ts:7"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/honcho/tools/memory-passthrough.ts",
+          "line": 130,
+          "ref": "plugins/honcho/tools/memory-passthrough.ts:130"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/honcho/tools/memory-passthrough.ts",
+          "line": 89,
+          "ref": "plugins/honcho/tools/memory-passthrough.ts:89"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/honcho/tools/message-search.ts",
+          "line": 8,
+          "ref": "plugins/honcho/tools/message-search.ts:8"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/honcho/tools/search.ts",
+          "line": 7,
+          "ref": "plugins/honcho/tools/search.ts:7"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/honcho/tools/session.ts",
+          "line": 8,
+          "ref": "plugins/honcho/tools/session.ts:8"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/honcho/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/honcho/commands/cli.ts",
+        "plugins/honcho/config.ts",
+        "plugins/honcho/helpers.ts",
+        "plugins/honcho/hooks/capture.ts",
+        "plugins/honcho/hooks/context.ts",
+        "plugins/honcho/hooks/gateway.ts",
+        "plugins/honcho/hooks/subagent.ts",
+        "plugins/honcho/index.ts",
+        "plugins/honcho/install.js",
+        "plugins/honcho/runtime.ts",
+        "plugins/honcho/state.ts",
+        "plugins/honcho/tools/ask.ts",
+        "plugins/honcho/tools/context.ts",
+        "plugins/honcho/tools/memory-passthrough.ts",
+        "plugins/honcho/tools/message-search.ts",
+        "plugins/honcho/tools/search.ts",
+        "plugins/honcho/tools/session.ts"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/honcho/openclaw.plugin.json",
+          "id": "openclaw-honcho",
+          "name": null,
+          "version": null,
+          "keys": [
+            "configSchema",
+            "id",
+            "kind",
+            "uiHints"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/honcho/package.json",
+        "name": "@honcho-ai/openclaw-honcho",
+        "version": "1.3.3",
+        "type": "module",
+        "main": "dist/index.js",
+        "dependencies": [
+          "@honcho-ai/sdk",
+          "@sinclair/typebox"
+        ],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./dist/index.js"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": ">=2026.3.22",
+          "buildOpenClawVersion": ">=2026.3.22",
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./dist/index.js",
+              "relativePath": "plugins/honcho/dist/index.js",
+              "exists": false,
+              "requiresBuild": true
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/honcho/package.json",
+          "name": "@honcho-ai/openclaw-honcho",
+          "version": "1.3.3",
+          "type": "module",
+          "main": "dist/index.js",
+          "dependencies": [
+            "@honcho-ai/sdk",
+            "@sinclair/typebox"
+          ],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./dist/index.js"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": ">=2026.3.22",
+            "buildOpenClawVersion": ">=2026.3.22",
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./dist/index.js",
+                "relativePath": "plugins/honcho/dist/index.js",
+                "exists": false,
+                "requiresBuild": true
+              }
+            ]
+          }
+        }
+      ],
+      "sdkImports": [
+        "openclaw/plugin-sdk",
+        "openclaw/plugin-sdk/memory-core",
+        "openclaw/plugin-sdk/plugin-entry"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/honcho/commands/cli.ts",
+          "line": 8,
+          "ref": "plugins/honcho/commands/cli.ts:8"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/honcho/hooks/capture.ts",
+          "line": 2,
+          "ref": "plugins/honcho/hooks/capture.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/honcho/hooks/context.ts",
+          "line": 2,
+          "ref": "plugins/honcho/hooks/context.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/honcho/hooks/gateway.ts",
+          "line": 2,
+          "ref": "plugins/honcho/hooks/gateway.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/honcho/hooks/subagent.ts",
+          "line": 2,
+          "ref": "plugins/honcho/hooks/subagent.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/honcho/state.ts",
+          "line": 9,
+          "ref": "plugins/honcho/state.ts:9"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/honcho/tools/ask.ts",
+          "line": 3,
+          "ref": "plugins/honcho/tools/ask.ts:3"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/honcho/tools/context.ts",
+          "line": 3,
+          "ref": "plugins/honcho/tools/context.ts:3"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/honcho/tools/memory-passthrough.ts",
+          "line": 3,
+          "ref": "plugins/honcho/tools/memory-passthrough.ts:3"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/honcho/tools/message-search.ts",
+          "line": 3,
+          "ref": "plugins/honcho/tools/message-search.ts:3"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/honcho/tools/search.ts",
+          "line": 3,
+          "ref": "plugins/honcho/tools/search.ts:3"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/honcho/tools/session.ts",
+          "line": 3,
+          "ref": "plugins/honcho/tools/session.ts:3"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/memory-core",
+          "file": "plugins/honcho/index.ts",
+          "line": 11,
+          "ref": "plugins/honcho/index.ts:11"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/plugin-entry",
+          "file": "plugins/honcho/index.ts",
+          "line": 9,
+          "ref": "plugins/honcho/index.ts:9"
+        }
+      ]
+    },
+    {
+      "id": "composio",
+      "name": "Composio OpenClaw",
+      "priority": "high",
+      "seams": [
+        "dynamic-tool",
+        "mcp",
+        "external-api",
+        "prompt-mutation",
+        "cli"
+      ],
+      "why": "NPM-installed dynamic tool fixture for Composio/MCP integration, prompt context injection, CLI setup, external API auth, and large remote tool catalogs.",
+      "status": "ok",
+      "hooks": [
+        "before_prompt_build"
+      ],
+      "hookDetails": [
+        {
+          "name": "before_prompt_build",
+          "file": "plugins/composio/index.ts",
+          "line": 33,
+          "ref": "plugins/composio/index.ts:33"
+        }
+      ],
+      "registrations": [
+        "registerCli",
+        "registerTool"
+      ],
+      "registrationDetails": [
+        {
+          "name": "registerCli",
+          "file": "plugins/composio/src/cli.ts",
+          "line": 46,
+          "ref": "plugins/composio/src/cli.ts:46"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/composio/src/tools.ts",
+          "line": 89,
+          "ref": "plugins/composio/src/tools.ts:89"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/composio/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/composio/index.ts",
+        "plugins/composio/src/cli.ts",
+        "plugins/composio/src/client.ts",
+        "plugins/composio/src/config.ts",
+        "plugins/composio/src/prompt.ts",
+        "plugins/composio/src/state.ts",
+        "plugins/composio/src/tools.ts",
+        "plugins/composio/src/types.ts"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/composio/openclaw.plugin.json",
+          "id": "composio",
+          "name": "Composio",
+          "version": null,
+          "keys": [
+            "configSchema",
+            "description",
+            "id",
+            "name",
+            "uiHints"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/composio/package.json",
+        "name": "@composio/openclaw-plugin",
+        "version": "0.0.11",
+        "type": "module",
+        "main": null,
+        "dependencies": [
+          "@modelcontextprotocol/sdk",
+          "zod"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./index.ts"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": null,
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.ts",
+              "relativePath": "plugins/composio/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/composio/package.json",
+          "name": "@composio/openclaw-plugin",
+          "version": "0.0.11",
+          "type": "module",
+          "main": null,
+          "dependencies": [
+            "@modelcontextprotocol/sdk",
+            "zod"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./index.ts"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": null,
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.ts",
+                "relativePath": "plugins/composio/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        }
+      ],
+      "sdkImports": [
+        "openclaw/plugin-sdk"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/composio/index.ts",
+          "line": 1,
+          "ref": "plugins/composio/index.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/composio/src/cli.ts",
+          "line": 6,
+          "ref": "plugins/composio/src/cli.ts:6"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/composio/src/client.ts",
+          "line": 1,
+          "ref": "plugins/composio/src/client.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/composio/src/tools.ts",
+          "line": 1,
+          "ref": "plugins/composio/src/tools.ts:1"
+        }
+      ]
+    },
+    {
+      "id": "memu-engine",
+      "name": "MemU Engine",
+      "priority": "medium",
+      "seams": [
+        "memory-runtime",
+        "tool",
+        "python-sidecar",
+        "storage-migration",
+        "session-ingest"
+      ],
+      "why": "Memory tool fixture with a Python sidecar, OpenClaw session ingestion, filesystem storage migration, and long-running local memory data layout assumptions.",
+      "status": "ok",
+      "hooks": [],
+      "hookDetails": [],
+      "registrations": [
+        "registerTool"
+      ],
+      "registrationDetails": [
+        {
+          "name": "registerTool",
+          "file": "plugins/memu-engine/index.ts",
+          "line": 1252,
+          "ref": "plugins/memu-engine/index.ts:1252"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/memu-engine/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/memu-engine/index.ts"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/memu-engine/openclaw.plugin.json",
+          "id": "memu-engine",
+          "name": "memU Agentic Engine",
+          "version": null,
+          "keys": [
+            "configSchema",
+            "description",
+            "id",
+            "kind",
+            "name"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/memu-engine/package.json",
+        "name": "memu-engine",
+        "version": "0.3.6",
+        "type": null,
+        "main": "index.ts",
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./index.ts"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": null,
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.ts",
+              "relativePath": "plugins/memu-engine/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/memu-engine/package.json",
+          "name": "memu-engine",
+          "version": "0.3.6",
+          "type": null,
+          "main": "index.ts",
+          "dependencies": [],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./index.ts"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": null,
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.ts",
+                "relativePath": "plugins/memu-engine/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        }
+      ],
+      "sdkImports": [
+        "openclaw/plugin-sdk"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/memu-engine/index.ts",
+          "line": 1,
+          "ref": "plugins/memu-engine/index.ts:1"
+        }
+      ]
+    },
+    {
+      "id": "secureclaw",
+      "name": "SecureClaw",
+      "priority": "medium",
+      "seams": [
+        "security-audit",
+        "config-hardening",
+        "gateway-lifecycle",
+        "filesystem-scan",
+        "cli"
+      ],
+      "why": "Security fixture covering gateway-start scanning, config and credential hardening, filesystem watch/audit behavior, and CLI-driven remediation/report generation.",
+      "status": "ok",
+      "hooks": [
+        "gateway_start"
+      ],
+      "hookDetails": [
+        {
+          "name": "gateway_start",
+          "file": "plugins/secureclaw/secureclaw/src/index.ts",
+          "line": 314,
+          "ref": "plugins/secureclaw/secureclaw/src/index.ts:314"
+        }
+      ],
+      "registrations": [
+        "registerCli",
+        "registerService"
+      ],
+      "registrationDetails": [
+        {
+          "name": "registerCli",
+          "file": "plugins/secureclaw/secureclaw/src/index.ts",
+          "line": 351,
+          "ref": "plugins/secureclaw/secureclaw/src/index.ts:351"
+        },
+        {
+          "name": "registerService",
+          "file": "plugins/secureclaw/secureclaw/src/index.ts",
+          "line": 295,
+          "ref": "plugins/secureclaw/secureclaw/src/index.ts:295"
+        },
+        {
+          "name": "registerService",
+          "file": "plugins/secureclaw/secureclaw/src/index.ts",
+          "line": 301,
+          "ref": "plugins/secureclaw/secureclaw/src/index.ts:301"
+        },
+        {
+          "name": "registerService",
+          "file": "plugins/secureclaw/secureclaw/src/index.ts",
+          "line": 307,
+          "ref": "plugins/secureclaw/secureclaw/src/index.ts:307"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/secureclaw/secureclaw/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/secureclaw/secureclaw/demo.ts",
+        "plugins/secureclaw/secureclaw/src/auditor.ts",
+        "plugins/secureclaw/secureclaw/src/hardener.ts",
+        "plugins/secureclaw/secureclaw/src/hardening/config-hardening.ts",
+        "plugins/secureclaw/secureclaw/src/hardening/credential-hardening.ts",
+        "plugins/secureclaw/secureclaw/src/hardening/docker-hardening.ts",
+        "plugins/secureclaw/secureclaw/src/hardening/gateway-hardening.ts",
+        "plugins/secureclaw/secureclaw/src/hardening/network-hardening.ts",
+        "plugins/secureclaw/secureclaw/src/index.ts",
+        "plugins/secureclaw/secureclaw/src/monitors/cost-monitor.ts",
+        "plugins/secureclaw/secureclaw/src/monitors/credential-monitor.ts",
+        "plugins/secureclaw/secureclaw/src/monitors/memory-integrity.ts",
+        "plugins/secureclaw/secureclaw/src/monitors/skill-scanner.ts",
+        "plugins/secureclaw/secureclaw/src/reporters/console-reporter.ts",
+        "plugins/secureclaw/secureclaw/src/reporters/json-reporter.ts",
+        "plugins/secureclaw/secureclaw/src/types.ts",
+        "plugins/secureclaw/secureclaw/src/utils/crypto.ts",
+        "plugins/secureclaw/secureclaw/src/utils/hash.ts",
+        "plugins/secureclaw/secureclaw/src/utils/ioc-db.ts",
+        "plugins/secureclaw/secureclaw/vitest.config.ts"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/secureclaw/secureclaw/openclaw.plugin.json",
+          "id": "secureclaw",
+          "name": "SecureClaw",
+          "version": "2.2.0",
+          "keys": [
+            "configSchema",
+            "description",
+            "id",
+            "name",
+            "uiHints",
+            "version"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/secureclaw/secureclaw/package.json",
+        "name": "@adversa/secureclaw",
+        "version": "2.2.0",
+        "type": "module",
+        "main": "dist/index.js",
+        "dependencies": [
+          "chokidar",
+          "node-forge"
+        ],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./dist/index.js"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": null,
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./dist/index.js",
+              "relativePath": "plugins/secureclaw/secureclaw/dist/index.js",
+              "exists": false,
+              "requiresBuild": true
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/secureclaw/secureclaw/package.json",
+          "name": "@adversa/secureclaw",
+          "version": "2.2.0",
+          "type": "module",
+          "main": "dist/index.js",
+          "dependencies": [
+            "chokidar",
+            "node-forge"
+          ],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./dist/index.js"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": null,
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./dist/index.js",
+                "relativePath": "plugins/secureclaw/secureclaw/dist/index.js",
+                "exists": false,
+                "requiresBuild": true
+              }
+            ]
+          }
+        }
+      ],
+      "sdkImports": [],
+      "sdkImportDetails": []
+    },
+    {
+      "id": "memos-cloud",
+      "name": "MemOS Cloud OpenClaw Plugin",
+      "priority": "medium",
+      "seams": [
+        "memory-runtime",
+        "session-lifecycle",
+        "config-ui",
+        "legacy-hook-api",
+        "external-api"
+      ],
+      "why": "Cloud memory fixture covering legacy registerHook compatibility, startup/session-end hooks, config UI service code, env/config precedence, and external MemOS API calls.",
+      "status": "ok",
+      "hooks": [
+        "agent_end",
+        "before_agent_start"
+      ],
+      "hookDetails": [
+        {
+          "name": "agent_end",
+          "file": "plugins/memos-cloud/index.js",
+          "line": 515,
+          "ref": "plugins/memos-cloud/index.js:515"
+        },
+        {
+          "name": "before_agent_start",
+          "file": "plugins/memos-cloud/index.js",
+          "line": 481,
+          "ref": "plugins/memos-cloud/index.js:481"
+        }
+      ],
+      "registrations": [
+        "registerHook"
+      ],
+      "registrationDetails": [
+        {
+          "name": "registerHook",
+          "file": "plugins/memos-cloud/index.js",
+          "line": 467,
+          "ref": "plugins/memos-cloud/index.js:467"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/memos-cloud/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/memos-cloud/index.js",
+        "plugins/memos-cloud/lib/arms-reporter.js",
+        "plugins/memos-cloud/lib/check-update.js",
+        "plugins/memos-cloud/lib/config-resolution-schema.js",
+        "plugins/memos-cloud/lib/config-ui-server.js",
+        "plugins/memos-cloud/lib/config-ui/app.js",
+        "plugins/memos-cloud/lib/memos-cloud-api.js",
+        "plugins/memos-cloud/scripts/sync-version.js"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/memos-cloud/openclaw.plugin.json",
+          "id": "memos-cloud-openclaw-plugin",
+          "name": "MemOS Cloud OpenClaw Plugin",
+          "version": "0.1.13",
+          "keys": [
+            "configSchema",
+            "description",
+            "id",
+            "kind",
+            "main",
+            "name",
+            "version"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/memos-cloud/package.json",
+        "name": "@memtensor/memos-cloud-openclaw-plugin",
+        "version": "0.1.13",
+        "type": "module",
+        "main": null,
+        "dependencies": [],
+        "peerDependencies": [],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./index.js"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": null,
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.js",
+              "relativePath": "plugins/memos-cloud/index.js",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/memos-cloud/package.json",
+          "name": "@memtensor/memos-cloud-openclaw-plugin",
+          "version": "0.1.13",
+          "type": "module",
+          "main": null,
+          "dependencies": [],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./index.js"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": null,
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.js",
+                "relativePath": "plugins/memos-cloud/index.js",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        }
+      ],
+      "sdkImports": [],
+      "sdkImportDetails": []
+    },
+    {
       "id": "clawmetry",
       "name": "ClawMetry",
       "priority": "medium",
@@ -3911,6 +5163,176 @@
       "compatRecord": "legacy-before-agent-start"
     },
     {
+      "fixture": "hyperspell",
+      "code": "unknown-hook-name",
+      "level": "warning",
+      "message": "fixture registers hooks that are not present in the target OpenClaw hook registry",
+      "evidence": [
+        "file_changed @ plugins/hyperspell/index.ts:122"
+      ]
+    },
+    {
+      "fixture": "hyperspell",
+      "code": "conversation-access-hook",
+      "level": "warning",
+      "message": "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
+      "evidence": [
+        "agent_end @ plugins/hyperspell/index.ts:105",
+        "agent_end @ plugins/hyperspell/index.ts:116"
+      ]
+    },
+    {
+      "fixture": "hyperspell",
+      "code": "legacy-root-sdk-import",
+      "level": "warning",
+      "message": "fixture imports the root plugin SDK barrel",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/hyperspell/commands/slash.ts:1",
+        "openclaw/plugin-sdk @ plugins/hyperspell/graph/tools.ts:2",
+        "openclaw/plugin-sdk @ plugins/hyperspell/index.ts:1"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "hyperspell",
+      "code": "legacy-before-agent-start",
+      "level": "warning",
+      "message": "fixture uses deprecated before_agent_start hook compatibility",
+      "evidence": [
+        "before_agent_start @ plugins/hyperspell/index.ts:102",
+        "before_agent_start @ plugins/hyperspell/index.ts:111"
+      ],
+      "compatRecord": "legacy-before-agent-start"
+    },
+    {
+      "fixture": "honcho",
+      "code": "conversation-access-hook",
+      "level": "warning",
+      "message": "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
+      "evidence": [
+        "agent_end @ plugins/honcho/hooks/capture.ts:89",
+        "agent_end @ plugins/honcho/hooks/subagent.ts:34"
+      ]
+    },
+    {
+      "fixture": "honcho",
+      "code": "legacy-root-sdk-import",
+      "level": "warning",
+      "message": "fixture imports the root plugin SDK barrel",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/honcho/commands/cli.ts:8",
+        "openclaw/plugin-sdk @ plugins/honcho/hooks/capture.ts:2",
+        "openclaw/plugin-sdk @ plugins/honcho/hooks/context.ts:2",
+        "openclaw/plugin-sdk @ plugins/honcho/hooks/gateway.ts:2",
+        "openclaw/plugin-sdk @ plugins/honcho/hooks/subagent.ts:2",
+        "openclaw/plugin-sdk @ plugins/honcho/state.ts:9",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/ask.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/context.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/memory-passthrough.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/message-search.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/search.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/session.ts:3"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "honcho",
+      "code": "legacy-before-agent-start",
+      "level": "warning",
+      "message": "fixture uses deprecated before_agent_start hook compatibility",
+      "evidence": [
+        "before_agent_start @ plugins/honcho/hooks/subagent.ts:18"
+      ],
+      "compatRecord": "legacy-before-agent-start"
+    },
+    {
+      "fixture": "composio",
+      "code": "package-plugin-api-compat-missing",
+      "level": "warning",
+      "message": "package openclaw metadata does not declare compat.pluginApi",
+      "evidence": [
+        "plugins/composio/package.json"
+      ]
+    },
+    {
+      "fixture": "composio",
+      "code": "legacy-root-sdk-import",
+      "level": "warning",
+      "message": "fixture imports the root plugin SDK barrel",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/composio/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/composio/src/cli.ts:6",
+        "openclaw/plugin-sdk @ plugins/composio/src/client.ts:1",
+        "openclaw/plugin-sdk @ plugins/composio/src/tools.ts:1"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "memu-engine",
+      "code": "package-plugin-api-compat-missing",
+      "level": "warning",
+      "message": "package openclaw metadata does not declare compat.pluginApi",
+      "evidence": [
+        "plugins/memu-engine/package.json"
+      ]
+    },
+    {
+      "fixture": "memu-engine",
+      "code": "legacy-root-sdk-import",
+      "level": "warning",
+      "message": "fixture imports the root plugin SDK barrel",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/memu-engine/index.ts:1"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "secureclaw",
+      "code": "package-plugin-api-compat-missing",
+      "level": "warning",
+      "message": "package openclaw metadata does not declare compat.pluginApi",
+      "evidence": [
+        "plugins/secureclaw/secureclaw/package.json"
+      ]
+    },
+    {
+      "fixture": "memos-cloud",
+      "code": "manifest-unknown-fields",
+      "level": "warning",
+      "message": "manifest uses top-level fields that are not present in the target OpenClaw PluginManifest type",
+      "evidence": [
+        "main @ plugins/memos-cloud/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "memos-cloud",
+      "code": "package-plugin-api-compat-missing",
+      "level": "warning",
+      "message": "package openclaw metadata does not declare compat.pluginApi",
+      "evidence": [
+        "plugins/memos-cloud/package.json"
+      ]
+    },
+    {
+      "fixture": "memos-cloud",
+      "code": "conversation-access-hook",
+      "level": "warning",
+      "message": "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
+      "evidence": [
+        "agent_end @ plugins/memos-cloud/index.js:515"
+      ]
+    },
+    {
+      "fixture": "memos-cloud",
+      "code": "legacy-before-agent-start",
+      "level": "warning",
+      "message": "fixture uses deprecated before_agent_start hook compatibility",
+      "evidence": [
+        "before_agent_start @ plugins/memos-cloud/index.js:481"
+      ],
+      "compatRecord": "legacy-before-agent-start"
+    },
+    {
       "fixture": "codex-app-server",
       "code": "sdk-export-missing",
       "level": "warning",
@@ -4344,6 +5766,186 @@
       ]
     },
     {
+      "fixture": "hyperspell",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/hyperspell/index.ts"
+      ]
+    },
+    {
+      "fixture": "hyperspell",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "@clack/prompts @ plugins/hyperspell/package.json",
+        "@sinclair/typebox @ plugins/hyperspell/package.json",
+        "hyperspell @ plugins/hyperspell/package.json",
+        "openclaw @ plugins/hyperspell/package.json"
+      ]
+    },
+    {
+      "fixture": "hyperspell",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:43",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:98",
+        "registerCommand @ plugins/hyperspell/index.ts:46",
+        "registerCommand @ plugins/hyperspell/index.ts:57",
+        "registerCommand @ plugins/hyperspell/index.ts:68",
+        "registerService @ plugins/hyperspell/index.ts:134"
+      ]
+    },
+    {
+      "fixture": "hyperspell",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool @ plugins/hyperspell/graph/tools.ts:21",
+        "registerTool @ plugins/hyperspell/graph/tools.ts:52",
+        "registerTool @ plugins/hyperspell/graph/tools.ts:95",
+        "registerTool @ plugins/hyperspell/index.ts:89",
+        "registerTool @ plugins/hyperspell/index.ts:92"
+      ]
+    },
+    {
+      "fixture": "honcho",
+      "code": "package-build-artifact-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint points at build output that is not present in the source fixture checkout",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/honcho/dist/index.js"
+      ]
+    },
+    {
+      "fixture": "honcho",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "@honcho-ai/sdk @ plugins/honcho/package.json",
+        "@sinclair/typebox @ plugins/honcho/package.json",
+        "openclaw @ plugins/honcho/package.json"
+      ]
+    },
+    {
+      "fixture": "honcho",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
+        "registerMemoryRuntime @ plugins/honcho/runtime.ts:276"
+      ]
+    },
+    {
+      "fixture": "honcho",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool @ plugins/honcho/tools/ask.ts:7",
+        "registerTool @ plugins/honcho/tools/context.ts:7",
+        "registerTool @ plugins/honcho/tools/memory-passthrough.ts:130",
+        "registerTool @ plugins/honcho/tools/memory-passthrough.ts:89",
+        "registerTool @ plugins/honcho/tools/message-search.ts:8",
+        "registerTool @ plugins/honcho/tools/search.ts:7",
+        "registerTool @ plugins/honcho/tools/session.ts:8"
+      ]
+    },
+    {
+      "fixture": "composio",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/composio/index.ts"
+      ]
+    },
+    {
+      "fixture": "composio",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "@modelcontextprotocol/sdk @ plugins/composio/package.json",
+        "zod @ plugins/composio/package.json"
+      ]
+    },
+    {
+      "fixture": "composio",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool @ plugins/composio/src/tools.ts:89"
+      ]
+    },
+    {
+      "fixture": "memu-engine",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/memu-engine/index.ts"
+      ]
+    },
+    {
+      "fixture": "memu-engine",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool @ plugins/memu-engine/index.ts:1252"
+      ]
+    },
+    {
+      "fixture": "secureclaw",
+      "code": "package-build-artifact-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint points at build output that is not present in the source fixture checkout",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/secureclaw/secureclaw/dist/index.js"
+      ]
+    },
+    {
+      "fixture": "secureclaw",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "chokidar @ plugins/secureclaw/secureclaw/package.json",
+        "node-forge @ plugins/secureclaw/secureclaw/package.json",
+        "openclaw @ plugins/secureclaw/secureclaw/package.json"
+      ]
+    },
+    {
+      "fixture": "secureclaw",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:295",
+        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:301",
+        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:307"
+      ]
+    },
+    {
+      "fixture": "memos-cloud",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerHook @ plugins/memos-cloud/index.js:467"
+      ]
+    },
+    {
       "fixture": "clawmetry",
       "code": "package-build-artifact-entrypoint",
       "level": "suggestion",
@@ -4518,6 +6120,24 @@
       "compatRecord": "plugin-sdk-export-aliases"
     },
     {
+      "id": "CRABPOT-D7817FEA",
+      "fixture": "hyperspell",
+      "severity": "P0",
+      "owner": "core",
+      "code": "unknown-hook-name",
+      "decision": "core-compat-adapter",
+      "status": "blocking",
+      "issueClass": "live-issue",
+      "live": true,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "hyperspell: fixture uses a hook missing from target OpenClaw",
+      "evidence": [
+        "file_changed @ plugins/hyperspell/index.ts:122"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-37E8444D",
       "fixture": "a2a-gateway",
       "severity": "P1",
@@ -4618,6 +6238,87 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-E8240285",
+      "fixture": "honcho",
+      "severity": "P1",
+      "owner": "core",
+      "code": "conversation-access-hook",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "honcho: conversation-access hooks need privacy-boundary probes",
+      "evidence": [
+        "agent_end @ plugins/honcho/hooks/capture.ts:89",
+        "agent_end @ plugins/honcho/hooks/subagent.ts:34"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-7999B952",
+      "fixture": "honcho",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "honcho: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
+        "registerMemoryRuntime @ plugins/honcho/runtime.ts:276"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-6DABAD8C",
+      "fixture": "hyperspell",
+      "severity": "P1",
+      "owner": "core",
+      "code": "conversation-access-hook",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "hyperspell: conversation-access hooks need privacy-boundary probes",
+      "evidence": [
+        "agent_end @ plugins/hyperspell/index.ts:105",
+        "agent_end @ plugins/hyperspell/index.ts:116"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-3976C2E1",
+      "fixture": "hyperspell",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "hyperspell: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:43",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:98",
+        "registerCommand @ plugins/hyperspell/index.ts:46",
+        "registerCommand @ plugins/hyperspell/index.ts:57",
+        "registerCommand @ plugins/hyperspell/index.ts:68",
+        "registerService @ plugins/hyperspell/index.ts:134"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-D71B126E",
       "fixture": "llm-trace-phoenix",
       "severity": "P1",
@@ -4670,6 +6371,42 @@
       "title": "mcp-adapter: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerService @ plugins/mcp-adapter/index.ts:15"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-13459911",
+      "fixture": "memos-cloud",
+      "severity": "P1",
+      "owner": "core",
+      "code": "conversation-access-hook",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "memos-cloud: conversation-access hooks need privacy-boundary probes",
+      "evidence": [
+        "agent_end @ plugins/memos-cloud/index.js:515"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-4D6800E0",
+      "fixture": "memos-cloud",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "memos-cloud: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerHook @ plugins/memos-cloud/index.js:467"
       ],
       "compatRecord": null
     },
@@ -4744,6 +6481,26 @@
       "title": "qqbot: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerChannel @ plugins/qqbot/index.ts:16"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-38C96710",
+      "fixture": "secureclaw",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "secureclaw: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:295",
+        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:301",
+        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:307"
       ],
       "compatRecord": null
     },
@@ -5204,6 +6961,100 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-B8753EFB",
+      "fixture": "composio",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-root-sdk-import",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
+      "title": "composio: root plugin SDK barrel is still used by fixtures",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/composio/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/composio/src/cli.ts:6",
+        "openclaw/plugin-sdk @ plugins/composio/src/client.ts:1",
+        "openclaw/plugin-sdk @ plugins/composio/src/tools.ts:1"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "id": "CRABPOT-D55F7CAE",
+      "fixture": "composio",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "composio: cold import requires isolated dependency installation",
+      "evidence": [
+        "@modelcontextprotocol/sdk @ plugins/composio/package.json",
+        "zod @ plugins/composio/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-9B97C0E4",
+      "fixture": "composio",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-plugin-api-compat-missing",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "composio: plugin API compatibility range is missing",
+      "evidence": [
+        "plugins/composio/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-4701E507",
+      "fixture": "composio",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "composio: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/composio/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-17C49577",
+      "fixture": "composio",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "composio: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/composio/src/tools.ts:89"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-52DE4B29",
       "fixture": "connectclaw",
       "severity": "P2",
@@ -5369,6 +7220,215 @@
         "hasdata"
       ],
       "compatRecord": "provider-auth-env-vars"
+    },
+    {
+      "id": "CRABPOT-4A5B0532",
+      "fixture": "honcho",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-before-agent-start",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
+      "title": "honcho: legacy before_agent_start hook compatibility is still used",
+      "evidence": [
+        "before_agent_start @ plugins/honcho/hooks/subagent.ts:18"
+      ],
+      "compatRecord": "legacy-before-agent-start"
+    },
+    {
+      "id": "CRABPOT-72D49A8F",
+      "fixture": "honcho",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-root-sdk-import",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
+      "title": "honcho: root plugin SDK barrel is still used by fixtures",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/honcho/commands/cli.ts:8",
+        "openclaw/plugin-sdk @ plugins/honcho/hooks/capture.ts:2",
+        "openclaw/plugin-sdk @ plugins/honcho/hooks/context.ts:2",
+        "openclaw/plugin-sdk @ plugins/honcho/hooks/gateway.ts:2",
+        "openclaw/plugin-sdk @ plugins/honcho/hooks/subagent.ts:2",
+        "openclaw/plugin-sdk @ plugins/honcho/state.ts:9",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/ask.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/context.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/memory-passthrough.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/message-search.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/search.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/session.ts:3"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "id": "CRABPOT-DD3A3689",
+      "fixture": "honcho",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-build-artifact-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "honcho: cold import requires package build output",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/honcho/dist/index.js"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-820F2CF2",
+      "fixture": "honcho",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "honcho: cold import requires isolated dependency installation",
+      "evidence": [
+        "@honcho-ai/sdk @ plugins/honcho/package.json",
+        "@sinclair/typebox @ plugins/honcho/package.json",
+        "openclaw @ plugins/honcho/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-1EC15E85",
+      "fixture": "honcho",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "honcho: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/honcho/tools/ask.ts:7",
+        "registerTool @ plugins/honcho/tools/context.ts:7",
+        "registerTool @ plugins/honcho/tools/memory-passthrough.ts:130",
+        "registerTool @ plugins/honcho/tools/memory-passthrough.ts:89",
+        "registerTool @ plugins/honcho/tools/message-search.ts:8",
+        "registerTool @ plugins/honcho/tools/search.ts:7",
+        "registerTool @ plugins/honcho/tools/session.ts:8"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-62A0B82C",
+      "fixture": "hyperspell",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-before-agent-start",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
+      "title": "hyperspell: legacy before_agent_start hook compatibility is still used",
+      "evidence": [
+        "before_agent_start @ plugins/hyperspell/index.ts:102",
+        "before_agent_start @ plugins/hyperspell/index.ts:111"
+      ],
+      "compatRecord": "legacy-before-agent-start"
+    },
+    {
+      "id": "CRABPOT-0FA8E73D",
+      "fixture": "hyperspell",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-root-sdk-import",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
+      "title": "hyperspell: root plugin SDK barrel is still used by fixtures",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/hyperspell/commands/slash.ts:1",
+        "openclaw/plugin-sdk @ plugins/hyperspell/graph/tools.ts:2",
+        "openclaw/plugin-sdk @ plugins/hyperspell/index.ts:1"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "id": "CRABPOT-71680356",
+      "fixture": "hyperspell",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "hyperspell: cold import requires isolated dependency installation",
+      "evidence": [
+        "@clack/prompts @ plugins/hyperspell/package.json",
+        "@sinclair/typebox @ plugins/hyperspell/package.json",
+        "hyperspell @ plugins/hyperspell/package.json",
+        "openclaw @ plugins/hyperspell/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-F12E15DE",
+      "fixture": "hyperspell",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "hyperspell: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/hyperspell/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-FFF09040",
+      "fixture": "hyperspell",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "hyperspell: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/hyperspell/graph/tools.ts:21",
+        "registerTool @ plugins/hyperspell/graph/tools.ts:52",
+        "registerTool @ plugins/hyperspell/graph/tools.ts:95",
+        "registerTool @ plugins/hyperspell/index.ts:89",
+        "registerTool @ plugins/hyperspell/index.ts:92"
+      ],
+      "compatRecord": null
     },
     {
       "id": "CRABPOT-0853EBDC",
@@ -5637,6 +7697,132 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-C13A3115",
+      "fixture": "memos-cloud",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-before-agent-start",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
+      "title": "memos-cloud: legacy before_agent_start hook compatibility is still used",
+      "evidence": [
+        "before_agent_start @ plugins/memos-cloud/index.js:481"
+      ],
+      "compatRecord": "legacy-before-agent-start"
+    },
+    {
+      "id": "CRABPOT-8063D1D1",
+      "fixture": "memos-cloud",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "manifest-unknown-fields",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "memos-cloud: manifest uses unsupported top-level fields",
+      "evidence": [
+        "main @ plugins/memos-cloud/openclaw.plugin.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-66D4DDD2",
+      "fixture": "memos-cloud",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-plugin-api-compat-missing",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "memos-cloud: plugin API compatibility range is missing",
+      "evidence": [
+        "plugins/memos-cloud/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-67F01CBE",
+      "fixture": "memu-engine",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-root-sdk-import",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
+      "title": "memu-engine: root plugin SDK barrel is still used by fixtures",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/memu-engine/index.ts:1"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "id": "CRABPOT-34908E7A",
+      "fixture": "memu-engine",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-plugin-api-compat-missing",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "memu-engine: plugin API compatibility range is missing",
+      "evidence": [
+        "plugins/memu-engine/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-334C8181",
+      "fixture": "memu-engine",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "memu-engine: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/memu-engine/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-364A2829",
+      "fixture": "memu-engine",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "memu-engine: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/memu-engine/index.ts:1252"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-F76EC24F",
       "fixture": "opik-openclaw",
       "severity": "P2",
@@ -5837,6 +8023,62 @@
       "evidence": [
         "registerTool @ plugins/qqbot/src/tools/channel.ts:138",
         "registerTool @ plugins/qqbot/src/tools/remind.ts:222"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-10F50B9B",
+      "fixture": "secureclaw",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-build-artifact-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "secureclaw: cold import requires package build output",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/secureclaw/secureclaw/dist/index.js"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-F5DC547A",
+      "fixture": "secureclaw",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "secureclaw: cold import requires isolated dependency installation",
+      "evidence": [
+        "chokidar @ plugins/secureclaw/secureclaw/package.json",
+        "node-forge @ plugins/secureclaw/secureclaw/package.json",
+        "openclaw @ plugins/secureclaw/secureclaw/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-690B4DC6",
+      "fixture": "secureclaw",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-plugin-api-compat-missing",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "secureclaw: plugin API compatibility range is missing",
+      "evidence": [
+        "plugins/secureclaw/secureclaw/package.json"
       ],
       "compatRecord": null
     },
@@ -6052,6 +8294,33 @@
       ]
     },
     {
+      "id": "api.capture.runtime-registrars:honcho",
+      "fixture": "honcho",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
+        "registerMemoryRuntime @ plugins/honcho/runtime.ts:276"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:hyperspell",
+      "fixture": "hyperspell",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:43",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:98",
+        "registerCommand @ plugins/hyperspell/index.ts:46",
+        "registerCommand @ plugins/hyperspell/index.ts:57",
+        "registerCommand @ plugins/hyperspell/index.ts:68",
+        "registerService @ plugins/hyperspell/index.ts:134"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:lossless-claw",
       "fixture": "lossless-claw",
       "priority": "P1",
@@ -6073,6 +8342,16 @@
       ]
     },
     {
+      "id": "api.capture.runtime-registrars:memos-cloud",
+      "fixture": "memos-cloud",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerHook @ plugins/memos-cloud/index.js:467"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:opik-openclaw",
       "fixture": "opik-openclaw",
       "priority": "P1",
@@ -6090,6 +8369,18 @@
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
         "registerChannel @ plugins/qqbot/index.ts:16"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:secureclaw",
+      "fixture": "secureclaw",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:295",
+        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:301",
+        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:307"
       ]
     },
     {
@@ -6124,6 +8415,28 @@
       ]
     },
     {
+      "id": "hook.llm-observer.privacy-payload:honcho",
+      "fixture": "honcho",
+      "priority": "P1",
+      "target": "hook-runner",
+      "contract": "LLM observer hooks receive documented prompt/output fields with expected redaction behavior.",
+      "evidence": [
+        "agent_end @ plugins/honcho/hooks/capture.ts:89",
+        "agent_end @ plugins/honcho/hooks/subagent.ts:34"
+      ]
+    },
+    {
+      "id": "hook.llm-observer.privacy-payload:hyperspell",
+      "fixture": "hyperspell",
+      "priority": "P1",
+      "target": "hook-runner",
+      "contract": "LLM observer hooks receive documented prompt/output fields with expected redaction behavior.",
+      "evidence": [
+        "agent_end @ plugins/hyperspell/index.ts:105",
+        "agent_end @ plugins/hyperspell/index.ts:116"
+      ]
+    },
+    {
       "id": "hook.llm-observer.privacy-payload:llm-trace-phoenix",
       "fixture": "llm-trace-phoenix",
       "priority": "P1",
@@ -6132,6 +8445,16 @@
       "evidence": [
         "llm_input @ plugins/llm-trace-phoenix/index.ts:154",
         "llm_output @ plugins/llm-trace-phoenix/index.ts:168"
+      ]
+    },
+    {
+      "id": "hook.llm-observer.privacy-payload:memos-cloud",
+      "fixture": "memos-cloud",
+      "priority": "P1",
+      "target": "hook-runner",
+      "contract": "LLM observer hooks receive documented prompt/output fields with expected redaction behavior.",
+      "evidence": [
+        "agent_end @ plugins/memos-cloud/index.js:515"
       ]
     },
     {
@@ -6199,6 +8522,27 @@
       ]
     },
     {
+      "id": "hook.compat.before-agent-start-migration:honcho",
+      "fixture": "honcho",
+      "priority": "P2",
+      "target": "hook-runner",
+      "contract": "Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.",
+      "evidence": [
+        "before_agent_start @ plugins/honcho/hooks/subagent.ts:18"
+      ]
+    },
+    {
+      "id": "hook.compat.before-agent-start-migration:hyperspell",
+      "fixture": "hyperspell",
+      "priority": "P2",
+      "target": "hook-runner",
+      "contract": "Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.",
+      "evidence": [
+        "before_agent_start @ plugins/hyperspell/index.ts:102",
+        "before_agent_start @ plugins/hyperspell/index.ts:111"
+      ]
+    },
+    {
       "id": "manifest.compat.channel-env-vars:agentchat",
       "fixture": "agentchat",
       "priority": "P2",
@@ -6259,6 +8603,16 @@
       "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
       "evidence": [
         "plugins/a2a-gateway/package.json"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:composio",
+      "fixture": "composio",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      "evidence": [
+        "plugins/composio/package.json"
       ]
     },
     {
@@ -6323,6 +8677,16 @@
       ]
     },
     {
+      "id": "package.entrypoint.build-before-cold-import:honcho",
+      "fixture": "honcho",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector can build or resolve source aliases before cold importing package entrypoints.",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/honcho/dist/index.js"
+      ]
+    },
+    {
       "id": "package.entrypoint.build-before-cold-import:lossless-claw",
       "fixture": "lossless-claw",
       "priority": "P2",
@@ -6374,6 +8738,17 @@
       ]
     },
     {
+      "id": "package.entrypoint.isolated-dependency-install:composio",
+      "fixture": "composio",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "@modelcontextprotocol/sdk @ plugins/composio/package.json",
+        "zod @ plugins/composio/package.json"
+      ]
+    },
+    {
       "id": "package.entrypoint.isolated-dependency-install:connectclaw",
       "fixture": "connectclaw",
       "priority": "P2",
@@ -6392,6 +8767,31 @@
       "evidence": [
         "@sinclair/typebox @ plugins/hasdata/package.json",
         "openclaw @ plugins/hasdata/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:honcho",
+      "fixture": "honcho",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "@honcho-ai/sdk @ plugins/honcho/package.json",
+        "@sinclair/typebox @ plugins/honcho/package.json",
+        "openclaw @ plugins/honcho/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:hyperspell",
+      "fixture": "hyperspell",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "@clack/prompts @ plugins/hyperspell/package.json",
+        "@sinclair/typebox @ plugins/hyperspell/package.json",
+        "hyperspell @ plugins/hyperspell/package.json",
+        "openclaw @ plugins/hyperspell/package.json"
       ]
     },
     {
@@ -6469,6 +8869,16 @@
       ]
     },
     {
+      "id": "package.entrypoint.typescript-loader:composio",
+      "fixture": "composio",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/composio/index.ts"
+      ]
+    },
+    {
       "id": "package.entrypoint.typescript-loader:connectclaw",
       "fixture": "connectclaw",
       "priority": "P2",
@@ -6486,6 +8896,16 @@
       "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
       "evidence": [
         "extension:plugins/hasdata/src/index.ts"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:hyperspell",
+      "fixture": "hyperspell",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/hyperspell/index.ts"
       ]
     },
     {
@@ -6540,6 +8960,19 @@
       ]
     },
     {
+      "id": "sdk.import.root-barrel-cold-import:composio",
+      "fixture": "composio",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/composio/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/composio/src/cli.ts:6",
+        "openclaw/plugin-sdk @ plugins/composio/src/client.ts:1",
+        "openclaw/plugin-sdk @ plugins/composio/src/tools.ts:1"
+      ]
+    },
+    {
       "id": "sdk.import.root-barrel-cold-import:connectclaw",
       "fixture": "connectclaw",
       "priority": "P2",
@@ -6551,6 +8984,39 @@
         "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/hooks.ts:1",
         "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:1",
         "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:2"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:honcho",
+      "fixture": "honcho",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/honcho/commands/cli.ts:8",
+        "openclaw/plugin-sdk @ plugins/honcho/hooks/capture.ts:2",
+        "openclaw/plugin-sdk @ plugins/honcho/hooks/context.ts:2",
+        "openclaw/plugin-sdk @ plugins/honcho/hooks/gateway.ts:2",
+        "openclaw/plugin-sdk @ plugins/honcho/hooks/subagent.ts:2",
+        "openclaw/plugin-sdk @ plugins/honcho/state.ts:9",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/ask.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/context.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/memory-passthrough.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/message-search.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/search.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/session.ts:3"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:hyperspell",
+      "fixture": "hyperspell",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/hyperspell/commands/slash.ts:1",
+        "openclaw/plugin-sdk @ plugins/hyperspell/graph/tools.ts:2",
+        "openclaw/plugin-sdk @ plugins/hyperspell/index.ts:1"
       ]
     },
     {
@@ -6627,6 +9093,16 @@
       ]
     },
     {
+      "id": "tool.registration.schema-capture:composio",
+      "fixture": "composio",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/composio/src/tools.ts:89"
+      ]
+    },
+    {
       "id": "tool.registration.schema-capture:connectclaw",
       "fixture": "connectclaw",
       "priority": "P2",
@@ -6634,6 +9110,36 @@
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
         "registerTool @ plugins/connectclaw/packages/plugin/src/tools.ts:6"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:honcho",
+      "fixture": "honcho",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/honcho/tools/ask.ts:7",
+        "registerTool @ plugins/honcho/tools/context.ts:7",
+        "registerTool @ plugins/honcho/tools/memory-passthrough.ts:130",
+        "registerTool @ plugins/honcho/tools/memory-passthrough.ts:89",
+        "registerTool @ plugins/honcho/tools/message-search.ts:8",
+        "registerTool @ plugins/honcho/tools/search.ts:7",
+        "registerTool @ plugins/honcho/tools/session.ts:8"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:hyperspell",
+      "fixture": "hyperspell",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/hyperspell/graph/tools.ts:21",
+        "registerTool @ plugins/hyperspell/graph/tools.ts:52",
+        "registerTool @ plugins/hyperspell/graph/tools.ts:95",
+        "registerTool @ plugins/hyperspell/index.ts:89",
+        "registerTool @ plugins/hyperspell/index.ts:92"
       ]
     },
     {
@@ -6683,6 +9189,16 @@
       ]
     },
     {
+      "id": "hook.compat.before-agent-start-migration:memos-cloud",
+      "fixture": "memos-cloud",
+      "priority": "P3",
+      "target": "hook-runner",
+      "contract": "Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.",
+      "evidence": [
+        "before_agent_start @ plugins/memos-cloud/index.js:481"
+      ]
+    },
+    {
       "id": "manifest.compat.provider-auth-env-vars:inworld-tts",
       "fixture": "inworld-tts",
       "priority": "P3",
@@ -6711,6 +9227,46 @@
       ]
     },
     {
+      "id": "manifest.schema.top-level-fields:memos-cloud",
+      "fixture": "memos-cloud",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "contract": "Manifest top-level fields are represented in target OpenClaw PluginManifest.",
+      "evidence": [
+        "main @ plugins/memos-cloud/openclaw.plugin.json"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:memos-cloud",
+      "fixture": "memos-cloud",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      "evidence": [
+        "plugins/memos-cloud/package.json"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:memu-engine",
+      "fixture": "memu-engine",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      "evidence": [
+        "plugins/memu-engine/package.json"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:secureclaw",
+      "fixture": "secureclaw",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      "evidence": [
+        "plugins/secureclaw/secureclaw/package.json"
+      ]
+    },
+    {
       "id": "package.entrypoint.build-before-cold-import:clawmetry",
       "fixture": "clawmetry",
       "priority": "P3",
@@ -6718,6 +9274,16 @@
       "contract": "Inspector can build or resolve source aliases before cold importing package entrypoints.",
       "evidence": [
         "runtimeExtension:./dist/index.js -> plugins/clawmetry/clawhub-plugin/dist/index.js"
+      ]
+    },
+    {
+      "id": "package.entrypoint.build-before-cold-import:secureclaw",
+      "fixture": "secureclaw",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector can build or resolve source aliases before cold importing package entrypoints.",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/secureclaw/secureclaw/dist/index.js"
       ]
     },
     {
@@ -6761,6 +9327,18 @@
       "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
       "evidence": [
         "openclaw @ plugins/inworld-tts/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:secureclaw",
+      "fixture": "secureclaw",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "chokidar @ plugins/secureclaw/secureclaw/package.json",
+        "node-forge @ plugins/secureclaw/secureclaw/package.json",
+        "openclaw @ plugins/secureclaw/secureclaw/package.json"
       ]
     },
     {
@@ -6814,6 +9392,16 @@
       ]
     },
     {
+      "id": "package.entrypoint.typescript-loader:memu-engine",
+      "fixture": "memu-engine",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/memu-engine/index.ts"
+      ]
+    },
+    {
       "id": "package.entrypoint.typescript-loader:web-search-plus",
       "fixture": "web-search-plus",
       "priority": "P3",
@@ -6849,6 +9437,16 @@
       ]
     },
     {
+      "id": "sdk.import.root-barrel-cold-import:memu-engine",
+      "fixture": "memu-engine",
+      "priority": "P3",
+      "target": "sdk-alias",
+      "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/memu-engine/index.ts:1"
+      ]
+    },
+    {
       "id": "tool.registration.schema-capture:apify",
       "fixture": "apify",
       "priority": "P3",
@@ -6856,6 +9454,16 @@
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
         "registerTool @ plugins/apify/src/index.ts:13"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:memu-engine",
+      "fixture": "memu-engine",
+      "priority": "P3",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/memu-engine/index.ts:1252"
       ]
     },
     {
@@ -7478,6 +10086,355 @@
       ]
     },
     {
+      "fixture": "hyperspell",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 5 hooks, 4 registrations, and 0 manifest contracts",
+      "evidence": [
+        "hook:after_compaction",
+        "hook:agent_end",
+        "hook:before_agent_start",
+        "hook:file_changed",
+        "hook:session_end",
+        "registration:registerCli",
+        "registration:registerCommand",
+        "registration:registerService",
+        "registration:registerTool"
+      ]
+    },
+    {
+      "fixture": "hyperspell",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerCli",
+        "registerCommand",
+        "registerService",
+        "registerTool"
+      ]
+    },
+    {
+      "fixture": "hyperspell",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk"
+      ]
+    },
+    {
+      "fixture": "hyperspell",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/hyperspell/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "hyperspell",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/hyperspell/package.json",
+        "@hyperspell/openclaw-hyperspell",
+        "version:0.12.0"
+      ]
+    },
+    {
+      "fixture": "honcho",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 7 hooks, 5 registrations, and 0 manifest contracts",
+      "evidence": [
+        "hook:agent_end",
+        "hook:before_agent_start",
+        "hook:before_compaction",
+        "hook:before_prompt_build",
+        "hook:before_reset",
+        "hook:gateway_start",
+        "hook:subagent_spawned",
+        "registration:definePluginEntry",
+        "registration:registerCli",
+        "registration:registerMemoryPromptSection",
+        "registration:registerMemoryRuntime",
+        "registration:registerTool"
+      ]
+    },
+    {
+      "fixture": "honcho",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": [
+        "agent_end",
+        "before_agent_start",
+        "before_compaction",
+        "before_prompt_build",
+        "before_reset",
+        "gateway_start",
+        "subagent_spawned"
+      ]
+    },
+    {
+      "fixture": "honcho",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerCli",
+        "registerMemoryPromptSection",
+        "registerMemoryRuntime",
+        "registerTool"
+      ]
+    },
+    {
+      "fixture": "honcho",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk",
+        "openclaw/plugin-sdk/memory-core",
+        "openclaw/plugin-sdk/plugin-entry"
+      ]
+    },
+    {
+      "fixture": "honcho",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/honcho/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "honcho",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/honcho/package.json",
+        "@honcho-ai/openclaw-honcho",
+        "version:1.3.3"
+      ]
+    },
+    {
+      "fixture": "composio",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 1 hooks, 2 registrations, and 0 manifest contracts",
+      "evidence": [
+        "hook:before_prompt_build",
+        "registration:registerCli",
+        "registration:registerTool"
+      ]
+    },
+    {
+      "fixture": "composio",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": [
+        "before_prompt_build"
+      ]
+    },
+    {
+      "fixture": "composio",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerCli",
+        "registerTool"
+      ]
+    },
+    {
+      "fixture": "composio",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk"
+      ]
+    },
+    {
+      "fixture": "composio",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/composio/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "composio",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/composio/package.json",
+        "@composio/openclaw-plugin",
+        "version:0.0.11"
+      ]
+    },
+    {
+      "fixture": "memu-engine",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 0 hooks, 1 registrations, and 0 manifest contracts",
+      "evidence": [
+        "registration:registerTool"
+      ]
+    },
+    {
+      "fixture": "memu-engine",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": []
+    },
+    {
+      "fixture": "memu-engine",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerTool"
+      ]
+    },
+    {
+      "fixture": "memu-engine",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk"
+      ]
+    },
+    {
+      "fixture": "memu-engine",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/memu-engine/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "memu-engine",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/memu-engine/package.json",
+        "memu-engine",
+        "version:0.3.6"
+      ]
+    },
+    {
+      "fixture": "secureclaw",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 1 hooks, 2 registrations, and 0 manifest contracts",
+      "evidence": [
+        "hook:gateway_start",
+        "registration:registerCli",
+        "registration:registerService"
+      ]
+    },
+    {
+      "fixture": "secureclaw",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": [
+        "gateway_start"
+      ]
+    },
+    {
+      "fixture": "secureclaw",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerCli",
+        "registerService"
+      ]
+    },
+    {
+      "fixture": "secureclaw",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/secureclaw/secureclaw/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "secureclaw",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/secureclaw/secureclaw/package.json",
+        "@adversa/secureclaw",
+        "version:2.2.0"
+      ]
+    },
+    {
+      "fixture": "memos-cloud",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 2 hooks, 1 registrations, and 0 manifest contracts",
+      "evidence": [
+        "hook:agent_end",
+        "hook:before_agent_start",
+        "registration:registerHook"
+      ]
+    },
+    {
+      "fixture": "memos-cloud",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": [
+        "agent_end",
+        "before_agent_start"
+      ]
+    },
+    {
+      "fixture": "memos-cloud",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerHook"
+      ]
+    },
+    {
+      "fixture": "memos-cloud",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/memos-cloud/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "memos-cloud",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/memos-cloud/package.json",
+        "@memtensor/memos-cloud-openclaw-plugin",
+        "version:0.1.13"
+      ]
+    },
+    {
       "fixture": "clawmetry",
       "code": "seam-inventory",
       "level": "log",
@@ -7835,6 +10792,83 @@
     },
     {
       "fixture": "connectclaw",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-before-agent-start",
+        "status:deprecated"
+      ],
+      "compatRecord": "legacy-before-agent-start"
+    },
+    {
+      "fixture": "hyperspell",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-root-sdk-import",
+        "status:deprecated"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "hyperspell",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-before-agent-start",
+        "status:deprecated"
+      ],
+      "compatRecord": "legacy-before-agent-start"
+    },
+    {
+      "fixture": "honcho",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-root-sdk-import",
+        "status:deprecated"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "honcho",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-before-agent-start",
+        "status:deprecated"
+      ],
+      "compatRecord": "legacy-before-agent-start"
+    },
+    {
+      "fixture": "composio",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-root-sdk-import",
+        "status:deprecated"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "memu-engine",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-root-sdk-import",
+        "status:deprecated"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "memos-cloud",
       "code": "compat-record-present",
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
@@ -8295,6 +11329,230 @@
       "seam": "tool-schema",
       "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
       "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "hyperspell",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/hyperspell/index.ts"
+    },
+    {
+      "fixture": "hyperspell",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "@clack/prompts, @sinclair/typebox, hyperspell, openclaw"
+    },
+    {
+      "fixture": "hyperspell",
+      "decision": "inspector-follow-up",
+      "seam": "conversation-access",
+      "action": "Add synthetic llm_input/llm_output/agent_end probes before tightening hook payloads or redaction behavior.",
+      "evidence": "agent_end"
+    },
+    {
+      "fixture": "hyperspell",
+      "decision": "core-compat-adapter",
+      "seam": "sdk-import",
+      "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
+      "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "hyperspell",
+      "decision": "core-compat-adapter",
+      "seam": "hook-compat",
+      "action": "Keep before_agent_start wired while plugin authors migrate to before_model_resolve and before_prompt_build.",
+      "evidence": "before_agent_start @ plugins/hyperspell/index.ts:102, before_agent_start @ plugins/hyperspell/index.ts:111"
+    },
+    {
+      "fixture": "hyperspell",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerCommand, registerService"
+    },
+    {
+      "fixture": "hyperspell",
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "honcho",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Run the plugin build or resolve source entrypoint aliases before cold-importing this fixture.",
+      "evidence": "./dist/index.js"
+    },
+    {
+      "fixture": "honcho",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "@honcho-ai/sdk, @sinclair/typebox, openclaw"
+    },
+    {
+      "fixture": "honcho",
+      "decision": "inspector-follow-up",
+      "seam": "conversation-access",
+      "action": "Add synthetic llm_input/llm_output/agent_end probes before tightening hook payloads or redaction behavior.",
+      "evidence": "agent_end"
+    },
+    {
+      "fixture": "honcho",
+      "decision": "core-compat-adapter",
+      "seam": "sdk-import",
+      "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
+      "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "honcho",
+      "decision": "core-compat-adapter",
+      "seam": "hook-compat",
+      "action": "Keep before_agent_start wired while plugin authors migrate to before_model_resolve and before_prompt_build.",
+      "evidence": "before_agent_start @ plugins/honcho/hooks/subagent.ts:18"
+    },
+    {
+      "fixture": "honcho",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerMemoryPromptSection, registerMemoryRuntime"
+    },
+    {
+      "fixture": "honcho",
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "composio",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to declare the plugin API range it was built against.",
+      "evidence": "plugins/composio/package.json"
+    },
+    {
+      "fixture": "composio",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/composio/index.ts"
+    },
+    {
+      "fixture": "composio",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "@modelcontextprotocol/sdk, zod"
+    },
+    {
+      "fixture": "composio",
+      "decision": "core-compat-adapter",
+      "seam": "sdk-import",
+      "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
+      "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "composio",
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "memu-engine",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to declare the plugin API range it was built against.",
+      "evidence": "plugins/memu-engine/package.json"
+    },
+    {
+      "fixture": "memu-engine",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/memu-engine/index.ts"
+    },
+    {
+      "fixture": "memu-engine",
+      "decision": "core-compat-adapter",
+      "seam": "sdk-import",
+      "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
+      "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "memu-engine",
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "secureclaw",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to declare the plugin API range it was built against.",
+      "evidence": "plugins/secureclaw/secureclaw/package.json"
+    },
+    {
+      "fixture": "secureclaw",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Run the plugin build or resolve source entrypoint aliases before cold-importing this fixture.",
+      "evidence": "./dist/index.js"
+    },
+    {
+      "fixture": "secureclaw",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "chokidar, node-forge, openclaw"
+    },
+    {
+      "fixture": "secureclaw",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerService"
+    },
+    {
+      "fixture": "memos-cloud",
+      "decision": "plugin-upstream-fix",
+      "seam": "manifest-schema",
+      "action": "Move unknown manifest metadata into supported package openclaw metadata or add a versioned OpenClaw manifest field.",
+      "evidence": "main"
+    },
+    {
+      "fixture": "memos-cloud",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to declare the plugin API range it was built against.",
+      "evidence": "plugins/memos-cloud/package.json"
+    },
+    {
+      "fixture": "memos-cloud",
+      "decision": "inspector-follow-up",
+      "seam": "conversation-access",
+      "action": "Add synthetic llm_input/llm_output/agent_end probes before tightening hook payloads or redaction behavior.",
+      "evidence": "agent_end"
+    },
+    {
+      "fixture": "memos-cloud",
+      "decision": "core-compat-adapter",
+      "seam": "hook-compat",
+      "action": "Keep before_agent_start wired while plugin authors migrate to before_model_resolve and before_prompt_build.",
+      "evidence": "before_agent_start @ plugins/memos-cloud/index.js:481"
+    },
+    {
+      "fixture": "memos-cloud",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerHook"
     },
     {
       "fixture": "clawmetry",

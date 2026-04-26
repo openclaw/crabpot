@@ -10,15 +10,15 @@
     "configuredPath": "../openclaw"
   },
   "summary": {
-    "fixtureCount": 15,
-    "entrypointCount": 18,
-    "installStepCount": 12,
-    "auditStepCount": 12,
-    "buildStepCount": 5,
-    "artifactStepCount": 18,
-    "captureStepCount": 18,
-    "syntheticProbeStepCount": 18,
-    "targetOpenClawLinkStepCount": 12,
+    "fixtureCount": 21,
+    "entrypointCount": 24,
+    "installStepCount": 14,
+    "auditStepCount": 14,
+    "buildStepCount": 7,
+    "artifactStepCount": 24,
+    "captureStepCount": 24,
+    "syntheticProbeStepCount": 24,
+    "targetOpenClawLinkStepCount": 13,
     "missingBuildScriptCount": 0,
     "sdkAliasRequiredCount": 1
   },
@@ -880,6 +880,405 @@
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/connectclaw",
               "artifactPath": ".crabpot/results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyperspell",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:hyperspell:plugins-hyperspell-index-ts",
+          "fixture": "hyperspell",
+          "packagePath": "plugins/hyperspell/package.json",
+          "packageName": "@hyperspell/openclaw-hyperspell",
+          "entrypoint": "plugins/hyperspell/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/hyperspell/package-lock.json",
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "side-effect-sandbox",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/hyperspell/index.ts"
+            },
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/hyperspell/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@clack/prompts, @sinclair/typebox, hyperspell, openclaw"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/hyperspell && rsync -a --delete plugins/hyperspell/ .crabpot/workspaces/hyperspell/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/hyperspell",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/hyperspell",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/hyperspell",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/hyperspell/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/hyperspell",
+              "artifactPath": ".crabpot/results/hyperspell/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.capture.json",
+              "cwd": ".crabpot/workspaces/hyperspell",
+              "artifactPath": ".crabpot/results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/hyperspell",
+              "artifactPath": ".crabpot/results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "honcho",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
+          "fixture": "honcho",
+          "packagePath": "plugins/honcho/package.json",
+          "packageName": "@honcho-ai/openclaw-honcho",
+          "entrypoint": "plugins/honcho/dist/index.js",
+          "status": "build-required",
+          "packageManager": "pnpm",
+          "lockfile": "plugins/honcho/pnpm-lock.yaml",
+          "requiredCapabilities": [
+            "build",
+            "capture-shim",
+            "synthetic-probes"
+          ],
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/honcho/dist/index.js"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/honcho && rsync -a --delete plugins/honcho/ .crabpot/workspaces/honcho/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/honcho",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "build",
+              "command": "pnpm run build",
+              "cwd": ".crabpot/workspaces/honcho",
+              "reason": "produce missing OpenClaw build entrypoint"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/honcho/cold-import-extension-honcho-plugins-honcho-dist-index-js.capture.json",
+              "cwd": ".crabpot/workspaces/honcho",
+              "artifactPath": ".crabpot/results/honcho/cold-import-extension-honcho-plugins-honcho-dist-index-js.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/honcho/cold-import-extension-honcho-plugins-honcho-dist-index-js.synthetic.json",
+              "cwd": ".crabpot/workspaces/honcho",
+              "artifactPath": ".crabpot/results/honcho/cold-import-extension-honcho-plugins-honcho-dist-index-js.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "composio",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:composio:plugins-composio-index-ts",
+          "fixture": "composio",
+          "packagePath": "plugins/composio/package.json",
+          "packageName": "@composio/openclaw-plugin",
+          "entrypoint": "plugins/composio/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": null,
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/composio/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@modelcontextprotocol/sdk, zod"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/composio && rsync -a --delete plugins/composio/ .crabpot/workspaces/composio/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/composio",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/composio",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/composio/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/composio",
+              "artifactPath": ".crabpot/results/composio/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.capture.json",
+              "cwd": ".crabpot/workspaces/composio",
+              "artifactPath": ".crabpot/results/composio/cold-import-extension-composio-plugins-composio-index-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/composio",
+              "artifactPath": ".crabpot/results/composio/cold-import-extension-composio-plugins-composio-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memu-engine",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:memu-engine:plugins-memu-engine-index-ts",
+          "fixture": "memu-engine",
+          "packagePath": "plugins/memu-engine/package.json",
+          "packageName": "memu-engine",
+          "entrypoint": "plugins/memu-engine/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": null,
+          "requiredCapabilities": [
+            "capture-shim",
+            "side-effect-sandbox",
+            "synthetic-probes",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/memu-engine/index.ts"
+            },
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/memu-engine/index.ts"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/memu-engine && rsync -a --delete plugins/memu-engine/ .crabpot/workspaces/memu-engine/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/memu-engine",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.capture.json",
+              "cwd": ".crabpot/workspaces/memu-engine",
+              "artifactPath": ".crabpot/results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/memu-engine",
+              "artifactPath": ".crabpot/results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "secureclaw",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:secureclaw:plugins-secureclaw-secureclaw-dist-index-js",
+          "fixture": "secureclaw",
+          "packagePath": "plugins/secureclaw/secureclaw/package.json",
+          "packageName": "@adversa/secureclaw",
+          "entrypoint": "plugins/secureclaw/secureclaw/dist/index.js",
+          "status": "build-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/secureclaw/secureclaw/package-lock.json",
+          "requiredCapabilities": [
+            "build",
+            "capture-shim",
+            "synthetic-probes"
+          ],
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/secureclaw/secureclaw/dist/index.js"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/secureclaw && rsync -a --delete plugins/secureclaw/secureclaw/ .crabpot/workspaces/secureclaw/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/secureclaw",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "build",
+              "command": "npm run build",
+              "cwd": ".crabpot/workspaces/secureclaw",
+              "reason": "produce missing OpenClaw build entrypoint"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/secureclaw/cold-import-extension-secureclaw-plugins-secureclaw-secureclaw-dist-index-js.capture.json",
+              "cwd": ".crabpot/workspaces/secureclaw",
+              "artifactPath": ".crabpot/results/secureclaw/cold-import-extension-secureclaw-plugins-secureclaw-secureclaw-dist-index-js.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/secureclaw/cold-import-extension-secureclaw-plugins-secureclaw-secureclaw-dist-index-js.synthetic.json",
+              "cwd": ".crabpot/workspaces/secureclaw",
+              "artifactPath": ".crabpot/results/secureclaw/cold-import-extension-secureclaw-plugins-secureclaw-secureclaw-dist-index-js.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memos-cloud",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:memos-cloud:plugins-memos-cloud-index-js",
+          "fixture": "memos-cloud",
+          "packagePath": "plugins/memos-cloud/package.json",
+          "packageName": "@memtensor/memos-cloud-openclaw-plugin",
+          "entrypoint": "plugins/memos-cloud/index.js",
+          "status": "review-required",
+          "packageManager": "npm",
+          "lockfile": null,
+          "requiredCapabilities": [
+            "capture-shim",
+            "side-effect-sandbox",
+            "synthetic-probes"
+          ],
+          "blockers": [
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/memos-cloud/index.js"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/memos-cloud && rsync -a --delete plugins/memos-cloud/ .crabpot/workspaces/memos-cloud/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/memos-cloud",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.js --output ../../results/memos-cloud/cold-import-extension-memos-cloud-plugins-memos-cloud-index-js.capture.json",
+              "cwd": ".crabpot/workspaces/memos-cloud",
+              "artifactPath": ".crabpot/results/memos-cloud/cold-import-extension-memos-cloud-plugins-memos-cloud-index-js.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.js --output ../../results/memos-cloud/cold-import-extension-memos-cloud-plugins-memos-cloud-index-js.synthetic.json",
+              "cwd": ".crabpot/workspaces/memos-cloud",
+              "artifactPath": ".crabpot/results/memos-cloud/cold-import-extension-memos-cloud-plugins-memos-cloud-index-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]

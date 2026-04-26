@@ -7,13 +7,13 @@
     "sdkExportCount": 307
   },
   "summary": {
-    "fixtureCount": 15,
-    "registrationCount": 43,
-    "hookCount": 24,
-    "sdkImportCount": 64,
-    "packageEntrypointCount": 18,
-    "issueProbeCount": 77,
-    "inspectorShimRequiredCount": 24,
+    "fixtureCount": 21,
+    "registrationCount": 75,
+    "hookCount": 43,
+    "sdkImportCount": 86,
+    "packageEntrypointCount": 24,
+    "issueProbeCount": 109,
+    "inspectorShimRequiredCount": 38,
     "compatAliasRequiredCount": 3
   },
   "fixtures": [
@@ -1922,6 +1922,1472 @@
       ]
     },
     {
+      "id": "hyperspell",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.registerCli:hyperspell:plugins-hyperspell-index-ts-30",
+          "fixture": "hyperspell",
+          "registrar": "registerCli",
+          "ref": "plugins/hyperspell/index.ts:30",
+          "support": "target-captured",
+          "assertions": [
+            "command name is stable",
+            "argument schema is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "args": [
+                {
+                  "name": "input",
+                  "type": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-166",
+          "fixture": "hyperspell",
+          "registrar": "registerCommand",
+          "ref": "plugins/hyperspell/commands/slash.ts:166",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-43",
+          "fixture": "hyperspell",
+          "registrar": "registerCommand",
+          "ref": "plugins/hyperspell/commands/slash.ts:43",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-98",
+          "fixture": "hyperspell",
+          "registrar": "registerCommand",
+          "ref": "plugins/hyperspell/commands/slash.ts:98",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-46",
+          "fixture": "hyperspell",
+          "registrar": "registerCommand",
+          "ref": "plugins/hyperspell/index.ts:46",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-57",
+          "fixture": "hyperspell",
+          "registrar": "registerCommand",
+          "ref": "plugins/hyperspell/index.ts:57",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-68",
+          "fixture": "hyperspell",
+          "registrar": "registerCommand",
+          "ref": "plugins/hyperspell/index.ts:68",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerService:hyperspell:plugins-hyperspell-index-ts-134",
+          "fixture": "hyperspell",
+          "registrar": "registerService",
+          "ref": "plugins/hyperspell/index.ts:134",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "service id is stable",
+            "start/stop lifecycle handlers are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-service",
+              "start": "function",
+              "stop": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:hyperspell:plugins-hyperspell-graph-tools-ts-21",
+          "fixture": "hyperspell",
+          "registrar": "registerTool",
+          "ref": "plugins/hyperspell/graph/tools.ts:21",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:hyperspell:plugins-hyperspell-graph-tools-ts-52",
+          "fixture": "hyperspell",
+          "registrar": "registerTool",
+          "ref": "plugins/hyperspell/graph/tools.ts:52",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:hyperspell:plugins-hyperspell-graph-tools-ts-95",
+          "fixture": "hyperspell",
+          "registrar": "registerTool",
+          "ref": "plugins/hyperspell/graph/tools.ts:95",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:hyperspell:plugins-hyperspell-index-ts-89",
+          "fixture": "hyperspell",
+          "registrar": "registerTool",
+          "ref": "plugins/hyperspell/index.ts:89",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:hyperspell:plugins-hyperspell-index-ts-92",
+          "fixture": "hyperspell",
+          "registrar": "registerTool",
+          "ref": "plugins/hyperspell/index.ts:92",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [
+        {
+          "id": "hook.after_compaction:hyperspell:plugins-hyperspell-index-ts-103",
+          "fixture": "hyperspell",
+          "hook": "after_compaction",
+          "ref": "plugins/hyperspell/index.ts:103",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "after_compaction",
+            "fixture": "hyperspell"
+          },
+          "syntheticContext": {
+            "hook": "after_compaction",
+            "fixture": "hyperspell"
+          }
+        },
+        {
+          "id": "hook.agent_end:hyperspell:plugins-hyperspell-index-ts-105",
+          "fixture": "hyperspell",
+          "hook": "agent_end",
+          "ref": "plugins/hyperspell/index.ts:105",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "final conversation payload is redacted as expected",
+            "agent id and run metadata are present"
+          ],
+          "syntheticEvent": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "conversationId": "conversation-fixture",
+            "status": "completed",
+            "transcript": [
+              {
+                "role": "assistant",
+                "content": "[redacted fixture output]"
+              }
+            ]
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture",
+            "channelId": "fixture-channel"
+          }
+        },
+        {
+          "id": "hook.agent_end:hyperspell:plugins-hyperspell-index-ts-116",
+          "fixture": "hyperspell",
+          "hook": "agent_end",
+          "ref": "plugins/hyperspell/index.ts:116",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "final conversation payload is redacted as expected",
+            "agent id and run metadata are present"
+          ],
+          "syntheticEvent": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "conversationId": "conversation-fixture",
+            "status": "completed",
+            "transcript": [
+              {
+                "role": "assistant",
+                "content": "[redacted fixture output]"
+              }
+            ]
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture",
+            "channelId": "fixture-channel"
+          }
+        },
+        {
+          "id": "hook.before_agent_start:hyperspell:plugins-hyperspell-index-ts-102",
+          "fixture": "hyperspell",
+          "hook": "before_agent_start",
+          "ref": "plugins/hyperspell/index.ts:102",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "legacy startup hook payload is accepted",
+            "migration metadata can map to prompt/model hooks"
+          ],
+          "syntheticEvent": {
+            "agentId": "agent-fixture",
+            "runId": "run-fixture",
+            "config": {
+              "source": "crabpot"
+            }
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture"
+          }
+        },
+        {
+          "id": "hook.before_agent_start:hyperspell:plugins-hyperspell-index-ts-111",
+          "fixture": "hyperspell",
+          "hook": "before_agent_start",
+          "ref": "plugins/hyperspell/index.ts:111",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "legacy startup hook payload is accepted",
+            "migration metadata can map to prompt/model hooks"
+          ],
+          "syntheticEvent": {
+            "agentId": "agent-fixture",
+            "runId": "run-fixture",
+            "config": {
+              "source": "crabpot"
+            }
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture"
+          }
+        },
+        {
+          "id": "hook.file_changed:hyperspell:plugins-hyperspell-index-ts-122",
+          "fixture": "hyperspell",
+          "hook": "file_changed",
+          "ref": "plugins/hyperspell/index.ts:122",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "file_changed",
+            "fixture": "hyperspell"
+          },
+          "syntheticContext": {
+            "hook": "file_changed",
+            "fixture": "hyperspell"
+          }
+        },
+        {
+          "id": "hook.session_end:hyperspell:plugins-hyperspell-index-ts-104",
+          "fixture": "hyperspell",
+          "hook": "session_end",
+          "ref": "plugins/hyperspell/index.ts:104",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "session_end",
+            "fixture": "hyperspell"
+          },
+          "syntheticContext": {
+            "hook": "session_end",
+            "fixture": "hyperspell"
+          }
+        }
+      ],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk:hyperspell:plugins-hyperspell-commands-slash-ts-1",
+          "fixture": "hyperspell",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/hyperspell/commands/slash.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:hyperspell:plugins-hyperspell-graph-tools-ts-2",
+          "fixture": "hyperspell",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/hyperspell/graph/tools.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:hyperspell:plugins-hyperspell-index-ts-1",
+          "fixture": "hyperspell",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/hyperspell/index.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:hyperspell:plugins-hyperspell-index-ts",
+          "fixture": "hyperspell",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "ref": "plugins/hyperspell/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "honcho",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.definePluginEntry:honcho:plugins-honcho-index-ts-85",
+          "fixture": "honcho",
+          "registrar": "definePluginEntry",
+          "ref": "plugins/honcho/index.ts:85",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "entrypoint register function is callable",
+            "entrypoint metadata is preserved"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-plugin",
+              "register": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCli:honcho:plugins-honcho-commands-cli-ts-38",
+          "fixture": "honcho",
+          "registrar": "registerCli",
+          "ref": "plugins/honcho/commands/cli.ts:38",
+          "support": "target-captured",
+          "assertions": [
+            "command name is stable",
+            "argument schema is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "args": [
+                {
+                  "name": "input",
+                  "type": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "registration.registerMemoryPromptSection:honcho:plugins-honcho-index-ts-97",
+          "fixture": "honcho",
+          "registrar": "registerMemoryPromptSection",
+          "ref": "plugins/honcho/index.ts:97",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "memory prompt section id is stable",
+            "render metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-memory-section",
+              "render": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerMemoryRuntime:honcho:plugins-honcho-runtime-ts-276",
+          "fixture": "honcho",
+          "registrar": "registerMemoryRuntime",
+          "ref": "plugins/honcho/runtime.ts:276",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "memory runtime id is stable",
+            "runtime factory metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-memory-runtime",
+              "create": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:honcho:plugins-honcho-tools-ask-ts-7",
+          "fixture": "honcho",
+          "registrar": "registerTool",
+          "ref": "plugins/honcho/tools/ask.ts:7",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:honcho:plugins-honcho-tools-context-ts-7",
+          "fixture": "honcho",
+          "registrar": "registerTool",
+          "ref": "plugins/honcho/tools/context.ts:7",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:honcho:plugins-honcho-tools-memory-passthrough-ts-130",
+          "fixture": "honcho",
+          "registrar": "registerTool",
+          "ref": "plugins/honcho/tools/memory-passthrough.ts:130",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:honcho:plugins-honcho-tools-memory-passthrough-ts-89",
+          "fixture": "honcho",
+          "registrar": "registerTool",
+          "ref": "plugins/honcho/tools/memory-passthrough.ts:89",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:honcho:plugins-honcho-tools-message-search-ts-8",
+          "fixture": "honcho",
+          "registrar": "registerTool",
+          "ref": "plugins/honcho/tools/message-search.ts:8",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:honcho:plugins-honcho-tools-search-ts-7",
+          "fixture": "honcho",
+          "registrar": "registerTool",
+          "ref": "plugins/honcho/tools/search.ts:7",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:honcho:plugins-honcho-tools-session-ts-8",
+          "fixture": "honcho",
+          "registrar": "registerTool",
+          "ref": "plugins/honcho/tools/session.ts:8",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [
+        {
+          "id": "hook.agent_end:honcho:plugins-honcho-hooks-capture-ts-89",
+          "fixture": "honcho",
+          "hook": "agent_end",
+          "ref": "plugins/honcho/hooks/capture.ts:89",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "final conversation payload is redacted as expected",
+            "agent id and run metadata are present"
+          ],
+          "syntheticEvent": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "conversationId": "conversation-fixture",
+            "status": "completed",
+            "transcript": [
+              {
+                "role": "assistant",
+                "content": "[redacted fixture output]"
+              }
+            ]
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture",
+            "channelId": "fixture-channel"
+          }
+        },
+        {
+          "id": "hook.agent_end:honcho:plugins-honcho-hooks-subagent-ts-34",
+          "fixture": "honcho",
+          "hook": "agent_end",
+          "ref": "plugins/honcho/hooks/subagent.ts:34",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "final conversation payload is redacted as expected",
+            "agent id and run metadata are present"
+          ],
+          "syntheticEvent": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "conversationId": "conversation-fixture",
+            "status": "completed",
+            "transcript": [
+              {
+                "role": "assistant",
+                "content": "[redacted fixture output]"
+              }
+            ]
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture",
+            "channelId": "fixture-channel"
+          }
+        },
+        {
+          "id": "hook.before_agent_start:honcho:plugins-honcho-hooks-subagent-ts-18",
+          "fixture": "honcho",
+          "hook": "before_agent_start",
+          "ref": "plugins/honcho/hooks/subagent.ts:18",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "legacy startup hook payload is accepted",
+            "migration metadata can map to prompt/model hooks"
+          ],
+          "syntheticEvent": {
+            "agentId": "agent-fixture",
+            "runId": "run-fixture",
+            "config": {
+              "source": "crabpot"
+            }
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture"
+          }
+        },
+        {
+          "id": "hook.before_compaction:honcho:plugins-honcho-hooks-capture-ts-115",
+          "fixture": "honcho",
+          "hook": "before_compaction",
+          "ref": "plugins/honcho/hooks/capture.ts:115",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "before_compaction",
+            "fixture": "honcho"
+          },
+          "syntheticContext": {
+            "hook": "before_compaction",
+            "fixture": "honcho"
+          }
+        },
+        {
+          "id": "hook.before_prompt_build:honcho:plugins-honcho-hooks-context-ts-7",
+          "fixture": "honcho",
+          "hook": "before_prompt_build",
+          "ref": "plugins/honcho/hooks/context.ts:7",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "prompt mutation result is preserved",
+            "agent and conversation metadata are present"
+          ],
+          "syntheticEvent": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "conversationId": "conversation-fixture",
+            "messages": [
+              {
+                "role": "user",
+                "content": "fixture prompt"
+              }
+            ],
+            "metadata": {
+              "source": "crabpot"
+            }
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture",
+            "channelId": "fixture-channel"
+          }
+        },
+        {
+          "id": "hook.before_reset:honcho:plugins-honcho-hooks-capture-ts-132",
+          "fixture": "honcho",
+          "hook": "before_reset",
+          "ref": "plugins/honcho/hooks/capture.ts:132",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "before_reset",
+            "fixture": "honcho"
+          },
+          "syntheticContext": {
+            "hook": "before_reset",
+            "fixture": "honcho"
+          }
+        },
+        {
+          "id": "hook.gateway_start:honcho:plugins-honcho-hooks-gateway-ts-6",
+          "fixture": "honcho",
+          "hook": "gateway_start",
+          "ref": "plugins/honcho/hooks/gateway.ts:6",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "gateway_start",
+            "fixture": "honcho"
+          },
+          "syntheticContext": {
+            "hook": "gateway_start",
+            "fixture": "honcho"
+          }
+        },
+        {
+          "id": "hook.subagent_spawned:honcho:plugins-honcho-hooks-subagent-ts-24",
+          "fixture": "honcho",
+          "hook": "subagent_spawned",
+          "ref": "plugins/honcho/hooks/subagent.ts:24",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "spawn payload is preserved",
+            "parent/subagent metadata are present"
+          ],
+          "syntheticEvent": {
+            "childSessionKey": "child-session",
+            "agentId": "agent-child",
+            "label": "fixture child",
+            "mode": "run"
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "childSessionKey": "child-session",
+            "requesterSessionKey": "parent-session"
+          }
+        }
+      ],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk:honcho:plugins-honcho-commands-cli-ts-8",
+          "fixture": "honcho",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/honcho/commands/cli.ts:8",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:honcho:plugins-honcho-hooks-capture-ts-2",
+          "fixture": "honcho",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/honcho/hooks/capture.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:honcho:plugins-honcho-hooks-context-ts-2",
+          "fixture": "honcho",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/honcho/hooks/context.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:honcho:plugins-honcho-hooks-gateway-ts-2",
+          "fixture": "honcho",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/honcho/hooks/gateway.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:honcho:plugins-honcho-hooks-subagent-ts-2",
+          "fixture": "honcho",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/honcho/hooks/subagent.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:honcho:plugins-honcho-state-ts-9",
+          "fixture": "honcho",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/honcho/state.ts:9",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:honcho:plugins-honcho-tools-ask-ts-3",
+          "fixture": "honcho",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/honcho/tools/ask.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:honcho:plugins-honcho-tools-context-ts-3",
+          "fixture": "honcho",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/honcho/tools/context.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:honcho:plugins-honcho-tools-memory-passthrough-ts-3",
+          "fixture": "honcho",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/honcho/tools/memory-passthrough.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:honcho:plugins-honcho-tools-message-search-ts-3",
+          "fixture": "honcho",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/honcho/tools/message-search.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:honcho:plugins-honcho-tools-search-ts-3",
+          "fixture": "honcho",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/honcho/tools/search.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:honcho:plugins-honcho-tools-session-ts-3",
+          "fixture": "honcho",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/honcho/tools/session.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/memory-core:honcho:plugins-honcho-index-ts-11",
+          "fixture": "honcho",
+          "specifier": "openclaw/plugin-sdk/memory-core",
+          "ref": "plugins/honcho/index.ts:11",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/plugin-entry:honcho:plugins-honcho-index-ts-9",
+          "fixture": "honcho",
+          "specifier": "openclaw/plugin-sdk/plugin-entry",
+          "ref": "plugins/honcho/index.ts:9",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:honcho:plugins-honcho-dist-index-js",
+          "fixture": "honcho",
+          "kind": "extension",
+          "specifier": "./dist/index.js",
+          "ref": "plugins/honcho/dist/index.js",
+          "support": "build-required",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "composio",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.registerCli:composio:plugins-composio-src-cli-ts-46",
+          "fixture": "composio",
+          "registrar": "registerCli",
+          "ref": "plugins/composio/src/cli.ts:46",
+          "support": "target-captured",
+          "assertions": [
+            "command name is stable",
+            "argument schema is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "args": [
+                {
+                  "name": "input",
+                  "type": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:composio:plugins-composio-src-tools-ts-89",
+          "fixture": "composio",
+          "registrar": "registerTool",
+          "ref": "plugins/composio/src/tools.ts:89",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [
+        {
+          "id": "hook.before_prompt_build:composio:plugins-composio-index-ts-33",
+          "fixture": "composio",
+          "hook": "before_prompt_build",
+          "ref": "plugins/composio/index.ts:33",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "prompt mutation result is preserved",
+            "agent and conversation metadata are present"
+          ],
+          "syntheticEvent": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "conversationId": "conversation-fixture",
+            "messages": [
+              {
+                "role": "user",
+                "content": "fixture prompt"
+              }
+            ],
+            "metadata": {
+              "source": "crabpot"
+            }
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture",
+            "channelId": "fixture-channel"
+          }
+        }
+      ],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk:composio:plugins-composio-index-ts-1",
+          "fixture": "composio",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/composio/index.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:composio:plugins-composio-src-cli-ts-6",
+          "fixture": "composio",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/composio/src/cli.ts:6",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:composio:plugins-composio-src-client-ts-1",
+          "fixture": "composio",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/composio/src/client.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:composio:plugins-composio-src-tools-ts-1",
+          "fixture": "composio",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/composio/src/tools.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:composio:plugins-composio-index-ts",
+          "fixture": "composio",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "ref": "plugins/composio/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memu-engine",
+      "priority": "medium",
+      "registrations": [
+        {
+          "id": "registration.registerTool:memu-engine:plugins-memu-engine-index-ts-1252",
+          "fixture": "memu-engine",
+          "registrar": "registerTool",
+          "ref": "plugins/memu-engine/index.ts:1252",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk:memu-engine:plugins-memu-engine-index-ts-1",
+          "fixture": "memu-engine",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/memu-engine/index.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:memu-engine:plugins-memu-engine-index-ts",
+          "fixture": "memu-engine",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "ref": "plugins/memu-engine/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "secureclaw",
+      "priority": "medium",
+      "registrations": [
+        {
+          "id": "registration.registerCli:secureclaw:plugins-secureclaw-secureclaw-src-index-ts-351",
+          "fixture": "secureclaw",
+          "registrar": "registerCli",
+          "ref": "plugins/secureclaw/secureclaw/src/index.ts:351",
+          "support": "target-captured",
+          "assertions": [
+            "command name is stable",
+            "argument schema is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "args": [
+                {
+                  "name": "input",
+                  "type": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "registration.registerService:secureclaw:plugins-secureclaw-secureclaw-src-index-ts-295",
+          "fixture": "secureclaw",
+          "registrar": "registerService",
+          "ref": "plugins/secureclaw/secureclaw/src/index.ts:295",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "service id is stable",
+            "start/stop lifecycle handlers are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-service",
+              "start": "function",
+              "stop": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerService:secureclaw:plugins-secureclaw-secureclaw-src-index-ts-301",
+          "fixture": "secureclaw",
+          "registrar": "registerService",
+          "ref": "plugins/secureclaw/secureclaw/src/index.ts:301",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "service id is stable",
+            "start/stop lifecycle handlers are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-service",
+              "start": "function",
+              "stop": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerService:secureclaw:plugins-secureclaw-secureclaw-src-index-ts-307",
+          "fixture": "secureclaw",
+          "registrar": "registerService",
+          "ref": "plugins/secureclaw/secureclaw/src/index.ts:307",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "service id is stable",
+            "start/stop lifecycle handlers are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-service",
+              "start": "function",
+              "stop": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [
+        {
+          "id": "hook.gateway_start:secureclaw:plugins-secureclaw-secureclaw-src-index-ts-314",
+          "fixture": "secureclaw",
+          "hook": "gateway_start",
+          "ref": "plugins/secureclaw/secureclaw/src/index.ts:314",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "gateway_start",
+            "fixture": "secureclaw"
+          },
+          "syntheticContext": {
+            "hook": "gateway_start",
+            "fixture": "secureclaw"
+          }
+        }
+      ],
+      "sdkImports": [],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:secureclaw:plugins-secureclaw-secureclaw-dist-index-js",
+          "fixture": "secureclaw",
+          "kind": "extension",
+          "specifier": "./dist/index.js",
+          "ref": "plugins/secureclaw/secureclaw/dist/index.js",
+          "support": "build-required",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memos-cloud",
+      "priority": "medium",
+      "registrations": [
+        {
+          "id": "registration.registerHook:memos-cloud:plugins-memos-cloud-index-js-467",
+          "fixture": "memos-cloud",
+          "registrar": "registerHook",
+          "ref": "plugins/memos-cloud/index.js:467",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "legacy hook name is stable",
+            "handler metadata is captured"
+          ],
+          "syntheticArguments": [
+            "before_prompt_build",
+            "function"
+          ]
+        }
+      ],
+      "hooks": [
+        {
+          "id": "hook.agent_end:memos-cloud:plugins-memos-cloud-index-js-515",
+          "fixture": "memos-cloud",
+          "hook": "agent_end",
+          "ref": "plugins/memos-cloud/index.js:515",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "final conversation payload is redacted as expected",
+            "agent id and run metadata are present"
+          ],
+          "syntheticEvent": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "conversationId": "conversation-fixture",
+            "status": "completed",
+            "transcript": [
+              {
+                "role": "assistant",
+                "content": "[redacted fixture output]"
+              }
+            ]
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture",
+            "channelId": "fixture-channel"
+          }
+        },
+        {
+          "id": "hook.before_agent_start:memos-cloud:plugins-memos-cloud-index-js-481",
+          "fixture": "memos-cloud",
+          "hook": "before_agent_start",
+          "ref": "plugins/memos-cloud/index.js:481",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "legacy startup hook payload is accepted",
+            "migration metadata can map to prompt/model hooks"
+          ],
+          "syntheticEvent": {
+            "agentId": "agent-fixture",
+            "runId": "run-fixture",
+            "config": {
+              "source": "crabpot"
+            }
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture"
+          }
+        }
+      ],
+      "sdkImports": [],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:memos-cloud:plugins-memos-cloud-index-js",
+          "fixture": "memos-cloud",
+          "kind": "extension",
+          "specifier": "./index.js",
+          "ref": "plugins/memos-cloud/index.js",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
       "id": "clawmetry",
       "priority": "medium",
       "registrations": [
@@ -2574,6 +4040,39 @@
       ]
     },
     {
+      "id": "api.capture.runtime-registrars:honcho",
+      "fixture": "honcho",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
+        "registerMemoryRuntime @ plugins/honcho/runtime.ts:276"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:hyperspell",
+      "fixture": "hyperspell",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:43",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:98",
+        "registerCommand @ plugins/hyperspell/index.ts:46",
+        "registerCommand @ plugins/hyperspell/index.ts:57",
+        "registerCommand @ plugins/hyperspell/index.ts:68",
+        "registerService @ plugins/hyperspell/index.ts:134"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:lossless-claw",
       "fixture": "lossless-claw",
       "priority": "P1",
@@ -2601,6 +4100,19 @@
       ]
     },
     {
+      "id": "api.capture.runtime-registrars:memos-cloud",
+      "fixture": "memos-cloud",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerHook @ plugins/memos-cloud/index.js:467"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:opik-openclaw",
       "fixture": "opik-openclaw",
       "priority": "P1",
@@ -2620,6 +4132,21 @@
       "target": "inspector-capture-api",
       "evidence": [
         "registerChannel @ plugins/qqbot/index.ts:16"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:secureclaw",
+      "fixture": "secureclaw",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:295",
+        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:301",
+        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:307"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -2667,6 +4194,34 @@
       ]
     },
     {
+      "id": "hook.llm-observer.privacy-payload:honcho",
+      "fixture": "honcho",
+      "priority": "P1",
+      "target": "hook-runner",
+      "evidence": [
+        "agent_end @ plugins/honcho/hooks/capture.ts:89",
+        "agent_end @ plugins/honcho/hooks/subagent.ts:34"
+      ],
+      "assertions": [
+        "synthetic event payload is accepted",
+        "return semantics are preserved"
+      ]
+    },
+    {
+      "id": "hook.llm-observer.privacy-payload:hyperspell",
+      "fixture": "hyperspell",
+      "priority": "P1",
+      "target": "hook-runner",
+      "evidence": [
+        "agent_end @ plugins/hyperspell/index.ts:105",
+        "agent_end @ plugins/hyperspell/index.ts:116"
+      ],
+      "assertions": [
+        "synthetic event payload is accepted",
+        "return semantics are preserved"
+      ]
+    },
+    {
       "id": "hook.llm-observer.privacy-payload:llm-trace-phoenix",
       "fixture": "llm-trace-phoenix",
       "priority": "P1",
@@ -2674,6 +4229,19 @@
       "evidence": [
         "llm_input @ plugins/llm-trace-phoenix/index.ts:154",
         "llm_output @ plugins/llm-trace-phoenix/index.ts:168"
+      ],
+      "assertions": [
+        "synthetic event payload is accepted",
+        "return semantics are preserved"
+      ]
+    },
+    {
+      "id": "hook.llm-observer.privacy-payload:memos-cloud",
+      "fixture": "memos-cloud",
+      "priority": "P1",
+      "target": "hook-runner",
+      "evidence": [
+        "agent_end @ plugins/memos-cloud/index.js:515"
       ],
       "assertions": [
         "synthetic event payload is accepted",
@@ -2763,6 +4331,33 @@
       ]
     },
     {
+      "id": "hook.compat.before-agent-start-migration:honcho",
+      "fixture": "honcho",
+      "priority": "P2",
+      "target": "hook-runner",
+      "evidence": [
+        "before_agent_start @ plugins/honcho/hooks/subagent.ts:18"
+      ],
+      "assertions": [
+        "synthetic event payload is accepted",
+        "return semantics are preserved"
+      ]
+    },
+    {
+      "id": "hook.compat.before-agent-start-migration:hyperspell",
+      "fixture": "hyperspell",
+      "priority": "P2",
+      "target": "hook-runner",
+      "evidence": [
+        "before_agent_start @ plugins/hyperspell/index.ts:102",
+        "before_agent_start @ plugins/hyperspell/index.ts:111"
+      ],
+      "assertions": [
+        "synthetic event payload is accepted",
+        "return semantics are preserved"
+      ]
+    },
+    {
       "id": "manifest.compat.channel-env-vars:agentchat",
       "fixture": "agentchat",
       "priority": "P2",
@@ -2837,6 +4432,19 @@
       "target": "package-loader",
       "evidence": [
         "plugins/a2a-gateway/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:composio",
+      "fixture": "composio",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/composio/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -2923,6 +4531,19 @@
       ]
     },
     {
+      "id": "package.entrypoint.build-before-cold-import:honcho",
+      "fixture": "honcho",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/honcho/dist/index.js"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.entrypoint.build-before-cold-import:lossless-claw",
       "fixture": "lossless-claw",
       "priority": "P2",
@@ -2986,6 +4607,20 @@
       ]
     },
     {
+      "id": "package.entrypoint.isolated-dependency-install:composio",
+      "fixture": "composio",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "@modelcontextprotocol/sdk @ plugins/composio/package.json",
+        "zod @ plugins/composio/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.entrypoint.isolated-dependency-install:connectclaw",
       "fixture": "connectclaw",
       "priority": "P2",
@@ -3006,6 +4641,37 @@
       "evidence": [
         "@sinclair/typebox @ plugins/hasdata/package.json",
         "openclaw @ plugins/hasdata/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:honcho",
+      "fixture": "honcho",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "@honcho-ai/sdk @ plugins/honcho/package.json",
+        "@sinclair/typebox @ plugins/honcho/package.json",
+        "openclaw @ plugins/honcho/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:hyperspell",
+      "fixture": "hyperspell",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "@clack/prompts @ plugins/hyperspell/package.json",
+        "@sinclair/typebox @ plugins/hyperspell/package.json",
+        "hyperspell @ plugins/hyperspell/package.json",
+        "openclaw @ plugins/hyperspell/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -3105,6 +4771,19 @@
       ]
     },
     {
+      "id": "package.entrypoint.typescript-loader:composio",
+      "fixture": "composio",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/composio/index.ts"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.entrypoint.typescript-loader:connectclaw",
       "fixture": "connectclaw",
       "priority": "P2",
@@ -3124,6 +4803,19 @@
       "target": "package-loader",
       "evidence": [
         "extension:plugins/hasdata/src/index.ts"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:hyperspell",
+      "fixture": "hyperspell",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/hyperspell/index.ts"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -3197,6 +4889,22 @@
       ]
     },
     {
+      "id": "sdk.import.root-barrel-cold-import:composio",
+      "fixture": "composio",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/composio/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/composio/src/cli.ts:6",
+        "openclaw/plugin-sdk @ plugins/composio/src/client.ts:1",
+        "openclaw/plugin-sdk @ plugins/composio/src/tools.ts:1"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
       "id": "sdk.import.root-barrel-cold-import:connectclaw",
       "fixture": "connectclaw",
       "priority": "P2",
@@ -3207,6 +4915,45 @@
         "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/hooks.ts:1",
         "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:1",
         "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:2"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:honcho",
+      "fixture": "honcho",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/honcho/commands/cli.ts:8",
+        "openclaw/plugin-sdk @ plugins/honcho/hooks/capture.ts:2",
+        "openclaw/plugin-sdk @ plugins/honcho/hooks/context.ts:2",
+        "openclaw/plugin-sdk @ plugins/honcho/hooks/gateway.ts:2",
+        "openclaw/plugin-sdk @ plugins/honcho/hooks/subagent.ts:2",
+        "openclaw/plugin-sdk @ plugins/honcho/state.ts:9",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/ask.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/context.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/memory-passthrough.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/message-search.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/search.ts:3",
+        "openclaw/plugin-sdk @ plugins/honcho/tools/session.ts:3"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:hyperspell",
+      "fixture": "hyperspell",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/hyperspell/commands/slash.ts:1",
+        "openclaw/plugin-sdk @ plugins/hyperspell/graph/tools.ts:2",
+        "openclaw/plugin-sdk @ plugins/hyperspell/index.ts:1"
       ],
       "assertions": [
         "package export exists",
@@ -3302,12 +5049,61 @@
       ]
     },
     {
+      "id": "tool.registration.schema-capture:composio",
+      "fixture": "composio",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/composio/src/tools.ts:89"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    },
+    {
       "id": "tool.registration.schema-capture:connectclaw",
       "fixture": "connectclaw",
       "priority": "P2",
       "target": "tool-runtime",
       "evidence": [
         "registerTool @ plugins/connectclaw/packages/plugin/src/tools.ts:6"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:honcho",
+      "fixture": "honcho",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/honcho/tools/ask.ts:7",
+        "registerTool @ plugins/honcho/tools/context.ts:7",
+        "registerTool @ plugins/honcho/tools/memory-passthrough.ts:130",
+        "registerTool @ plugins/honcho/tools/memory-passthrough.ts:89",
+        "registerTool @ plugins/honcho/tools/message-search.ts:8",
+        "registerTool @ plugins/honcho/tools/search.ts:7",
+        "registerTool @ plugins/honcho/tools/session.ts:8"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:hyperspell",
+      "fixture": "hyperspell",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/hyperspell/graph/tools.ts:21",
+        "registerTool @ plugins/hyperspell/graph/tools.ts:52",
+        "registerTool @ plugins/hyperspell/graph/tools.ts:95",
+        "registerTool @ plugins/hyperspell/index.ts:89",
+        "registerTool @ plugins/hyperspell/index.ts:92"
       ],
       "assertions": [
         "tool schema is captured",
@@ -3373,6 +5169,19 @@
       ]
     },
     {
+      "id": "hook.compat.before-agent-start-migration:memos-cloud",
+      "fixture": "memos-cloud",
+      "priority": "P3",
+      "target": "hook-runner",
+      "evidence": [
+        "before_agent_start @ plugins/memos-cloud/index.js:481"
+      ],
+      "assertions": [
+        "synthetic event payload is accepted",
+        "return semantics are preserved"
+      ]
+    },
+    {
       "id": "manifest.compat.provider-auth-env-vars:inworld-tts",
       "fixture": "inworld-tts",
       "priority": "P3",
@@ -3407,12 +5216,77 @@
       ]
     },
     {
+      "id": "manifest.schema.top-level-fields:memos-cloud",
+      "fixture": "memos-cloud",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "main @ plugins/memos-cloud/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:memos-cloud",
+      "fixture": "memos-cloud",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/memos-cloud/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:memu-engine",
+      "fixture": "memu-engine",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/memu-engine/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:secureclaw",
+      "fixture": "secureclaw",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/secureclaw/secureclaw/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.entrypoint.build-before-cold-import:clawmetry",
       "fixture": "clawmetry",
       "priority": "P3",
       "target": "package-loader",
       "evidence": [
         "runtimeExtension:./dist/index.js -> plugins/clawmetry/clawhub-plugin/dist/index.js"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.build-before-cold-import:secureclaw",
+      "fixture": "secureclaw",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/secureclaw/secureclaw/dist/index.js"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -3468,6 +5342,21 @@
       "target": "package-loader",
       "evidence": [
         "openclaw @ plugins/inworld-tts/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:secureclaw",
+      "fixture": "secureclaw",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "chokidar @ plugins/secureclaw/secureclaw/package.json",
+        "node-forge @ plugins/secureclaw/secureclaw/package.json",
+        "openclaw @ plugins/secureclaw/secureclaw/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -3540,6 +5429,19 @@
       ]
     },
     {
+      "id": "package.entrypoint.typescript-loader:memu-engine",
+      "fixture": "memu-engine",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/memu-engine/index.ts"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.entrypoint.typescript-loader:web-search-plus",
       "fixture": "web-search-plus",
       "priority": "P3",
@@ -3584,12 +5486,38 @@
       ]
     },
     {
+      "id": "sdk.import.root-barrel-cold-import:memu-engine",
+      "fixture": "memu-engine",
+      "priority": "P3",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/memu-engine/index.ts:1"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
       "id": "tool.registration.schema-capture:apify",
       "fixture": "apify",
       "priority": "P3",
       "target": "tool-runtime",
       "evidence": [
         "registerTool @ plugins/apify/src/index.ts:13"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:memu-engine",
+      "fixture": "memu-engine",
+      "priority": "P3",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/memu-engine/index.ts:1252"
       ],
       "assertions": [
         "tool schema is captured",

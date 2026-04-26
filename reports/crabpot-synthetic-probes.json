@@ -1,15 +1,15 @@
 {
   "generatedAt": "deterministic",
   "summary": {
-    "fixtureCount": 15,
-    "probeCount": 67,
-    "hookProbeCount": 24,
-    "registrationProbeCount": 43,
-    "readyCount": 67,
+    "fixtureCount": 21,
+    "probeCount": 118,
+    "hookProbeCount": 43,
+    "registrationProbeCount": 75,
+    "readyCount": 118,
     "blockedCount": 0,
-    "directExecutionCount": 30,
-    "optInExecutionCount": 9,
-    "metadataOnlyCount": 4
+    "directExecutionCount": 54,
+    "optInExecutionCount": 13,
+    "metadataOnlyCount": 8
   },
   "probes": [
     {
@@ -587,6 +587,491 @@
         "sessionId": "session-fixture"
       },
       "source": "plugins/connectclaw/packages/plugin/src/hooks.ts:17"
+    },
+    {
+      "id": "hook.after_compaction:hyperspell:plugins-hyperspell-index-ts-103",
+      "fixture": "hyperspell",
+      "kind": "hook",
+      "seam": "after_compaction",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "after_compaction",
+        "fixture": "hyperspell"
+      },
+      "syntheticContext": {
+        "hook": "after_compaction",
+        "fixture": "hyperspell"
+      },
+      "source": "plugins/hyperspell/index.ts:103"
+    },
+    {
+      "id": "hook.agent_end:hyperspell:plugins-hyperspell-index-ts-105",
+      "fixture": "hyperspell",
+      "kind": "hook",
+      "seam": "agent_end",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "final conversation payload is redacted as expected",
+        "agent id and run metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "status": "completed",
+        "transcript": [
+          {
+            "role": "assistant",
+            "content": "[redacted fixture output]"
+          }
+        ]
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/hyperspell/index.ts:105"
+    },
+    {
+      "id": "hook.agent_end:hyperspell:plugins-hyperspell-index-ts-116",
+      "fixture": "hyperspell",
+      "kind": "hook",
+      "seam": "agent_end",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "final conversation payload is redacted as expected",
+        "agent id and run metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "status": "completed",
+        "transcript": [
+          {
+            "role": "assistant",
+            "content": "[redacted fixture output]"
+          }
+        ]
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/hyperspell/index.ts:116"
+    },
+    {
+      "id": "hook.before_agent_start:hyperspell:plugins-hyperspell-index-ts-102",
+      "fixture": "hyperspell",
+      "kind": "hook",
+      "seam": "before_agent_start",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "legacy startup hook payload is accepted",
+        "migration metadata can map to prompt/model hooks"
+      ],
+      "syntheticEvent": {
+        "agentId": "agent-fixture",
+        "runId": "run-fixture",
+        "config": {
+          "source": "crabpot"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture"
+      },
+      "source": "plugins/hyperspell/index.ts:102"
+    },
+    {
+      "id": "hook.before_agent_start:hyperspell:plugins-hyperspell-index-ts-111",
+      "fixture": "hyperspell",
+      "kind": "hook",
+      "seam": "before_agent_start",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "legacy startup hook payload is accepted",
+        "migration metadata can map to prompt/model hooks"
+      ],
+      "syntheticEvent": {
+        "agentId": "agent-fixture",
+        "runId": "run-fixture",
+        "config": {
+          "source": "crabpot"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture"
+      },
+      "source": "plugins/hyperspell/index.ts:111"
+    },
+    {
+      "id": "hook.file_changed:hyperspell:plugins-hyperspell-index-ts-122",
+      "fixture": "hyperspell",
+      "kind": "hook",
+      "seam": "file_changed",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "file_changed",
+        "fixture": "hyperspell"
+      },
+      "syntheticContext": {
+        "hook": "file_changed",
+        "fixture": "hyperspell"
+      },
+      "source": "plugins/hyperspell/index.ts:122"
+    },
+    {
+      "id": "hook.session_end:hyperspell:plugins-hyperspell-index-ts-104",
+      "fixture": "hyperspell",
+      "kind": "hook",
+      "seam": "session_end",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "session_end",
+        "fixture": "hyperspell"
+      },
+      "syntheticContext": {
+        "hook": "session_end",
+        "fixture": "hyperspell"
+      },
+      "source": "plugins/hyperspell/index.ts:104"
+    },
+    {
+      "id": "hook.agent_end:honcho:plugins-honcho-hooks-capture-ts-89",
+      "fixture": "honcho",
+      "kind": "hook",
+      "seam": "agent_end",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "final conversation payload is redacted as expected",
+        "agent id and run metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "status": "completed",
+        "transcript": [
+          {
+            "role": "assistant",
+            "content": "[redacted fixture output]"
+          }
+        ]
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/honcho/hooks/capture.ts:89"
+    },
+    {
+      "id": "hook.agent_end:honcho:plugins-honcho-hooks-subagent-ts-34",
+      "fixture": "honcho",
+      "kind": "hook",
+      "seam": "agent_end",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "final conversation payload is redacted as expected",
+        "agent id and run metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "status": "completed",
+        "transcript": [
+          {
+            "role": "assistant",
+            "content": "[redacted fixture output]"
+          }
+        ]
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/honcho/hooks/subagent.ts:34"
+    },
+    {
+      "id": "hook.before_agent_start:honcho:plugins-honcho-hooks-subagent-ts-18",
+      "fixture": "honcho",
+      "kind": "hook",
+      "seam": "before_agent_start",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "legacy startup hook payload is accepted",
+        "migration metadata can map to prompt/model hooks"
+      ],
+      "syntheticEvent": {
+        "agentId": "agent-fixture",
+        "runId": "run-fixture",
+        "config": {
+          "source": "crabpot"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture"
+      },
+      "source": "plugins/honcho/hooks/subagent.ts:18"
+    },
+    {
+      "id": "hook.before_compaction:honcho:plugins-honcho-hooks-capture-ts-115",
+      "fixture": "honcho",
+      "kind": "hook",
+      "seam": "before_compaction",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "before_compaction",
+        "fixture": "honcho"
+      },
+      "syntheticContext": {
+        "hook": "before_compaction",
+        "fixture": "honcho"
+      },
+      "source": "plugins/honcho/hooks/capture.ts:115"
+    },
+    {
+      "id": "hook.before_prompt_build:honcho:plugins-honcho-hooks-context-ts-7",
+      "fixture": "honcho",
+      "kind": "hook",
+      "seam": "before_prompt_build",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "prompt mutation result is preserved",
+        "agent and conversation metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "messages": [
+          {
+            "role": "user",
+            "content": "fixture prompt"
+          }
+        ],
+        "metadata": {
+          "source": "crabpot"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/honcho/hooks/context.ts:7"
+    },
+    {
+      "id": "hook.before_reset:honcho:plugins-honcho-hooks-capture-ts-132",
+      "fixture": "honcho",
+      "kind": "hook",
+      "seam": "before_reset",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "before_reset",
+        "fixture": "honcho"
+      },
+      "syntheticContext": {
+        "hook": "before_reset",
+        "fixture": "honcho"
+      },
+      "source": "plugins/honcho/hooks/capture.ts:132"
+    },
+    {
+      "id": "hook.gateway_start:honcho:plugins-honcho-hooks-gateway-ts-6",
+      "fixture": "honcho",
+      "kind": "hook",
+      "seam": "gateway_start",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "gateway_start",
+        "fixture": "honcho"
+      },
+      "syntheticContext": {
+        "hook": "gateway_start",
+        "fixture": "honcho"
+      },
+      "source": "plugins/honcho/hooks/gateway.ts:6"
+    },
+    {
+      "id": "hook.subagent_spawned:honcho:plugins-honcho-hooks-subagent-ts-24",
+      "fixture": "honcho",
+      "kind": "hook",
+      "seam": "subagent_spawned",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "spawn payload is preserved",
+        "parent/subagent metadata are present"
+      ],
+      "syntheticEvent": {
+        "childSessionKey": "child-session",
+        "agentId": "agent-child",
+        "label": "fixture child",
+        "mode": "run"
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "childSessionKey": "child-session",
+        "requesterSessionKey": "parent-session"
+      },
+      "source": "plugins/honcho/hooks/subagent.ts:24"
+    },
+    {
+      "id": "hook.before_prompt_build:composio:plugins-composio-index-ts-33",
+      "fixture": "composio",
+      "kind": "hook",
+      "seam": "before_prompt_build",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "prompt mutation result is preserved",
+        "agent and conversation metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "messages": [
+          {
+            "role": "user",
+            "content": "fixture prompt"
+          }
+        ],
+        "metadata": {
+          "source": "crabpot"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/composio/index.ts:33"
+    },
+    {
+      "id": "hook.gateway_start:secureclaw:plugins-secureclaw-secureclaw-src-index-ts-314",
+      "fixture": "secureclaw",
+      "kind": "hook",
+      "seam": "gateway_start",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "gateway_start",
+        "fixture": "secureclaw"
+      },
+      "syntheticContext": {
+        "hook": "gateway_start",
+        "fixture": "secureclaw"
+      },
+      "source": "plugins/secureclaw/secureclaw/src/index.ts:314"
+    },
+    {
+      "id": "hook.agent_end:memos-cloud:plugins-memos-cloud-index-js-515",
+      "fixture": "memos-cloud",
+      "kind": "hook",
+      "seam": "agent_end",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "final conversation payload is redacted as expected",
+        "agent id and run metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "status": "completed",
+        "transcript": [
+          {
+            "role": "assistant",
+            "content": "[redacted fixture output]"
+          }
+        ]
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/memos-cloud/index.js:515"
+    },
+    {
+      "id": "hook.before_agent_start:memos-cloud:plugins-memos-cloud-index-js-481",
+      "fixture": "memos-cloud",
+      "kind": "hook",
+      "seam": "before_agent_start",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "legacy startup hook payload is accepted",
+        "migration metadata can map to prompt/model hooks"
+      ],
+      "syntheticEvent": {
+        "agentId": "agent-fixture",
+        "runId": "run-fixture",
+        "config": {
+          "source": "crabpot"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture"
+      },
+      "source": "plugins/memos-cloud/index.js:481"
     },
     {
       "id": "hook.inbound_claim:codex-app-server:plugins-codex-app-server-index-ts-25",
@@ -1542,6 +2027,950 @@
         ]
       },
       "source": "plugins/connectclaw/packages/plugin/src/tools.ts:6"
+    },
+    {
+      "id": "registration.registerCli:hyperspell:plugins-hyperspell-index-ts-30",
+      "fixture": "hyperspell",
+      "kind": "registration",
+      "seam": "registerCli",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command name is stable",
+        "argument schema is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "args": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/hyperspell/index.ts:30"
+    },
+    {
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-166",
+      "fixture": "hyperspell",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/hyperspell/commands/slash.ts:166"
+    },
+    {
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-43",
+      "fixture": "hyperspell",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/hyperspell/commands/slash.ts:43"
+    },
+    {
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-98",
+      "fixture": "hyperspell",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/hyperspell/commands/slash.ts:98"
+    },
+    {
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-46",
+      "fixture": "hyperspell",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/hyperspell/index.ts:46"
+    },
+    {
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-57",
+      "fixture": "hyperspell",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/hyperspell/index.ts:57"
+    },
+    {
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-68",
+      "fixture": "hyperspell",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/hyperspell/index.ts:68"
+    },
+    {
+      "id": "registration.registerService:hyperspell:plugins-hyperspell-index-ts-134",
+      "fixture": "hyperspell",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop"
+        ],
+        "option": "includeLifecycle"
+      },
+      "source": "plugins/hyperspell/index.ts:134"
+    },
+    {
+      "id": "registration.registerTool:hyperspell:plugins-hyperspell-graph-tools-ts-21",
+      "fixture": "hyperspell",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/hyperspell/graph/tools.ts:21"
+    },
+    {
+      "id": "registration.registerTool:hyperspell:plugins-hyperspell-graph-tools-ts-52",
+      "fixture": "hyperspell",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/hyperspell/graph/tools.ts:52"
+    },
+    {
+      "id": "registration.registerTool:hyperspell:plugins-hyperspell-graph-tools-ts-95",
+      "fixture": "hyperspell",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/hyperspell/graph/tools.ts:95"
+    },
+    {
+      "id": "registration.registerTool:hyperspell:plugins-hyperspell-index-ts-89",
+      "fixture": "hyperspell",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/hyperspell/index.ts:89"
+    },
+    {
+      "id": "registration.registerTool:hyperspell:plugins-hyperspell-index-ts-92",
+      "fixture": "hyperspell",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/hyperspell/index.ts:92"
+    },
+    {
+      "id": "registration.definePluginEntry:honcho:plugins-honcho-index-ts-85",
+      "fixture": "honcho",
+      "kind": "registration",
+      "seam": "definePluginEntry",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "entrypoint register function is callable",
+        "entrypoint metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-plugin",
+          "register": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "entry wrapper metadata is captured before plugin runtime execution"
+      },
+      "source": "plugins/honcho/index.ts:85"
+    },
+    {
+      "id": "registration.registerCli:honcho:plugins-honcho-commands-cli-ts-38",
+      "fixture": "honcho",
+      "kind": "registration",
+      "seam": "registerCli",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command name is stable",
+        "argument schema is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "args": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/honcho/commands/cli.ts:38"
+    },
+    {
+      "id": "registration.registerMemoryPromptSection:honcho:plugins-honcho-index-ts-97",
+      "fixture": "honcho",
+      "kind": "registration",
+      "seam": "registerMemoryPromptSection",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "memory prompt section id is stable",
+        "render metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-memory-section",
+          "render": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "memory prompt section renderers are captured as metadata before prompt-runtime execution"
+      },
+      "source": "plugins/honcho/index.ts:97"
+    },
+    {
+      "id": "registration.registerMemoryRuntime:honcho:plugins-honcho-runtime-ts-276",
+      "fixture": "honcho",
+      "kind": "registration",
+      "seam": "registerMemoryRuntime",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "memory runtime id is stable",
+        "runtime factory metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-memory-runtime",
+          "create": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "memory runtime factories are captured as metadata; external memory startup remains isolated opt-in"
+      },
+      "source": "plugins/honcho/runtime.ts:276"
+    },
+    {
+      "id": "registration.registerTool:honcho:plugins-honcho-tools-ask-ts-7",
+      "fixture": "honcho",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/honcho/tools/ask.ts:7"
+    },
+    {
+      "id": "registration.registerTool:honcho:plugins-honcho-tools-context-ts-7",
+      "fixture": "honcho",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/honcho/tools/context.ts:7"
+    },
+    {
+      "id": "registration.registerTool:honcho:plugins-honcho-tools-memory-passthrough-ts-130",
+      "fixture": "honcho",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/honcho/tools/memory-passthrough.ts:130"
+    },
+    {
+      "id": "registration.registerTool:honcho:plugins-honcho-tools-memory-passthrough-ts-89",
+      "fixture": "honcho",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/honcho/tools/memory-passthrough.ts:89"
+    },
+    {
+      "id": "registration.registerTool:honcho:plugins-honcho-tools-message-search-ts-8",
+      "fixture": "honcho",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/honcho/tools/message-search.ts:8"
+    },
+    {
+      "id": "registration.registerTool:honcho:plugins-honcho-tools-search-ts-7",
+      "fixture": "honcho",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/honcho/tools/search.ts:7"
+    },
+    {
+      "id": "registration.registerTool:honcho:plugins-honcho-tools-session-ts-8",
+      "fixture": "honcho",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/honcho/tools/session.ts:8"
+    },
+    {
+      "id": "registration.registerCli:composio:plugins-composio-src-cli-ts-46",
+      "fixture": "composio",
+      "kind": "registration",
+      "seam": "registerCli",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command name is stable",
+        "argument schema is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "args": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/composio/src/cli.ts:46"
+    },
+    {
+      "id": "registration.registerTool:composio:plugins-composio-src-tools-ts-89",
+      "fixture": "composio",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/composio/src/tools.ts:89"
+    },
+    {
+      "id": "registration.registerTool:memu-engine:plugins-memu-engine-index-ts-1252",
+      "fixture": "memu-engine",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/memu-engine/index.ts:1252"
+    },
+    {
+      "id": "registration.registerCli:secureclaw:plugins-secureclaw-secureclaw-src-index-ts-351",
+      "fixture": "secureclaw",
+      "kind": "registration",
+      "seam": "registerCli",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command name is stable",
+        "argument schema is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "args": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/secureclaw/secureclaw/src/index.ts:351"
+    },
+    {
+      "id": "registration.registerService:secureclaw:plugins-secureclaw-secureclaw-src-index-ts-295",
+      "fixture": "secureclaw",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop"
+        ],
+        "option": "includeLifecycle"
+      },
+      "source": "plugins/secureclaw/secureclaw/src/index.ts:295"
+    },
+    {
+      "id": "registration.registerService:secureclaw:plugins-secureclaw-secureclaw-src-index-ts-301",
+      "fixture": "secureclaw",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop"
+        ],
+        "option": "includeLifecycle"
+      },
+      "source": "plugins/secureclaw/secureclaw/src/index.ts:301"
+    },
+    {
+      "id": "registration.registerService:secureclaw:plugins-secureclaw-secureclaw-src-index-ts-307",
+      "fixture": "secureclaw",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop"
+        ],
+        "option": "includeLifecycle"
+      },
+      "source": "plugins/secureclaw/secureclaw/src/index.ts:307"
+    },
+    {
+      "id": "registration.registerHook:memos-cloud:plugins-memos-cloud-index-js-467",
+      "fixture": "memos-cloud",
+      "kind": "registration",
+      "seam": "registerHook",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "legacy hook name is stable",
+        "handler metadata is captured"
+      ],
+      "syntheticArguments": [
+        "before_prompt_build",
+        "function"
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "legacy hook registrar is captured as metadata; hook handlers are probed through hook events"
+      },
+      "source": "plugins/memos-cloud/index.js:467"
     },
     {
       "id": "registration.definePluginEntry:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts-4",

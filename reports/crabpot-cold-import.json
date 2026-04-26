@@ -6,13 +6,13 @@
     "sdkExportCount": 307
   },
   "summary": {
-    "fixtureCount": 15,
-    "entrypointCount": 18,
+    "fixtureCount": 21,
+    "entrypointCount": 24,
     "readyCount": 0,
-    "blockedCount": 18,
-    "tsLoaderRequiredCount": 10,
-    "buildRequiredCount": 5,
-    "dependencyInstallRequiredCount": 12,
+    "blockedCount": 24,
+    "tsLoaderRequiredCount": 13,
+    "buildRequiredCount": 7,
+    "dependencyInstallRequiredCount": 14,
     "sdkAliasRequiredCount": 1
   },
   "fixtures": [
@@ -342,6 +342,180 @@
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyperspell",
+      "priority": "high",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:hyperspell:plugins-hyperspell-index-ts",
+          "fixture": "hyperspell",
+          "packagePath": "plugins/hyperspell/package.json",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "path": "plugins/hyperspell/index.ts",
+          "status": "ts-loader-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/hyperspell/index.ts"
+            },
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/hyperspell/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@clack/prompts, @sinclair/typebox, hyperspell, openclaw"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "cold import sandbox blocks network/process side effects before register capture",
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "honcho",
+      "priority": "high",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
+          "fixture": "honcho",
+          "packagePath": "plugins/honcho/package.json",
+          "kind": "extension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/honcho/dist/index.js",
+          "status": "build-required",
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/honcho/dist/index.js"
+            }
+          ],
+          "assertions": [
+            "plugin build or source alias resolution runs before cold import"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "composio",
+      "priority": "high",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:composio:plugins-composio-index-ts",
+          "fixture": "composio",
+          "packagePath": "plugins/composio/package.json",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "path": "plugins/composio/index.ts",
+          "status": "ts-loader-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/composio/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@modelcontextprotocol/sdk, zod"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memu-engine",
+      "priority": "medium",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:memu-engine:plugins-memu-engine-index-ts",
+          "fixture": "memu-engine",
+          "packagePath": "plugins/memu-engine/package.json",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "path": "plugins/memu-engine/index.ts",
+          "status": "ts-loader-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/memu-engine/index.ts"
+            },
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/memu-engine/index.ts"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "cold import sandbox blocks network/process side effects before register capture"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "secureclaw",
+      "priority": "medium",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:secureclaw:plugins-secureclaw-secureclaw-dist-index-js",
+          "fixture": "secureclaw",
+          "packagePath": "plugins/secureclaw/secureclaw/package.json",
+          "kind": "extension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/secureclaw/secureclaw/dist/index.js",
+          "status": "build-required",
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/secureclaw/secureclaw/dist/index.js"
+            }
+          ],
+          "assertions": [
+            "plugin build or source alias resolution runs before cold import"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "memos-cloud",
+      "priority": "medium",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:memos-cloud:plugins-memos-cloud-index-js",
+          "fixture": "memos-cloud",
+          "packagePath": "plugins/memos-cloud/package.json",
+          "kind": "extension",
+          "specifier": "./index.js",
+          "path": "plugins/memos-cloud/index.js",
+          "status": "review-required",
+          "blockers": [
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/memos-cloud/index.js"
+            }
+          ],
+          "assertions": [
+            "cold import sandbox blocks network/process side effects before register capture"
           ]
         }
       ]
