@@ -1,12 +1,15 @@
 #!/usr/bin/env node
 import { existsSync } from "node:fs";
-import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
+import { loadPluginInspector } from "./plugin-inspector-source.mjs";
 
 export const defaultExecutionResultsJsonPath = path.join(repoRoot, "reports/crabpot-execution-results.json");
 export const defaultExecutionResultsMarkdownPath = path.join(repoRoot, "reports/crabpot-execution-results.md");
+
+const pluginInspector = await loadPluginInspector();
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   await main();
@@ -177,11 +180,12 @@ function summarizeArtifact({ artifactPath, parsed }) {
 export async function writeExecutionResultsReport(report, options = {}) {
   const jsonPath = options.jsonPath ?? defaultExecutionResultsJsonPath;
   const markdownPath = options.markdownPath ?? defaultExecutionResultsMarkdownPath;
-  await mkdir(path.dirname(jsonPath), { recursive: true });
-  await mkdir(path.dirname(markdownPath), { recursive: true });
-  await writeFile(jsonPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
-  await writeFile(markdownPath, `${renderExecutionResultsMarkdown(report)}\n`, "utf8");
-  return { jsonPath, markdownPath };
+  return pluginInspector.writeJsonMarkdownArtifacts({
+    jsonPath,
+    markdownPath,
+    json: report,
+    markdown: renderExecutionResultsMarkdown(report),
+  });
 }
 
 export function renderExecutionResultsMarkdown(report) {
@@ -327,18 +331,5 @@ function toRepoPath(value) {
 }
 
 function markdownTable(rows, headers) {
-  if (rows.length === 0) {
-    return "_none_";
-  }
-
-  const allRows = [headers, ...rows.map((row) => row.map(String))];
-  const widths = headers.map((_, columnIndex) =>
-    Math.max(...allRows.map((row) => row[columnIndex].length)),
-  );
-  const renderRow = (row) => `| ${row.map((cell, index) => cell.padEnd(widths[index])).join(" | ")} |`;
-  return [
-    renderRow(headers),
-    renderRow(widths.map((width) => "-".repeat(width))),
-    ...rows.map((row) => renderRow(row.map(String))),
-  ].join("\n");
+  return pluginInspector.renderMarkdownTable(rows, headers, { empty: "_none_", escape: false, padding: true });
 }

@@ -1,6 +1,6 @@
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
-import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import { inspectManifest } from "./inspect-fixtures.mjs";
 import { fixtureCheckoutPath, fixtureSourceRoot, readManifest, repoRoot } from "./manifest-lib.mjs";
@@ -147,12 +147,11 @@ export async function writeReport(report, options = {}) {
   const markdownPath = options.markdownPath ?? defaultMarkdownReportPath;
   const jsonPath = options.jsonPath ?? defaultJsonReportPath;
   const issuesPath = options.issuesPath ?? defaultIssuesReportPath;
-  await mkdir(path.dirname(markdownPath), { recursive: true });
-  await mkdir(path.dirname(jsonPath), { recursive: true });
-  await mkdir(path.dirname(issuesPath), { recursive: true });
-  await writeFile(markdownPath, `${renderMarkdownReport(report)}\n`, "utf8");
-  await writeFile(jsonPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
-  await writeFile(issuesPath, `${renderIssuesReport(report)}\n`, "utf8");
+  await pluginInspector.writeArtifacts([
+    { name: "markdownPath", path: markdownPath, markdown: renderMarkdownReport(report) },
+    { name: "jsonPath", path: jsonPath, json: report },
+    { name: "issuesPath", path: issuesPath, markdown: renderIssuesReport(report) },
+  ]);
   return { markdownPath, jsonPath, issuesPath };
 }
 
@@ -1409,19 +1408,11 @@ function targetOpenClawTable(targetOpenClaw) {
 }
 
 function markdownTable(rows, headers) {
-  if (rows.length === 0) {
-    return "_none_";
-  }
-
-  const allRows = [headers, ...rows.map((row) => row.map(String))];
-  const widths = headers.map((_, columnIndex) =>
-    Math.max(...allRows.map((row) => escapeCell(row[columnIndex] ?? "").length)),
+  return pluginInspector.renderMarkdownTable(
+    rows.map((row) => row.map((cell) => escapeCell(String(cell)))),
+    headers.map((header) => escapeCell(String(header))),
+    { empty: "_none_", escape: false, padding: true },
   );
-  const formatRow = (row) =>
-    `| ${row.map((cell, index) => escapeCell(cell).padEnd(widths[index], " ")).join(" | ")} |`;
-  const separator = `| ${widths.map((width) => "-".repeat(width)).join(" | ")} |`;
-
-  return [formatRow(headers), separator, ...rows.map((row) => formatRow(row.map(String)))].join("\n");
 }
 
 function escapeCell(value) {

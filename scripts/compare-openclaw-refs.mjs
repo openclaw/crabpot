@@ -1,12 +1,14 @@
 #!/usr/bin/env node
-import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
+import { loadPluginInspector } from "./plugin-inspector-source.mjs";
 import { buildReport } from "./report-lib.mjs";
 
 export const defaultRefDiffJsonPath = path.join(repoRoot, "reports/crabpot-ref-diff.json");
 export const defaultRefDiffMarkdownPath = path.join(repoRoot, "reports/crabpot-ref-diff.md");
+
+const pluginInspector = await loadPluginInspector();
 
 const DIMENSIONS = [
   {
@@ -311,11 +313,12 @@ export function validateRefDiff(diff, options = {}) {
 export async function writeRefDiff(diff, options = {}) {
   const jsonPath = options.jsonPath ?? defaultRefDiffJsonPath;
   const markdownPath = options.markdownPath ?? defaultRefDiffMarkdownPath;
-  await mkdir(path.dirname(jsonPath), { recursive: true });
-  await mkdir(path.dirname(markdownPath), { recursive: true });
-  await writeFile(jsonPath, `${JSON.stringify(diff, null, 2)}\n`, "utf8");
-  await writeFile(markdownPath, `${renderRefDiffMarkdown(diff)}\n`, "utf8");
-  return { jsonPath, markdownPath };
+  return pluginInspector.writeJsonMarkdownArtifacts({
+    jsonPath,
+    markdownPath,
+    json: diff,
+    markdown: renderRefDiffMarkdown(diff),
+  });
 }
 
 export function renderRefDiffMarkdown(diff) {
@@ -415,16 +418,10 @@ function signed(value) {
 }
 
 function markdownTable(rows, headers) {
-  if (rows.length === 0) {
-    return "_none_";
-  }
-
-  const allRows = [headers, ...rows.map((row) => row.map((cell) => String(cell ?? "-")))];
-  const widths = headers.map((_, columnIndex) => Math.max(...allRows.map((row) => row[columnIndex].length)));
-  const renderRow = (row) => `| ${row.map((cell, index) => cell.padEnd(widths[index])).join(" | ")} |`;
-  return [
-    renderRow(headers),
-    renderRow(widths.map((width) => "-".repeat(width))),
-    ...rows.map((row) => renderRow(row.map((cell) => String(cell ?? "-")))),
-  ].join("\n");
+  return pluginInspector.renderMarkdownTable(rows, headers, {
+    empty: "_none_",
+    escape: false,
+    nullValue: "-",
+    padding: true,
+  });
 }
