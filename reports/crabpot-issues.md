@@ -7,16 +7,16 @@ Status: PASS
 
 | Metric               | Value |
 | -------------------- | ----- |
-| Issue findings       | 143   |
+| Issue findings       | 153   |
 | 🔴 P0                | 2     |
-| 🟠 P1                | 26    |
+| 🟠 P1                | 30    |
 | Live issues          | 2     |
 | Live P0 issues       | 2     |
 | Compat gaps          | 1     |
-| Deprecation warnings | 21    |
-| Inspector gaps       | 97    |
-| Upstream metadata    | 22    |
-| Contract probes      | 141   |
+| Deprecation warnings | 22    |
+| Inspector gaps       | 101   |
+| Upstream metadata    | 27    |
+| Contract probes      | 151   |
 
 ## Triage Overview
 
@@ -24,10 +24,10 @@ Status: PASS
 | ------------------- | ----- | -- | --------------------------------------------------------------------------------------------------------------- |
 | live-issue          | 2     | 2  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam. |
 | compat-gap          | 1     | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                          |
-| deprecation-warning | 21    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                |
-| inspector-gap       | 97    | -  | Crabpot needs stronger capture/probe evidence before making contract judgments.                                 |
-| upstream-metadata   | 22    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.        |
-| fixture-regression  | 0     | -  | Fixture no longer exposes a seam Crabpot expected; investigate fixture pin or scanner drift.                    |
+| deprecation-warning | 22    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                |
+| inspector-gap       | 101   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments.                        |
+| upstream-metadata   | 27    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.        |
+| fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                           |
 
 ## P0 Live Issues
 
@@ -124,6 +124,21 @@ Status: PASS
     - [openclaw/plugin-sdk @ hooks.ts:1](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/hooks.ts#L1)
     - [openclaw/plugin-sdk @ tools.ts:1](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/tools.ts#L1)
     - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/tools.ts#L2)
+
+- 🟡 P2 **dingtalk-connector** `deprecation-warning` `core-compat-adapter`
+  - **legacy-root-sdk-import**: dingtalk-connector: root plugin SDK barrel is still used by fixtures
+  - state: open · compat:deprecated · deprecated
+  - evidence:
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/index.ts:17
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/channel.ts:4
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/config/accounts.ts:2
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/connection.ts:16
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/provider.ts:14
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/directory.ts:1
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/gateway-methods.ts:7
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/onboarding.ts:5
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/runtime.ts:1
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/utils/agent.ts:8
 
 - 🟡 P2 **hasdata** `deprecation-warning` `core-compat-adapter`
   - **provider-auth-env-vars**: hasdata: providerAuthEnvVars legacy manifest metadata must stay covered
@@ -306,6 +321,25 @@ Status: PASS
     - [registerCommand @ commands.ts:18](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L18)
     - [registerCommand @ commands.ts:64](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L64)
     - [registerService @ hooks.ts:91](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/hooks.ts#L91)
+
+- 🟠 P1 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture before contract judgment
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/dingtalk-connector/index.ts:74
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:130
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:190
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:258
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:311
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:351
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:388
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:425
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:452
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:506
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:593
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:60
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:652
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719
 
 - 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: honcho: conversation-access hooks need privacy-boundary probes
@@ -608,6 +642,30 @@ Status: PASS
   - state: open · compat:none
   - evidence:
     - [extension @ index.ts](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts)
+
+- 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
+  - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/dingtalk-connector/index.ts:74
+
+- 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
+  - **package-build-artifact-entrypoint**: dingtalk-connector: cold import requires package build output
+  - state: open · compat:none
+  - evidence:
+    - extension:./dist/index.mjs -> plugins/dingtalk-connector/dist/index.mjs
+
+- 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: dingtalk-connector: cold import requires isolated dependency installation
+  - state: open · compat:none
+  - evidence:
+    - axios @ plugins/dingtalk-connector/package.json
+    - dingtalk-stream @ plugins/dingtalk-connector/package.json
+    - form-data @ plugins/dingtalk-connector/package.json
+    - qrcode-terminal @ plugins/dingtalk-connector/package.json
+    - zod @ plugins/dingtalk-connector/package.json
+    - openclaw @ plugins/dingtalk-connector/package.json
+    - mammoth @ plugins/dingtalk-connector/package.json
 
 - 🟡 P2 **hasdata** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hasdata: cold import requires isolated dependency installation
@@ -965,6 +1023,27 @@ Status: PASS
 
 ## Upstream Metadata Issues
 
+- 🟠 P1 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: clawmetry: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/b329bb3ed18b651d369bf35321ec58bd47dc33b4/clawhub-plugin/src/service.ts#L2)
+
+- 🟠 P1 **honcho** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: honcho: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
+
+- 🟠 P1 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: yuanbao: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
+
 - 🟡 P2 **a2a-gateway** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: a2a-gateway: manifest uses unsupported top-level fields
   - state: open · compat:none
@@ -1009,6 +1088,19 @@ Status: PASS
   - state: open · compat:none
   - evidence:
     - [package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
+
+- 🟡 P2 **dingtalk-connector** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: dingtalk-connector: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - author @ plugins/dingtalk-connector/openclaw.plugin.json
+    - main @ plugins/dingtalk-connector/openclaw.plugin.json
+
+- 🟡 P2 **dingtalk-connector** `upstream-metadata` `plugin-upstream-fix`
+  - **package-plugin-api-compat-missing**: dingtalk-connector: plugin API compatibility range is missing
+  - state: open · compat:none
+  - evidence:
+    - plugins/dingtalk-connector/package.json
 
 - 🟡 P2 **lightclawbot** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: lightclawbot: manifest uses unsupported top-level fields
@@ -1135,6 +1227,12 @@ Status: PASS
   - evidence:
     - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/b329bb3ed18b651d369bf35321ec58bd47dc33b4/clawhub-plugin/index.ts#L9)
 
+- 🟠 P1 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: clawmetry: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/b329bb3ed18b651d369bf35321ec58bd47dc33b4/clawhub-plugin/src/service.ts#L2)
+
 - 🟠 P1 **codex-app-server** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: codex-app-server: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
@@ -1158,6 +1256,25 @@ Status: PASS
     - [registerCommand @ commands.ts:64](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L64)
     - [registerService @ hooks.ts:91](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/hooks.ts#L91)
 
+- 🟠 P1 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture before contract judgment
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/dingtalk-connector/index.ts:74
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:130
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:190
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:258
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:311
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:351
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:388
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:425
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:452
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:506
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:593
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:60
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:652
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719
+
 - 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: honcho: conversation-access hooks need privacy-boundary probes
   - state: open · compat:none
@@ -1171,6 +1288,12 @@ Status: PASS
   - evidence:
     - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L97)
     - [registerMemoryRuntime @ runtime.ts:276](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/runtime.ts#L276)
+
+- 🟠 P1 **honcho** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: honcho: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
 
 - 🟠 P1 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: hyperspell: conversation-access hooks need privacy-boundary probes
@@ -1303,6 +1426,15 @@ Status: PASS
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:31
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:32
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:34
+
+- 🟠 P1 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: yuanbao: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
 
 - 🟡 P2 **a2a-gateway** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: a2a-gateway: root plugin SDK barrel is still used by fixtures
@@ -1558,6 +1690,58 @@ Status: PASS
   - state: open · compat:none
   - evidence:
     - [extension @ index.ts](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts)
+
+- 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
+  - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/dingtalk-connector/index.ts:74
+
+- 🟡 P2 **dingtalk-connector** `deprecation-warning` `core-compat-adapter`
+  - **legacy-root-sdk-import**: dingtalk-connector: root plugin SDK barrel is still used by fixtures
+  - state: open · compat:deprecated · deprecated
+  - evidence:
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/index.ts:17
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/channel.ts:4
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/config/accounts.ts:2
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/connection.ts:16
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/provider.ts:14
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/directory.ts:1
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/gateway-methods.ts:7
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/onboarding.ts:5
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/runtime.ts:1
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/utils/agent.ts:8
+
+- 🟡 P2 **dingtalk-connector** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: dingtalk-connector: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - author @ plugins/dingtalk-connector/openclaw.plugin.json
+    - main @ plugins/dingtalk-connector/openclaw.plugin.json
+
+- 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
+  - **package-build-artifact-entrypoint**: dingtalk-connector: cold import requires package build output
+  - state: open · compat:none
+  - evidence:
+    - extension:./dist/index.mjs -> plugins/dingtalk-connector/dist/index.mjs
+
+- 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: dingtalk-connector: cold import requires isolated dependency installation
+  - state: open · compat:none
+  - evidence:
+    - axios @ plugins/dingtalk-connector/package.json
+    - dingtalk-stream @ plugins/dingtalk-connector/package.json
+    - form-data @ plugins/dingtalk-connector/package.json
+    - qrcode-terminal @ plugins/dingtalk-connector/package.json
+    - zod @ plugins/dingtalk-connector/package.json
+    - openclaw @ plugins/dingtalk-connector/package.json
+    - mammoth @ plugins/dingtalk-connector/package.json
+
+- 🟡 P2 **dingtalk-connector** `upstream-metadata` `plugin-upstream-fix`
+  - **package-plugin-api-compat-missing**: dingtalk-connector: plugin API compatibility range is missing
+  - state: open · compat:none
+  - evidence:
+    - plugins/dingtalk-connector/package.json
 
 - 🟡 P2 **hasdata** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hasdata: cold import requires isolated dependency installation
@@ -2187,6 +2371,25 @@ Status: PASS
     - [registerCommand @ commands.ts:64](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L64)
     - [registerService @ hooks.ts:91](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/hooks.ts#L91)
 
+- 🟠 P1 **dingtalk-connector** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:dingtalk-connector`
+  - evidence:
+    - registerChannel @ plugins/dingtalk-connector/index.ts:74
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:130
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:190
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:258
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:311
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:351
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:388
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:425
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:452
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:506
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:593
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:60
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:652
+    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719
+
 - 🟠 P1 **honcho** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:honcho`
@@ -2353,6 +2556,12 @@ Status: PASS
   - evidence:
     - [defineChannelPluginEntry @ index.ts:8](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts#L8)
 
+- 🟡 P2 **dingtalk-connector** `channel-runtime`
+  - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
+  - id: `channel.runtime.envelope-config-metadata:dingtalk-connector`
+  - evidence:
+    - registerChannel @ plugins/dingtalk-connector/index.ts:74
+
 - 🟡 P2 **mocrane-wecom** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:mocrane-wecom`
@@ -2428,6 +2637,13 @@ Status: PASS
     - [homepage @ openclaw.plugin.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/openclaw.plugin.json)
     - [icon @ openclaw.plugin.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/openclaw.plugin.json)
 
+- 🟡 P2 **dingtalk-connector** `manifest-loader`
+  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
+  - id: `manifest.schema.top-level-fields:dingtalk-connector`
+  - evidence:
+    - author @ plugins/dingtalk-connector/openclaw.plugin.json
+    - main @ plugins/dingtalk-connector/openclaw.plugin.json
+
 - 🟡 P2 **qqbot** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
   - id: `manifest.schema.top-level-fields:qqbot`
@@ -2458,6 +2674,12 @@ Status: PASS
   - id: `package.compat.plugin-api-range:ddingtalk`
   - evidence:
     - [package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
+
+- 🟡 P2 **dingtalk-connector** `package-loader`
+  - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
+  - id: `package.compat.plugin-api-range:dingtalk-connector`
+  - evidence:
+    - plugins/dingtalk-connector/package.json
 
 - 🟡 P2 **lossless-claw** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -2501,6 +2723,12 @@ Status: PASS
   - evidence:
     - [extension:./dist/index.js @ index.js](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/dist/index.js)
     - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/dist/setup-entry.js)
+
+- 🟡 P2 **dingtalk-connector** `package-loader`
+  - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
+  - id: `package.entrypoint.build-before-cold-import:dingtalk-connector`
+  - evidence:
+    - extension:./dist/index.mjs -> plugins/dingtalk-connector/dist/index.mjs
 
 - 🟡 P2 **honcho** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -2563,6 +2791,18 @@ Status: PASS
     - [dingtalk-stream @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
     - [zod @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
     - [openclaw @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
+
+- 🟡 P2 **dingtalk-connector** `package-loader`
+  - contract: Inspector installs package dependencies in an isolated workspace before cold import.
+  - id: `package.entrypoint.isolated-dependency-install:dingtalk-connector`
+  - evidence:
+    - axios @ plugins/dingtalk-connector/package.json
+    - dingtalk-stream @ plugins/dingtalk-connector/package.json
+    - form-data @ plugins/dingtalk-connector/package.json
+    - qrcode-terminal @ plugins/dingtalk-connector/package.json
+    - zod @ plugins/dingtalk-connector/package.json
+    - openclaw @ plugins/dingtalk-connector/package.json
+    - mammoth @ plugins/dingtalk-connector/package.json
 
 - 🟡 P2 **hasdata** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -2751,6 +2991,21 @@ Status: PASS
     - package:1.4.0
     - manifest:1.3.0
 
+- 🟡 P2 **honcho** `sdk-import`
+  - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
+  - id: `sdk.import.reserved-bundled-plugin-boundary:honcho`
+  - evidence:
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
+
+- 🟡 P2 **yuanbao** `sdk-import`
+  - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
+  - id: `sdk.import.reserved-bundled-plugin-boundary:yuanbao`
+  - evidence:
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
+
 - 🟡 P2 **a2a-gateway** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:a2a-gateway`
@@ -2775,6 +3030,21 @@ Status: PASS
     - [openclaw/plugin-sdk @ hooks.ts:1](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/hooks.ts#L1)
     - [openclaw/plugin-sdk @ tools.ts:1](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/tools.ts#L1)
     - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/tools.ts#L2)
+
+- 🟡 P2 **dingtalk-connector** `sdk-alias`
+  - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
+  - id: `sdk.import.root-barrel-cold-import:dingtalk-connector`
+  - evidence:
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/index.ts:17
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/channel.ts:4
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/config/accounts.ts:2
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/connection.ts:16
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/provider.ts:14
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/directory.ts:1
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/gateway-methods.ts:7
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/onboarding.ts:5
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/runtime.ts:1
+    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/utils/agent.ts:8
 
 - 🟡 P2 **honcho** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
@@ -3138,6 +3408,12 @@ Status: PASS
   - evidence:
     - package:1.1.2
     - manifest:1.0.0
+
+- 🟢 P3 **clawmetry** `sdk-import`
+  - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
+  - id: `sdk.import.reserved-bundled-plugin-boundary:clawmetry`
+  - evidence:
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/b329bb3ed18b651d369bf35321ec58bd47dc33b4/clawhub-plugin/src/service.ts#L2)
 
 - 🟢 P3 **apify** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.

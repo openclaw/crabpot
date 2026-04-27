@@ -8,16 +8,16 @@
     "container"
   ],
   "summary": {
-    "fixtureCount": 27,
-    "entrypointCount": 30,
+    "fixtureCount": 28,
+    "entrypointCount": 31,
     "tsLoaderEntrypointCount": 18,
     "jitiAlternativeCount": 18,
-    "lazyImportProbeCount": 30,
-    "portabilityFindingCount": 153,
-    "windowsRiskStepCount": 153,
+    "lazyImportProbeCount": 31,
+    "portabilityFindingCount": 157,
+    "windowsRiskStepCount": 157,
     "macosRiskStepCount": 17,
     "linuxRiskStepCount": 17,
-    "containerRiskStepCount": 47
+    "containerRiskStepCount": 48
   },
   "entrypoints": [
     {
@@ -277,6 +277,20 @@
       "syntheticProbePlanned": true,
       "captureUsesTsx": true,
       "syntheticUsesTsx": true
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "id": "cold-import.extension:dingtalk-connector:plugins-dingtalk-connector-dist-index-mjs",
+      "status": "build-required",
+      "entrypoint": "plugins/dingtalk-connector/dist/index.mjs",
+      "packageManager": "npm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
     },
     {
       "fixture": "mocrane-wecom",
@@ -548,7 +562,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/agentchat/cold-import-extension-agentchat-plugins-agentchat-integrations-openclaw-channel-dist-index-js.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/agentchat/cold-import-extension-agentchat-plugins-agentchat-integrations-openclaw-channel-dist-index-js.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -561,7 +575,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/agentchat/cold-import-extension-agentchat-plugins-agentchat-integrations-openclaw-channel-dist-index-js.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/agentchat/cold-import-extension-agentchat-plugins-agentchat-integrations-openclaw-channel-dist-index-js.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -634,7 +648,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --output ../../results/agentchat/cold-import-setupEntry-agentchat-plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/agentchat/cold-import-setupEntry-agentchat-plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -647,7 +661,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --output ../../results/agentchat/cold-import-setupEntry-agentchat-plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/agentchat/cold-import-setupEntry-agentchat-plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -702,7 +716,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.js --output ../../results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.js --mock-sdk --output ../../results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -715,7 +729,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.js --output ../../results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.js --mock-sdk --output ../../results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -770,7 +784,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./preload.cjs --output ../../results/qqbot/cold-import-extension-qqbot-plugins-qqbot-preload-cjs.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./preload.cjs --mock-sdk --output ../../results/qqbot/cold-import-extension-qqbot-plugins-qqbot-preload-cjs.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -783,7 +797,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./preload.cjs --output ../../results/qqbot/cold-import-extension-qqbot-plugins-qqbot-preload-cjs.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./preload.cjs --mock-sdk --output ../../results/qqbot/cold-import-extension-qqbot-plugins-qqbot-preload-cjs.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -839,7 +853,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -853,7 +867,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -909,7 +923,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --output ../../results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --mock-sdk --output ../../results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -923,7 +937,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --output ../../results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --mock-sdk --output ../../results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -979,7 +993,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -993,7 +1007,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1035,7 +1049,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1049,7 +1063,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1105,7 +1119,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1119,7 +1133,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1160,7 +1174,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/opik-openclaw/cold-import-runtimeExtension-opik-openclaw-plugins-opik-openclaw-dist-index-js.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/opik-openclaw/cold-import-runtimeExtension-opik-openclaw-plugins-opik-openclaw-dist-index-js.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -1173,7 +1187,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/opik-openclaw/cold-import-runtimeExtension-opik-openclaw-plugins-opik-openclaw-dist-index-js.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/opik-openclaw/cold-import-runtimeExtension-opik-openclaw-plugins-opik-openclaw-dist-index-js.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -1214,7 +1228,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/lossless-claw/cold-import-extension-lossless-claw-plugins-lossless-claw-dist-index-js.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/lossless-claw/cold-import-extension-lossless-claw-plugins-lossless-claw-dist-index-js.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -1227,7 +1241,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/lossless-claw/cold-import-extension-lossless-claw-plugins-lossless-claw-dist-index-js.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/lossless-claw/cold-import-extension-lossless-claw-plugins-lossless-claw-dist-index-js.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -1319,7 +1333,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1333,7 +1347,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1389,7 +1403,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1403,7 +1417,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1460,7 +1474,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/honcho/cold-import-extension-honcho-plugins-honcho-dist-index-js.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/honcho/cold-import-extension-honcho-plugins-honcho-dist-index-js.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -1473,7 +1487,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/honcho/cold-import-extension-honcho-plugins-honcho-dist-index-js.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/honcho/cold-import-extension-honcho-plugins-honcho-dist-index-js.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -1529,7 +1543,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1543,7 +1557,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1599,7 +1613,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1613,7 +1627,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1705,7 +1719,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1719,8 +1733,62 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "entrypoint": "cold-import.extension:dingtalk-connector:plugins-dingtalk-connector-dist-index-mjs",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/dingtalk-connector && rsync -a --delete plugins/dingtalk-connector/ .crabpot/workspaces/dingtalk-connector/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "entrypoint": "cold-import.extension:dingtalk-connector:plugins-dingtalk-connector-dist-index-mjs",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/dingtalk-connector",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "entrypoint": "cold-import.extension:dingtalk-connector:plugins-dingtalk-connector-dist-index-mjs",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.mjs --mock-sdk --output ../../results/dingtalk-connector/cold-import-extension-dingtalk-connector-plugins-dingtalk-connector-dist-index-mjs.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "entrypoint": "cold-import.extension:dingtalk-connector:plugins-dingtalk-connector-dist-index-mjs",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.mjs --mock-sdk --output ../../results/dingtalk-connector/cold-import-extension-dingtalk-connector-plugins-dingtalk-connector-dist-index-mjs.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
       "fixture": "mocrane-wecom",
@@ -1775,7 +1843,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1789,7 +1857,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1844,7 +1912,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -1857,7 +1925,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -1913,7 +1981,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1927,7 +1995,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -1982,7 +2050,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-crabpot-package-dist-index-js.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-crabpot-package-dist-index-js.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -1995,7 +2063,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-crabpot-package-dist-index-js.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-crabpot-package-dist-index-js.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -2037,7 +2105,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -2051,7 +2119,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -2092,7 +2160,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/secureclaw/cold-import-extension-secureclaw-plugins-secureclaw-secureclaw-dist-index-js.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/secureclaw/cold-import-extension-secureclaw-plugins-secureclaw-secureclaw-dist-index-js.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -2105,7 +2173,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/secureclaw/cold-import-extension-secureclaw-plugins-secureclaw-secureclaw-dist-index-js.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/secureclaw/cold-import-extension-secureclaw-plugins-secureclaw-secureclaw-dist-index-js.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -2146,7 +2214,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.js --output ../../results/memos-cloud/cold-import-extension-memos-cloud-plugins-memos-cloud-index-js.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.js --mock-sdk --output ../../results/memos-cloud/cold-import-extension-memos-cloud-plugins-memos-cloud-index-js.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -2159,7 +2227,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.js --output ../../results/memos-cloud/cold-import-extension-memos-cloud-plugins-memos-cloud-index-js.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.js --mock-sdk --output ../../results/memos-cloud/cold-import-extension-memos-cloud-plugins-memos-cloud-index-js.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -2215,7 +2283,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -2229,7 +2297,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -2270,7 +2338,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -2283,7 +2351,7 @@
       "riskCodes": [
         "posix-env-prefix"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --output ../../results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
@@ -2375,7 +2443,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -2389,7 +2457,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -2445,7 +2513,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -2459,7 +2527,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -2515,7 +2583,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -2529,7 +2597,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -2621,7 +2689,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --output ../../results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.capture.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     },
     {
@@ -2635,7 +2703,7 @@
         "posix-env-prefix",
         "tsx-loader-runtime"
       ],
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --output ../../results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
     }
   ],

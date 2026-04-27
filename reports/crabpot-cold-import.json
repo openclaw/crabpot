@@ -3,15 +3,15 @@
   "targetOpenClaw": {
     "status": "ok",
     "configuredPath": "../openclaw",
-    "sdkExportCount": 307
+    "sdkExportCount": 316
   },
   "summary": {
-    "fixtureCount": 27,
-    "entrypointCount": 30,
+    "fixtureCount": 28,
+    "entrypointCount": 31,
     "readyCount": 0,
-    "blockedCount": 30,
+    "blockedCount": 31,
     "tsLoaderRequiredCount": 17,
-    "buildRequiredCount": 7,
+    "buildRequiredCount": 8,
     "dependencyInstallRequiredCount": 20,
     "sdkAliasRequiredCount": 1
   },
@@ -497,6 +497,31 @@
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dingtalk-connector",
+      "priority": "high",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:dingtalk-connector:plugins-dingtalk-connector-dist-index-mjs",
+          "fixture": "dingtalk-connector",
+          "packagePath": "plugins/dingtalk-connector/package.json",
+          "kind": "extension",
+          "specifier": "./dist/index.mjs",
+          "path": "plugins/dingtalk-connector/dist/index.mjs",
+          "status": "build-required",
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/dingtalk-connector/dist/index.mjs"
+            }
+          ],
+          "assertions": [
+            "plugin build or source alias resolution runs before cold import"
           ]
         }
       ]

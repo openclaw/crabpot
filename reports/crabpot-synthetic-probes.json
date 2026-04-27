@@ -1,14 +1,14 @@
 {
   "generatedAt": "deterministic",
   "summary": {
-    "fixtureCount": 27,
-    "probeCount": 141,
+    "fixtureCount": 28,
+    "probeCount": 155,
     "hookProbeCount": 48,
-    "registrationProbeCount": 93,
-    "readyCount": 141,
+    "registrationProbeCount": 107,
+    "readyCount": 155,
     "blockedCount": 0,
-    "directExecutionCount": 67,
-    "optInExecutionCount": 17,
+    "directExecutionCount": 80,
+    "optInExecutionCount": 18,
     "metadataOnlyCount": 9
   },
   "probes": [
@@ -34,7 +34,7 @@
           }
         ],
         "metadata": {
-          "source": "crabpot"
+          "source": "plugin-inspector"
         }
       },
       "syntheticContext": {
@@ -66,8 +66,7 @@
         "runId": "run-fixture",
         "agentId": "agent-fixture",
         "sessionId": "session-fixture",
-        "toolName": "fixture_tool",
-        "toolCallId": "call-fixture"
+        "toolName": "fixture_tool"
       },
       "source": "plugins/wecom/index.js:65"
     },
@@ -94,8 +93,7 @@
       },
       "syntheticContext": {
         "runId": "run-fixture",
-        "childSessionKey": "child-session",
-        "requesterSessionKey": "parent-session"
+        "parentAgentId": "agent-parent"
       },
       "source": "plugins/wecom/index.js:61"
     },
@@ -117,8 +115,7 @@
       },
       "syntheticContext": {
         "runId": "run-fixture",
-        "childSessionKey": "child-session",
-        "requesterSessionKey": "parent-session"
+        "parentAgentId": "agent-parent"
       },
       "source": "plugins/wecom/index.js:63"
     },
@@ -141,8 +138,7 @@
       },
       "syntheticContext": {
         "runId": "run-fixture",
-        "childSessionKey": "child-session",
-        "requesterSessionKey": "parent-session"
+        "parentAgentId": "agent-parent"
       },
       "source": "plugins/wecom/index.js:62"
     },
@@ -170,8 +166,7 @@
       "syntheticContext": {
         "runId": "run-fixture",
         "agentId": "agent-fixture",
-        "sessionId": "session-fixture",
-        "channelId": "fixture-channel"
+        "sessionId": "session-fixture"
       },
       "source": "plugins/llm-trace-phoenix/index.ts:154"
     },
@@ -197,8 +192,7 @@
       "syntheticContext": {
         "runId": "run-fixture",
         "agentId": "agent-fixture",
-        "sessionId": "session-fixture",
-        "channelId": "fixture-channel"
+        "sessionId": "session-fixture"
       },
       "source": "plugins/llm-trace-phoenix/index.ts:168"
     },
@@ -274,8 +268,7 @@
         "runId": "run-fixture",
         "agentId": "agent-fixture",
         "sessionId": "session-fixture",
-        "toolName": "fixture_tool",
-        "toolCallId": "call-fixture"
+        "toolName": "fixture_tool"
       },
       "source": "plugins/opik-openclaw/src/service/hooks/tool.ts:34"
     },
@@ -303,8 +296,7 @@
       "syntheticContext": {
         "runId": "run-fixture",
         "agentId": "agent-fixture",
-        "sessionId": "session-fixture",
-        "channelId": "fixture-channel"
+        "sessionId": "session-fixture"
       },
       "source": "plugins/opik-openclaw/src/service/hooks/llm.ts:39"
     },
@@ -330,8 +322,7 @@
       "syntheticContext": {
         "runId": "run-fixture",
         "agentId": "agent-fixture",
-        "sessionId": "session-fixture",
-        "channelId": "fixture-channel"
+        "sessionId": "session-fixture"
       },
       "source": "plugins/opik-openclaw/src/service/hooks/llm.ts:150"
     },
@@ -358,8 +349,7 @@
       },
       "syntheticContext": {
         "runId": "run-fixture",
-        "childSessionKey": "child-session",
-        "requesterSessionKey": "parent-session"
+        "parentAgentId": "agent-parent"
       },
       "source": "plugins/opik-openclaw/src/service/hooks/subagent.ts:147"
     },
@@ -381,8 +371,7 @@
       },
       "syntheticContext": {
         "runId": "run-fixture",
-        "childSessionKey": "child-session",
-        "requesterSessionKey": "parent-session"
+        "parentAgentId": "agent-parent"
       },
       "source": "plugins/opik-openclaw/src/service/hooks/subagent.ts:222"
     },
@@ -405,8 +394,7 @@
       },
       "syntheticContext": {
         "runId": "run-fixture",
-        "childSessionKey": "child-session",
-        "requesterSessionKey": "parent-session"
+        "parentAgentId": "agent-parent"
       },
       "source": "plugins/opik-openclaw/src/service/hooks/subagent.ts:89"
     },
@@ -472,7 +460,7 @@
           }
         ],
         "metadata": {
-          "source": "crabpot"
+          "source": "plugin-inspector"
         }
       },
       "syntheticContext": {
@@ -578,7 +566,7 @@
         "agentId": "agent-fixture",
         "runId": "run-fixture",
         "config": {
-          "source": "crabpot"
+          "source": "plugin-inspector"
         }
       },
       "syntheticContext": {
@@ -685,7 +673,7 @@
         "agentId": "agent-fixture",
         "runId": "run-fixture",
         "config": {
-          "source": "crabpot"
+          "source": "plugin-inspector"
         }
       },
       "syntheticContext": {
@@ -710,7 +698,7 @@
         "agentId": "agent-fixture",
         "runId": "run-fixture",
         "config": {
-          "source": "crabpot"
+          "source": "plugin-inspector"
         }
       },
       "syntheticContext": {
@@ -837,7 +825,7 @@
         "agentId": "agent-fixture",
         "runId": "run-fixture",
         "config": {
-          "source": "crabpot"
+          "source": "plugin-inspector"
         }
       },
       "syntheticContext": {
@@ -889,7 +877,7 @@
           }
         ],
         "metadata": {
-          "source": "crabpot"
+          "source": "plugin-inspector"
         }
       },
       "syntheticContext": {
@@ -959,8 +947,7 @@
       },
       "syntheticContext": {
         "runId": "run-fixture",
-        "childSessionKey": "child-session",
-        "requesterSessionKey": "parent-session"
+        "parentAgentId": "agent-parent"
       },
       "source": "plugins/honcho/hooks/subagent.ts:24"
     },
@@ -986,7 +973,7 @@
           }
         ],
         "metadata": {
-          "source": "crabpot"
+          "source": "plugin-inspector"
         }
       },
       "syntheticContext": {
@@ -1050,7 +1037,7 @@
           }
         ],
         "metadata": {
-          "source": "crabpot"
+          "source": "plugin-inspector"
         }
       },
       "syntheticContext": {
@@ -1123,7 +1110,7 @@
           }
         ],
         "metadata": {
-          "source": "crabpot"
+          "source": "plugin-inspector"
         }
       },
       "syntheticContext": {
@@ -1200,7 +1187,7 @@
         "agentId": "agent-fixture",
         "runId": "run-fixture",
         "config": {
-          "source": "crabpot"
+          "source": "plugin-inspector"
         }
       },
       "syntheticContext": {
@@ -1234,7 +1221,7 @@
       },
       "syntheticContext": {
         "channelId": "fixture-channel",
-        "pluginId": "fixture-plugin"
+        "accountId": "fixture-account"
       },
       "source": "plugins/codex-app-server/index.ts:25"
     },
@@ -3060,6 +3047,425 @@
         "reason": "entry wrapper metadata is captured before channel runtime execution"
       },
       "source": "plugins/ddingtalk/index.ts:8"
+    },
+    {
+      "id": "registration.registerChannel:dingtalk-connector:plugins-dingtalk-connector-index-ts-74",
+      "fixture": "dingtalk-connector",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "receive"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/dingtalk-connector/index.ts:74"
+    },
+    {
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-130",
+      "fixture": "dingtalk-connector",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:130"
+    },
+    {
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-190",
+      "fixture": "dingtalk-connector",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:190"
+    },
+    {
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-258",
+      "fixture": "dingtalk-connector",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:258"
+    },
+    {
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-311",
+      "fixture": "dingtalk-connector",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:311"
+    },
+    {
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-351",
+      "fixture": "dingtalk-connector",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:351"
+    },
+    {
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-388",
+      "fixture": "dingtalk-connector",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:388"
+    },
+    {
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-425",
+      "fixture": "dingtalk-connector",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:425"
+    },
+    {
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-452",
+      "fixture": "dingtalk-connector",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:452"
+    },
+    {
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-506",
+      "fixture": "dingtalk-connector",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:506"
+    },
+    {
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-593",
+      "fixture": "dingtalk-connector",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:593"
+    },
+    {
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-60",
+      "fixture": "dingtalk-connector",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:60"
+    },
+    {
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-652",
+      "fixture": "dingtalk-connector",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:652"
+    },
+    {
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-719",
+      "fixture": "dingtalk-connector",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:719"
     },
     {
       "id": "registration.registerChannel:mocrane-wecom:plugins-mocrane-wecom-index-ts-31",

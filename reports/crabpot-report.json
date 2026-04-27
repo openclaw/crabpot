@@ -8,46 +8,112 @@
     ],
     "status": "ok",
     "compatRegistryPath": "../openclaw/src/plugins/compat/registry.ts",
-    "compatRecordCount": 18,
+    "compatRecordCount": 51,
     "compatRecords": [
+      "activation-agent-harness-hint",
       "activation-capability-hint",
       "activation-channel-hint",
       "activation-command-hint",
+      "activation-config-path-hint",
       "activation-provider-hint",
       "activation-route-hint",
       "agent-harness-id-alias",
       "agent-harness-sdk-alias",
+      "agent-tool-result-harness-alias",
+      "approval-capability-approvals-alias",
       "bundled-plugin-allowlist",
       "bundled-plugin-enablement",
+      "bundled-plugin-load-path-aliases",
       "bundled-plugin-vitest-defaults",
       "channel-env-vars",
+      "channel-exposure-legacy-aliases",
+      "channel-mention-gating-legacy-helpers",
+      "channel-native-message-schema-helpers",
+      "channel-runtime-sdk-alias",
+      "clawdbot-config-type-alias",
+      "command-auth-status-builders",
       "disable-persisted-plugin-registry-env",
       "embedded-harness-config-alias",
       "generated-bundled-channel-config-fallback",
       "hook-only-plugin-shape",
       "legacy-before-agent-start",
+      "legacy-extension-api-import",
       "legacy-root-sdk-import",
-      "provider-auth-env-vars"
+      "memory-split-registration",
+      "openclaw-schema-type-alias",
+      "plugin-activate-entrypoint-alias",
+      "plugin-install-config-ledger",
+      "plugin-owned-web-fetch-config",
+      "plugin-owned-web-search-config",
+      "plugin-owned-x-search-config",
+      "plugin-registry-install-migration-env",
+      "plugin-sdk-test-utils-alias",
+      "provider-auth-env-vars",
+      "provider-discovery-hook-alias",
+      "provider-discovery-type-aliases",
+      "provider-external-oauth-profiles-hook",
+      "provider-static-capabilities-bag",
+      "provider-thinking-policy-hooks",
+      "provider-web-search-core-wrapper",
+      "runtime-config-load-write",
+      "runtime-inbound-envelope-alias",
+      "runtime-stt-alias",
+      "runtime-subagent-get-session-alias",
+      "runtime-taskflow-legacy-alias",
+      "setup-runtime-fallback"
     ],
     "compatRecordStatuses": {
+      "activation-agent-harness-hint": "active",
       "activation-capability-hint": "active",
       "activation-channel-hint": "active",
       "activation-command-hint": "active",
+      "activation-config-path-hint": "active",
       "activation-provider-hint": "active",
       "activation-route-hint": "active",
       "agent-harness-id-alias": "deprecated",
       "agent-harness-sdk-alias": "deprecated",
+      "agent-tool-result-harness-alias": "deprecated",
+      "approval-capability-approvals-alias": "deprecated",
       "bundled-plugin-allowlist": "active",
       "bundled-plugin-enablement": "active",
+      "bundled-plugin-load-path-aliases": "deprecated",
       "bundled-plugin-vitest-defaults": "active",
       "channel-env-vars": "deprecated",
+      "channel-exposure-legacy-aliases": "deprecated",
+      "channel-mention-gating-legacy-helpers": "deprecated",
+      "channel-native-message-schema-helpers": "deprecated",
+      "channel-runtime-sdk-alias": "deprecated",
+      "clawdbot-config-type-alias": "deprecated",
+      "command-auth-status-builders": "deprecated",
       "disable-persisted-plugin-registry-env": "deprecated",
       "embedded-harness-config-alias": "deprecated",
       "generated-bundled-channel-config-fallback": "active",
       "hook-only-plugin-shape": "active",
       "legacy-before-agent-start": "deprecated",
+      "legacy-extension-api-import": "deprecated",
       "legacy-root-sdk-import": "deprecated",
-      "provider-auth-env-vars": "deprecated"
+      "memory-split-registration": "deprecated",
+      "openclaw-schema-type-alias": "deprecated",
+      "plugin-activate-entrypoint-alias": "deprecated",
+      "plugin-install-config-ledger": "deprecated",
+      "plugin-owned-web-fetch-config": "deprecated",
+      "plugin-owned-web-search-config": "deprecated",
+      "plugin-owned-x-search-config": "deprecated",
+      "plugin-registry-install-migration-env": "deprecated",
+      "plugin-sdk-test-utils-alias": "deprecated",
+      "provider-auth-env-vars": "deprecated",
+      "provider-discovery-hook-alias": "deprecated",
+      "provider-discovery-type-aliases": "deprecated",
+      "provider-external-oauth-profiles-hook": "deprecated",
+      "provider-static-capabilities-bag": "deprecated",
+      "provider-thinking-policy-hooks": "deprecated",
+      "provider-web-search-core-wrapper": "deprecated",
+      "runtime-config-load-write": "deprecated",
+      "runtime-inbound-envelope-alias": "deprecated",
+      "runtime-stt-alias": "deprecated",
+      "runtime-subagent-get-session-alias": "deprecated",
+      "runtime-taskflow-legacy-alias": "deprecated",
+      "setup-runtime-fallback": "active"
     },
     "hookTypesPath": "../openclaw/src/plugins/hook-types.ts",
     "hookNameCount": 32,
@@ -86,7 +152,7 @@
       "tool_result_persist"
     ],
     "apiBuilderPath": "../openclaw/src/plugins/api-builder.ts",
-    "apiRegistrarCount": 40,
+    "apiRegistrarCount": 41,
     "apiRegistrars": [
       "registerAgentHarness",
       "registerAgentToolResultMiddleware",
@@ -114,6 +180,7 @@
       "registerMemoryPromptSection",
       "registerMemoryPromptSupplement",
       "registerMemoryRuntime",
+      "registerMigrationProvider",
       "registerMusicGenerationProvider",
       "registerNodeHostCommand",
       "registerProvider",
@@ -130,7 +197,7 @@
       "registerWebSearchProvider"
     ],
     "capturedRegistrationPath": "../openclaw/src/plugins/captured-registration.ts",
-    "capturedRegistrarCount": 18,
+    "capturedRegistrarCount": 19,
     "capturedRegistrars": [
       "registerAgentHarness",
       "registerAgentToolResultMiddleware",
@@ -140,6 +207,7 @@
       "registerImageGenerationProvider",
       "registerMediaUnderstandingProvider",
       "registerMemoryEmbeddingProvider",
+      "registerMigrationProvider",
       "registerMusicGenerationProvider",
       "registerProvider",
       "registerRealtimeTranscriptionProvider",
@@ -152,7 +220,7 @@
       "registerWebSearchProvider"
     ],
     "packagePath": "../openclaw/package.json",
-    "sdkExportCount": 307,
+    "sdkExportCount": 316,
     "sdkExports": [
       "openclaw/plugin-sdk",
       "openclaw/plugin-sdk/account-core",
@@ -196,6 +264,7 @@
       "openclaw/plugin-sdk/channel-config-helpers",
       "openclaw/plugin-sdk/channel-config-primitives",
       "openclaw/plugin-sdk/channel-config-schema",
+      "openclaw/plugin-sdk/channel-config-schema-legacy",
       "openclaw/plugin-sdk/channel-config-writes",
       "openclaw/plugin-sdk/channel-contract",
       "openclaw/plugin-sdk/channel-contract-testing",
@@ -238,16 +307,20 @@
       "openclaw/plugin-sdk/command-status-runtime",
       "openclaw/plugin-sdk/command-surface",
       "openclaw/plugin-sdk/compat",
+      "openclaw/plugin-sdk/config-mutation",
       "openclaw/plugin-sdk/config-runtime",
       "openclaw/plugin-sdk/config-schema",
+      "openclaw/plugin-sdk/config-types",
       "openclaw/plugin-sdk/context-visibility-runtime",
       "openclaw/plugin-sdk/conversation-binding-runtime",
       "openclaw/plugin-sdk/conversation-runtime",
       "openclaw/plugin-sdk/core",
+      "openclaw/plugin-sdk/cron-store-runtime",
       "openclaw/plugin-sdk/dangerous-name-runtime",
       "openclaw/plugin-sdk/device-bootstrap",
       "openclaw/plugin-sdk/diagnostic-runtime",
       "openclaw/plugin-sdk/diagnostics-otel",
+      "openclaw/plugin-sdk/diagnostics-prometheus",
       "openclaw/plugin-sdk/diffs",
       "openclaw/plugin-sdk/direct-dm",
       "openclaw/plugin-sdk/direct-dm-access",
@@ -331,6 +404,9 @@
       "openclaw/plugin-sdk/memory-host-status",
       "openclaw/plugin-sdk/memory-lancedb",
       "openclaw/plugin-sdk/messaging-targets",
+      "openclaw/plugin-sdk/migration",
+      "openclaw/plugin-sdk/migration-runtime",
+      "openclaw/plugin-sdk/model-session-runtime",
       "openclaw/plugin-sdk/models-provider-runtime",
       "openclaw/plugin-sdk/msteams",
       "openclaw/plugin-sdk/music-generation",
@@ -345,6 +421,7 @@
       "openclaw/plugin-sdk/outbound-send-deps",
       "openclaw/plugin-sdk/param-readers",
       "openclaw/plugin-sdk/persistent-dedupe",
+      "openclaw/plugin-sdk/plugin-config-runtime",
       "openclaw/plugin-sdk/plugin-entry",
       "openclaw/plugin-sdk/plugin-runtime",
       "openclaw/plugin-sdk/poll-runtime",
@@ -376,8 +453,6 @@
       "openclaw/plugin-sdk/provider-web-search-contract",
       "openclaw/plugin-sdk/provider-zai-endpoint",
       "openclaw/plugin-sdk/proxy-capture",
-      "openclaw/plugin-sdk/qa-channel",
-      "openclaw/plugin-sdk/qa-channel-protocol",
       "openclaw/plugin-sdk/qa-runner-runtime",
       "openclaw/plugin-sdk/realtime-transcription",
       "openclaw/plugin-sdk/realtime-voice",
@@ -430,6 +505,7 @@
       "openclaw/plugin-sdk/status-helpers",
       "openclaw/plugin-sdk/string-coerce-runtime",
       "openclaw/plugin-sdk/string-normalization-runtime",
+      "openclaw/plugin-sdk/talk-config-runtime",
       "openclaw/plugin-sdk/target-resolver-runtime",
       "openclaw/plugin-sdk/telegram-command-config",
       "openclaw/plugin-sdk/telegram-command-ui",
@@ -444,6 +520,7 @@
       "openclaw/plugin-sdk/tlon",
       "openclaw/plugin-sdk/tool-payload",
       "openclaw/plugin-sdk/tool-send",
+      "openclaw/plugin-sdk/tts-runtime",
       "openclaw/plugin-sdk/twitch",
       "openclaw/plugin-sdk/video-generation",
       "openclaw/plugin-sdk/video-generation-core",
@@ -462,8 +539,95 @@
       "openclaw/plugin-sdk/zalouser",
       "openclaw/plugin-sdk/zod"
     ],
+    "pluginSdkEntrypointsPath": "../openclaw/src/plugin-sdk/entrypoints.ts",
+    "reservedSdkExportCount": 51,
+    "reservedSdkExports": [
+      "openclaw/plugin-sdk/bluebubbles",
+      "openclaw/plugin-sdk/bluebubbles-policy",
+      "openclaw/plugin-sdk/browser-cdp",
+      "openclaw/plugin-sdk/browser-config-runtime",
+      "openclaw/plugin-sdk/browser-config-support",
+      "openclaw/plugin-sdk/browser-control-auth",
+      "openclaw/plugin-sdk/browser-node-runtime",
+      "openclaw/plugin-sdk/browser-profiles",
+      "openclaw/plugin-sdk/browser-security-runtime",
+      "openclaw/plugin-sdk/browser-setup-tools",
+      "openclaw/plugin-sdk/browser-support",
+      "openclaw/plugin-sdk/diagnostics-otel",
+      "openclaw/plugin-sdk/diagnostics-prometheus",
+      "openclaw/plugin-sdk/diffs",
+      "openclaw/plugin-sdk/feishu",
+      "openclaw/plugin-sdk/feishu-conversation",
+      "openclaw/plugin-sdk/feishu-setup",
+      "openclaw/plugin-sdk/github-copilot-login",
+      "openclaw/plugin-sdk/github-copilot-token",
+      "openclaw/plugin-sdk/googlechat",
+      "openclaw/plugin-sdk/googlechat-runtime-shared",
+      "openclaw/plugin-sdk/irc",
+      "openclaw/plugin-sdk/irc-surface",
+      "openclaw/plugin-sdk/line",
+      "openclaw/plugin-sdk/line-core",
+      "openclaw/plugin-sdk/line-runtime",
+      "openclaw/plugin-sdk/line-surface",
+      "openclaw/plugin-sdk/llm-task",
+      "openclaw/plugin-sdk/matrix",
+      "openclaw/plugin-sdk/matrix-helper",
+      "openclaw/plugin-sdk/matrix-runtime-heavy",
+      "openclaw/plugin-sdk/matrix-runtime-shared",
+      "openclaw/plugin-sdk/matrix-runtime-surface",
+      "openclaw/plugin-sdk/matrix-surface",
+      "openclaw/plugin-sdk/matrix-thread-bindings",
+      "openclaw/plugin-sdk/mattermost",
+      "openclaw/plugin-sdk/mattermost-policy",
+      "openclaw/plugin-sdk/memory-core",
+      "openclaw/plugin-sdk/memory-lancedb",
+      "openclaw/plugin-sdk/msteams",
+      "openclaw/plugin-sdk/nextcloud-talk",
+      "openclaw/plugin-sdk/nostr",
+      "openclaw/plugin-sdk/opencode",
+      "openclaw/plugin-sdk/telegram-command-ui",
+      "openclaw/plugin-sdk/thread-ownership",
+      "openclaw/plugin-sdk/tlon",
+      "openclaw/plugin-sdk/twitch",
+      "openclaw/plugin-sdk/voice-call",
+      "openclaw/plugin-sdk/zalo",
+      "openclaw/plugin-sdk/zalo-setup",
+      "openclaw/plugin-sdk/zalouser"
+    ],
+    "supportedFacadeSdkExports": [
+      "openclaw/plugin-sdk/lmstudio",
+      "openclaw/plugin-sdk/lmstudio-runtime",
+      "openclaw/plugin-sdk/memory-core-engine-runtime",
+      "openclaw/plugin-sdk/qa-runner-runtime",
+      "openclaw/plugin-sdk/tts-runtime"
+    ],
+    "publicPluginOwnedSdkExports": [
+      "openclaw/plugin-sdk/browser-config",
+      "openclaw/plugin-sdk/image-generation-core",
+      "openclaw/plugin-sdk/memory-core-host-engine-embeddings",
+      "openclaw/plugin-sdk/memory-core-host-engine-foundation",
+      "openclaw/plugin-sdk/memory-core-host-engine-qmd",
+      "openclaw/plugin-sdk/memory-core-host-engine-storage",
+      "openclaw/plugin-sdk/memory-core-host-events",
+      "openclaw/plugin-sdk/memory-core-host-multimodal",
+      "openclaw/plugin-sdk/memory-core-host-query",
+      "openclaw/plugin-sdk/memory-core-host-runtime-cli",
+      "openclaw/plugin-sdk/memory-core-host-runtime-core",
+      "openclaw/plugin-sdk/memory-core-host-runtime-files",
+      "openclaw/plugin-sdk/memory-core-host-secret",
+      "openclaw/plugin-sdk/memory-core-host-status",
+      "openclaw/plugin-sdk/memory-host-core",
+      "openclaw/plugin-sdk/memory-host-events",
+      "openclaw/plugin-sdk/memory-host-files",
+      "openclaw/plugin-sdk/memory-host-markdown",
+      "openclaw/plugin-sdk/memory-host-search",
+      "openclaw/plugin-sdk/memory-host-status",
+      "openclaw/plugin-sdk/speech-core",
+      "openclaw/plugin-sdk/telegram-command-config",
+      "openclaw/plugin-sdk/video-generation-core"
+    ],
     "manifestTypesPath": "../openclaw/src/plugins/manifest.ts",
-    "manifestFieldCount": 32,
+    "manifestFieldCount": 35,
     "manifestFields": [
       "activation",
       "autoEnableWhenConfiguredProviders",
@@ -482,6 +646,8 @@
       "legacyPluginIds",
       "mediaUnderstandingProviderMetadata",
       "modelCatalog",
+      "modelIdNormalization",
+      "modelPricing",
       "modelSupport",
       "name",
       "nonSecretAuthMarkers",
@@ -490,6 +656,7 @@
       "providerAuthEnvVars",
       "providerDiscoveryEntry",
       "providerEndpoints",
+      "providerRequest",
       "providers",
       "qaRunners",
       "setup",
@@ -498,7 +665,7 @@
       "uiHints",
       "version"
     ],
-    "manifestContractFieldCount": 16,
+    "manifestContractFieldCount": 17,
     "manifestContractFields": [
       "agentToolResultMiddleware",
       "documentExtractors",
@@ -507,6 +674,7 @@
       "imageGenerationProviders",
       "mediaUnderstandingProviders",
       "memoryEmbeddingProviders",
+      "migrationProviders",
       "musicGenerationProviders",
       "realtimeTranscriptionProviders",
       "realtimeVoiceProviders",
@@ -520,23 +688,24 @@
   },
   "status": "pass",
   "summary": {
-    "fixtureCount": 27,
-    "highPriorityFixtures": 18,
+    "fixtureCount": 28,
+    "highPriorityFixtures": 19,
     "breakageCount": 0,
-    "warningCount": 51,
-    "suggestionCount": 92,
-    "decisionCount": 144,
-    "issueCount": 143,
+    "warningCount": 57,
+    "suggestionCount": 96,
+    "decisionCount": 154,
+    "logCount": 181,
+    "issueCount": 153,
     "p0IssueCount": 2,
-    "p1IssueCount": 26,
+    "p1IssueCount": 30,
     "liveIssueCount": 2,
     "liveP0IssueCount": 2,
     "compatGapCount": 1,
-    "deprecationWarningCount": 21,
-    "inspectorGapCount": 97,
-    "upstreamIssueCount": 22,
+    "deprecationWarningCount": 22,
+    "inspectorGapCount": 101,
+    "upstreamIssueCount": 27,
     "fixtureRegressionCount": 0,
-    "contractProbeCount": 141
+    "contractProbeCount": 151
   },
   "fixtures": [
     {
@@ -4131,6 +4300,466 @@
       ]
     },
     {
+      "id": "dingtalk-connector",
+      "name": "DingTalk Connector",
+      "priority": "high",
+      "seams": [
+        "channel",
+        "streaming",
+        "account-auth",
+        "interactive-card",
+        "gateway-method"
+      ],
+      "why": "Official DingTalk connector fixture covering Stream-mode channel ingress, AI Card replies, multi-account access policy, gateway RPC methods, and packaged channel skills.",
+      "status": "ok",
+      "hooks": [],
+      "hookDetails": [],
+      "registrations": [
+        "registerChannel",
+        "registerGatewayMethod"
+      ],
+      "registrationDetails": [
+        {
+          "name": "registerChannel",
+          "file": "plugins/dingtalk-connector/index.ts",
+          "line": 74,
+          "ref": "plugins/dingtalk-connector/index.ts:74"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 130,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:130"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 190,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:190"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 258,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:258"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 311,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:311"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 351,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:351"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 388,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:388"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 425,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:425"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 452,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:452"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 506,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:506"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 593,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:593"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 60,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:60"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 652,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:652"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 719,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:719"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/dingtalk-connector/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/dingtalk-connector/bin/dingtalk-connector.js",
+        "plugins/dingtalk-connector/entry-bundled.ts",
+        "plugins/dingtalk-connector/index.ts",
+        "plugins/dingtalk-connector/src/channel.ts",
+        "plugins/dingtalk-connector/src/config/accounts.ts",
+        "plugins/dingtalk-connector/src/config/schema.ts",
+        "plugins/dingtalk-connector/src/core/connection.ts",
+        "plugins/dingtalk-connector/src/core/message-handler.ts",
+        "plugins/dingtalk-connector/src/core/provider.ts",
+        "plugins/dingtalk-connector/src/core/state.ts",
+        "plugins/dingtalk-connector/src/device-auth-config.ts",
+        "plugins/dingtalk-connector/src/device-auth.ts",
+        "plugins/dingtalk-connector/src/directory.ts",
+        "plugins/dingtalk-connector/src/docs.ts",
+        "plugins/dingtalk-connector/src/game-xiyou/achievement-engine.ts",
+        "plugins/dingtalk-connector/src/game-xiyou/bounty-system.ts",
+        "plugins/dingtalk-connector/src/game-xiyou/commands.ts",
+        "plugins/dingtalk-connector/src/game-xiyou/drop-engine.ts",
+        "plugins/dingtalk-connector/src/game-xiyou/encounter-system.ts",
+        "plugins/dingtalk-connector/src/game-xiyou/escape-engine.ts",
+        "plugins/dingtalk-connector/src/game-xiyou/exp-calculator.ts",
+        "plugins/dingtalk-connector/src/game-xiyou/index.ts",
+        "plugins/dingtalk-connector/src/game-xiyou/level-system.ts",
+        "plugins/dingtalk-connector/src/game-xiyou/monster-pool.ts",
+        "plugins/dingtalk-connector/src/game-xiyou/pity-counter.ts",
+        "plugins/dingtalk-connector/src/game-xiyou/random-event-engine.ts",
+        "plugins/dingtalk-connector/src/game-xiyou/renderer.ts",
+        "plugins/dingtalk-connector/src/game-xiyou/storage.ts",
+        "plugins/dingtalk-connector/src/game-xiyou/treasure-system.ts",
+        "plugins/dingtalk-connector/src/game-xiyou/types.ts",
+        "plugins/dingtalk-connector/src/game-xiyou/uid-resolver.ts",
+        "plugins/dingtalk-connector/src/gateway-methods.ts",
+        "plugins/dingtalk-connector/src/onboarding.ts",
+        "plugins/dingtalk-connector/src/policy.ts",
+        "plugins/dingtalk-connector/src/probe.ts",
+        "plugins/dingtalk-connector/src/reply-dispatcher.ts",
+        "plugins/dingtalk-connector/src/runtime.ts",
+        "plugins/dingtalk-connector/src/sdk/helpers.ts",
+        "plugins/dingtalk-connector/src/sdk/types.ts",
+        "plugins/dingtalk-connector/src/secret-input.ts",
+        "plugins/dingtalk-connector/src/services/media.ts",
+        "plugins/dingtalk-connector/src/services/media/audio.ts",
+        "plugins/dingtalk-connector/src/services/media/chunk-upload.ts",
+        "plugins/dingtalk-connector/src/services/media/common.ts",
+        "plugins/dingtalk-connector/src/services/media/file.ts",
+        "plugins/dingtalk-connector/src/services/media/image.ts",
+        "plugins/dingtalk-connector/src/services/media/index.ts",
+        "plugins/dingtalk-connector/src/services/media/video.ts",
+        "plugins/dingtalk-connector/src/services/messaging.ts",
+        "plugins/dingtalk-connector/src/services/messaging/card.ts",
+        "plugins/dingtalk-connector/src/services/messaging/index.ts",
+        "plugins/dingtalk-connector/src/services/messaging/mentions.ts",
+        "plugins/dingtalk-connector/src/services/messaging/send.ts",
+        "plugins/dingtalk-connector/src/targets.ts",
+        "plugins/dingtalk-connector/src/types/index.ts",
+        "plugins/dingtalk-connector/src/utils/agent.ts",
+        "plugins/dingtalk-connector/src/utils/async.ts",
+        "plugins/dingtalk-connector/src/utils/constants.ts",
+        "plugins/dingtalk-connector/src/utils/http-client.ts",
+        "plugins/dingtalk-connector/src/utils/index.ts",
+        "plugins/dingtalk-connector/src/utils/logger.ts",
+        "plugins/dingtalk-connector/src/utils/session.ts",
+        "plugins/dingtalk-connector/src/utils/token.ts",
+        "plugins/dingtalk-connector/src/utils/utils-legacy.ts",
+        "plugins/dingtalk-connector/tsdown.config.ts",
+        "plugins/dingtalk-connector/vitest.config.ts"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/dingtalk-connector/openclaw.plugin.json",
+          "id": "dingtalk-connector",
+          "name": "DingTalk Channel",
+          "version": "0.8.19",
+          "keys": [
+            "author",
+            "channelConfigs",
+            "channels",
+            "configSchema",
+            "description",
+            "id",
+            "main",
+            "name",
+            "skills",
+            "version"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "package": {
+        "path": "plugins/dingtalk-connector/package.json",
+        "name": "@dingtalk-real-ai/dingtalk-connector",
+        "version": "0.8.19",
+        "type": "module",
+        "main": "./dist/index.mjs",
+        "dependencies": [
+          "axios",
+          "dingtalk-stream",
+          "form-data",
+          "qrcode-terminal",
+          "zod"
+        ],
+        "peerDependencies": [
+          "openclaw"
+        ],
+        "optionalDependencies": [
+          "mammoth"
+        ],
+        "openclaw": {
+          "extensions": [
+            "./dist/index.mjs"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": null,
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./dist/index.mjs",
+              "relativePath": "plugins/dingtalk-connector/dist/index.mjs",
+              "exists": false,
+              "requiresBuild": true
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/dingtalk-connector/package.json",
+          "name": "@dingtalk-real-ai/dingtalk-connector",
+          "version": "0.8.19",
+          "type": "module",
+          "main": "./dist/index.mjs",
+          "dependencies": [
+            "axios",
+            "dingtalk-stream",
+            "form-data",
+            "qrcode-terminal",
+            "zod"
+          ],
+          "peerDependencies": [
+            "openclaw"
+          ],
+          "optionalDependencies": [
+            "mammoth"
+          ],
+          "openclaw": {
+            "extensions": [
+              "./dist/index.mjs"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": null,
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./dist/index.mjs",
+                "relativePath": "plugins/dingtalk-connector/dist/index.mjs",
+                "exists": false,
+                "requiresBuild": true
+              }
+            ]
+          }
+        }
+      ],
+      "sdkImports": [
+        "openclaw/plugin-sdk",
+        "openclaw/plugin-sdk/channel-entry-contract",
+        "openclaw/plugin-sdk/channel-runtime",
+        "openclaw/plugin-sdk/config-runtime",
+        "openclaw/plugin-sdk/core",
+        "openclaw/plugin-sdk/setup"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/dingtalk-connector/index.ts",
+          "line": 17,
+          "ref": "plugins/dingtalk-connector/index.ts:17"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/dingtalk-connector/src/channel.ts",
+          "line": 4,
+          "ref": "plugins/dingtalk-connector/src/channel.ts:4"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/dingtalk-connector/src/config/accounts.ts",
+          "line": 2,
+          "ref": "plugins/dingtalk-connector/src/config/accounts.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/dingtalk-connector/src/core/connection.ts",
+          "line": 16,
+          "ref": "plugins/dingtalk-connector/src/core/connection.ts:16"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/dingtalk-connector/src/core/provider.ts",
+          "line": 14,
+          "ref": "plugins/dingtalk-connector/src/core/provider.ts:14"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/dingtalk-connector/src/directory.ts",
+          "line": 1,
+          "ref": "plugins/dingtalk-connector/src/directory.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 7,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:7"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/dingtalk-connector/src/onboarding.ts",
+          "line": 5,
+          "ref": "plugins/dingtalk-connector/src/onboarding.ts:5"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/dingtalk-connector/src/runtime.ts",
+          "line": 1,
+          "ref": "plugins/dingtalk-connector/src/runtime.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/dingtalk-connector/src/utils/agent.ts",
+          "line": 8,
+          "ref": "plugins/dingtalk-connector/src/utils/agent.ts:8"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/channel-entry-contract",
+          "file": "plugins/dingtalk-connector/entry-bundled.ts",
+          "line": 11,
+          "ref": "plugins/dingtalk-connector/entry-bundled.ts:11"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/channel-runtime",
+          "file": "plugins/dingtalk-connector/src/reply-dispatcher.ts",
+          "line": 21,
+          "ref": "plugins/dingtalk-connector/src/reply-dispatcher.ts:21"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 131,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:131"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 191,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:191"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 259,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:259"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 312,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:312"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 352,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:352"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 389,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:389"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 426,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:426"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 453,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:453"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 507,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:507"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 594,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:594"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 61,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:61"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 653,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:653"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
+          "line": 720,
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:720"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/dingtalk-connector/src/channel.ts",
+          "line": 7,
+          "ref": "plugins/dingtalk-connector/src/channel.ts:7"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/setup",
+          "file": "plugins/dingtalk-connector/src/onboarding.ts",
+          "line": 10,
+          "ref": "plugins/dingtalk-connector/src/onboarding.ts:10"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/setup",
+          "file": "plugins/dingtalk-connector/src/onboarding.ts",
+          "line": 17,
+          "ref": "plugins/dingtalk-connector/src/onboarding.ts:17"
+        }
+      ]
+    },
+    {
       "id": "mocrane-wecom",
       "name": "Mocrane WeCom",
       "priority": "high",
@@ -6905,6 +7534,15 @@
     },
     {
       "fixture": "honcho",
+      "code": "reserved-sdk-import",
+      "level": "warning",
+      "message": "fixture imports reserved bundled-plugin SDK compatibility subpaths",
+      "evidence": [
+        "openclaw/plugin-sdk/memory-core @ plugins/honcho/index.ts:11"
+      ]
+    },
+    {
+      "fixture": "honcho",
       "code": "conversation-access-hook",
       "level": "warning",
       "message": "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
@@ -6985,6 +7623,44 @@
       ]
     },
     {
+      "fixture": "dingtalk-connector",
+      "code": "manifest-unknown-fields",
+      "level": "warning",
+      "message": "manifest uses top-level fields that are not present in the target OpenClaw PluginManifest type",
+      "evidence": [
+        "author @ plugins/dingtalk-connector/openclaw.plugin.json",
+        "main @ plugins/dingtalk-connector/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "code": "package-plugin-api-compat-missing",
+      "level": "warning",
+      "message": "package openclaw metadata does not declare compat.pluginApi",
+      "evidence": [
+        "plugins/dingtalk-connector/package.json"
+      ]
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "code": "legacy-root-sdk-import",
+      "level": "warning",
+      "message": "fixture imports the root plugin SDK barrel",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/index.ts:17",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/channel.ts:4",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/config/accounts.ts:2",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/connection.ts:16",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/provider.ts:14",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/directory.ts:1",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/gateway-methods.ts:7",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/onboarding.ts:5",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/utils/agent.ts:8"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
       "fixture": "mocrane-wecom",
       "code": "package-plugin-api-compat-missing",
       "level": "warning",
@@ -7027,6 +7703,18 @@
         "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/ws-adapter.ts:14"
       ],
       "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "yuanbao",
+      "code": "reserved-sdk-import",
+      "level": "warning",
+      "message": "fixture imports reserved bundled-plugin SDK compatibility subpaths",
+      "evidence": [
+        "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2",
+        "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2",
+        "openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2",
+        "openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1"
+      ]
     },
     {
       "fixture": "yuanbao",
@@ -7139,6 +7827,15 @@
         "before_agent_start @ plugins/memos-cloud/index.js:481"
       ],
       "compatRecord": "legacy-before-agent-start"
+    },
+    {
+      "fixture": "clawmetry",
+      "code": "reserved-sdk-import",
+      "level": "warning",
+      "message": "fixture imports reserved bundled-plugin SDK compatibility subpaths",
+      "evidence": [
+        "openclaw/plugin-sdk/diagnostics-otel @ plugins/clawmetry/clawhub-plugin/src/service.ts:2"
+      ]
     },
     {
       "fixture": "codex-app-server",
@@ -7750,6 +8447,61 @@
       ]
     },
     {
+      "fixture": "dingtalk-connector",
+      "code": "package-build-artifact-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint points at build output that is not present in the source fixture checkout",
+      "evidence": [
+        "extension:./dist/index.mjs -> plugins/dingtalk-connector/dist/index.mjs"
+      ]
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "axios @ plugins/dingtalk-connector/package.json",
+        "dingtalk-stream @ plugins/dingtalk-connector/package.json",
+        "form-data @ plugins/dingtalk-connector/package.json",
+        "qrcode-terminal @ plugins/dingtalk-connector/package.json",
+        "zod @ plugins/dingtalk-connector/package.json",
+        "openclaw @ plugins/dingtalk-connector/package.json",
+        "mammoth @ plugins/dingtalk-connector/package.json"
+      ]
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "code": "registration-capture-gap",
+      "level": "suggestion",
+      "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
+      "evidence": [
+        "registerChannel @ plugins/dingtalk-connector/index.ts:74",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:130",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:190",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:258",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:311",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:351",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:388",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:425",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:452",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:506",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:593",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:60",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:652",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719"
+      ]
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "code": "channel-contract-probe",
+      "level": "suggestion",
+      "message": "add channel envelope, config-schema, and runtime metadata probes",
+      "evidence": [
+        "registerChannel @ plugins/dingtalk-connector/index.ts:74"
+      ]
+    },
+    {
       "fixture": "mocrane-wecom",
       "code": "package-typescript-source-entrypoint",
       "level": "suggestion",
@@ -8212,6 +8964,24 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-9C6BDA50",
+      "fixture": "clawmetry",
+      "severity": "P1",
+      "owner": "plugin",
+      "code": "reserved-sdk-import",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "clawmetry: plugin imports reserved bundled-plugin SDK compatibility subpaths",
+      "evidence": [
+        "openclaw/plugin-sdk/diagnostics-otel @ plugins/clawmetry/clawhub-plugin/src/service.ts:2"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-6D9E51D9",
       "fixture": "codex-app-server",
       "severity": "P1",
@@ -8271,6 +9041,37 @@
       "compatRecord": null
     },
     {
+      "id": "CRABPOT-D5148FAF",
+      "fixture": "dingtalk-connector",
+      "severity": "P1",
+      "owner": "inspector",
+      "code": "registration-capture-gap",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "dingtalk-connector: runtime registrations need capture before contract judgment",
+      "evidence": [
+        "registerChannel @ plugins/dingtalk-connector/index.ts:74",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:130",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:190",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:258",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:311",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:351",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:388",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:425",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:452",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:506",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:593",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:60",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:652",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719"
+      ],
+      "compatRecord": null
+    },
+    {
       "id": "CRABPOT-E8240285",
       "fixture": "honcho",
       "severity": "P1",
@@ -8305,6 +9106,24 @@
       "evidence": [
         "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
         "registerMemoryRuntime @ plugins/honcho/runtime.ts:276"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-8E72373E",
+      "fixture": "honcho",
+      "severity": "P1",
+      "owner": "plugin",
+      "code": "reserved-sdk-import",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "honcho: plugin imports reserved bundled-plugin SDK compatibility subpaths",
+      "evidence": [
+        "openclaw/plugin-sdk/memory-core @ plugins/honcho/index.ts:11"
       ],
       "compatRecord": null
     },
@@ -8665,6 +9484,27 @@
         "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:31",
         "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:32",
         "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:34"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-329CCC64",
+      "fixture": "yuanbao",
+      "severity": "P1",
+      "owner": "plugin",
+      "code": "reserved-sdk-import",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "yuanbao: plugin imports reserved bundled-plugin SDK compatibility subpaths",
+      "evidence": [
+        "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2",
+        "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2",
+        "openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2",
+        "openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1"
       ],
       "compatRecord": null
     },
@@ -9364,6 +10204,130 @@
       "title": "ddingtalk: cold import needs TypeScript source entrypoint support",
       "evidence": [
         "extension:plugins/ddingtalk/index.ts"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-A4D0E60C",
+      "fixture": "dingtalk-connector",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "channel-contract-probe",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "dingtalk-connector: channel runtime needs envelope/config probes",
+      "evidence": [
+        "registerChannel @ plugins/dingtalk-connector/index.ts:74"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-54996C9F",
+      "fixture": "dingtalk-connector",
+      "severity": "P2",
+      "owner": "core",
+      "code": "legacy-root-sdk-import",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
+      "title": "dingtalk-connector: root plugin SDK barrel is still used by fixtures",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/index.ts:17",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/channel.ts:4",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/config/accounts.ts:2",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/connection.ts:16",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/provider.ts:14",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/directory.ts:1",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/gateway-methods.ts:7",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/onboarding.ts:5",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/utils/agent.ts:8"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "id": "CRABPOT-F71CDAFE",
+      "fixture": "dingtalk-connector",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "manifest-unknown-fields",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "dingtalk-connector: manifest uses unsupported top-level fields",
+      "evidence": [
+        "author @ plugins/dingtalk-connector/openclaw.plugin.json",
+        "main @ plugins/dingtalk-connector/openclaw.plugin.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-88966F04",
+      "fixture": "dingtalk-connector",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-build-artifact-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "dingtalk-connector: cold import requires package build output",
+      "evidence": [
+        "extension:./dist/index.mjs -> plugins/dingtalk-connector/dist/index.mjs"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-6D11CDAB",
+      "fixture": "dingtalk-connector",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "dingtalk-connector: cold import requires isolated dependency installation",
+      "evidence": [
+        "axios @ plugins/dingtalk-connector/package.json",
+        "dingtalk-stream @ plugins/dingtalk-connector/package.json",
+        "form-data @ plugins/dingtalk-connector/package.json",
+        "qrcode-terminal @ plugins/dingtalk-connector/package.json",
+        "zod @ plugins/dingtalk-connector/package.json",
+        "openclaw @ plugins/dingtalk-connector/package.json",
+        "mammoth @ plugins/dingtalk-connector/package.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-6386F1CF",
+      "fixture": "dingtalk-connector",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-plugin-api-compat-missing",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "dingtalk-connector: plugin API compatibility range is missing",
+      "evidence": [
+        "plugins/dingtalk-connector/package.json"
       ],
       "compatRecord": null
     },
@@ -10948,6 +11912,29 @@
       ]
     },
     {
+      "id": "api.capture.runtime-registrars:dingtalk-connector",
+      "fixture": "dingtalk-connector",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
+      "evidence": [
+        "registerChannel @ plugins/dingtalk-connector/index.ts:74",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:130",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:190",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:258",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:311",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:351",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:388",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:425",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:452",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:506",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:593",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:60",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:652",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:honcho",
       "fixture": "honcho",
       "priority": "P1",
@@ -11210,6 +12197,16 @@
       ]
     },
     {
+      "id": "channel.runtime.envelope-config-metadata:dingtalk-connector",
+      "fixture": "dingtalk-connector",
+      "priority": "P2",
+      "target": "channel-runtime",
+      "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
+      "evidence": [
+        "registerChannel @ plugins/dingtalk-connector/index.ts:74"
+      ]
+    },
+    {
       "id": "channel.runtime.envelope-config-metadata:mocrane-wecom",
       "fixture": "mocrane-wecom",
       "priority": "P2",
@@ -11333,6 +12330,17 @@
       ]
     },
     {
+      "id": "manifest.schema.top-level-fields:dingtalk-connector",
+      "fixture": "dingtalk-connector",
+      "priority": "P2",
+      "target": "manifest-loader",
+      "contract": "Manifest top-level fields are represented in target OpenClaw PluginManifest.",
+      "evidence": [
+        "author @ plugins/dingtalk-connector/openclaw.plugin.json",
+        "main @ plugins/dingtalk-connector/openclaw.plugin.json"
+      ]
+    },
+    {
       "id": "manifest.schema.top-level-fields:qqbot",
       "fixture": "qqbot",
       "priority": "P2",
@@ -11381,6 +12389,16 @@
       "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
       "evidence": [
         "plugins/ddingtalk/package.json"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:dingtalk-connector",
+      "fixture": "dingtalk-connector",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      "evidence": [
+        "plugins/dingtalk-connector/package.json"
       ]
     },
     {
@@ -11452,6 +12470,16 @@
       "evidence": [
         "extension:./dist/index.js -> plugins/agentchat/integrations/openclaw-channel/dist/index.js",
         "setupEntry:./dist/setup-entry.js -> plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js"
+      ]
+    },
+    {
+      "id": "package.entrypoint.build-before-cold-import:dingtalk-connector",
+      "fixture": "dingtalk-connector",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector can build or resolve source aliases before cold importing package entrypoints.",
+      "evidence": [
+        "extension:./dist/index.mjs -> plugins/dingtalk-connector/dist/index.mjs"
       ]
     },
     {
@@ -11546,6 +12574,22 @@
         "dingtalk-stream @ plugins/ddingtalk/package.json",
         "zod @ plugins/ddingtalk/package.json",
         "openclaw @ plugins/ddingtalk/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:dingtalk-connector",
+      "fixture": "dingtalk-connector",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "axios @ plugins/dingtalk-connector/package.json",
+        "dingtalk-stream @ plugins/dingtalk-connector/package.json",
+        "form-data @ plugins/dingtalk-connector/package.json",
+        "qrcode-terminal @ plugins/dingtalk-connector/package.json",
+        "zod @ plugins/dingtalk-connector/package.json",
+        "openclaw @ plugins/dingtalk-connector/package.json",
+        "mammoth @ plugins/dingtalk-connector/package.json"
       ]
     },
     {
@@ -11836,6 +12880,29 @@
       ]
     },
     {
+      "id": "sdk.import.reserved-bundled-plugin-boundary:honcho",
+      "fixture": "honcho",
+      "priority": "P2",
+      "target": "sdk-import",
+      "contract": "External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.",
+      "evidence": [
+        "openclaw/plugin-sdk/memory-core @ plugins/honcho/index.ts:11"
+      ]
+    },
+    {
+      "id": "sdk.import.reserved-bundled-plugin-boundary:yuanbao",
+      "fixture": "yuanbao",
+      "priority": "P2",
+      "target": "sdk-import",
+      "contract": "External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.",
+      "evidence": [
+        "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2",
+        "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2",
+        "openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2",
+        "openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1"
+      ]
+    },
+    {
       "id": "sdk.import.root-barrel-cold-import:a2a-gateway",
       "fixture": "a2a-gateway",
       "priority": "P2",
@@ -11870,6 +12937,25 @@
         "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/hooks.ts:1",
         "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:1",
         "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:2"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:dingtalk-connector",
+      "fixture": "dingtalk-connector",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/index.ts:17",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/channel.ts:4",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/config/accounts.ts:2",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/connection.ts:16",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/provider.ts:14",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/directory.ts:1",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/gateway-methods.ts:7",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/onboarding.ts:5",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/utils/agent.ts:8"
       ]
     },
     {
@@ -12417,6 +13503,16 @@
       "evidence": [
         "package:1.1.2",
         "manifest:1.0.0"
+      ]
+    },
+    {
+      "id": "sdk.import.reserved-bundled-plugin-boundary:clawmetry",
+      "fixture": "clawmetry",
+      "priority": "P3",
+      "target": "sdk-import",
+      "contract": "External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.",
+      "evidence": [
+        "openclaw/plugin-sdk/diagnostics-otel @ plugins/clawmetry/clawhub-plugin/src/service.ts:2"
       ]
     },
     {
@@ -13211,17 +14307,6 @@
     },
     {
       "fixture": "honcho",
-      "code": "sdk-exports-present",
-      "level": "log",
-      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
-      "evidence": [
-        "openclaw/plugin-sdk",
-        "openclaw/plugin-sdk/memory-core",
-        "openclaw/plugin-sdk/plugin-entry"
-      ]
-    },
-    {
-      "fixture": "honcho",
       "code": "manifest-fields-checked",
       "level": "log",
       "message": "plugin manifest fields were compared with target OpenClaw manifest types",
@@ -13422,6 +14507,67 @@
       ]
     },
     {
+      "fixture": "dingtalk-connector",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 0 hooks, 2 registrations, and 0 manifest contracts",
+      "evidence": [
+        "registration:registerChannel",
+        "registration:registerGatewayMethod"
+      ]
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": []
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerChannel",
+        "registerGatewayMethod"
+      ]
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk",
+        "openclaw/plugin-sdk/channel-entry-contract",
+        "openclaw/plugin-sdk/channel-runtime",
+        "openclaw/plugin-sdk/config-runtime",
+        "openclaw/plugin-sdk/core",
+        "openclaw/plugin-sdk/setup"
+      ]
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/dingtalk-connector/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/dingtalk-connector/package.json",
+        "@dingtalk-real-ai/dingtalk-connector",
+        "version:0.8.19"
+      ]
+    },
+    {
       "fixture": "mocrane-wecom",
       "code": "seam-inventory",
       "level": "log",
@@ -13509,20 +14655,6 @@
         "registerChannel",
         "registerCommand",
         "registerTool"
-      ]
-    },
-    {
-      "fixture": "yuanbao",
-      "code": "sdk-exports-present",
-      "level": "log",
-      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
-      "evidence": [
-        "openclaw/plugin-sdk",
-        "openclaw/plugin-sdk/account-id",
-        "openclaw/plugin-sdk/command-auth",
-        "openclaw/plugin-sdk/core",
-        "openclaw/plugin-sdk/matrix",
-        "openclaw/plugin-sdk/mattermost"
       ]
     },
     {
@@ -13845,16 +14977,6 @@
       "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
       "evidence": [
         "registerService"
-      ]
-    },
-    {
-      "fixture": "clawmetry",
-      "code": "sdk-exports-present",
-      "level": "log",
-      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
-      "evidence": [
-        "openclaw/plugin-sdk/diagnostics-otel",
-        "openclaw/plugin-sdk/plugin-entry"
       ]
     },
     {
@@ -14234,6 +15356,17 @@
     },
     {
       "fixture": "composio",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "legacy-root-sdk-import",
+        "status:deprecated"
+      ],
+      "compatRecord": "legacy-root-sdk-import"
+    },
+    {
+      "fixture": "dingtalk-connector",
       "code": "compat-record-present",
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
@@ -14779,6 +15912,13 @@
     },
     {
       "fixture": "honcho",
+      "decision": "plugin-upstream-fix",
+      "seam": "sdk-import",
+      "action": "Move the plugin to documented public SDK subpaths or plugin-local helpers before relying on this compatibility shim.",
+      "evidence": "openclaw/plugin-sdk/memory-core"
+    },
+    {
+      "fixture": "honcho",
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Run the plugin build or resolve source entrypoint aliases before cold-importing this fixture.",
@@ -14918,6 +16058,55 @@
       "evidence": "defineChannelPluginEntry"
     },
     {
+      "fixture": "dingtalk-connector",
+      "decision": "plugin-upstream-fix",
+      "seam": "manifest-schema",
+      "action": "Move unknown manifest metadata into supported package openclaw metadata or add a versioned OpenClaw manifest field.",
+      "evidence": "author, main"
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to declare the plugin API range it was built against.",
+      "evidence": "plugins/dingtalk-connector/package.json"
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Run the plugin build or resolve source entrypoint aliases before cold-importing this fixture.",
+      "evidence": "./dist/index.mjs"
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "axios, dingtalk-stream, form-data, qrcode-terminal, zod, openclaw, mammoth"
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "decision": "core-compat-adapter",
+      "seam": "sdk-import",
+      "action": "Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.",
+      "evidence": "openclaw/plugin-sdk"
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "decision": "inspector-follow-up",
+      "seam": "registration-capture",
+      "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
+      "evidence": "registerChannel, registerGatewayMethod"
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "decision": "inspector-follow-up",
+      "seam": "channel-runtime",
+      "action": "Probe channel setup and message envelope contracts before changing channel runtime payloads.",
+      "evidence": "registerChannel"
+    },
+    {
       "fixture": "mocrane-wecom",
       "decision": "plugin-upstream-fix",
       "seam": "package-metadata",
@@ -14965,6 +16154,13 @@
       "seam": "tool-schema",
       "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
       "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "yuanbao",
+      "decision": "plugin-upstream-fix",
+      "seam": "sdk-import",
+      "action": "Move the plugin to documented public SDK subpaths or plugin-local helpers before relying on this compatibility shim.",
+      "evidence": "openclaw/plugin-sdk/matrix, openclaw/plugin-sdk/mattermost"
     },
     {
       "fixture": "yuanbao",
@@ -15175,6 +16371,13 @@
       "seam": "registration-capture",
       "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
       "evidence": "registerHook"
+    },
+    {
+      "fixture": "clawmetry",
+      "decision": "plugin-upstream-fix",
+      "seam": "sdk-import",
+      "action": "Move the plugin to documented public SDK subpaths or plugin-local helpers before relying on this compatibility shim.",
+      "evidence": "openclaw/plugin-sdk/diagnostics-otel"
     },
     {
       "fixture": "clawmetry",

@@ -3,17 +3,17 @@
   "targetOpenClaw": {
     "status": "ok",
     "configuredPath": "../openclaw",
-    "capturedRegistrarCount": 18,
-    "sdkExportCount": 307
+    "capturedRegistrarCount": 19,
+    "sdkExportCount": 316
   },
   "summary": {
-    "fixtureCount": 27,
-    "registrationCount": 93,
+    "fixtureCount": 28,
+    "registrationCount": 107,
     "hookCount": 48,
-    "sdkImportCount": 165,
-    "packageEntrypointCount": 30,
-    "issueProbeCount": 141,
-    "inspectorShimRequiredCount": 47,
+    "sdkImportCount": 193,
+    "packageEntrypointCount": 31,
+    "issueProbeCount": 151,
+    "inspectorShimRequiredCount": 61,
     "compatAliasRequiredCount": 3
   },
   "fixtures": [
@@ -278,7 +278,7 @@
               }
             ],
             "metadata": {
-              "source": "crabpot"
+              "source": "plugin-inspector"
             }
           },
           "syntheticContext": {
@@ -308,8 +308,7 @@
             "runId": "run-fixture",
             "agentId": "agent-fixture",
             "sessionId": "session-fixture",
-            "toolName": "fixture_tool",
-            "toolCallId": "call-fixture"
+            "toolName": "fixture_tool"
           }
         },
         {
@@ -334,8 +333,7 @@
           },
           "syntheticContext": {
             "runId": "run-fixture",
-            "childSessionKey": "child-session",
-            "requesterSessionKey": "parent-session"
+            "parentAgentId": "agent-parent"
           }
         },
         {
@@ -355,8 +353,7 @@
           },
           "syntheticContext": {
             "runId": "run-fixture",
-            "childSessionKey": "child-session",
-            "requesterSessionKey": "parent-session"
+            "parentAgentId": "agent-parent"
           }
         },
         {
@@ -377,8 +374,7 @@
           },
           "syntheticContext": {
             "runId": "run-fixture",
-            "childSessionKey": "child-session",
-            "requesterSessionKey": "parent-session"
+            "parentAgentId": "agent-parent"
           }
         }
       ],
@@ -947,8 +943,7 @@
           "syntheticContext": {
             "runId": "run-fixture",
             "agentId": "agent-fixture",
-            "sessionId": "session-fixture",
-            "channelId": "fixture-channel"
+            "sessionId": "session-fixture"
           }
         },
         {
@@ -972,8 +967,7 @@
           "syntheticContext": {
             "runId": "run-fixture",
             "agentId": "agent-fixture",
-            "sessionId": "session-fixture",
-            "channelId": "fixture-channel"
+            "sessionId": "session-fixture"
           }
         }
       ],
@@ -1118,8 +1112,7 @@
             "runId": "run-fixture",
             "agentId": "agent-fixture",
             "sessionId": "session-fixture",
-            "toolName": "fixture_tool",
-            "toolCallId": "call-fixture"
+            "toolName": "fixture_tool"
           }
         },
         {
@@ -1145,8 +1138,7 @@
           "syntheticContext": {
             "runId": "run-fixture",
             "agentId": "agent-fixture",
-            "sessionId": "session-fixture",
-            "channelId": "fixture-channel"
+            "sessionId": "session-fixture"
           }
         },
         {
@@ -1170,8 +1162,7 @@
           "syntheticContext": {
             "runId": "run-fixture",
             "agentId": "agent-fixture",
-            "sessionId": "session-fixture",
-            "channelId": "fixture-channel"
+            "sessionId": "session-fixture"
           }
         },
         {
@@ -1196,8 +1187,7 @@
           },
           "syntheticContext": {
             "runId": "run-fixture",
-            "childSessionKey": "child-session",
-            "requesterSessionKey": "parent-session"
+            "parentAgentId": "agent-parent"
           }
         },
         {
@@ -1217,8 +1207,7 @@
           },
           "syntheticContext": {
             "runId": "run-fixture",
-            "childSessionKey": "child-session",
-            "requesterSessionKey": "parent-session"
+            "parentAgentId": "agent-parent"
           }
         },
         {
@@ -1239,8 +1228,7 @@
           },
           "syntheticContext": {
             "runId": "run-fixture",
-            "childSessionKey": "child-session",
-            "requesterSessionKey": "parent-session"
+            "parentAgentId": "agent-parent"
           }
         },
         {
@@ -1557,7 +1545,7 @@
               }
             ],
             "metadata": {
-              "source": "crabpot"
+              "source": "plugin-inspector"
             }
           },
           "syntheticContext": {
@@ -1839,7 +1827,7 @@
             "agentId": "agent-fixture",
             "runId": "run-fixture",
             "config": {
-              "source": "crabpot"
+              "source": "plugin-inspector"
             }
           },
           "syntheticContext": {
@@ -2269,7 +2257,7 @@
             "agentId": "agent-fixture",
             "runId": "run-fixture",
             "config": {
-              "source": "crabpot"
+              "source": "plugin-inspector"
             }
           },
           "syntheticContext": {
@@ -2292,7 +2280,7 @@
             "agentId": "agent-fixture",
             "runId": "run-fixture",
             "config": {
-              "source": "crabpot"
+              "source": "plugin-inspector"
             }
           },
           "syntheticContext": {
@@ -2693,7 +2681,7 @@
             "agentId": "agent-fixture",
             "runId": "run-fixture",
             "config": {
-              "source": "crabpot"
+              "source": "plugin-inspector"
             }
           },
           "syntheticContext": {
@@ -2741,7 +2729,7 @@
               }
             ],
             "metadata": {
-              "source": "crabpot"
+              "source": "plugin-inspector"
             }
           },
           "syntheticContext": {
@@ -2805,8 +2793,7 @@
           },
           "syntheticContext": {
             "runId": "run-fixture",
-            "childSessionKey": "child-session",
-            "requesterSessionKey": "parent-session"
+            "parentAgentId": "agent-parent"
           }
         }
       ],
@@ -3052,7 +3039,7 @@
               }
             ],
             "metadata": {
-              "source": "crabpot"
+              "source": "plugin-inspector"
             }
           },
           "syntheticContext": {
@@ -3246,7 +3233,7 @@
               }
             ],
             "metadata": {
-              "source": "crabpot"
+              "source": "plugin-inspector"
             }
           },
           "syntheticContext": {
@@ -3551,6 +3538,616 @@
       ]
     },
     {
+      "id": "dingtalk-connector",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.registerChannel:dingtalk-connector:plugins-dingtalk-connector-index-ts-74",
+          "fixture": "dingtalk-connector",
+          "registrar": "registerChannel",
+          "ref": "plugins/dingtalk-connector/index.ts:74",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "channel id is stable",
+            "inbound/outbound envelope shape is captured",
+            "sender metadata is preserved"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-channel",
+              "send": "function",
+              "receive": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-130",
+          "fixture": "dingtalk-connector",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:130",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-190",
+          "fixture": "dingtalk-connector",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:190",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-258",
+          "fixture": "dingtalk-connector",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:258",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-311",
+          "fixture": "dingtalk-connector",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:311",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-351",
+          "fixture": "dingtalk-connector",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:351",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-388",
+          "fixture": "dingtalk-connector",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:388",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-425",
+          "fixture": "dingtalk-connector",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:425",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-452",
+          "fixture": "dingtalk-connector",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:452",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-506",
+          "fixture": "dingtalk-connector",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:506",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-593",
+          "fixture": "dingtalk-connector",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:593",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-60",
+          "fixture": "dingtalk-connector",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:60",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-652",
+          "fixture": "dingtalk-connector",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:652",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-719",
+          "fixture": "dingtalk-connector",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:719",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk:dingtalk-connector:plugins-dingtalk-connector-index-ts-17",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/dingtalk-connector/index.ts:17",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:dingtalk-connector:plugins-dingtalk-connector-src-channel-ts-4",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/dingtalk-connector/src/channel.ts:4",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:dingtalk-connector:plugins-dingtalk-connector-src-config-accounts-ts-2",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/dingtalk-connector/src/config/accounts.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:dingtalk-connector:plugins-dingtalk-connector-src-core-connection-ts-16",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/dingtalk-connector/src/core/connection.ts:16",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:dingtalk-connector:plugins-dingtalk-connector-src-core-provider-ts-14",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/dingtalk-connector/src/core/provider.ts:14",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:dingtalk-connector:plugins-dingtalk-connector-src-directory-ts-1",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/dingtalk-connector/src/directory.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-7",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:7",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:dingtalk-connector:plugins-dingtalk-connector-src-onboarding-ts-5",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/dingtalk-connector/src/onboarding.ts:5",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:dingtalk-connector:plugins-dingtalk-connector-src-runtime-ts-1",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/dingtalk-connector/src/runtime.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:dingtalk-connector:plugins-dingtalk-connector-src-utils-agent-ts-8",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/dingtalk-connector/src/utils/agent.ts:8",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-entry-contract:dingtalk-connector:plugins-dingtalk-connector-entry-bundled-ts-11",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/channel-entry-contract",
+          "ref": "plugins/dingtalk-connector/entry-bundled.ts:11",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-runtime:dingtalk-connector:plugins-dingtalk-connector-src-reply-dispatcher-ts-21",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/channel-runtime",
+          "ref": "plugins/dingtalk-connector/src/reply-dispatcher.ts:21",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-131",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:131",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-191",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:191",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-259",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:259",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-312",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:312",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-352",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:352",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-389",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:389",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-426",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:426",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-453",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:453",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-507",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:507",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-594",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:594",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-61",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:61",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-653",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:653",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-720",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:720",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:dingtalk-connector:plugins-dingtalk-connector-src-channel-ts-7",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/dingtalk-connector/src/channel.ts:7",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/setup:dingtalk-connector:plugins-dingtalk-connector-src-onboarding-ts-10",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/setup",
+          "ref": "plugins/dingtalk-connector/src/onboarding.ts:10",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/setup:dingtalk-connector:plugins-dingtalk-connector-src-onboarding-ts-17",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/setup",
+          "ref": "plugins/dingtalk-connector/src/onboarding.ts:17",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:dingtalk-connector:plugins-dingtalk-connector-dist-index-mjs",
+          "fixture": "dingtalk-connector",
+          "kind": "extension",
+          "specifier": "./dist/index.mjs",
+          "ref": "plugins/dingtalk-connector/dist/index.mjs",
+          "support": "build-required",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
       "id": "mocrane-wecom",
       "priority": "high",
       "registrations": [
@@ -3636,7 +4233,7 @@
               }
             ],
             "metadata": {
-              "source": "crabpot"
+              "source": "plugin-inspector"
             }
           },
           "syntheticContext": {
@@ -4859,7 +5456,7 @@
             "agentId": "agent-fixture",
             "runId": "run-fixture",
             "config": {
-              "source": "crabpot"
+              "source": "plugin-inspector"
             }
           },
           "syntheticContext": {
@@ -5086,7 +5683,7 @@
           },
           "syntheticContext": {
             "channelId": "fixture-channel",
-            "pluginId": "fixture-plugin"
+            "accountId": "fixture-account"
           }
         }
       ],
@@ -5538,6 +6135,32 @@
       ]
     },
     {
+      "id": "api.capture.runtime-registrars:dingtalk-connector",
+      "fixture": "dingtalk-connector",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerChannel @ plugins/dingtalk-connector/index.ts:74",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:130",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:190",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:258",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:311",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:351",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:388",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:425",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:452",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:506",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:593",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:60",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:652",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:honcho",
       "fixture": "honcho",
       "priority": "P1",
@@ -5872,6 +6495,19 @@
       ]
     },
     {
+      "id": "channel.runtime.envelope-config-metadata:dingtalk-connector",
+      "fixture": "dingtalk-connector",
+      "priority": "P2",
+      "target": "channel-runtime",
+      "evidence": [
+        "registerChannel @ plugins/dingtalk-connector/index.ts:74"
+      ],
+      "assertions": [
+        "message envelope is stable",
+        "sender/config metadata is preserved"
+      ]
+    },
+    {
       "id": "channel.runtime.envelope-config-metadata:mocrane-wecom",
       "fixture": "mocrane-wecom",
       "priority": "P2",
@@ -6031,6 +6667,20 @@
       ]
     },
     {
+      "id": "manifest.schema.top-level-fields:dingtalk-connector",
+      "fixture": "dingtalk-connector",
+      "priority": "P2",
+      "target": "manifest-loader",
+      "evidence": [
+        "author @ plugins/dingtalk-connector/openclaw.plugin.json",
+        "main @ plugins/dingtalk-connector/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
       "id": "manifest.schema.top-level-fields:qqbot",
       "fixture": "qqbot",
       "priority": "P2",
@@ -6090,6 +6740,19 @@
       "target": "package-loader",
       "evidence": [
         "plugins/ddingtalk/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:dingtalk-connector",
+      "fixture": "dingtalk-connector",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/dingtalk-connector/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -6182,6 +6845,19 @@
       "evidence": [
         "extension:./dist/index.js -> plugins/agentchat/integrations/openclaw-channel/dist/index.js",
         "setupEntry:./dist/setup-entry.js -> plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.build-before-cold-import:dingtalk-connector",
+      "fixture": "dingtalk-connector",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "extension:./dist/index.mjs -> plugins/dingtalk-connector/dist/index.mjs"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -6300,6 +6976,25 @@
         "dingtalk-stream @ plugins/ddingtalk/package.json",
         "zod @ plugins/ddingtalk/package.json",
         "openclaw @ plugins/ddingtalk/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:dingtalk-connector",
+      "fixture": "dingtalk-connector",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "axios @ plugins/dingtalk-connector/package.json",
+        "dingtalk-stream @ plugins/dingtalk-connector/package.json",
+        "form-data @ plugins/dingtalk-connector/package.json",
+        "qrcode-terminal @ plugins/dingtalk-connector/package.json",
+        "zod @ plugins/dingtalk-connector/package.json",
+        "openclaw @ plugins/dingtalk-connector/package.json",
+        "mammoth @ plugins/dingtalk-connector/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -6669,6 +7364,33 @@
       ]
     },
     {
+      "id": "sdk.import.reserved-bundled-plugin-boundary:honcho",
+      "fixture": "honcho",
+      "priority": "P2",
+      "target": "sdk-import",
+      "evidence": [
+        "openclaw/plugin-sdk/memory-core @ plugins/honcho/index.ts:11"
+      ],
+      "assertions": [
+        "probe has fixture evidence and a target contract"
+      ]
+    },
+    {
+      "id": "sdk.import.reserved-bundled-plugin-boundary:yuanbao",
+      "fixture": "yuanbao",
+      "priority": "P2",
+      "target": "sdk-import",
+      "evidence": [
+        "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2",
+        "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2",
+        "openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2",
+        "openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1"
+      ],
+      "assertions": [
+        "probe has fixture evidence and a target contract"
+      ]
+    },
+    {
       "id": "sdk.import.root-barrel-cold-import:a2a-gateway",
       "fixture": "a2a-gateway",
       "priority": "P2",
@@ -6708,6 +7430,28 @@
         "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/hooks.ts:1",
         "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:1",
         "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:2"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:dingtalk-connector",
+      "fixture": "dingtalk-connector",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/index.ts:17",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/channel.ts:4",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/config/accounts.ts:2",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/connection.ts:16",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/provider.ts:14",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/directory.ts:1",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/gateway-methods.ts:7",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/onboarding.ts:5",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/utils/agent.ts:8"
       ],
       "assertions": [
         "package export exists",
@@ -7397,6 +8141,18 @@
       "assertions": [
         "entrypoint metadata resolves",
         "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "sdk.import.reserved-bundled-plugin-boundary:clawmetry",
+      "fixture": "clawmetry",
+      "priority": "P3",
+      "target": "sdk-import",
+      "evidence": [
+        "openclaw/plugin-sdk/diagnostics-otel @ plugins/clawmetry/clawhub-plugin/src/service.ts:2"
+      ],
+      "assertions": [
+        "probe has fixture evidence and a target contract"
       ]
     },
     {
