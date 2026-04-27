@@ -1,6 +1,5 @@
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
-import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import { inspectManifest } from "./inspect-fixtures.mjs";
 import { fixtureCheckoutPath, fixtureSourceRoot, readManifest, repoRoot } from "./manifest-lib.mjs";
@@ -781,61 +780,13 @@ function classifyPackageContracts({ fixture, inspection, fixtureReport, warnings
 }
 
 async function buildFixtureReport(fixture, inspection) {
-  const checkoutPath = fixtureCheckoutPath(fixture);
-  const sourceRoot = fixtureSourceRoot(fixture);
-
-  const pluginManifests = await readPluginManifests(checkoutPath, sourceRoot);
-  const packageSummaries = await readPackageSummaries(checkoutPath, sourceRoot);
-  const packageJson = selectPrimaryPackage(packageSummaries);
-  const sdkImports = unique((inspection.sdkImports ?? []).map((sdkImport) => sdkImport.specifier));
-
-  return {
-    id: fixture.id,
-    name: fixture.name,
-    priority: fixture.priority,
-    seams: fixture.seams,
-    why: fixture.why,
-    status: inspection.status,
-    hooks: inspection.hooks,
-    hookDetails: inspection.hookDetails ?? [],
-    registrations: inspection.registrations,
-    registrationDetails: inspection.registrationDetails ?? [],
-    manifestContracts: inspection.manifestContracts,
-    manifestFiles: inspection.manifestFiles ?? [],
-    sourceFiles: inspection.sourceFiles ?? [],
-    pluginManifests,
-    package: packageJson,
-    packages: packageSummaries,
-    sdkImports,
-    sdkImportDetails: inspection.sdkImports ?? [],
-  };
-}
-
-async function readPluginManifests(checkoutPath, sourceRoot) {
-  const candidates = unique(
-    [path.join(sourceRoot, "openclaw.plugin.json"), path.join(checkoutPath, "openclaw.plugin.json")].filter(
-      existsSync,
-    ),
-  );
-  const manifests = [];
-
-  for (const manifestPath of candidates) {
-    const raw = await readFile(manifestPath, "utf8");
-    const manifest = JSON.parse(raw);
-    manifests.push({
-      path: path.relative(repoRoot, manifestPath),
-      id: manifest.id ?? null,
-      name: manifest.name ?? null,
-      version: manifest.version ?? null,
-      keys: Object.keys(manifest).sort(),
-      contracts: Object.keys(manifest.contracts ?? {}).sort(),
-      providerAuthEnvVars: manifest.providerAuthEnvVars ?? {},
-      channelEnvVars: manifest.channelEnvVars ?? {},
-      activation: manifest.activation ?? null,
-    });
-  }
-
-  return manifests;
+  return pluginInspector.buildCompatibilityFixtureReport({
+    fixture,
+    inspection,
+    checkoutPath: fixtureCheckoutPath(fixture),
+    sourceRoot: fixtureSourceRoot(fixture),
+    rootDir: repoRoot,
+  });
 }
 
 async function readTargetOpenClaw(manifest, configuredPath) {
@@ -844,120 +795,6 @@ async function readTargetOpenClaw(manifest, configuredPath) {
     manifest,
     rootDir: repoRoot,
   });
-}
-
-async function readPackageSummaries(checkoutPath, sourceRoot) {
-  const candidates = unique([
-    path.join(sourceRoot, "package.json"),
-    path.join(checkoutPath, "package.json"),
-    ...(await findPackageFiles(checkoutPath, { maxDepth: 3 })),
-  ].filter(existsSync));
-  const summaries = [];
-
-  for (const packagePath of candidates) {
-    const packageJson = JSON.parse(await readFile(packagePath, "utf8"));
-    summaries.push(summarizePackage(packagePath, packageJson));
-  }
-
-  return summaries.sort((left, right) => packageRank(left) - packageRank(right) || left.path.localeCompare(right.path));
-}
-
-function summarizePackage(packagePath, packageJson) {
-  const packageDir = path.dirname(packagePath);
-  const openclaw = packageJson.openclaw
-    ? {
-        extensions: arrayValues(packageJson.openclaw.extensions),
-        runtimeExtensions: arrayValues(packageJson.openclaw.runtimeExtensions),
-        setupEntry: typeof packageJson.openclaw.setupEntry === "string" ? packageJson.openclaw.setupEntry : null,
-        compatPluginApi:
-          typeof packageJson.openclaw.compat?.pluginApi === "string" ? packageJson.openclaw.compat.pluginApi : null,
-        buildOpenClawVersion:
-          typeof packageJson.openclaw.build?.openclawVersion === "string"
-            ? packageJson.openclaw.build.openclawVersion
-            : null,
-        buildPluginSdkVersion:
-          typeof packageJson.openclaw.build?.pluginSdkVersion === "string"
-            ? packageJson.openclaw.build.pluginSdkVersion
-            : null,
-      }
-    : null;
-
-  if (openclaw) {
-    openclaw.entrypoints = collectOpenClawEntrypoints(packageDir, openclaw);
-  }
-
-  return {
-    path: path.relative(repoRoot, packagePath),
-    name: packageJson.name ?? null,
-    version: packageJson.version ?? null,
-    type: packageJson.type ?? null,
-    main: typeof packageJson.main === "string" ? packageJson.main : null,
-    dependencies: Object.keys(packageJson.dependencies ?? {}).sort(),
-    peerDependencies: Object.keys(packageJson.peerDependencies ?? {}).sort(),
-    optionalDependencies: Object.keys(packageJson.optionalDependencies ?? {}).sort(),
-    openclaw,
-  };
-}
-
-function collectOpenClawEntrypoints(packageDir, openclaw) {
-  const entrypoints = [
-    ...openclaw.extensions.map((specifier) => ({ kind: "extension", specifier })),
-    ...openclaw.runtimeExtensions.map((specifier) => ({ kind: "runtimeExtension", specifier })),
-    ...(openclaw.setupEntry ? [{ kind: "setupEntry", specifier: openclaw.setupEntry }] : []),
-  ];
-
-  return entrypoints.map((entrypoint) => {
-    const resolvedPath = path.resolve(packageDir, entrypoint.specifier);
-    const relativePath = path.relative(repoRoot, resolvedPath);
-    return {
-      ...entrypoint,
-      relativePath,
-      exists: existsSync(resolvedPath),
-      requiresBuild: /(^|\/)dist\//.test(entrypoint.specifier) || /(^|\/)build\//.test(entrypoint.specifier),
-    };
-  });
-}
-
-async function findPackageFiles(root, options, depth = 0) {
-  if (!existsSync(root) || depth > options.maxDepth) {
-    return [];
-  }
-
-  const files = [];
-  for (const entry of await readdir(root, { withFileTypes: true })) {
-    const entryPath = path.join(root, entry.name);
-    if (entry.isFile() && entry.name === "package.json") {
-      files.push(entryPath);
-      continue;
-    }
-    if (!entry.isDirectory() || shouldSkipPackageDir(entry.name)) {
-      continue;
-    }
-    files.push(...(await findPackageFiles(entryPath, options, depth + 1)));
-  }
-  return files;
-}
-
-function shouldSkipPackageDir(name) {
-  return name === ".git" || name === "node_modules" || name === "dist" || name === "build" || name === "coverage";
-}
-
-function selectPrimaryPackage(packages) {
-  return packages[0] ?? null;
-}
-
-function packageRank(packageSummary) {
-  if (packageSummary.openclaw?.entrypoints.length > 0) {
-    return 0;
-  }
-  if (packageSummary.openclaw) {
-    return 1;
-  }
-  return 2;
-}
-
-function arrayValues(value) {
-  return Array.isArray(value) ? value.filter((item) => typeof item === "string") : [];
 }
 
 function emptyInspection(fixture) {
