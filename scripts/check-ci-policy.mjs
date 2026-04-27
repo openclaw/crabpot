@@ -1,16 +1,26 @@
 #!/usr/bin/env node
 import { existsSync } from "node:fs";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { defaultRefDiffJsonPath } from "./compare-openclaw-refs.mjs";
 import { repoRoot } from "./manifest-lib.mjs";
+import { loadPluginInspector } from "./plugin-inspector-source.mjs";
 import { buildReport, defaultJsonReportPath } from "./report-lib.mjs";
 import { defaultExecutionResultsJsonPath } from "./summarize-execution-results.mjs";
-import { defaultRefDiffJsonPath } from "./compare-openclaw-refs.mjs";
 
 export const defaultCiPolicyPath = path.join(repoRoot, "crabpot.ci-policy.json");
 export const defaultCiPolicyReportJsonPath = path.join(repoRoot, "reports/crabpot-ci-policy.json");
 export const defaultCiPolicyReportMarkdownPath = path.join(repoRoot, "reports/crabpot-ci-policy.md");
+
+const pluginInspector = await loadPluginInspector();
+
+const crabpotCiPolicyOptions = {
+  jsonPath: defaultCiPolicyReportJsonPath,
+  markdownPath: defaultCiPolicyReportMarkdownPath,
+  reportTitle: "Crabpot CI Policy",
+  rootDir: repoRoot,
+};
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   await main();
@@ -99,7 +109,6 @@ function parseArgs(argv) {
 
 export async function buildCiPolicyReport(options = {}) {
   const policy = options.policy ?? (await readJson(options.policyPath ?? defaultCiPolicyPath));
-  validatePolicy(policy);
   const compatibilityReport =
     options.compatibilityReport ??
     (await readOptionalJson(options.reportPath ?? defaultJsonReportPath)) ??
@@ -109,216 +118,32 @@ export async function buildCiPolicyReport(options = {}) {
     (await readOptionalJson(options.executionResultsPath ?? defaultExecutionResultsJsonPath));
   const refDiff = options.refDiff ?? (await readOptionalJson(options.refDiffPath ?? defaultRefDiffJsonPath));
 
-  const checks = [
-    ...compatibilityChecks(compatibilityReport, { strict: options.strict }),
-    ...refDiffChecks(refDiff, { strict: options.strict }),
-    ...executionChecks(executionResults, policy, { strict: options.strict }),
-  ].sort((left, right) => actionRank(left.action) - actionRank(right.action) || left.id.localeCompare(right.id));
-
-  return {
-    generatedAt: "deterministic",
-    status: checks.some((check) => check.action === "fail") ? "fail" : "pass",
-    strict: Boolean(options.strict),
-    policy: {
-      allowedBlocked: policy.allowedBlocked.length,
-      expectedWarnings: policy.expectedWarnings.length,
-      fixtureSets: Object.keys(policy.fixtureSets).sort(),
-      thresholds: policy.thresholds,
-    },
-    summary: {
-      checkCount: checks.length,
-      failCount: checks.filter((check) => check.action === "fail").length,
-      warnCount: checks.filter((check) => check.action === "warn").length,
-      passCount: checks.filter((check) => check.action === "pass").length,
-    },
-    checks,
-  };
-}
-
-function compatibilityChecks(report, options) {
-  const checks = [];
-  if (!report) {
-    checks.push({
-      id: "compatibility-report.missing",
-      action: "fail",
-      message: "compatibility report is missing",
-      evidence: [defaultJsonReportPath],
-    });
-    return checks;
-  }
-  checks.push({
-    id: "compatibility-report.breakages",
-    action: report.summary.breakageCount > 0 ? "fail" : "pass",
-    message: `${report.summary.breakageCount} hard breakages`,
-    evidence: (report.breakages ?? []).map((finding) => `${finding.fixture}:${finding.code}`),
+  return pluginInspector.buildCiPolicyReport({
+    ...crabpotCiPolicyOptions,
+    ...options,
+    compatibilityReport,
+    executionResults,
+    policy,
+    refDiff,
   });
-  checks.push({
-    id: "compatibility-report.p1-issues",
-    action: "pass",
-    message: `${report.summary.p1IssueCount} P1 issues tracked`,
-    evidence: (report.issues ?? [])
-      .filter((issue) => issue.severity === "P1")
-      .map((issue) => `${issue.fixture}:${issue.code}`),
-  });
-  const issues = report.issues ?? [];
-  const liveP0Issues = issues.filter((issue) => issue.issueClass === "live-issue" && issue.severity === "P0");
-  const deprecationWarnings = issues.filter((issue) => issue.issueClass === "deprecation-warning");
-  const inspectorGaps = issues.filter((issue) => issue.issueClass === "inspector-gap");
-  checks.push({
-    id: "compatibility-report.live-p0-issues",
-    action: liveP0Issues.length > 0 ? (options.strict ? "fail" : "warn") : "pass",
-    message: `${liveP0Issues.length} live P0 issues tracked`,
-    evidence: liveP0Issues.map((issue) => `${issue.fixture}:${issue.code}:${issue.compatStatus ?? "none"}`),
-  });
-  checks.push({
-    id: "compatibility-report.deprecation-warnings",
-    action: "pass",
-    message: `${deprecationWarnings.length} deprecated compat seams tracked`,
-    evidence: deprecationWarnings.map((issue) => `${issue.fixture}:${issue.code}`),
-  });
-  checks.push({
-    id: "compatibility-report.inspector-gaps",
-    action: "pass",
-    message: `${inspectorGaps.length} inspector proof gaps tracked`,
-    evidence: inspectorGaps.map((issue) => `${issue.fixture}:${issue.code}`),
-  });
-  return checks;
-}
-
-function refDiffChecks(refDiff, options) {
-  if (!refDiff) {
-    return [
-      {
-        id: "ref-diff.not-run",
-        action: "pass",
-        message: "ref diff artifact was not present for this CI mode",
-        evidence: [],
-      },
-    ];
-  }
-
-  return (refDiff.regressions ?? []).map((regression) => ({
-    id: `ref-diff.${regression.code}`,
-    action: regression.action === "fail" || (options.strict && regression.action === "warn") ? "fail" : "warn",
-    message: regression.message,
-    evidence: regression.evidence ?? [],
-  }));
-}
-
-function executionChecks(executionResults, policy, options) {
-  if (!executionResults) {
-    return [
-      {
-        id: "execution-results.not-run",
-        action: "pass",
-        message: "isolated execution artifact was not present for this CI mode",
-        evidence: [],
-      },
-    ];
-  }
-
-  const checks = [
-    {
-      id: "execution-results.failures",
-      action: executionResults.summary.failCount > 0 ? "fail" : "pass",
-      message: `${executionResults.summary.failCount} failed synthetic probes`,
-      evidence: failedExecutionEvidence(executionResults),
-    },
-    {
-      id: "execution-results.audit-findings",
-      action: executionResults.summary.auditFindingCount > 0 ? "warn" : "pass",
-      message: `${executionResults.summary.auditFindingCount ?? 0} package audit findings`,
-      evidence: executionResults.artifacts
-        .filter((artifact) => artifact.kind === "audit" && artifact.findingCount > 0)
-        .map((artifact) => `${artifact.fixture}:${artifact.findingCount}`),
-    },
-  ];
-
-  const blocked = executionResults.artifacts.flatMap((artifact) =>
-    (artifact.blocked ?? []).map((item) => ({ artifact, item })),
-  );
-  for (const blockedItem of blocked) {
-    const expectedWarning = findPolicyMatch(policy.expectedWarnings, blockedItem.item);
-    const allowedBlocked = findPolicyMatch(policy.allowedBlocked, blockedItem.item);
-    const match = expectedWarning ?? allowedBlocked;
-    checks.push({
-      id: `execution-results.blocked.${blockedItem.artifact.fixture}.${blockedItem.item.seam}.${blockedItem.item.captureIndex}`,
-      action: match ? (options.strict ? "fail" : "warn") : "fail",
-      message: match
-        ? `${match.decision}: ${blockedItem.item.reason}`
-        : `unknown blocked synthetic probe: ${blockedItem.item.reason}`,
-      evidence: [
-        blockedItem.artifact.artifactPath,
-        blockedItem.item.seam,
-        blockedItem.item.reason,
-        match?.id ?? "unclassified",
-      ],
-    });
-  }
-  return checks;
-}
-
-function findPolicyMatch(rules, item) {
-  return rules.find((rule) => item.seam === rule.seam && item.reason?.includes(rule.reasonIncludes));
-}
-
-function failedExecutionEvidence(executionResults) {
-  return executionResults.artifacts.flatMap((artifact) =>
-    (artifact.failures ?? []).map((failure) => `${artifact.fixture}:${failure.seam}:${failure.error}`),
-  );
 }
 
 export function validateCiPolicyReport(report) {
-  return report.checks
-    .filter((check) => check.action === "fail")
-    .map((check) => `${check.id}: ${check.message}: ${check.evidence.join(", ")}`);
+  return pluginInspector.validateCiPolicyReport(report);
 }
 
 export async function writeCiPolicyReport(report, options = {}) {
-  const jsonPath = options.jsonPath ?? defaultCiPolicyReportJsonPath;
-  const markdownPath = options.markdownPath ?? defaultCiPolicyReportMarkdownPath;
-  await mkdir(path.dirname(jsonPath), { recursive: true });
-  await mkdir(path.dirname(markdownPath), { recursive: true });
-  await writeFile(jsonPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
-  await writeFile(markdownPath, `${renderCiPolicyMarkdown(report)}\n`, "utf8");
-  return { jsonPath, markdownPath };
+  return pluginInspector.writeCiPolicyReport(report, {
+    ...crabpotCiPolicyOptions,
+    ...options,
+  });
 }
 
-export function renderCiPolicyMarkdown(report) {
-  return [
-    "# Crabpot CI Policy",
-    "",
-    `Generated: ${report.generatedAt}`,
-    `Status: ${report.status.toUpperCase()}`,
-    `Strict: ${report.strict}`,
-    "",
-    "## Summary",
-    "",
-    markdownTable(
-      [
-        ["Checks", report.summary.checkCount],
-        ["Fail", report.summary.failCount],
-        ["Warn", report.summary.warnCount],
-        ["Pass", report.summary.passCount],
-        ["Allowed blocked rules", report.policy.allowedBlocked],
-        ["Expected warning rules", report.policy.expectedWarnings],
-        ["Fixture sets", report.policy.fixtureSets.join(", ")],
-      ],
-      ["Metric", "Value"],
-    ),
-    "",
-    "## Checks",
-    "",
-    markdownTable(
-      report.checks.map((check) => [
-        check.action,
-        check.id,
-        check.message,
-        check.evidence.join(", ") || "-",
-      ]),
-      ["Action", "ID", "Message", "Evidence"],
-    ),
-  ].join("\n");
+export function renderCiPolicyMarkdown(report, options = {}) {
+  return pluginInspector.renderCiPolicyMarkdown(report, {
+    ...crabpotCiPolicyOptions,
+    ...options,
+  });
 }
 
 async function readJson(jsonPath) {
@@ -327,44 +152,4 @@ async function readJson(jsonPath) {
 
 async function readOptionalJson(jsonPath) {
   return existsSync(jsonPath) ? readJson(jsonPath) : null;
-}
-
-function validatePolicy(policy) {
-  const errors = [];
-  if (policy.version !== 1) {
-    errors.push("ci policy version must be 1");
-  }
-  for (const key of ["allowedBlocked", "expectedWarnings"]) {
-    if (!Array.isArray(policy[key])) {
-      errors.push(`ci policy ${key} must be an array`);
-    }
-  }
-  if (!policy.thresholds || typeof policy.thresholds !== "object") {
-    errors.push("ci policy thresholds are required");
-  }
-  if (!policy.fixtureSets || typeof policy.fixtureSets !== "object") {
-    errors.push("ci policy fixtureSets are required");
-  }
-  if (errors.length > 0) {
-    throw new Error(errors.join("\n"));
-  }
-}
-
-function actionRank(value) {
-  return { fail: 0, warn: 1, pass: 2 }[value] ?? 3;
-}
-
-function markdownTable(rows, headers) {
-  if (rows.length === 0) {
-    return "_none_";
-  }
-
-  const allRows = [headers, ...rows.map((row) => row.map((cell) => String(cell ?? "-")))];
-  const widths = headers.map((_, columnIndex) => Math.max(...allRows.map((row) => row[columnIndex].length)));
-  const renderRow = (row) => `| ${row.map((cell, index) => cell.padEnd(widths[index])).join(" | ")} |`;
-  return [
-    renderRow(headers),
-    renderRow(widths.map((width) => "-".repeat(width))),
-    ...rows.map((row) => renderRow(row.map((cell) => String(cell ?? "-")))),
-  ].join("\n");
 }
