@@ -18,6 +18,7 @@ const invocation = resolvePluginInspectorCliInvocation();
 const result = spawnSync(invocation.command, [...invocation.args, ...inspectorArgs], {
   cwd: repoRoot,
   encoding: "utf8",
+  shell: invocation.shell === true,
   stdio: "inherit",
 });
 
