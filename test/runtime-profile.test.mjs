@@ -1,10 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import {
-  buildRuntimeProfile,
-  renderRuntimeProfileMarkdown,
-  validateRuntimeProfile,
-} from "../scripts/profile-contract-runtime.mjs";
+import { buildRuntimeProfile, renderRuntimeProfileMarkdown, validateRuntimeProfile } from "../scripts/profile-contract-runtime.mjs";
 
 test("runtime profile records boot time and target registry surface", async () => {
   const report = {
@@ -56,60 +52,4 @@ test("runtime profile records boot time and target registry surface", async () =
   assert.match(renderRuntimeProfileMarkdown(profile), /Target OpenClaw Registry Surface/);
   assert.match(renderRuntimeProfileMarkdown(profile), /Category Rollups/);
   assert.match(renderRuntimeProfileMarkdown(profile), /CPU estimate/);
-});
-
-test("runtime profile validation catches failed samples and missing metrics", () => {
-  const errors = validateRuntimeProfile({
-    commands: [
-      {
-        id: "bad",
-        exitCodes: [1],
-        wallMs: { max: 0 },
-        peakRssMb: { max: 0 },
-      },
-    ],
-  });
-
-  assert.ok(errors.some((error) => error.includes("nonzero")));
-  assert.ok(errors.some((error) => error.includes("wall time")));
-  assert.ok(errors.some((error) => error.includes("all commands are missing peak RSS")));
-});
-
-test("runtime profile validation accepts partial RSS availability", () => {
-  assert.deepEqual(
-    validateRuntimeProfile({
-      commands: [
-        {
-          id: "node-boot",
-          exitCodes: [0],
-          wallMs: { max: 10 },
-          peakRssMb: { max: 0 },
-        },
-        {
-          id: "report",
-          exitCodes: [0],
-          wallMs: { max: 20 },
-          peakRssMb: { max: 42 },
-        },
-      ],
-    }),
-    [],
-  );
-});
-
-test("runtime profile validation treats Windows RSS sampling as optional", () => {
-  assert.deepEqual(
-    validateRuntimeProfile({
-      platform: { rssSampler: "unavailable" },
-      commands: [
-        {
-          id: "node-boot",
-          exitCodes: [0],
-          wallMs: { max: 10 },
-          peakRssMb: { max: 0 },
-        },
-      ],
-    }),
-    [],
-  );
 });

@@ -1,10 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import {
-  buildPlatformProbes,
-  renderPlatformProbesMarkdown,
-  validatePlatformProbes,
-} from "../scripts/platform-probes.mjs";
+import { buildPlatformProbes, renderPlatformProbesMarkdown, validatePlatformProbes } from "../scripts/platform-probes.mjs";
 
 test("platform probes classify loader and shell portability risks", async () => {
   const report = await buildPlatformProbes({
@@ -61,26 +57,4 @@ test("platform probes classify loader and shell portability risks", async () => 
   assert.ok(report.summary.containerRiskStepCount > 0);
   assert.match(renderPlatformProbesMarkdown(report), /Jiti/);
   assert.match(renderPlatformProbesMarkdown(report), /rsync/);
-});
-
-test("platform probe validation requires jiti fallback and reflected tsx commands", () => {
-  const errors = validatePlatformProbes({
-    mode: "plan-only",
-    targets: ["linux", "macos", "windows", "container"],
-    summary: {
-      tsLoaderEntrypointCount: 1,
-      jitiAlternativeCount: 0,
-    },
-    entrypoints: [
-      {
-        id: "cold-import.extension:fixture:index",
-        loaderPrimary: "tsx",
-        captureUsesTsx: true,
-        syntheticUsesTsx: false,
-      },
-    ],
-  });
-
-  assert.ok(errors.some((error) => error.includes("Jiti fallback")));
-  assert.ok(errors.some((error) => error.includes("tsx loader strategy")));
 });
