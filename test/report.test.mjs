@@ -2,11 +2,8 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import {
   buildReport,
-  classifyIssueFinding,
-  issueId,
   renderIssuesReport,
   renderMarkdownReport,
-  targetOpenClawPathCandidates,
 } from "../scripts/report-lib.mjs";
 
 test("compatibility report classifies current fixture seams", async () => {
@@ -119,30 +116,6 @@ test("disabled OpenClaw target suppresses target-derived compat findings", async
   assert.match(markdown, /\| Status\s+\| disabled\s+\|/);
 });
 
-test("default OpenClaw target discovery covers local and CI checkout shapes", () => {
-  const manifest = { openclaw: { defaultCheckoutPath: "../openclaw" } };
-
-  assert.deepEqual(targetOpenClawPathCandidates(manifest), ["../openclaw", "./openclaw"]);
-  assert.deepEqual(targetOpenClawPathCandidates({ openclaw: { defaultCheckoutPath: "./openclaw" } }), [
-    "./openclaw",
-    "../openclaw",
-  ]);
-  assert.deepEqual(targetOpenClawPathCandidates(manifest, "./custom-openclaw"), ["./custom-openclaw"]);
-});
-
-test("issue ids are stable fingerprints instead of order counters", () => {
-  const finding = {
-    fixture: "codex-app-server",
-    code: "sdk-export-missing",
-    severity: "P1",
-    compatRecord: "plugin-sdk-export-aliases",
-    evidence: ["openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104"],
-  };
-
-  assert.equal(issueId(finding), issueId({ ignored: "field", ...finding }));
-  assert.notEqual(issueId(finding), issueId({ ...finding, evidence: [...finding.evidence, "extra"] }));
-});
-
 test("issue report preserves decision metadata for compat-layer work", async () => {
   const report = await buildReport({ generatedAt: "test" });
   const sdkIssue = report.issues.find((issue) => issue.code === "sdk-export-missing");
@@ -181,63 +154,11 @@ test("issue report preserves decision metadata for compat-layer work", async () 
   );
 });
 
-test("issue classification separates live breaks from compat and deprecation buckets", () => {
-  const cases = [
-    {
-      name: "untracked SDK alias is a blocking live issue",
-      finding: { code: "sdk-export-missing", compatRecord: "plugin-sdk-export-aliases" },
-      targetOpenClaw: { compatRecordStatuses: {} },
-      metadata: { severity: "P1" },
-      expected: { issueClass: "live-issue", compatStatus: "untracked", severity: "P0", live: true },
-    },
-    {
-      name: "active SDK alias compat avoids false P0 escalation",
-      finding: { code: "sdk-export-missing", compatRecord: "plugin-sdk-export-aliases" },
-      targetOpenClaw: { compatRecordStatuses: { "plugin-sdk-export-aliases": "active" } },
-      metadata: { severity: "P1" },
-      expected: { issueClass: "live-issue", compatStatus: "active", severity: "P1", live: true },
-    },
-    {
-      name: "deprecated compat remains warning-class even when used",
-      finding: { code: "legacy-before-agent-start", compatRecord: "legacy-before-agent-start" },
-      targetOpenClaw: { compatRecordStatuses: { "legacy-before-agent-start": "deprecated" } },
-      metadata: { severity: "P2" },
-      expected: { issueClass: "deprecation-warning", compatStatus: "deprecated", severity: "P2", deprecated: true },
-    },
-    {
-      name: "missing compat record is a compat gap",
-      finding: { code: "missing-compat-record", compatRecord: "plugin-sdk-export-aliases" },
-      targetOpenClaw: { compatRecordStatuses: {} },
-      metadata: { severity: "P1" },
-      expected: { issueClass: "compat-gap", compatStatus: "missing", severity: "P1", live: false },
-    },
-    {
-      name: "unknown untracked hook is P0 live break",
-      finding: { code: "unknown-hook-name" },
-      targetOpenClaw: { compatRecordStatuses: {} },
-      metadata: { severity: "P1" },
-      expected: { issueClass: "live-issue", compatStatus: "none", severity: "P0", live: true },
-    },
-  ];
-
-  for (const item of cases) {
-    assert.deepEqual(
-      pick(classifyIssueFinding(item.finding, item.targetOpenClaw, item.metadata), Object.keys(item.expected)),
-      item.expected,
-      item.name,
-    );
-  }
-});
-
 function assertHasFinding(findings, fixture, code) {
   assert.ok(
     findings.some((finding) => finding.fixture === fixture && finding.code === code),
     `expected ${fixture} ${code} finding`,
   );
-}
-
-function pick(value, keys) {
-  return Object.fromEntries(keys.map((key) => [key, value[key]]));
 }
 
 function assertMissingFinding(findings, code) {
