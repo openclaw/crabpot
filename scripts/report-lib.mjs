@@ -25,7 +25,6 @@ const CHANNEL_REGISTRATIONS = new Set([
   "defineChannelPluginEntry",
   "registerChannel",
 ]);
-const FALLBACK_OPENCLAW_CHECKOUT_PATHS = ["./openclaw", "../openclaw"];
 let submoduleLinkTargets;
 const pluginInspector = await loadPluginInspector();
 
@@ -997,146 +996,15 @@ async function readPluginManifests(checkoutPath, sourceRoot) {
 }
 
 async function readTargetOpenClaw(manifest, configuredPath) {
-  if (configuredPath === false) {
-    return {
-      configuredPath: null,
-      status: "disabled",
-      compatRecords: [],
-      compatRecordStatuses: {},
-      hookNames: [],
-      apiRegistrars: [],
-      capturedRegistrars: [],
-      sdkExports: [],
-      manifestFields: [],
-      manifestContractFields: [],
-    };
-  }
-
-  const requestedPaths = targetOpenClawPathCandidates(manifest, configuredPath);
-  if (requestedPaths.length === 0) {
-    return {
-      configuredPath: null,
-      status: "not-configured",
-      compatRecords: [],
-      compatRecordStatuses: {},
-      hookNames: [],
-      apiRegistrars: [],
-      capturedRegistrars: [],
-      sdkExports: [],
-      manifestFields: [],
-      manifestContractFields: [],
-    };
-  }
-
-  let requestedPath = requestedPaths[0];
-  let resolvedPath = path.resolve(repoRoot, requestedPath);
-  let registryPath = path.join(resolvedPath, "src/plugins/compat/registry.ts");
-  for (const candidatePath of requestedPaths) {
-    const candidateResolvedPath = path.resolve(repoRoot, candidatePath);
-    const candidateRegistryPath = path.join(candidateResolvedPath, "src/plugins/compat/registry.ts");
-    if (existsSync(candidateRegistryPath)) {
-      requestedPath = candidatePath;
-      resolvedPath = candidateResolvedPath;
-      registryPath = candidateRegistryPath;
-      break;
-    }
-  }
-
-  if (!existsSync(registryPath)) {
-    return {
-      configuredPath: requestedPath,
-      searchedPaths: requestedPaths,
-      status: "missing",
-      compatRecords: [],
-      compatRecordStatuses: {},
-      hookNames: [],
-      apiRegistrars: [],
-      capturedRegistrars: [],
-      sdkExports: [],
-      manifestFields: [],
-      manifestContractFields: [],
-    };
-  }
-
-  const hookTypesPath = path.join(resolvedPath, "src/plugins/hook-types.ts");
-  const registrySource = await readFile(registryPath, "utf8");
-  const compatRecordEntries = parseCompatRecordEntries(registrySource);
-  const compatRecords = compatRecordEntries.map((record) => record.code).sort();
-  const hookNames = existsSync(hookTypesPath)
-    ? parseExportedStringArray(await readFile(hookTypesPath, "utf8"), "PLUGIN_HOOK_NAMES")
-    : [];
-  const apiBuilderPath = path.join(resolvedPath, "src/plugins/api-builder.ts");
-  const apiRegistrars = existsSync(apiBuilderPath)
-    ? unique([...((await readFile(apiBuilderPath, "utf8")).matchAll(/\b(register[A-Za-z0-9]+)\b/g))].map((match) => match[1])).sort()
-    : [];
-  const capturedRegistrationPath = path.join(resolvedPath, "src/plugins/captured-registration.ts");
-  const capturedRegistrars = existsSync(capturedRegistrationPath)
-    ? unique(
-        [...((await readFile(capturedRegistrationPath, "utf8")).matchAll(/^\s*(register[A-Za-z0-9]+)\s*\(/gm))].map(
-          (match) => match[1],
-        ),
-      ).sort()
-    : [];
-  const manifestTypesPath = path.join(resolvedPath, "src/plugins/manifest.ts");
-  const manifestTypesSource = existsSync(manifestTypesPath) ? await readFile(manifestTypesPath, "utf8") : "";
-  const manifestFields = manifestTypesSource ? parseTypeFields(manifestTypesSource, "PluginManifest") : [];
-  const manifestContractFields = manifestTypesSource ? parseTypeFields(manifestTypesSource, "PluginManifestContracts") : [];
-  const packagePath = path.join(resolvedPath, "package.json");
-  const sdkExports = existsSync(packagePath)
-    ? parsePluginSdkExports(JSON.parse(await readFile(packagePath, "utf8")))
-    : [];
-
-  return {
-    configuredPath: requestedPath,
-    searchedPaths: requestedPaths,
-    status: "ok",
-    compatRegistryPath: path.relative(repoRoot, registryPath),
-    compatRecordCount: compatRecords.length,
-    compatRecords,
-    compatRecordStatuses: Object.fromEntries(compatRecordEntries.map((record) => [record.code, record.status])),
-    hookTypesPath: existsSync(hookTypesPath) ? path.relative(repoRoot, hookTypesPath) : null,
-    hookNameCount: hookNames.length,
-    hookNames,
-    apiBuilderPath: existsSync(apiBuilderPath) ? path.relative(repoRoot, apiBuilderPath) : null,
-    apiRegistrarCount: apiRegistrars.length,
-    apiRegistrars,
-    capturedRegistrationPath: existsSync(capturedRegistrationPath)
-      ? path.relative(repoRoot, capturedRegistrationPath)
-      : null,
-    capturedRegistrarCount: capturedRegistrars.length,
-    capturedRegistrars,
-    packagePath: existsSync(packagePath) ? path.relative(repoRoot, packagePath) : null,
-    sdkExportCount: sdkExports.length,
-    sdkExports,
-    manifestTypesPath: existsSync(manifestTypesPath) ? path.relative(repoRoot, manifestTypesPath) : null,
-    manifestFieldCount: manifestFields.length,
-    manifestFields,
-    manifestContractFieldCount: manifestContractFields.length,
-    manifestContractFields,
-  };
-}
-
-function parseCompatRecordEntries(source) {
-  const entries = [];
-  for (const match of source.matchAll(/\{[\s\S]*?\bcode:\s*["'`]([^"'`]+)["'`][\s\S]*?\bstatus:\s*["'`]([^"'`]+)["'`][\s\S]*?\n\s*\}/g)) {
-    entries.push({ code: match[1], status: match[2] });
-  }
-  return dedupeBy(entries, (entry) => entry.code).sort((left, right) => left.code.localeCompare(right.code));
-}
-
-function parsePluginSdkExports(packageJson) {
-  return Object.keys(packageJson.exports ?? {})
-    .filter((specifier) => specifier === "./plugin-sdk" || specifier.startsWith("./plugin-sdk/"))
-    .map((specifier) => `openclaw/${specifier.slice(2)}`)
-    .sort();
+  return pluginInspector.readOpenClawTargetSurface({
+    configuredPath,
+    manifest,
+    rootDir: repoRoot,
+  });
 }
 
 export function targetOpenClawPathCandidates(manifest, configuredPath) {
-  if (typeof configuredPath === "string") {
-    return [configuredPath];
-  }
-
-  return unique([manifest.openclaw?.defaultCheckoutPath, ...FALLBACK_OPENCLAW_CHECKOUT_PATHS].filter(Boolean));
+  return pluginInspector.openClawTargetPathCandidates(manifest, configuredPath);
 }
 
 async function readPackageSummaries(checkoutPath, sourceRoot) {
@@ -1595,42 +1463,6 @@ function githubWebUrl(url) {
 
 function detailEvidence(details, key = "name") {
   return unique(details.map((detail) => `${detail[key]} @ ${detail.ref}`));
-}
-
-function parseExportedStringArray(source, exportName) {
-  const match = source.match(new RegExp(`export\\s+const\\s+${exportName}\\s*=\\s*\\[([\\s\\S]*?)\\]\\s+as\\s+const`));
-  if (!match) {
-    return [];
-  }
-
-  return unique([...match[1].matchAll(/["'`]([^"'`]+)["'`]/g)].map((item) => item[1])).sort();
-}
-
-function parseTypeFields(source, typeName) {
-  const marker = `export type ${typeName} = {`;
-  const start = source.indexOf(marker);
-  if (start === -1) {
-    return [];
-  }
-  const bodyStart = start + marker.length;
-  const end = source.indexOf("\n};", bodyStart);
-  if (end === -1) {
-    return [];
-  }
-  const body = source.slice(bodyStart, end);
-  return unique(
-    [...body.matchAll(/^\s*([A-Za-z][A-Za-z0-9]*)\??:/gm)]
-      .map((match) => match[1])
-      .filter((field) => !field.startsWith("PluginManifest")),
-  ).sort();
-}
-
-function dedupeBy(values, keyForValue) {
-  const byKey = new Map();
-  for (const value of values) {
-    byKey.set(keyForValue(value), value);
-  }
-  return [...byKey.values()];
 }
 
 function unique(values) {
