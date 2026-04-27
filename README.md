@@ -10,7 +10,7 @@ is to catch contract drift before external plugin authors do.
 <!-- crabpot-summary:start -->
 ## Dashboard
 
-Last dashboard update: Apr 26, 2026, 23:56 UTC
+Last dashboard update: Apr 27, 2026, 01:48 UTC
 
 State: PASS
 
@@ -18,7 +18,7 @@ Mode: check
 
 OpenClaw: openclaw/openclaw@main
 
-Run: https://github.com/openclaw/crabpot/actions/runs/24970242056
+Run: https://github.com/openclaw/crabpot/actions/runs/24972697233
 
 ### Result Grid
 
