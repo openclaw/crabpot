@@ -120,7 +120,7 @@ node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
 `npm run plugin-inspector:smoke` uses the published
-`@openclaw/plugin-inspector@0.1.2` package by default. Use
+`@openclaw/plugin-inspector@0.1.3` package by default. Use
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source npm run plugin-inspector:smoke` only when
 validating local inspector source changes.
 

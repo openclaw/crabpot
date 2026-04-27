@@ -93,7 +93,7 @@ npm run plugin-inspector:smoke
 ```
 
 The smoke writes ignored artifacts under `.crabpot/plugin-inspector-smoke/`.
-By default the smoke runs the published `@openclaw/plugin-inspector@0.1.2`
+By default the smoke runs the published `@openclaw/plugin-inspector@0.1.3`
 package through `npm exec`. For local plugin-inspector development, set
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source` to run the sibling or pinned source
 checkout instead. Set `CRABPOT_PLUGIN_INSPECTOR_BIN=/path/to/plugin-inspector`
