@@ -10,7 +10,7 @@ is to catch contract drift before external plugin authors do.
 <!-- crabpot-summary:start -->
 ## Dashboard
 
-Last dashboard update: Apr 27, 2026, 17:49 UTC
+Last dashboard update: Apr 27, 2026, 18:07 UTC
 
 State: PASS
 
@@ -18,7 +18,7 @@ Mode: check
 
 OpenClaw: openclaw/openclaw@main
 
-Run: https://github.com/openclaw/crabpot/actions/runs/25010627434
+Run: https://github.com/openclaw/crabpot/actions/runs/25011395417
 
 ### Result Grid
 
@@ -26,17 +26,17 @@ Run: https://github.com/openclaw/crabpot/actions/runs/25010627434
 | ---------------------- | ---------------------------------------------------- |
 | Fixtures               | 28                                                   |
 | Hard breakages         | 0                                                    |
-| Warnings               | 51                                                   |
-| Suggestions            | 92                                                   |
-| Issues                 | 143                                                  |
+| Warnings               | 54                                                   |
+| Suggestions            | 96                                                   |
+| Issues                 | 150                                                  |
 | P0 issues              | [🔴 P0 2](reports/crabpot-issues.md#p0-live-issues)  |
-| P1 issues              | [🟠 P1 26](reports/crabpot-issues.md#triage-summary) |
+| P1 issues              | [🟠 P1 27](reports/crabpot-issues.md#triage-summary) |
 | Live issues            | 2 total / 2 P0                                       |
 | Compat gaps            | 1                                                    |
 | Deprecation warnings   | 22                                                   |
 | Inspector gaps         | 101                                                  |
-| Upstream metadata      | 27                                                   |
-| Contract probes        | 151                                                  |
+| Upstream metadata      | 24                                                   |
+| Contract probes        | 148                                                  |
 | Policy failures        | 0                                                    |
 | Policy warnings        | 3                                                    |
 | Ref diff failures      | 0                                                    |
@@ -52,18 +52,18 @@ Run: https://github.com/openclaw/crabpot/actions/runs/25010627434
 
 ### Top Discovered Issues
 
-| Severity | Class             | Fixture            | Code                     | Decision            | Title                                                                                                                              |
-| -------- | ----------------- | ------------------ | ------------------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| 🔴 P0    | live-issue        | codex-app-server   | sdk-export-missing       | core-compat-adapter | [codex-app-server: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#p0-live-issues)    |
-| 🔴 P0    | live-issue        | hyperspell         | unknown-hook-name        | core-compat-adapter | [hyperspell: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)                           |
-| 🟠 P1    | inspector-gap     | a2a-gateway        | registration-capture-gap | inspector-follow-up | [a2a-gateway: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)         |
-| 🟠 P1    | inspector-gap     | clawmetry          | registration-capture-gap | inspector-follow-up | [clawmetry: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)           |
-| 🟠 P1    | upstream-metadata | clawmetry          | reserved-sdk-import      | plugin-upstream-fix | [clawmetry: plugin imports reserved bundled-plugin SDK compatibility subpaths](reports/crabpot-issues.md#upstream-metadata-issues) |
-| 🟠 P1    | compat-gap        | codex-app-server   | missing-compat-record    | core-compat-adapter | [codex-app-server: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)                       |
-| 🟠 P1    | inspector-gap     | codex-app-server   | registration-capture-gap | inspector-follow-up | [codex-app-server: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)    |
-| 🟠 P1    | inspector-gap     | connectclaw        | registration-capture-gap | inspector-follow-up | [connectclaw: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)         |
-| 🟠 P1    | inspector-gap     | dingtalk-connector | registration-capture-gap | inspector-follow-up | [dingtalk-connector: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)  |
-| 🟠 P1    | inspector-gap     | honcho             | conversation-access-hook | inspector-follow-up | [honcho: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)                   |
+| Severity | Class         | Fixture            | Code                     | Decision            | Title                                                                                                                             |
+| -------- | ------------- | ------------------ | ------------------------ | ------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| 🔴 P0    | live-issue    | codex-app-server   | sdk-export-missing       | core-compat-adapter | [codex-app-server: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#p0-live-issues)   |
+| 🔴 P0    | live-issue    | hyperspell         | unknown-hook-name        | core-compat-adapter | [hyperspell: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)                          |
+| 🟠 P1    | inspector-gap | a2a-gateway        | registration-capture-gap | inspector-follow-up | [a2a-gateway: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)        |
+| 🟠 P1    | inspector-gap | clawmetry          | registration-capture-gap | inspector-follow-up | [clawmetry: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)          |
+| 🟠 P1    | compat-gap    | codex-app-server   | missing-compat-record    | core-compat-adapter | [codex-app-server: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)                      |
+| 🟠 P1    | inspector-gap | codex-app-server   | registration-capture-gap | inspector-follow-up | [codex-app-server: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)   |
+| 🟠 P1    | inspector-gap | connectclaw        | registration-capture-gap | inspector-follow-up | [connectclaw: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)        |
+| 🟠 P1    | inspector-gap | dingtalk-connector | registration-capture-gap | inspector-follow-up | [dingtalk-connector: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps) |
+| 🟠 P1    | inspector-gap | honcho             | conversation-access-hook | inspector-follow-up | [honcho: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)                  |
+| 🟠 P1    | inspector-gap | honcho             | registration-capture-gap | inspector-follow-up | [honcho: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)             |
 <!-- crabpot-summary:end -->
 ## What this tests
 
