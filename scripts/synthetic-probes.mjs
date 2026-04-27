@@ -1,12 +1,7 @@
 #!/usr/bin/env node
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import {
-  buildContractCapture,
-  HOOK_CONTEXTS,
-  HOOK_EVENTS,
-  REGISTRATION_ARGUMENTS,
-} from "./capture-contracts.mjs";
+import { buildReport } from "./report-lib.mjs";
 import { repoRoot } from "./manifest-lib.mjs";
 import { loadPluginInspector } from "./plugin-inspector-source.mjs";
 import { captureEntrypoint } from "./run-cold-import-capture.mjs";
@@ -113,13 +108,8 @@ function parseArgs(argv) {
 }
 
 export async function buildSyntheticProbePlan(options = {}) {
-  const capture = options.capture ?? (await buildContractCapture({ openclawPath: options.openclawPath }));
-  return pluginInspector.buildSyntheticProbePlan({
-    capture,
-    hookContexts: HOOK_CONTEXTS,
-    hookEvents: HOOK_EVENTS,
-    registrationArguments: REGISTRATION_ARGUMENTS,
-  });
+  const report = options.report ?? (options.capture ? null : await buildReport({ openclawPath: options.openclawPath }));
+  return pluginInspector.buildSyntheticProbePlanFromReport(report, { capture: options.capture });
 }
 
 export async function writeSyntheticProbePlan(plan, options = {}) {
@@ -135,8 +125,6 @@ export async function writeSyntheticProbePlan(plan, options = {}) {
 export async function runCapturedSyntheticProbes(capture, options = {}) {
   return pluginInspector.runCapturedSyntheticProbes(capture, {
     ...options,
-    hookContexts: HOOK_CONTEXTS,
-    hookEvents: HOOK_EVENTS,
     syntheticSource: "crabpot.synthetic",
   });
 }
