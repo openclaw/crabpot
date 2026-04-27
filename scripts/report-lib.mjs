@@ -20,10 +20,11 @@ export const targetOpenClawPathCandidates = pluginInspector.openClawTargetPathCa
 export async function buildReport(options = {}) {
   const generatedAt = options.generatedAt ?? process.env.CRABPOT_REPORT_GENERATED_AT ?? "deterministic";
   const manifest = await readManifest();
-  return pluginInspector.inspectCompatibilityFixtureSet({
-    ...manifest,
-    rootDir: repoRoot,
-  }, {
+  return pluginInspector.inspectCompatibilityFixtureSetConfig({
+    config: {
+      ...manifest,
+      rootDir: repoRoot,
+    },
     generatedAt,
     openclawPath: options.openclawPath,
   });
@@ -33,25 +34,32 @@ export async function writeReport(report, options = {}) {
   const markdownPath = options.markdownPath ?? defaultMarkdownReportPath;
   const jsonPath = options.jsonPath ?? defaultJsonReportPath;
   const issuesPath = options.issuesPath ?? defaultIssuesReportPath;
-  await pluginInspector.writeArtifacts([
-    { name: "markdownPath", path: markdownPath, markdown: renderMarkdownReport(report) },
-    { name: "jsonPath", path: jsonPath, json: report },
-    { name: "issuesPath", path: issuesPath, markdown: renderIssuesReport(report) },
-  ]);
-  return { markdownPath, jsonPath, issuesPath };
+  return pluginInspector.writeFixtureSetReports(report, {
+    jsonPath,
+    markdownPath,
+    issuesPath,
+    ...compatibilityRenderOptions(),
+  });
 }
 
 export function renderMarkdownReport(report) {
-  return pluginInspector.renderCompatibilityMarkdownReport(report, compatibilityRenderOptions("Crabpot Compatibility Report"));
+  return pluginInspector.renderFixtureSetMarkdownReport(report, {
+    ...compatibilityRenderOptions(),
+    title: "Crabpot Compatibility Report",
+  });
 }
 
 export function renderIssuesReport(report) {
-  return pluginInspector.renderCompatibilityIssuesReport(report, compatibilityRenderOptions("Crabpot Issue Findings"));
+  return pluginInspector.renderFixtureSetIssuesReport(report, {
+    ...compatibilityRenderOptions(),
+    title: "Crabpot Issue Findings",
+  });
 }
 
-function compatibilityRenderOptions(title) {
+function compatibilityRenderOptions() {
   return {
-    title,
+    markdownTitle: "Crabpot Compatibility Report",
+    issuesTitle: "Crabpot Issue Findings",
     formatEvidence: formatEvidenceLink,
     severityLabels: {
       P0: "🔴 P0",
