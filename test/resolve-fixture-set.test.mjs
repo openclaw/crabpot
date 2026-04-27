@@ -112,6 +112,18 @@ test("fixture set resolver expands gitmodule changes to every plugin", async () 
   ]);
 });
 
+test("fixture set resolver prefers concrete plugin paths over broad gitmodule changes", async () => {
+  const resolved = await resolveFixtureSet({
+    fixtureSet: "changed-submodules",
+    manifest,
+    policy,
+    plan,
+    changedPaths: [".gitmodules", "plugins/wecom", "crabpot.config.json"],
+  });
+
+  assert.deepEqual(resolved.fixtures.map((fixture) => fixture.id), ["wecom"]);
+});
+
 test("fixture set resolver ignores manifest metadata-only changes", async () => {
   const resolved = await resolveFixtureSet({
     fixtureSet: "changed-submodules",

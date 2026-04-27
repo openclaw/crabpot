@@ -154,16 +154,23 @@ function selectFixtureIds({ requested, policy, plan, fixtureIds, manifest, chang
 }
 
 function fixturesChangedByPaths(fixtures, changedPaths) {
-  if (changedPaths.some((changedPath) => changedPath === ".gitmodules")) {
-    return new Set(fixtures.map((fixture) => fixture.id));
-  }
-  return new Set(
+  const pluginFixtures = new Set(
     fixtures
       .filter((fixture) =>
         changedPaths.some((changedPath) => changedPath === fixture.path || changedPath.startsWith(`${fixture.path}/`)),
       )
       .map((fixture) => fixture.id),
   );
+
+  if (pluginFixtures.size > 0) {
+    return pluginFixtures;
+  }
+
+  if (changedPaths.some((changedPath) => changedPath === ".gitmodules")) {
+    return new Set(fixtures.map((fixture) => fixture.id));
+  }
+
+  return pluginFixtures;
 }
 
 function readChangedPaths({ baseRef, headRef } = {}) {
