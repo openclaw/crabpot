@@ -1,8 +1,7 @@
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
-import { inspectManifest } from "./inspect-fixtures.mjs";
-import { fixtureCheckoutPath, fixtureSourceRoot, readManifest, repoRoot } from "./manifest-lib.mjs";
+import { readManifest, repoRoot } from "./manifest-lib.mjs";
 import { loadPluginInspector } from "./plugin-inspector-source.mjs";
 
 export const defaultReportDir = path.join(repoRoot, "reports");
@@ -21,18 +20,13 @@ export const targetOpenClawPathCandidates = pluginInspector.openClawTargetPathCa
 export async function buildReport(options = {}) {
   const generatedAt = options.generatedAt ?? process.env.CRABPOT_REPORT_GENERATED_AT ?? "deterministic";
   const manifest = await readManifest();
-  const targetOpenClaw = await readTargetOpenClaw(manifest, options.openclawPath);
-  const { inspections, failures } = await inspectManifest();
-  const report = await pluginInspector.buildCompatibilityReport({
+  return pluginInspector.inspectCompatibilityFixtureSet({
+    ...manifest,
+    rootDir: repoRoot,
+  }, {
     generatedAt,
-    fixtures: manifest.fixtures,
-    inspections,
-    failures,
-    targetOpenClaw,
-    buildFixtureReport: ({ fixture, inspection }) => buildFixtureReport(fixture, inspection),
+    openclawPath: options.openclawPath,
   });
-
-  return report;
 }
 
 export async function writeReport(report, options = {}) {
@@ -66,24 +60,6 @@ function compatibilityRenderOptions(title) {
       P3: "🟢 P3",
     },
   };
-}
-
-async function buildFixtureReport(fixture, inspection) {
-  return pluginInspector.buildCompatibilityFixtureReport({
-    fixture,
-    inspection,
-    checkoutPath: fixtureCheckoutPath(fixture),
-    sourceRoot: fixtureSourceRoot(fixture),
-    rootDir: repoRoot,
-  });
-}
-
-async function readTargetOpenClaw(manifest, configuredPath) {
-  return pluginInspector.readOpenClawTargetSurface({
-    configuredPath,
-    manifest,
-    rootDir: repoRoot,
-  });
 }
 
 function formatEvidenceLink(evidence) {

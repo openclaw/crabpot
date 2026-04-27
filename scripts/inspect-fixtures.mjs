@@ -38,27 +38,11 @@ async function main() {
 
 export async function inspectManifest() {
   const manifest = await readManifest();
-  const inspections = [];
-  const failures = [];
-
-  for (const fixture of manifest.fixtures) {
-    const inspection = await inspectFixture(fixture);
-    inspections.push(inspection);
-
-    for (const [key, observed] of [
-      ["hooks", inspection.hooks],
-      ["registrations", inspection.registrations],
-      ["manifestContracts", inspection.manifestContracts],
-    ]) {
-      const expected = fixture.expect?.[key] ?? [];
-      const missing = expected.filter((value) => !observed.includes(value));
-      if (missing.length > 0) {
-        failures.push(`${fixture.id}: missing ${key}: ${missing.join(", ")}`);
-      }
-    }
-  }
-
-  return { inspections, failures };
+  const report = await pluginInspector.inspectFixtureSet({ ...manifest, rootDir: repoRoot });
+  return {
+    inspections: report.fixtures,
+    failures: report.breakages.map((finding) => finding.message),
+  };
 }
 
 export async function inspectFixture(fixture) {
