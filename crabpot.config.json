@@ -233,6 +233,18 @@
       "why": "DingTalk channel fixture from the latest npm-backed repo, covering enterprise IM auth, channel setup, media handling, and webhook-style message ingress."
     },
     {
+      "id": "dingtalk-connector",
+      "name": "DingTalk Connector",
+      "repo": "https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector.git",
+      "path": "plugins/dingtalk-connector",
+      "priority": "high",
+      "seams": ["channel", "streaming", "account-auth", "interactive-card", "gateway-method"],
+      "expect": {
+        "registrations": ["registerChannel", "registerGatewayMethod"]
+      },
+      "why": "Official DingTalk connector fixture covering Stream-mode channel ingress, AI Card replies, multi-account access policy, gateway RPC methods, and packaged channel skills."
+    },
+    {
       "id": "mocrane-wecom",
       "name": "Mocrane WeCom",
       "repo": "https://github.com/TencentCloud-Lighthouse/openclaw-wecom.git",

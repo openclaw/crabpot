@@ -59,6 +59,7 @@ directory: "/plugins/<id>"
 | `composio` | `plugins/composio` | git | high | dynamic tool, MCP, external API | NPM-installed dynamic tool fixture for Composio/MCP, prompt context injection, CLI setup, external API auth, and remote tool catalogs. |
 | `memory-tencentdb` | `plugins/memory-tencentdb` | npm | high | memory runtime, vector store, lifecycle | TencentDB memory fixture covering recall/capture hooks, SQLite/TCVDB storage, cleanup lifecycle, and seed/export CLI commands. |
 | `ddingtalk` | `plugins/ddingtalk` | git | high | channel, media, webhook | DingTalk channel fixture covering enterprise IM auth, channel setup, media handling, and webhook-style ingress. |
+| `dingtalk-connector` | `plugins/dingtalk-connector` | git | high | channel, streaming, gateway methods | Official DingTalk connector fixture covering Stream-mode ingress, AI Card replies, multi-account access policy, gateway RPC methods, and packaged channel skills. |
 | `mocrane-wecom` | `plugins/mocrane-wecom` | git | high | channel, MCP, SDK compat | Latest @mocrane/wecom-backed fixture covering WeCom routing, MCP tooling, skill bundles, HTTP routes, and SDK shims. |
 | `yuanbao` | `plugins/yuanbao` | npm | high | channel, command, SDK compat | Yuanbao bot fixture covering auth, media, tools, command queue compatibility, and root SDK imports. |
 | `openclaw-weixin` | `plugins/openclaw-weixin` | npm | high | channel, pairing, SDK subpaths | Weixin channel fixture covering scan-login pairing, account isolation, media, and narrow SDK subpath usage. |

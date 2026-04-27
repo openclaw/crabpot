@@ -90,3 +90,7 @@
 	path = plugins/mocrane-wecom
 	url = https://github.com/TencentCloud-Lighthouse/openclaw-wecom.git
 	shallow = true
+[submodule "plugins/dingtalk-connector"]
+	path = plugins/dingtalk-connector
+	url = https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector.git
+	shallow = true
