@@ -23,6 +23,7 @@ export function resolvePluginInspectorCliInvocation() {
     return {
       command: npmCommand(),
       args: ["exec", "--yes", "--package", pluginInspectorPackage, "--", "plugin-inspector"],
+      shell: process.platform === "win32",
     };
   }
 
@@ -120,7 +121,7 @@ function sleep(ms) {
 }
 
 function npmCommand() {
-  return process.platform === "win32" ? "npm.cmd" : "npm";
+  return "npm";
 }
 
 function readGitHead(checkoutDir) {

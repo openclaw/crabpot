@@ -10,8 +10,9 @@ test("plugin inspector smoke defaults to the published npm package", () => {
   withEnv({}, () => {
     const invocation = resolvePluginInspectorCliInvocation();
 
-    assert.match(invocation.command, /^npm(?:\.cmd)?$/);
+    assert.equal(invocation.command, "npm");
     assert.deepEqual(invocation.args, ["exec", "--yes", "--package", pluginInspectorPackage, "--", "plugin-inspector"]);
+    assert.equal(invocation.shell, process.platform === "win32");
   });
 });
 
