@@ -23,107 +23,14 @@ export async function buildReport(options = {}) {
   const manifest = await readManifest();
   const targetOpenClaw = await readTargetOpenClaw(manifest, options.openclawPath);
   const { inspections, failures } = await inspectManifest();
-  const inspectionById = new Map(inspections.map((inspection) => [inspection.id, inspection]));
-
-  const fixtures = [];
-  const breakages = [];
-  const warnings = [];
-  const suggestions = [];
-  const logs = [];
-  const decisions = [];
-
-  for (const fixture of manifest.fixtures) {
-    const inspection = inspectionById.get(fixture.id) ?? emptyInspection(fixture);
-    const fixtureReport = await buildFixtureReport(fixture, inspection);
-    fixtures.push(fixtureReport);
-
-    logs.push({
-      fixture: fixture.id,
-      code: "seam-inventory",
-      level: "log",
-      message: `observed ${inspection.hooks.length} hooks, ${inspection.registrations.length} registrations, and ${inspection.manifestContracts.length} manifest contracts`,
-      evidence: [
-        ...inspection.hooks.map((hook) => `hook:${hook}`),
-        ...inspection.registrations.map((registration) => `registration:${registration}`),
-        ...inspection.manifestContracts.map((contract) => `manifestContract:${contract}`),
-      ],
-    });
-
-    classifyFixture({
-      fixture,
-      inspection,
-      fixtureReport,
-      targetOpenClaw,
-      breakages,
-      warnings,
-      suggestions,
-      logs,
-      decisions,
-    });
-  }
-
-  for (const failure of failures) {
-    const fixture = failure.split(":")[0] || "unknown";
-    breakages.push({
-      fixture,
-      code: "missing-expected-seam",
-      level: "breakage",
-      message: failure,
-      evidence: [failure],
-    });
-    decisions.push({
-      fixture,
-      decision: "inspector-follow-up",
-      seam: "expected-seam",
-      action: "Investigate whether OpenClaw removed a plugin-facing contract or the fixture pin changed upstream behavior.",
-      evidence: failure,
-    });
-  }
-
-  classifyCompatRecordCoverage({
-    targetOpenClaw,
-    findings: [...warnings, ...suggestions],
-    suggestions,
-    logs,
-    decisions,
-  });
-
-  const issues = buildIssues({ breakages, warnings, suggestions, targetOpenClaw });
-  const contractProbes = buildContractProbes({ warnings, suggestions, fixtures });
-  const issueSummary = pluginInspector.summarizeIssueClasses(issues);
-
-  const report = {
+  const report = await pluginInspector.buildCompatibilityReport({
     generatedAt,
+    fixtures: manifest.fixtures,
+    inspections,
+    failures,
     targetOpenClaw,
-    status: breakages.length === 0 ? "pass" : "fail",
-    summary: {
-      fixtureCount: fixtures.length,
-      highPriorityFixtures: fixtures.filter((fixture) => fixture.priority === "high").length,
-      breakageCount: breakages.length,
-      warningCount: warnings.length,
-      suggestionCount: suggestions.length,
-      decisionCount: decisions.length,
-      issueCount: issues.length,
-      p0IssueCount: issues.filter((issue) => issue.severity === "P0").length,
-      p1IssueCount: issues.filter((issue) => issue.severity === "P1").length,
-      liveIssueCount: issueSummary["live-issue"],
-      liveP0IssueCount: issues.filter((issue) => issue.issueClass === "live-issue" && issue.severity === "P0").length,
-      compatGapCount: issueSummary["compat-gap"],
-      deprecationWarningCount: issueSummary["deprecation-warning"],
-      inspectorGapCount: issueSummary["inspector-gap"],
-      upstreamIssueCount: issueSummary["upstream-metadata"],
-      fixtureRegressionCount: issueSummary["fixture-regression"],
-      contractProbeCount: contractProbes.length,
-    },
-    fixtures,
-    breakages,
-    warnings,
-    suggestions,
-    issues,
-    contractProbes,
-    logs,
-    decisions,
-  };
+    buildFixtureReport: ({ fixture, inspection }) => buildFixtureReport(fixture, inspection),
+  });
 
   return report;
 }
@@ -161,71 +68,6 @@ function compatibilityRenderOptions(title) {
   };
 }
 
-function buildIssues({ breakages, warnings, suggestions, targetOpenClaw }) {
-  return pluginInspector.buildIssues({ breakages, warnings, suggestions, targetOpenClaw });
-}
-
-function buildContractProbes({ warnings, suggestions, fixtures }) {
-  return pluginInspector.buildContractProbes({ warnings, suggestions, fixtures });
-}
-
-function classifyCompatRecordCoverage({ targetOpenClaw, findings, suggestions, logs, decisions }) {
-  if (targetOpenClaw.status !== "ok") {
-    logs.push({
-      fixture: "openclaw",
-      code: "target-openclaw-unavailable",
-      level: "log",
-      message: "target OpenClaw checkout was not available, so compat record coverage was not checked",
-      evidence: [targetOpenClaw.configuredPath ?? "not configured"],
-    });
-    return;
-  }
-
-  const knownRecords = new Set(targetOpenClaw.compatRecords);
-  for (const finding of findings.filter((item) => item.compatRecord)) {
-    if (knownRecords.has(finding.compatRecord)) {
-      logs.push({
-        fixture: finding.fixture,
-        code: "compat-record-present",
-        level: "log",
-        message: "target OpenClaw checkout has a matching compat registry record",
-        evidence: [finding.compatRecord, `status:${targetOpenClaw.compatRecordStatuses?.[finding.compatRecord] ?? "unknown"}`],
-        compatRecord: finding.compatRecord,
-      });
-      continue;
-    }
-
-    suggestions.push({
-      fixture: finding.fixture,
-      code: "missing-compat-record",
-      level: "suggestion",
-      message: "fixture depends on a compatibility behavior that is not represented in the target compat registry",
-      evidence: [finding.compatRecord],
-      compatRecord: finding.compatRecord,
-    });
-    decisions.push({
-      fixture: finding.fixture,
-      decision: "core-compat-adapter",
-      seam: "compat-registry",
-      action: "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
-      evidence: finding.compatRecord,
-    });
-  }
-}
-
-function classifyFixture({ fixture, inspection, fixtureReport, targetOpenClaw, breakages, warnings, suggestions, logs, decisions }) {
-  const fixtureClassification = pluginInspector.classifyCompatibilityFixture({
-    fixture,
-    inspection,
-    fixtureReport,
-    targetOpenClaw,
-  });
-  warnings.push(...fixtureClassification.warnings);
-  suggestions.push(...fixtureClassification.suggestions);
-  logs.push(...fixtureClassification.logs);
-  decisions.push(...fixtureClassification.decisions);
-}
-
 async function buildFixtureReport(fixture, inspection) {
   return pluginInspector.buildCompatibilityFixtureReport({
     fixture,
@@ -242,22 +84,6 @@ async function readTargetOpenClaw(manifest, configuredPath) {
     manifest,
     rootDir: repoRoot,
   });
-}
-
-function emptyInspection(fixture) {
-  return {
-    id: fixture.id,
-    status: "missing",
-    hooks: [],
-    hookDetails: [],
-    registrations: [],
-    registrationDetails: [],
-    manifestContracts: [],
-    manifestFiles: [],
-    manifestErrors: [],
-    sdkImports: [],
-    sourceFiles: [],
-  };
 }
 
 function formatEvidenceLink(evidence) {
