@@ -4,7 +4,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
 
-export const pluginInspectorRef = "11783e397356502ff24043793e1291808d95a3e0";
+export const pluginInspectorRef = "c5c520b7783715ee3448b2f81ef7b7bf3639ec19";
 export const pluginInspectorPackage = "@openclaw/plugin-inspector@0.2.0";
 
 export async function loadPluginInspector() {
