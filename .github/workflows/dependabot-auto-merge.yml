@@ -35,6 +35,13 @@ jobs:
         with:
           node-version: 22
 
+      - name: Update Dependabot branch with base
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin "${{ github.event.pull_request.base.ref }}"
+          git merge --no-edit "origin/${{ github.event.pull_request.base.ref }}"
+
       - name: Verify Dependabot changed only fixture pins
         env:
           GH_TOKEN: ${{ github.token }}
@@ -88,8 +95,8 @@ jobs:
             git push
           fi
 
-      - name: Enable Dependabot auto-merge
+      - name: Merge Dependabot PR
         env:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: gh pr merge "${PR_NUMBER}" --auto --squash --delete-branch
+        run: gh pr merge "${PR_NUMBER}" --squash --delete-branch

@@ -116,6 +116,8 @@ test("dependabot auto-merge refreshes reports after fixture pin updates", async 
   assert.match(workflow, /pull_request_target:/);
   assert.match(workflow, /dependabot\[bot\]/);
   assert.match(workflow, /github\.event\.pull_request\.head\.repo\.full_name == github\.repository/);
+  assert.match(workflow, /Update Dependabot branch with base/);
+  assert.match(workflow, /git merge --no-edit "origin\/\$\{\{ github\.event\.pull_request\.base\.ref \}\}"/);
   assert.match(workflow, /Verify Dependabot changed only fixture pins/);
   assert.ok(workflow.includes("^plugins/[^/]+$"));
   assert.ok(workflow.includes("^plugins/[^/]+/package(-lock)?\\.json$"));
@@ -123,7 +125,8 @@ test("dependabot auto-merge refreshes reports after fixture pin updates", async 
   assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs/);
   assert.match(workflow, /git add README\.md reports\//);
-  assert.match(workflow, /gh pr merge "\$\{PR_NUMBER\}" --auto --squash --delete-branch/);
+  assert.match(workflow, /gh pr merge "\$\{PR_NUMBER\}" --squash --delete-branch/);
+  assert.doesNotMatch(workflow, /gh pr merge "\$\{PR_NUMBER\}" --auto/);
 });
 
 test("manual workflow enforces strict runtime profile policy before best-effort summaries", async () => {
