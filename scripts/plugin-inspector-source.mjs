@@ -4,11 +4,15 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
 
-export const pluginInspectorRef = "ce32f311d22ce56c67c06e6b6d1091e698d18a6a";
+export const pluginInspectorRef = "88f6ae551fda56f61aaa1b32c0ea83e8cf787b9c";
 export const pluginInspectorPackage = "@openclaw/plugin-inspector@0.3.0";
 
 export async function loadPluginInspector() {
   return import(pathToFileURL(resolvePluginInspectorSourcePath()).href);
+}
+
+export async function loadPluginInspectorPublicApi() {
+  return import(pathToFileURL(resolvePluginInspectorPublicApiPath()).href);
 }
 
 export function resolvePluginInspectorCliInvocation() {
@@ -39,6 +43,10 @@ export function resolvePluginInspectorCliPath() {
 
 function resolvePluginInspectorSourcePath() {
   return path.join(resolvePluginInspectorRoot(), "src", "advanced.js");
+}
+
+function resolvePluginInspectorPublicApiPath() {
+  return path.join(resolvePluginInspectorRoot(), "src", "index.js");
 }
 
 function resolvePluginInspectorRoot() {

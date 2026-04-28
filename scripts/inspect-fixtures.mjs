@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import { pathToFileURL } from "node:url";
 import { readManifest, repoRoot } from "./manifest-lib.mjs";
-import { loadPluginInspector } from "./plugin-inspector-source.mjs";
+import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 
-const pluginInspector = await loadPluginInspector();
+const pluginInspector = await loadPluginInspectorPublicApi();
 export const inspectSourceText = pluginInspector.inspectSourceText;
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
@@ -38,7 +38,12 @@ async function main() {
 
 export async function inspectManifest() {
   const manifest = await readManifest();
-  const report = await pluginInspector.inspectFixtureSet({ ...manifest, rootDir: repoRoot });
+  const report = await pluginInspector.inspectFixtureSetConfig({
+    config: {
+      ...manifest,
+      rootDir: repoRoot,
+    },
+  });
   return {
     inspections: report.fixtures,
     failures: report.breakages.map((finding) => finding.message),
