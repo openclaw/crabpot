@@ -3,13 +3,13 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { defaultCiPolicyPath } from "./check-ci-policy.mjs";
 import { repoRoot } from "./manifest-lib.mjs";
-import { loadPluginInspector } from "./plugin-inspector-source.mjs";
+import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 import { defaultProfileJsonPath } from "./profile-contract-runtime.mjs";
 
 export const defaultProfileDiffJsonPath = path.join(repoRoot, "reports/crabpot-profile-diff.json");
 export const defaultProfileDiffMarkdownPath = path.join(repoRoot, "reports/crabpot-profile-diff.md");
 
-const pluginInspector = await loadPluginInspector();
+const pluginInspector = await loadPluginInspectorPublicApi();
 
 const crabpotProfileDiffOptions = {
   baselinePath: "baselines/runtime/main.json",

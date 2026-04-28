@@ -2,13 +2,13 @@
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
-import { loadPluginInspector } from "./plugin-inspector-source.mjs";
+import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 import { buildReport } from "./report-lib.mjs";
 
 export const defaultRefDiffJsonPath = path.join(repoRoot, "reports/crabpot-ref-diff.json");
 export const defaultRefDiffMarkdownPath = path.join(repoRoot, "reports/crabpot-ref-diff.md");
 
-const pluginInspector = await loadPluginInspector();
+const pluginInspector = await loadPluginInspectorPublicApi();
 
 const crabpotRefDiffOptions = {
   jsonPath: defaultRefDiffJsonPath,

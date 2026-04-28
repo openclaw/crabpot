@@ -2,12 +2,12 @@
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
-import { loadPluginInspector } from "./plugin-inspector-source.mjs";
+import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 
 export const defaultImportLoopJsonPath = path.join(repoRoot, "reports/crabpot-import-loop-profile.json");
 export const defaultImportLoopMarkdownPath = path.join(repoRoot, "reports/crabpot-import-loop-profile.md");
 
-const pluginInspector = await loadPluginInspector();
+const pluginInspector = await loadPluginInspectorPublicApi();
 
 const crabpotImportLoopProfileOptions = {
   captureScript: "scripts/run-cold-import-capture.mjs",
