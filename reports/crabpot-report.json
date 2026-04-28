@@ -1,13 +1,12 @@
 {
   "generatedAt": "deterministic",
   "targetOpenClaw": {
-    "configuredPath": "../openclaw",
+    "configuredPath": "/Users/vincentkoc/GIT/_Perso/openclaw",
     "searchedPaths": [
-      "../openclaw",
-      "./openclaw"
+      "/Users/vincentkoc/GIT/_Perso/openclaw"
     ],
     "status": "ok",
-    "compatRegistryPath": "../openclaw/src/plugins/compat/registry.ts",
+    "compatRegistryPath": "../../../../GIT/_Perso/openclaw/src/plugins/compat/registry.ts",
     "compatRecordCount": 56,
     "compatRecords": [
       "activation-agent-harness-hint",
@@ -125,7 +124,7 @@
       "runtime-taskflow-legacy-alias": "deprecated",
       "setup-runtime-fallback": "active"
     },
-    "hookTypesPath": "../openclaw/src/plugins/hook-types.ts",
+    "hookTypesPath": "../../../../GIT/_Perso/openclaw/src/plugins/hook-types.ts",
     "hookNameCount": 35,
     "hookNames": [
       "after_compaction",
@@ -164,7 +163,7 @@
       "subagent_spawning",
       "tool_result_persist"
     ],
-    "apiBuilderPath": "../openclaw/src/plugins/api-builder.ts",
+    "apiBuilderPath": "../../../../GIT/_Perso/openclaw/src/plugins/api-builder.ts",
     "apiRegistrarCount": 48,
     "apiRegistrars": [
       "registerAgentEventSubscription",
@@ -216,7 +215,7 @@
       "registerWebFetchProvider",
       "registerWebSearchProvider"
     ],
-    "capturedRegistrationPath": "../openclaw/src/plugins/captured-registration.ts",
+    "capturedRegistrationPath": "../../../../GIT/_Perso/openclaw/src/plugins/captured-registration.ts",
     "capturedRegistrarCount": 26,
     "capturedRegistrars": [
       "registerAgentEventSubscription",
@@ -246,7 +245,7 @@
       "registerWebFetchProvider",
       "registerWebSearchProvider"
     ],
-    "packagePath": "../openclaw/package.json",
+    "packagePath": "../../../../GIT/_Perso/openclaw/package.json",
     "sdkExportCount": 292,
     "sdkExports": [
       "openclaw/plugin-sdk",
@@ -542,7 +541,7 @@
       "openclaw/plugin-sdk/windows-spawn",
       "openclaw/plugin-sdk/zod"
     ],
-    "pluginSdkEntrypointsPath": "../openclaw/src/plugin-sdk/entrypoints.ts",
+    "pluginSdkEntrypointsPath": "../../../../GIT/_Perso/openclaw/src/plugin-sdk/entrypoints.ts",
     "reservedSdkExportCount": 0,
     "reservedSdkExports": [],
     "supportedFacadeSdkExports": [
@@ -578,7 +577,7 @@
       "openclaw/plugin-sdk/telegram-command-config",
       "openclaw/plugin-sdk/video-generation-core"
     ],
-    "manifestTypesPath": "../openclaw/src/plugins/manifest.ts",
+    "manifestTypesPath": "../../../../GIT/_Perso/openclaw/src/plugins/manifest.ts",
     "manifestFieldCount": 35,
     "manifestFields": [
       "activation",
@@ -643,21 +642,21 @@
     "fixtureCount": 29,
     "highPriorityFixtures": 20,
     "breakageCount": 0,
-    "warningCount": 62,
-    "suggestionCount": 104,
-    "decisionCount": 167,
-    "logCount": 188,
-    "issueCount": 166,
-    "p0IssueCount": 7,
-    "p1IssueCount": 34,
-    "liveIssueCount": 7,
-    "liveP0IssueCount": 7,
-    "compatGapCount": 5,
+    "warningCount": 60,
+    "suggestionCount": 103,
+    "decisionCount": 165,
+    "logCount": 190,
+    "issueCount": 163,
+    "p0IssueCount": 5,
+    "p1IssueCount": 33,
+    "liveIssueCount": 5,
+    "liveP0IssueCount": 5,
+    "compatGapCount": 4,
     "deprecationWarningCount": 24,
     "inspectorGapCount": 106,
     "upstreamIssueCount": 24,
     "fixtureRegressionCount": 0,
-    "contractProbeCount": 159
+    "contractProbeCount": 158
   },
   "fixtures": [
     {
@@ -964,32 +963,32 @@
         {
           "name": "before_prompt_build",
           "file": "plugins/wecom/index.js",
-          "line": 53,
-          "ref": "plugins/wecom/index.js:53"
+          "line": 64,
+          "ref": "plugins/wecom/index.js:64"
         },
         {
           "name": "before_tool_call",
           "file": "plugins/wecom/index.js",
-          "line": 65,
-          "ref": "plugins/wecom/index.js:65"
+          "line": 76,
+          "ref": "plugins/wecom/index.js:76"
         },
         {
           "name": "subagent_delivery_target",
           "file": "plugins/wecom/index.js",
-          "line": 61,
-          "ref": "plugins/wecom/index.js:61"
+          "line": 72,
+          "ref": "plugins/wecom/index.js:72"
         },
         {
           "name": "subagent_ended",
           "file": "plugins/wecom/index.js",
-          "line": 63,
-          "ref": "plugins/wecom/index.js:63"
+          "line": 74,
+          "ref": "plugins/wecom/index.js:74"
         },
         {
           "name": "subagent_spawned",
           "file": "plugins/wecom/index.js",
-          "line": 62,
-          "ref": "plugins/wecom/index.js:62"
+          "line": 73,
+          "ref": "plugins/wecom/index.js:73"
         }
       ],
       "registrations": [
@@ -1007,8 +1006,8 @@
         {
           "name": "registerHttpRoute",
           "file": "plugins/wecom/index.js",
-          "line": 45,
-          "ref": "plugins/wecom/index.js:45"
+          "line": 56,
+          "ref": "plugins/wecom/index.js:56"
         },
         {
           "name": "registerTool",
@@ -1019,14 +1018,14 @@
         {
           "name": "registerTool",
           "file": "plugins/wecom/index.js",
-          "line": 29,
-          "ref": "plugins/wecom/index.js:29"
+          "line": 40,
+          "ref": "plugins/wecom/index.js:40"
         },
         {
           "name": "registerTool",
           "file": "plugins/wecom/index.js",
-          "line": 33,
-          "ref": "plugins/wecom/index.js:33"
+          "line": 44,
+          "ref": "plugins/wecom/index.js:44"
         }
       ],
       "manifestContracts": [],
@@ -1081,10 +1080,12 @@
           "name": "OpenClaw WeCom",
           "version": null,
           "keys": [
+            "channelConfigs",
             "channels",
             "configSchema",
             "description",
             "id",
+            "kind",
             "name",
             "skills"
           ],
@@ -1097,7 +1098,7 @@
       "package": {
         "path": "plugins/wecom/package.json",
         "name": "@sunnoy/wecom",
-        "version": "3.0.1",
+        "version": "3.2.0",
         "type": "module",
         "main": "index.js",
         "dependencies": [
@@ -1135,7 +1136,7 @@
         {
           "path": "plugins/wecom/package.json",
           "name": "@sunnoy/wecom",
-          "version": "3.0.1",
+          "version": "3.2.0",
           "type": "module",
           "main": "index.js",
           "dependencies": [
@@ -2428,32 +2429,32 @@
         {
           "name": "before_prompt_build",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1975,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1975"
+          "line": 2021,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2021"
         },
         {
           "name": "before_reset",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1968,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1968"
+          "line": 2014,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2014"
         },
         {
           "name": "gateway_start",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2171,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2171"
+          "line": 2217,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2217"
         },
         {
           "name": "gateway_stop",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2195,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2195"
+          "line": 2241,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2241"
         },
         {
           "name": "session_end",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1978,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1978"
+          "line": 2024,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2024"
         }
       ],
       "registrations": [
@@ -2465,38 +2466,38 @@
         {
           "name": "registerCommand",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2009,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2009"
+          "line": 2055,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2055"
         },
         {
           "name": "registerContextEngine",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1989,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1989"
+          "line": 2035,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2035"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1991,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1991"
+          "line": 2037,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2037"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1994,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1994"
+          "line": 2040,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2040"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1997,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1997"
+          "line": 2043,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2043"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2000,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2000"
+          "line": 2046,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2046"
         }
       ],
       "manifestContracts": [],
@@ -2581,12 +2582,12 @@
         "type": "module",
         "main": "dist/index.js",
         "dependencies": [
-          "@mariozechner/pi-agent-core",
-          "@mariozechner/pi-ai",
-          "@mariozechner/pi-coding-agent",
           "@sinclair/typebox"
         ],
         "peerDependencies": [
+          "@mariozechner/pi-agent-core",
+          "@mariozechner/pi-ai",
+          "@mariozechner/pi-coding-agent",
           "openclaw"
         ],
         "optionalDependencies": [],
@@ -2618,12 +2619,12 @@
           "type": "module",
           "main": "dist/index.js",
           "dependencies": [
-            "@mariozechner/pi-agent-core",
-            "@mariozechner/pi-ai",
-            "@mariozechner/pi-coding-agent",
             "@sinclair/typebox"
           ],
           "peerDependencies": [
+            "@mariozechner/pi-agent-core",
+            "@mariozechner/pi-ai",
+            "@mariozechner/pi-coding-agent",
             "openclaw"
           ],
           "optionalDependencies": [],
@@ -3744,7 +3745,6 @@
       "why": "Credential-free generated fixture covering the public OpenClaw plugin API surface across hooks, registrars, provider capabilities, setup metadata, manifest contracts, and SDK import compatibility.",
       "status": "ok",
       "hooks": [
-        "${hook}",
         "after_compaction",
         "after_tool_call",
         "agent_end",
@@ -3779,18 +3779,6 @@
         "tool_result_persist"
       ],
       "hookDetails": [
-        {
-          "name": "${hook}",
-          "file": "plugins/kitchen-sink/scripts/check-sdk-surface.mjs",
-          "line": 15,
-          "ref": "plugins/kitchen-sink/scripts/check-sdk-surface.mjs:15"
-        },
-        {
-          "name": "${hook}",
-          "file": "plugins/kitchen-sink/scripts/sync-surface.mjs",
-          "line": 40,
-          "ref": "plugins/kitchen-sink/scripts/sync-surface.mjs:40"
-        },
         {
           "name": "after_compaction",
           "file": "plugins/kitchen-sink/src/generated-hooks.js",
@@ -4077,6 +4065,18 @@
           "ref": "plugins/kitchen-sink/src/generated-registrars.js:11"
         },
         {
+          "name": "registerCommand",
+          "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
+          "line": 15,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:15"
+        },
+        {
+          "name": "registerCommand",
+          "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
+          "line": 16,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:16"
+        },
+        {
           "name": "registerCompactionProvider",
           "file": "plugins/kitchen-sink/src/generated-registrars.js",
           "line": 12,
@@ -4131,16 +4131,34 @@
           "ref": "plugins/kitchen-sink/src/generated-registrars.js:20"
         },
         {
+          "name": "registerImageGenerationProvider",
+          "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
+          "line": 25,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:25"
+        },
+        {
           "name": "registerInteractiveHandler",
           "file": "plugins/kitchen-sink/src/generated-registrars.js",
           "line": 21,
           "ref": "plugins/kitchen-sink/src/generated-registrars.js:21"
         },
         {
+          "name": "registerInteractiveHandler",
+          "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
+          "line": 18,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:18"
+        },
+        {
           "name": "registerMediaUnderstandingProvider",
           "file": "plugins/kitchen-sink/src/generated-registrars.js",
           "line": 22,
           "ref": "plugins/kitchen-sink/src/generated-registrars.js:22"
+        },
+        {
+          "name": "registerMediaUnderstandingProvider",
+          "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
+          "line": 28,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:28"
         },
         {
           "name": "registerMemoryCapability",
@@ -4179,6 +4197,12 @@
           "ref": "plugins/kitchen-sink/src/generated-registrars.js:28"
         },
         {
+          "name": "registerMemoryPromptSupplement",
+          "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
+          "line": 37,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:37"
+        },
+        {
           "name": "registerMemoryRuntime",
           "file": "plugins/kitchen-sink/src/generated-registrars.js",
           "line": 29,
@@ -4207,6 +4231,12 @@
           "file": "plugins/kitchen-sink/src/generated-registrars.js",
           "line": 33,
           "ref": "plugins/kitchen-sink/src/generated-registrars.js:33"
+        },
+        {
+          "name": "registerProvider",
+          "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
+          "line": 23,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:23"
         },
         {
           "name": "registerRealtimeTranscriptionProvider",
@@ -4257,6 +4287,24 @@
           "ref": "plugins/kitchen-sink/src/generated-registrars.js:41"
         },
         {
+          "name": "registerTool",
+          "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
+          "line": 20,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:20"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
+          "line": 21,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:21"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
+          "line": 22,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:22"
+        },
+        {
           "name": "registerVideoGenerationProvider",
           "file": "plugins/kitchen-sink/src/generated-registrars.js",
           "line": 42,
@@ -4269,10 +4317,22 @@
           "ref": "plugins/kitchen-sink/src/generated-registrars.js:43"
         },
         {
+          "name": "registerWebFetchProvider",
+          "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
+          "line": 34,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:34"
+        },
+        {
           "name": "registerWebSearchProvider",
           "file": "plugins/kitchen-sink/src/generated-registrars.js",
           "line": 44,
           "ref": "plugins/kitchen-sink/src/generated-registrars.js:44"
+        },
+        {
+          "name": "registerWebSearchProvider",
+          "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
+          "line": 31,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:31"
         }
       ],
       "manifestContracts": [
@@ -4298,21 +4358,25 @@
         "plugins/kitchen-sink/openclaw.plugin.json"
       ],
       "sourceFiles": [
+        "plugins/kitchen-sink/scripts/check-kitchen-runtime.mjs",
+        "plugins/kitchen-sink/scripts/check-pack-payload.mjs",
         "plugins/kitchen-sink/scripts/check-sdk-surface.mjs",
+        "plugins/kitchen-sink/scripts/check-target-sdk-imports.mjs",
         "plugins/kitchen-sink/scripts/openclaw-surface.mjs",
         "plugins/kitchen-sink/scripts/sync-surface.mjs",
         "plugins/kitchen-sink/src/generated-hooks.js",
         "plugins/kitchen-sink/src/generated-registrars.js",
         "plugins/kitchen-sink/src/generated-sdk-imports.ts",
         "plugins/kitchen-sink/src/index.js",
+        "plugins/kitchen-sink/src/kitchen-runtime.js",
         "plugins/kitchen-sink/src/setup.js"
       ],
       "pluginManifests": [
         {
           "path": "plugins/kitchen-sink/openclaw.plugin.json",
-          "id": "openclaw-kitchen-sink",
+          "id": "openclaw-kitchen-sink-fixture",
           "name": "OpenClaw Kitchen Sink",
-          "version": "0.1.0",
+          "version": "0.1.2",
           "keys": [
             "activation",
             "channels",
@@ -4352,12 +4416,15 @@
           "channelEnvVars": {},
           "activation": {
             "onProviders": [
-              "kitchen-sink-provider"
+              "kitchen-sink-provider",
+              "kitchen-sink-llm",
+              "kitchen-sink-image"
             ],
             "onChannels": [
               "kitchen-sink-channel"
             ],
             "onCommands": [
+              "kitchen",
               "kitchen-sink"
             ],
             "onCapabilities": [
@@ -4371,8 +4438,8 @@
       ],
       "package": {
         "path": "plugins/kitchen-sink/package.json",
-        "name": "openclaw-kitchen-sink-plugin",
-        "version": "0.1.0",
+        "name": "openclaw-kitchen-sink",
+        "version": "0.1.2",
         "type": "module",
         "main": null,
         "dependencies": [
@@ -4389,8 +4456,8 @@
           ],
           "setupEntry": "./src/setup.js",
           "compatPluginApi": "2026.4",
-          "buildOpenClawVersion": null,
-          "buildPluginSdkVersion": null,
+          "buildOpenClawVersion": "2026.4.26",
+          "buildPluginSdkVersion": "2026.4.26",
           "entrypoints": [
             {
               "kind": "extension",
@@ -4419,8 +4486,8 @@
       "packages": [
         {
           "path": "plugins/kitchen-sink/package.json",
-          "name": "openclaw-kitchen-sink-plugin",
-          "version": "0.1.0",
+          "name": "openclaw-kitchen-sink",
+          "version": "0.1.2",
           "type": "module",
           "main": null,
           "dependencies": [
@@ -4437,8 +4504,8 @@
             ],
             "setupEntry": "./src/setup.js",
             "compatPluginApi": "2026.4",
-            "buildOpenClawVersion": null,
-            "buildPluginSdkVersion": null,
+            "buildOpenClawVersion": "2026.4.26",
+            "buildPluginSdkVersion": "2026.4.26",
             "entrypoints": [
               {
                 "kind": "extension",
@@ -4491,19 +4558,8 @@
         "openclaw/plugin-sdk/approval-native-runtime",
         "openclaw/plugin-sdk/approval-reply-runtime",
         "openclaw/plugin-sdk/approval-runtime",
-        "openclaw/plugin-sdk/bluebubbles",
-        "openclaw/plugin-sdk/bluebubbles-policy",
         "openclaw/plugin-sdk/boolean-param",
-        "openclaw/plugin-sdk/browser-cdp",
         "openclaw/plugin-sdk/browser-config",
-        "openclaw/plugin-sdk/browser-config-runtime",
-        "openclaw/plugin-sdk/browser-config-support",
-        "openclaw/plugin-sdk/browser-control-auth",
-        "openclaw/plugin-sdk/browser-node-runtime",
-        "openclaw/plugin-sdk/browser-profiles",
-        "openclaw/plugin-sdk/browser-security-runtime",
-        "openclaw/plugin-sdk/browser-setup-tools",
-        "openclaw/plugin-sdk/browser-support",
         "openclaw/plugin-sdk/channel-actions",
         "openclaw/plugin-sdk/channel-config-helpers",
         "openclaw/plugin-sdk/channel-config-primitives",
@@ -4563,9 +4619,6 @@
         "openclaw/plugin-sdk/dangerous-name-runtime",
         "openclaw/plugin-sdk/device-bootstrap",
         "openclaw/plugin-sdk/diagnostic-runtime",
-        "openclaw/plugin-sdk/diagnostics-otel",
-        "openclaw/plugin-sdk/diagnostics-prometheus",
-        "openclaw/plugin-sdk/diffs",
         "openclaw/plugin-sdk/direct-dm",
         "openclaw/plugin-sdk/direct-dm-access",
         "openclaw/plugin-sdk/direct-dm-guard-policy",
@@ -4574,17 +4627,10 @@
         "openclaw/plugin-sdk/document-extractor",
         "openclaw/plugin-sdk/error-runtime",
         "openclaw/plugin-sdk/extension-shared",
-        "openclaw/plugin-sdk/feishu",
-        "openclaw/plugin-sdk/feishu-conversation",
-        "openclaw/plugin-sdk/feishu-setup",
         "openclaw/plugin-sdk/fetch-runtime",
         "openclaw/plugin-sdk/file-lock",
         "openclaw/plugin-sdk/gateway-runtime",
-        "openclaw/plugin-sdk/github-copilot-login",
-        "openclaw/plugin-sdk/github-copilot-token",
         "openclaw/plugin-sdk/global-singleton",
-        "openclaw/plugin-sdk/googlechat",
-        "openclaw/plugin-sdk/googlechat-runtime-shared",
         "openclaw/plugin-sdk/group-access",
         "openclaw/plugin-sdk/group-activation",
         "openclaw/plugin-sdk/hook-runtime",
@@ -4596,29 +4642,13 @@
         "openclaw/plugin-sdk/inbound-reply-dispatch",
         "openclaw/plugin-sdk/infra-runtime",
         "openclaw/plugin-sdk/interactive-runtime",
-        "openclaw/plugin-sdk/irc",
-        "openclaw/plugin-sdk/irc-surface",
         "openclaw/plugin-sdk/json-store",
         "openclaw/plugin-sdk/keyed-async-queue",
         "openclaw/plugin-sdk/lazy-runtime",
-        "openclaw/plugin-sdk/line",
-        "openclaw/plugin-sdk/line-core",
-        "openclaw/plugin-sdk/line-runtime",
-        "openclaw/plugin-sdk/line-surface",
-        "openclaw/plugin-sdk/llm-task",
         "openclaw/plugin-sdk/lmstudio",
         "openclaw/plugin-sdk/lmstudio-runtime",
         "openclaw/plugin-sdk/logging-core",
         "openclaw/plugin-sdk/markdown-table-runtime",
-        "openclaw/plugin-sdk/matrix",
-        "openclaw/plugin-sdk/matrix-helper",
-        "openclaw/plugin-sdk/matrix-runtime-heavy",
-        "openclaw/plugin-sdk/matrix-runtime-shared",
-        "openclaw/plugin-sdk/matrix-runtime-surface",
-        "openclaw/plugin-sdk/matrix-surface",
-        "openclaw/plugin-sdk/matrix-thread-bindings",
-        "openclaw/plugin-sdk/mattermost",
-        "openclaw/plugin-sdk/mattermost-policy",
         "openclaw/plugin-sdk/media-generation-runtime",
         "openclaw/plugin-sdk/media-generation-runtime-shared",
         "openclaw/plugin-sdk/media-mime",
@@ -4626,7 +4656,6 @@
         "openclaw/plugin-sdk/media-store",
         "openclaw/plugin-sdk/media-understanding",
         "openclaw/plugin-sdk/media-understanding-runtime",
-        "openclaw/plugin-sdk/memory-core",
         "openclaw/plugin-sdk/memory-core-engine-runtime",
         "openclaw/plugin-sdk/memory-core-host-engine-embeddings",
         "openclaw/plugin-sdk/memory-core-host-engine-foundation",
@@ -4646,20 +4675,15 @@
         "openclaw/plugin-sdk/memory-host-markdown",
         "openclaw/plugin-sdk/memory-host-search",
         "openclaw/plugin-sdk/memory-host-status",
-        "openclaw/plugin-sdk/memory-lancedb",
         "openclaw/plugin-sdk/messaging-targets",
         "openclaw/plugin-sdk/migration",
         "openclaw/plugin-sdk/migration-runtime",
         "openclaw/plugin-sdk/model-session-runtime",
         "openclaw/plugin-sdk/models-provider-runtime",
-        "openclaw/plugin-sdk/msteams",
         "openclaw/plugin-sdk/music-generation",
         "openclaw/plugin-sdk/music-generation-core",
         "openclaw/plugin-sdk/native-command-config-runtime",
         "openclaw/plugin-sdk/native-command-registry",
-        "openclaw/plugin-sdk/nextcloud-talk",
-        "openclaw/plugin-sdk/nostr",
-        "openclaw/plugin-sdk/opencode",
         "openclaw/plugin-sdk/outbound-media",
         "openclaw/plugin-sdk/outbound-runtime",
         "openclaw/plugin-sdk/outbound-send-deps",
@@ -4752,7 +4776,6 @@
         "openclaw/plugin-sdk/talk-config-runtime",
         "openclaw/plugin-sdk/target-resolver-runtime",
         "openclaw/plugin-sdk/telegram-command-config",
-        "openclaw/plugin-sdk/telegram-command-ui",
         "openclaw/plugin-sdk/temp-path",
         "openclaw/plugin-sdk/testing",
         "openclaw/plugin-sdk/text-autolink-runtime",
@@ -4760,17 +4783,12 @@
         "openclaw/plugin-sdk/text-runtime",
         "openclaw/plugin-sdk/thread-bindings-runtime",
         "openclaw/plugin-sdk/thread-bindings-session-runtime",
-        "openclaw/plugin-sdk/thread-ownership",
-        "openclaw/plugin-sdk/tlon",
         "openclaw/plugin-sdk/tool-payload",
         "openclaw/plugin-sdk/tool-send",
         "openclaw/plugin-sdk/tts-runtime",
-        "openclaw/plugin-sdk/twitch",
         "openclaw/plugin-sdk/video-generation",
         "openclaw/plugin-sdk/video-generation-core",
         "openclaw/plugin-sdk/video-generation-runtime",
-        "openclaw/plugin-sdk/voice-call",
-        "openclaw/plugin-sdk/volc-model-catalog-shared",
         "openclaw/plugin-sdk/web-content-extractor",
         "openclaw/plugin-sdk/web-media",
         "openclaw/plugin-sdk/webhook-ingress",
@@ -4778,9 +4796,6 @@
         "openclaw/plugin-sdk/webhook-request-guards",
         "openclaw/plugin-sdk/webhook-targets",
         "openclaw/plugin-sdk/windows-spawn",
-        "openclaw/plugin-sdk/zalo",
-        "openclaw/plugin-sdk/zalo-setup",
-        "openclaw/plugin-sdk/zalouser",
         "openclaw/plugin-sdk/zod"
       ],
       "sdkImportDetails": [
@@ -4935,1750 +4950,1438 @@
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:26"
         },
         {
-          "specifier": "openclaw/plugin-sdk/bluebubbles",
+          "specifier": "openclaw/plugin-sdk/boolean-param",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 27,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:27"
         },
         {
-          "specifier": "openclaw/plugin-sdk/bluebubbles-policy",
+          "specifier": "openclaw/plugin-sdk/browser-config",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 28,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:28"
         },
         {
-          "specifier": "openclaw/plugin-sdk/boolean-param",
+          "specifier": "openclaw/plugin-sdk/channel-actions",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 29,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:29"
         },
         {
-          "specifier": "openclaw/plugin-sdk/browser-cdp",
+          "specifier": "openclaw/plugin-sdk/channel-config-helpers",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 30,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:30"
         },
         {
-          "specifier": "openclaw/plugin-sdk/browser-config",
+          "specifier": "openclaw/plugin-sdk/channel-config-primitives",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 31,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:31"
         },
         {
-          "specifier": "openclaw/plugin-sdk/browser-config-runtime",
+          "specifier": "openclaw/plugin-sdk/channel-config-schema",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 32,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:32"
         },
         {
-          "specifier": "openclaw/plugin-sdk/browser-config-support",
+          "specifier": "openclaw/plugin-sdk/channel-config-schema-legacy",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 33,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:33"
         },
         {
-          "specifier": "openclaw/plugin-sdk/browser-control-auth",
+          "specifier": "openclaw/plugin-sdk/channel-config-writes",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 34,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:34"
         },
         {
-          "specifier": "openclaw/plugin-sdk/browser-node-runtime",
+          "specifier": "openclaw/plugin-sdk/channel-contract",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 35,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:35"
         },
         {
-          "specifier": "openclaw/plugin-sdk/browser-profiles",
+          "specifier": "openclaw/plugin-sdk/channel-contract-testing",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 36,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:36"
         },
         {
-          "specifier": "openclaw/plugin-sdk/browser-security-runtime",
+          "specifier": "openclaw/plugin-sdk/channel-core",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 37,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:37"
         },
         {
-          "specifier": "openclaw/plugin-sdk/browser-setup-tools",
+          "specifier": "openclaw/plugin-sdk/channel-entry-contract",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 38,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:38"
         },
         {
-          "specifier": "openclaw/plugin-sdk/browser-support",
+          "specifier": "openclaw/plugin-sdk/channel-envelope",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 39,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:39"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-actions",
+          "specifier": "openclaw/plugin-sdk/channel-feedback",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 40,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:40"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-config-helpers",
+          "specifier": "openclaw/plugin-sdk/channel-inbound",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 41,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:41"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-config-primitives",
+          "specifier": "openclaw/plugin-sdk/channel-inbound-debounce",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 42,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:42"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-config-schema",
+          "specifier": "openclaw/plugin-sdk/channel-inbound-roots",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 43,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:43"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-config-schema-legacy",
+          "specifier": "openclaw/plugin-sdk/channel-lifecycle",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 44,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:44"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-config-writes",
+          "specifier": "openclaw/plugin-sdk/channel-location",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 45,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:45"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-contract",
+          "specifier": "openclaw/plugin-sdk/channel-logging",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 46,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:46"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-contract-testing",
+          "specifier": "openclaw/plugin-sdk/channel-mention-gating",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 47,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:47"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-core",
+          "specifier": "openclaw/plugin-sdk/channel-pairing",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 48,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:48"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-entry-contract",
+          "specifier": "openclaw/plugin-sdk/channel-pairing-paths",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 49,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:49"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-envelope",
+          "specifier": "openclaw/plugin-sdk/channel-plugin-common",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 50,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:50"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-feedback",
+          "specifier": "openclaw/plugin-sdk/channel-policy",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 51,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:51"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-inbound",
+          "specifier": "openclaw/plugin-sdk/channel-reply-options-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 52,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:52"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-inbound-debounce",
+          "specifier": "openclaw/plugin-sdk/channel-reply-pipeline",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 53,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:53"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-inbound-roots",
+          "specifier": "openclaw/plugin-sdk/channel-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 54,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:54"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-lifecycle",
+          "specifier": "openclaw/plugin-sdk/channel-runtime-context",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 55,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:55"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-location",
+          "specifier": "openclaw/plugin-sdk/channel-secret-basic-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 56,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:56"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-logging",
+          "specifier": "openclaw/plugin-sdk/channel-secret-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 57,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:57"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-mention-gating",
+          "specifier": "openclaw/plugin-sdk/channel-secret-tts-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 58,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:58"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-pairing",
+          "specifier": "openclaw/plugin-sdk/channel-send-result",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 59,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:59"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-pairing-paths",
+          "specifier": "openclaw/plugin-sdk/channel-setup",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 60,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:60"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-plugin-common",
+          "specifier": "openclaw/plugin-sdk/channel-status",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 61,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:61"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-policy",
+          "specifier": "openclaw/plugin-sdk/channel-streaming",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 62,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:62"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-reply-options-runtime",
+          "specifier": "openclaw/plugin-sdk/channel-targets",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 63,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:63"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-reply-pipeline",
+          "specifier": "openclaw/plugin-sdk/cli-backend",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 64,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:64"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-runtime",
+          "specifier": "openclaw/plugin-sdk/cli-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 65,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:65"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-runtime-context",
+          "specifier": "openclaw/plugin-sdk/collection-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 66,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:66"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-secret-basic-runtime",
+          "specifier": "openclaw/plugin-sdk/command-auth",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 67,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:67"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-secret-runtime",
+          "specifier": "openclaw/plugin-sdk/command-auth-native",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 68,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:68"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-secret-tts-runtime",
+          "specifier": "openclaw/plugin-sdk/command-detection",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 69,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:69"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-send-result",
+          "specifier": "openclaw/plugin-sdk/command-gating",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 70,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:70"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-setup",
+          "specifier": "openclaw/plugin-sdk/command-primitives-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 71,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:71"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-status",
+          "specifier": "openclaw/plugin-sdk/command-status",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 72,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:72"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-streaming",
+          "specifier": "openclaw/plugin-sdk/command-status-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 73,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:73"
         },
         {
-          "specifier": "openclaw/plugin-sdk/channel-targets",
+          "specifier": "openclaw/plugin-sdk/command-surface",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 74,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:74"
         },
         {
-          "specifier": "openclaw/plugin-sdk/cli-backend",
+          "specifier": "openclaw/plugin-sdk/compat",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 75,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:75"
         },
         {
-          "specifier": "openclaw/plugin-sdk/cli-runtime",
+          "specifier": "openclaw/plugin-sdk/config-mutation",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 76,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:76"
         },
         {
-          "specifier": "openclaw/plugin-sdk/collection-runtime",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 77,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:77"
         },
         {
-          "specifier": "openclaw/plugin-sdk/command-auth",
+          "specifier": "openclaw/plugin-sdk/config-schema",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 78,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:78"
         },
         {
-          "specifier": "openclaw/plugin-sdk/command-auth-native",
+          "specifier": "openclaw/plugin-sdk/config-types",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 79,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:79"
         },
         {
-          "specifier": "openclaw/plugin-sdk/command-detection",
+          "specifier": "openclaw/plugin-sdk/context-visibility-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 80,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:80"
         },
         {
-          "specifier": "openclaw/plugin-sdk/command-gating",
+          "specifier": "openclaw/plugin-sdk/conversation-binding-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 81,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:81"
         },
         {
-          "specifier": "openclaw/plugin-sdk/command-primitives-runtime",
+          "specifier": "openclaw/plugin-sdk/conversation-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 82,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:82"
         },
         {
-          "specifier": "openclaw/plugin-sdk/command-status",
+          "specifier": "openclaw/plugin-sdk/core",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 83,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:83"
         },
         {
-          "specifier": "openclaw/plugin-sdk/command-status-runtime",
+          "specifier": "openclaw/plugin-sdk/cron-store-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 84,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:84"
         },
         {
-          "specifier": "openclaw/plugin-sdk/command-surface",
+          "specifier": "openclaw/plugin-sdk/dangerous-name-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 85,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:85"
         },
         {
-          "specifier": "openclaw/plugin-sdk/compat",
+          "specifier": "openclaw/plugin-sdk/device-bootstrap",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 86,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:86"
         },
         {
-          "specifier": "openclaw/plugin-sdk/config-mutation",
+          "specifier": "openclaw/plugin-sdk/diagnostic-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 87,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:87"
         },
         {
-          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "specifier": "openclaw/plugin-sdk/direct-dm",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 88,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:88"
         },
         {
-          "specifier": "openclaw/plugin-sdk/config-schema",
+          "specifier": "openclaw/plugin-sdk/direct-dm-access",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 89,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:89"
         },
         {
-          "specifier": "openclaw/plugin-sdk/config-types",
+          "specifier": "openclaw/plugin-sdk/direct-dm-guard-policy",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 90,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:90"
         },
         {
-          "specifier": "openclaw/plugin-sdk/context-visibility-runtime",
+          "specifier": "openclaw/plugin-sdk/directory-config-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 91,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:91"
         },
         {
-          "specifier": "openclaw/plugin-sdk/conversation-binding-runtime",
+          "specifier": "openclaw/plugin-sdk/directory-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 92,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:92"
         },
         {
-          "specifier": "openclaw/plugin-sdk/conversation-runtime",
+          "specifier": "openclaw/plugin-sdk/document-extractor",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 93,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:93"
         },
         {
-          "specifier": "openclaw/plugin-sdk/core",
+          "specifier": "openclaw/plugin-sdk/error-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 94,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:94"
         },
         {
-          "specifier": "openclaw/plugin-sdk/cron-store-runtime",
+          "specifier": "openclaw/plugin-sdk/extension-shared",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 95,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:95"
         },
         {
-          "specifier": "openclaw/plugin-sdk/dangerous-name-runtime",
+          "specifier": "openclaw/plugin-sdk/fetch-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 96,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:96"
         },
         {
-          "specifier": "openclaw/plugin-sdk/device-bootstrap",
+          "specifier": "openclaw/plugin-sdk/file-lock",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 97,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:97"
         },
         {
-          "specifier": "openclaw/plugin-sdk/diagnostic-runtime",
+          "specifier": "openclaw/plugin-sdk/gateway-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 98,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:98"
         },
         {
-          "specifier": "openclaw/plugin-sdk/diagnostics-otel",
+          "specifier": "openclaw/plugin-sdk/global-singleton",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 99,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:99"
         },
         {
-          "specifier": "openclaw/plugin-sdk/diagnostics-prometheus",
+          "specifier": "openclaw/plugin-sdk/group-access",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 100,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:100"
         },
         {
-          "specifier": "openclaw/plugin-sdk/diffs",
+          "specifier": "openclaw/plugin-sdk/group-activation",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 101,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:101"
         },
         {
-          "specifier": "openclaw/plugin-sdk/direct-dm",
+          "specifier": "openclaw/plugin-sdk/hook-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 102,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:102"
         },
         {
-          "specifier": "openclaw/plugin-sdk/direct-dm-access",
+          "specifier": "openclaw/plugin-sdk/host-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 103,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:103"
         },
         {
-          "specifier": "openclaw/plugin-sdk/direct-dm-guard-policy",
+          "specifier": "openclaw/plugin-sdk/image-generation",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 104,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:104"
         },
         {
-          "specifier": "openclaw/plugin-sdk/directory-config-runtime",
+          "specifier": "openclaw/plugin-sdk/image-generation-core",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 105,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:105"
         },
         {
-          "specifier": "openclaw/plugin-sdk/directory-runtime",
+          "specifier": "openclaw/plugin-sdk/image-generation-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 106,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:106"
         },
         {
-          "specifier": "openclaw/plugin-sdk/document-extractor",
+          "specifier": "openclaw/plugin-sdk/inbound-envelope",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 107,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:107"
         },
         {
-          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "specifier": "openclaw/plugin-sdk/inbound-reply-dispatch",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 108,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:108"
         },
         {
-          "specifier": "openclaw/plugin-sdk/extension-shared",
+          "specifier": "openclaw/plugin-sdk/infra-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 109,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:109"
         },
         {
-          "specifier": "openclaw/plugin-sdk/feishu",
+          "specifier": "openclaw/plugin-sdk/interactive-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 110,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:110"
         },
         {
-          "specifier": "openclaw/plugin-sdk/feishu-conversation",
+          "specifier": "openclaw/plugin-sdk/json-store",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 111,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:111"
         },
         {
-          "specifier": "openclaw/plugin-sdk/feishu-setup",
+          "specifier": "openclaw/plugin-sdk/keyed-async-queue",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 112,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:112"
         },
         {
-          "specifier": "openclaw/plugin-sdk/fetch-runtime",
+          "specifier": "openclaw/plugin-sdk/lazy-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 113,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:113"
         },
         {
-          "specifier": "openclaw/plugin-sdk/file-lock",
+          "specifier": "openclaw/plugin-sdk/lmstudio",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 114,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:114"
         },
         {
-          "specifier": "openclaw/plugin-sdk/gateway-runtime",
+          "specifier": "openclaw/plugin-sdk/lmstudio-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 115,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:115"
         },
         {
-          "specifier": "openclaw/plugin-sdk/github-copilot-login",
+          "specifier": "openclaw/plugin-sdk/logging-core",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 116,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:116"
         },
         {
-          "specifier": "openclaw/plugin-sdk/github-copilot-token",
+          "specifier": "openclaw/plugin-sdk/markdown-table-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 117,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:117"
         },
         {
-          "specifier": "openclaw/plugin-sdk/global-singleton",
+          "specifier": "openclaw/plugin-sdk/media-generation-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 118,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:118"
         },
         {
-          "specifier": "openclaw/plugin-sdk/googlechat",
+          "specifier": "openclaw/plugin-sdk/media-generation-runtime-shared",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 119,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:119"
         },
         {
-          "specifier": "openclaw/plugin-sdk/googlechat-runtime-shared",
+          "specifier": "openclaw/plugin-sdk/media-mime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 120,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:120"
         },
         {
-          "specifier": "openclaw/plugin-sdk/group-access",
+          "specifier": "openclaw/plugin-sdk/media-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 121,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:121"
         },
         {
-          "specifier": "openclaw/plugin-sdk/group-activation",
+          "specifier": "openclaw/plugin-sdk/media-store",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 122,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:122"
         },
         {
-          "specifier": "openclaw/plugin-sdk/hook-runtime",
+          "specifier": "openclaw/plugin-sdk/media-understanding",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 123,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:123"
         },
         {
-          "specifier": "openclaw/plugin-sdk/host-runtime",
+          "specifier": "openclaw/plugin-sdk/media-understanding-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 124,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:124"
         },
         {
-          "specifier": "openclaw/plugin-sdk/image-generation",
+          "specifier": "openclaw/plugin-sdk/memory-core-engine-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 125,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:125"
         },
         {
-          "specifier": "openclaw/plugin-sdk/image-generation-core",
+          "specifier": "openclaw/plugin-sdk/memory-core-host-engine-embeddings",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 126,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:126"
         },
         {
-          "specifier": "openclaw/plugin-sdk/image-generation-runtime",
+          "specifier": "openclaw/plugin-sdk/memory-core-host-engine-foundation",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 127,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:127"
         },
         {
-          "specifier": "openclaw/plugin-sdk/inbound-envelope",
+          "specifier": "openclaw/plugin-sdk/memory-core-host-engine-qmd",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 128,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:128"
         },
         {
-          "specifier": "openclaw/plugin-sdk/inbound-reply-dispatch",
+          "specifier": "openclaw/plugin-sdk/memory-core-host-engine-storage",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 129,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:129"
         },
         {
-          "specifier": "openclaw/plugin-sdk/infra-runtime",
+          "specifier": "openclaw/plugin-sdk/memory-core-host-events",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 130,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:130"
         },
         {
-          "specifier": "openclaw/plugin-sdk/interactive-runtime",
+          "specifier": "openclaw/plugin-sdk/memory-core-host-multimodal",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 131,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:131"
         },
         {
-          "specifier": "openclaw/plugin-sdk/irc",
+          "specifier": "openclaw/plugin-sdk/memory-core-host-query",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 132,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:132"
         },
         {
-          "specifier": "openclaw/plugin-sdk/irc-surface",
+          "specifier": "openclaw/plugin-sdk/memory-core-host-runtime-cli",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 133,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:133"
         },
         {
-          "specifier": "openclaw/plugin-sdk/json-store",
+          "specifier": "openclaw/plugin-sdk/memory-core-host-runtime-core",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 134,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:134"
         },
         {
-          "specifier": "openclaw/plugin-sdk/keyed-async-queue",
+          "specifier": "openclaw/plugin-sdk/memory-core-host-runtime-files",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 135,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:135"
         },
         {
-          "specifier": "openclaw/plugin-sdk/lazy-runtime",
+          "specifier": "openclaw/plugin-sdk/memory-core-host-secret",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 136,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:136"
         },
         {
-          "specifier": "openclaw/plugin-sdk/line",
+          "specifier": "openclaw/plugin-sdk/memory-core-host-status",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 137,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:137"
         },
         {
-          "specifier": "openclaw/plugin-sdk/line-core",
+          "specifier": "openclaw/plugin-sdk/memory-host-core",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 138,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:138"
         },
         {
-          "specifier": "openclaw/plugin-sdk/line-runtime",
+          "specifier": "openclaw/plugin-sdk/memory-host-events",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 139,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:139"
         },
         {
-          "specifier": "openclaw/plugin-sdk/line-surface",
+          "specifier": "openclaw/plugin-sdk/memory-host-files",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 140,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:140"
         },
         {
-          "specifier": "openclaw/plugin-sdk/llm-task",
+          "specifier": "openclaw/plugin-sdk/memory-host-markdown",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 141,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:141"
         },
         {
-          "specifier": "openclaw/plugin-sdk/lmstudio",
+          "specifier": "openclaw/plugin-sdk/memory-host-search",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 142,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:142"
         },
         {
-          "specifier": "openclaw/plugin-sdk/lmstudio-runtime",
+          "specifier": "openclaw/plugin-sdk/memory-host-status",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 143,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:143"
         },
         {
-          "specifier": "openclaw/plugin-sdk/logging-core",
+          "specifier": "openclaw/plugin-sdk/messaging-targets",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 144,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:144"
         },
         {
-          "specifier": "openclaw/plugin-sdk/markdown-table-runtime",
+          "specifier": "openclaw/plugin-sdk/migration",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 145,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:145"
         },
         {
-          "specifier": "openclaw/plugin-sdk/matrix",
+          "specifier": "openclaw/plugin-sdk/migration-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 146,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:146"
         },
         {
-          "specifier": "openclaw/plugin-sdk/matrix-helper",
+          "specifier": "openclaw/plugin-sdk/model-session-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 147,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:147"
         },
         {
-          "specifier": "openclaw/plugin-sdk/matrix-runtime-heavy",
+          "specifier": "openclaw/plugin-sdk/models-provider-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 148,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:148"
         },
         {
-          "specifier": "openclaw/plugin-sdk/matrix-runtime-shared",
+          "specifier": "openclaw/plugin-sdk/music-generation",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 149,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:149"
         },
         {
-          "specifier": "openclaw/plugin-sdk/matrix-runtime-surface",
+          "specifier": "openclaw/plugin-sdk/music-generation-core",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 150,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:150"
         },
         {
-          "specifier": "openclaw/plugin-sdk/matrix-surface",
+          "specifier": "openclaw/plugin-sdk/native-command-config-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 151,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:151"
         },
         {
-          "specifier": "openclaw/plugin-sdk/matrix-thread-bindings",
+          "specifier": "openclaw/plugin-sdk/native-command-registry",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 152,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:152"
         },
         {
-          "specifier": "openclaw/plugin-sdk/mattermost",
+          "specifier": "openclaw/plugin-sdk/outbound-media",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 153,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:153"
         },
         {
-          "specifier": "openclaw/plugin-sdk/mattermost-policy",
+          "specifier": "openclaw/plugin-sdk/outbound-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 154,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:154"
         },
         {
-          "specifier": "openclaw/plugin-sdk/media-generation-runtime",
+          "specifier": "openclaw/plugin-sdk/outbound-send-deps",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 155,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:155"
         },
         {
-          "specifier": "openclaw/plugin-sdk/media-generation-runtime-shared",
+          "specifier": "openclaw/plugin-sdk/param-readers",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 156,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:156"
         },
         {
-          "specifier": "openclaw/plugin-sdk/media-mime",
+          "specifier": "openclaw/plugin-sdk/persistent-dedupe",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 157,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:157"
         },
         {
-          "specifier": "openclaw/plugin-sdk/media-runtime",
+          "specifier": "openclaw/plugin-sdk/plugin-config-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 158,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:158"
         },
         {
-          "specifier": "openclaw/plugin-sdk/media-store",
+          "specifier": "openclaw/plugin-sdk/plugin-entry",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 159,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:159"
         },
         {
-          "specifier": "openclaw/plugin-sdk/media-understanding",
+          "specifier": "openclaw/plugin-sdk/plugin-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 160,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:160"
         },
         {
-          "specifier": "openclaw/plugin-sdk/media-understanding-runtime",
+          "specifier": "openclaw/plugin-sdk/poll-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 161,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:161"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-core",
+          "specifier": "openclaw/plugin-sdk/process-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 162,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:162"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-core-engine-runtime",
+          "specifier": "openclaw/plugin-sdk/provider-auth",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 163,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:163"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-core-host-engine-embeddings",
+          "specifier": "openclaw/plugin-sdk/provider-auth-api-key",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 164,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:164"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-core-host-engine-foundation",
+          "specifier": "openclaw/plugin-sdk/provider-auth-login",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 165,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:165"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-core-host-engine-qmd",
+          "specifier": "openclaw/plugin-sdk/provider-auth-result",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 166,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:166"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-core-host-engine-storage",
+          "specifier": "openclaw/plugin-sdk/provider-auth-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 167,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:167"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-core-host-events",
+          "specifier": "openclaw/plugin-sdk/provider-catalog-shared",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 168,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:168"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-core-host-multimodal",
+          "specifier": "openclaw/plugin-sdk/provider-entry",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 169,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:169"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-core-host-query",
+          "specifier": "openclaw/plugin-sdk/provider-env-vars",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 170,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:170"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-core-host-runtime-cli",
+          "specifier": "openclaw/plugin-sdk/provider-http",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 171,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:171"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-core-host-runtime-core",
+          "specifier": "openclaw/plugin-sdk/provider-model-shared",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 172,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:172"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-core-host-runtime-files",
+          "specifier": "openclaw/plugin-sdk/provider-model-types",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 173,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:173"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-core-host-secret",
+          "specifier": "openclaw/plugin-sdk/provider-onboard",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 174,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:174"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-core-host-status",
+          "specifier": "openclaw/plugin-sdk/provider-selection-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 175,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:175"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-host-core",
+          "specifier": "openclaw/plugin-sdk/provider-setup",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 176,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:176"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-host-events",
+          "specifier": "openclaw/plugin-sdk/provider-stream",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 177,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:177"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-host-files",
+          "specifier": "openclaw/plugin-sdk/provider-stream-family",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 178,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:178"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-host-markdown",
+          "specifier": "openclaw/plugin-sdk/provider-stream-shared",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 179,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:179"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-host-search",
+          "specifier": "openclaw/plugin-sdk/provider-tools",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 180,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:180"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-host-status",
+          "specifier": "openclaw/plugin-sdk/provider-transport-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 181,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:181"
         },
         {
-          "specifier": "openclaw/plugin-sdk/memory-lancedb",
+          "specifier": "openclaw/plugin-sdk/provider-usage",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 182,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:182"
         },
         {
-          "specifier": "openclaw/plugin-sdk/messaging-targets",
+          "specifier": "openclaw/plugin-sdk/provider-web-fetch",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 183,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:183"
         },
         {
-          "specifier": "openclaw/plugin-sdk/migration",
+          "specifier": "openclaw/plugin-sdk/provider-web-fetch-contract",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 184,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:184"
         },
         {
-          "specifier": "openclaw/plugin-sdk/migration-runtime",
+          "specifier": "openclaw/plugin-sdk/provider-web-search",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 185,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:185"
         },
         {
-          "specifier": "openclaw/plugin-sdk/model-session-runtime",
+          "specifier": "openclaw/plugin-sdk/provider-web-search-config-contract",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 186,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:186"
         },
         {
-          "specifier": "openclaw/plugin-sdk/models-provider-runtime",
+          "specifier": "openclaw/plugin-sdk/provider-web-search-contract",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 187,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:187"
         },
         {
-          "specifier": "openclaw/plugin-sdk/msteams",
+          "specifier": "openclaw/plugin-sdk/provider-zai-endpoint",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 188,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:188"
         },
         {
-          "specifier": "openclaw/plugin-sdk/music-generation",
+          "specifier": "openclaw/plugin-sdk/proxy-capture",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 189,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:189"
         },
         {
-          "specifier": "openclaw/plugin-sdk/music-generation-core",
+          "specifier": "openclaw/plugin-sdk/qa-runner-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 190,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:190"
         },
         {
-          "specifier": "openclaw/plugin-sdk/native-command-config-runtime",
+          "specifier": "openclaw/plugin-sdk/realtime-transcription",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 191,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:191"
         },
         {
-          "specifier": "openclaw/plugin-sdk/native-command-registry",
+          "specifier": "openclaw/plugin-sdk/realtime-voice",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 192,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:192"
         },
         {
-          "specifier": "openclaw/plugin-sdk/nextcloud-talk",
+          "specifier": "openclaw/plugin-sdk/reply-chunking",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 193,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:193"
         },
         {
-          "specifier": "openclaw/plugin-sdk/nostr",
+          "specifier": "openclaw/plugin-sdk/reply-dedupe",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 194,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:194"
         },
         {
-          "specifier": "openclaw/plugin-sdk/opencode",
+          "specifier": "openclaw/plugin-sdk/reply-dispatch-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 195,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:195"
         },
         {
-          "specifier": "openclaw/plugin-sdk/outbound-media",
+          "specifier": "openclaw/plugin-sdk/reply-history",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 196,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:196"
         },
         {
-          "specifier": "openclaw/plugin-sdk/outbound-runtime",
+          "specifier": "openclaw/plugin-sdk/reply-payload",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 197,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:197"
         },
         {
-          "specifier": "openclaw/plugin-sdk/outbound-send-deps",
+          "specifier": "openclaw/plugin-sdk/reply-reference",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 198,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:198"
         },
         {
-          "specifier": "openclaw/plugin-sdk/param-readers",
+          "specifier": "openclaw/plugin-sdk/reply-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 199,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:199"
         },
         {
-          "specifier": "openclaw/plugin-sdk/persistent-dedupe",
+          "specifier": "openclaw/plugin-sdk/request-url",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 200,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:200"
         },
         {
-          "specifier": "openclaw/plugin-sdk/plugin-config-runtime",
+          "specifier": "openclaw/plugin-sdk/response-limit-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 201,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:201"
         },
         {
-          "specifier": "openclaw/plugin-sdk/plugin-entry",
+          "specifier": "openclaw/plugin-sdk/retry-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 202,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:202"
         },
         {
-          "specifier": "openclaw/plugin-sdk/plugin-runtime",
+          "specifier": "openclaw/plugin-sdk/routing",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 203,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:203"
         },
         {
-          "specifier": "openclaw/plugin-sdk/poll-runtime",
+          "specifier": "openclaw/plugin-sdk/run-command",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 204,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:204"
         },
         {
-          "specifier": "openclaw/plugin-sdk/process-runtime",
+          "specifier": "openclaw/plugin-sdk/runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 205,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:205"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-auth",
+          "specifier": "openclaw/plugin-sdk/runtime-config-snapshot",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 206,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:206"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-auth-api-key",
+          "specifier": "openclaw/plugin-sdk/runtime-doctor",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 207,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:207"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-auth-login",
+          "specifier": "openclaw/plugin-sdk/runtime-env",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 208,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:208"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-auth-result",
+          "specifier": "openclaw/plugin-sdk/runtime-fetch",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 209,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:209"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-auth-runtime",
+          "specifier": "openclaw/plugin-sdk/runtime-group-policy",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 210,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:210"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-catalog-shared",
+          "specifier": "openclaw/plugin-sdk/runtime-logger",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 211,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:211"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-entry",
+          "specifier": "openclaw/plugin-sdk/runtime-secret-resolution",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 212,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:212"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-env-vars",
+          "specifier": "openclaw/plugin-sdk/runtime-store",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 213,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:213"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-http",
+          "specifier": "openclaw/plugin-sdk/sandbox",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 214,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:214"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-model-shared",
+          "specifier": "openclaw/plugin-sdk/secret-file-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 215,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:215"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-model-types",
+          "specifier": "openclaw/plugin-sdk/secret-input",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 216,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:216"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-onboard",
+          "specifier": "openclaw/plugin-sdk/secret-input-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 217,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:217"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-selection-runtime",
+          "specifier": "openclaw/plugin-sdk/secret-ref-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 218,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:218"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-setup",
+          "specifier": "openclaw/plugin-sdk/security-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 219,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:219"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-stream",
+          "specifier": "openclaw/plugin-sdk/self-hosted-provider-setup",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 220,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:220"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-stream-family",
+          "specifier": "openclaw/plugin-sdk/session-binding-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 221,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:221"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-stream-shared",
+          "specifier": "openclaw/plugin-sdk/session-key-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 222,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:222"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-tools",
+          "specifier": "openclaw/plugin-sdk/session-store-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 223,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:223"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-transport-runtime",
+          "specifier": "openclaw/plugin-sdk/session-transcript-hit",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 224,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:224"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-usage",
+          "specifier": "openclaw/plugin-sdk/session-visibility",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 225,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:225"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-web-fetch",
+          "specifier": "openclaw/plugin-sdk/setup",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 226,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:226"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-web-fetch-contract",
+          "specifier": "openclaw/plugin-sdk/setup-adapter-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 227,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:227"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-web-search",
+          "specifier": "openclaw/plugin-sdk/setup-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 228,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:228"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-web-search-config-contract",
+          "specifier": "openclaw/plugin-sdk/setup-tools",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 229,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:229"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-web-search-contract",
+          "specifier": "openclaw/plugin-sdk/simple-completion-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 230,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:230"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-zai-endpoint",
+          "specifier": "openclaw/plugin-sdk/skill-commands-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 231,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:231"
         },
         {
-          "specifier": "openclaw/plugin-sdk/proxy-capture",
+          "specifier": "openclaw/plugin-sdk/skills-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 232,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:232"
         },
         {
-          "specifier": "openclaw/plugin-sdk/qa-runner-runtime",
+          "specifier": "openclaw/plugin-sdk/speech",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 233,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:233"
         },
         {
-          "specifier": "openclaw/plugin-sdk/realtime-transcription",
+          "specifier": "openclaw/plugin-sdk/speech-core",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 234,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:234"
         },
         {
-          "specifier": "openclaw/plugin-sdk/realtime-voice",
+          "specifier": "openclaw/plugin-sdk/ssrf-dispatcher",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 235,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:235"
         },
         {
-          "specifier": "openclaw/plugin-sdk/reply-chunking",
+          "specifier": "openclaw/plugin-sdk/ssrf-policy",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 236,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:236"
         },
         {
-          "specifier": "openclaw/plugin-sdk/reply-dedupe",
+          "specifier": "openclaw/plugin-sdk/ssrf-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 237,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:237"
         },
         {
-          "specifier": "openclaw/plugin-sdk/reply-dispatch-runtime",
+          "specifier": "openclaw/plugin-sdk/state-paths",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 238,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:238"
         },
         {
-          "specifier": "openclaw/plugin-sdk/reply-history",
+          "specifier": "openclaw/plugin-sdk/status-helpers",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 239,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:239"
         },
         {
-          "specifier": "openclaw/plugin-sdk/reply-payload",
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 240,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:240"
         },
         {
-          "specifier": "openclaw/plugin-sdk/reply-reference",
+          "specifier": "openclaw/plugin-sdk/string-normalization-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 241,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:241"
         },
         {
-          "specifier": "openclaw/plugin-sdk/reply-runtime",
+          "specifier": "openclaw/plugin-sdk/talk-config-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 242,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:242"
         },
         {
-          "specifier": "openclaw/plugin-sdk/request-url",
+          "specifier": "openclaw/plugin-sdk/target-resolver-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 243,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:243"
         },
         {
-          "specifier": "openclaw/plugin-sdk/response-limit-runtime",
+          "specifier": "openclaw/plugin-sdk/telegram-command-config",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 244,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:244"
         },
         {
-          "specifier": "openclaw/plugin-sdk/retry-runtime",
+          "specifier": "openclaw/plugin-sdk/temp-path",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 245,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:245"
         },
         {
-          "specifier": "openclaw/plugin-sdk/routing",
+          "specifier": "openclaw/plugin-sdk/testing",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 246,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:246"
         },
         {
-          "specifier": "openclaw/plugin-sdk/run-command",
+          "specifier": "openclaw/plugin-sdk/text-autolink-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 247,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:247"
         },
         {
-          "specifier": "openclaw/plugin-sdk/runtime",
+          "specifier": "openclaw/plugin-sdk/text-chunking",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 248,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:248"
         },
         {
-          "specifier": "openclaw/plugin-sdk/runtime-config-snapshot",
+          "specifier": "openclaw/plugin-sdk/text-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 249,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:249"
         },
         {
-          "specifier": "openclaw/plugin-sdk/runtime-doctor",
+          "specifier": "openclaw/plugin-sdk/thread-bindings-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 250,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:250"
         },
         {
-          "specifier": "openclaw/plugin-sdk/runtime-env",
+          "specifier": "openclaw/plugin-sdk/thread-bindings-session-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 251,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:251"
         },
         {
-          "specifier": "openclaw/plugin-sdk/runtime-fetch",
+          "specifier": "openclaw/plugin-sdk/tool-payload",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 252,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:252"
         },
         {
-          "specifier": "openclaw/plugin-sdk/runtime-group-policy",
+          "specifier": "openclaw/plugin-sdk/tool-send",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 253,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:253"
         },
         {
-          "specifier": "openclaw/plugin-sdk/runtime-logger",
+          "specifier": "openclaw/plugin-sdk/tts-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 254,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:254"
         },
         {
-          "specifier": "openclaw/plugin-sdk/runtime-secret-resolution",
+          "specifier": "openclaw/plugin-sdk/video-generation",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 255,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:255"
         },
         {
-          "specifier": "openclaw/plugin-sdk/runtime-store",
+          "specifier": "openclaw/plugin-sdk/video-generation-core",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 256,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:256"
         },
         {
-          "specifier": "openclaw/plugin-sdk/sandbox",
+          "specifier": "openclaw/plugin-sdk/video-generation-runtime",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 257,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:257"
         },
         {
-          "specifier": "openclaw/plugin-sdk/secret-file-runtime",
+          "specifier": "openclaw/plugin-sdk/web-content-extractor",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 258,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:258"
         },
         {
-          "specifier": "openclaw/plugin-sdk/secret-input",
+          "specifier": "openclaw/plugin-sdk/web-media",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 259,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:259"
         },
         {
-          "specifier": "openclaw/plugin-sdk/secret-input-runtime",
+          "specifier": "openclaw/plugin-sdk/webhook-ingress",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 260,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:260"
         },
         {
-          "specifier": "openclaw/plugin-sdk/secret-ref-runtime",
+          "specifier": "openclaw/plugin-sdk/webhook-path",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 261,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:261"
         },
         {
-          "specifier": "openclaw/plugin-sdk/security-runtime",
+          "specifier": "openclaw/plugin-sdk/webhook-request-guards",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 262,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:262"
         },
         {
-          "specifier": "openclaw/plugin-sdk/self-hosted-provider-setup",
+          "specifier": "openclaw/plugin-sdk/webhook-targets",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 263,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:263"
         },
         {
-          "specifier": "openclaw/plugin-sdk/session-binding-runtime",
+          "specifier": "openclaw/plugin-sdk/windows-spawn",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 264,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:264"
         },
         {
-          "specifier": "openclaw/plugin-sdk/session-key-runtime",
+          "specifier": "openclaw/plugin-sdk/zod",
           "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
           "line": 265,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:265"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/session-store-runtime",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 266,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:266"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/session-transcript-hit",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 267,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:267"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/session-visibility",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 268,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:268"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/setup",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 269,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:269"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/setup-adapter-runtime",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 270,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:270"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/setup-runtime",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 271,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:271"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/setup-tools",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 272,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:272"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/simple-completion-runtime",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 273,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:273"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/skill-commands-runtime",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 274,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:274"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/skills-runtime",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 275,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:275"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/speech",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 276,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:276"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/speech-core",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 277,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:277"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/ssrf-dispatcher",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 278,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:278"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/ssrf-policy",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 279,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:279"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 280,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:280"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/state-paths",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 281,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:281"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/status-helpers",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 282,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:282"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 283,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:283"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/string-normalization-runtime",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 284,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:284"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/talk-config-runtime",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 285,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:285"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/target-resolver-runtime",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 286,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:286"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/telegram-command-config",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 287,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:287"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/telegram-command-ui",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 288,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:288"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/temp-path",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 289,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:289"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/testing",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 290,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:290"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/text-autolink-runtime",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 291,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:291"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/text-chunking",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 292,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:292"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/text-runtime",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 293,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:293"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/thread-bindings-runtime",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 294,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:294"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/thread-bindings-session-runtime",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 295,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:295"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/thread-ownership",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 296,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:296"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/tlon",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 297,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:297"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/tool-payload",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 298,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:298"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/tool-send",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 299,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:299"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/tts-runtime",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 300,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:300"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/twitch",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 301,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:301"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/video-generation",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 302,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:302"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/video-generation-core",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 303,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:303"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/video-generation-runtime",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 304,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:304"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/voice-call",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 305,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:305"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/volc-model-catalog-shared",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 306,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:306"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/web-content-extractor",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 307,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:307"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/web-media",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 308,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:308"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/webhook-ingress",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 309,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:309"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/webhook-path",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 310,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:310"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/webhook-request-guards",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 311,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:311"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/webhook-targets",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 312,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:312"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/windows-spawn",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 313,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:313"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/zalo",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 314,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:314"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/zalo-setup",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 315,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:315"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/zalouser",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 316,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:316"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/zod",
-          "file": "plugins/kitchen-sink/src/generated-sdk-imports.ts",
-          "line": 317,
-          "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:317"
         }
       ]
     },
@@ -10512,77 +10215,6 @@
     },
     {
       "fixture": "kitchen-sink",
-      "code": "unknown-hook-name",
-      "level": "warning",
-      "message": "fixture registers hooks that are not present in the target OpenClaw hook registry",
-      "evidence": [
-        "${hook} @ plugins/kitchen-sink/scripts/check-sdk-surface.mjs:15",
-        "${hook} @ plugins/kitchen-sink/scripts/sync-surface.mjs:40"
-      ]
-    },
-    {
-      "fixture": "kitchen-sink",
-      "code": "sdk-export-missing",
-      "level": "warning",
-      "message": "fixture imports plugin SDK aliases that are not exported by the target OpenClaw package",
-      "evidence": [
-        "openclaw/plugin-sdk/bluebubbles @ plugins/kitchen-sink/src/generated-sdk-imports.ts:27",
-        "openclaw/plugin-sdk/bluebubbles-policy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:28",
-        "openclaw/plugin-sdk/browser-cdp @ plugins/kitchen-sink/src/generated-sdk-imports.ts:30",
-        "openclaw/plugin-sdk/browser-config-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:32",
-        "openclaw/plugin-sdk/browser-config-support @ plugins/kitchen-sink/src/generated-sdk-imports.ts:33",
-        "openclaw/plugin-sdk/browser-control-auth @ plugins/kitchen-sink/src/generated-sdk-imports.ts:34",
-        "openclaw/plugin-sdk/browser-node-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:35",
-        "openclaw/plugin-sdk/browser-profiles @ plugins/kitchen-sink/src/generated-sdk-imports.ts:36",
-        "openclaw/plugin-sdk/browser-security-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:37",
-        "openclaw/plugin-sdk/browser-setup-tools @ plugins/kitchen-sink/src/generated-sdk-imports.ts:38",
-        "openclaw/plugin-sdk/browser-support @ plugins/kitchen-sink/src/generated-sdk-imports.ts:39",
-        "openclaw/plugin-sdk/diagnostics-otel @ plugins/kitchen-sink/src/generated-sdk-imports.ts:99",
-        "openclaw/plugin-sdk/diagnostics-prometheus @ plugins/kitchen-sink/src/generated-sdk-imports.ts:100",
-        "openclaw/plugin-sdk/diffs @ plugins/kitchen-sink/src/generated-sdk-imports.ts:101",
-        "openclaw/plugin-sdk/feishu @ plugins/kitchen-sink/src/generated-sdk-imports.ts:110",
-        "openclaw/plugin-sdk/feishu-conversation @ plugins/kitchen-sink/src/generated-sdk-imports.ts:111",
-        "openclaw/plugin-sdk/feishu-setup @ plugins/kitchen-sink/src/generated-sdk-imports.ts:112",
-        "openclaw/plugin-sdk/github-copilot-login @ plugins/kitchen-sink/src/generated-sdk-imports.ts:116",
-        "openclaw/plugin-sdk/github-copilot-token @ plugins/kitchen-sink/src/generated-sdk-imports.ts:117",
-        "openclaw/plugin-sdk/googlechat @ plugins/kitchen-sink/src/generated-sdk-imports.ts:119",
-        "openclaw/plugin-sdk/googlechat-runtime-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:120",
-        "openclaw/plugin-sdk/irc @ plugins/kitchen-sink/src/generated-sdk-imports.ts:132",
-        "openclaw/plugin-sdk/irc-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:133",
-        "openclaw/plugin-sdk/line @ plugins/kitchen-sink/src/generated-sdk-imports.ts:137",
-        "openclaw/plugin-sdk/line-core @ plugins/kitchen-sink/src/generated-sdk-imports.ts:138",
-        "openclaw/plugin-sdk/line-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:139",
-        "openclaw/plugin-sdk/line-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:140",
-        "openclaw/plugin-sdk/llm-task @ plugins/kitchen-sink/src/generated-sdk-imports.ts:141",
-        "openclaw/plugin-sdk/matrix @ plugins/kitchen-sink/src/generated-sdk-imports.ts:146",
-        "openclaw/plugin-sdk/matrix-helper @ plugins/kitchen-sink/src/generated-sdk-imports.ts:147",
-        "openclaw/plugin-sdk/matrix-runtime-heavy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:148",
-        "openclaw/plugin-sdk/matrix-runtime-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:149",
-        "openclaw/plugin-sdk/matrix-runtime-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:150",
-        "openclaw/plugin-sdk/matrix-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:151",
-        "openclaw/plugin-sdk/matrix-thread-bindings @ plugins/kitchen-sink/src/generated-sdk-imports.ts:152",
-        "openclaw/plugin-sdk/mattermost @ plugins/kitchen-sink/src/generated-sdk-imports.ts:153",
-        "openclaw/plugin-sdk/mattermost-policy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:154",
-        "openclaw/plugin-sdk/memory-core @ plugins/kitchen-sink/src/generated-sdk-imports.ts:162",
-        "openclaw/plugin-sdk/memory-lancedb @ plugins/kitchen-sink/src/generated-sdk-imports.ts:182",
-        "openclaw/plugin-sdk/msteams @ plugins/kitchen-sink/src/generated-sdk-imports.ts:188",
-        "openclaw/plugin-sdk/nextcloud-talk @ plugins/kitchen-sink/src/generated-sdk-imports.ts:193",
-        "openclaw/plugin-sdk/nostr @ plugins/kitchen-sink/src/generated-sdk-imports.ts:194",
-        "openclaw/plugin-sdk/opencode @ plugins/kitchen-sink/src/generated-sdk-imports.ts:195",
-        "openclaw/plugin-sdk/telegram-command-ui @ plugins/kitchen-sink/src/generated-sdk-imports.ts:288",
-        "openclaw/plugin-sdk/thread-ownership @ plugins/kitchen-sink/src/generated-sdk-imports.ts:296",
-        "openclaw/plugin-sdk/tlon @ plugins/kitchen-sink/src/generated-sdk-imports.ts:297",
-        "openclaw/plugin-sdk/twitch @ plugins/kitchen-sink/src/generated-sdk-imports.ts:301",
-        "openclaw/plugin-sdk/voice-call @ plugins/kitchen-sink/src/generated-sdk-imports.ts:305",
-        "openclaw/plugin-sdk/volc-model-catalog-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:306",
-        "openclaw/plugin-sdk/zalo @ plugins/kitchen-sink/src/generated-sdk-imports.ts:314",
-        "openclaw/plugin-sdk/zalo-setup @ plugins/kitchen-sink/src/generated-sdk-imports.ts:315",
-        "openclaw/plugin-sdk/zalouser @ plugins/kitchen-sink/src/generated-sdk-imports.ts:316"
-      ],
-      "compatRecord": "plugin-sdk-export-aliases"
-    },
-    {
-      "fixture": "kitchen-sink",
       "code": "conversation-access-hook",
       "level": "warning",
       "message": "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
@@ -10956,7 +10588,7 @@
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27",
-        "registerHttpRoute @ plugins/wecom/index.js:45"
+        "registerHttpRoute @ plugins/wecom/index.js:56"
       ]
     },
     {
@@ -10965,7 +10597,7 @@
       "level": "suggestion",
       "message": "add contract probes for before_tool_call terminal, block, and approval semantics",
       "evidence": [
-        "before_tool_call @ plugins/wecom/index.js:65"
+        "before_tool_call @ plugins/wecom/index.js:76"
       ]
     },
     {
@@ -10984,8 +10616,8 @@
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
         "registerTool @ plugins/wecom/index.js:28",
-        "registerTool @ plugins/wecom/index.js:29",
-        "registerTool @ plugins/wecom/index.js:33"
+        "registerTool @ plugins/wecom/index.js:40",
+        "registerTool @ plugins/wecom/index.js:44"
       ]
     },
     {
@@ -11202,10 +10834,10 @@
       "level": "suggestion",
       "message": "package declares runtime dependencies that must be installed before cold import",
       "evidence": [
+        "@sinclair/typebox @ plugins/lossless-claw/package.json",
         "@mariozechner/pi-agent-core @ plugins/lossless-claw/package.json",
         "@mariozechner/pi-ai @ plugins/lossless-claw/package.json",
         "@mariozechner/pi-coding-agent @ plugins/lossless-claw/package.json",
-        "@sinclair/typebox @ plugins/lossless-claw/package.json",
         "openclaw @ plugins/lossless-claw/package.json"
       ]
     },
@@ -11215,8 +10847,8 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2009",
-        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1989"
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2055",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2035"
       ]
     },
     {
@@ -11225,10 +10857,10 @@
       "level": "suggestion",
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1991",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1994",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1997",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2000"
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2037",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2040",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2043",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2046"
       ]
     },
     {
@@ -11409,6 +11041,8 @@
         "registerAutoEnableProbe @ plugins/kitchen-sink/src/generated-registrars.js:6",
         "registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:7",
         "registerCommand @ plugins/kitchen-sink/src/generated-registrars.js:11",
+        "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:15",
+        "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:16",
         "registerCompactionProvider @ plugins/kitchen-sink/src/generated-registrars.js:12",
         "registerConfigMigration @ plugins/kitchen-sink/src/generated-registrars.js:13",
         "registerContextEngine @ plugins/kitchen-sink/src/generated-registrars.js:14",
@@ -11418,11 +11052,13 @@
         "registerHook @ plugins/kitchen-sink/src/generated-registrars.js:18",
         "registerHttpRoute @ plugins/kitchen-sink/src/generated-registrars.js:19",
         "registerInteractiveHandler @ plugins/kitchen-sink/src/generated-registrars.js:21",
+        "registerInteractiveHandler @ plugins/kitchen-sink/src/kitchen-runtime.js:18",
         "registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:23",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:24",
         "registerMemoryFlushPlan @ plugins/kitchen-sink/src/generated-registrars.js:26",
         "registerMemoryPromptSection @ plugins/kitchen-sink/src/generated-registrars.js:27",
         "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:28",
+        "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:37",
         "registerMemoryRuntime @ plugins/kitchen-sink/src/generated-registrars.js:29",
         "registerNodeHostCommand @ plugins/kitchen-sink/src/generated-registrars.js:32",
         "registerReload @ plugins/kitchen-sink/src/generated-registrars.js:36",
@@ -11948,16 +11584,6 @@
       "compatRecord": "plugin-sdk-export-aliases"
     },
     {
-      "fixture": "kitchen-sink",
-      "code": "missing-compat-record",
-      "level": "suggestion",
-      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
-      "evidence": [
-        "plugin-sdk-export-aliases"
-      ],
-      "compatRecord": "plugin-sdk-export-aliases"
-    },
-    {
       "fixture": "yuanbao",
       "code": "missing-compat-record",
       "level": "suggestion",
@@ -12058,94 +11684,6 @@
       "title": "hyperspell: fixture uses a hook missing from target OpenClaw",
       "evidence": [
         "file_changed @ plugins/hyperspell/index.ts:122"
-      ],
-      "compatRecord": null
-    },
-    {
-      "id": "CRABPOT-1BEEF243",
-      "fixture": "kitchen-sink",
-      "severity": "P0",
-      "owner": "core",
-      "code": "sdk-export-missing",
-      "decision": "core-compat-adapter",
-      "status": "blocking",
-      "issueClass": "live-issue",
-      "live": true,
-      "deprecated": false,
-      "compatStatus": "untracked",
-      "title": "kitchen-sink: plugin SDK import aliases are missing from target package exports",
-      "evidence": [
-        "openclaw/plugin-sdk/bluebubbles @ plugins/kitchen-sink/src/generated-sdk-imports.ts:27",
-        "openclaw/plugin-sdk/bluebubbles-policy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:28",
-        "openclaw/plugin-sdk/browser-cdp @ plugins/kitchen-sink/src/generated-sdk-imports.ts:30",
-        "openclaw/plugin-sdk/browser-config-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:32",
-        "openclaw/plugin-sdk/browser-config-support @ plugins/kitchen-sink/src/generated-sdk-imports.ts:33",
-        "openclaw/plugin-sdk/browser-control-auth @ plugins/kitchen-sink/src/generated-sdk-imports.ts:34",
-        "openclaw/plugin-sdk/browser-node-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:35",
-        "openclaw/plugin-sdk/browser-profiles @ plugins/kitchen-sink/src/generated-sdk-imports.ts:36",
-        "openclaw/plugin-sdk/browser-security-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:37",
-        "openclaw/plugin-sdk/browser-setup-tools @ plugins/kitchen-sink/src/generated-sdk-imports.ts:38",
-        "openclaw/plugin-sdk/browser-support @ plugins/kitchen-sink/src/generated-sdk-imports.ts:39",
-        "openclaw/plugin-sdk/diagnostics-otel @ plugins/kitchen-sink/src/generated-sdk-imports.ts:99",
-        "openclaw/plugin-sdk/diagnostics-prometheus @ plugins/kitchen-sink/src/generated-sdk-imports.ts:100",
-        "openclaw/plugin-sdk/diffs @ plugins/kitchen-sink/src/generated-sdk-imports.ts:101",
-        "openclaw/plugin-sdk/feishu @ plugins/kitchen-sink/src/generated-sdk-imports.ts:110",
-        "openclaw/plugin-sdk/feishu-conversation @ plugins/kitchen-sink/src/generated-sdk-imports.ts:111",
-        "openclaw/plugin-sdk/feishu-setup @ plugins/kitchen-sink/src/generated-sdk-imports.ts:112",
-        "openclaw/plugin-sdk/github-copilot-login @ plugins/kitchen-sink/src/generated-sdk-imports.ts:116",
-        "openclaw/plugin-sdk/github-copilot-token @ plugins/kitchen-sink/src/generated-sdk-imports.ts:117",
-        "openclaw/plugin-sdk/googlechat @ plugins/kitchen-sink/src/generated-sdk-imports.ts:119",
-        "openclaw/plugin-sdk/googlechat-runtime-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:120",
-        "openclaw/plugin-sdk/irc @ plugins/kitchen-sink/src/generated-sdk-imports.ts:132",
-        "openclaw/plugin-sdk/irc-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:133",
-        "openclaw/plugin-sdk/line @ plugins/kitchen-sink/src/generated-sdk-imports.ts:137",
-        "openclaw/plugin-sdk/line-core @ plugins/kitchen-sink/src/generated-sdk-imports.ts:138",
-        "openclaw/plugin-sdk/line-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:139",
-        "openclaw/plugin-sdk/line-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:140",
-        "openclaw/plugin-sdk/llm-task @ plugins/kitchen-sink/src/generated-sdk-imports.ts:141",
-        "openclaw/plugin-sdk/matrix @ plugins/kitchen-sink/src/generated-sdk-imports.ts:146",
-        "openclaw/plugin-sdk/matrix-helper @ plugins/kitchen-sink/src/generated-sdk-imports.ts:147",
-        "openclaw/plugin-sdk/matrix-runtime-heavy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:148",
-        "openclaw/plugin-sdk/matrix-runtime-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:149",
-        "openclaw/plugin-sdk/matrix-runtime-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:150",
-        "openclaw/plugin-sdk/matrix-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:151",
-        "openclaw/plugin-sdk/matrix-thread-bindings @ plugins/kitchen-sink/src/generated-sdk-imports.ts:152",
-        "openclaw/plugin-sdk/mattermost @ plugins/kitchen-sink/src/generated-sdk-imports.ts:153",
-        "openclaw/plugin-sdk/mattermost-policy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:154",
-        "openclaw/plugin-sdk/memory-core @ plugins/kitchen-sink/src/generated-sdk-imports.ts:162",
-        "openclaw/plugin-sdk/memory-lancedb @ plugins/kitchen-sink/src/generated-sdk-imports.ts:182",
-        "openclaw/plugin-sdk/msteams @ plugins/kitchen-sink/src/generated-sdk-imports.ts:188",
-        "openclaw/plugin-sdk/nextcloud-talk @ plugins/kitchen-sink/src/generated-sdk-imports.ts:193",
-        "openclaw/plugin-sdk/nostr @ plugins/kitchen-sink/src/generated-sdk-imports.ts:194",
-        "openclaw/plugin-sdk/opencode @ plugins/kitchen-sink/src/generated-sdk-imports.ts:195",
-        "openclaw/plugin-sdk/telegram-command-ui @ plugins/kitchen-sink/src/generated-sdk-imports.ts:288",
-        "openclaw/plugin-sdk/thread-ownership @ plugins/kitchen-sink/src/generated-sdk-imports.ts:296",
-        "openclaw/plugin-sdk/tlon @ plugins/kitchen-sink/src/generated-sdk-imports.ts:297",
-        "openclaw/plugin-sdk/twitch @ plugins/kitchen-sink/src/generated-sdk-imports.ts:301",
-        "openclaw/plugin-sdk/voice-call @ plugins/kitchen-sink/src/generated-sdk-imports.ts:305",
-        "openclaw/plugin-sdk/volc-model-catalog-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:306",
-        "openclaw/plugin-sdk/zalo @ plugins/kitchen-sink/src/generated-sdk-imports.ts:314",
-        "openclaw/plugin-sdk/zalo-setup @ plugins/kitchen-sink/src/generated-sdk-imports.ts:315",
-        "openclaw/plugin-sdk/zalouser @ plugins/kitchen-sink/src/generated-sdk-imports.ts:316"
-      ],
-      "compatRecord": "plugin-sdk-export-aliases"
-    },
-    {
-      "id": "CRABPOT-9847F674",
-      "fixture": "kitchen-sink",
-      "severity": "P0",
-      "owner": "core",
-      "code": "unknown-hook-name",
-      "decision": "core-compat-adapter",
-      "status": "blocking",
-      "issueClass": "live-issue",
-      "live": true,
-      "deprecated": false,
-      "compatStatus": "none",
-      "title": "kitchen-sink: fixture uses a hook missing from target OpenClaw",
-      "evidence": [
-        "${hook} @ plugins/kitchen-sink/scripts/check-sdk-surface.mjs:15",
-        "${hook} @ plugins/kitchen-sink/scripts/sync-surface.mjs:40"
       ],
       "compatRecord": null
     },
@@ -12457,25 +11995,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-9942EAD9",
-      "fixture": "kitchen-sink",
-      "severity": "P1",
-      "owner": "core",
-      "code": "missing-compat-record",
-      "decision": "core-compat-adapter",
-      "status": "open",
-      "issueClass": "compat-gap",
-      "live": false,
-      "deprecated": false,
-      "compatStatus": "missing",
-      "title": "kitchen-sink: compat-dependent behavior lacks registry coverage",
-      "evidence": [
-        "plugin-sdk-export-aliases"
-      ],
-      "compatRecord": "plugin-sdk-export-aliases"
-    },
-    {
-      "id": "CRABPOT-52E2E4D4",
+      "id": "CRABPOT-09FC0F27",
       "fixture": "kitchen-sink",
       "severity": "P1",
       "owner": "inspector",
@@ -12491,6 +12011,8 @@
         "registerAutoEnableProbe @ plugins/kitchen-sink/src/generated-registrars.js:6",
         "registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:7",
         "registerCommand @ plugins/kitchen-sink/src/generated-registrars.js:11",
+        "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:15",
+        "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:16",
         "registerCompactionProvider @ plugins/kitchen-sink/src/generated-registrars.js:12",
         "registerConfigMigration @ plugins/kitchen-sink/src/generated-registrars.js:13",
         "registerContextEngine @ plugins/kitchen-sink/src/generated-registrars.js:14",
@@ -12500,11 +12022,13 @@
         "registerHook @ plugins/kitchen-sink/src/generated-registrars.js:18",
         "registerHttpRoute @ plugins/kitchen-sink/src/generated-registrars.js:19",
         "registerInteractiveHandler @ plugins/kitchen-sink/src/generated-registrars.js:21",
+        "registerInteractiveHandler @ plugins/kitchen-sink/src/kitchen-runtime.js:18",
         "registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:23",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:24",
         "registerMemoryFlushPlan @ plugins/kitchen-sink/src/generated-registrars.js:26",
         "registerMemoryPromptSection @ plugins/kitchen-sink/src/generated-registrars.js:27",
         "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:28",
+        "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:37",
         "registerMemoryRuntime @ plugins/kitchen-sink/src/generated-registrars.js:29",
         "registerNodeHostCommand @ plugins/kitchen-sink/src/generated-registrars.js:32",
         "registerReload @ plugins/kitchen-sink/src/generated-registrars.js:36",
@@ -12551,7 +12075,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-795CF4F4",
+      "id": "CRABPOT-EC9C117C",
       "fixture": "lossless-claw",
       "severity": "P1",
       "owner": "inspector",
@@ -12564,8 +12088,8 @@
       "compatStatus": "none",
       "title": "lossless-claw: runtime registrations need capture before contract judgment",
       "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2009",
-        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1989"
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2055",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2035"
       ],
       "compatRecord": null
     },
@@ -12773,7 +12297,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-B08DB79E",
+      "id": "CRABPOT-1FE68ED5",
       "fixture": "wecom",
       "severity": "P1",
       "owner": "inspector",
@@ -12786,12 +12310,12 @@
       "compatStatus": "none",
       "title": "wecom: before_tool_call needs terminal/block/approval probes",
       "evidence": [
-        "before_tool_call @ plugins/wecom/index.js:65"
+        "before_tool_call @ plugins/wecom/index.js:76"
       ],
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-9428734C",
+      "id": "CRABPOT-9DFD8746",
       "fixture": "wecom",
       "severity": "P1",
       "owner": "inspector",
@@ -12805,7 +12329,7 @@
       "title": "wecom: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27",
-        "registerHttpRoute @ plugins/wecom/index.js:45"
+        "registerHttpRoute @ plugins/wecom/index.js:56"
       ],
       "compatRecord": null
     },
@@ -14252,7 +13776,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-D4F34CF3",
+      "id": "CRABPOT-01BCBD1A",
       "fixture": "lossless-claw",
       "severity": "P2",
       "owner": "inspector",
@@ -14265,10 +13789,10 @@
       "compatStatus": "none",
       "title": "lossless-claw: cold import requires isolated dependency installation",
       "evidence": [
+        "@sinclair/typebox @ plugins/lossless-claw/package.json",
         "@mariozechner/pi-agent-core @ plugins/lossless-claw/package.json",
         "@mariozechner/pi-ai @ plugins/lossless-claw/package.json",
         "@mariozechner/pi-coding-agent @ plugins/lossless-claw/package.json",
-        "@sinclair/typebox @ plugins/lossless-claw/package.json",
         "openclaw @ plugins/lossless-claw/package.json"
       ],
       "compatRecord": null
@@ -14292,7 +13816,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-03BC9DF6",
+      "id": "CRABPOT-8C83090A",
       "fixture": "lossless-claw",
       "severity": "P2",
       "owner": "inspector",
@@ -14305,10 +13829,10 @@
       "compatStatus": "none",
       "title": "lossless-claw: runtime tool schema needs registration capture",
       "evidence": [
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1991",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1994",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1997",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2000"
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2037",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2040",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2043",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2046"
       ],
       "compatRecord": null
     },
@@ -15174,7 +14698,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-72021A36",
+      "id": "CRABPOT-76A40DAA",
       "fixture": "wecom",
       "severity": "P2",
       "owner": "inspector",
@@ -15188,8 +14712,8 @@
       "title": "wecom: runtime tool schema needs registration capture",
       "evidence": [
         "registerTool @ plugins/wecom/index.js:28",
-        "registerTool @ plugins/wecom/index.js:29",
-        "registerTool @ plugins/wecom/index.js:33"
+        "registerTool @ plugins/wecom/index.js:40",
+        "registerTool @ plugins/wecom/index.js:44"
       ],
       "compatRecord": null
     },
@@ -15383,6 +14907,8 @@
         "registerAutoEnableProbe @ plugins/kitchen-sink/src/generated-registrars.js:6",
         "registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:7",
         "registerCommand @ plugins/kitchen-sink/src/generated-registrars.js:11",
+        "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:15",
+        "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:16",
         "registerCompactionProvider @ plugins/kitchen-sink/src/generated-registrars.js:12",
         "registerConfigMigration @ plugins/kitchen-sink/src/generated-registrars.js:13",
         "registerContextEngine @ plugins/kitchen-sink/src/generated-registrars.js:14",
@@ -15392,11 +14918,13 @@
         "registerHook @ plugins/kitchen-sink/src/generated-registrars.js:18",
         "registerHttpRoute @ plugins/kitchen-sink/src/generated-registrars.js:19",
         "registerInteractiveHandler @ plugins/kitchen-sink/src/generated-registrars.js:21",
+        "registerInteractiveHandler @ plugins/kitchen-sink/src/kitchen-runtime.js:18",
         "registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:23",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:24",
         "registerMemoryFlushPlan @ plugins/kitchen-sink/src/generated-registrars.js:26",
         "registerMemoryPromptSection @ plugins/kitchen-sink/src/generated-registrars.js:27",
         "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:28",
+        "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:37",
         "registerMemoryRuntime @ plugins/kitchen-sink/src/generated-registrars.js:29",
         "registerNodeHostCommand @ plugins/kitchen-sink/src/generated-registrars.js:32",
         "registerReload @ plugins/kitchen-sink/src/generated-registrars.js:36",
@@ -15421,8 +14949,8 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2009",
-        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1989"
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2055",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2035"
       ]
     },
     {
@@ -15506,7 +15034,7 @@
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27",
-        "registerHttpRoute @ plugins/wecom/index.js:45"
+        "registerHttpRoute @ plugins/wecom/index.js:56"
       ]
     },
     {
@@ -15549,7 +15077,7 @@
       "target": "hook-runner",
       "contract": "Hook returns preserve terminal, block, and approval semantics.",
       "evidence": [
-        "before_tool_call @ plugins/wecom/index.js:65"
+        "before_tool_call @ plugins/wecom/index.js:76"
       ]
     },
     {
@@ -15657,67 +15185,6 @@
       "contract": "Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.",
       "evidence": [
         "openclaw/plugin-sdk/memory-core @ plugins/honcho/index.ts:11"
-      ]
-    },
-    {
-      "id": "sdk.import.package-export-cold-import:kitchen-sink",
-      "fixture": "kitchen-sink",
-      "priority": "P1",
-      "target": "sdk-alias",
-      "contract": "Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.",
-      "evidence": [
-        "openclaw/plugin-sdk/bluebubbles @ plugins/kitchen-sink/src/generated-sdk-imports.ts:27",
-        "openclaw/plugin-sdk/bluebubbles-policy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:28",
-        "openclaw/plugin-sdk/browser-cdp @ plugins/kitchen-sink/src/generated-sdk-imports.ts:30",
-        "openclaw/plugin-sdk/browser-config-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:32",
-        "openclaw/plugin-sdk/browser-config-support @ plugins/kitchen-sink/src/generated-sdk-imports.ts:33",
-        "openclaw/plugin-sdk/browser-control-auth @ plugins/kitchen-sink/src/generated-sdk-imports.ts:34",
-        "openclaw/plugin-sdk/browser-node-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:35",
-        "openclaw/plugin-sdk/browser-profiles @ plugins/kitchen-sink/src/generated-sdk-imports.ts:36",
-        "openclaw/plugin-sdk/browser-security-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:37",
-        "openclaw/plugin-sdk/browser-setup-tools @ plugins/kitchen-sink/src/generated-sdk-imports.ts:38",
-        "openclaw/plugin-sdk/browser-support @ plugins/kitchen-sink/src/generated-sdk-imports.ts:39",
-        "openclaw/plugin-sdk/diagnostics-otel @ plugins/kitchen-sink/src/generated-sdk-imports.ts:99",
-        "openclaw/plugin-sdk/diagnostics-prometheus @ plugins/kitchen-sink/src/generated-sdk-imports.ts:100",
-        "openclaw/plugin-sdk/diffs @ plugins/kitchen-sink/src/generated-sdk-imports.ts:101",
-        "openclaw/plugin-sdk/feishu @ plugins/kitchen-sink/src/generated-sdk-imports.ts:110",
-        "openclaw/plugin-sdk/feishu-conversation @ plugins/kitchen-sink/src/generated-sdk-imports.ts:111",
-        "openclaw/plugin-sdk/feishu-setup @ plugins/kitchen-sink/src/generated-sdk-imports.ts:112",
-        "openclaw/plugin-sdk/github-copilot-login @ plugins/kitchen-sink/src/generated-sdk-imports.ts:116",
-        "openclaw/plugin-sdk/github-copilot-token @ plugins/kitchen-sink/src/generated-sdk-imports.ts:117",
-        "openclaw/plugin-sdk/googlechat @ plugins/kitchen-sink/src/generated-sdk-imports.ts:119",
-        "openclaw/plugin-sdk/googlechat-runtime-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:120",
-        "openclaw/plugin-sdk/irc @ plugins/kitchen-sink/src/generated-sdk-imports.ts:132",
-        "openclaw/plugin-sdk/irc-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:133",
-        "openclaw/plugin-sdk/line @ plugins/kitchen-sink/src/generated-sdk-imports.ts:137",
-        "openclaw/plugin-sdk/line-core @ plugins/kitchen-sink/src/generated-sdk-imports.ts:138",
-        "openclaw/plugin-sdk/line-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:139",
-        "openclaw/plugin-sdk/line-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:140",
-        "openclaw/plugin-sdk/llm-task @ plugins/kitchen-sink/src/generated-sdk-imports.ts:141",
-        "openclaw/plugin-sdk/matrix @ plugins/kitchen-sink/src/generated-sdk-imports.ts:146",
-        "openclaw/plugin-sdk/matrix-helper @ plugins/kitchen-sink/src/generated-sdk-imports.ts:147",
-        "openclaw/plugin-sdk/matrix-runtime-heavy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:148",
-        "openclaw/plugin-sdk/matrix-runtime-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:149",
-        "openclaw/plugin-sdk/matrix-runtime-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:150",
-        "openclaw/plugin-sdk/matrix-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:151",
-        "openclaw/plugin-sdk/matrix-thread-bindings @ plugins/kitchen-sink/src/generated-sdk-imports.ts:152",
-        "openclaw/plugin-sdk/mattermost @ plugins/kitchen-sink/src/generated-sdk-imports.ts:153",
-        "openclaw/plugin-sdk/mattermost-policy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:154",
-        "openclaw/plugin-sdk/memory-core @ plugins/kitchen-sink/src/generated-sdk-imports.ts:162",
-        "openclaw/plugin-sdk/memory-lancedb @ plugins/kitchen-sink/src/generated-sdk-imports.ts:182",
-        "openclaw/plugin-sdk/msteams @ plugins/kitchen-sink/src/generated-sdk-imports.ts:188",
-        "openclaw/plugin-sdk/nextcloud-talk @ plugins/kitchen-sink/src/generated-sdk-imports.ts:193",
-        "openclaw/plugin-sdk/nostr @ plugins/kitchen-sink/src/generated-sdk-imports.ts:194",
-        "openclaw/plugin-sdk/opencode @ plugins/kitchen-sink/src/generated-sdk-imports.ts:195",
-        "openclaw/plugin-sdk/telegram-command-ui @ plugins/kitchen-sink/src/generated-sdk-imports.ts:288",
-        "openclaw/plugin-sdk/thread-ownership @ plugins/kitchen-sink/src/generated-sdk-imports.ts:296",
-        "openclaw/plugin-sdk/tlon @ plugins/kitchen-sink/src/generated-sdk-imports.ts:297",
-        "openclaw/plugin-sdk/twitch @ plugins/kitchen-sink/src/generated-sdk-imports.ts:301",
-        "openclaw/plugin-sdk/voice-call @ plugins/kitchen-sink/src/generated-sdk-imports.ts:305",
-        "openclaw/plugin-sdk/volc-model-catalog-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:306",
-        "openclaw/plugin-sdk/zalo @ plugins/kitchen-sink/src/generated-sdk-imports.ts:314",
-        "openclaw/plugin-sdk/zalo-setup @ plugins/kitchen-sink/src/generated-sdk-imports.ts:315",
-        "openclaw/plugin-sdk/zalouser @ plugins/kitchen-sink/src/generated-sdk-imports.ts:316"
       ]
     },
     {
@@ -16222,10 +15689,10 @@
       "target": "package-loader",
       "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
       "evidence": [
+        "@sinclair/typebox @ plugins/lossless-claw/package.json",
         "@mariozechner/pi-agent-core @ plugins/lossless-claw/package.json",
         "@mariozechner/pi-ai @ plugins/lossless-claw/package.json",
         "@mariozechner/pi-coding-agent @ plugins/lossless-claw/package.json",
-        "@sinclair/typebox @ plugins/lossless-claw/package.json",
         "openclaw @ plugins/lossless-claw/package.json"
       ]
     },
@@ -16740,10 +16207,10 @@
       "target": "tool-runtime",
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1991",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1994",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:1997",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2000"
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2037",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2040",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2043",
+        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2046"
       ]
     },
     {
@@ -16796,8 +16263,8 @@
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
         "registerTool @ plugins/wecom/index.js:28",
-        "registerTool @ plugins/wecom/index.js:29",
-        "registerTool @ plugins/wecom/index.js:33"
+        "registerTool @ plugins/wecom/index.js:40",
+        "registerTool @ plugins/wecom/index.js:44"
       ]
     },
     {
@@ -17281,7 +16748,7 @@
       "evidence": [
         "plugins/wecom/package.json",
         "@sunnoy/wecom",
-        "version:3.0.1"
+        "version:3.2.0"
       ]
     },
     {
@@ -17952,9 +17419,8 @@
       "fixture": "kitchen-sink",
       "code": "seam-inventory",
       "level": "log",
-      "message": "observed 33 hooks, 41 registrations, and 17 manifest contracts",
+      "message": "observed 32 hooks, 41 registrations, and 17 manifest contracts",
       "evidence": [
-        "hook:${hook}",
         "hook:after_compaction",
         "hook:after_tool_call",
         "hook:agent_end",
@@ -18049,6 +17515,46 @@
     },
     {
       "fixture": "kitchen-sink",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": [
+        "after_compaction",
+        "after_tool_call",
+        "agent_end",
+        "before_agent_finalize",
+        "before_agent_reply",
+        "before_agent_start",
+        "before_compaction",
+        "before_dispatch",
+        "before_install",
+        "before_message_write",
+        "before_model_resolve",
+        "before_prompt_build",
+        "before_reset",
+        "before_tool_call",
+        "gateway_start",
+        "gateway_stop",
+        "inbound_claim",
+        "llm_input",
+        "llm_output",
+        "message_received",
+        "message_sending",
+        "message_sent",
+        "model_call_ended",
+        "model_call_started",
+        "reply_dispatch",
+        "session_end",
+        "session_start",
+        "subagent_delivery_target",
+        "subagent_ended",
+        "subagent_spawned",
+        "subagent_spawning",
+        "tool_result_persist"
+      ]
+    },
+    {
+      "fixture": "kitchen-sink",
       "code": "api-registrars-present",
       "level": "log",
       "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
@@ -18098,6 +17604,278 @@
     },
     {
       "fixture": "kitchen-sink",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk",
+        "openclaw/plugin-sdk/account-core",
+        "openclaw/plugin-sdk/account-helpers",
+        "openclaw/plugin-sdk/account-id",
+        "openclaw/plugin-sdk/account-resolution",
+        "openclaw/plugin-sdk/account-resolution-runtime",
+        "openclaw/plugin-sdk/acp-binding-resolve-runtime",
+        "openclaw/plugin-sdk/acp-binding-runtime",
+        "openclaw/plugin-sdk/acp-runtime",
+        "openclaw/plugin-sdk/agent-config-primitives",
+        "openclaw/plugin-sdk/agent-harness",
+        "openclaw/plugin-sdk/agent-harness-runtime",
+        "openclaw/plugin-sdk/agent-media-payload",
+        "openclaw/plugin-sdk/agent-runtime",
+        "openclaw/plugin-sdk/allow-from",
+        "openclaw/plugin-sdk/allowlist-config-edit",
+        "openclaw/plugin-sdk/approval-auth-runtime",
+        "openclaw/plugin-sdk/approval-client-runtime",
+        "openclaw/plugin-sdk/approval-delivery-runtime",
+        "openclaw/plugin-sdk/approval-gateway-runtime",
+        "openclaw/plugin-sdk/approval-handler-adapter-runtime",
+        "openclaw/plugin-sdk/approval-handler-runtime",
+        "openclaw/plugin-sdk/approval-native-runtime",
+        "openclaw/plugin-sdk/approval-reply-runtime",
+        "openclaw/plugin-sdk/approval-runtime",
+        "openclaw/plugin-sdk/boolean-param",
+        "openclaw/plugin-sdk/browser-config",
+        "openclaw/plugin-sdk/channel-actions",
+        "openclaw/plugin-sdk/channel-config-helpers",
+        "openclaw/plugin-sdk/channel-config-primitives",
+        "openclaw/plugin-sdk/channel-config-schema",
+        "openclaw/plugin-sdk/channel-config-schema-legacy",
+        "openclaw/plugin-sdk/channel-config-writes",
+        "openclaw/plugin-sdk/channel-contract",
+        "openclaw/plugin-sdk/channel-contract-testing",
+        "openclaw/plugin-sdk/channel-core",
+        "openclaw/plugin-sdk/channel-entry-contract",
+        "openclaw/plugin-sdk/channel-envelope",
+        "openclaw/plugin-sdk/channel-feedback",
+        "openclaw/plugin-sdk/channel-inbound",
+        "openclaw/plugin-sdk/channel-inbound-debounce",
+        "openclaw/plugin-sdk/channel-inbound-roots",
+        "openclaw/plugin-sdk/channel-lifecycle",
+        "openclaw/plugin-sdk/channel-location",
+        "openclaw/plugin-sdk/channel-logging",
+        "openclaw/plugin-sdk/channel-mention-gating",
+        "openclaw/plugin-sdk/channel-pairing",
+        "openclaw/plugin-sdk/channel-pairing-paths",
+        "openclaw/plugin-sdk/channel-plugin-common",
+        "openclaw/plugin-sdk/channel-policy",
+        "openclaw/plugin-sdk/channel-reply-options-runtime",
+        "openclaw/plugin-sdk/channel-reply-pipeline",
+        "openclaw/plugin-sdk/channel-runtime",
+        "openclaw/plugin-sdk/channel-runtime-context",
+        "openclaw/plugin-sdk/channel-secret-basic-runtime",
+        "openclaw/plugin-sdk/channel-secret-runtime",
+        "openclaw/plugin-sdk/channel-secret-tts-runtime",
+        "openclaw/plugin-sdk/channel-send-result",
+        "openclaw/plugin-sdk/channel-setup",
+        "openclaw/plugin-sdk/channel-status",
+        "openclaw/plugin-sdk/channel-streaming",
+        "openclaw/plugin-sdk/channel-targets",
+        "openclaw/plugin-sdk/cli-backend",
+        "openclaw/plugin-sdk/cli-runtime",
+        "openclaw/plugin-sdk/collection-runtime",
+        "openclaw/plugin-sdk/command-auth",
+        "openclaw/plugin-sdk/command-auth-native",
+        "openclaw/plugin-sdk/command-detection",
+        "openclaw/plugin-sdk/command-gating",
+        "openclaw/plugin-sdk/command-primitives-runtime",
+        "openclaw/plugin-sdk/command-status",
+        "openclaw/plugin-sdk/command-status-runtime",
+        "openclaw/plugin-sdk/command-surface",
+        "openclaw/plugin-sdk/compat",
+        "openclaw/plugin-sdk/config-mutation",
+        "openclaw/plugin-sdk/config-runtime",
+        "openclaw/plugin-sdk/config-schema",
+        "openclaw/plugin-sdk/config-types",
+        "openclaw/plugin-sdk/context-visibility-runtime",
+        "openclaw/plugin-sdk/conversation-binding-runtime",
+        "openclaw/plugin-sdk/conversation-runtime",
+        "openclaw/plugin-sdk/core",
+        "openclaw/plugin-sdk/cron-store-runtime",
+        "openclaw/plugin-sdk/dangerous-name-runtime",
+        "openclaw/plugin-sdk/device-bootstrap",
+        "openclaw/plugin-sdk/diagnostic-runtime",
+        "openclaw/plugin-sdk/direct-dm",
+        "openclaw/plugin-sdk/direct-dm-access",
+        "openclaw/plugin-sdk/direct-dm-guard-policy",
+        "openclaw/plugin-sdk/directory-config-runtime",
+        "openclaw/plugin-sdk/directory-runtime",
+        "openclaw/plugin-sdk/document-extractor",
+        "openclaw/plugin-sdk/error-runtime",
+        "openclaw/plugin-sdk/extension-shared",
+        "openclaw/plugin-sdk/fetch-runtime",
+        "openclaw/plugin-sdk/file-lock",
+        "openclaw/plugin-sdk/gateway-runtime",
+        "openclaw/plugin-sdk/global-singleton",
+        "openclaw/plugin-sdk/group-access",
+        "openclaw/plugin-sdk/group-activation",
+        "openclaw/plugin-sdk/hook-runtime",
+        "openclaw/plugin-sdk/host-runtime",
+        "openclaw/plugin-sdk/image-generation",
+        "openclaw/plugin-sdk/image-generation-core",
+        "openclaw/plugin-sdk/image-generation-runtime",
+        "openclaw/plugin-sdk/inbound-envelope",
+        "openclaw/plugin-sdk/inbound-reply-dispatch",
+        "openclaw/plugin-sdk/infra-runtime",
+        "openclaw/plugin-sdk/interactive-runtime",
+        "openclaw/plugin-sdk/json-store",
+        "openclaw/plugin-sdk/keyed-async-queue",
+        "openclaw/plugin-sdk/lazy-runtime",
+        "openclaw/plugin-sdk/lmstudio",
+        "openclaw/plugin-sdk/lmstudio-runtime",
+        "openclaw/plugin-sdk/logging-core",
+        "openclaw/plugin-sdk/markdown-table-runtime",
+        "openclaw/plugin-sdk/media-generation-runtime",
+        "openclaw/plugin-sdk/media-generation-runtime-shared",
+        "openclaw/plugin-sdk/media-mime",
+        "openclaw/plugin-sdk/media-runtime",
+        "openclaw/plugin-sdk/media-store",
+        "openclaw/plugin-sdk/media-understanding",
+        "openclaw/plugin-sdk/media-understanding-runtime",
+        "openclaw/plugin-sdk/memory-core-engine-runtime",
+        "openclaw/plugin-sdk/memory-core-host-engine-embeddings",
+        "openclaw/plugin-sdk/memory-core-host-engine-foundation",
+        "openclaw/plugin-sdk/memory-core-host-engine-qmd",
+        "openclaw/plugin-sdk/memory-core-host-engine-storage",
+        "openclaw/plugin-sdk/memory-core-host-events",
+        "openclaw/plugin-sdk/memory-core-host-multimodal",
+        "openclaw/plugin-sdk/memory-core-host-query",
+        "openclaw/plugin-sdk/memory-core-host-runtime-cli",
+        "openclaw/plugin-sdk/memory-core-host-runtime-core",
+        "openclaw/plugin-sdk/memory-core-host-runtime-files",
+        "openclaw/plugin-sdk/memory-core-host-secret",
+        "openclaw/plugin-sdk/memory-core-host-status",
+        "openclaw/plugin-sdk/memory-host-core",
+        "openclaw/plugin-sdk/memory-host-events",
+        "openclaw/plugin-sdk/memory-host-files",
+        "openclaw/plugin-sdk/memory-host-markdown",
+        "openclaw/plugin-sdk/memory-host-search",
+        "openclaw/plugin-sdk/memory-host-status",
+        "openclaw/plugin-sdk/messaging-targets",
+        "openclaw/plugin-sdk/migration",
+        "openclaw/plugin-sdk/migration-runtime",
+        "openclaw/plugin-sdk/model-session-runtime",
+        "openclaw/plugin-sdk/models-provider-runtime",
+        "openclaw/plugin-sdk/music-generation",
+        "openclaw/plugin-sdk/music-generation-core",
+        "openclaw/plugin-sdk/native-command-config-runtime",
+        "openclaw/plugin-sdk/native-command-registry",
+        "openclaw/plugin-sdk/outbound-media",
+        "openclaw/plugin-sdk/outbound-runtime",
+        "openclaw/plugin-sdk/outbound-send-deps",
+        "openclaw/plugin-sdk/param-readers",
+        "openclaw/plugin-sdk/persistent-dedupe",
+        "openclaw/plugin-sdk/plugin-config-runtime",
+        "openclaw/plugin-sdk/plugin-entry",
+        "openclaw/plugin-sdk/plugin-runtime",
+        "openclaw/plugin-sdk/poll-runtime",
+        "openclaw/plugin-sdk/process-runtime",
+        "openclaw/plugin-sdk/provider-auth",
+        "openclaw/plugin-sdk/provider-auth-api-key",
+        "openclaw/plugin-sdk/provider-auth-login",
+        "openclaw/plugin-sdk/provider-auth-result",
+        "openclaw/plugin-sdk/provider-auth-runtime",
+        "openclaw/plugin-sdk/provider-catalog-shared",
+        "openclaw/plugin-sdk/provider-entry",
+        "openclaw/plugin-sdk/provider-env-vars",
+        "openclaw/plugin-sdk/provider-http",
+        "openclaw/plugin-sdk/provider-model-shared",
+        "openclaw/plugin-sdk/provider-model-types",
+        "openclaw/plugin-sdk/provider-onboard",
+        "openclaw/plugin-sdk/provider-selection-runtime",
+        "openclaw/plugin-sdk/provider-setup",
+        "openclaw/plugin-sdk/provider-stream",
+        "openclaw/plugin-sdk/provider-stream-family",
+        "openclaw/plugin-sdk/provider-stream-shared",
+        "openclaw/plugin-sdk/provider-tools",
+        "openclaw/plugin-sdk/provider-transport-runtime",
+        "openclaw/plugin-sdk/provider-usage",
+        "openclaw/plugin-sdk/provider-web-fetch",
+        "openclaw/plugin-sdk/provider-web-fetch-contract",
+        "openclaw/plugin-sdk/provider-web-search",
+        "openclaw/plugin-sdk/provider-web-search-config-contract",
+        "openclaw/plugin-sdk/provider-web-search-contract",
+        "openclaw/plugin-sdk/provider-zai-endpoint",
+        "openclaw/plugin-sdk/proxy-capture",
+        "openclaw/plugin-sdk/qa-runner-runtime",
+        "openclaw/plugin-sdk/realtime-transcription",
+        "openclaw/plugin-sdk/realtime-voice",
+        "openclaw/plugin-sdk/reply-chunking",
+        "openclaw/plugin-sdk/reply-dedupe",
+        "openclaw/plugin-sdk/reply-dispatch-runtime",
+        "openclaw/plugin-sdk/reply-history",
+        "openclaw/plugin-sdk/reply-payload",
+        "openclaw/plugin-sdk/reply-reference",
+        "openclaw/plugin-sdk/reply-runtime",
+        "openclaw/plugin-sdk/request-url",
+        "openclaw/plugin-sdk/response-limit-runtime",
+        "openclaw/plugin-sdk/retry-runtime",
+        "openclaw/plugin-sdk/routing",
+        "openclaw/plugin-sdk/run-command",
+        "openclaw/plugin-sdk/runtime",
+        "openclaw/plugin-sdk/runtime-config-snapshot",
+        "openclaw/plugin-sdk/runtime-doctor",
+        "openclaw/plugin-sdk/runtime-env",
+        "openclaw/plugin-sdk/runtime-fetch",
+        "openclaw/plugin-sdk/runtime-group-policy",
+        "openclaw/plugin-sdk/runtime-logger",
+        "openclaw/plugin-sdk/runtime-secret-resolution",
+        "openclaw/plugin-sdk/runtime-store",
+        "openclaw/plugin-sdk/sandbox",
+        "openclaw/plugin-sdk/secret-file-runtime",
+        "openclaw/plugin-sdk/secret-input",
+        "openclaw/plugin-sdk/secret-input-runtime",
+        "openclaw/plugin-sdk/secret-ref-runtime",
+        "openclaw/plugin-sdk/security-runtime",
+        "openclaw/plugin-sdk/self-hosted-provider-setup",
+        "openclaw/plugin-sdk/session-binding-runtime",
+        "openclaw/plugin-sdk/session-key-runtime",
+        "openclaw/plugin-sdk/session-store-runtime",
+        "openclaw/plugin-sdk/session-transcript-hit",
+        "openclaw/plugin-sdk/session-visibility",
+        "openclaw/plugin-sdk/setup",
+        "openclaw/plugin-sdk/setup-adapter-runtime",
+        "openclaw/plugin-sdk/setup-runtime",
+        "openclaw/plugin-sdk/setup-tools",
+        "openclaw/plugin-sdk/simple-completion-runtime",
+        "openclaw/plugin-sdk/skill-commands-runtime",
+        "openclaw/plugin-sdk/skills-runtime",
+        "openclaw/plugin-sdk/speech",
+        "openclaw/plugin-sdk/speech-core",
+        "openclaw/plugin-sdk/ssrf-dispatcher",
+        "openclaw/plugin-sdk/ssrf-policy",
+        "openclaw/plugin-sdk/ssrf-runtime",
+        "openclaw/plugin-sdk/state-paths",
+        "openclaw/plugin-sdk/status-helpers",
+        "openclaw/plugin-sdk/string-coerce-runtime",
+        "openclaw/plugin-sdk/string-normalization-runtime",
+        "openclaw/plugin-sdk/talk-config-runtime",
+        "openclaw/plugin-sdk/target-resolver-runtime",
+        "openclaw/plugin-sdk/telegram-command-config",
+        "openclaw/plugin-sdk/temp-path",
+        "openclaw/plugin-sdk/testing",
+        "openclaw/plugin-sdk/text-autolink-runtime",
+        "openclaw/plugin-sdk/text-chunking",
+        "openclaw/plugin-sdk/text-runtime",
+        "openclaw/plugin-sdk/thread-bindings-runtime",
+        "openclaw/plugin-sdk/thread-bindings-session-runtime",
+        "openclaw/plugin-sdk/tool-payload",
+        "openclaw/plugin-sdk/tool-send",
+        "openclaw/plugin-sdk/tts-runtime",
+        "openclaw/plugin-sdk/video-generation",
+        "openclaw/plugin-sdk/video-generation-core",
+        "openclaw/plugin-sdk/video-generation-runtime",
+        "openclaw/plugin-sdk/web-content-extractor",
+        "openclaw/plugin-sdk/web-media",
+        "openclaw/plugin-sdk/webhook-ingress",
+        "openclaw/plugin-sdk/webhook-path",
+        "openclaw/plugin-sdk/webhook-request-guards",
+        "openclaw/plugin-sdk/webhook-targets",
+        "openclaw/plugin-sdk/windows-spawn",
+        "openclaw/plugin-sdk/zod"
+      ]
+    },
+    {
+      "fixture": "kitchen-sink",
       "code": "manifest-fields-checked",
       "level": "log",
       "message": "plugin manifest fields were compared with target OpenClaw manifest types",
@@ -18112,8 +17890,8 @@
       "message": "selected package metadata for plugin contract checks",
       "evidence": [
         "plugins/kitchen-sink/package.json",
-        "openclaw-kitchen-sink-plugin",
-        "version:0.1.0"
+        "openclaw-kitchen-sink",
+        "version:0.1.2"
       ]
     },
     {
@@ -19568,7 +19346,7 @@
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
-      "evidence": "@mariozechner/pi-agent-core, @mariozechner/pi-ai, @mariozechner/pi-coding-agent, @sinclair/typebox, openclaw"
+      "evidence": "@sinclair/typebox, @mariozechner/pi-agent-core, @mariozechner/pi-ai, @mariozechner/pi-coding-agent, openclaw"
     },
     {
       "fixture": "lossless-claw",
@@ -19779,13 +19557,6 @@
       "seam": "tool-schema",
       "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
       "evidence": "registerTool without manifest contracts.tools"
-    },
-    {
-      "fixture": "kitchen-sink",
-      "decision": "core-compat-adapter",
-      "seam": "sdk-alias",
-      "action": "Restore the package export alias or publish a versioned migration map before cold-importing old plugins.",
-      "evidence": "openclaw/plugin-sdk/bluebubbles, openclaw/plugin-sdk/bluebubbles-policy, openclaw/plugin-sdk/browser-cdp, openclaw/plugin-sdk/browser-config-runtime, openclaw/plugin-sdk/browser-config-support, openclaw/plugin-sdk/browser-control-auth, openclaw/plugin-sdk/browser-node-runtime, openclaw/plugin-sdk/browser-profiles, openclaw/plugin-sdk/browser-security-runtime, openclaw/plugin-sdk/browser-setup-tools, openclaw/plugin-sdk/browser-support, openclaw/plugin-sdk/diagnostics-otel, openclaw/plugin-sdk/diagnostics-prometheus, openclaw/plugin-sdk/diffs, openclaw/plugin-sdk/feishu, openclaw/plugin-sdk/feishu-conversation, openclaw/plugin-sdk/feishu-setup, openclaw/plugin-sdk/github-copilot-login, openclaw/plugin-sdk/github-copilot-token, openclaw/plugin-sdk/googlechat, openclaw/plugin-sdk/googlechat-runtime-shared, openclaw/plugin-sdk/irc, openclaw/plugin-sdk/irc-surface, openclaw/plugin-sdk/line, openclaw/plugin-sdk/line-core, openclaw/plugin-sdk/line-runtime, openclaw/plugin-sdk/line-surface, openclaw/plugin-sdk/llm-task, openclaw/plugin-sdk/matrix, openclaw/plugin-sdk/matrix-helper, openclaw/plugin-sdk/matrix-runtime-heavy, openclaw/plugin-sdk/matrix-runtime-shared, openclaw/plugin-sdk/matrix-runtime-surface, openclaw/plugin-sdk/matrix-surface, openclaw/plugin-sdk/matrix-thread-bindings, openclaw/plugin-sdk/mattermost, openclaw/plugin-sdk/mattermost-policy, openclaw/plugin-sdk/memory-core, openclaw/plugin-sdk/memory-lancedb, openclaw/plugin-sdk/msteams, openclaw/plugin-sdk/nextcloud-talk, openclaw/plugin-sdk/nostr, openclaw/plugin-sdk/opencode, openclaw/plugin-sdk/telegram-command-ui, openclaw/plugin-sdk/thread-ownership, openclaw/plugin-sdk/tlon, openclaw/plugin-sdk/twitch, openclaw/plugin-sdk/voice-call, openclaw/plugin-sdk/volc-model-catalog-shared, openclaw/plugin-sdk/zalo, openclaw/plugin-sdk/zalo-setup, openclaw/plugin-sdk/zalouser"
     },
     {
       "fixture": "kitchen-sink",
@@ -20370,13 +20141,6 @@
     },
     {
       "fixture": "honcho",
-      "decision": "core-compat-adapter",
-      "seam": "compat-registry",
-      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
-      "evidence": "plugin-sdk-export-aliases"
-    },
-    {
-      "fixture": "kitchen-sink",
       "decision": "core-compat-adapter",
       "seam": "compat-registry",
       "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",

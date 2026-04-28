@@ -28,14 +28,12 @@
     {
       "id": "compatibility-report.live-p0-issues",
       "action": "warn",
-      "message": "7 live P0 issues tracked",
+      "message": "5 live P0 issues tracked",
       "evidence": [
         "clawmetry:sdk-export-missing:untracked",
         "codex-app-server:sdk-export-missing:untracked",
         "honcho:sdk-export-missing:untracked",
         "hyperspell:unknown-hook-name:none",
-        "kitchen-sink:sdk-export-missing:untracked",
-        "kitchen-sink:unknown-hook-name:none",
         "yuanbao:sdk-export-missing:untracked"
       ]
     },
@@ -214,7 +212,7 @@
     {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "34 P1 issues tracked",
+      "message": "33 P1 issues tracked",
       "evidence": [
         "a2a-gateway:registration-capture-gap",
         "clawmetry:missing-compat-record",
@@ -230,7 +228,6 @@
         "hyperspell:registration-capture-gap",
         "kitchen-sink:before-tool-call-probe",
         "kitchen-sink:conversation-access-hook",
-        "kitchen-sink:missing-compat-record",
         "kitchen-sink:registration-capture-gap",
         "lightclawbot:registration-capture-gap",
         "llm-trace-phoenix:conversation-access-hook",
