@@ -10,7 +10,7 @@ is to catch contract drift before external plugin authors do.
 <!-- crabpot-summary:start -->
 ## Dashboard
 
-Last dashboard update: Apr 28, 2026, 22:24 UTC
+Last dashboard update: Apr 28, 2026, 23:36 UTC
 
 State: PASS
 
@@ -18,7 +18,7 @@ Mode: check
 
 OpenClaw: openclaw/openclaw@main
 
-Run: https://github.com/openclaw/crabpot/actions/runs/25080710877
+Run: https://github.com/openclaw/crabpot/actions/runs/25083136413
 
 ### Result Grid
 
@@ -26,11 +26,11 @@ Run: https://github.com/openclaw/crabpot/actions/runs/25080710877
 | ---------------------- | ---------------------------------------------------- |
 | Fixtures               | 29                                                   |
 | Hard breakages         | 0                                                    |
-| Warnings               | 62                                                   |
-| Suggestions            | 104                                                  |
-| Issues                 | 166                                                  |
-| P0 issues              | [🔴 P0 7](reports/crabpot-issues.md#p0-live-issues)  |
-| P1 issues              | [🟠 P1 34](reports/crabpot-issues.md#triage-summary) |
+| Warnings               | 60                                                   |
+| Suggestions            | 103                                                  |
+| Issues                 | 163                                                  |
+| P0 issues              | [🔴 P0 5](reports/crabpot-issues.md#p0-live-issues)  |
+| P1 issues              | [🟠 P1 33](reports/crabpot-issues.md#triage-summary) |
 | Live issues            | 5 total / 5 P0                                       |
 | Compat gaps            | 4                                                    |
 | Deprecation warnings   | 24                                                   |
@@ -42,7 +42,7 @@ Run: https://github.com/openclaw/crabpot/actions/runs/25080710877
 | Ref diff failures      | 0                                                    |
 | Profile failures       | 0                                                    |
 | Execution probes       | 6 pass / 0 fail / 2 blocked                          |
-| Synthetic probes       | 230 ready / 0 blocked / 230 total                    |
+| Synthetic probes       | 240 ready / 0 blocked / 240 total                    |
 | Cold import            | 0 ready / 34 blocked / 34 entrypoints                |
 | Workspace plan         | 34 entrypoints / 23 installs / 8 builds              |
 | Platform risks         | 173 Windows / 52 container                           |
