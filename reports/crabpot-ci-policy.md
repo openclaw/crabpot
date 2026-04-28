@@ -12,7 +12,7 @@ Strict: false
 | Fail                   | 0                                           |
 | Warn                   | 3                                           |
 | Pass                   | 6                                           |
-| Allowed blocked rules  | 2                                           |
+| Allowed blocked rules  | 3                                           |
 | Expected warning rules | 1                                           |
 | Fixture sets           | build, sdk-alias, side-effect-review, smoke |
 

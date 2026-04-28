@@ -12,9 +12,16 @@
     {
       "id": "service-lifecycle-harness",
       "seam": "registerService",
-      "reasonIncludes": "lifecycle",
+      "reasonIncludes": "includeLifecycle=true",
       "decision": "allowed-blocked",
       "until": "service lifecycle harness lands"
+    },
+    {
+      "id": "provider-capability-harness",
+      "seam": "registerSpeechProvider",
+      "reasonIncludes": "includeProviderCapabilities=true",
+      "decision": "allowed-blocked",
+      "until": "provider capability harness lands"
     }
   ],
   "expectedWarnings": [

@@ -59,6 +59,33 @@ test("ci policy allows known blocked probes but fails unknown blockers", async (
   assert.match(renderCiPolicyMarkdown(report), /Crabpot CI Policy/);
 });
 
+test("default ci policy classifies opt-in kitchen-sink blockers", async () => {
+  const report = await buildCiPolicyReport({
+    compatibilityReport: compatibilityReport(),
+    executionResults: executionResults([
+      {
+        seam: "registerChannel",
+        reason: "captured registration requires includeChannelRuntime=true",
+      },
+      {
+        seam: "registerService",
+        reason: "captured registration requires includeLifecycle=true",
+      },
+      {
+        seam: "registerSpeechProvider",
+        reason: "captured registration requires includeProviderCapabilities=true",
+      },
+    ]),
+  });
+
+  assert.equal(report.status, "pass");
+  assert.equal(validateCiPolicyReport(report).length, 0);
+  assert.deepEqual(
+    report.checks.filter((check) => check.id.startsWith("execution-results.blocked.")).map((check) => check.action),
+    ["warn", "warn", "warn"],
+  );
+});
+
 test("ci policy fails ref diff hard regressions", async () => {
   const report = await buildCiPolicyReport({
     policy,
