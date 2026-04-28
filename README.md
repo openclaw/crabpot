@@ -10,7 +10,7 @@ is to catch contract drift before external plugin authors do.
 <!-- crabpot-summary:start -->
 ## Dashboard
 
-Last dashboard update: Apr 28, 2026, 03:54 UTC
+Last dashboard update: Apr 28, 2026, 04:01 UTC
 
 State: PASS
 
@@ -18,7 +18,7 @@ Mode: check
 
 OpenClaw: openclaw/openclaw@main
 
-Run: https://github.com/openclaw/crabpot/actions/runs/25032880188
+Run: https://github.com/openclaw/crabpot/actions/runs/25033093004
 
 ### Result Grid
 
@@ -27,15 +27,15 @@ Run: https://github.com/openclaw/crabpot/actions/runs/25032880188
 | Fixtures               | 28                                                   |
 | Hard breakages         | 0                                                    |
 | Warnings               | 57                                                   |
-| Suggestions            | 96                                                   |
-| Issues                 | 153                                                  |
-| P0 issues              | [🔴 P0 2](reports/crabpot-issues.md#p0-live-issues)  |
+| Suggestions            | 98                                                   |
+| Issues                 | 155                                                  |
+| P0 issues              | [🔴 P0 4](reports/crabpot-issues.md#p0-live-issues)  |
 | P1 issues              | [🟠 P1 30](reports/crabpot-issues.md#triage-summary) |
-| Live issues            | 2 total / 2 P0                                       |
-| Compat gaps            | 1                                                    |
+| Live issues            | 4 total / 4 P0                                       |
+| Compat gaps            | 3                                                    |
 | Deprecation warnings   | 22                                                   |
 | Inspector gaps         | 101                                                  |
-| Upstream metadata      | 27                                                   |
+| Upstream metadata      | 25                                                   |
 | Contract probes        | 151                                                  |
 | Policy failures        | 0                                                    |
 | Policy warnings        | 3                                                    |
@@ -52,18 +52,18 @@ Run: https://github.com/openclaw/crabpot/actions/runs/25032880188
 
 ### Top Discovered Issues
 
-| Severity | Class             | Fixture            | Code                     | Decision            | Title                                                                                                                              |
-| -------- | ----------------- | ------------------ | ------------------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| 🔴 P0    | live-issue        | codex-app-server   | sdk-export-missing       | core-compat-adapter | [codex-app-server: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#p0-live-issues)    |
-| 🔴 P0    | live-issue        | hyperspell         | unknown-hook-name        | core-compat-adapter | [hyperspell: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)                           |
-| 🟠 P1    | inspector-gap     | a2a-gateway        | registration-capture-gap | inspector-follow-up | [a2a-gateway: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)         |
-| 🟠 P1    | inspector-gap     | clawmetry          | registration-capture-gap | inspector-follow-up | [clawmetry: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)           |
-| 🟠 P1    | upstream-metadata | clawmetry          | reserved-sdk-import      | plugin-upstream-fix | [clawmetry: plugin imports reserved bundled-plugin SDK compatibility subpaths](reports/crabpot-issues.md#upstream-metadata-issues) |
-| 🟠 P1    | compat-gap        | codex-app-server   | missing-compat-record    | core-compat-adapter | [codex-app-server: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)                       |
-| 🟠 P1    | inspector-gap     | codex-app-server   | registration-capture-gap | inspector-follow-up | [codex-app-server: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)    |
-| 🟠 P1    | inspector-gap     | connectclaw        | registration-capture-gap | inspector-follow-up | [connectclaw: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)         |
-| 🟠 P1    | inspector-gap     | dingtalk-connector | registration-capture-gap | inspector-follow-up | [dingtalk-connector: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)  |
-| 🟠 P1    | inspector-gap     | honcho             | conversation-access-hook | inspector-follow-up | [honcho: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)                   |
+| Severity | Class         | Fixture          | Code                     | Decision            | Title                                                                                                                           |
+| -------- | ------------- | ---------------- | ------------------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| 🔴 P0    | live-issue    | clawmetry        | sdk-export-missing       | core-compat-adapter | [clawmetry: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#p0-live-issues)        |
+| 🔴 P0    | live-issue    | codex-app-server | sdk-export-missing       | core-compat-adapter | [codex-app-server: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#p0-live-issues) |
+| 🔴 P0    | live-issue    | hyperspell       | unknown-hook-name        | core-compat-adapter | [hyperspell: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)                        |
+| 🔴 P0    | live-issue    | yuanbao          | sdk-export-missing       | core-compat-adapter | [yuanbao: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#p0-live-issues)          |
+| 🟠 P1    | inspector-gap | a2a-gateway      | registration-capture-gap | inspector-follow-up | [a2a-gateway: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)      |
+| 🟠 P1    | compat-gap    | clawmetry        | missing-compat-record    | core-compat-adapter | [clawmetry: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)                           |
+| 🟠 P1    | inspector-gap | clawmetry        | registration-capture-gap | inspector-follow-up | [clawmetry: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)        |
+| 🟠 P1    | compat-gap    | codex-app-server | missing-compat-record    | core-compat-adapter | [codex-app-server: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)                    |
+| 🟠 P1    | inspector-gap | codex-app-server | registration-capture-gap | inspector-follow-up | [codex-app-server: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps) |
+| 🟠 P1    | inspector-gap | connectclaw      | registration-capture-gap | inspector-follow-up | [connectclaw: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)      |
 <!-- crabpot-summary:end -->
 ## What this tests
 
