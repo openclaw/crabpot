@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { buildColdImportReadiness } from "./cold-import-readiness.mjs";
-import { buildReport } from "./report-lib.mjs";
-import { repoRoot } from "./manifest-lib.mjs";
-import { loadPluginInspector } from "./plugin-inspector-source.mjs";
+import { readManifest, repoRoot } from "./manifest-lib.mjs";
+import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 
-const pluginInspector = await loadPluginInspector();
+const pluginInspector = await loadPluginInspectorPublicApi();
 
 export const defaultWorkspacePlanJsonPath = path.join(repoRoot, "reports/crabpot-workspace-plan.json");
 export const defaultWorkspacePlanMarkdownPath = path.join(repoRoot, "reports/crabpot-workspace-plan.md");
@@ -82,23 +80,26 @@ function parseArgs(argv) {
 }
 
 export async function buildWorkspacePlan(options = {}) {
-  const report = options.report ?? (await buildReport({ openclawPath: options.openclawPath }));
-  const readiness = options.readiness ?? (await buildColdImportReadiness({ report }));
-  return pluginInspector.buildWorkspacePlan({
+  const config = options.report
+    ? undefined
+    : {
+        ...(await readManifest()),
+        rootDir: repoRoot,
+      };
+  return pluginInspector.buildFixtureSetWorkspacePlan({
     ...crabpotWorkspacePlanOptions,
     ...options,
-    report,
-    readiness,
+    config,
     rootDir: options.rootDir ?? repoRoot,
   });
 }
 
 export function validateWorkspacePlan(plan) {
-  return pluginInspector.validateWorkspacePlan(plan, crabpotWorkspacePlanOptions);
+  return pluginInspector.validateFixtureSetWorkspacePlan(plan, crabpotWorkspacePlanOptions);
 }
 
 export async function writeWorkspacePlan(plan, options = {}) {
-  return pluginInspector.writeWorkspacePlan(plan, {
+  return pluginInspector.writeFixtureSetWorkspacePlan(plan, {
     jsonPath: options.jsonPath ?? defaultWorkspacePlanJsonPath,
     markdownPath: options.markdownPath ?? defaultWorkspacePlanMarkdownPath,
     title: options.title ?? "Crabpot Isolated Workspace Plan",
@@ -106,7 +107,7 @@ export async function writeWorkspacePlan(plan, options = {}) {
 }
 
 export function renderWorkspacePlanMarkdown(plan, options = {}) {
-  return pluginInspector.renderWorkspacePlanMarkdown(plan, {
+  return pluginInspector.renderFixtureSetWorkspacePlanMarkdown(plan, {
     ...options,
     title: options.title ?? "Crabpot Isolated Workspace Plan",
   });

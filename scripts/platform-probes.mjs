@@ -2,16 +2,16 @@
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
-import { loadPluginInspector } from "./plugin-inspector-source.mjs";
+import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 import { buildWorkspacePlan } from "./workspace-plan.mjs";
 
-const pluginInspector = await loadPluginInspector();
+const pluginInspector = await loadPluginInspectorPublicApi();
 
 export const defaultPlatformProbesJsonPath = path.join(repoRoot, "reports/crabpot-platform-probes.json");
 export const defaultPlatformProbesMarkdownPath = path.join(repoRoot, "reports/crabpot-platform-probes.md");
 
-export const PLATFORM_TARGETS = pluginInspector.defaultPlatformTargets;
-export const validatePlatformProbes = pluginInspector.validatePlatformProbes;
+export const PLATFORM_TARGETS = ["linux", "macos", "windows", "container"];
+export const validatePlatformProbes = pluginInspector.validateFixtureSetPlatformProbes;
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   await main();
@@ -74,11 +74,11 @@ function parseArgs(argv) {
 
 export async function buildPlatformProbes(options = {}) {
   const plan = options.plan ?? (await buildWorkspacePlan({ openclawPath: options.openclawPath }));
-  return pluginInspector.buildPlatformProbes({ ...options, plan });
+  return pluginInspector.buildFixtureSetPlatformProbes({ ...options, plan });
 }
 
 export async function writePlatformProbes(report, options = {}) {
-  return pluginInspector.writePlatformProbes(report, {
+  return pluginInspector.writeFixtureSetPlatformProbes(report, {
     jsonPath: options.jsonPath ?? defaultPlatformProbesJsonPath,
     markdownPath: options.markdownPath ?? defaultPlatformProbesMarkdownPath,
     title: options.title ?? "Crabpot Platform And Loader Probes",
@@ -86,7 +86,7 @@ export async function writePlatformProbes(report, options = {}) {
 }
 
 export function renderPlatformProbesMarkdown(report, options = {}) {
-  return pluginInspector.renderPlatformProbesMarkdown(report, {
+  return pluginInspector.renderFixtureSetPlatformProbesMarkdown(report, {
     ...options,
     title: options.title ?? "Crabpot Platform And Loader Probes",
   });
