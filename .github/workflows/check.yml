@@ -36,6 +36,7 @@ jobs:
       - run: node scripts/run-contract-smoke.mjs --strict --openclaw ./openclaw
       - run: node scripts/inspect-fixtures.mjs --check
       - run: npm run plugin-inspector:smoke
+      - run: node scripts/check-generated-surface-fixture.mjs --check --openclaw ./openclaw
       - run: node scripts/generate-report.mjs --check --openclaw ./openclaw
       - run: node scripts/capture-contracts.mjs --check --openclaw ./openclaw
       - run: node scripts/synthetic-probes.mjs --check --openclaw ./openclaw
@@ -55,6 +56,7 @@ jobs:
           node scripts/cold-import-readiness.mjs --openclaw ./openclaw
           node scripts/workspace-plan.mjs --openclaw ./openclaw
           node scripts/platform-probes.mjs --openclaw ./openclaw
+          node scripts/check-generated-surface-fixture.mjs --openclaw ./openclaw
           node scripts/import-loop-profile.mjs
           node scripts/profile-contract-runtime.mjs --openclaw ./openclaw
           node scripts/compare-runtime-profile.mjs
@@ -87,6 +89,7 @@ jobs:
       - run: node scripts/sync-fixtures.mjs --check
       - run: node scripts/inspect-fixtures.mjs --check
       - run: npm run plugin-inspector:smoke
+      - run: node scripts/check-generated-surface-fixture.mjs --check --openclaw ./openclaw
       - run: node scripts/generate-report.mjs --check --openclaw ./openclaw
       - run: node scripts/cold-import-readiness.mjs --check --openclaw ./openclaw
       - run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw

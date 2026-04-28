@@ -4,14 +4,20 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
 
-export const pluginInspectorRef = "ed80dc2d15b3b2bf02a4d52050341ee2854a85b1";
+export const pluginInspectorRef = "41a47e9a1837547d0ba72220427ed67365c35b78";
 export const pluginInspectorPackage = "@openclaw/plugin-inspector@0.2.0";
 
 export async function loadPluginInspector() {
-  return import(pathToFileURL(resolvePluginInspectorSourcePath()).href);
+  const publicApi = await import(pathToFileURL(resolvePluginInspectorSourcePath()).href);
+  if (typeof publicApi.inspectPlugin === "function" && typeof publicApi.inspectSourceText === "function") {
+    return publicApi;
+  }
+
+  const advancedApiPath = path.join(resolvePluginInspectorRoot(), "src", "advanced.js");
+  return import(pathToFileURL(advancedApiPath).href);
 }
 
-export function resolvePluginInspectorCliInvocation() {
+export function resolvePluginInspectorCliInvocation(options = {}) {
   if (process.env.CRABPOT_PLUGIN_INSPECTOR_BIN) {
     return {
       command: process.env.CRABPOT_PLUGIN_INSPECTOR_BIN,
@@ -19,7 +25,8 @@ export function resolvePluginInspectorCliInvocation() {
     };
   }
 
-  if (process.env.CRABPOT_PLUGIN_INSPECTOR_CLI !== "source") {
+  const useSource = options.preferSource || process.env.CRABPOT_PLUGIN_INSPECTOR_CLI === "source";
+  if (!useSource) {
     return {
       command: npmCommand(),
       args: ["exec", "--yes", "--package", pluginInspectorPackage, "--", "plugin-inspector"],
