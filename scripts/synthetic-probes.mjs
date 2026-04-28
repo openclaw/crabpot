@@ -1,15 +1,16 @@
 #!/usr/bin/env node
+import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { buildReport } from "./report-lib.mjs";
 import { repoRoot } from "./manifest-lib.mjs";
-import { loadPluginInspector } from "./plugin-inspector-source.mjs";
+import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 import { captureEntrypoint } from "./run-cold-import-capture.mjs";
 
 export const defaultSyntheticProbeJsonPath = path.join(repoRoot, "reports/crabpot-synthetic-probes.json");
 export const defaultSyntheticProbeMarkdownPath = path.join(repoRoot, "reports/crabpot-synthetic-probes.md");
 
-const pluginInspector = await loadPluginInspector();
+const pluginInspector = await loadPluginInspectorPublicApi();
 
 export const validateSyntheticProbePlan = pluginInspector.validateSyntheticProbePlan;
 
@@ -138,5 +139,6 @@ async function writeJsonResult(result, outputPath) {
     process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
     return;
   }
-  await pluginInspector.writeArtifacts([{ path: outputPath, json: result }]);
+  await mkdir(path.dirname(outputPath), { recursive: true });
+  await writeFile(outputPath, `${JSON.stringify(result, null, 2)}\n`, "utf8");
 }
