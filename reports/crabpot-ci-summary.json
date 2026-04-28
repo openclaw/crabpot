@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "local",
-  "openclawLabel": "",
+  "mode": "dependabot",
+  "openclawLabel": "openclaw/openclaw@main",
   "status": "pass",
   "summary": {
     "breakages": 0,
@@ -22,17 +22,17 @@
     "policyFailures": 0,
     "policyWarnings": 3,
     "profileFailures": 0,
-    "profileWarnings": 1,
+    "profileWarnings": 0,
     "executionPass": 6,
     "executionFail": 0,
     "executionBlocked": 2,
     "platformWindowsRisks": 173,
     "platformContainerRisks": 52,
     "loaderJitiCandidates": 18,
-    "importLoopP50Ms": 637,
-    "importLoopP95Ms": 662,
-    "importLoopMaxRssMb": 51.3,
-    "importLoopMaxCpuMs": 168
+    "importLoopP50Ms": 73,
+    "importLoopP95Ms": 76,
+    "importLoopMaxRssMb": 0,
+    "importLoopMaxCpuMs": 0
   },
   "topIssues": [
     {
@@ -235,18 +235,7 @@
       ]
     }
   ],
-  "profileFindings": [
-    {
-      "id": "profile.wall-p95",
-      "action": "warn",
-      "metric": "p95WallMs",
-      "message": "p95WallMs regressed 262.5% over baseline",
-      "baseline": 1273,
-      "current": 4615,
-      "delta": 3342,
-      "percent": 262.5
-    }
-  ],
+  "profileFindings": [],
   "artifacts": {
     "compatibility": "reports/crabpot-report.json",
     "capture": "reports/crabpot-capture.json",

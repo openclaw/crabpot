@@ -575,7 +575,7 @@
       "riskCodes": [
         "package-manager-availability"
       ],
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "mitigation": "install the declared package manager before isolated execution"
     },
     {
@@ -661,7 +661,7 @@
       "riskCodes": [
         "package-manager-availability"
       ],
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "mitigation": "install the declared package manager before isolated execution"
     },
     {
@@ -1327,7 +1327,7 @@
       "riskCodes": [
         "package-manager-availability"
       ],
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "mitigation": "install the declared package manager before isolated execution"
     },
     {
@@ -1503,7 +1503,7 @@
       "riskCodes": [
         "package-manager-availability"
       ],
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "mitigation": "install the declared package manager before isolated execution"
     },
     {
@@ -1933,7 +1933,7 @@
       "riskCodes": [
         "package-manager-availability"
       ],
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "mitigation": "install the declared package manager before isolated execution"
     },
     {
@@ -2657,7 +2657,7 @@
       "riskCodes": [
         "package-manager-availability"
       ],
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "mitigation": "install the declared package manager before isolated execution"
     },
     {
@@ -2903,7 +2903,7 @@
       "riskCodes": [
         "package-manager-availability"
       ],
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "mitigation": "install the declared package manager before isolated execution"
     },
     {

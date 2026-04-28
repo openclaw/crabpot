@@ -1,13 +1,12 @@
 {
   "generatedAt": "deterministic",
   "targetOpenClaw": {
-    "configuredPath": "../openclaw",
+    "configuredPath": "./openclaw",
     "searchedPaths": [
-      "../openclaw",
       "./openclaw"
     ],
     "status": "ok",
-    "compatRegistryPath": "../openclaw/src/plugins/compat/registry.ts",
+    "compatRegistryPath": "openclaw/src/plugins/compat/registry.ts",
     "compatRecordCount": 56,
     "compatRecords": [
       "activation-agent-harness-hint",
@@ -125,7 +124,7 @@
       "runtime-taskflow-legacy-alias": "deprecated",
       "setup-runtime-fallback": "active"
     },
-    "hookTypesPath": "../openclaw/src/plugins/hook-types.ts",
+    "hookTypesPath": "openclaw/src/plugins/hook-types.ts",
     "hookNameCount": 35,
     "hookNames": [
       "after_compaction",
@@ -164,7 +163,7 @@
       "subagent_spawning",
       "tool_result_persist"
     ],
-    "apiBuilderPath": "../openclaw/src/plugins/api-builder.ts",
+    "apiBuilderPath": "openclaw/src/plugins/api-builder.ts",
     "apiRegistrarCount": 48,
     "apiRegistrars": [
       "registerAgentEventSubscription",
@@ -216,7 +215,7 @@
       "registerWebFetchProvider",
       "registerWebSearchProvider"
     ],
-    "capturedRegistrationPath": "../openclaw/src/plugins/captured-registration.ts",
+    "capturedRegistrationPath": "openclaw/src/plugins/captured-registration.ts",
     "capturedRegistrarCount": 26,
     "capturedRegistrars": [
       "registerAgentEventSubscription",
@@ -246,7 +245,7 @@
       "registerWebFetchProvider",
       "registerWebSearchProvider"
     ],
-    "packagePath": "../openclaw/package.json",
+    "packagePath": "openclaw/package.json",
     "sdkExportCount": 292,
     "sdkExports": [
       "openclaw/plugin-sdk",
@@ -542,7 +541,7 @@
       "openclaw/plugin-sdk/windows-spawn",
       "openclaw/plugin-sdk/zod"
     ],
-    "pluginSdkEntrypointsPath": "../openclaw/src/plugin-sdk/entrypoints.ts",
+    "pluginSdkEntrypointsPath": "openclaw/src/plugin-sdk/entrypoints.ts",
     "reservedSdkExportCount": 0,
     "reservedSdkExports": [],
     "supportedFacadeSdkExports": [
@@ -578,7 +577,7 @@
       "openclaw/plugin-sdk/telegram-command-config",
       "openclaw/plugin-sdk/video-generation-core"
     ],
-    "manifestTypesPath": "../openclaw/src/plugins/manifest.ts",
+    "manifestTypesPath": "openclaw/src/plugins/manifest.ts",
     "manifestFieldCount": 35,
     "manifestFields": [
       "activation",
@@ -964,32 +963,32 @@
         {
           "name": "before_prompt_build",
           "file": "plugins/wecom/index.js",
-          "line": 53,
-          "ref": "plugins/wecom/index.js:53"
+          "line": 64,
+          "ref": "plugins/wecom/index.js:64"
         },
         {
           "name": "before_tool_call",
           "file": "plugins/wecom/index.js",
-          "line": 65,
-          "ref": "plugins/wecom/index.js:65"
+          "line": 76,
+          "ref": "plugins/wecom/index.js:76"
         },
         {
           "name": "subagent_delivery_target",
           "file": "plugins/wecom/index.js",
-          "line": 61,
-          "ref": "plugins/wecom/index.js:61"
+          "line": 72,
+          "ref": "plugins/wecom/index.js:72"
         },
         {
           "name": "subagent_ended",
           "file": "plugins/wecom/index.js",
-          "line": 63,
-          "ref": "plugins/wecom/index.js:63"
+          "line": 74,
+          "ref": "plugins/wecom/index.js:74"
         },
         {
           "name": "subagent_spawned",
           "file": "plugins/wecom/index.js",
-          "line": 62,
-          "ref": "plugins/wecom/index.js:62"
+          "line": 73,
+          "ref": "plugins/wecom/index.js:73"
         }
       ],
       "registrations": [
@@ -1007,8 +1006,8 @@
         {
           "name": "registerHttpRoute",
           "file": "plugins/wecom/index.js",
-          "line": 45,
-          "ref": "plugins/wecom/index.js:45"
+          "line": 56,
+          "ref": "plugins/wecom/index.js:56"
         },
         {
           "name": "registerTool",
@@ -1019,14 +1018,14 @@
         {
           "name": "registerTool",
           "file": "plugins/wecom/index.js",
-          "line": 29,
-          "ref": "plugins/wecom/index.js:29"
+          "line": 40,
+          "ref": "plugins/wecom/index.js:40"
         },
         {
           "name": "registerTool",
           "file": "plugins/wecom/index.js",
-          "line": 33,
-          "ref": "plugins/wecom/index.js:33"
+          "line": 44,
+          "ref": "plugins/wecom/index.js:44"
         }
       ],
       "manifestContracts": [],
@@ -1081,10 +1080,12 @@
           "name": "OpenClaw WeCom",
           "version": null,
           "keys": [
+            "channelConfigs",
             "channels",
             "configSchema",
             "description",
             "id",
+            "kind",
             "name",
             "skills"
           ],
@@ -1097,7 +1098,7 @@
       "package": {
         "path": "plugins/wecom/package.json",
         "name": "@sunnoy/wecom",
-        "version": "3.0.1",
+        "version": "3.2.0",
         "type": "module",
         "main": "index.js",
         "dependencies": [
@@ -1135,7 +1136,7 @@
         {
           "path": "plugins/wecom/package.json",
           "name": "@sunnoy/wecom",
-          "version": "3.0.1",
+          "version": "3.2.0",
           "type": "module",
           "main": "index.js",
           "dependencies": [
@@ -10956,7 +10957,7 @@
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27",
-        "registerHttpRoute @ plugins/wecom/index.js:45"
+        "registerHttpRoute @ plugins/wecom/index.js:56"
       ]
     },
     {
@@ -10965,7 +10966,7 @@
       "level": "suggestion",
       "message": "add contract probes for before_tool_call terminal, block, and approval semantics",
       "evidence": [
-        "before_tool_call @ plugins/wecom/index.js:65"
+        "before_tool_call @ plugins/wecom/index.js:76"
       ]
     },
     {
@@ -10984,8 +10985,8 @@
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
         "registerTool @ plugins/wecom/index.js:28",
-        "registerTool @ plugins/wecom/index.js:29",
-        "registerTool @ plugins/wecom/index.js:33"
+        "registerTool @ plugins/wecom/index.js:40",
+        "registerTool @ plugins/wecom/index.js:44"
       ]
     },
     {
@@ -12773,7 +12774,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-B08DB79E",
+      "id": "CRABPOT-1FE68ED5",
       "fixture": "wecom",
       "severity": "P1",
       "owner": "inspector",
@@ -12786,12 +12787,12 @@
       "compatStatus": "none",
       "title": "wecom: before_tool_call needs terminal/block/approval probes",
       "evidence": [
-        "before_tool_call @ plugins/wecom/index.js:65"
+        "before_tool_call @ plugins/wecom/index.js:76"
       ],
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-9428734C",
+      "id": "CRABPOT-9DFD8746",
       "fixture": "wecom",
       "severity": "P1",
       "owner": "inspector",
@@ -12805,7 +12806,7 @@
       "title": "wecom: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27",
-        "registerHttpRoute @ plugins/wecom/index.js:45"
+        "registerHttpRoute @ plugins/wecom/index.js:56"
       ],
       "compatRecord": null
     },
@@ -15174,7 +15175,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-72021A36",
+      "id": "CRABPOT-76A40DAA",
       "fixture": "wecom",
       "severity": "P2",
       "owner": "inspector",
@@ -15188,8 +15189,8 @@
       "title": "wecom: runtime tool schema needs registration capture",
       "evidence": [
         "registerTool @ plugins/wecom/index.js:28",
-        "registerTool @ plugins/wecom/index.js:29",
-        "registerTool @ plugins/wecom/index.js:33"
+        "registerTool @ plugins/wecom/index.js:40",
+        "registerTool @ plugins/wecom/index.js:44"
       ],
       "compatRecord": null
     },
@@ -15506,7 +15507,7 @@
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27",
-        "registerHttpRoute @ plugins/wecom/index.js:45"
+        "registerHttpRoute @ plugins/wecom/index.js:56"
       ]
     },
     {
@@ -15549,7 +15550,7 @@
       "target": "hook-runner",
       "contract": "Hook returns preserve terminal, block, and approval semantics.",
       "evidence": [
-        "before_tool_call @ plugins/wecom/index.js:65"
+        "before_tool_call @ plugins/wecom/index.js:76"
       ]
     },
     {
@@ -16796,8 +16797,8 @@
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
         "registerTool @ plugins/wecom/index.js:28",
-        "registerTool @ plugins/wecom/index.js:29",
-        "registerTool @ plugins/wecom/index.js:33"
+        "registerTool @ plugins/wecom/index.js:40",
+        "registerTool @ plugins/wecom/index.js:44"
       ]
     },
     {
@@ -17281,7 +17282,7 @@
       "evidence": [
         "plugins/wecom/package.json",
         "@sunnoy/wecom",
-        "version:3.0.1"
+        "version:3.2.0"
       ]
     },
     {

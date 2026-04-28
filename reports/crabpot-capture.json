@@ -2,7 +2,7 @@
   "generatedAt": "deterministic",
   "targetOpenClaw": {
     "status": "ok",
-    "configuredPath": "../openclaw",
+    "configuredPath": "./openclaw",
     "capturedRegistrarCount": 26,
     "sdkExportCount": 292
   },
@@ -172,10 +172,10 @@
           ]
         },
         {
-          "id": "registration.registerHttpRoute:wecom:plugins-wecom-index-js-45",
+          "id": "registration.registerHttpRoute:wecom:plugins-wecom-index-js-56",
           "fixture": "wecom",
           "registrar": "registerHttpRoute",
-          "ref": "plugins/wecom/index.js:45",
+          "ref": "plugins/wecom/index.js:56",
           "support": "inspector-shim-required",
           "assertions": [
             "route method and path are captured",
@@ -212,10 +212,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:wecom:plugins-wecom-index-js-29",
+          "id": "registration.registerTool:wecom:plugins-wecom-index-js-40",
           "fixture": "wecom",
           "registrar": "registerTool",
-          "ref": "plugins/wecom/index.js:29",
+          "ref": "plugins/wecom/index.js:40",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -234,10 +234,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:wecom:plugins-wecom-index-js-33",
+          "id": "registration.registerTool:wecom:plugins-wecom-index-js-44",
           "fixture": "wecom",
           "registrar": "registerTool",
-          "ref": "plugins/wecom/index.js:33",
+          "ref": "plugins/wecom/index.js:44",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -258,10 +258,10 @@
       ],
       "hooks": [
         {
-          "id": "hook.before_prompt_build:wecom:plugins-wecom-index-js-53",
+          "id": "hook.before_prompt_build:wecom:plugins-wecom-index-js-64",
           "fixture": "wecom",
           "hook": "before_prompt_build",
-          "ref": "plugins/wecom/index.js:53",
+          "ref": "plugins/wecom/index.js:64",
           "support": "synthetic-event-required",
           "assertions": [
             "prompt mutation result is preserved",
@@ -289,10 +289,10 @@
           }
         },
         {
-          "id": "hook.before_tool_call:wecom:plugins-wecom-index-js-65",
+          "id": "hook.before_tool_call:wecom:plugins-wecom-index-js-76",
           "fixture": "wecom",
           "hook": "before_tool_call",
-          "ref": "plugins/wecom/index.js:65",
+          "ref": "plugins/wecom/index.js:76",
           "support": "synthetic-event-required",
           "assertions": [
             "block/allow return shapes are preserved",
@@ -312,10 +312,10 @@
           }
         },
         {
-          "id": "hook.subagent_delivery_target:wecom:plugins-wecom-index-js-61",
+          "id": "hook.subagent_delivery_target:wecom:plugins-wecom-index-js-72",
           "fixture": "wecom",
           "hook": "subagent_delivery_target",
-          "ref": "plugins/wecom/index.js:61",
+          "ref": "plugins/wecom/index.js:72",
           "support": "synthetic-event-required",
           "assertions": [
             "target routing result is preserved",
@@ -337,10 +337,10 @@
           }
         },
         {
-          "id": "hook.subagent_ended:wecom:plugins-wecom-index-js-63",
+          "id": "hook.subagent_ended:wecom:plugins-wecom-index-js-74",
           "fixture": "wecom",
           "hook": "subagent_ended",
-          "ref": "plugins/wecom/index.js:63",
+          "ref": "plugins/wecom/index.js:74",
           "support": "synthetic-event-required",
           "assertions": [
             "subagent completion payload is preserved",
@@ -357,10 +357,10 @@
           }
         },
         {
-          "id": "hook.subagent_spawned:wecom:plugins-wecom-index-js-62",
+          "id": "hook.subagent_spawned:wecom:plugins-wecom-index-js-73",
           "fixture": "wecom",
           "hook": "subagent_spawned",
-          "ref": "plugins/wecom/index.js:62",
+          "ref": "plugins/wecom/index.js:73",
           "support": "synthetic-event-required",
           "assertions": [
             "spawn payload is preserved",
@@ -11159,7 +11159,7 @@
       "target": "inspector-capture-api",
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27",
-        "registerHttpRoute @ plugins/wecom/index.js:45"
+        "registerHttpRoute @ plugins/wecom/index.js:56"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -11214,7 +11214,7 @@
       "priority": "P1",
       "target": "hook-runner",
       "evidence": [
-        "before_tool_call @ plugins/wecom/index.js:65"
+        "before_tool_call @ plugins/wecom/index.js:76"
       ],
       "assertions": [
         "synthetic event payload is accepted",
@@ -12770,8 +12770,8 @@
       "target": "tool-runtime",
       "evidence": [
         "registerTool @ plugins/wecom/index.js:28",
-        "registerTool @ plugins/wecom/index.js:29",
-        "registerTool @ plugins/wecom/index.js:33"
+        "registerTool @ plugins/wecom/index.js:40",
+        "registerTool @ plugins/wecom/index.js:44"
       ],
       "assertions": [
         "tool schema is captured",

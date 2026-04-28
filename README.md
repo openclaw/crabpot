@@ -10,15 +10,15 @@ is to catch contract drift before external plugin authors do.
 <!-- crabpot-summary:start -->
 ## Dashboard
 
-Last dashboard update: Apr 28, 2026, 20:45 UTC
+Last dashboard update: Apr 28, 2026, 22:06 UTC
 
 State: PASS
 
-Mode: check
+Mode: dependabot
 
 OpenClaw: openclaw/openclaw@main
 
-Run: https://github.com/openclaw/crabpot/actions/runs/25076606267
+Run: https://github.com/openclaw/crabpot/actions/runs/25080150772
 
 ### Result Grid
 

@@ -13,7 +13,7 @@
   },
   "probes": [
     {
-      "id": "hook.before_prompt_build:wecom:plugins-wecom-index-js-53",
+      "id": "hook.before_prompt_build:wecom:plugins-wecom-index-js-64",
       "fixture": "wecom",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -43,10 +43,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/wecom/index.js:53"
+      "source": "plugins/wecom/index.js:64"
     },
     {
-      "id": "hook.before_tool_call:wecom:plugins-wecom-index-js-65",
+      "id": "hook.before_tool_call:wecom:plugins-wecom-index-js-76",
       "fixture": "wecom",
       "kind": "hook",
       "seam": "before_tool_call",
@@ -68,10 +68,10 @@
         "sessionId": "session-fixture",
         "toolName": "fixture_tool"
       },
-      "source": "plugins/wecom/index.js:65"
+      "source": "plugins/wecom/index.js:76"
     },
     {
-      "id": "hook.subagent_delivery_target:wecom:plugins-wecom-index-js-61",
+      "id": "hook.subagent_delivery_target:wecom:plugins-wecom-index-js-72",
       "fixture": "wecom",
       "kind": "hook",
       "seam": "subagent_delivery_target",
@@ -95,10 +95,10 @@
         "runId": "run-fixture",
         "parentAgentId": "agent-parent"
       },
-      "source": "plugins/wecom/index.js:61"
+      "source": "plugins/wecom/index.js:72"
     },
     {
-      "id": "hook.subagent_ended:wecom:plugins-wecom-index-js-63",
+      "id": "hook.subagent_ended:wecom:plugins-wecom-index-js-74",
       "fixture": "wecom",
       "kind": "hook",
       "seam": "subagent_ended",
@@ -117,10 +117,10 @@
         "runId": "run-fixture",
         "parentAgentId": "agent-parent"
       },
-      "source": "plugins/wecom/index.js:63"
+      "source": "plugins/wecom/index.js:74"
     },
     {
-      "id": "hook.subagent_spawned:wecom:plugins-wecom-index-js-62",
+      "id": "hook.subagent_spawned:wecom:plugins-wecom-index-js-73",
       "fixture": "wecom",
       "kind": "hook",
       "seam": "subagent_spawned",
@@ -140,7 +140,7 @@
         "runId": "run-fixture",
         "parentAgentId": "agent-parent"
       },
-      "source": "plugins/wecom/index.js:62"
+      "source": "plugins/wecom/index.js:73"
     },
     {
       "id": "hook.llm_input:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts-154",
@@ -2031,7 +2031,7 @@
       "source": "plugins/wecom/index.js:27"
     },
     {
-      "id": "registration.registerHttpRoute:wecom:plugins-wecom-index-js-45",
+      "id": "registration.registerHttpRoute:wecom:plugins-wecom-index-js-56",
       "fixture": "wecom",
       "kind": "registration",
       "seam": "registerHttpRoute",
@@ -2056,7 +2056,7 @@
           "execute"
         ]
       },
-      "source": "plugins/wecom/index.js:45"
+      "source": "plugins/wecom/index.js:56"
     },
     {
       "id": "registration.registerTool:wecom:plugins-wecom-index-js-28",
@@ -2091,7 +2091,7 @@
       "source": "plugins/wecom/index.js:28"
     },
     {
-      "id": "registration.registerTool:wecom:plugins-wecom-index-js-29",
+      "id": "registration.registerTool:wecom:plugins-wecom-index-js-40",
       "fixture": "wecom",
       "kind": "registration",
       "seam": "registerTool",
@@ -2120,10 +2120,10 @@
           "execute"
         ]
       },
-      "source": "plugins/wecom/index.js:29"
+      "source": "plugins/wecom/index.js:40"
     },
     {
-      "id": "registration.registerTool:wecom:plugins-wecom-index-js-33",
+      "id": "registration.registerTool:wecom:plugins-wecom-index-js-44",
       "fixture": "wecom",
       "kind": "registration",
       "seam": "registerTool",
@@ -2152,7 +2152,7 @@
           "execute"
         ]
       },
-      "source": "plugins/wecom/index.js:33"
+      "source": "plugins/wecom/index.js:44"
     },
     {
       "id": "registration.registerChannel:qqbot:plugins-qqbot-index-ts-16",
