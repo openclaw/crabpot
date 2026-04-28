@@ -19,7 +19,7 @@ test("contract capture turns observed seams into executable probe assertions", a
   assertHasRegistrationCapture(capture, "clawmetry", "definePluginEntry", "inspector-shim-required");
   assertHasHookProbe(capture, "wecom", "before_tool_call");
   assertHasLegacyStartupHookProbe(capture, "connectclaw");
-  assertHasSdkProbe(capture, "codex-app-server", "openclaw/plugin-sdk/discord", "compat-alias-required");
+  assertHasSdkProbe(capture, "codex-app-server", "openclaw/plugin-sdk/telegram-account", "compat-alias-required");
   assertHasIssueProbe(capture, "sdk.import.package-export-cold-import:codex-app-server");
 });
 

@@ -8,16 +8,16 @@
     "container"
   ],
   "summary": {
-    "fixtureCount": 28,
-    "entrypointCount": 31,
+    "fixtureCount": 29,
+    "entrypointCount": 34,
     "tsLoaderEntrypointCount": 18,
     "jitiAlternativeCount": 18,
-    "lazyImportProbeCount": 31,
-    "portabilityFindingCount": 157,
-    "windowsRiskStepCount": 157,
-    "macosRiskStepCount": 17,
-    "linuxRiskStepCount": 17,
-    "containerRiskStepCount": 48
+    "lazyImportProbeCount": 34,
+    "portabilityFindingCount": 173,
+    "windowsRiskStepCount": 173,
+    "macosRiskStepCount": 18,
+    "linuxRiskStepCount": 18,
+    "containerRiskStepCount": 52
   },
   "entrypoints": [
     {
@@ -219,7 +219,7 @@
     {
       "fixture": "honcho",
       "id": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
-      "status": "build-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/honcho/dist/index.js",
       "packageManager": "pnpm",
       "loaderSource": "native-node",
@@ -245,6 +245,48 @@
       "syntheticProbePlanned": true,
       "captureUsesTsx": true,
       "syntheticUsesTsx": true
+    },
+    {
+      "fixture": "kitchen-sink",
+      "id": "cold-import.extension:kitchen-sink:plugins-kitchen-sink-src-index-js",
+      "status": "sdk-alias-required",
+      "entrypoint": "plugins/kitchen-sink/src/index.js",
+      "packageManager": "npm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
+    },
+    {
+      "fixture": "kitchen-sink",
+      "id": "cold-import.runtimeExtension:kitchen-sink:plugins-kitchen-sink-src-index-js",
+      "status": "sdk-alias-required",
+      "entrypoint": "plugins/kitchen-sink/src/index.js",
+      "packageManager": "npm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
+    },
+    {
+      "fixture": "kitchen-sink",
+      "id": "cold-import.setupEntry:kitchen-sink:plugins-kitchen-sink-src-setup-js",
+      "status": "sdk-alias-required",
+      "entrypoint": "plugins/kitchen-sink/src/setup.js",
+      "packageManager": "npm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
     },
     {
       "fixture": "memory-tencentdb",
@@ -311,7 +353,7 @@
     {
       "fixture": "yuanbao",
       "id": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/yuanbao/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -399,7 +441,7 @@
     {
       "fixture": "clawmetry",
       "id": "cold-import.extension:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts",
-      "status": "ts-loader-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/clawmetry/clawhub-plugin/index.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",
@@ -415,7 +457,7 @@
     {
       "fixture": "clawmetry",
       "id": "cold-import.runtimeExtension:clawmetry:plugins-clawmetry-clawhub-plugin-dist-index-js",
-      "status": "build-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/clawmetry/clawhub-plugin/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1451,6 +1493,22 @@
     {
       "fixture": "honcho",
       "entrypoint": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
+      "kind": "link-openclaw",
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "honcho",
+      "entrypoint": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
       "kind": "build",
       "platforms": [
         "container",
@@ -1559,6 +1617,210 @@
       ],
       "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.synthetic.json",
       "mitigation": "run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "entrypoint": "cold-import.extension:kitchen-sink:plugins-kitchen-sink-src-index-js",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/kitchen-sink && rsync -a --delete plugins/kitchen-sink/ .crabpot/workspaces/kitchen-sink/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "entrypoint": "cold-import.extension:kitchen-sink:plugins-kitchen-sink-src-index-js",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/kitchen-sink",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "entrypoint": "cold-import.extension:kitchen-sink:plugins-kitchen-sink-src-index-js",
+      "kind": "audit",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "command": "npm audit --json > ../../results/kitchen-sink/package-audit.json || true",
+      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "entrypoint": "cold-import.extension:kitchen-sink:plugins-kitchen-sink-src-index-js",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./src/index.js --mock-sdk --output ../../results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "entrypoint": "cold-import.extension:kitchen-sink:plugins-kitchen-sink-src-index-js",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.js --mock-sdk --output ../../results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "entrypoint": "cold-import.runtimeExtension:kitchen-sink:plugins-kitchen-sink-src-index-js",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/kitchen-sink && rsync -a --delete plugins/kitchen-sink/ .crabpot/workspaces/kitchen-sink/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "entrypoint": "cold-import.runtimeExtension:kitchen-sink:plugins-kitchen-sink-src-index-js",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/kitchen-sink",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "entrypoint": "cold-import.runtimeExtension:kitchen-sink:plugins-kitchen-sink-src-index-js",
+      "kind": "audit",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "command": "npm audit --json > ../../results/kitchen-sink/package-audit.json || true",
+      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "entrypoint": "cold-import.runtimeExtension:kitchen-sink:plugins-kitchen-sink-src-index-js",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./src/index.js --mock-sdk --output ../../results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "entrypoint": "cold-import.runtimeExtension:kitchen-sink:plugins-kitchen-sink-src-index-js",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.js --mock-sdk --output ../../results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "entrypoint": "cold-import.setupEntry:kitchen-sink:plugins-kitchen-sink-src-setup-js",
+      "kind": "prepare",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ],
+      "command": "mkdir -p .crabpot/workspaces/kitchen-sink && rsync -a --delete plugins/kitchen-sink/ .crabpot/workspaces/kitchen-sink/",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "entrypoint": "cold-import.setupEntry:kitchen-sink:plugins-kitchen-sink-src-setup-js",
+      "kind": "prepare-artifacts",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ],
+      "command": "mkdir -p .crabpot/results/kitchen-sink",
+      "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "entrypoint": "cold-import.setupEntry:kitchen-sink:plugins-kitchen-sink-src-setup-js",
+      "kind": "audit",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "command": "npm audit --json > ../../results/kitchen-sink/package-audit.json || true",
+      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "entrypoint": "cold-import.setupEntry:kitchen-sink:plugins-kitchen-sink-src-setup-js",
+      "kind": "capture",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./src/setup.js --mock-sdk --output ../../results/kitchen-sink/cold-import-setupEntry-kitchen-sink-plugins-kitchen-sink-src-setup-js.capture.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "entrypoint": "cold-import.setupEntry:kitchen-sink:plugins-kitchen-sink-src-setup-js",
+      "kind": "synthetic-probe",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ],
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./src/setup.js --mock-sdk --output ../../results/kitchen-sink/cold-import-setupEntry-kitchen-sink-plugins-kitchen-sink-src-setup-js.synthetic.json",
+      "mitigation": "run isolated commands through a Node wrapper or set env via the runner API"
     },
     {
       "fixture": "memory-tencentdb",

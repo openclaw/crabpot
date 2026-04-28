@@ -7,53 +7,146 @@ Status: PASS
 
 | Metric               | Value |
 | -------------------- | ----- |
-| Issue findings       | 153   |
-| 🔴 P0                | 2     |
-| 🟠 P1                | 30    |
-| Live issues          | 2     |
-| Live P0 issues       | 2     |
-| Compat gaps          | 1     |
-| Deprecation warnings | 22    |
-| Inspector gaps       | 101   |
-| Upstream metadata    | 27    |
-| Contract probes      | 151   |
+| Issue findings       | 166   |
+| 🔴 P0                | 7     |
+| 🟠 P1                | 34    |
+| Live issues          | 7     |
+| Live P0 issues       | 7     |
+| Compat gaps          | 5     |
+| Deprecation warnings | 24    |
+| Inspector gaps       | 106   |
+| Upstream metadata    | 24    |
+| Contract probes      | 159   |
 
 ## Triage Overview
 
 | Class               | Count | P0 | Meaning                                                                                                         |
 | ------------------- | ----- | -- | --------------------------------------------------------------------------------------------------------------- |
-| live-issue          | 2     | 2  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam. |
-| compat-gap          | 1     | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                          |
-| deprecation-warning | 22    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                |
-| inspector-gap       | 101   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments.                        |
-| upstream-metadata   | 27    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.        |
+| live-issue          | 7     | 7  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam. |
+| compat-gap          | 5     | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                          |
+| deprecation-warning | 24    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                |
+| inspector-gap       | 106   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments.                        |
+| upstream-metadata   | 24    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.        |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                           |
 
 ## P0 Live Issues
 
+- 🔴 P0 **clawmetry** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: clawmetry: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/b329bb3ed18b651d369bf35321ec58bd47dc33b4/clawhub-plugin/src/service.ts#L2)
+
 - 🔴 P0 **codex-app-server** `live-issue` `core-compat-adapter`
   - **sdk-export-missing**: codex-app-server: plugin SDK import aliases are missing from target package exports
   - state: blocking · compat:untracked · live
   - evidence:
-    - [openclaw/plugin-sdk/discord @ controller.ts:104](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L104)
-    - [openclaw/plugin-sdk/discord @ controller.ts:106](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L106)
     - [openclaw/plugin-sdk/telegram-account @ controller.ts:105](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L105)
+
+- 🔴 P0 **honcho** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: honcho: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
 
 - 🔴 P0 **hyperspell** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: hyperspell: fixture uses a hook missing from target OpenClaw
   - state: blocking · compat:none · live
   - evidence:
     - [file_changed @ index.ts:122](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L122)
+
+- 🔴 P0 **kitchen-sink** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: kitchen-sink: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - openclaw/plugin-sdk/bluebubbles @ plugins/kitchen-sink/src/generated-sdk-imports.ts:27
+    - openclaw/plugin-sdk/bluebubbles-policy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:28
+    - openclaw/plugin-sdk/browser-cdp @ plugins/kitchen-sink/src/generated-sdk-imports.ts:30
+    - openclaw/plugin-sdk/browser-config-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:32
+    - openclaw/plugin-sdk/browser-config-support @ plugins/kitchen-sink/src/generated-sdk-imports.ts:33
+    - openclaw/plugin-sdk/browser-control-auth @ plugins/kitchen-sink/src/generated-sdk-imports.ts:34
+    - openclaw/plugin-sdk/browser-node-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:35
+    - openclaw/plugin-sdk/browser-profiles @ plugins/kitchen-sink/src/generated-sdk-imports.ts:36
+    - openclaw/plugin-sdk/browser-security-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:37
+    - openclaw/plugin-sdk/browser-setup-tools @ plugins/kitchen-sink/src/generated-sdk-imports.ts:38
+    - openclaw/plugin-sdk/browser-support @ plugins/kitchen-sink/src/generated-sdk-imports.ts:39
+    - openclaw/plugin-sdk/diagnostics-otel @ plugins/kitchen-sink/src/generated-sdk-imports.ts:99
+    - openclaw/plugin-sdk/diagnostics-prometheus @ plugins/kitchen-sink/src/generated-sdk-imports.ts:100
+    - openclaw/plugin-sdk/diffs @ plugins/kitchen-sink/src/generated-sdk-imports.ts:101
+    - openclaw/plugin-sdk/feishu @ plugins/kitchen-sink/src/generated-sdk-imports.ts:110
+    - openclaw/plugin-sdk/feishu-conversation @ plugins/kitchen-sink/src/generated-sdk-imports.ts:111
+    - openclaw/plugin-sdk/feishu-setup @ plugins/kitchen-sink/src/generated-sdk-imports.ts:112
+    - openclaw/plugin-sdk/github-copilot-login @ plugins/kitchen-sink/src/generated-sdk-imports.ts:116
+    - openclaw/plugin-sdk/github-copilot-token @ plugins/kitchen-sink/src/generated-sdk-imports.ts:117
+    - openclaw/plugin-sdk/googlechat @ plugins/kitchen-sink/src/generated-sdk-imports.ts:119
+    - openclaw/plugin-sdk/googlechat-runtime-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:120
+    - openclaw/plugin-sdk/irc @ plugins/kitchen-sink/src/generated-sdk-imports.ts:132
+    - openclaw/plugin-sdk/irc-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:133
+    - openclaw/plugin-sdk/line @ plugins/kitchen-sink/src/generated-sdk-imports.ts:137
+    - openclaw/plugin-sdk/line-core @ plugins/kitchen-sink/src/generated-sdk-imports.ts:138
+    - openclaw/plugin-sdk/line-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:139
+    - openclaw/plugin-sdk/line-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:140
+    - openclaw/plugin-sdk/llm-task @ plugins/kitchen-sink/src/generated-sdk-imports.ts:141
+    - openclaw/plugin-sdk/matrix @ plugins/kitchen-sink/src/generated-sdk-imports.ts:146
+    - openclaw/plugin-sdk/matrix-helper @ plugins/kitchen-sink/src/generated-sdk-imports.ts:147
+    - openclaw/plugin-sdk/matrix-runtime-heavy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:148
+    - openclaw/plugin-sdk/matrix-runtime-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:149
+    - openclaw/plugin-sdk/matrix-runtime-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:150
+    - openclaw/plugin-sdk/matrix-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:151
+    - openclaw/plugin-sdk/matrix-thread-bindings @ plugins/kitchen-sink/src/generated-sdk-imports.ts:152
+    - openclaw/plugin-sdk/mattermost @ plugins/kitchen-sink/src/generated-sdk-imports.ts:153
+    - openclaw/plugin-sdk/mattermost-policy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:154
+    - openclaw/plugin-sdk/memory-core @ plugins/kitchen-sink/src/generated-sdk-imports.ts:162
+    - openclaw/plugin-sdk/memory-lancedb @ plugins/kitchen-sink/src/generated-sdk-imports.ts:182
+    - openclaw/plugin-sdk/msteams @ plugins/kitchen-sink/src/generated-sdk-imports.ts:188
+    - openclaw/plugin-sdk/nextcloud-talk @ plugins/kitchen-sink/src/generated-sdk-imports.ts:193
+    - openclaw/plugin-sdk/nostr @ plugins/kitchen-sink/src/generated-sdk-imports.ts:194
+    - openclaw/plugin-sdk/opencode @ plugins/kitchen-sink/src/generated-sdk-imports.ts:195
+    - openclaw/plugin-sdk/telegram-command-ui @ plugins/kitchen-sink/src/generated-sdk-imports.ts:288
+    - openclaw/plugin-sdk/thread-ownership @ plugins/kitchen-sink/src/generated-sdk-imports.ts:296
+    - openclaw/plugin-sdk/tlon @ plugins/kitchen-sink/src/generated-sdk-imports.ts:297
+    - openclaw/plugin-sdk/twitch @ plugins/kitchen-sink/src/generated-sdk-imports.ts:301
+    - openclaw/plugin-sdk/voice-call @ plugins/kitchen-sink/src/generated-sdk-imports.ts:305
+    - openclaw/plugin-sdk/volc-model-catalog-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:306
+    - openclaw/plugin-sdk/zalo @ plugins/kitchen-sink/src/generated-sdk-imports.ts:314
+    - openclaw/plugin-sdk/zalo-setup @ plugins/kitchen-sink/src/generated-sdk-imports.ts:315
+    - openclaw/plugin-sdk/zalouser @ plugins/kitchen-sink/src/generated-sdk-imports.ts:316
+
+- 🔴 P0 **kitchen-sink** `live-issue` `core-compat-adapter`
+  - **unknown-hook-name**: kitchen-sink: fixture uses a hook missing from target OpenClaw
+  - state: blocking · compat:none · live
+  - evidence:
+    - ${hook} @ plugins/kitchen-sink/scripts/check-sdk-surface.mjs:15
+    - ${hook} @ plugins/kitchen-sink/scripts/sync-surface.mjs:40
+
+- 🔴 P0 **yuanbao** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: yuanbao: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
 
 ## Live Issues
 
+- 🔴 P0 **clawmetry** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: clawmetry: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/b329bb3ed18b651d369bf35321ec58bd47dc33b4/clawhub-plugin/src/service.ts#L2)
+
 - 🔴 P0 **codex-app-server** `live-issue` `core-compat-adapter`
   - **sdk-export-missing**: codex-app-server: plugin SDK import aliases are missing from target package exports
   - state: blocking · compat:untracked · live
   - evidence:
-    - [openclaw/plugin-sdk/discord @ controller.ts:104](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L104)
-    - [openclaw/plugin-sdk/discord @ controller.ts:106](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L106)
     - [openclaw/plugin-sdk/telegram-account @ controller.ts:105](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L105)
+
+- 🔴 P0 **honcho** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: honcho: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
 
 - 🔴 P0 **hyperspell** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: hyperspell: fixture uses a hook missing from target OpenClaw
@@ -61,10 +154,107 @@ Status: PASS
   - evidence:
     - [file_changed @ index.ts:122](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L122)
 
+- 🔴 P0 **kitchen-sink** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: kitchen-sink: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - openclaw/plugin-sdk/bluebubbles @ plugins/kitchen-sink/src/generated-sdk-imports.ts:27
+    - openclaw/plugin-sdk/bluebubbles-policy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:28
+    - openclaw/plugin-sdk/browser-cdp @ plugins/kitchen-sink/src/generated-sdk-imports.ts:30
+    - openclaw/plugin-sdk/browser-config-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:32
+    - openclaw/plugin-sdk/browser-config-support @ plugins/kitchen-sink/src/generated-sdk-imports.ts:33
+    - openclaw/plugin-sdk/browser-control-auth @ plugins/kitchen-sink/src/generated-sdk-imports.ts:34
+    - openclaw/plugin-sdk/browser-node-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:35
+    - openclaw/plugin-sdk/browser-profiles @ plugins/kitchen-sink/src/generated-sdk-imports.ts:36
+    - openclaw/plugin-sdk/browser-security-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:37
+    - openclaw/plugin-sdk/browser-setup-tools @ plugins/kitchen-sink/src/generated-sdk-imports.ts:38
+    - openclaw/plugin-sdk/browser-support @ plugins/kitchen-sink/src/generated-sdk-imports.ts:39
+    - openclaw/plugin-sdk/diagnostics-otel @ plugins/kitchen-sink/src/generated-sdk-imports.ts:99
+    - openclaw/plugin-sdk/diagnostics-prometheus @ plugins/kitchen-sink/src/generated-sdk-imports.ts:100
+    - openclaw/plugin-sdk/diffs @ plugins/kitchen-sink/src/generated-sdk-imports.ts:101
+    - openclaw/plugin-sdk/feishu @ plugins/kitchen-sink/src/generated-sdk-imports.ts:110
+    - openclaw/plugin-sdk/feishu-conversation @ plugins/kitchen-sink/src/generated-sdk-imports.ts:111
+    - openclaw/plugin-sdk/feishu-setup @ plugins/kitchen-sink/src/generated-sdk-imports.ts:112
+    - openclaw/plugin-sdk/github-copilot-login @ plugins/kitchen-sink/src/generated-sdk-imports.ts:116
+    - openclaw/plugin-sdk/github-copilot-token @ plugins/kitchen-sink/src/generated-sdk-imports.ts:117
+    - openclaw/plugin-sdk/googlechat @ plugins/kitchen-sink/src/generated-sdk-imports.ts:119
+    - openclaw/plugin-sdk/googlechat-runtime-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:120
+    - openclaw/plugin-sdk/irc @ plugins/kitchen-sink/src/generated-sdk-imports.ts:132
+    - openclaw/plugin-sdk/irc-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:133
+    - openclaw/plugin-sdk/line @ plugins/kitchen-sink/src/generated-sdk-imports.ts:137
+    - openclaw/plugin-sdk/line-core @ plugins/kitchen-sink/src/generated-sdk-imports.ts:138
+    - openclaw/plugin-sdk/line-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:139
+    - openclaw/plugin-sdk/line-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:140
+    - openclaw/plugin-sdk/llm-task @ plugins/kitchen-sink/src/generated-sdk-imports.ts:141
+    - openclaw/plugin-sdk/matrix @ plugins/kitchen-sink/src/generated-sdk-imports.ts:146
+    - openclaw/plugin-sdk/matrix-helper @ plugins/kitchen-sink/src/generated-sdk-imports.ts:147
+    - openclaw/plugin-sdk/matrix-runtime-heavy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:148
+    - openclaw/plugin-sdk/matrix-runtime-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:149
+    - openclaw/plugin-sdk/matrix-runtime-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:150
+    - openclaw/plugin-sdk/matrix-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:151
+    - openclaw/plugin-sdk/matrix-thread-bindings @ plugins/kitchen-sink/src/generated-sdk-imports.ts:152
+    - openclaw/plugin-sdk/mattermost @ plugins/kitchen-sink/src/generated-sdk-imports.ts:153
+    - openclaw/plugin-sdk/mattermost-policy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:154
+    - openclaw/plugin-sdk/memory-core @ plugins/kitchen-sink/src/generated-sdk-imports.ts:162
+    - openclaw/plugin-sdk/memory-lancedb @ plugins/kitchen-sink/src/generated-sdk-imports.ts:182
+    - openclaw/plugin-sdk/msteams @ plugins/kitchen-sink/src/generated-sdk-imports.ts:188
+    - openclaw/plugin-sdk/nextcloud-talk @ plugins/kitchen-sink/src/generated-sdk-imports.ts:193
+    - openclaw/plugin-sdk/nostr @ plugins/kitchen-sink/src/generated-sdk-imports.ts:194
+    - openclaw/plugin-sdk/opencode @ plugins/kitchen-sink/src/generated-sdk-imports.ts:195
+    - openclaw/plugin-sdk/telegram-command-ui @ plugins/kitchen-sink/src/generated-sdk-imports.ts:288
+    - openclaw/plugin-sdk/thread-ownership @ plugins/kitchen-sink/src/generated-sdk-imports.ts:296
+    - openclaw/plugin-sdk/tlon @ plugins/kitchen-sink/src/generated-sdk-imports.ts:297
+    - openclaw/plugin-sdk/twitch @ plugins/kitchen-sink/src/generated-sdk-imports.ts:301
+    - openclaw/plugin-sdk/voice-call @ plugins/kitchen-sink/src/generated-sdk-imports.ts:305
+    - openclaw/plugin-sdk/volc-model-catalog-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:306
+    - openclaw/plugin-sdk/zalo @ plugins/kitchen-sink/src/generated-sdk-imports.ts:314
+    - openclaw/plugin-sdk/zalo-setup @ plugins/kitchen-sink/src/generated-sdk-imports.ts:315
+    - openclaw/plugin-sdk/zalouser @ plugins/kitchen-sink/src/generated-sdk-imports.ts:316
+
+- 🔴 P0 **kitchen-sink** `live-issue` `core-compat-adapter`
+  - **unknown-hook-name**: kitchen-sink: fixture uses a hook missing from target OpenClaw
+  - state: blocking · compat:none · live
+  - evidence:
+    - ${hook} @ plugins/kitchen-sink/scripts/check-sdk-surface.mjs:15
+    - ${hook} @ plugins/kitchen-sink/scripts/sync-surface.mjs:40
+
+- 🔴 P0 **yuanbao** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: yuanbao: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
+
 ## Compat Gaps
+
+- 🟠 P1 **clawmetry** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: clawmetry: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - plugin-sdk-export-aliases
 
 - 🟠 P1 **codex-app-server** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: codex-app-server: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - plugin-sdk-export-aliases
+
+- 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - plugin-sdk-export-aliases
+
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - plugin-sdk-export-aliases
+
+- 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: yuanbao: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
     - plugin-sdk-export-aliases
@@ -129,16 +319,16 @@ Status: PASS
   - **legacy-root-sdk-import**: dingtalk-connector: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/index.ts:17
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/channel.ts:4
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/config/accounts.ts:2
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/connection.ts:16
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/provider.ts:14
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/directory.ts:1
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/gateway-methods.ts:7
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/onboarding.ts:5
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/runtime.ts:1
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/utils/agent.ts:8
+    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L17)
+    - [openclaw/plugin-sdk @ channel.ts:4](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/channel.ts#L4)
+    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/config/accounts.ts#L2)
+    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/core/connection.ts#L16)
+    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/core/provider.ts#L14)
+    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/directory.ts#L1)
+    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L7)
+    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/onboarding.ts#L5)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/utils/agent.ts#L8)
 
 - 🟡 P2 **hasdata** `deprecation-warning` `core-compat-adapter`
   - **provider-auth-env-vars**: hasdata: providerAuthEnvVars legacy manifest metadata must stay covered
@@ -189,6 +379,18 @@ Status: PASS
   - state: open · compat:deprecated · deprecated
   - evidence:
     - inworld
+
+- 🟡 P2 **kitchen-sink** `deprecation-warning` `core-compat-adapter`
+  - **legacy-before-agent-start**: kitchen-sink: legacy before_agent_start hook compatibility is still used
+  - state: open · compat:deprecated · deprecated
+  - evidence:
+    - before_agent_start @ plugins/kitchen-sink/src/generated-hooks.js:9
+
+- 🟡 P2 **kitchen-sink** `deprecation-warning` `core-compat-adapter`
+  - **legacy-root-sdk-import**: kitchen-sink: root plugin SDK barrel is still used by fixtures
+  - state: open · compat:deprecated · deprecated
+  - evidence:
+    - openclaw/plugin-sdk @ plugins/kitchen-sink/src/generated-sdk-imports.ts:2
 
 - 🟡 P2 **llm-trace-phoenix** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: llm-trace-phoenix: root plugin SDK barrel is still used by fixtures
@@ -326,20 +528,20 @@ Status: PASS
   - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture before contract judgment
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/dingtalk-connector/index.ts:74
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:130
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:190
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:258
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:311
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:351
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:388
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:425
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:452
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:506
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:593
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:60
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:652
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719
+    - [registerChannel @ index.ts:74](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L74)
+    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L130)
+    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L190)
+    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L258)
+    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L311)
+    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L351)
+    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L388)
+    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L425)
+    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L452)
+    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L506)
+    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L593)
+    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L60)
+    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L652)
+    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L719)
 
 - 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: honcho: conversation-access hooks need privacy-boundary probes
@@ -373,6 +575,47 @@ Status: PASS
     - [registerCommand @ index.ts:57](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L57)
     - [registerCommand @ index.ts:68](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L68)
     - [registerService @ index.ts:134](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L134)
+
+- 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
+  - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
+  - state: open · compat:none
+  - evidence:
+    - before_tool_call @ plugins/kitchen-sink/src/generated-hooks.js:17
+
+- 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: kitchen-sink: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:none
+  - evidence:
+    - agent_end @ plugins/kitchen-sink/src/generated-hooks.js:6
+    - llm_input @ plugins/kitchen-sink/src/generated-hooks.js:21
+    - llm_output @ plugins/kitchen-sink/src/generated-hooks.js:22
+
+- 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: kitchen-sink: runtime registrations need capture before contract judgment
+  - state: open · compat:none
+  - evidence:
+    - registerAutoEnableProbe @ plugins/kitchen-sink/src/generated-registrars.js:6
+    - registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:7
+    - registerCommand @ plugins/kitchen-sink/src/generated-registrars.js:11
+    - registerCompactionProvider @ plugins/kitchen-sink/src/generated-registrars.js:12
+    - registerConfigMigration @ plugins/kitchen-sink/src/generated-registrars.js:13
+    - registerContextEngine @ plugins/kitchen-sink/src/generated-registrars.js:14
+    - registerDetachedTaskRuntime @ plugins/kitchen-sink/src/generated-registrars.js:15
+    - registerGatewayDiscoveryService @ plugins/kitchen-sink/src/generated-registrars.js:16
+    - registerGatewayMethod @ plugins/kitchen-sink/src/generated-registrars.js:17
+    - registerHook @ plugins/kitchen-sink/src/generated-registrars.js:18
+    - registerHttpRoute @ plugins/kitchen-sink/src/generated-registrars.js:19
+    - registerInteractiveHandler @ plugins/kitchen-sink/src/generated-registrars.js:21
+    - registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:23
+    - registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:24
+    - registerMemoryFlushPlan @ plugins/kitchen-sink/src/generated-registrars.js:26
+    - registerMemoryPromptSection @ plugins/kitchen-sink/src/generated-registrars.js:27
+    - registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:28
+    - registerMemoryRuntime @ plugins/kitchen-sink/src/generated-registrars.js:29
+    - registerNodeHostCommand @ plugins/kitchen-sink/src/generated-registrars.js:32
+    - registerReload @ plugins/kitchen-sink/src/generated-registrars.js:36
+    - registerSecurityAuditCollector @ plugins/kitchen-sink/src/generated-registrars.js:37
+    - registerService @ plugins/kitchen-sink/src/generated-registrars.js:38
 
 - 🟠 P1 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lightclawbot: runtime registrations need capture before contract judgment
@@ -647,25 +890,25 @@ Status: PASS
   - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/dingtalk-connector/index.ts:74
+    - [registerChannel @ index.ts:74](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L74)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: dingtalk-connector: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - extension:./dist/index.mjs -> plugins/dingtalk-connector/dist/index.mjs
+    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/dist/index.mjs)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: dingtalk-connector: cold import requires isolated dependency installation
   - state: open · compat:none
   - evidence:
-    - axios @ plugins/dingtalk-connector/package.json
-    - dingtalk-stream @ plugins/dingtalk-connector/package.json
-    - form-data @ plugins/dingtalk-connector/package.json
-    - qrcode-terminal @ plugins/dingtalk-connector/package.json
-    - zod @ plugins/dingtalk-connector/package.json
-    - openclaw @ plugins/dingtalk-connector/package.json
-    - mammoth @ plugins/dingtalk-connector/package.json
+    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [openclaw @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
 
 - 🟡 P2 **hasdata** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hasdata: cold import requires isolated dependency installation
@@ -742,6 +985,18 @@ Status: PASS
   - state: open · compat:none
   - evidence:
     - [extension @ index.ts](https://github.com/livingghost/openclaw-inworld-tts/blob/d2abaeea330ebef7530f43f8b395671f6f404aea/index.ts)
+
+- 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
+  - **channel-contract-probe**: kitchen-sink: channel runtime needs envelope/config probes
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:7
+
+- 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: kitchen-sink: cold import requires isolated dependency installation
+  - state: open · compat:none
+  - evidence:
+    - openclaw @ plugins/kitchen-sink/package.json
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
@@ -1023,27 +1278,6 @@ Status: PASS
 
 ## Upstream Metadata Issues
 
-- 🟠 P1 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
-  - **reserved-sdk-import**: clawmetry: plugin imports reserved bundled-plugin SDK compatibility subpaths
-  - state: open · compat:none
-  - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/b329bb3ed18b651d369bf35321ec58bd47dc33b4/clawhub-plugin/src/service.ts#L2)
-
-- 🟠 P1 **honcho** `upstream-metadata` `plugin-upstream-fix`
-  - **reserved-sdk-import**: honcho: plugin imports reserved bundled-plugin SDK compatibility subpaths
-  - state: open · compat:none
-  - evidence:
-    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
-
-- 🟠 P1 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
-  - **reserved-sdk-import**: yuanbao: plugin imports reserved bundled-plugin SDK compatibility subpaths
-  - state: open · compat:none
-  - evidence:
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
-
 - 🟡 P2 **a2a-gateway** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: a2a-gateway: manifest uses unsupported top-level fields
   - state: open · compat:none
@@ -1093,14 +1327,14 @@ Status: PASS
   - **manifest-unknown-fields**: dingtalk-connector: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - author @ plugins/dingtalk-connector/openclaw.plugin.json
-    - main @ plugins/dingtalk-connector/openclaw.plugin.json
+    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/openclaw.plugin.json)
 
 - 🟡 P2 **dingtalk-connector** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: dingtalk-connector: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - plugins/dingtalk-connector/package.json
+    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
 
 - 🟡 P2 **lightclawbot** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: lightclawbot: manifest uses unsupported top-level fields
@@ -1196,19 +1430,102 @@ Status: PASS
 
 ## Issues
 
+- 🔴 P0 **clawmetry** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: clawmetry: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/b329bb3ed18b651d369bf35321ec58bd47dc33b4/clawhub-plugin/src/service.ts#L2)
+
 - 🔴 P0 **codex-app-server** `live-issue` `core-compat-adapter`
   - **sdk-export-missing**: codex-app-server: plugin SDK import aliases are missing from target package exports
   - state: blocking · compat:untracked · live
   - evidence:
-    - [openclaw/plugin-sdk/discord @ controller.ts:104](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L104)
-    - [openclaw/plugin-sdk/discord @ controller.ts:106](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L106)
     - [openclaw/plugin-sdk/telegram-account @ controller.ts:105](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L105)
+
+- 🔴 P0 **honcho** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: honcho: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
 
 - 🔴 P0 **hyperspell** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: hyperspell: fixture uses a hook missing from target OpenClaw
   - state: blocking · compat:none · live
   - evidence:
     - [file_changed @ index.ts:122](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L122)
+
+- 🔴 P0 **kitchen-sink** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: kitchen-sink: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - openclaw/plugin-sdk/bluebubbles @ plugins/kitchen-sink/src/generated-sdk-imports.ts:27
+    - openclaw/plugin-sdk/bluebubbles-policy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:28
+    - openclaw/plugin-sdk/browser-cdp @ plugins/kitchen-sink/src/generated-sdk-imports.ts:30
+    - openclaw/plugin-sdk/browser-config-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:32
+    - openclaw/plugin-sdk/browser-config-support @ plugins/kitchen-sink/src/generated-sdk-imports.ts:33
+    - openclaw/plugin-sdk/browser-control-auth @ plugins/kitchen-sink/src/generated-sdk-imports.ts:34
+    - openclaw/plugin-sdk/browser-node-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:35
+    - openclaw/plugin-sdk/browser-profiles @ plugins/kitchen-sink/src/generated-sdk-imports.ts:36
+    - openclaw/plugin-sdk/browser-security-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:37
+    - openclaw/plugin-sdk/browser-setup-tools @ plugins/kitchen-sink/src/generated-sdk-imports.ts:38
+    - openclaw/plugin-sdk/browser-support @ plugins/kitchen-sink/src/generated-sdk-imports.ts:39
+    - openclaw/plugin-sdk/diagnostics-otel @ plugins/kitchen-sink/src/generated-sdk-imports.ts:99
+    - openclaw/plugin-sdk/diagnostics-prometheus @ plugins/kitchen-sink/src/generated-sdk-imports.ts:100
+    - openclaw/plugin-sdk/diffs @ plugins/kitchen-sink/src/generated-sdk-imports.ts:101
+    - openclaw/plugin-sdk/feishu @ plugins/kitchen-sink/src/generated-sdk-imports.ts:110
+    - openclaw/plugin-sdk/feishu-conversation @ plugins/kitchen-sink/src/generated-sdk-imports.ts:111
+    - openclaw/plugin-sdk/feishu-setup @ plugins/kitchen-sink/src/generated-sdk-imports.ts:112
+    - openclaw/plugin-sdk/github-copilot-login @ plugins/kitchen-sink/src/generated-sdk-imports.ts:116
+    - openclaw/plugin-sdk/github-copilot-token @ plugins/kitchen-sink/src/generated-sdk-imports.ts:117
+    - openclaw/plugin-sdk/googlechat @ plugins/kitchen-sink/src/generated-sdk-imports.ts:119
+    - openclaw/plugin-sdk/googlechat-runtime-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:120
+    - openclaw/plugin-sdk/irc @ plugins/kitchen-sink/src/generated-sdk-imports.ts:132
+    - openclaw/plugin-sdk/irc-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:133
+    - openclaw/plugin-sdk/line @ plugins/kitchen-sink/src/generated-sdk-imports.ts:137
+    - openclaw/plugin-sdk/line-core @ plugins/kitchen-sink/src/generated-sdk-imports.ts:138
+    - openclaw/plugin-sdk/line-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:139
+    - openclaw/plugin-sdk/line-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:140
+    - openclaw/plugin-sdk/llm-task @ plugins/kitchen-sink/src/generated-sdk-imports.ts:141
+    - openclaw/plugin-sdk/matrix @ plugins/kitchen-sink/src/generated-sdk-imports.ts:146
+    - openclaw/plugin-sdk/matrix-helper @ plugins/kitchen-sink/src/generated-sdk-imports.ts:147
+    - openclaw/plugin-sdk/matrix-runtime-heavy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:148
+    - openclaw/plugin-sdk/matrix-runtime-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:149
+    - openclaw/plugin-sdk/matrix-runtime-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:150
+    - openclaw/plugin-sdk/matrix-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:151
+    - openclaw/plugin-sdk/matrix-thread-bindings @ plugins/kitchen-sink/src/generated-sdk-imports.ts:152
+    - openclaw/plugin-sdk/mattermost @ plugins/kitchen-sink/src/generated-sdk-imports.ts:153
+    - openclaw/plugin-sdk/mattermost-policy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:154
+    - openclaw/plugin-sdk/memory-core @ plugins/kitchen-sink/src/generated-sdk-imports.ts:162
+    - openclaw/plugin-sdk/memory-lancedb @ plugins/kitchen-sink/src/generated-sdk-imports.ts:182
+    - openclaw/plugin-sdk/msteams @ plugins/kitchen-sink/src/generated-sdk-imports.ts:188
+    - openclaw/plugin-sdk/nextcloud-talk @ plugins/kitchen-sink/src/generated-sdk-imports.ts:193
+    - openclaw/plugin-sdk/nostr @ plugins/kitchen-sink/src/generated-sdk-imports.ts:194
+    - openclaw/plugin-sdk/opencode @ plugins/kitchen-sink/src/generated-sdk-imports.ts:195
+    - openclaw/plugin-sdk/telegram-command-ui @ plugins/kitchen-sink/src/generated-sdk-imports.ts:288
+    - openclaw/plugin-sdk/thread-ownership @ plugins/kitchen-sink/src/generated-sdk-imports.ts:296
+    - openclaw/plugin-sdk/tlon @ plugins/kitchen-sink/src/generated-sdk-imports.ts:297
+    - openclaw/plugin-sdk/twitch @ plugins/kitchen-sink/src/generated-sdk-imports.ts:301
+    - openclaw/plugin-sdk/voice-call @ plugins/kitchen-sink/src/generated-sdk-imports.ts:305
+    - openclaw/plugin-sdk/volc-model-catalog-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:306
+    - openclaw/plugin-sdk/zalo @ plugins/kitchen-sink/src/generated-sdk-imports.ts:314
+    - openclaw/plugin-sdk/zalo-setup @ plugins/kitchen-sink/src/generated-sdk-imports.ts:315
+    - openclaw/plugin-sdk/zalouser @ plugins/kitchen-sink/src/generated-sdk-imports.ts:316
+
+- 🔴 P0 **kitchen-sink** `live-issue` `core-compat-adapter`
+  - **unknown-hook-name**: kitchen-sink: fixture uses a hook missing from target OpenClaw
+  - state: blocking · compat:none · live
+  - evidence:
+    - ${hook} @ plugins/kitchen-sink/scripts/check-sdk-surface.mjs:15
+    - ${hook} @ plugins/kitchen-sink/scripts/sync-surface.mjs:40
+
+- 🔴 P0 **yuanbao** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: yuanbao: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
 
 - 🟠 P1 **a2a-gateway** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: a2a-gateway: runtime registrations need capture before contract judgment
@@ -1221,17 +1538,17 @@ Status: PASS
     - [registerGatewayMethod @ index.ts:669](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L669)
     - [registerService @ index.ts:857](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L857)
 
+- 🟠 P1 **clawmetry** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: clawmetry: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - plugin-sdk-export-aliases
+
 - 🟠 P1 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture before contract judgment
   - state: open · compat:none
   - evidence:
     - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/b329bb3ed18b651d369bf35321ec58bd47dc33b4/clawhub-plugin/index.ts#L9)
-
-- 🟠 P1 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
-  - **reserved-sdk-import**: clawmetry: plugin imports reserved bundled-plugin SDK compatibility subpaths
-  - state: open · compat:none
-  - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/b329bb3ed18b651d369bf35321ec58bd47dc33b4/clawhub-plugin/src/service.ts#L2)
 
 - 🟠 P1 **codex-app-server** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: codex-app-server: compat-dependent behavior lacks registry coverage
@@ -1260,20 +1577,20 @@ Status: PASS
   - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture before contract judgment
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/dingtalk-connector/index.ts:74
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:130
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:190
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:258
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:311
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:351
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:388
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:425
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:452
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:506
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:593
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:60
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:652
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719
+    - [registerChannel @ index.ts:74](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L74)
+    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L130)
+    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L190)
+    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L258)
+    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L311)
+    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L351)
+    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L388)
+    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L425)
+    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L452)
+    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L506)
+    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L593)
+    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L60)
+    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L652)
+    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L719)
 
 - 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: honcho: conversation-access hooks need privacy-boundary probes
@@ -1282,18 +1599,18 @@ Status: PASS
     - [agent_end @ capture.ts:89](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/hooks/capture.ts#L89)
     - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/hooks/subagent.ts#L34)
 
+- 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - plugin-sdk-export-aliases
+
 - 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: honcho: runtime registrations need capture before contract judgment
   - state: open · compat:none
   - evidence:
     - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L97)
     - [registerMemoryRuntime @ runtime.ts:276](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/runtime.ts#L276)
-
-- 🟠 P1 **honcho** `upstream-metadata` `plugin-upstream-fix`
-  - **reserved-sdk-import**: honcho: plugin imports reserved bundled-plugin SDK compatibility subpaths
-  - state: open · compat:none
-  - evidence:
-    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
 
 - 🟠 P1 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: hyperspell: conversation-access hooks need privacy-boundary probes
@@ -1313,6 +1630,53 @@ Status: PASS
     - [registerCommand @ index.ts:57](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L57)
     - [registerCommand @ index.ts:68](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L68)
     - [registerService @ index.ts:134](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L134)
+
+- 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
+  - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
+  - state: open · compat:none
+  - evidence:
+    - before_tool_call @ plugins/kitchen-sink/src/generated-hooks.js:17
+
+- 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: kitchen-sink: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:none
+  - evidence:
+    - agent_end @ plugins/kitchen-sink/src/generated-hooks.js:6
+    - llm_input @ plugins/kitchen-sink/src/generated-hooks.js:21
+    - llm_output @ plugins/kitchen-sink/src/generated-hooks.js:22
+
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - plugin-sdk-export-aliases
+
+- 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: kitchen-sink: runtime registrations need capture before contract judgment
+  - state: open · compat:none
+  - evidence:
+    - registerAutoEnableProbe @ plugins/kitchen-sink/src/generated-registrars.js:6
+    - registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:7
+    - registerCommand @ plugins/kitchen-sink/src/generated-registrars.js:11
+    - registerCompactionProvider @ plugins/kitchen-sink/src/generated-registrars.js:12
+    - registerConfigMigration @ plugins/kitchen-sink/src/generated-registrars.js:13
+    - registerContextEngine @ plugins/kitchen-sink/src/generated-registrars.js:14
+    - registerDetachedTaskRuntime @ plugins/kitchen-sink/src/generated-registrars.js:15
+    - registerGatewayDiscoveryService @ plugins/kitchen-sink/src/generated-registrars.js:16
+    - registerGatewayMethod @ plugins/kitchen-sink/src/generated-registrars.js:17
+    - registerHook @ plugins/kitchen-sink/src/generated-registrars.js:18
+    - registerHttpRoute @ plugins/kitchen-sink/src/generated-registrars.js:19
+    - registerInteractiveHandler @ plugins/kitchen-sink/src/generated-registrars.js:21
+    - registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:23
+    - registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:24
+    - registerMemoryFlushPlan @ plugins/kitchen-sink/src/generated-registrars.js:26
+    - registerMemoryPromptSection @ plugins/kitchen-sink/src/generated-registrars.js:27
+    - registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:28
+    - registerMemoryRuntime @ plugins/kitchen-sink/src/generated-registrars.js:29
+    - registerNodeHostCommand @ plugins/kitchen-sink/src/generated-registrars.js:32
+    - registerReload @ plugins/kitchen-sink/src/generated-registrars.js:36
+    - registerSecurityAuditCollector @ plugins/kitchen-sink/src/generated-registrars.js:37
+    - registerService @ plugins/kitchen-sink/src/generated-registrars.js:38
 
 - 🟠 P1 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lightclawbot: runtime registrations need capture before contract judgment
@@ -1418,6 +1782,12 @@ Status: PASS
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/b7849ac055c8fa699d01b48e83cf24028907307d/index.js#L27)
     - [registerHttpRoute @ index.js:45](https://github.com/sunnoy/openclaw-plugin-wecom/blob/b7849ac055c8fa699d01b48e83cf24028907307d/index.js#L45)
 
+- 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: yuanbao: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - plugin-sdk-export-aliases
+
 - 🟠 P1 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: yuanbao: runtime registrations need capture before contract judgment
   - state: open · compat:none
@@ -1426,15 +1796,6 @@ Status: PASS
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:31
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:32
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:34
-
-- 🟠 P1 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
-  - **reserved-sdk-import**: yuanbao: plugin imports reserved bundled-plugin SDK compatibility subpaths
-  - state: open · compat:none
-  - evidence:
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
 
 - 🟡 P2 **a2a-gateway** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: a2a-gateway: root plugin SDK barrel is still used by fixtures
@@ -1695,53 +2056,53 @@ Status: PASS
   - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
   - state: open · compat:none
   - evidence:
-    - registerChannel @ plugins/dingtalk-connector/index.ts:74
+    - [registerChannel @ index.ts:74](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L74)
 
 - 🟡 P2 **dingtalk-connector** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: dingtalk-connector: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/index.ts:17
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/channel.ts:4
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/config/accounts.ts:2
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/connection.ts:16
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/provider.ts:14
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/directory.ts:1
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/gateway-methods.ts:7
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/onboarding.ts:5
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/runtime.ts:1
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/utils/agent.ts:8
+    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L17)
+    - [openclaw/plugin-sdk @ channel.ts:4](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/channel.ts#L4)
+    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/config/accounts.ts#L2)
+    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/core/connection.ts#L16)
+    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/core/provider.ts#L14)
+    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/directory.ts#L1)
+    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L7)
+    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/onboarding.ts#L5)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/utils/agent.ts#L8)
 
 - 🟡 P2 **dingtalk-connector** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: dingtalk-connector: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - author @ plugins/dingtalk-connector/openclaw.plugin.json
-    - main @ plugins/dingtalk-connector/openclaw.plugin.json
+    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/openclaw.plugin.json)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: dingtalk-connector: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - extension:./dist/index.mjs -> plugins/dingtalk-connector/dist/index.mjs
+    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/dist/index.mjs)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: dingtalk-connector: cold import requires isolated dependency installation
   - state: open · compat:none
   - evidence:
-    - axios @ plugins/dingtalk-connector/package.json
-    - dingtalk-stream @ plugins/dingtalk-connector/package.json
-    - form-data @ plugins/dingtalk-connector/package.json
-    - qrcode-terminal @ plugins/dingtalk-connector/package.json
-    - zod @ plugins/dingtalk-connector/package.json
-    - openclaw @ plugins/dingtalk-connector/package.json
-    - mammoth @ plugins/dingtalk-connector/package.json
+    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [openclaw @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
 
 - 🟡 P2 **dingtalk-connector** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: dingtalk-connector: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - plugins/dingtalk-connector/package.json
+    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
 
 - 🟡 P2 **hasdata** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hasdata: cold import requires isolated dependency installation
@@ -1868,6 +2229,30 @@ Status: PASS
   - state: open · compat:deprecated · deprecated
   - evidence:
     - inworld
+
+- 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
+  - **channel-contract-probe**: kitchen-sink: channel runtime needs envelope/config probes
+  - state: open · compat:none
+  - evidence:
+    - registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:7
+
+- 🟡 P2 **kitchen-sink** `deprecation-warning` `core-compat-adapter`
+  - **legacy-before-agent-start**: kitchen-sink: legacy before_agent_start hook compatibility is still used
+  - state: open · compat:deprecated · deprecated
+  - evidence:
+    - before_agent_start @ plugins/kitchen-sink/src/generated-hooks.js:9
+
+- 🟡 P2 **kitchen-sink** `deprecation-warning` `core-compat-adapter`
+  - **legacy-root-sdk-import**: kitchen-sink: root plugin SDK barrel is still used by fixtures
+  - state: open · compat:deprecated · deprecated
+  - evidence:
+    - openclaw/plugin-sdk @ plugins/kitchen-sink/src/generated-sdk-imports.ts:2
+
+- 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: kitchen-sink: cold import requires isolated dependency installation
+  - state: open · compat:none
+  - evidence:
+    - openclaw @ plugins/kitchen-sink/package.json
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
@@ -2375,20 +2760,20 @@ Status: PASS
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:dingtalk-connector`
   - evidence:
-    - registerChannel @ plugins/dingtalk-connector/index.ts:74
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:130
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:190
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:258
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:311
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:351
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:388
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:425
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:452
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:506
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:593
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:60
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:652
-    - registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719
+    - [registerChannel @ index.ts:74](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L74)
+    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L130)
+    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L190)
+    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L258)
+    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L311)
+    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L351)
+    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L388)
+    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L425)
+    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L452)
+    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L506)
+    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L593)
+    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L60)
+    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L652)
+    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L719)
 
 - 🟠 P1 **honcho** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -2408,6 +2793,33 @@ Status: PASS
     - [registerCommand @ index.ts:57](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L57)
     - [registerCommand @ index.ts:68](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L68)
     - [registerService @ index.ts:134](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L134)
+
+- 🟠 P1 **kitchen-sink** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:kitchen-sink`
+  - evidence:
+    - registerAutoEnableProbe @ plugins/kitchen-sink/src/generated-registrars.js:6
+    - registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:7
+    - registerCommand @ plugins/kitchen-sink/src/generated-registrars.js:11
+    - registerCompactionProvider @ plugins/kitchen-sink/src/generated-registrars.js:12
+    - registerConfigMigration @ plugins/kitchen-sink/src/generated-registrars.js:13
+    - registerContextEngine @ plugins/kitchen-sink/src/generated-registrars.js:14
+    - registerDetachedTaskRuntime @ plugins/kitchen-sink/src/generated-registrars.js:15
+    - registerGatewayDiscoveryService @ plugins/kitchen-sink/src/generated-registrars.js:16
+    - registerGatewayMethod @ plugins/kitchen-sink/src/generated-registrars.js:17
+    - registerHook @ plugins/kitchen-sink/src/generated-registrars.js:18
+    - registerHttpRoute @ plugins/kitchen-sink/src/generated-registrars.js:19
+    - registerInteractiveHandler @ plugins/kitchen-sink/src/generated-registrars.js:21
+    - registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:23
+    - registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:24
+    - registerMemoryFlushPlan @ plugins/kitchen-sink/src/generated-registrars.js:26
+    - registerMemoryPromptSection @ plugins/kitchen-sink/src/generated-registrars.js:27
+    - registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:28
+    - registerMemoryRuntime @ plugins/kitchen-sink/src/generated-registrars.js:29
+    - registerNodeHostCommand @ plugins/kitchen-sink/src/generated-registrars.js:32
+    - registerReload @ plugins/kitchen-sink/src/generated-registrars.js:36
+    - registerSecurityAuditCollector @ plugins/kitchen-sink/src/generated-registrars.js:37
+    - registerService @ plugins/kitchen-sink/src/generated-registrars.js:38
 
 - 🟠 P1 **lightclawbot** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -2483,6 +2895,12 @@ Status: PASS
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:32
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:34
 
+- 🟠 P1 **kitchen-sink** `hook-runner`
+  - contract: Hook returns preserve terminal, block, and approval semantics.
+  - id: `hook.before_tool_call.terminal-block-approval:kitchen-sink`
+  - evidence:
+    - before_tool_call @ plugins/kitchen-sink/src/generated-hooks.js:17
+
 - 🟠 P1 **opik-openclaw** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
   - id: `hook.before_tool_call.terminal-block-approval:opik-openclaw`
@@ -2508,6 +2926,14 @@ Status: PASS
   - evidence:
     - [agent_end @ index.ts:105](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L105)
     - [agent_end @ index.ts:116](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L116)
+
+- 🟠 P1 **kitchen-sink** `hook-runner`
+  - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
+  - id: `hook.llm-observer.privacy-payload:kitchen-sink`
+  - evidence:
+    - agent_end @ plugins/kitchen-sink/src/generated-hooks.js:6
+    - llm_input @ plugins/kitchen-sink/src/generated-hooks.js:21
+    - llm_output @ plugins/kitchen-sink/src/generated-hooks.js:22
 
 - 🟠 P1 **llm-trace-phoenix** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
@@ -2536,13 +2962,89 @@ Status: PASS
     - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L39)
     - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L150)
 
+- 🟠 P1 **clawmetry** `sdk-alias`
+  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
+  - id: `sdk.import.package-export-cold-import:clawmetry`
+  - evidence:
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/b329bb3ed18b651d369bf35321ec58bd47dc33b4/clawhub-plugin/src/service.ts#L2)
+
 - 🟠 P1 **codex-app-server** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
   - id: `sdk.import.package-export-cold-import:codex-app-server`
   - evidence:
-    - [openclaw/plugin-sdk/discord @ controller.ts:104](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L104)
-    - [openclaw/plugin-sdk/discord @ controller.ts:106](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L106)
     - [openclaw/plugin-sdk/telegram-account @ controller.ts:105](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L105)
+
+- 🟠 P1 **honcho** `sdk-alias`
+  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
+  - id: `sdk.import.package-export-cold-import:honcho`
+  - evidence:
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
+
+- 🟠 P1 **kitchen-sink** `sdk-alias`
+  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
+  - id: `sdk.import.package-export-cold-import:kitchen-sink`
+  - evidence:
+    - openclaw/plugin-sdk/bluebubbles @ plugins/kitchen-sink/src/generated-sdk-imports.ts:27
+    - openclaw/plugin-sdk/bluebubbles-policy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:28
+    - openclaw/plugin-sdk/browser-cdp @ plugins/kitchen-sink/src/generated-sdk-imports.ts:30
+    - openclaw/plugin-sdk/browser-config-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:32
+    - openclaw/plugin-sdk/browser-config-support @ plugins/kitchen-sink/src/generated-sdk-imports.ts:33
+    - openclaw/plugin-sdk/browser-control-auth @ plugins/kitchen-sink/src/generated-sdk-imports.ts:34
+    - openclaw/plugin-sdk/browser-node-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:35
+    - openclaw/plugin-sdk/browser-profiles @ plugins/kitchen-sink/src/generated-sdk-imports.ts:36
+    - openclaw/plugin-sdk/browser-security-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:37
+    - openclaw/plugin-sdk/browser-setup-tools @ plugins/kitchen-sink/src/generated-sdk-imports.ts:38
+    - openclaw/plugin-sdk/browser-support @ plugins/kitchen-sink/src/generated-sdk-imports.ts:39
+    - openclaw/plugin-sdk/diagnostics-otel @ plugins/kitchen-sink/src/generated-sdk-imports.ts:99
+    - openclaw/plugin-sdk/diagnostics-prometheus @ plugins/kitchen-sink/src/generated-sdk-imports.ts:100
+    - openclaw/plugin-sdk/diffs @ plugins/kitchen-sink/src/generated-sdk-imports.ts:101
+    - openclaw/plugin-sdk/feishu @ plugins/kitchen-sink/src/generated-sdk-imports.ts:110
+    - openclaw/plugin-sdk/feishu-conversation @ plugins/kitchen-sink/src/generated-sdk-imports.ts:111
+    - openclaw/plugin-sdk/feishu-setup @ plugins/kitchen-sink/src/generated-sdk-imports.ts:112
+    - openclaw/plugin-sdk/github-copilot-login @ plugins/kitchen-sink/src/generated-sdk-imports.ts:116
+    - openclaw/plugin-sdk/github-copilot-token @ plugins/kitchen-sink/src/generated-sdk-imports.ts:117
+    - openclaw/plugin-sdk/googlechat @ plugins/kitchen-sink/src/generated-sdk-imports.ts:119
+    - openclaw/plugin-sdk/googlechat-runtime-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:120
+    - openclaw/plugin-sdk/irc @ plugins/kitchen-sink/src/generated-sdk-imports.ts:132
+    - openclaw/plugin-sdk/irc-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:133
+    - openclaw/plugin-sdk/line @ plugins/kitchen-sink/src/generated-sdk-imports.ts:137
+    - openclaw/plugin-sdk/line-core @ plugins/kitchen-sink/src/generated-sdk-imports.ts:138
+    - openclaw/plugin-sdk/line-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:139
+    - openclaw/plugin-sdk/line-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:140
+    - openclaw/plugin-sdk/llm-task @ plugins/kitchen-sink/src/generated-sdk-imports.ts:141
+    - openclaw/plugin-sdk/matrix @ plugins/kitchen-sink/src/generated-sdk-imports.ts:146
+    - openclaw/plugin-sdk/matrix-helper @ plugins/kitchen-sink/src/generated-sdk-imports.ts:147
+    - openclaw/plugin-sdk/matrix-runtime-heavy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:148
+    - openclaw/plugin-sdk/matrix-runtime-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:149
+    - openclaw/plugin-sdk/matrix-runtime-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:150
+    - openclaw/plugin-sdk/matrix-surface @ plugins/kitchen-sink/src/generated-sdk-imports.ts:151
+    - openclaw/plugin-sdk/matrix-thread-bindings @ plugins/kitchen-sink/src/generated-sdk-imports.ts:152
+    - openclaw/plugin-sdk/mattermost @ plugins/kitchen-sink/src/generated-sdk-imports.ts:153
+    - openclaw/plugin-sdk/mattermost-policy @ plugins/kitchen-sink/src/generated-sdk-imports.ts:154
+    - openclaw/plugin-sdk/memory-core @ plugins/kitchen-sink/src/generated-sdk-imports.ts:162
+    - openclaw/plugin-sdk/memory-lancedb @ plugins/kitchen-sink/src/generated-sdk-imports.ts:182
+    - openclaw/plugin-sdk/msteams @ plugins/kitchen-sink/src/generated-sdk-imports.ts:188
+    - openclaw/plugin-sdk/nextcloud-talk @ plugins/kitchen-sink/src/generated-sdk-imports.ts:193
+    - openclaw/plugin-sdk/nostr @ plugins/kitchen-sink/src/generated-sdk-imports.ts:194
+    - openclaw/plugin-sdk/opencode @ plugins/kitchen-sink/src/generated-sdk-imports.ts:195
+    - openclaw/plugin-sdk/telegram-command-ui @ plugins/kitchen-sink/src/generated-sdk-imports.ts:288
+    - openclaw/plugin-sdk/thread-ownership @ plugins/kitchen-sink/src/generated-sdk-imports.ts:296
+    - openclaw/plugin-sdk/tlon @ plugins/kitchen-sink/src/generated-sdk-imports.ts:297
+    - openclaw/plugin-sdk/twitch @ plugins/kitchen-sink/src/generated-sdk-imports.ts:301
+    - openclaw/plugin-sdk/voice-call @ plugins/kitchen-sink/src/generated-sdk-imports.ts:305
+    - openclaw/plugin-sdk/volc-model-catalog-shared @ plugins/kitchen-sink/src/generated-sdk-imports.ts:306
+    - openclaw/plugin-sdk/zalo @ plugins/kitchen-sink/src/generated-sdk-imports.ts:314
+    - openclaw/plugin-sdk/zalo-setup @ plugins/kitchen-sink/src/generated-sdk-imports.ts:315
+    - openclaw/plugin-sdk/zalouser @ plugins/kitchen-sink/src/generated-sdk-imports.ts:316
+
+- 🟠 P1 **yuanbao** `sdk-alias`
+  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
+  - id: `sdk.import.package-export-cold-import:yuanbao`
+  - evidence:
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
 
 - 🟡 P2 **agentchat** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -2560,7 +3062,13 @@ Status: PASS
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:dingtalk-connector`
   - evidence:
-    - registerChannel @ plugins/dingtalk-connector/index.ts:74
+    - [registerChannel @ index.ts:74](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L74)
+
+- 🟡 P2 **kitchen-sink** `channel-runtime`
+  - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
+  - id: `channel.runtime.envelope-config-metadata:kitchen-sink`
+  - evidence:
+    - registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:7
 
 - 🟡 P2 **mocrane-wecom** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -2611,6 +3119,12 @@ Status: PASS
     - [before_agent_start @ index.ts:102](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L102)
     - [before_agent_start @ index.ts:111](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L111)
 
+- 🟡 P2 **kitchen-sink** `hook-runner`
+  - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
+  - id: `hook.compat.before-agent-start-migration:kitchen-sink`
+  - evidence:
+    - before_agent_start @ plugins/kitchen-sink/src/generated-hooks.js:9
+
 - 🟡 P2 **agentchat** `manifest-loader`
   - contract: Legacy channel env metadata continues to map into channel setup/help surfaces.
   - id: `manifest.compat.channel-env-vars:agentchat`
@@ -2641,8 +3155,8 @@ Status: PASS
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
   - id: `manifest.schema.top-level-fields:dingtalk-connector`
   - evidence:
-    - author @ plugins/dingtalk-connector/openclaw.plugin.json
-    - main @ plugins/dingtalk-connector/openclaw.plugin.json
+    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/openclaw.plugin.json)
 
 - 🟡 P2 **qqbot** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
@@ -2679,7 +3193,7 @@ Status: PASS
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:dingtalk-connector`
   - evidence:
-    - plugins/dingtalk-connector/package.json
+    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
 
 - 🟡 P2 **lossless-claw** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -2728,7 +3242,7 @@ Status: PASS
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:dingtalk-connector`
   - evidence:
-    - extension:./dist/index.mjs -> plugins/dingtalk-connector/dist/index.mjs
+    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/dist/index.mjs)
 
 - 🟡 P2 **honcho** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -2796,13 +3310,13 @@ Status: PASS
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:dingtalk-connector`
   - evidence:
-    - axios @ plugins/dingtalk-connector/package.json
-    - dingtalk-stream @ plugins/dingtalk-connector/package.json
-    - form-data @ plugins/dingtalk-connector/package.json
-    - qrcode-terminal @ plugins/dingtalk-connector/package.json
-    - zod @ plugins/dingtalk-connector/package.json
-    - openclaw @ plugins/dingtalk-connector/package.json
-    - mammoth @ plugins/dingtalk-connector/package.json
+    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [openclaw @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
 
 - 🟡 P2 **hasdata** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -2827,6 +3341,12 @@ Status: PASS
     - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/package.json)
     - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/package.json)
     - [openclaw @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/package.json)
+
+- 🟡 P2 **kitchen-sink** `package-loader`
+  - contract: Inspector installs package dependencies in an isolated workspace before cold import.
+  - id: `package.entrypoint.isolated-dependency-install:kitchen-sink`
+  - evidence:
+    - openclaw @ plugins/kitchen-sink/package.json
 
 - 🟡 P2 **lossless-claw** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -2991,21 +3511,6 @@ Status: PASS
     - package:1.4.0
     - manifest:1.3.0
 
-- 🟡 P2 **honcho** `sdk-import`
-  - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
-  - id: `sdk.import.reserved-bundled-plugin-boundary:honcho`
-  - evidence:
-    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
-
-- 🟡 P2 **yuanbao** `sdk-import`
-  - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
-  - id: `sdk.import.reserved-bundled-plugin-boundary:yuanbao`
-  - evidence:
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
-
 - 🟡 P2 **a2a-gateway** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:a2a-gateway`
@@ -3035,16 +3540,16 @@ Status: PASS
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:dingtalk-connector`
   - evidence:
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/index.ts:17
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/channel.ts:4
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/config/accounts.ts:2
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/connection.ts:16
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/core/provider.ts:14
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/directory.ts:1
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/gateway-methods.ts:7
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/onboarding.ts:5
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/runtime.ts:1
-    - openclaw/plugin-sdk @ plugins/dingtalk-connector/src/utils/agent.ts:8
+    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L17)
+    - [openclaw/plugin-sdk @ channel.ts:4](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/channel.ts#L4)
+    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/config/accounts.ts#L2)
+    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/core/connection.ts#L16)
+    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/core/provider.ts#L14)
+    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/directory.ts#L1)
+    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L7)
+    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/onboarding.ts#L5)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/utils/agent.ts#L8)
 
 - 🟡 P2 **honcho** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
@@ -3070,6 +3575,12 @@ Status: PASS
     - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L1)
     - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/graph/tools.ts#L2)
     - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L1)
+
+- 🟡 P2 **kitchen-sink** `sdk-alias`
+  - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
+  - id: `sdk.import.root-barrel-cold-import:kitchen-sink`
+  - evidence:
+    - openclaw/plugin-sdk @ plugins/kitchen-sink/src/generated-sdk-imports.ts:2
 
 - 🟡 P2 **llm-trace-phoenix** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
@@ -3408,12 +3919,6 @@ Status: PASS
   - evidence:
     - package:1.1.2
     - manifest:1.0.0
-
-- 🟢 P3 **clawmetry** `sdk-import`
-  - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
-  - id: `sdk.import.reserved-bundled-plugin-boundary:clawmetry`
-  - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/b329bb3ed18b651d369bf35321ec58bd47dc33b4/clawhub-plugin/src/service.ts#L2)
 
 - 🟢 P3 **apify** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.

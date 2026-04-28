@@ -94,3 +94,7 @@
 	path = plugins/dingtalk-connector
 	url = https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector.git
 	shallow = true
+[submodule "plugins/kitchen-sink"]
+	path = plugins/kitchen-sink
+	url = https://github.com/openclaw/kitchen-sink.git
+	shallow = true

@@ -1,15 +1,15 @@
 {
   "generatedAt": "deterministic",
   "summary": {
-    "fixtureCount": 28,
-    "probeCount": 155,
-    "hookProbeCount": 48,
-    "registrationProbeCount": 107,
-    "readyCount": 155,
+    "fixtureCount": 29,
+    "probeCount": 230,
+    "hookProbeCount": 82,
+    "registrationProbeCount": 148,
+    "readyCount": 230,
     "blockedCount": 0,
-    "directExecutionCount": 80,
-    "optInExecutionCount": 18,
-    "metadataOnlyCount": 9
+    "directExecutionCount": 86,
+    "optInExecutionCount": 21,
+    "metadataOnlyCount": 41
   },
   "probes": [
     {
@@ -985,6 +985,754 @@
       "source": "plugins/composio/index.ts:33"
     },
     {
+      "id": "hook.${hook}:kitchen-sink:plugins-kitchen-sink-scripts-check-sdk-surface-mjs-15",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "${hook}",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "${hook}",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "${hook}",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/scripts/check-sdk-surface.mjs:15"
+    },
+    {
+      "id": "hook.${hook}:kitchen-sink:plugins-kitchen-sink-scripts-sync-surface-mjs-40",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "${hook}",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "${hook}",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "${hook}",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/scripts/sync-surface.mjs:40"
+    },
+    {
+      "id": "hook.after_compaction:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-4",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "after_compaction",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "after_compaction",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "after_compaction",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:4"
+    },
+    {
+      "id": "hook.after_tool_call:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-5",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "after_tool_call",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "after_tool_call",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "after_tool_call",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:5"
+    },
+    {
+      "id": "hook.agent_end:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-6",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "agent_end",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "final conversation payload is redacted as expected",
+        "agent id and run metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "status": "completed",
+        "transcript": [
+          {
+            "role": "assistant",
+            "content": "[redacted fixture output]"
+          }
+        ]
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:6"
+    },
+    {
+      "id": "hook.before_agent_finalize:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-7",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "before_agent_finalize",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "before_agent_finalize",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "before_agent_finalize",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:7"
+    },
+    {
+      "id": "hook.before_agent_reply:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-8",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "before_agent_reply",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "before_agent_reply",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "before_agent_reply",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:8"
+    },
+    {
+      "id": "hook.before_agent_start:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-9",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "before_agent_start",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "legacy startup hook payload is accepted",
+        "migration metadata can map to prompt/model hooks"
+      ],
+      "syntheticEvent": {
+        "agentId": "agent-fixture",
+        "runId": "run-fixture",
+        "config": {
+          "source": "plugin-inspector"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:9"
+    },
+    {
+      "id": "hook.before_compaction:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-10",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "before_compaction",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "before_compaction",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "before_compaction",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:10"
+    },
+    {
+      "id": "hook.before_dispatch:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-11",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "before_dispatch",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "before_dispatch",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "before_dispatch",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:11"
+    },
+    {
+      "id": "hook.before_install:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-12",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "before_install",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "before_install",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "before_install",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:12"
+    },
+    {
+      "id": "hook.before_message_write:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-13",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "before_message_write",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "before_message_write",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "before_message_write",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:13"
+    },
+    {
+      "id": "hook.before_model_resolve:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-14",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "before_model_resolve",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "before_model_resolve",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "before_model_resolve",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:14"
+    },
+    {
+      "id": "hook.before_prompt_build:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-15",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "before_prompt_build",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "prompt mutation result is preserved",
+        "agent and conversation metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "messages": [
+          {
+            "role": "user",
+            "content": "fixture prompt"
+          }
+        ],
+        "metadata": {
+          "source": "plugin-inspector"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:15"
+    },
+    {
+      "id": "hook.before_reset:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-16",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "before_reset",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "before_reset",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "before_reset",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:16"
+    },
+    {
+      "id": "hook.before_tool_call:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-17",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "before_tool_call",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "block/allow return shapes are preserved",
+        "terminal and approval metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "toolName": "fixture_tool",
+        "params": {},
+        "toolCallId": "call-fixture"
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "toolName": "fixture_tool"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:17"
+    },
+    {
+      "id": "hook.gateway_start:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-18",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "gateway_start",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "gateway_start",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "gateway_start",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:18"
+    },
+    {
+      "id": "hook.gateway_stop:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-19",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "gateway_stop",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "gateway_stop",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "gateway_stop",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:19"
+    },
+    {
+      "id": "hook.inbound_claim:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-20",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "inbound_claim",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "claim payload preserves channel/source identity",
+        "routing metadata is present"
+      ],
+      "syntheticEvent": {
+        "channelId": "fixture-channel",
+        "source": {
+          "type": "external",
+          "id": "fixture-source"
+        },
+        "message": {
+          "id": "message-fixture",
+          "text": "claim this message"
+        }
+      },
+      "syntheticContext": {
+        "channelId": "fixture-channel",
+        "accountId": "fixture-account"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:20"
+    },
+    {
+      "id": "hook.llm_input:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-21",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "llm_input",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "model input payload is redacted as expected",
+        "model and agent metadata are present"
+      ],
+      "syntheticEvent": {
+        "agentId": "agent-fixture",
+        "model": "gpt-5.4",
+        "messages": [
+          {
+            "role": "user",
+            "content": "[redacted fixture input]"
+          }
+        ]
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:21"
+    },
+    {
+      "id": "hook.llm_output:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-22",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "llm_output",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "model output payload is redacted as expected",
+        "model and agent metadata are present"
+      ],
+      "syntheticEvent": {
+        "agentId": "agent-fixture",
+        "model": "gpt-5.4",
+        "output": {
+          "role": "assistant",
+          "content": "[redacted fixture output]"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:22"
+    },
+    {
+      "id": "hook.message_received:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-23",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "message_received",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "message_received",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "message_received",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:23"
+    },
+    {
+      "id": "hook.message_sending:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-24",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "message_sending",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "message_sending",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "message_sending",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:24"
+    },
+    {
+      "id": "hook.message_sent:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-25",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "message_sent",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "message_sent",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "message_sent",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:25"
+    },
+    {
+      "id": "hook.model_call_ended:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-26",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "model_call_ended",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "model_call_ended",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "model_call_ended",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:26"
+    },
+    {
+      "id": "hook.model_call_started:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-27",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "model_call_started",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "model_call_started",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "model_call_started",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:27"
+    },
+    {
+      "id": "hook.reply_dispatch:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-28",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "reply_dispatch",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "reply_dispatch",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "reply_dispatch",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:28"
+    },
+    {
+      "id": "hook.session_end:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-29",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "session_end",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "session_end",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "session_end",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:29"
+    },
+    {
+      "id": "hook.session_start:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-30",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "session_start",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "session_start",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "session_start",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:30"
+    },
+    {
+      "id": "hook.subagent_delivery_target:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-31",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "subagent_delivery_target",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "target routing result is preserved",
+        "parent/subagent metadata are present"
+      ],
+      "syntheticEvent": {
+        "childSessionKey": "child-session",
+        "agentId": "agent-child",
+        "label": "fixture child",
+        "mode": "run",
+        "requester": {
+          "channel": "fixture-channel",
+          "accountId": "fixture-account"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "parentAgentId": "agent-parent"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:31"
+    },
+    {
+      "id": "hook.subagent_ended:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-32",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "subagent_ended",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "subagent completion payload is preserved",
+        "status metadata is present"
+      ],
+      "syntheticEvent": {
+        "childSessionKey": "child-session",
+        "agentId": "agent-child",
+        "status": "completed"
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "parentAgentId": "agent-parent"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:32"
+    },
+    {
+      "id": "hook.subagent_spawned:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-33",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "subagent_spawned",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "spawn payload is preserved",
+        "parent/subagent metadata are present"
+      ],
+      "syntheticEvent": {
+        "childSessionKey": "child-session",
+        "agentId": "agent-child",
+        "label": "fixture child",
+        "mode": "run"
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "parentAgentId": "agent-parent"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:33"
+    },
+    {
+      "id": "hook.subagent_spawning:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-34",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "subagent_spawning",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "subagent_spawning",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "subagent_spawning",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:34"
+    },
+    {
+      "id": "hook.tool_result_persist:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-35",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "tool_result_persist",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "tool_result_persist",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "tool_result_persist",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:35"
+    },
+    {
       "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-820",
       "fixture": "memory-tencentdb",
       "kind": "hook",
@@ -1274,7 +2022,9 @@
         "mode": "channel-opt-in",
         "callableProperties": [
           "send",
-          "receive"
+          "sendMessage",
+          "receive",
+          "handleMessage"
         ],
         "option": "includeChannelRuntime"
       },
@@ -1427,7 +2177,9 @@
         "mode": "channel-opt-in",
         "callableProperties": [
           "send",
-          "receive"
+          "sendMessage",
+          "receive",
+          "handleMessage"
         ],
         "option": "includeChannelRuntime"
       },
@@ -1522,7 +2274,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/a2a-gateway/index.ts:616"
@@ -1552,7 +2305,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/a2a-gateway/index.ts:622"
@@ -1582,7 +2336,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/a2a-gateway/index.ts:631"
@@ -1612,7 +2367,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/a2a-gateway/index.ts:657"
@@ -1642,7 +2398,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/a2a-gateway/index.ts:669"
@@ -1669,7 +2426,8 @@
         "mode": "lifecycle-opt-in",
         "callableProperties": [
           "start",
-          "stop"
+          "stop",
+          "dispose"
         ],
         "option": "includeLifecycle"
       },
@@ -1761,7 +2519,8 @@
         "mode": "lifecycle-opt-in",
         "callableProperties": [
           "start",
-          "stop"
+          "stop",
+          "dispose"
         ],
         "option": "includeLifecycle"
       },
@@ -1853,7 +2612,8 @@
         "mode": "lifecycle-opt-in",
         "callableProperties": [
           "start",
-          "stop"
+          "stop",
+          "dispose"
         ],
         "option": "includeLifecycle"
       },
@@ -2114,7 +2874,8 @@
         "mode": "lifecycle-opt-in",
         "callableProperties": [
           "start",
-          "stop"
+          "stop",
+          "dispose"
         ],
         "option": "includeLifecycle"
       },
@@ -2368,7 +3129,8 @@
         "mode": "lifecycle-opt-in",
         "callableProperties": [
           "start",
-          "stop"
+          "stop",
+          "dispose"
         ],
         "option": "includeLifecycle"
       },
@@ -2927,6 +3689,925 @@
       "source": "plugins/composio/src/tools.ts:89"
     },
     {
+      "id": "registration.registerAgentHarness:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-4",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerAgentHarness",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "agent harness factories are captured as registration metadata; agent runtime execution remains isolated opt-in"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:4"
+    },
+    {
+      "id": "registration.registerAgentToolResultMiddleware:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-5",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerAgentToolResultMiddleware",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "agent tool-result middleware is captured as registration metadata before tool-result pipeline execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:5"
+    },
+    {
+      "id": "registration.registerAutoEnableProbe:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-6",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerAutoEnableProbe",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "auto-enable probes are captured as registration metadata before runtime activation checks"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:6"
+    },
+    {
+      "id": "registration.registerChannel:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-7",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "sendMessage",
+          "receive",
+          "handleMessage"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:7"
+    },
+    {
+      "id": "registration.registerCli:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-8",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerCli",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command name is stable",
+        "argument schema is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "args": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:8"
+    },
+    {
+      "id": "registration.registerCliBackend:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-9",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerCliBackend",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "CLI backend descriptors are captured as registration metadata before backend process execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:9"
+    },
+    {
+      "id": "registration.registerCodexAppServerExtensionFactory:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-10",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerCodexAppServerExtensionFactory",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "Codex app server extension factories are captured as registration metadata before host UI execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:10"
+    },
+    {
+      "id": "registration.registerCommand:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-11",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:11"
+    },
+    {
+      "id": "registration.registerCompactionProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-12",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerCompactionProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "compaction providers are captured as registration metadata before compaction runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:12"
+    },
+    {
+      "id": "registration.registerConfigMigration:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-13",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerConfigMigration",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "config migrations are captured as registration metadata before mutating stored plugin config"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:13"
+    },
+    {
+      "id": "registration.registerContextEngine:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-14",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerContextEngine",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "context engine id is stable",
+        "factory metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-context-engine",
+          "factory": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "context engine factories are captured as registration metadata; engine startup remains isolated opt-in"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:14"
+    },
+    {
+      "id": "registration.registerDetachedTaskRuntime:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-15",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerDetachedTaskRuntime",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "detached task runtimes are captured as registration metadata before async task execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:15"
+    },
+    {
+      "id": "registration.registerGatewayDiscoveryService:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-16",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerGatewayDiscoveryService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "gateway discovery services are captured as registration metadata before network discovery execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:16"
+    },
+    {
+      "id": "registration.registerGatewayMethod:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-17",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:17"
+    },
+    {
+      "id": "registration.registerHook:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-18",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerHook",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "legacy hook name is stable",
+        "handler metadata is captured"
+      ],
+      "syntheticArguments": [
+        "before_prompt_build",
+        "function"
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "legacy hook registrar is captured as metadata; hook handlers are probed through hook events"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:18"
+    },
+    {
+      "id": "registration.registerHttpRoute:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-19",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerHttpRoute",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "route method and path are captured",
+        "auth policy metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "method": "POST",
+          "path": "/fixture/probe",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:19"
+    },
+    {
+      "id": "registration.registerImageGenerationProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-20",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerImageGenerationProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "image generation providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:20"
+    },
+    {
+      "id": "registration.registerInteractiveHandler:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-21",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerInteractiveHandler",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "handler id is stable",
+        "interaction payload and response shape are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-interaction",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:21"
+    },
+    {
+      "id": "registration.registerMediaUnderstandingProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-22",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerMediaUnderstandingProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "media understanding providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:22"
+    },
+    {
+      "id": "registration.registerMemoryCapability:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-23",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerMemoryCapability",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "memory capabilities are captured as registration metadata before memory runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:23"
+    },
+    {
+      "id": "registration.registerMemoryCorpusSupplement:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-24",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerMemoryCorpusSupplement",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "memory corpus supplements are captured as registration metadata before memory runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:24"
+    },
+    {
+      "id": "registration.registerMemoryEmbeddingProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-25",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerMemoryEmbeddingProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "memory embedding providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:25"
+    },
+    {
+      "id": "registration.registerMemoryFlushPlan:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-26",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerMemoryFlushPlan",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "memory flush plans are captured as registration metadata before memory runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:26"
+    },
+    {
+      "id": "registration.registerMemoryPromptSection:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-27",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerMemoryPromptSection",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "memory prompt section id is stable",
+        "render metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-memory-section",
+          "render": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "memory prompt section renderers are captured as metadata before prompt-runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:27"
+    },
+    {
+      "id": "registration.registerMemoryPromptSupplement:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-28",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerMemoryPromptSupplement",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "memory prompt supplements are captured as registration metadata before prompt-runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:28"
+    },
+    {
+      "id": "registration.registerMemoryRuntime:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-29",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerMemoryRuntime",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "memory runtime id is stable",
+        "runtime factory metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-memory-runtime",
+          "create": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "memory runtime factories are captured as metadata; external memory startup remains isolated opt-in"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:29"
+    },
+    {
+      "id": "registration.registerMigrationProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-30",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerMigrationProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "migration providers are captured as registration metadata before migration runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:30"
+    },
+    {
+      "id": "registration.registerMusicGenerationProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-31",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerMusicGenerationProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "music generation providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:31"
+    },
+    {
+      "id": "registration.registerNodeHostCommand:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-32",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerNodeHostCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "node host commands are captured as registration metadata before host process execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:32"
+    },
+    {
+      "id": "registration.registerProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-33",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:33"
+    },
+    {
+      "id": "registration.registerRealtimeTranscriptionProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-34",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerRealtimeTranscriptionProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "realtime transcription providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:34"
+    },
+    {
+      "id": "registration.registerRealtimeVoiceProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-35",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerRealtimeVoiceProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "realtime voice providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:35"
+    },
+    {
+      "id": "registration.registerReload:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-36",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerReload",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "reload handlers are captured as registration metadata before runtime reload execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:36"
+    },
+    {
+      "id": "registration.registerSecurityAuditCollector:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-37",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerSecurityAuditCollector",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "security audit collectors are captured as registration metadata before filesystem or policy scans"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:37"
+    },
+    {
+      "id": "registration.registerService:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-38",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop",
+          "dispose"
+        ],
+        "option": "includeLifecycle"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:38"
+    },
+    {
+      "id": "registration.registerSpeechProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-39",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerSpeechProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "provider id is stable",
+        "speech request overrides are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-speech",
+          "speak": "function"
+        }
+      ],
+      "execution": {
+        "mode": "provider-opt-in",
+        "callableProperties": [
+          "speak",
+          "synthesize",
+          "tts"
+        ],
+        "option": "includeProviderCapabilities"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:39"
+    },
+    {
+      "id": "registration.registerTextTransforms:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-40",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerTextTransforms",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "text transforms are captured as registration metadata before content mutation execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:40"
+    },
+    {
+      "id": "registration.registerTool:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-41",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:41"
+    },
+    {
+      "id": "registration.registerVideoGenerationProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-42",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerVideoGenerationProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "video generation providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:42"
+    },
+    {
+      "id": "registration.registerWebFetchProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-43",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerWebFetchProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "web fetch providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:43"
+    },
+    {
+      "id": "registration.registerWebSearchProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-44",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerWebSearchProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "web search providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/generated-registrars.js:44"
+    },
+    {
       "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-957",
       "fixture": "memory-tencentdb",
       "kind": "registration",
@@ -3071,7 +4752,9 @@
         "mode": "channel-opt-in",
         "callableProperties": [
           "send",
-          "receive"
+          "sendMessage",
+          "receive",
+          "handleMessage"
         ],
         "option": "includeChannelRuntime"
       },
@@ -3102,7 +4785,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/dingtalk-connector/src/gateway-methods.ts:130"
@@ -3132,7 +4816,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/dingtalk-connector/src/gateway-methods.ts:190"
@@ -3162,7 +4847,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/dingtalk-connector/src/gateway-methods.ts:258"
@@ -3192,7 +4878,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/dingtalk-connector/src/gateway-methods.ts:311"
@@ -3222,7 +4909,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/dingtalk-connector/src/gateway-methods.ts:351"
@@ -3252,7 +4940,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/dingtalk-connector/src/gateway-methods.ts:388"
@@ -3282,7 +4971,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/dingtalk-connector/src/gateway-methods.ts:425"
@@ -3312,7 +5002,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/dingtalk-connector/src/gateway-methods.ts:452"
@@ -3342,7 +5033,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/dingtalk-connector/src/gateway-methods.ts:506"
@@ -3372,7 +5064,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/dingtalk-connector/src/gateway-methods.ts:593"
@@ -3402,7 +5095,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/dingtalk-connector/src/gateway-methods.ts:60"
@@ -3432,7 +5126,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/dingtalk-connector/src/gateway-methods.ts:652"
@@ -3462,7 +5157,8 @@
         "callableProperties": [
           "handler",
           "run",
-          "execute"
+          "execute",
+          "invoke"
         ]
       },
       "source": "plugins/dingtalk-connector/src/gateway-methods.ts:719"
@@ -3490,7 +5186,9 @@
         "mode": "channel-opt-in",
         "callableProperties": [
           "send",
-          "receive"
+          "sendMessage",
+          "receive",
+          "handleMessage"
         ],
         "option": "includeChannelRuntime"
       },
@@ -3579,7 +5277,9 @@
         "mode": "channel-opt-in",
         "callableProperties": [
           "send",
-          "receive"
+          "sendMessage",
+          "receive",
+          "handleMessage"
         ],
         "option": "includeChannelRuntime"
       },
@@ -3785,7 +5485,9 @@
         "mode": "channel-opt-in",
         "callableProperties": [
           "send",
-          "receive"
+          "sendMessage",
+          "receive",
+          "handleMessage"
         ],
         "option": "includeChannelRuntime"
       },
@@ -3814,7 +5516,9 @@
         "mode": "channel-opt-in",
         "callableProperties": [
           "send",
-          "receive"
+          "sendMessage",
+          "receive",
+          "handleMessage"
         ],
         "option": "includeChannelRuntime"
       },
@@ -3970,7 +5674,8 @@
         "mode": "lifecycle-opt-in",
         "callableProperties": [
           "start",
-          "stop"
+          "stop",
+          "dispose"
         ],
         "option": "includeLifecycle"
       },
@@ -3998,7 +5703,8 @@
         "mode": "lifecycle-opt-in",
         "callableProperties": [
           "start",
-          "stop"
+          "stop",
+          "dispose"
         ],
         "option": "includeLifecycle"
       },
@@ -4026,7 +5732,8 @@
         "mode": "lifecycle-opt-in",
         "callableProperties": [
           "start",
-          "stop"
+          "stop",
+          "dispose"
         ],
         "option": "includeLifecycle"
       },
@@ -4100,7 +5807,8 @@
         "mode": "lifecycle-opt-in",
         "callableProperties": [
           "start",
-          "stop"
+          "stop",
+          "dispose"
         ],
         "option": "includeLifecycle"
       },
@@ -4209,7 +5917,8 @@
         "mode": "lifecycle-opt-in",
         "callableProperties": [
           "start",
-          "stop"
+          "stop",
+          "dispose"
         ],
         "option": "includeLifecycle"
       },
@@ -4388,7 +6097,8 @@
         "mode": "provider-opt-in",
         "callableProperties": [
           "speak",
-          "synthesize"
+          "synthesize",
+          "tts"
         ],
         "option": "includeProviderCapabilities"
       },

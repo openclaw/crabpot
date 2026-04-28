@@ -24,28 +24,28 @@ Run: https://github.com/openclaw/crabpot/actions/runs/25045088692
 
 | Metric                 | Result                                               |
 | ---------------------- | ---------------------------------------------------- |
-| Fixtures               | 28                                                   |
+| Fixtures               | 29                                                   |
 | Hard breakages         | 0                                                    |
-| Warnings               | 57                                                   |
-| Suggestions            | 99                                                   |
-| Issues                 | 156                                                  |
-| P0 issues              | [🔴 P0 5](reports/crabpot-issues.md#p0-live-issues)  |
-| P1 issues              | [🟠 P1 30](reports/crabpot-issues.md#triage-summary) |
-| Live issues            | 5 total / 5 P0                                       |
-| Compat gaps            | 4                                                    |
-| Deprecation warnings   | 22                                                   |
-| Inspector gaps         | 101                                                  |
+| Warnings               | 62                                                   |
+| Suggestions            | 104                                                  |
+| Issues                 | 166                                                  |
+| P0 issues              | [🔴 P0 7](reports/crabpot-issues.md#p0-live-issues)  |
+| P1 issues              | [🟠 P1 34](reports/crabpot-issues.md#triage-summary) |
+| Live issues            | 7 total / 7 P0                                       |
+| Compat gaps            | 5                                                    |
+| Deprecation warnings   | 24                                                   |
+| Inspector gaps         | 106                                                  |
 | Upstream metadata      | 24                                                   |
-| Contract probes        | 151                                                  |
+| Contract probes        | 159                                                  |
 | Policy failures        | 0                                                    |
 | Policy warnings        | 3                                                    |
 | Ref diff failures      | 0                                                    |
 | Profile failures       | 0                                                    |
 | Execution probes       | 6 pass / 0 fail / 2 blocked                          |
-| Synthetic probes       | 155 ready / 0 blocked / 155 total                    |
-| Cold import            | 0 ready / 31 blocked / 31 entrypoints                |
-| Workspace plan         | 31 entrypoints / 20 installs / 8 builds              |
-| Platform risks         | 158 Windows / 49 container                           |
+| Synthetic probes       | 230 ready / 0 blocked / 230 total                    |
+| Cold import            | 0 ready / 34 blocked / 34 entrypoints                |
+| Workspace plan         | 34 entrypoints / 23 installs / 8 builds              |
+| Platform risks         | 173 Windows / 52 container                           |
 | Jiti loader candidates | 18                                                   |
 | Import loop            | p50 153ms / p95 165ms / max RSS 46.3MB / CPU 27ms    |
 | Runtime profile        | p50 649ms / p95 1329ms / max RSS 68.7MB              |
@@ -58,12 +58,12 @@ Run: https://github.com/openclaw/crabpot/actions/runs/25045088692
 | 🔴 P0    | live-issue    | codex-app-server | sdk-export-missing       | core-compat-adapter | [codex-app-server: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#p0-live-issues) |
 | 🔴 P0    | live-issue    | honcho           | sdk-export-missing       | core-compat-adapter | [honcho: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#p0-live-issues)           |
 | 🔴 P0    | live-issue    | hyperspell       | unknown-hook-name        | core-compat-adapter | [hyperspell: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)                        |
+| 🔴 P0    | live-issue    | kitchen-sink     | sdk-export-missing       | core-compat-adapter | [kitchen-sink: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#p0-live-issues)     |
+| 🔴 P0    | live-issue    | kitchen-sink     | unknown-hook-name        | core-compat-adapter | [kitchen-sink: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)                      |
 | 🔴 P0    | live-issue    | yuanbao          | sdk-export-missing       | core-compat-adapter | [yuanbao: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#p0-live-issues)          |
 | 🟠 P1    | inspector-gap | a2a-gateway      | registration-capture-gap | inspector-follow-up | [a2a-gateway: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)      |
 | 🟠 P1    | compat-gap    | clawmetry        | missing-compat-record    | core-compat-adapter | [clawmetry: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)                           |
 | 🟠 P1    | inspector-gap | clawmetry        | registration-capture-gap | inspector-follow-up | [clawmetry: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)        |
-| 🟠 P1    | compat-gap    | codex-app-server | missing-compat-record    | core-compat-adapter | [codex-app-server: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)                    |
-| 🟠 P1    | inspector-gap | codex-app-server | registration-capture-gap | inspector-follow-up | [codex-app-server: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps) |
 <!-- crabpot-summary:end -->
 ## What this tests
 

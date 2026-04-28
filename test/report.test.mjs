@@ -139,18 +139,18 @@ test("issue report preserves decision metadata for compat-layer work", async () 
   assert.match(markdown, /🟡 P2/);
   assert.match(
     markdown,
-    /https:\/\/github\.com\/pwrdrvr\/openclaw-codex-app-server\/blob\/[0-9a-f]{40}\/src\/controller\.ts#L104/,
+    /https:\/\/github\.com\/pwrdrvr\/openclaw-codex-app-server\/blob\/[0-9a-f]{40}\/src\/controller\.ts#L105/,
   );
   assert.doesNotMatch(markdown, /\| ID\s+\| Severity\s+\| Class\s+\| Fixture\s+\| Owner\s+\|/);
   assert.doesNotMatch(markdown, /CRABPOT-[A-F0-9]{8}/);
 
   const windowsReport = structuredClone(report);
   windowsReport.issues.find((issue) => issue.code === "sdk-export-missing").evidence = [
-    "openclaw/plugin-sdk/discord @ plugins\\codex-app-server\\src\\controller.ts:104",
+    "openclaw/plugin-sdk/telegram-account @ plugins\\codex-app-server\\src\\controller.ts:105",
   ];
   assert.match(
     renderIssuesReport(windowsReport),
-    /https:\/\/github\.com\/pwrdrvr\/openclaw-codex-app-server\/blob\/[0-9a-f]{40}\/src\/controller\.ts#L104/,
+    /https:\/\/github\.com\/pwrdrvr\/openclaw-codex-app-server\/blob\/[0-9a-f]{40}\/src\/controller\.ts#L105/,
   );
 });
 

@@ -1,21 +1,22 @@
 {
   "generatedAt": "deterministic",
+  "title": "Crabpot CI Summary",
   "mode": "local",
   "openclawLabel": "",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 51,
-    "suggestions": 92,
-    "issues": 143,
-    "p0Issues": 2,
-    "p1Issues": 26,
-    "liveIssues": 2,
-    "liveP0Issues": 2,
-    "compatGaps": 1,
-    "deprecationWarnings": 21,
-    "inspectorGaps": 97,
-    "upstreamIssues": 22,
+    "warnings": 62,
+    "suggestions": 104,
+    "issues": 166,
+    "p0Issues": 7,
+    "p1Issues": 34,
+    "liveIssues": 7,
+    "liveP0Issues": 7,
+    "compatGaps": 5,
+    "deprecationWarnings": 24,
+    "inspectorGaps": 106,
+    "upstreamIssues": 24,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -25,15 +26,23 @@
     "executionPass": 6,
     "executionFail": 0,
     "executionBlocked": 2,
-    "platformWindowsRisks": 153,
-    "platformContainerRisks": 47,
+    "platformWindowsRisks": 173,
+    "platformContainerRisks": 52,
     "loaderJitiCandidates": 18,
-    "importLoopP50Ms": 950,
-    "importLoopP95Ms": 1023,
-    "importLoopMaxRssMb": 45.5,
-    "importLoopMaxCpuMs": 208
+    "importLoopP50Ms": 637,
+    "importLoopP95Ms": 662,
+    "importLoopMaxRssMb": 51.3,
+    "importLoopMaxCpuMs": 168
   },
   "topIssues": [
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "clawmetry",
+      "code": "sdk-export-missing",
+      "title": "clawmetry: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
     {
       "severity": "P0",
       "issueClass": "live-issue",
@@ -45,9 +54,41 @@
     {
       "severity": "P0",
       "issueClass": "live-issue",
+      "fixture": "honcho",
+      "code": "sdk-export-missing",
+      "title": "honcho: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
       "fixture": "hyperspell",
       "code": "unknown-hook-name",
       "title": "hyperspell: fixture uses a hook missing from target OpenClaw",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "kitchen-sink",
+      "code": "sdk-export-missing",
+      "title": "kitchen-sink: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "kitchen-sink",
+      "code": "unknown-hook-name",
+      "title": "kitchen-sink: fixture uses a hook missing from target OpenClaw",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "yuanbao",
+      "code": "sdk-export-missing",
+      "title": "yuanbao: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
     },
     {
@@ -57,6 +98,14 @@
       "code": "registration-capture-gap",
       "title": "a2a-gateway: runtime registrations need capture before contract judgment",
       "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "clawmetry",
+      "code": "missing-compat-record",
+      "title": "clawmetry: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
@@ -93,10 +142,26 @@
     {
       "severity": "P1",
       "issueClass": "inspector-gap",
+      "fixture": "dingtalk-connector",
+      "code": "registration-capture-gap",
+      "title": "dingtalk-connector: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
       "fixture": "honcho",
       "code": "conversation-access-hook",
       "title": "honcho: conversation-access hooks need privacy-boundary probes",
       "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "honcho",
+      "code": "missing-compat-record",
+      "title": "honcho: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
@@ -125,73 +190,9 @@
     {
       "severity": "P1",
       "issueClass": "inspector-gap",
-      "fixture": "lightclawbot",
-      "code": "registration-capture-gap",
-      "title": "lightclawbot: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "llm-trace-phoenix",
-      "code": "conversation-access-hook",
-      "title": "llm-trace-phoenix: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "lossless-claw",
-      "code": "registration-capture-gap",
-      "title": "lossless-claw: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "mcp-adapter",
-      "code": "registration-capture-gap",
-      "title": "mcp-adapter: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "memory-tencentdb",
-      "code": "conversation-access-hook",
-      "title": "memory-tencentdb: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "memos-cloud",
-      "code": "conversation-access-hook",
-      "title": "memos-cloud: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "memos-cloud",
-      "code": "registration-capture-gap",
-      "title": "memos-cloud: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "mocrane-wecom",
-      "code": "registration-capture-gap",
-      "title": "mocrane-wecom: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "openclaw-weixin",
-      "code": "registration-capture-gap",
-      "title": "openclaw-weixin: runtime registrations need capture before contract judgment",
+      "fixture": "kitchen-sink",
+      "code": "before-tool-call-probe",
+      "title": "kitchen-sink: before_tool_call needs terminal/block/approval probes",
       "decision": "inspector-follow-up"
     }
   ],
@@ -200,10 +201,15 @@
     {
       "id": "compatibility-report.live-p0-issues",
       "action": "warn",
-      "message": "2 live P0 issues tracked",
+      "message": "7 live P0 issues tracked",
       "evidence": [
+        "clawmetry:sdk-export-missing:untracked",
         "codex-app-server:sdk-export-missing:untracked",
-        "hyperspell:unknown-hook-name:none"
+        "honcho:sdk-export-missing:untracked",
+        "hyperspell:unknown-hook-name:none",
+        "kitchen-sink:sdk-export-missing:untracked",
+        "kitchen-sink:unknown-hook-name:none",
+        "yuanbao:sdk-export-missing:untracked"
       ]
     },
     {
