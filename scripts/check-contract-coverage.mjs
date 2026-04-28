@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import { pathToFileURL } from "node:url";
-import { loadPluginInspector } from "./plugin-inspector-source.mjs";
+import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 import { buildReport } from "./report-lib.mjs";
 
-const pluginInspector = await loadPluginInspector();
+const pluginInspector = await loadPluginInspectorPublicApi();
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   await main();

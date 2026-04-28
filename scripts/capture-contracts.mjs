@@ -2,13 +2,13 @@
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
-import { loadPluginInspector } from "./plugin-inspector-source.mjs";
+import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 import { buildReport } from "./report-lib.mjs";
 
 export const defaultCaptureJsonPath = path.join(repoRoot, "reports/crabpot-capture.json");
 export const defaultCaptureMarkdownPath = path.join(repoRoot, "reports/crabpot-capture.md");
 
-const pluginInspector = await loadPluginInspector();
+const pluginInspector = await loadPluginInspectorPublicApi();
 
 export const REGISTRATION_ASSERTIONS = pluginInspector.defaultRegistrationAssertions;
 export const REGISTRATION_ARGUMENTS = pluginInspector.defaultRegistrationArguments;
