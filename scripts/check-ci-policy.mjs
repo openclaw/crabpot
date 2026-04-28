@@ -5,7 +5,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { defaultRefDiffJsonPath } from "./compare-openclaw-refs.mjs";
 import { repoRoot } from "./manifest-lib.mjs";
-import { loadPluginInspector } from "./plugin-inspector-source.mjs";
+import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 import { buildReport, defaultJsonReportPath } from "./report-lib.mjs";
 import { defaultExecutionResultsJsonPath } from "./summarize-execution-results.mjs";
 
@@ -13,7 +13,7 @@ export const defaultCiPolicyPath = path.join(repoRoot, "crabpot.ci-policy.json")
 export const defaultCiPolicyReportJsonPath = path.join(repoRoot, "reports/crabpot-ci-policy.json");
 export const defaultCiPolicyReportMarkdownPath = path.join(repoRoot, "reports/crabpot-ci-policy.md");
 
-const pluginInspector = await loadPluginInspector();
+const pluginInspector = await loadPluginInspectorPublicApi();
 
 const crabpotCiPolicyOptions = {
   jsonPath: defaultCiPolicyReportJsonPath,

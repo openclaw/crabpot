@@ -2,12 +2,12 @@
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
-import { loadPluginInspector } from "./plugin-inspector-source.mjs";
+import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 
 export const defaultExecutionResultsJsonPath = path.join(repoRoot, "reports/crabpot-execution-results.json");
 export const defaultExecutionResultsMarkdownPath = path.join(repoRoot, "reports/crabpot-execution-results.md");
 
-const pluginInspector = await loadPluginInspector();
+const pluginInspector = await loadPluginInspectorPublicApi();
 
 const crabpotExecutionResultsOptions = {
   jsonPath: defaultExecutionResultsJsonPath,

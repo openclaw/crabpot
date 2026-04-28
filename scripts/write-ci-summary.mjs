@@ -3,7 +3,7 @@ import { appendFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
-import { loadPluginInspector } from "./plugin-inspector-source.mjs";
+import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 
 export const defaultCiSummaryMarkdownPath = path.join(repoRoot, "reports/crabpot-ci-summary.md");
 export const defaultCiSummaryJsonPath = path.join(repoRoot, "reports/crabpot-ci-summary.json");
@@ -23,7 +23,7 @@ export const crabpotCiReportPaths = {
   ciPolicy: "reports/crabpot-ci-policy.json",
 };
 
-const pluginInspector = await loadPluginInspector();
+const pluginInspector = await loadPluginInspectorPublicApi();
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   await main();
