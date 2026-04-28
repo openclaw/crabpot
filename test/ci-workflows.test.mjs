@@ -17,6 +17,7 @@ test("manual OpenClaw ref workflow accepts branch tag or SHA inputs", async () =
   assert.match(workflow, /ref: \$\{\{ env\.TARGET_REF \}\}/);
   assert.match(workflow, /node scripts\/check-contract-coverage\.mjs --openclaw \.\/openclaw/);
   assert.match(workflow, /node scripts\/platform-probes\.mjs --check --openclaw \.\/openclaw/);
+  assert.match(workflow, /node scripts\/check-generated-surface-fixture\.mjs --check --openclaw \.\/openclaw/);
   assert.match(workflow, /node scripts\/import-loop-profile\.mjs --check/);
 });
 
@@ -50,6 +51,7 @@ test("default check workflow uploads policy and summary reports", async () => {
   assert.match(workflow, /node scripts\/platform-probes\.mjs/);
   assert.match(workflow, /node scripts\/import-loop-profile\.mjs/);
   assert.match(workflow, /npm run plugin-inspector:smoke/);
+  assert.match(workflow, /node scripts\/check-generated-surface-fixture\.mjs --check --openclaw \.\/openclaw/);
   assert.match(workflow, /node scripts\/check-ci-policy\.mjs/);
   assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs/);
