@@ -8,14 +8,20 @@ export const pluginInspectorRef = "e9e4b6704cabd82c5437ce3c7345b8f99e33a687";
 export const pluginInspectorPackage = "@openclaw/plugin-inspector@0.3.3";
 
 export async function loadPluginInspector() {
-  return import(pathToFileURL(resolvePluginInspectorSourcePath()).href);
+  const publicApi = await import(pathToFileURL(resolvePluginInspectorSourcePath()).href);
+  if (typeof publicApi.inspectPlugin === "function" && typeof publicApi.inspectSourceText === "function") {
+    return publicApi;
+  }
+
+  const advancedApiPath = path.join(resolvePluginInspectorRoot(), "src", "advanced.js");
+  return import(pathToFileURL(advancedApiPath).href);
 }
 
 export async function loadPluginInspectorPublicApi() {
   return import(pathToFileURL(resolvePluginInspectorPublicApiPath()).href);
 }
 
-export function resolvePluginInspectorCliInvocation() {
+export function resolvePluginInspectorCliInvocation(options = {}) {
   if (process.env.CRABPOT_PLUGIN_INSPECTOR_BIN) {
     return {
       command: process.env.CRABPOT_PLUGIN_INSPECTOR_BIN,
@@ -23,7 +29,8 @@ export function resolvePluginInspectorCliInvocation() {
     };
   }
 
-  if (process.env.CRABPOT_PLUGIN_INSPECTOR_CLI !== "source") {
+  const useSource = options.preferSource || process.env.CRABPOT_PLUGIN_INSPECTOR_CLI === "source";
+  if (!useSource) {
     return {
       command: npmCommand(),
       args: ["exec", "--yes", "--package", pluginInspectorPackage, "--", "plugin-inspector"],
