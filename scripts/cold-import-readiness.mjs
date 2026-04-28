@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { buildReport } from "./report-lib.mjs";
-import { repoRoot } from "./manifest-lib.mjs";
-import { loadPluginInspector } from "./plugin-inspector-source.mjs";
+import { readManifest, repoRoot } from "./manifest-lib.mjs";
+import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 
-const pluginInspector = await loadPluginInspector();
+const pluginInspector = await loadPluginInspectorPublicApi();
 
 export const defaultColdImportJsonPath = path.join(repoRoot, "reports/crabpot-cold-import.json");
 export const defaultColdImportMarkdownPath = path.join(repoRoot, "reports/crabpot-cold-import.md");
@@ -73,16 +72,21 @@ function parseArgs(argv) {
 }
 
 export async function buildColdImportReadiness(options = {}) {
-  const report = options.report ?? (await buildReport({ openclawPath: options.openclawPath }));
-  return pluginInspector.buildColdImportReadiness({
+  const config = options.report
+    ? undefined
+    : {
+        ...(await readManifest()),
+        rootDir: repoRoot,
+      };
+  return pluginInspector.buildFixtureSetColdImportReadiness({
     ...options,
-    report,
+    config,
     rootDir: options.rootDir ?? repoRoot,
   });
 }
 
 export async function writeColdImportReadiness(readiness, options = {}) {
-  return pluginInspector.writeColdImportReadiness(readiness, {
+  return pluginInspector.writeFixtureSetColdImportReadiness(readiness, {
     jsonPath: options.jsonPath ?? defaultColdImportJsonPath,
     markdownPath: options.markdownPath ?? defaultColdImportMarkdownPath,
     title: options.title ?? "Crabpot Cold Import Readiness",
@@ -90,7 +94,7 @@ export async function writeColdImportReadiness(readiness, options = {}) {
 }
 
 export function renderColdImportReadinessMarkdown(readiness, options = {}) {
-  return pluginInspector.renderColdImportReadinessMarkdown(readiness, {
+  return pluginInspector.renderFixtureSetColdImportReadinessMarkdown(readiness, {
     ...options,
     title: options.title ?? "Crabpot Cold Import Readiness",
   });
