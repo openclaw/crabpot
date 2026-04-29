@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-29T07:01:35Z",
-  "runUrl": "https://github.com/openclaw/crabpot/actions/runs/25095248268",
+  "generatedAt": "2026-04-29T07:07:51Z",
+  "runUrl": "https://github.com/openclaw/crabpot/actions/runs/25095467732",
   "mode": "check",
   "openclawLabel": "openclaw@latest (2026.4.26, be8c24633aaa)",
   "status": "pass",
@@ -39,13 +39,13 @@
     "platformWindowsRisks": 14,
     "platformContainerRisks": 14,
     "loaderJitiCandidates": 18,
-    "importLoopP50Ms": 72,
-    "importLoopP95Ms": 73,
+    "importLoopP50Ms": 62,
+    "importLoopP95Ms": 62,
     "importLoopMaxRssMb": 0,
     "importLoopMaxCpuMs": 0,
-    "runtimeP50Ms": 466,
-    "runtimeP95Ms": 533,
-    "runtimeMaxRssMb": 85.3
+    "runtimeP50Ms": 377,
+    "runtimeP95Ms": 386,
+    "runtimeMaxRssMb": 85
   },
   "baseline": null,
   "topIssues": [

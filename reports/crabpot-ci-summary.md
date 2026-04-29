@@ -33,7 +33,7 @@ Status: PASS
 | Windows portability risks   | 14                                              |
 | Container portability risks | 14                                              |
 | Jiti loader candidates      | 18                                              |
-| Import loop                 | p50 72 ms / p95 73 ms / max RSS 0 MB / CPU 0 ms |
+| Import loop                 | p50 62 ms / p95 62 ms / max RSS 0 MB / CPU 0 ms |
 
 ## Top Issues
 
