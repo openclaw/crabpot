@@ -19,9 +19,9 @@ Strict: false
 
 | Action | ID                              | Metric                 | Baseline | Current | Delta             | Percent | Message                                                        |
 | ------ | ------------------------------- | ---------------------- | -------- | ------- | ----------------- | ------- | -------------------------------------------------------------- |
-| pass   | profile.wall-p95                | p95WallMs              | 1273     | 444     | -829              | -65.1%  | p95WallMs stayed within 50% regression threshold               |
-| pass   | profile.peak-rss                | maxPeakRssMb           | 65.1     | 81.7    | 16.60000000000001 | -       | maxPeakRssMb stayed within 50 absolute regression threshold    |
-| pass   | profile.node-boot               | nodeBootWallMs         | 917      | 36      | -881              | -       | nodeBootWallMs stayed within 500 absolute regression threshold |
+| pass   | profile.wall-p95                | p95WallMs              | 1273     | 489     | -784              | -61.6%  | p95WallMs stayed within 50% regression threshold               |
+| pass   | profile.peak-rss                | maxPeakRssMb           | 65.1     | 84.2    | 19.10000000000001 | -       | maxPeakRssMb stayed within 50 absolute regression threshold    |
+| pass   | profile.node-boot               | nodeBootWallMs         | 917      | 35      | -882              | -       | nodeBootWallMs stayed within 500 absolute regression threshold |
 | pass   | registry.compatRecords          | compatRecords          | 19       | 51      | 32                | -       | registry surface delta is tracked as context                   |
 | pass   | registry.hookNames              | hookNames              | 31       | 32      | 1                 | -       | registry surface delta is tracked as context                   |
 | pass   | registry.apiRegistrars          | apiRegistrars          | 40       | 41      | 1                 | -       | registry surface delta is tracked as context                   |

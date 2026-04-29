@@ -10,13 +10,13 @@
 ## Reporting Data
 
 `main` follows the latest published npm package. `crab-beta` follows the beta npm dist-tag. `crab-development` follows the latest `openclaw/openclaw` main commit.
-- **Last dashboard update:** Apr 29, 2026, 04:41 UTC
+- **Last dashboard update:** Apr 29, 2026, 05:48 UTC
 <!-- crabpot-tracks:start -->
 - **Source:** `npm-latest`
 - **OpenClaw version:** `2026.4.26`
 - **OpenClaw SHA:** `be8c24633aaa`
 - **Dashboard target:** `openclaw@latest`
-- **GitHub report run:** [25091204138](https://github.com/openclaw/crabpot/actions/runs/25091204138)
+- **GitHub report run:** [25092998378](https://github.com/openclaw/crabpot/actions/runs/25092998378)
 <!-- crabpot-tracks:end -->
 
 <!-- crabpot-summary:start -->
@@ -45,7 +45,7 @@
 | Synthetic probes       | 240 ready / 0 blocked / 240 total                    |
 | Cold import            | 3 ready / 31 blocked / 34 entrypoints                |
 | Workspace plan         | 34 entrypoints / 17 installs / 8 builds              |
-| Platform risks         | 165 Windows / 48 container                           |
+| Platform risks         | 14 Windows / 14 container                            |
 | Jiti loader candidates | 18                                                   |
 | Import loop            | p50 153ms / p95 165ms / max RSS 46.3MB / CPU 27ms    |
 | Runtime profile        | p50 649ms / p95 1329ms / max RSS 68.7MB              |

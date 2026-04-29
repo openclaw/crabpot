@@ -7,70 +7,53 @@ Status: PASS
 
 | Metric               | Value |
 | -------------------- | ----- |
-| Issue findings       | 157   |
-| 🔴 P0                | 4     |
-| 🟠 P1                | 32    |
-| Live issues          | 4     |
-| Live P0 issues       | 4     |
-| Compat gaps          | 3     |
+| Issue findings       | 195   |
+| 🔴 P0                | 2     |
+| 🟠 P1                | 72    |
+| Live issues          | 2     |
+| Live P0 issues       | 2     |
+| Compat gaps          | 40    |
 | Deprecation warnings | 24    |
 | Inspector gaps       | 102   |
-| Upstream metadata    | 24    |
-| Contract probes      | 153   |
+| Upstream metadata    | 27    |
+| Contract probes      | 154   |
 
 ## Triage Overview
 
 | Class               | Count | P0 | Meaning                                                                                                         |
 | ------------------- | ----- | -- | --------------------------------------------------------------------------------------------------------------- |
-| live-issue          | 4     | 4  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam. |
-| compat-gap          | 3     | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                          |
+| live-issue          | 2     | 2  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam. |
+| compat-gap          | 40    | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                          |
 | deprecation-warning | 24    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                |
 | inspector-gap       | 102   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments.                        |
-| upstream-metadata   | 24    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.        |
+| upstream-metadata   | 27    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.        |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                           |
 
 ## P0 Live Issues
 
-- 🔴 P0 **clawmetry** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: clawmetry: plugin SDK import aliases are missing from target package exports
+- 🔴 P0 **codex-app-server** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: codex-app-server: plugin SDK import aliases are missing from target package exports
   - state: blocking · compat:untracked · live
   - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
-
-- 🔴 P0 **honcho** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: honcho: plugin SDK import aliases are missing from target package exports
-  - state: blocking · compat:untracked · live
-  - evidence:
-    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
+    - [openclaw/plugin-sdk/discord @ controller.ts:104](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L104)
+    - [openclaw/plugin-sdk/discord @ controller.ts:106](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L106)
+    - [openclaw/plugin-sdk/telegram-account @ controller.ts:105](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L105)
 
 - 🔴 P0 **hyperspell** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: hyperspell: fixture uses a hook missing from target OpenClaw
   - state: blocking · compat:none · live
   - evidence:
     - [file_changed @ index.ts:122](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L122)
-
-- 🔴 P0 **yuanbao** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: yuanbao: plugin SDK import aliases are missing from target package exports
-  - state: blocking · compat:untracked · live
-  - evidence:
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
 
 ## Live Issues
 
-- 🔴 P0 **clawmetry** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: clawmetry: plugin SDK import aliases are missing from target package exports
+- 🔴 P0 **codex-app-server** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: codex-app-server: plugin SDK import aliases are missing from target package exports
   - state: blocking · compat:untracked · live
   - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
-
-- 🔴 P0 **honcho** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: honcho: plugin SDK import aliases are missing from target package exports
-  - state: blocking · compat:untracked · live
-  - evidence:
-    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
+    - [openclaw/plugin-sdk/discord @ controller.ts:104](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L104)
+    - [openclaw/plugin-sdk/discord @ controller.ts:106](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L106)
+    - [openclaw/plugin-sdk/telegram-account @ controller.ts:105](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L105)
 
 - 🔴 P0 **hyperspell** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: hyperspell: fixture uses a hook missing from target OpenClaw
@@ -78,34 +61,247 @@ Status: PASS
   - evidence:
     - [file_changed @ index.ts:122](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L122)
 
-- 🔴 P0 **yuanbao** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: yuanbao: plugin SDK import aliases are missing from target package exports
-  - state: blocking · compat:untracked · live
-  - evidence:
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
-
 ## Compat Gaps
+
+- 🟠 P1 **a2a-gateway** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: a2a-gateway: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **agentchat** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: agentchat: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
 
 - 🟠 P1 **clawmetry** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: clawmetry: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **codex-app-server** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: codex-app-server: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **codex-app-server** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: codex-app-server: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
     - plugin-sdk-export-aliases
+
+- 🟠 P1 **connectclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: connectclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **ddingtalk** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: ddingtalk: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **dingtalk-connector** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: dingtalk-connector: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **dingtalk-connector** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: dingtalk-connector: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
 
 - 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
-    - plugin-sdk-export-aliases
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **hyperspell** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: hyperspell: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **hyperspell** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: hyperspell: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
+
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **lightclawbot** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: lightclawbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **lightclawbot** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: lightclawbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **llm-trace-phoenix** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: llm-trace-phoenix: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **lossless-claw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: lossless-claw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **mcp-adapter** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: mcp-adapter: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **memory-tencentdb** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memory-tencentdb: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **memos-cloud** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memos-cloud: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **memos-cloud** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memos-cloud: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **mocrane-wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: mocrane-wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **mocrane-wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: mocrane-wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **openclaw-weixin** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: openclaw-weixin: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **openclaw-weixin** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: openclaw-weixin: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **opik-openclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: opik-openclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **opik-openclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: opik-openclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
+
+- 🟠 P1 **opik-openclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: opik-openclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **qqbot** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: qqbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **qqbot** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: qqbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **secureclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: secureclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
 
 - 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: yuanbao: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
-    - plugin-sdk-export-aliases
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: yuanbao: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
 
 ## Deprecation Warnings
 
@@ -340,7 +536,7 @@ Status: PASS
 
 - 🟠 P1 **a2a-gateway** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: a2a-gateway: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerGatewayMethod @ index.ts:616](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L616)
     - [registerGatewayMethod @ index.ts:622](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L622)
@@ -351,13 +547,13 @@ Status: PASS
 
 - 🟠 P1 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/index.ts#L9)
 
 - 🟠 P1 **codex-app-server** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: codex-app-server: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ index.ts:48](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L48)
     - [registerInteractiveHandler @ index.ts:29](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L29)
@@ -366,7 +562,7 @@ Status: PASS
 
 - 🟠 P1 **connectclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: connectclaw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ commands.ts:18](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L18)
     - [registerCommand @ commands.ts:64](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L64)
@@ -374,7 +570,7 @@ Status: PASS
 
 - 🟠 P1 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:74](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L74)
     - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L130)
@@ -393,28 +589,28 @@ Status: PASS
 
 - 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: honcho: conversation-access hooks need privacy-boundary probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [agent_end @ capture.ts:89](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/hooks/capture.ts#L89)
     - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/hooks/subagent.ts#L34)
 
 - 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: honcho: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L97)
     - [registerMemoryRuntime @ runtime.ts:276](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/runtime.ts#L276)
 
 - 🟠 P1 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: hyperspell: conversation-access hooks need privacy-boundary probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [agent_end @ index.ts:105](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L105)
     - [agent_end @ index.ts:116](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L116)
 
 - 🟠 P1 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: hyperspell: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L166)
     - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L43)
@@ -426,13 +622,13 @@ Status: PASS
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ generated-hooks.js:17](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L17)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: kitchen-sink: conversation-access hooks need privacy-boundary probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [agent_end @ generated-hooks.js:6](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L6)
     - [llm_input @ generated-hooks.js:21](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L21)
@@ -440,7 +636,7 @@ Status: PASS
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: kitchen-sink: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerAutoEnableProbe @ generated-registrars.js:6](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L6)
     - [registerChannel @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L7)
@@ -471,70 +667,70 @@ Status: PASS
 
 - 🟠 P1 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lightclawbot: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13
 
 - 🟠 P1 **llm-trace-phoenix** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: llm-trace-phoenix: conversation-access hooks need privacy-boundary probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [llm_input @ index.ts:154](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L154)
     - [llm_output @ index.ts:168](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L168)
 
 - 🟠 P1 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ index.ts:2055](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2055)
     - [registerContextEngine @ index.ts:2035](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2035)
 
 - 🟠 P1 **mcp-adapter** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: mcp-adapter: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:15](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L15)
 
 - 🟠 P1 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: memory-tencentdb: conversation-access hooks need privacy-boundary probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:820
 
 - 🟠 P1 **memos-cloud** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: memos-cloud: conversation-access hooks need privacy-boundary probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [agent_end @ index.js:515](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/03fcc33c5fd285971d4b3dbaa8bbb31cb727db7c/index.js#L515)
 
 - 🟠 P1 **memos-cloud** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: memos-cloud: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerHook @ index.js:467](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/03fcc33c5fd285971d4b3dbaa8bbb31cb727db7c/index.js#L467)
 
 - 🟠 P1 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: mocrane-wecom: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
     - [registerHttpRoute @ index.ts:34](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L34)
 
 - 🟠 P1 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: openclaw-weixin: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
 
 - 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: opik-openclaw: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ tool.ts:34](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/tool.ts#L34)
 
 - 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: opik-openclaw: conversation-access hooks need privacy-boundary probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [agent_end @ service.ts:560](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service.ts#L560)
     - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L39)
@@ -542,19 +738,19 @@ Status: PASS
 
 - 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: opik-openclaw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:16](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts#L16)
 
 - 🟠 P1 **qqbot** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: qqbot: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L16)
 
 - 🟠 P1 **secureclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: secureclaw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:295](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L295)
     - [registerService @ index.ts:301](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L301)
@@ -562,20 +758,20 @@ Status: PASS
 
 - 🟠 P1 **wecom** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: wecom: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ index.js:76](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L76)
 
 - 🟠 P1 **wecom** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: wecom: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L27)
     - [registerHttpRoute @ index.js:56](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L56)
 
 - 🟠 P1 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: yuanbao: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:31
@@ -608,7 +804,7 @@ Status: PASS
 
 - 🟡 P2 **agentchat** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: agentchat: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [defineChannelPluginEntry @ channel.ts:333](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/src/channel.ts#L333)
 
@@ -711,7 +907,7 @@ Status: PASS
 
 - 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: ddingtalk: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [defineChannelPluginEntry @ index.ts:8](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts#L8)
 
@@ -730,7 +926,7 @@ Status: PASS
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:74](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L74)
 
@@ -820,13 +1016,13 @@ Status: PASS
 
 - 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: kitchen-sink: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L7)
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13
 
@@ -929,7 +1125,7 @@ Status: PASS
 
 - 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: mocrane-wecom: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
 
@@ -957,7 +1153,7 @@ Status: PASS
 
 - 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: openclaw-weixin: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
 
@@ -996,7 +1192,7 @@ Status: PASS
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: qqbot: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L16)
 
@@ -1043,7 +1239,7 @@ Status: PASS
 
 - 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: wecom: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L27)
 
@@ -1066,7 +1262,7 @@ Status: PASS
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: yuanbao: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29
 
@@ -1088,6 +1284,27 @@ Status: PASS
     - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/remind.js:271
 
 ## Upstream Metadata Issues
+
+- 🟠 P1 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: clawmetry: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
+
+- 🟠 P1 **honcho** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: honcho: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
+
+- 🟠 P1 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: yuanbao: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
 
 - 🟡 P2 **a2a-gateway** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: a2a-gateway: manifest uses unsupported top-level fields
@@ -1241,17 +1458,13 @@ Status: PASS
 
 ## Issues
 
-- 🔴 P0 **clawmetry** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: clawmetry: plugin SDK import aliases are missing from target package exports
+- 🔴 P0 **codex-app-server** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: codex-app-server: plugin SDK import aliases are missing from target package exports
   - state: blocking · compat:untracked · live
   - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
-
-- 🔴 P0 **honcho** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: honcho: plugin SDK import aliases are missing from target package exports
-  - state: blocking · compat:untracked · live
-  - evidence:
-    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
+    - [openclaw/plugin-sdk/discord @ controller.ts:104](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L104)
+    - [openclaw/plugin-sdk/discord @ controller.ts:106](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L106)
+    - [openclaw/plugin-sdk/telegram-account @ controller.ts:105](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L105)
 
 - 🔴 P0 **hyperspell** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: hyperspell: fixture uses a hook missing from target OpenClaw
@@ -1259,18 +1472,15 @@ Status: PASS
   - evidence:
     - [file_changed @ index.ts:122](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L122)
 
-- 🔴 P0 **yuanbao** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: yuanbao: plugin SDK import aliases are missing from target package exports
-  - state: blocking · compat:untracked · live
+- 🟠 P1 **a2a-gateway** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: a2a-gateway: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
   - evidence:
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
+    - api.capture.runtime-registrars
 
 - 🟠 P1 **a2a-gateway** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: a2a-gateway: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerGatewayMethod @ index.ts:616](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L616)
     - [registerGatewayMethod @ index.ts:622](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L622)
@@ -1279,38 +1489,86 @@ Status: PASS
     - [registerGatewayMethod @ index.ts:669](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L669)
     - [registerService @ index.ts:857](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L857)
 
+- 🟠 P1 **agentchat** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: agentchat: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
 - 🟠 P1 **clawmetry** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: clawmetry: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
-    - plugin-sdk-export-aliases
+    - api.capture.runtime-registrars
 
 - 🟠 P1 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/index.ts#L9)
 
+- 🟠 P1 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: clawmetry: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
+
+- 🟠 P1 **codex-app-server** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: codex-app-server: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **codex-app-server** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: codex-app-server: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - plugin-sdk-export-aliases
+
 - 🟠 P1 **codex-app-server** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: codex-app-server: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ index.ts:48](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L48)
     - [registerInteractiveHandler @ index.ts:29](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L29)
     - [registerInteractiveHandler @ index.ts:38](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L38)
     - [registerService @ index.ts:12](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L12)
 
+- 🟠 P1 **connectclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: connectclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
 - 🟠 P1 **connectclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: connectclaw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ commands.ts:18](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L18)
     - [registerCommand @ commands.ts:64](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L64)
     - [registerService @ hooks.ts:91](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/hooks.ts#L91)
 
+- 🟠 P1 **ddingtalk** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: ddingtalk: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **dingtalk-connector** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: dingtalk-connector: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **dingtalk-connector** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: dingtalk-connector: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
 - 🟠 P1 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:74](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L74)
     - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L130)
@@ -1329,7 +1587,7 @@ Status: PASS
 
 - 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: honcho: conversation-access hooks need privacy-boundary probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [agent_end @ capture.ts:89](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/hooks/capture.ts#L89)
     - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/hooks/subagent.ts#L34)
@@ -1338,25 +1596,49 @@ Status: PASS
   - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
-    - plugin-sdk-export-aliases
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
 
 - 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: honcho: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L97)
     - [registerMemoryRuntime @ runtime.ts:276](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/runtime.ts#L276)
 
+- 🟠 P1 **honcho** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: honcho: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
+
 - 🟠 P1 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: hyperspell: conversation-access hooks need privacy-boundary probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [agent_end @ index.ts:105](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L105)
     - [agent_end @ index.ts:116](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L116)
 
+- 🟠 P1 **hyperspell** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: hyperspell: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **hyperspell** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: hyperspell: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
 - 🟠 P1 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: hyperspell: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L166)
     - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L43)
@@ -1368,21 +1650,45 @@ Status: PASS
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ generated-hooks.js:17](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L17)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: kitchen-sink: conversation-access hooks need privacy-boundary probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [agent_end @ generated-hooks.js:6](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L6)
     - [llm_input @ generated-hooks.js:21](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L21)
     - [llm_output @ generated-hooks.js:22](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L22)
 
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
+
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: kitchen-sink: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerAutoEnableProbe @ generated-registrars.js:6](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L6)
     - [registerChannel @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L7)
@@ -1411,92 +1717,200 @@ Status: PASS
     - [registerSecurityAuditCollector @ generated-registrars.js:37](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L37)
     - [registerService @ generated-registrars.js:38](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L38)
 
+- 🟠 P1 **lightclawbot** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: lightclawbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **lightclawbot** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: lightclawbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
 - 🟠 P1 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lightclawbot: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13
 
 - 🟠 P1 **llm-trace-phoenix** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: llm-trace-phoenix: conversation-access hooks need privacy-boundary probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [llm_input @ index.ts:154](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L154)
     - [llm_output @ index.ts:168](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L168)
 
+- 🟠 P1 **llm-trace-phoenix** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: llm-trace-phoenix: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **lossless-claw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: lossless-claw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
 - 🟠 P1 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ index.ts:2055](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2055)
     - [registerContextEngine @ index.ts:2035](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2035)
 
+- 🟠 P1 **mcp-adapter** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: mcp-adapter: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
 - 🟠 P1 **mcp-adapter** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: mcp-adapter: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:15](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L15)
 
 - 🟠 P1 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: memory-tencentdb: conversation-access hooks need privacy-boundary probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:820
 
+- 🟠 P1 **memory-tencentdb** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memory-tencentdb: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
 - 🟠 P1 **memos-cloud** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: memos-cloud: conversation-access hooks need privacy-boundary probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [agent_end @ index.js:515](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/03fcc33c5fd285971d4b3dbaa8bbb31cb727db7c/index.js#L515)
 
+- 🟠 P1 **memos-cloud** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memos-cloud: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **memos-cloud** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memos-cloud: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
 - 🟠 P1 **memos-cloud** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: memos-cloud: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerHook @ index.js:467](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/03fcc33c5fd285971d4b3dbaa8bbb31cb727db7c/index.js#L467)
 
+- 🟠 P1 **mocrane-wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: mocrane-wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **mocrane-wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: mocrane-wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
 - 🟠 P1 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: mocrane-wecom: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
     - [registerHttpRoute @ index.ts:34](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L34)
 
+- 🟠 P1 **openclaw-weixin** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: openclaw-weixin: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **openclaw-weixin** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: openclaw-weixin: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
 - 🟠 P1 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: openclaw-weixin: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
 
 - 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: opik-openclaw: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ tool.ts:34](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/tool.ts#L34)
 
 - 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: opik-openclaw: conversation-access hooks need privacy-boundary probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [agent_end @ service.ts:560](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service.ts#L560)
     - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L39)
     - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L150)
 
+- 🟠 P1 **opik-openclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: opik-openclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **opik-openclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: opik-openclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
+
+- 🟠 P1 **opik-openclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: opik-openclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
 - 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: opik-openclaw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:16](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts#L16)
 
+- 🟠 P1 **qqbot** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: qqbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **qqbot** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: qqbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
 - 🟠 P1 **qqbot** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: qqbot: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L16)
 
+- 🟠 P1 **secureclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: secureclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
 - 🟠 P1 **secureclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: secureclaw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:295](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L295)
     - [registerService @ index.ts:301](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L301)
@@ -1504,13 +1918,31 @@ Status: PASS
 
 - 🟠 P1 **wecom** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: wecom: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ index.js:76](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L76)
 
+- 🟠 P1 **wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
+
 - 🟠 P1 **wecom** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: wecom: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L27)
     - [registerHttpRoute @ index.js:56](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L56)
@@ -1519,16 +1951,31 @@ Status: PASS
   - **missing-compat-record**: yuanbao: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
-    - plugin-sdk-export-aliases
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: yuanbao: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
 
 - 🟠 P1 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: yuanbao: runtime registrations need capture before contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:31
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:32
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:34
+
+- 🟠 P1 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: yuanbao: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
 
 - 🟡 P2 **a2a-gateway** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: a2a-gateway: root plugin SDK barrel is still used by fixtures
@@ -1581,7 +2028,7 @@ Status: PASS
 
 - 🟡 P2 **agentchat** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: agentchat: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [defineChannelPluginEntry @ channel.ts:333](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/src/channel.ts#L333)
 
@@ -1752,7 +2199,7 @@ Status: PASS
 
 - 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: ddingtalk: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [defineChannelPluginEntry @ index.ts:8](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts#L8)
 
@@ -1777,7 +2224,7 @@ Status: PASS
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:74](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L74)
 
@@ -1945,7 +2392,7 @@ Status: PASS
 
 - 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: kitchen-sink: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L7)
 
@@ -1963,7 +2410,7 @@ Status: PASS
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13
 
@@ -2146,7 +2593,7 @@ Status: PASS
 
 - 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: mocrane-wecom: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
 
@@ -2211,7 +2658,7 @@ Status: PASS
 
 - 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: openclaw-weixin: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
 
@@ -2270,7 +2717,7 @@ Status: PASS
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: qqbot: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L16)
 
@@ -2356,7 +2803,7 @@ Status: PASS
 
 - 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: wecom: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L27)
 
@@ -2385,7 +2832,7 @@ Status: PASS
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: yuanbao: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29
 
@@ -2658,26 +3105,13 @@ Status: PASS
     - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L39)
     - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L150)
 
-- 🟠 P1 **clawmetry** `sdk-alias`
+- 🟠 P1 **codex-app-server** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
-  - id: `sdk.import.package-export-cold-import:clawmetry`
+  - id: `sdk.import.package-export-cold-import:codex-app-server`
   - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
-
-- 🟠 P1 **honcho** `sdk-alias`
-  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
-  - id: `sdk.import.package-export-cold-import:honcho`
-  - evidence:
-    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
-
-- 🟠 P1 **yuanbao** `sdk-alias`
-  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
-  - id: `sdk.import.package-export-cold-import:yuanbao`
-  - evidence:
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
+    - [openclaw/plugin-sdk/discord @ controller.ts:104](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L104)
+    - [openclaw/plugin-sdk/discord @ controller.ts:106](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L106)
+    - [openclaw/plugin-sdk/telegram-account @ controller.ts:105](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L105)
 
 - 🟡 P2 **agentchat** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -3119,6 +3553,21 @@ Status: PASS
     - package:1.4.0
     - manifest:1.3.0
 
+- 🟡 P2 **honcho** `sdk-import`
+  - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
+  - id: `sdk.import.reserved-bundled-plugin-boundary:honcho`
+  - evidence:
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
+
+- 🟡 P2 **yuanbao** `sdk-import`
+  - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
+  - id: `sdk.import.reserved-bundled-plugin-boundary:yuanbao`
+  - evidence:
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
+
 - 🟡 P2 **a2a-gateway** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:a2a-gateway`
@@ -3511,6 +3960,12 @@ Status: PASS
   - evidence:
     - package:1.1.2
     - manifest:1.0.0
+
+- 🟢 P3 **clawmetry** `sdk-import`
+  - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
+  - id: `sdk.import.reserved-bundled-plugin-boundary:clawmetry`
+  - evidence:
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
 
 - 🟢 P3 **apify** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
