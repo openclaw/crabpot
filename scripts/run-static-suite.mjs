@@ -11,15 +11,14 @@ function main() {
   const args = parseArgs(process.argv.slice(2));
   const openclawArgs = args.openclawPath ? ["--openclaw", args.openclawPath] : [];
   const profileArgs = args.profileRuns ? ["--runs", args.profileRuns] : [];
-  const policyArgs = args.policy === "release" ? ["--strict"] : [];
+  const pluginInspectorSmoke = args.pluginInspectorSmoke || args.policy === "release";
   if (args.openclawPath) {
     process.env.CRABPOT_TEST_OPENCLAW_PATH = args.openclawPath;
   }
 
   const steps = buildStaticSuiteSteps({
     openclawArgs,
-    pluginInspectorSmoke: args.pluginInspectorSmoke,
-    policyArgs,
+    pluginInspectorSmoke,
     profileArgs,
   });
 

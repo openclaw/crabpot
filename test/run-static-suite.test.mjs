@@ -20,10 +20,15 @@ test("static suite keeps the dashboard gate broad and target-explicit", () => {
   assert.ok(rendered.some(([, args]) => args === "scripts/check-ci-policy.mjs --check"));
 });
 
-test("static suite release policy promotes CI policy warnings to failures", () => {
+test("static suite release policy keeps compatibility findings advisory", () => {
   const steps = buildStaticSuiteSteps({
-    policyArgs: ["--strict"],
+    pluginInspectorSmoke: true,
+    policyArgs: [],
   });
 
-  assert.ok(steps.some(([, args]) => args.join(" ") === "scripts/check-ci-policy.mjs --check --strict"));
+  const rendered = steps.map(([, args]) => args.join(" "));
+
+  assert.ok(rendered.includes("run plugin-inspector:smoke"));
+  assert.ok(rendered.includes("scripts/check-ci-policy.mjs --check"));
+  assert.equal(rendered.some((args) => args.includes("check-ci-policy.mjs --check --strict")), false);
 });
