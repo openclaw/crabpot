@@ -5,7 +5,7 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { readManifest, repoRoot } from "./manifest-lib.mjs";
-import { loadPluginInspector, resolvePluginInspectorCliInvocation } from "./plugin-inspector-source.mjs";
+import { loadPluginInspectorPublicApi, resolvePluginInspectorCliInvocation } from "./plugin-inspector-source.mjs";
 
 const defaultPluginRoot = path.join(repoRoot, ".crabpot/generated-surface-plugin");
 const defaultReportJsonPath = path.join(repoRoot, "reports/crabpot-generated-surface.json");
@@ -86,8 +86,8 @@ function parseArgs(argv) {
 
 export async function buildGeneratedSurfaceReport(options = {}) {
   const manifest = await readManifest();
-  const pluginInspector = await loadPluginInspector();
-  const targetOpenClaw = await pluginInspector.readOpenClawTargetSurface({
+  const pluginInspector = await loadPluginInspectorPublicApi();
+  const targetOpenClaw = await pluginInspector.reports.readOpenClawTargetSurface({
     configuredPath: options.openclawPath,
     manifest,
     rootDir: repoRoot,
