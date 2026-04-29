@@ -8180,7 +8180,7 @@
           "path": "plugins/openclaw-weixin/.crabpot-package/openclaw.plugin.json",
           "id": "openclaw-weixin",
           "name": null,
-          "version": "2.1.10",
+          "version": "2.3.1",
           "keys": [
             "channels",
             "configSchema",
@@ -8196,7 +8196,7 @@
       "package": {
         "path": "plugins/openclaw-weixin/.crabpot-package/package.json",
         "name": "@tencent-weixin/openclaw-weixin",
-        "version": "2.1.10",
+        "version": "2.3.1",
         "type": "module",
         "main": null,
         "dependencies": [
@@ -8229,7 +8229,7 @@
         {
           "path": "plugins/openclaw-weixin/.crabpot-package/package.json",
           "name": "@tencent-weixin/openclaw-weixin",
-          "version": "2.1.10",
+          "version": "2.3.1",
           "type": "module",
           "main": null,
           "dependencies": [
@@ -8326,8 +8326,8 @@
         {
           "specifier": "openclaw/plugin-sdk/config-runtime",
           "file": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts",
-          "line": 299,
-          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:299"
+          "line": 311,
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:311"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
@@ -19173,7 +19173,7 @@
       "evidence": [
         "plugins/openclaw-weixin/.crabpot-package/package.json",
         "@tencent-weixin/openclaw-weixin",
-        "version:2.1.10"
+        "version:2.3.1"
       ]
     },
     {

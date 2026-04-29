@@ -35,12 +35,12 @@
     "runs": 1,
     "summary": {
       "commandCount": 9,
-      "p50WallMs": 377,
-      "p95WallMs": 386,
-      "maxPeakRssMb": 85,
+      "p50WallMs": 444,
+      "p95WallMs": 472,
+      "maxPeakRssMb": 83.1,
       "maxRssDeltaMb": 18.7,
-      "maxCpuMsEstimate": 399,
-      "maxHarnessHeapDeltaMb": 0.5
+      "maxCpuMsEstimate": 517,
+      "maxHarnessHeapDeltaMb": 0.6
     },
     "targetOpenClaw": {
       "status": "ok",
@@ -82,9 +82,9 @@
       "metric": "p95WallMs",
       "message": "p95WallMs stayed within 50% regression threshold",
       "baseline": 1273,
-      "current": 386,
-      "delta": -887,
-      "percent": -69.7
+      "current": 472,
+      "delta": -801,
+      "percent": -62.9
     },
     {
       "id": "profile.peak-rss",
@@ -92,8 +92,8 @@
       "metric": "maxPeakRssMb",
       "message": "maxPeakRssMb stayed within 50 absolute regression threshold",
       "baseline": 65.1,
-      "current": 85,
-      "delta": 19.900000000000006
+      "current": 83.1,
+      "delta": 18
     },
     {
       "id": "profile.node-boot",
@@ -101,8 +101,8 @@
       "metric": "nodeBootWallMs",
       "message": "nodeBootWallMs stayed within 500 absolute regression threshold",
       "baseline": 917,
-      "current": 29,
-      "delta": -888
+      "current": 35,
+      "delta": -882
     },
     {
       "id": "registry.compatRecords",
