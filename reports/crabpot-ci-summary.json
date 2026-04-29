@@ -29,8 +29,8 @@
     "platformWindowsRisks": 14,
     "platformContainerRisks": 14,
     "loaderJitiCandidates": 18,
-    "importLoopP50Ms": 64,
-    "importLoopP95Ms": 66,
+    "importLoopP50Ms": 60,
+    "importLoopP95Ms": 63,
     "importLoopMaxRssMb": 0,
     "importLoopMaxCpuMs": 0
   },

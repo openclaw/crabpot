@@ -2371,10 +2371,10 @@
           ]
         },
         {
-          "id": "registration.registerMemoryRuntime:honcho:plugins-honcho-runtime-ts-276",
+          "id": "registration.registerMemoryRuntime:honcho:plugins-honcho-runtime-ts-274",
           "fixture": "honcho",
           "registrar": "registerMemoryRuntime",
-          "ref": "plugins/honcho/runtime.ts:276",
+          "ref": "plugins/honcho/runtime.ts:274",
           "support": "inspector-shim-required",
           "assertions": [
             "memory runtime id is stable",
@@ -2388,10 +2388,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:honcho:plugins-honcho-tools-ask-ts-7",
+          "id": "registration.registerTool:honcho:plugins-honcho-tools-ask-ts-8",
           "fixture": "honcho",
           "registrar": "registerTool",
-          "ref": "plugins/honcho/tools/ask.ts:7",
+          "ref": "plugins/honcho/tools/ask.ts:8",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -2410,10 +2410,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:honcho:plugins-honcho-tools-context-ts-7",
+          "id": "registration.registerTool:honcho:plugins-honcho-tools-context-ts-8",
           "fixture": "honcho",
           "registrar": "registerTool",
-          "ref": "plugins/honcho/tools/context.ts:7",
+          "ref": "plugins/honcho/tools/context.ts:8",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -2476,10 +2476,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:honcho:plugins-honcho-tools-message-search-ts-8",
+          "id": "registration.registerTool:honcho:plugins-honcho-tools-message-search-ts-9",
           "fixture": "honcho",
           "registrar": "registerTool",
-          "ref": "plugins/honcho/tools/message-search.ts:8",
+          "ref": "plugins/honcho/tools/message-search.ts:9",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -2498,10 +2498,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:honcho:plugins-honcho-tools-search-ts-7",
+          "id": "registration.registerTool:honcho:plugins-honcho-tools-search-ts-8",
           "fixture": "honcho",
           "registrar": "registerTool",
-          "ref": "plugins/honcho/tools/search.ts:7",
+          "ref": "plugins/honcho/tools/search.ts:8",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -2544,10 +2544,10 @@
       ],
       "hooks": [
         {
-          "id": "hook.agent_end:honcho:plugins-honcho-hooks-capture-ts-89",
+          "id": "hook.agent_end:honcho:plugins-honcho-hooks-capture-ts-151",
           "fixture": "honcho",
           "hook": "agent_end",
-          "ref": "plugins/honcho/hooks/capture.ts:89",
+          "ref": "plugins/honcho/hooks/capture.ts:151",
           "support": "synthetic-event-required",
           "assertions": [
             "final conversation payload is redacted as expected",
@@ -2625,10 +2625,10 @@
           }
         },
         {
-          "id": "hook.before_compaction:honcho:plugins-honcho-hooks-capture-ts-115",
+          "id": "hook.before_compaction:honcho:plugins-honcho-hooks-capture-ts-177",
           "fixture": "honcho",
           "hook": "before_compaction",
-          "ref": "plugins/honcho/hooks/capture.ts:115",
+          "ref": "plugins/honcho/hooks/capture.ts:177",
           "support": "synthetic-event-required",
           "assertions": [
             "hook payload and return value are captured"
@@ -2674,10 +2674,10 @@
           }
         },
         {
-          "id": "hook.before_reset:honcho:plugins-honcho-hooks-capture-ts-132",
+          "id": "hook.before_reset:honcho:plugins-honcho-hooks-capture-ts-194",
           "fixture": "honcho",
           "hook": "before_reset",
-          "ref": "plugins/honcho/hooks/capture.ts:132",
+          "ref": "plugins/honcho/hooks/capture.ts:194",
           "support": "synthetic-event-required",
           "assertions": [
             "hook payload and return value are captured"
@@ -10736,7 +10736,7 @@
       "target": "inspector-capture-api",
       "evidence": [
         "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
-        "registerMemoryRuntime @ plugins/honcho/runtime.ts:276"
+        "registerMemoryRuntime @ plugins/honcho/runtime.ts:274"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -11004,7 +11004,7 @@
       "priority": "P1",
       "target": "hook-runner",
       "evidence": [
-        "agent_end @ plugins/honcho/hooks/capture.ts:89",
+        "agent_end @ plugins/honcho/hooks/capture.ts:151",
         "agent_end @ plugins/honcho/hooks/subagent.ts:34"
       ],
       "assertions": [
@@ -12306,12 +12306,12 @@
       "priority": "P2",
       "target": "tool-runtime",
       "evidence": [
-        "registerTool @ plugins/honcho/tools/ask.ts:7",
-        "registerTool @ plugins/honcho/tools/context.ts:7",
+        "registerTool @ plugins/honcho/tools/ask.ts:8",
+        "registerTool @ plugins/honcho/tools/context.ts:8",
         "registerTool @ plugins/honcho/tools/memory-passthrough.ts:130",
         "registerTool @ plugins/honcho/tools/memory-passthrough.ts:89",
-        "registerTool @ plugins/honcho/tools/message-search.ts:8",
-        "registerTool @ plugins/honcho/tools/search.ts:7",
+        "registerTool @ plugins/honcho/tools/message-search.ts:9",
+        "registerTool @ plugins/honcho/tools/search.ts:8",
         "registerTool @ plugins/honcho/tools/session.ts:8"
       ],
       "assertions": [
