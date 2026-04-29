@@ -40,13 +40,16 @@ test("openclaw track resolver maps crabpot branches to tracks", () => {
 });
 
 test("track metadata renders GitHub branch switches with resolved version and sha", () => {
-  const markdown = renderTrackMetadata(tracks);
+  const markdown = renderTrackMetadata(tracks, {
+    branch: "crab-development",
+    runUrl: "https://github.com/openclaw/crabpot/actions/runs/12345",
+  });
 
-  assert.match(markdown, /\[main\]\(https:\/\/github\.com\/openclaw\/crabpot\/tree\/main\)/);
-  assert.match(markdown, /\[crab-beta\]\(https:\/\/github\.com\/openclaw\/crabpot\/tree\/crab-beta\)/);
-  assert.match(markdown, /\[crab-development\]\(https:\/\/github\.com\/openclaw\/crabpot\/tree\/crab-development\)/);
-  assert.match(markdown, /2026\.4\.26/);
-  assert.match(markdown, /212a32648fe70e9f8088d8145736a0e31e6ba0b3/);
+  assert.match(markdown, /Source:\*\* `github-main`/);
+  assert.match(markdown, /OpenClaw version:\*\* `2026\.4\.27`/);
+  assert.match(markdown, /OpenClaw SHA:\*\* `212a32648fe7`/);
+  assert.match(markdown, /Dashboard target:\*\* `openclaw\/openclaw@main`/);
+  assert.match(markdown, /GitHub report run:\*\* \[12345\]\(https:\/\/github\.com\/openclaw\/crabpot\/actions\/runs\/12345\)/);
 });
 
 test("track metadata inserts before dashboard summary and replaces stale block", () => {

@@ -6,6 +6,7 @@ import { test } from "node:test";
 import {
   applyReadmeSummary,
   buildReadmeSummary,
+  ensureReadmeFrame,
   renderReadmeSummary,
   updateReadmeSummary,
 } from "../scripts/update-readme-summary.mjs";
@@ -67,7 +68,9 @@ test("readme summary rolls up report counts and top issues", async () => {
   assert.equal(summary.status, "pass");
   assert.equal(summary.metrics.p0Issues, 1);
   assert.equal(summary.metrics.policyWarnings, 1);
-  assert.match(markdown, /openclaw\/openclaw@main/);
+  assert.doesNotMatch(markdown, /OpenClaw:/);
+  assert.doesNotMatch(markdown, /Last dashboard update:/);
+  assert.doesNotMatch(markdown, /Result Grid/);
   assert.match(markdown, /\| P0 issues\s+\| \[🔴 P0 1\]\(reports\/crabpot-issues\.md#p0-live-issues\)\s+\|/u);
   assert.match(
     markdown,
@@ -124,6 +127,8 @@ test("readme summary check detects stale dashboard", async () => {
   assert.equal(await updateReadmeSummary({ readmePath, summary }), true);
   assert.equal(await updateReadmeSummary({ check: true, readmePath, summary }), false);
   assert.match(await readFile(readmePath, "utf8"), /## Dashboard/);
+  assert.match(await readFile(readmePath, "utf8"), /Latest Published/);
+  assert.match(await readFile(readmePath, "utf8"), /Last dashboard update/);
 });
 
 test("readme summary preserves CI run metadata during local checks", async () => {
@@ -148,7 +153,7 @@ test("readme summary preserves CI run metadata during local checks", async () =>
       },
     },
   });
-  const ciRendered = renderReadmeSummary({
+  const ciSummary = {
     ...summary,
     generatedAt: "2026-04-26T01:31:00Z",
     metrics: {
@@ -164,8 +169,17 @@ test("readme summary preserves CI run metadata during local checks", async () =>
     mode: "check",
     openclawLabel: "openclaw/openclaw@main",
     runUrl: "https://github.com/openclaw/crabpot/actions/runs/1",
-  });
-  await writeFile(readmePath, applyReadmeSummary("# crabpot\n\n## What this tests\n", ciRendered), "utf8");
+  };
+  const ciRendered = renderReadmeSummary(ciSummary);
+  const ciFrame = ensureReadmeFrame("# crabpot\n\n## What this tests\n", ciSummary).replace(
+    "<!-- crabpot-tracks:start -->\n<!-- crabpot-tracks:end -->",
+    [
+      "<!-- crabpot-tracks:start -->",
+      "- **GitHub report run:** [1](https://github.com/openclaw/crabpot/actions/runs/1)",
+      "<!-- crabpot-tracks:end -->",
+    ].join("\n"),
+  );
+  await writeFile(readmePath, applyReadmeSummary(ciFrame, ciRendered), "utf8");
   const localSummary = {
     ...summary,
     metrics: {
@@ -184,7 +198,35 @@ test("readme summary preserves CI run metadata during local checks", async () =>
 
   assert.equal(await updateReadmeSummary({ check: true, readmePath, summary: localSummary }), false);
   const readme = await readFile(readmePath, "utf8");
-  assert.match(readme, /OpenClaw: openclaw\/openclaw@main/);
+  assert.match(readme, /Last dashboard update:\*\* Apr 26, 2026, 01:31 UTC/);
   assert.match(readme, /p50 51ms \/ p95 57ms \/ max RSS 44\.5MB \/ CPU 32ms/);
   assert.match(readme, /p50 231ms \/ p95 245ms \/ max RSS 70\.4MB/);
+});
+
+test("readme frame follows compact reporting design and preserves dynamic blocks", async () => {
+  const original = [
+    "# crabpot",
+    "",
+    "intro",
+    "",
+    "<!-- crabpot-tracks:start -->",
+    "- **Source:** `npm-latest`",
+    "<!-- crabpot-tracks:end -->",
+    "",
+    "## Dashboard",
+    "",
+    "old dashboard",
+    "<!-- crabpot-summary:end -->",
+    "",
+    "## What this tests",
+    "",
+  ].join("\n");
+  const framed = ensureReadmeFrame(original, { generatedAt: "2026-04-26T01:31:00Z" });
+
+  assert.match(framed, /^# 🦀 crabpot/u);
+  assert.match(framed, /\*\*Goto: \[Latest Published\]/);
+  assert.match(framed, /## Reporting Data/);
+  assert.match(framed, /- \*\*Last dashboard update:\*\* Apr 26, 2026, 01:31 UTC/);
+  assert.match(framed, /- \*\*Source:\*\* `npm-latest`/);
+  assert.match(framed, /## Dashboard/);
 });

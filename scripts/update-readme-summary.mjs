@@ -7,6 +7,8 @@ import { repoRoot } from "./manifest-lib.mjs";
 
 export const readmeSummaryStart = "<!-- crabpot-summary:start -->";
 export const readmeSummaryEnd = "<!-- crabpot-summary:end -->";
+export const trackMetadataStart = "<!-- crabpot-tracks:start -->";
+export const trackMetadataEnd = "<!-- crabpot-tracks:end -->";
 export const defaultReadmePath = path.join(repoRoot, "README.md");
 
 const REPORT_PATHS = {
@@ -191,7 +193,8 @@ async function readReports(reportsDir) {
 
 export async function updateReadmeSummary({ check = false, readmePath = defaultReadmePath, summary }) {
   const current = await readFile(readmePath, "utf8");
-  const next = applyReadmeSummary(current, renderReadmeSummary(preserveDashboardMetadata(summary, current)));
+  const preserved = preserveDashboardMetadata(summary, current);
+  const next = applyReadmeSummary(ensureReadmeFrame(current, preserved), renderReadmeSummary(preserved));
   const changed = current !== next;
   if (check && changed) {
     throw new Error(`${path.relative(repoRoot, readmePath)} dashboard is stale; run npm run readme:summary`);
@@ -225,21 +228,35 @@ function preserveDashboardMetadata(summary, readme) {
 
 function readDashboardMetadata(readme) {
   return {
-    generatedAtLabel: readme.match(/^Last dashboard update:\s*(.+)$/m)?.[1],
+    generatedAtLabel: readLastDashboardUpdate(readme),
     importLoopLabel: readme.match(/^\| Import loop\s+\|\s*(.+?)\s*\|$/m)?.[1],
     mode: readme.match(/^Mode:\s*(.+)$/m)?.[1],
     openclawLabel: readme.match(/^OpenClaw:\s*(.+)$/m)?.[1],
     runtimeProfileLabel: readme.match(/^\| Runtime profile\s+\|\s*(.+?)\s*\|$/m)?.[1],
-    runUrl: readme.match(/^Run:\s*(.+)$/m)?.[1],
+    runUrl:
+      readme.match(/^- \*\*GitHub report run:\*\*\s+\[[^\]]+\]\(([^)]+)\)/im)?.[1] ?? readme.match(/^Run:\s*(.+)$/m)?.[1],
   };
+}
+
+function readLastDashboardUpdate(readme) {
+  const matches = [
+    ...readme.matchAll(/^- \*\*Last dashboard update:\*\*\s*(.+)$/gm),
+    ...readme.matchAll(/^Last dashboard update:\s*(.+)$/gm),
+  ].sort((left, right) => left.index - right.index);
+  return matches.at(-1)?.[1];
 }
 
 export function applyReadmeSummary(readme, renderedSummary) {
   const block = `${readmeSummaryStart}\n${renderedSummary}\n${readmeSummaryEnd}`;
   const start = readme.indexOf(readmeSummaryStart);
-  const end = readme.indexOf(readmeSummaryEnd);
+  const end = readme.lastIndexOf(readmeSummaryEnd);
   if (start !== -1 && end !== -1 && end > start) {
     return `${readme.slice(0, start)}${block}${readme.slice(end + readmeSummaryEnd.length)}`;
+  }
+
+  const dashboardStart = readme.indexOf("\n## Dashboard");
+  if (dashboardStart !== -1 && end !== -1 && end > dashboardStart) {
+    return `${readme.slice(0, dashboardStart + 1)}${block}${readme.slice(end + readmeSummaryEnd.length)}`;
   }
 
   const insertionPoint = readme.indexOf("\n## What this tests");
@@ -250,19 +267,44 @@ export function applyReadmeSummary(readme, renderedSummary) {
   return `${readme.trimEnd()}\n\n${block}\n`;
 }
 
+export function ensureReadmeFrame(readme, summary = {}) {
+  const frame = renderReadmeFrame(summary);
+  const trackStart = readme.indexOf(trackMetadataStart);
+  if (trackStart !== -1) {
+    return `${frame}\n${readme.slice(trackStart)}`;
+  }
+
+  const summaryStart = readme.indexOf(readmeSummaryStart);
+  const dashboardStart = readme.indexOf("\n## Dashboard");
+  const whatStart = readme.indexOf("\n## What this tests");
+  const restStart = [summaryStart, dashboardStart, whatStart].filter((index) => index !== -1).sort((a, b) => a - b)[0];
+  const rest = restStart === undefined ? "" : readme.slice(restStart + (readme[restStart] === "\n" ? 1 : 0));
+  const trackBlock = `${trackMetadataStart}\n${trackMetadataEnd}`;
+  return `${frame}\n${trackBlock}${rest ? `\n\n${rest}` : "\n"}`;
+}
+
+function renderReadmeFrame(summary) {
+  return [
+    "# 🦀 crabpot",
+    "",
+    '<img width="1376" height="768" alt="crabpot" src="https://github.com/user-attachments/assets/79eb0be1-0736-4a78-a62d-cb66ab080c60" />',
+    "<p></p>",
+    "",
+    "**Goto: [Latest Published](https://github.com/openclaw/crabpot/tree/main) | [Latest Beta](https://github.com/openclaw/crabpot/tree/crab-beta) | [Main Development](https://github.com/openclaw/crabpot/tree/crab-development)**",
+    "",
+    "**Compatibility trap for OpenClaw plugin contracts.** `crabpot` keeps a curated set of real community plugins pinned under `plugins/` and runs seam-focused compatibility checks against OpenClaw plugin APIs. The goal is to catch contract drift before external plugin authors do. Built on top of `plugin-inspector`, the testing harness for OpenClaw.",
+    "",
+    "## Reporting Data",
+    "",
+    "`main` follows the latest published npm package. `crab-beta` follows the beta npm dist-tag. `crab-development` follows the latest `openclaw/openclaw` main commit.",
+    `- **Last dashboard update:** ${summary.generatedAtLabel ?? formatTimestamp(summary.generatedAt)}`,
+  ].join("\n");
+}
+
 export function renderReadmeSummary(summary) {
   const m = summary.metrics;
   return [
     "## Dashboard",
-    "",
-    `Last dashboard update: ${summary.generatedAtLabel ?? formatTimestamp(summary.generatedAt)}`,
-    "",
-    `State: ${summary.status.toUpperCase()}`,
-    `Mode: ${summary.mode}`,
-    `OpenClaw: ${summary.openclawLabel || "-"}`,
-    summary.runUrl ? `Run: ${summary.runUrl}` : "",
-    "",
-    "### Result Grid",
     "",
     markdownTable(
       [

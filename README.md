@@ -3,28 +3,23 @@
 <img width="1376" height="768" alt="crabpot" src="https://github.com/user-attachments/assets/79eb0be1-0736-4a78-a62d-cb66ab080c60" />
 <p></p>
 
-**Goto: [Latest Publshed](https://github.com/openclaw/crabpot/tree/main) | [Latest Beta](https://github.com/openclaw/crabpot/tree/crab-beta) | [Main Development](https://github.com/openclaw/crabpot/tree/crab-development)**
+**Goto: [Latest Published](https://github.com/openclaw/crabpot/tree/main) | [Latest Beta](https://github.com/openclaw/crabpot/tree/crab-beta) | [Main Development](https://github.com/openclaw/crabpot/tree/crab-development)**
 
-**Compatibility trap for OpenClaw plugin contracts.** `crabpot` keeps a curated set of real community plugins pinned under `plugins/` and runs seam-focused compatibility checks against OpenClaw plugin APIs. The goal is to catch contract drift before external plugin authors do. Built on top of  `plugin-inspector` which is a testing harness for OpenClaw.
+**Compatibility trap for OpenClaw plugin contracts.** `crabpot` keeps a curated set of real community plugins pinned under `plugins/` and runs seam-focused compatibility checks against OpenClaw plugin APIs. The goal is to catch contract drift before external plugin authors do. Built on top of `plugin-inspector`, the testing harness for OpenClaw.
 
 ## Reporting Data
 
-`main` follows the latest published npm package. `crab-beta` branch follows the beta npm dist-tag. `crab-development` brand follows the latest `openclaw/openclaw` main commit.
-- **Last dashboard update:** Apr 29, 2026, 00:29 UTC
-<!-- crabpot-tracks:start -->
-## Tracks
-
-Use these branches to switch the dashboard and generated reports between OpenClaw release tracks.
-
-| Track            | Branch                                                                        | Source      | OpenClaw version | OpenClaw SHA                               | Dashboard target                                 |
-| ---------------- | ----------------------------------------------------------------------------- | ----------- | ---------------- | ------------------------------------------ | ------------------------------------------------ |
-| Latest published | [main](https://github.com/openclaw/crabpot/tree/main)                         | npm-latest  | 2026.4.26        | `be8c24633aaa7ef0425ae1178f096ee8dd6226c0` | openclaw@latest (2026.4.26, be8c24633aaa)        |
-| Beta             | [crab-beta](https://github.com/openclaw/crabpot/tree/crab-beta)               | npm-beta    | 2026.4.26        | `be8c24633aaa7ef0425ae1178f096ee8dd6226c0` | openclaw@beta (2026.4.26, be8c24633aaa)          |
-| Development      | [crab-development](https://github.com/openclaw/crabpot/tree/crab-development) | github-main | 2026.4.27        | `d8a600f2ad01dc8171a649c34136fb6491e099ed` | openclaw/openclaw@main (2026.4.27, d8a600f2ad01) |
-
 `main` follows the latest published npm package. `crab-beta` follows the beta npm dist-tag. `crab-development` follows the latest `openclaw/openclaw` main commit.
+- **Last dashboard update:** Apr 29, 2026, 01:21 UTC
+<!-- crabpot-tracks:start -->
+- **Source:** `npm-latest`
+- **OpenClaw version:** `2026.4.26`
+- **OpenClaw SHA:** `be8c24633aaa`
+- **Dashboard target:** `openclaw@latest`
+- **GitHub report run:** [25086137618](https://github.com/openclaw/crabpot/actions/runs/25086137618)
 <!-- crabpot-tracks:end -->
 
+<!-- crabpot-summary:start -->
 ## Dashboard
 
 | Metric                 | Result                                               |
@@ -54,65 +49,6 @@ Use these branches to switch the dashboard and generated reports between OpenCla
 | Jiti loader candidates | 18                                                   |
 | Import loop            | p50 153ms / p95 165ms / max RSS 46.3MB / CPU 27ms    |
 | Runtime profile        | p50 649ms / p95 1329ms / max RSS 68.7MB              |
-
-### Top Discovered Issues
-
-| Severity | Class             | Fixture            | Code                     | Decision            | Title                                                                                                                              |
-| -------- | ----------------- | ------------------ | ------------------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| 🔴 P0    | live-issue        | codex-app-server   | sdk-export-missing       | core-compat-adapter | [codex-app-server: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#p0-live-issues)    |
-| 🔴 P0    | live-issue        | hyperspell         | unknown-hook-name        | core-compat-adapter | [hyperspell: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)                           |
-| 🟠 P1    | inspector-gap     | a2a-gateway        | registration-capture-gap | inspector-follow-up | [a2a-gateway: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)         |
-| 🟠 P1    | inspector-gap     | clawmetry          | registration-capture-gap | inspector-follow-up | [clawmetry: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)           |
-| 🟠 P1    | upstream-metadata | clawmetry          | reserved-sdk-import      | plugin-upstream-fix | [clawmetry: plugin imports reserved bundled-plugin SDK compatibility subpaths](reports/crabpot-issues.md#upstream-metadata-issues) |
-| 🟠 P1    | compat-gap        | codex-app-server   | missing-compat-record    | core-compat-adapter | [codex-app-server: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)                       |
-| 🟠 P1    | inspector-gap     | codex-app-server   | registration-capture-gap | inspector-follow-up | [codex-app-server: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)    |
-| 🟠 P1    | inspector-gap     | connectclaw        | registration-capture-gap | inspector-follow-up | [connectclaw: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)         |
-| 🟠 P1    | inspector-gap     | dingtalk-connector | registration-capture-gap | inspector-follow-up | [dingtalk-connector: runtime registrations need capture before contract judgment](reports/crabpot-issues.md#inspector-proof-gaps)  |
-| 🟠 P1    | inspector-gap     | honcho             | conversation-access-hook | inspector-follow-up | [honcho: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)                   |
-<!-- crabpot-summary:end -->
-
-<!-- crabpot-summary:start -->
-## Dashboard
-
-Last dashboard update: Apr 29, 2026, 01:21 UTC
-
-State: PASS
-
-Mode: check
-
-OpenClaw: openclaw@latest (2026.4.26, be8c24633aaa)
-
-Run: https://github.com/openclaw/crabpot/actions/runs/25086137618
-
-### Result Grid
-
-| Metric                 | Result                                               |
-| ---------------------- | ---------------------------------------------------- |
-| Fixtures               | 29                                                   |
-| Hard breakages         | 0                                                    |
-| Warnings               | 60                                                   |
-| Suggestions            | 100                                                  |
-| Issues                 | 160                                                  |
-| P0 issues              | [🔴 P0 2](reports/crabpot-issues.md#p0-live-issues)  |
-| P1 issues              | [🟠 P1 33](reports/crabpot-issues.md#triage-summary) |
-| Live issues            | 2 total / 2 P0                                       |
-| Compat gaps            | 1                                                    |
-| Deprecation warnings   | 24                                                   |
-| Inspector gaps         | 106                                                  |
-| Upstream metadata      | 27                                                   |
-| Contract probes        | 158                                                  |
-| Policy failures        | 0                                                    |
-| Policy warnings        | 3                                                    |
-| Ref diff failures      | 0                                                    |
-| Profile failures       | 0                                                    |
-| Execution probes       | 6 pass / 0 fail / 2 blocked                          |
-| Synthetic probes       | 240 ready / 0 blocked / 240 total                    |
-| Cold import            | 0 ready / 34 blocked / 34 entrypoints                |
-| Workspace plan         | 34 entrypoints / 23 installs / 8 builds              |
-| Platform risks         | 172 Windows / 51 container                           |
-| Jiti loader candidates | 18                                                   |
-| Import loop            | p50 73ms / p95 74ms / max RSS 0MB / CPU 0ms          |
-| Runtime profile        | p50 419ms / p95 440ms / max RSS 81.4MB               |
 
 ### Top Discovered Issues
 

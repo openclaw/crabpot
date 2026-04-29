@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { execFileSync } from "node:child_process";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
-import { resolveOpenClawTrack } from "./resolve-openclaw-track.mjs";
+import { normalizeTrack, resolveOpenClawTrack } from "./resolve-openclaw-track.mjs";
 
 export const trackMetadataStart = "<!-- crabpot-tracks:start -->";
 export const trackMetadataEnd = "<!-- crabpot-tracks:end -->";
@@ -15,6 +16,12 @@ const branchUrls = {
   development: "https://github.com/openclaw/crabpot/tree/crab-development",
 };
 
+const trackTargets = {
+  beta: "openclaw@beta",
+  development: "openclaw/openclaw@main",
+  latest: "openclaw@latest",
+};
+
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   await main();
 }
@@ -23,8 +30,11 @@ async function main() {
   const args = parseArgs(process.argv.slice(2));
   const tracks = await resolveTrackMetadata();
   const changed = await updateTrackMetadata({
+    branch: args.branch,
     check: args.check,
     readmePath: args.readmePath,
+    runUrl: args.runUrl,
+    track: args.track,
     tracks,
   });
 
@@ -39,8 +49,11 @@ async function main() {
 function parseArgs(argv) {
   const args = {
     check: false,
+    branch: process.env.GITHUB_REF_NAME || "",
     json: false,
     readmePath: defaultReadmePath,
+    runUrl: process.env.CRABPOT_RUN_URL || "",
+    track: "auto",
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -55,6 +68,21 @@ function parseArgs(argv) {
     }
     if (arg === "--readme") {
       args.readmePath = path.resolve(argv[index + 1]);
+      index += 1;
+      continue;
+    }
+    if (arg === "--run-url") {
+      args.runUrl = argv[index + 1];
+      index += 1;
+      continue;
+    }
+    if (arg === "--track") {
+      args.track = argv[index + 1];
+      index += 1;
+      continue;
+    }
+    if (arg === "--branch") {
+      args.branch = argv[index + 1];
       index += 1;
     }
   }
@@ -71,9 +99,23 @@ export async function resolveTrackMetadata() {
   return [latest, beta, development];
 }
 
-export async function updateTrackMetadata({ check = false, readmePath = defaultReadmePath, tracks }) {
+export async function updateTrackMetadata({
+  branch = "",
+  check = false,
+  readmePath = defaultReadmePath,
+  runUrl = "",
+  track = "auto",
+  tracks,
+}) {
   const current = await readFile(readmePath, "utf8");
-  const next = applyTrackMetadata(current, renderTrackMetadata(tracks));
+  const next = applyTrackMetadata(
+    current,
+    renderTrackMetadata(tracks, {
+      branch: branch || currentBranch(),
+      runUrl: runUrl || readTrackRunUrl(current),
+      track,
+    }),
+  );
   const changed = current !== next;
   if (check && changed) {
     throw new Error(`${path.relative(repoRoot, readmePath)} track metadata is stale; run node scripts/update-track-metadata.mjs`);
@@ -101,51 +143,46 @@ export function applyTrackMetadata(readme, renderedMetadata) {
   return `${readme.trimEnd()}\n\n${block}\n`;
 }
 
-export function renderTrackMetadata(tracks) {
-  const table = markdownTable(
-    tracks.map((track) => [
-      trackName(track.track),
-      `[${track.branch}](${branchUrls[track.track]})`,
-      track.source,
-      track.version,
-      `\`${track.sha}\``,
-      track.label,
-    ]),
-    ["Track", "Branch", "Source", "OpenClaw version", "OpenClaw SHA", "Dashboard target"],
-  );
-
+export function renderTrackMetadata(tracks, options = {}) {
+  const selected = selectTrack(tracks, options);
   return [
-    "## Tracks",
-    "",
-    "Use these branches to switch the dashboard and generated reports between OpenClaw release tracks.",
-    "",
-    table,
-    "",
-    "`main` follows the latest published npm package. `crab-beta` follows the beta npm dist-tag. `crab-development` follows the latest `openclaw/openclaw` main commit.",
+    `- **Source:** \`${selected.source}\``,
+    `- **OpenClaw version:** \`${selected.version}\``,
+    `- **OpenClaw SHA:** \`${selected.sha.slice(0, 12)}\``,
+    `- **Dashboard target:** \`${trackTargets[selected.track] ?? selected.label}\``,
+    `- **GitHub report run:** ${formatRunLink(options.runUrl)}`,
   ].join("\n");
 }
 
-function trackName(track) {
-  const names = {
-    beta: "Beta",
-    development: "Development",
-    latest: "Latest published",
-  };
-  return names[track] ?? track;
+function selectTrack(tracks, options) {
+  const branch = options.branch || currentBranch();
+  const normalized = normalizeTrack(options.track ?? "auto", branch);
+  const selected = tracks.find((track) => track.track === normalized);
+  if (!selected) {
+    throw new Error(`missing resolved OpenClaw track metadata for ${normalized}`);
+  }
+  return selected;
 }
 
-function markdownTable(rows, headers) {
-  const escapedRows = rows.map((row) => row.map((cell) => escapeCell(cell ?? "-")));
-  const allRows = [headers, ...escapedRows];
-  const widths = headers.map((_, columnIndex) => Math.max(...allRows.map((row) => row[columnIndex].length)));
-  const renderRow = (row) => `| ${row.map((cell, index) => cell.padEnd(widths[index])).join(" | ")} |`;
-  return [
-    renderRow(headers),
-    renderRow(widths.map((width) => "-".repeat(width))),
-    ...escapedRows.map((row) => renderRow(row)),
-  ].join("\n");
+function formatRunLink(runUrl) {
+  if (!runUrl) {
+    return "-";
+  }
+  const id = runUrl.match(/\/runs\/(\d+)/)?.[1] ?? runUrl;
+  return `[${id}](${runUrl})`;
 }
 
-function escapeCell(value) {
-  return String(value).replaceAll("|", "\\|").replaceAll("\n", " ");
+function readTrackRunUrl(readme) {
+  return readme.match(/^\s*-\s+\*\*GitHub report run:\*\*\s+\[[^\]]+\]\(([^)]+)\)/im)?.[1] ?? "";
+}
+
+function currentBranch() {
+  if (process.env.GITHUB_REF_NAME) {
+    return process.env.GITHUB_REF_NAME;
+  }
+  try {
+    return execFileSync("git", ["branch", "--show-current"], { cwd: repoRoot, encoding: "utf8" }).trim();
+  } catch {
+    return "main";
+  }
 }
