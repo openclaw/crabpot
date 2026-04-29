@@ -23,6 +23,9 @@ jobs:
       - uses: actions/checkout@v6
         with:
           submodules: recursive
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
       - name: Resolve OpenClaw track
         id: openclaw-track
         run: node scripts/resolve-openclaw-track.mjs --github-output
@@ -31,9 +34,6 @@ jobs:
           repository: openclaw/openclaw
           ref: ${{ steps.openclaw-track.outputs.ref }}
           path: openclaw
-      - uses: actions/setup-node@v6
-        with:
-          node-version: 22
       - run: node scripts/sync-fixtures.mjs --materialize
       - run: npm test
       - run: node scripts/sync-fixtures.mjs --check
@@ -118,6 +118,9 @@ jobs:
         with:
           fetch-depth: 1
           submodules: recursive
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
       - name: Resolve OpenClaw track
         id: openclaw-track
         run: node scripts/resolve-openclaw-track.mjs --github-output
@@ -126,9 +129,6 @@ jobs:
           repository: openclaw/openclaw
           ref: ${{ steps.openclaw-track.outputs.ref }}
           path: openclaw
-      - uses: actions/setup-node@v6
-        with:
-          node-version: 22
       - name: Resolve diff refs
         id: refs
         shell: bash
@@ -172,6 +172,9 @@ jobs:
       - uses: actions/checkout@v6
         with:
           submodules: recursive
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
       - name: Resolve OpenClaw track
         id: openclaw-track
         run: node scripts/resolve-openclaw-track.mjs --github-output
@@ -180,9 +183,6 @@ jobs:
           repository: openclaw/openclaw
           ref: ${{ steps.openclaw-track.outputs.ref }}
           path: openclaw
-      - uses: actions/setup-node@v6
-        with:
-          node-version: 22
       - name: Validate workspace plan
         run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
       - name: Execute fixture lane
@@ -229,6 +229,9 @@ jobs:
       - uses: actions/checkout@v6
         with:
           submodules: recursive
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
       - name: Resolve OpenClaw track
         id: openclaw-track
         run: node scripts/resolve-openclaw-track.mjs --github-output
@@ -237,9 +240,6 @@ jobs:
           repository: openclaw/openclaw
           ref: ${{ steps.openclaw-track.outputs.ref }}
           path: openclaw
-      - uses: actions/setup-node@v6
-        with:
-          node-version: 22
       - run: node scripts/sync-fixtures.mjs --materialize
       - name: Write README dashboard
         env:
