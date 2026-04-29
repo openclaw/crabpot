@@ -545,7 +545,7 @@ Status: PASS
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:34
 
 - 🟡 P2 **a2a-gateway** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: a2a-gateway: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: a2a-gateway: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@a2a-js/sdk @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/package.json)
@@ -582,7 +582,7 @@ Status: PASS
     - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/dist/setup-entry.js)
 
 - 🟡 P2 **agentchat** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: agentchat: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: agentchat: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@agentchatme/agentchat @ package.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/package.json)
@@ -593,7 +593,7 @@ Status: PASS
     - [openclaw @ package.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/package.json)
 
 - 🟡 P2 **apify** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: apify: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: apify: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@sinclair/typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/41f49794d230f7ad092d1c699ee4d91fecf6ba91/package.json)
@@ -619,7 +619,7 @@ Status: PASS
     - [runtimeExtension:./dist/index.js @ index.js](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/dist/index.js)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: clawmetry: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: clawmetry: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [node-fetch @ package.json](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/package.json)
@@ -631,7 +631,7 @@ Status: PASS
     - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/index.ts)
 
 - 🟡 P2 **codex-app-server** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: codex-app-server: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: codex-app-server: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [ws @ package.json](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/package.json)
@@ -644,7 +644,7 @@ Status: PASS
     - [extension @ index.ts](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts)
 
 - 🟡 P2 **composio** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: composio: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: composio: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@modelcontextprotocol/sdk @ package.json](https://github.com/ComposioHQ/openclaw-composio-plugin/blob/992d9576ba1b301e37dc900f3177a608936b8fbb/package.json)
@@ -663,7 +663,7 @@ Status: PASS
     - [registerTool @ tools.ts:89](https://github.com/ComposioHQ/openclaw-composio-plugin/blob/992d9576ba1b301e37dc900f3177a608936b8fbb/src/tools.ts#L89)
 
 - 🟡 P2 **connectclaw** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: connectclaw: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: connectclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [openclaw @ package.json](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/package.json)
@@ -687,7 +687,7 @@ Status: PASS
     - [defineChannelPluginEntry @ index.ts:8](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts#L8)
 
 - 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: ddingtalk: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: ddingtalk: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [dingtalk-stream @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
@@ -713,7 +713,7 @@ Status: PASS
     - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/dist/index.mjs)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: dingtalk-connector: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: dingtalk-connector: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
@@ -725,7 +725,7 @@ Status: PASS
     - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
 
 - 🟡 P2 **hasdata** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: hasdata: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: hasdata: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@sinclair/typebox @ package.json](https://github.com/HasData/hasdata-openclaw-plugin/blob/bed32d8a0359392b7c4628f12b909b6e204c8426/package.json)
@@ -744,7 +744,7 @@ Status: PASS
     - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/dist/index.js)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: honcho: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: honcho: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/package.json)
@@ -764,7 +764,7 @@ Status: PASS
     - [registerTool @ session.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/tools/session.ts#L8)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: hyperspell: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: hyperspell: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/package.json)
@@ -789,7 +789,7 @@ Status: PASS
     - [registerTool @ index.ts:92](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L92)
 
 - 🟡 P2 **inworld-tts** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: inworld-tts: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: inworld-tts: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [openclaw @ package.json](https://github.com/livingghost/openclaw-inworld-tts/blob/d2abaeea330ebef7530f43f8b395671f6f404aea/package.json)
@@ -807,7 +807,7 @@ Status: PASS
     - [registerChannel @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L7)
 
 - 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: kitchen-sink: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: kitchen-sink: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [openclaw @ package.json](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/package.json)
@@ -819,7 +819,7 @@ Status: PASS
     - registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: lightclawbot: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: lightclawbot: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - socket.io-client @ plugins/lightclawbot/.crabpot-package/package.json
@@ -845,7 +845,7 @@ Status: PASS
     - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/dist/index.js)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: lossless-claw: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: lossless-claw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/package.json)
@@ -864,7 +864,7 @@ Status: PASS
     - [registerTool @ index.ts:2046](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2046)
 
 - 🟡 P2 **mcp-adapter** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: mcp-adapter: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: mcp-adapter: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@modelcontextprotocol/sdk @ package.json](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/package.json)
@@ -882,7 +882,7 @@ Status: PASS
     - [registerTool @ index.ts:30](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L30)
 
 - 🟡 P2 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: memory-tencentdb: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: memory-tencentdb: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - @node-rs/jieba @ plugins/memory-tencentdb/.crabpot-package/package.json
@@ -925,7 +925,7 @@ Status: PASS
     - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
 
 - 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: mocrane-wecom: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: mocrane-wecom: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@wecom/aibot-node-sdk @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
@@ -954,7 +954,7 @@ Status: PASS
     - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
 
 - 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: openclaw-weixin: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: openclaw-weixin: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - qrcode-terminal @ plugins/openclaw-weixin/.crabpot-package/package.json
@@ -973,7 +973,7 @@ Status: PASS
     - [runtimeExtension:./dist/index.js @ index.js](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/dist/index.js)
 
 - 🟡 P2 **opik-openclaw** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: opik-openclaw: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: opik-openclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@clack/prompts @ package.json](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/package.json)
@@ -994,7 +994,7 @@ Status: PASS
     - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L16)
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: qqbot: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: qqbot: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [mpg123-decoder @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
@@ -1016,7 +1016,7 @@ Status: PASS
     - [extension:./dist/index.js @ index.js](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/dist/index.js)
 
 - 🟡 P2 **secureclaw** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: secureclaw: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: secureclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [chokidar @ package.json](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/package.json)
@@ -1024,7 +1024,7 @@ Status: PASS
     - [openclaw @ package.json](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/package.json)
 
 - 🟡 P2 **web-search-plus** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: web-search-plus: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: web-search-plus: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [openclaw @ package.json](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/6e4c765cd04eb449c806748c3130793fe0b05e5e/package.json)
@@ -1049,7 +1049,7 @@ Status: PASS
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L27)
 
 - 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: wecom: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: wecom: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@wecom/aibot-node-sdk @ package.json](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/package.json)
@@ -1073,7 +1073,7 @@ Status: PASS
     - registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: yuanbao: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: yuanbao: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json
@@ -1563,7 +1563,7 @@ Status: PASS
     - [defaultConfig @ openclaw.plugin.json](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/openclaw.plugin.json)
 
 - 🟡 P2 **a2a-gateway** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: a2a-gateway: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: a2a-gateway: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@a2a-js/sdk @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/package.json)
@@ -1627,7 +1627,7 @@ Status: PASS
     - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/dist/setup-entry.js)
 
 - 🟡 P2 **agentchat** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: agentchat: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: agentchat: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@agentchatme/agentchat @ package.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/package.json)
@@ -1646,7 +1646,7 @@ Status: PASS
     - [openclaw/plugin-sdk @ apify-scraper-tool.ts:4](https://github.com/apify/apify-openclaw-plugin/blob/41f49794d230f7ad092d1c699ee4d91fecf6ba91/src/tools/apify-scraper-tool.ts#L4)
 
 - 🟡 P2 **apify** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: apify: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: apify: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@sinclair/typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/41f49794d230f7ad092d1c699ee4d91fecf6ba91/package.json)
@@ -1672,7 +1672,7 @@ Status: PASS
     - [runtimeExtension:./dist/index.js @ index.js](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/dist/index.js)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: clawmetry: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: clawmetry: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [node-fetch @ package.json](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/package.json)
@@ -1693,7 +1693,7 @@ Status: PASS
     - [openclaw/plugin-sdk @ types.ts:1](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/types.ts#L1)
 
 - 🟡 P2 **codex-app-server** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: codex-app-server: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: codex-app-server: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [ws @ package.json](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/package.json)
@@ -1715,7 +1715,7 @@ Status: PASS
     - [openclaw/plugin-sdk @ tools.ts:1](https://github.com/ComposioHQ/openclaw-composio-plugin/blob/992d9576ba1b301e37dc900f3177a608936b8fbb/src/tools.ts#L1)
 
 - 🟡 P2 **composio** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: composio: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: composio: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@modelcontextprotocol/sdk @ package.json](https://github.com/ComposioHQ/openclaw-composio-plugin/blob/992d9576ba1b301e37dc900f3177a608936b8fbb/package.json)
@@ -1756,7 +1756,7 @@ Status: PASS
     - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/tools.ts#L2)
 
 - 🟡 P2 **connectclaw** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: connectclaw: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: connectclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [openclaw @ package.json](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/package.json)
@@ -1786,7 +1786,7 @@ Status: PASS
     - [defineChannelPluginEntry @ index.ts:8](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts#L8)
 
 - 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: ddingtalk: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: ddingtalk: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [dingtalk-stream @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
@@ -1840,7 +1840,7 @@ Status: PASS
     - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/dist/index.mjs)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: dingtalk-connector: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: dingtalk-connector: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
@@ -1858,7 +1858,7 @@ Status: PASS
     - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
 
 - 🟡 P2 **hasdata** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: hasdata: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: hasdata: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@sinclair/typebox @ package.json](https://github.com/HasData/hasdata-openclaw-plugin/blob/bed32d8a0359392b7c4628f12b909b6e204c8426/package.json)
@@ -1906,7 +1906,7 @@ Status: PASS
     - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/dist/index.js)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: honcho: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: honcho: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/package.json)
@@ -1941,7 +1941,7 @@ Status: PASS
     - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L1)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: hyperspell: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: hyperspell: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/package.json)
@@ -1966,7 +1966,7 @@ Status: PASS
     - [registerTool @ index.ts:92](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L92)
 
 - 🟡 P2 **inworld-tts** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: inworld-tts: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: inworld-tts: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [openclaw @ package.json](https://github.com/livingghost/openclaw-inworld-tts/blob/d2abaeea330ebef7530f43f8b395671f6f404aea/package.json)
@@ -2002,7 +2002,7 @@ Status: PASS
     - [openclaw/plugin-sdk @ generated-sdk-imports.ts:2](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-sdk-imports.ts#L2)
 
 - 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: kitchen-sink: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: kitchen-sink: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [openclaw @ package.json](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/package.json)
@@ -2020,7 +2020,7 @@ Status: PASS
     - capabilities @ plugins/lightclawbot/.crabpot-package/openclaw.plugin.json
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: lightclawbot: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: lightclawbot: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - socket.io-client @ plugins/lightclawbot/.crabpot-package/package.json
@@ -2078,7 +2078,7 @@ Status: PASS
     - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/dist/index.js)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: lossless-claw: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: lossless-claw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/package.json)
@@ -2103,7 +2103,7 @@ Status: PASS
     - [registerTool @ index.ts:2046](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2046)
 
 - 🟡 P2 **mcp-adapter** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: mcp-adapter: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: mcp-adapter: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@modelcontextprotocol/sdk @ package.json](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/package.json)
@@ -2127,7 +2127,7 @@ Status: PASS
     - [registerTool @ index.ts:30](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L30)
 
 - 🟡 P2 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: memory-tencentdb: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: memory-tencentdb: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - @node-rs/jieba @ plugins/memory-tencentdb/.crabpot-package/package.json
@@ -2231,7 +2231,7 @@ Status: PASS
     - [openclaw/plugin-sdk @ ws-adapter.ts:14](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/ws-adapter.ts#L14)
 
 - 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: mocrane-wecom: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: mocrane-wecom: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@wecom/aibot-node-sdk @ package.json](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/package.json)
@@ -2266,7 +2266,7 @@ Status: PASS
     - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
 
 - 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: openclaw-weixin: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: openclaw-weixin: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - qrcode-terminal @ plugins/openclaw-weixin/.crabpot-package/package.json
@@ -2305,7 +2305,7 @@ Status: PASS
     - [runtimeExtension:./dist/index.js @ index.js](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/dist/index.js)
 
 - 🟡 P2 **opik-openclaw** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: opik-openclaw: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: opik-openclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@clack/prompts @ package.json](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/package.json)
@@ -2347,7 +2347,7 @@ Status: PASS
     - [extensions @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/openclaw.plugin.json)
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: qqbot: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: qqbot: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [mpg123-decoder @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
@@ -2375,7 +2375,7 @@ Status: PASS
     - [extension:./dist/index.js @ index.js](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/dist/index.js)
 
 - 🟡 P2 **secureclaw** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: secureclaw: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: secureclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [chokidar @ package.json](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/package.json)
@@ -2395,7 +2395,7 @@ Status: PASS
     - [displayName @ openclaw.plugin.json](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/6e4c765cd04eb449c806748c3130793fe0b05e5e/openclaw.plugin.json)
 
 - 🟡 P2 **web-search-plus** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: web-search-plus: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: web-search-plus: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [openclaw @ package.json](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/6e4c765cd04eb449c806748c3130793fe0b05e5e/package.json)
@@ -2420,7 +2420,7 @@ Status: PASS
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L27)
 
 - 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: wecom: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: wecom: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - [@wecom/aibot-node-sdk @ package.json](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/package.json)
@@ -2456,7 +2456,7 @@ Status: PASS
     - openclaw/plugin-sdk @ plugins/yuanbao/.crabpot-package/dist/index.js:1
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
-  - **package-dependency-install-required**: yuanbao: cold import requires isolated dependency installation
+  - **package-dependency-install-required**: yuanbao: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
     - cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json

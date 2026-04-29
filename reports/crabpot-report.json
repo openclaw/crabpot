@@ -12385,7 +12385,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "a2a-gateway: cold import requires isolated dependency installation",
+      "title": "a2a-gateway: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "@a2a-js/sdk @ plugins/a2a-gateway/package.json",
         "@bufbuild/protobuf @ plugins/a2a-gateway/package.json",
@@ -12557,7 +12557,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "agentchat: cold import requires isolated dependency installation",
+      "title": "agentchat: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "@agentchatme/agentchat @ plugins/agentchat/integrations/openclaw-channel/package.json",
         "@sinclair/typebox @ plugins/agentchat/integrations/openclaw-channel/package.json",
@@ -12600,7 +12600,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "apify: cold import requires isolated dependency installation",
+      "title": "apify: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "@sinclair/typebox @ plugins/apify/package.json",
         "apify-client @ plugins/apify/package.json",
@@ -12674,7 +12674,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "clawmetry: cold import requires isolated dependency installation",
+      "title": "clawmetry: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "node-fetch @ plugins/clawmetry/clawhub-plugin/package.json"
       ],
@@ -12731,7 +12731,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "codex-app-server: cold import requires isolated dependency installation",
+      "title": "codex-app-server: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "ws @ plugins/codex-app-server/package.json",
         "openclaw @ plugins/codex-app-server/package.json"
@@ -12789,7 +12789,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "composio: cold import requires isolated dependency installation",
+      "title": "composio: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "@modelcontextprotocol/sdk @ plugins/composio/package.json",
         "zod @ plugins/composio/package.json"
@@ -12902,7 +12902,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "connectclaw: cold import requires isolated dependency installation",
+      "title": "connectclaw: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "openclaw @ plugins/connectclaw/packages/plugin/package.json"
       ],
@@ -12992,7 +12992,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "ddingtalk: cold import requires isolated dependency installation",
+      "title": "ddingtalk: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "dingtalk-stream @ plugins/ddingtalk/package.json",
         "zod @ plugins/ddingtalk/package.json",
@@ -13130,7 +13130,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "dingtalk-connector: cold import requires isolated dependency installation",
+      "title": "dingtalk-connector: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "axios @ plugins/dingtalk-connector/package.json",
         "dingtalk-stream @ plugins/dingtalk-connector/package.json",
@@ -13172,7 +13172,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "hasdata: cold import requires isolated dependency installation",
+      "title": "hasdata: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "@sinclair/typebox @ plugins/hasdata/package.json",
         "openclaw @ plugins/hasdata/package.json"
@@ -13292,7 +13292,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "honcho: cold import requires isolated dependency installation",
+      "title": "honcho: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "@honcho-ai/sdk @ plugins/honcho/package.json",
         "@sinclair/typebox @ plugins/honcho/package.json",
@@ -13375,7 +13375,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "hyperspell: cold import requires isolated dependency installation",
+      "title": "hyperspell: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "@clack/prompts @ plugins/hyperspell/package.json",
         "@sinclair/typebox @ plugins/hyperspell/package.json",
@@ -13436,7 +13436,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "inworld-tts: cold import requires isolated dependency installation",
+      "title": "inworld-tts: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "openclaw @ plugins/inworld-tts/package.json"
       ],
@@ -13544,7 +13544,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "kitchen-sink: cold import requires isolated dependency installation",
+      "title": "kitchen-sink: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "openclaw @ plugins/kitchen-sink/package.json"
       ],
@@ -13598,7 +13598,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "lightclawbot: cold import requires isolated dependency installation",
+      "title": "lightclawbot: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "socket.io-client @ plugins/lightclawbot/.crabpot-package/package.json",
         "openclaw @ plugins/lightclawbot/.crabpot-package/package.json"
@@ -13752,7 +13752,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "lossless-claw: cold import requires isolated dependency installation",
+      "title": "lossless-claw: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "@sinclair/typebox @ plugins/lossless-claw/package.json",
         "@mariozechner/pi-agent-core @ plugins/lossless-claw/package.json",
@@ -13813,7 +13813,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "mcp-adapter: cold import requires isolated dependency installation",
+      "title": "mcp-adapter: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "@modelcontextprotocol/sdk @ plugins/mcp-adapter/package.json"
       ],
@@ -13885,7 +13885,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "memory-tencentdb: cold import requires isolated dependency installation",
+      "title": "memory-tencentdb: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "@node-rs/jieba @ plugins/memory-tencentdb/.crabpot-package/package.json",
         "@tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/.crabpot-package/package.json",
@@ -14133,7 +14133,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "mocrane-wecom: cold import requires isolated dependency installation",
+      "title": "mocrane-wecom: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "@wecom/aibot-node-sdk @ plugins/mocrane-wecom/package.json",
         "fast-xml-parser @ plugins/mocrane-wecom/package.json",
@@ -14228,7 +14228,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "openclaw-weixin: cold import requires isolated dependency installation",
+      "title": "openclaw-weixin: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "qrcode-terminal @ plugins/openclaw-weixin/.crabpot-package/package.json",
         "zod @ plugins/openclaw-weixin/.crabpot-package/package.json"
@@ -14327,7 +14327,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "opik-openclaw: cold import requires isolated dependency installation",
+      "title": "opik-openclaw: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "@clack/prompts @ plugins/opik-openclaw/package.json",
         "opik @ plugins/opik-openclaw/package.json",
@@ -14429,7 +14429,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "qqbot: cold import requires isolated dependency installation",
+      "title": "qqbot: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "mpg123-decoder @ plugins/qqbot/package.json",
         "silk-wasm @ plugins/qqbot/package.json",
@@ -14505,7 +14505,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "secureclaw: cold import requires isolated dependency installation",
+      "title": "secureclaw: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "chokidar @ plugins/secureclaw/secureclaw/package.json",
         "node-forge @ plugins/secureclaw/secureclaw/package.json",
@@ -14561,7 +14561,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "web-search-plus: cold import requires isolated dependency installation",
+      "title": "web-search-plus: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "openclaw @ plugins/web-search-plus/package.json"
       ],
@@ -14634,7 +14634,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "wecom: cold import requires isolated dependency installation",
+      "title": "wecom: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "@wecom/aibot-node-sdk @ plugins/wecom/package.json",
         "file-type @ plugins/wecom/package.json",
@@ -14730,7 +14730,7 @@
       "live": false,
       "deprecated": false,
       "compatStatus": "none",
-      "title": "yuanbao: cold import requires isolated dependency installation",
+      "title": "yuanbao: cold import requires dependency installation in an isolated workspace",
       "evidence": [
         "cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json",
         "protobufjs @ plugins/yuanbao/.crabpot-package/package.json",

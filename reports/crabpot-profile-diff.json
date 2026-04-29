@@ -35,11 +35,11 @@
     "runs": 1,
     "summary": {
       "commandCount": 9,
-      "p50WallMs": 450,
-      "p95WallMs": 479,
-      "maxPeakRssMb": 82.7,
-      "maxRssDeltaMb": 18.5,
-      "maxCpuMsEstimate": 509,
+      "p50WallMs": 427,
+      "p95WallMs": 450,
+      "maxPeakRssMb": 81.5,
+      "maxRssDeltaMb": 16.8,
+      "maxCpuMsEstimate": 484,
       "maxHarnessHeapDeltaMb": 0.5
     },
     "targetOpenClaw": {
@@ -82,9 +82,9 @@
       "metric": "p95WallMs",
       "message": "p95WallMs stayed within 50% regression threshold",
       "baseline": 1273,
-      "current": 479,
-      "delta": -794,
-      "percent": -62.4
+      "current": 450,
+      "delta": -823,
+      "percent": -64.7
     },
     {
       "id": "profile.peak-rss",
@@ -92,8 +92,8 @@
       "metric": "maxPeakRssMb",
       "message": "maxPeakRssMb stayed within 50 absolute regression threshold",
       "baseline": 65.1,
-      "current": 82.7,
-      "delta": 17.60000000000001
+      "current": 81.5,
+      "delta": 16.400000000000006
     },
     {
       "id": "profile.node-boot",
