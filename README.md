@@ -7,6 +7,20 @@ and runs seam-focused compatibility checks against OpenClaw plugin APIs. The goa
 is to catch contract drift before external plugin authors do.
 
 
+
+<!-- crabpot-tracks:start -->
+## Tracks
+
+Use these branches to switch the dashboard and generated reports between OpenClaw release tracks.
+
+| Track            | Branch                                                                        | Source      | OpenClaw version | OpenClaw SHA                               | Dashboard target                                 |
+| ---------------- | ----------------------------------------------------------------------------- | ----------- | ---------------- | ------------------------------------------ | ------------------------------------------------ |
+| Latest published | [main](https://github.com/openclaw/crabpot/tree/main)                         | npm-latest  | 2026.4.26        | `be8c24633aaa7ef0425ae1178f096ee8dd6226c0` | openclaw@latest (2026.4.26, be8c24633aaa)        |
+| Beta             | [crab-beta](https://github.com/openclaw/crabpot/tree/crab-beta)               | npm-beta    | 2026.4.26        | `be8c24633aaa7ef0425ae1178f096ee8dd6226c0` | openclaw@beta (2026.4.26, be8c24633aaa)          |
+| Development      | [crab-development](https://github.com/openclaw/crabpot/tree/crab-development) | github-main | 2026.4.27        | `fd2625a16252f79be569454a206034e070c11777` | openclaw/openclaw@main (2026.4.27, fd2625a16252) |
+
+`main` follows the latest published npm package. `crab-beta` follows the beta npm dist-tag. `crab-development` follows the latest `openclaw/openclaw` main commit.
+<!-- crabpot-tracks:end -->
 <!-- crabpot-summary:start -->
 ## Dashboard
 

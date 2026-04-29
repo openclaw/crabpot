@@ -64,11 +64,25 @@ test("default check workflow retests plugin submodule gitlink changes", async ()
   const triggerBlock = workflow.slice(workflow.indexOf("on:"), workflow.indexOf("permissions:"));
 
   assert.match(triggerBlock, /pull_request:/);
-  assert.match(triggerBlock, /push:\n\s+branches: \[main\]/);
+  assert.match(triggerBlock, /push:\n\s+branches: \[main, crab-beta, crab-development\]/);
   assert.match(workflow, /submodules: recursive/);
   assert.doesNotMatch(triggerBlock, /paths:/);
   assert.doesNotMatch(triggerBlock, /paths-ignore:/);
   assert.match(workflow, /plugins\/\*\* must retest/);
+});
+
+test("track dashboard workflow refreshes branch dashboards by OpenClaw track", async () => {
+  const workflow = await readWorkflow(".github/workflows/track-dashboard.yml");
+
+  assert.match(workflow, /schedule:/);
+  assert.match(workflow, /workflow_dispatch:/);
+  assert.match(workflow, /track:/);
+  assert.match(workflow, /branch: crab-beta/);
+  assert.match(workflow, /branch: crab-development/);
+  assert.match(workflow, /node scripts\/resolve-openclaw-track\.mjs --track "\$\{\{ matrix\.track \}\}" --github-output/);
+  assert.match(workflow, /ref: \$\{\{ steps\.openclaw-track\.outputs\.ref \}\}/);
+  assert.match(workflow, /node scripts\/update-track-metadata\.mjs/);
+  assert.match(workflow, /git push origin HEAD:\$\{\{ matrix\.branch \}\}/);
 });
 
 test("default check workflow runs OS and container static lanes", async () => {
@@ -98,6 +112,7 @@ test("workflows use Node 24 action majors", async () => {
     await readWorkflow(".github/workflows/check.yml"),
     await readWorkflow(".github/workflows/openclaw-ref-compat.yml"),
     await readWorkflow(".github/workflows/dependabot-auto-merge.yml"),
+    await readWorkflow(".github/workflows/track-dashboard.yml"),
   ].join("\n");
   const actionRefs = [
     ...workflows.matchAll(/uses:\s+(actions\/(?:checkout|setup-node|upload-artifact)@[^\s]+)/g),
@@ -124,7 +139,9 @@ test("dependabot auto-merge refreshes reports after fixture pin updates", async 
   assert.ok(workflow.includes("^plugins/[^/]+$"));
   assert.ok(workflow.includes("^plugins/[^/]+/package(-lock)?\\.json$"));
   assert.match(workflow, /node scripts\/sync-fixtures\.mjs --materialize/);
+  assert.match(workflow, /node scripts\/resolve-openclaw-track\.mjs --branch "\$\{\{ github\.event\.pull_request\.base\.ref \}\}" --github-output/);
   assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw/);
+  assert.match(workflow, /node scripts\/update-track-metadata\.mjs/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs/);
   assert.match(workflow, /git add README\.md reports\//);
   assert.match(workflow, /gh pr merge "\$\{PR_NUMBER\}" --squash --delete-branch/);

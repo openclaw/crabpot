@@ -26,6 +26,8 @@
     "plugin-inspector:smoke": "node scripts/run-plugin-inspector-smoke.mjs --check",
     "profile": "node scripts/profile-contract-runtime.mjs",
     "profile:compare": "node scripts/compare-runtime-profile.mjs",
+    "track:metadata": "node scripts/update-track-metadata.mjs",
+    "track:metadata:check": "node scripts/update-track-metadata.mjs --check",
     "platform:probes": "node scripts/platform-probes.mjs",
     "readme:summary": "node scripts/update-readme-summary.mjs",
     "ref:diff": "node scripts/compare-openclaw-refs.mjs",

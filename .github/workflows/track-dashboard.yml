@@ -1,0 +1,110 @@
+name: Track Dashboard
+
+on:
+  schedule:
+    # Development follows OpenClaw main, so refresh it often enough to catch
+    # contract drift without turning Crabpot into a constant runner.
+    - cron: "37 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      track:
+        description: "Crabpot track to refresh"
+        required: true
+        default: development
+        type: choice
+        options:
+          - development
+          - beta
+          - latest
+          - all
+
+permissions:
+  contents: write
+
+jobs:
+  dashboard:
+    name: Refresh ${{ matrix.track }} dashboard
+    runs-on: ubuntu-latest
+    if: ${{ (github.event_name == 'schedule' && matrix.track == 'development') || (github.event_name == 'workflow_dispatch' && (inputs.track == 'all' || inputs.track == matrix.track)) }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - track: latest
+            branch: main
+          - track: beta
+            branch: crab-beta
+          - track: development
+            branch: crab-development
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ matrix.branch }}
+          submodules: recursive
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Resolve OpenClaw track
+        id: openclaw-track
+        run: node scripts/resolve-openclaw-track.mjs --track "${{ matrix.track }}" --github-output
+
+      - uses: actions/checkout@v6
+        with:
+          repository: openclaw/openclaw
+          ref: ${{ steps.openclaw-track.outputs.ref }}
+          path: openclaw
+
+      - run: node scripts/sync-fixtures.mjs --materialize
+      - run: npm test
+      - run: node scripts/sync-fixtures.mjs --check
+      - run: node scripts/run-contract-smoke.mjs --strict --openclaw ./openclaw
+      - run: node scripts/inspect-fixtures.mjs --check
+      - run: npm run plugin-inspector:smoke
+      - run: node scripts/check-generated-surface-fixture.mjs --check --openclaw ./openclaw
+      - run: node scripts/generate-report.mjs --check --openclaw ./openclaw
+      - run: node scripts/capture-contracts.mjs --check --openclaw ./openclaw
+      - run: node scripts/synthetic-probes.mjs --check --openclaw ./openclaw
+      - run: node scripts/cold-import-readiness.mjs --check --openclaw ./openclaw
+      - run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
+      - run: node scripts/platform-probes.mjs --check --openclaw ./openclaw
+      - run: node scripts/import-loop-profile.mjs --check
+      - run: node scripts/profile-contract-runtime.mjs --check --openclaw ./openclaw
+      - run: node scripts/check-contract-coverage.mjs --openclaw ./openclaw
+
+      - name: Write branch dashboard
+        env:
+          CRABPOT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          export CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          node scripts/generate-report.mjs --openclaw ./openclaw
+          node scripts/capture-contracts.mjs --openclaw ./openclaw
+          node scripts/synthetic-probes.mjs --openclaw ./openclaw
+          node scripts/cold-import-readiness.mjs --openclaw ./openclaw
+          node scripts/workspace-plan.mjs --openclaw ./openclaw
+          node scripts/platform-probes.mjs --openclaw ./openclaw
+          node scripts/check-generated-surface-fixture.mjs --openclaw ./openclaw
+          node scripts/import-loop-profile.mjs
+          node scripts/profile-contract-runtime.mjs --openclaw ./openclaw
+          node scripts/compare-runtime-profile.mjs
+          node scripts/check-ci-policy.mjs
+          node scripts/write-ci-summary.mjs --mode "track:${{ matrix.track }}" --openclaw-label "${{ steps.openclaw-track.outputs.label }}"
+          node scripts/update-track-metadata.mjs
+          node scripts/update-readme-summary.mjs
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md reports/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(readme): refresh ${{ matrix.track }} dashboard [skip ci]"
+            git push origin HEAD:${{ matrix.branch }}
+          fi
+
+      - name: Upload track reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: crabpot-track-${{ matrix.track }}-reports
+          path: reports/
+          if-no-files-found: warn

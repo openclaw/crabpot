@@ -25,15 +25,20 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Resolve OpenClaw track
+        id: openclaw-track
+        run: node scripts/resolve-openclaw-track.mjs --branch "${{ github.event.pull_request.base.ref }}" --github-output
+
       - name: Checkout OpenClaw
         uses: actions/checkout@v6
         with:
           repository: openclaw/openclaw
+          ref: ${{ steps.openclaw-track.outputs.ref }}
           path: openclaw
-
-      - uses: actions/setup-node@v6
-        with:
-          node-version: 22
 
       - name: Update Dependabot branch with base
         shell: bash
@@ -82,7 +87,8 @@ jobs:
           node scripts/profile-contract-runtime.mjs --openclaw ./openclaw
           node scripts/compare-runtime-profile.mjs
           node scripts/check-ci-policy.mjs
-          node scripts/write-ci-summary.mjs --mode dependabot --openclaw-label openclaw/openclaw@main
+          node scripts/write-ci-summary.mjs --mode dependabot --openclaw-label "${{ steps.openclaw-track.outputs.label }}"
+          node scripts/update-track-metadata.mjs
           node scripts/update-readme-summary.mjs
 
       - name: Commit refreshed reports
