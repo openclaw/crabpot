@@ -17,22 +17,22 @@ Use these branches to switch the dashboard and generated reports between OpenCla
 | ---------------- | ----------------------------------------------------------------------------- | ----------- | ---------------- | ------------------------------------------ | ------------------------------------------------ |
 | Latest published | [main](https://github.com/openclaw/crabpot/tree/main)                         | npm-latest  | 2026.4.26        | `be8c24633aaa7ef0425ae1178f096ee8dd6226c0` | openclaw@latest (2026.4.26, be8c24633aaa)        |
 | Beta             | [crab-beta](https://github.com/openclaw/crabpot/tree/crab-beta)               | npm-beta    | 2026.4.26        | `be8c24633aaa7ef0425ae1178f096ee8dd6226c0` | openclaw@beta (2026.4.26, be8c24633aaa)          |
-| Development      | [crab-development](https://github.com/openclaw/crabpot/tree/crab-development) | github-main | 2026.4.27        | `c24c8bab137180ca408e2af0e4fd8cb8b8290c1c` | openclaw/openclaw@main (2026.4.27, c24c8bab1371) |
+| Development      | [crab-development](https://github.com/openclaw/crabpot/tree/crab-development) | github-main | 2026.4.27        | `ceeb3a7398bb5e9bf67782875220538db8272ecf` | openclaw/openclaw@main (2026.4.27, ceeb3a7398bb) |
 
 `main` follows the latest published npm package. `crab-beta` follows the beta npm dist-tag. `crab-development` follows the latest `openclaw/openclaw` main commit.
 <!-- crabpot-tracks:end -->
 <!-- crabpot-summary:start -->
 ## Dashboard
 
-Last dashboard update: Apr 29, 2026, 00:25 UTC
+Last dashboard update: Apr 29, 2026, 00:29 UTC
 
 State: PASS
 
-Mode: check
+Mode: track:latest
 
 OpenClaw: openclaw@latest (2026.4.26, be8c24633aaa)
 
-Run: https://github.com/openclaw/crabpot/actions/runs/25084598169
+Run: https://github.com/openclaw/crabpot/actions/runs/25084765760
 
 ### Result Grid
 
