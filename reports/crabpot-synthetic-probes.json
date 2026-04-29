@@ -2,14 +2,14 @@
   "generatedAt": "deterministic",
   "summary": {
     "fixtureCount": 29,
-    "probeCount": 240,
+    "probeCount": 256,
     "hookProbeCount": 80,
-    "registrationProbeCount": 160,
-    "readyCount": 240,
+    "registrationProbeCount": 176,
+    "readyCount": 256,
     "blockedCount": 0,
-    "directExecutionCount": 92,
-    "optInExecutionCount": 21,
-    "metadataOnlyCount": 47
+    "directExecutionCount": 95,
+    "optInExecutionCount": 24,
+    "metadataOnlyCount": 57
   },
   "probes": [
     {
@@ -985,7 +985,7 @@
       "source": "plugins/composio/index.ts:33"
     },
     {
-      "id": "hook.after_compaction:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-4",
+      "id": "hook.after_compaction:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-5",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "after_compaction",
@@ -1002,10 +1002,10 @@
         "hook": "after_compaction",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:4"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:5"
     },
     {
-      "id": "hook.after_tool_call:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-5",
+      "id": "hook.after_tool_call:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-6",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "after_tool_call",
@@ -1022,10 +1022,10 @@
         "hook": "after_tool_call",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:5"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:6"
     },
     {
-      "id": "hook.agent_end:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-6",
+      "id": "hook.agent_end:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-7",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "agent_end",
@@ -1053,10 +1053,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:6"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:7"
     },
     {
-      "id": "hook.before_agent_finalize:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-7",
+      "id": "hook.before_agent_finalize:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-8",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "before_agent_finalize",
@@ -1073,10 +1073,10 @@
         "hook": "before_agent_finalize",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:7"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:8"
     },
     {
-      "id": "hook.before_agent_reply:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-8",
+      "id": "hook.before_agent_reply:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-9",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "before_agent_reply",
@@ -1093,10 +1093,10 @@
         "hook": "before_agent_reply",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:8"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:9"
     },
     {
-      "id": "hook.before_agent_start:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-9",
+      "id": "hook.before_agent_start:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-10",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "before_agent_start",
@@ -1118,10 +1118,10 @@
         "agentId": "agent-fixture",
         "sessionId": "session-fixture"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:9"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:10"
     },
     {
-      "id": "hook.before_compaction:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-10",
+      "id": "hook.before_compaction:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-11",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "before_compaction",
@@ -1138,10 +1138,10 @@
         "hook": "before_compaction",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:10"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:11"
     },
     {
-      "id": "hook.before_dispatch:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-11",
+      "id": "hook.before_dispatch:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-12",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "before_dispatch",
@@ -1158,10 +1158,10 @@
         "hook": "before_dispatch",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:11"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:12"
     },
     {
-      "id": "hook.before_install:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-12",
+      "id": "hook.before_install:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-13",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "before_install",
@@ -1178,10 +1178,10 @@
         "hook": "before_install",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:12"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:13"
     },
     {
-      "id": "hook.before_message_write:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-13",
+      "id": "hook.before_message_write:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-14",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "before_message_write",
@@ -1198,10 +1198,10 @@
         "hook": "before_message_write",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:13"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:14"
     },
     {
-      "id": "hook.before_model_resolve:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-14",
+      "id": "hook.before_model_resolve:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-15",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "before_model_resolve",
@@ -1218,10 +1218,10 @@
         "hook": "before_model_resolve",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:14"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:15"
     },
     {
-      "id": "hook.before_prompt_build:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-15",
+      "id": "hook.before_prompt_build:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-16",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -1251,10 +1251,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:15"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:16"
     },
     {
-      "id": "hook.before_reset:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-16",
+      "id": "hook.before_reset:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-17",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "before_reset",
@@ -1271,10 +1271,10 @@
         "hook": "before_reset",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:16"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:17"
     },
     {
-      "id": "hook.before_tool_call:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-17",
+      "id": "hook.before_tool_call:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-18",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "before_tool_call",
@@ -1296,10 +1296,10 @@
         "sessionId": "session-fixture",
         "toolName": "fixture_tool"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:17"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:18"
     },
     {
-      "id": "hook.gateway_start:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-18",
+      "id": "hook.gateway_start:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-19",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "gateway_start",
@@ -1316,10 +1316,10 @@
         "hook": "gateway_start",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:18"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:19"
     },
     {
-      "id": "hook.gateway_stop:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-19",
+      "id": "hook.gateway_stop:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-20",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -1336,10 +1336,10 @@
         "hook": "gateway_stop",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:19"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:20"
     },
     {
-      "id": "hook.inbound_claim:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-20",
+      "id": "hook.inbound_claim:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-21",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "inbound_claim",
@@ -1364,10 +1364,10 @@
         "channelId": "fixture-channel",
         "accountId": "fixture-account"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:20"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:21"
     },
     {
-      "id": "hook.llm_input:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-21",
+      "id": "hook.llm_input:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-22",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "llm_input",
@@ -1392,10 +1392,10 @@
         "agentId": "agent-fixture",
         "sessionId": "session-fixture"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:21"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:22"
     },
     {
-      "id": "hook.llm_output:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-22",
+      "id": "hook.llm_output:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-23",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "llm_output",
@@ -1418,10 +1418,10 @@
         "agentId": "agent-fixture",
         "sessionId": "session-fixture"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:22"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:23"
     },
     {
-      "id": "hook.message_received:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-23",
+      "id": "hook.message_received:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-24",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "message_received",
@@ -1438,10 +1438,10 @@
         "hook": "message_received",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:23"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:24"
     },
     {
-      "id": "hook.message_sending:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-24",
+      "id": "hook.message_sending:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-25",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "message_sending",
@@ -1458,10 +1458,10 @@
         "hook": "message_sending",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:24"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:25"
     },
     {
-      "id": "hook.message_sent:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-25",
+      "id": "hook.message_sent:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-26",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "message_sent",
@@ -1478,10 +1478,10 @@
         "hook": "message_sent",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:25"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:26"
     },
     {
-      "id": "hook.model_call_ended:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-26",
+      "id": "hook.model_call_ended:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-27",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "model_call_ended",
@@ -1498,10 +1498,10 @@
         "hook": "model_call_ended",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:26"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:27"
     },
     {
-      "id": "hook.model_call_started:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-27",
+      "id": "hook.model_call_started:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-28",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "model_call_started",
@@ -1518,10 +1518,10 @@
         "hook": "model_call_started",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:27"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:28"
     },
     {
-      "id": "hook.reply_dispatch:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-28",
+      "id": "hook.reply_dispatch:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-29",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "reply_dispatch",
@@ -1538,10 +1538,10 @@
         "hook": "reply_dispatch",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:28"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:29"
     },
     {
-      "id": "hook.session_end:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-29",
+      "id": "hook.session_end:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-30",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "session_end",
@@ -1558,10 +1558,10 @@
         "hook": "session_end",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:29"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:30"
     },
     {
-      "id": "hook.session_start:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-30",
+      "id": "hook.session_start:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-31",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "session_start",
@@ -1578,10 +1578,10 @@
         "hook": "session_start",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:30"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:31"
     },
     {
-      "id": "hook.subagent_delivery_target:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-31",
+      "id": "hook.subagent_delivery_target:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-32",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "subagent_delivery_target",
@@ -1605,10 +1605,10 @@
         "runId": "run-fixture",
         "parentAgentId": "agent-parent"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:31"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:32"
     },
     {
-      "id": "hook.subagent_ended:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-32",
+      "id": "hook.subagent_ended:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-33",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "subagent_ended",
@@ -1627,10 +1627,10 @@
         "runId": "run-fixture",
         "parentAgentId": "agent-parent"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:32"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:33"
     },
     {
-      "id": "hook.subagent_spawned:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-33",
+      "id": "hook.subagent_spawned:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-34",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "subagent_spawned",
@@ -1650,10 +1650,10 @@
         "runId": "run-fixture",
         "parentAgentId": "agent-parent"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:33"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:34"
     },
     {
-      "id": "hook.subagent_spawning:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-34",
+      "id": "hook.subagent_spawning:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-35",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "subagent_spawning",
@@ -1670,10 +1670,10 @@
         "hook": "subagent_spawning",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:34"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:35"
     },
     {
-      "id": "hook.tool_result_persist:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-35",
+      "id": "hook.tool_result_persist:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-36",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "tool_result_persist",
@@ -1690,7 +1690,7 @@
         "hook": "tool_result_persist",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:35"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:36"
     },
     {
       "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-820",
@@ -3689,6 +3689,26 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:5"
     },
     {
+      "id": "registration.registerAgentToolResultMiddleware:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-105",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerAgentToolResultMiddleware",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "agent tool-result middleware is captured as registration metadata before tool-result pipeline execution"
+      },
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:105"
+    },
+    {
       "id": "registration.registerAutoEnableProbe:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-6",
       "fixture": "kitchen-sink",
       "kind": "registration",
@@ -3740,6 +3760,37 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:7"
     },
     {
+      "id": "registration.registerChannel:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-62",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "sendMessage",
+          "receive",
+          "handleMessage"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:62"
+    },
+    {
       "id": "registration.registerCli:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-8",
       "fixture": "kitchen-sink",
       "kind": "registration",
@@ -3770,6 +3821,38 @@
         ]
       },
       "source": "plugins/kitchen-sink/src/generated-registrars.js:8"
+    },
+    {
+      "id": "registration.registerCli:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-114",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerCli",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command name is stable",
+        "argument schema is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "args": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:114"
     },
     {
       "id": "registration.registerCliBackend:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-9",
@@ -3839,7 +3922,7 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:11"
     },
     {
-      "id": "registration.registerCommand:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-15",
+      "id": "registration.registerCommand:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-57",
       "fixture": "kitchen-sink",
       "kind": "registration",
       "seam": "registerCommand",
@@ -3863,10 +3946,10 @@
           "execute"
         ]
       },
-      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:15"
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:57"
     },
     {
-      "id": "registration.registerCommand:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-16",
+      "id": "registration.registerCommand:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-58",
       "fixture": "kitchen-sink",
       "kind": "registration",
       "seam": "registerCommand",
@@ -3890,7 +3973,7 @@
           "execute"
         ]
       },
-      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:16"
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:58"
     },
     {
       "id": "registration.registerCompactionProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-12",
@@ -3911,6 +3994,26 @@
         "reason": "compaction providers are captured as registration metadata before compaction runtime execution"
       },
       "source": "plugins/kitchen-sink/src/generated-registrars.js:12"
+    },
+    {
+      "id": "registration.registerCompactionProvider:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-102",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerCompactionProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "compaction providers are captured as registration metadata before compaction runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:102"
     },
     {
       "id": "registration.registerConfigMigration:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-13",
@@ -3957,6 +4060,26 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:14"
     },
     {
+      "id": "registration.registerDetachedTaskRuntime:kitchen-sink:plugins-kitchen-sink-scripts-sync-surface-mjs-113",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerDetachedTaskRuntime",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "detached task runtimes are captured as registration metadata before async task execution"
+      },
+      "source": "plugins/kitchen-sink/scripts/sync-surface.mjs:113"
+    },
+    {
       "id": "registration.registerDetachedTaskRuntime:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-15",
       "fixture": "kitchen-sink",
       "kind": "registration",
@@ -3975,6 +4098,26 @@
         "reason": "detached task runtimes are captured as registration metadata before async task execution"
       },
       "source": "plugins/kitchen-sink/src/generated-registrars.js:15"
+    },
+    {
+      "id": "registration.registerDetachedTaskRuntime:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-93",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerDetachedTaskRuntime",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "detached task runtimes are captured as registration metadata before async task execution"
+      },
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:93"
     },
     {
       "id": "registration.registerGatewayDiscoveryService:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-16",
@@ -4028,6 +4171,37 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:17"
     },
     {
+      "id": "registration.registerGatewayMethod:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-112",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:112"
+    },
+    {
       "id": "registration.registerHook:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-18",
       "fixture": "kitchen-sink",
       "kind": "registration",
@@ -4078,6 +4252,34 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:19"
     },
     {
+      "id": "registration.registerHttpRoute:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-110",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerHttpRoute",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "route method and path are captured",
+        "auth policy metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "method": "POST",
+          "path": "/fixture/probe",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:110"
+    },
+    {
       "id": "registration.registerImageGenerationProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-20",
       "fixture": "kitchen-sink",
       "kind": "registration",
@@ -4098,7 +4300,7 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:20"
     },
     {
-      "id": "registration.registerImageGenerationProvider:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-25",
+      "id": "registration.registerImageGenerationProvider:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-68",
       "fixture": "kitchen-sink",
       "kind": "registration",
       "seam": "registerImageGenerationProvider",
@@ -4115,7 +4317,7 @@
         "callableProperties": [],
         "reason": "image generation providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:25"
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:68"
     },
     {
       "id": "registration.registerInteractiveHandler:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-21",
@@ -4145,7 +4347,7 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:21"
     },
     {
-      "id": "registration.registerInteractiveHandler:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-18",
+      "id": "registration.registerInteractiveHandler:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-60",
       "fixture": "kitchen-sink",
       "kind": "registration",
       "seam": "registerInteractiveHandler",
@@ -4169,7 +4371,7 @@
           "execute"
         ]
       },
-      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:18"
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:60"
     },
     {
       "id": "registration.registerMediaUnderstandingProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-22",
@@ -4192,7 +4394,7 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:22"
     },
     {
-      "id": "registration.registerMediaUnderstandingProvider:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-28",
+      "id": "registration.registerMediaUnderstandingProvider:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-71",
       "fixture": "kitchen-sink",
       "kind": "registration",
       "seam": "registerMediaUnderstandingProvider",
@@ -4209,7 +4411,7 @@
         "callableProperties": [],
         "reason": "media understanding providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:28"
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:71"
     },
     {
       "id": "registration.registerMemoryCapability:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-23",
@@ -4252,6 +4454,26 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:24"
     },
     {
+      "id": "registration.registerMemoryCorpusSupplement:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-99",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerMemoryCorpusSupplement",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "memory corpus supplements are captured as registration metadata before memory runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:99"
+    },
+    {
       "id": "registration.registerMemoryEmbeddingProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-25",
       "fixture": "kitchen-sink",
       "kind": "registration",
@@ -4270,6 +4492,26 @@
         "reason": "memory embedding providers are captured as registration metadata before provider runtime execution"
       },
       "source": "plugins/kitchen-sink/src/generated-registrars.js:25"
+    },
+    {
+      "id": "registration.registerMemoryEmbeddingProvider:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-96",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerMemoryEmbeddingProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "memory embedding providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:96"
     },
     {
       "id": "registration.registerMemoryFlushPlan:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-26",
@@ -4336,7 +4578,7 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:28"
     },
     {
-      "id": "registration.registerMemoryPromptSupplement:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-37",
+      "id": "registration.registerMemoryPromptSupplement:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-116",
       "fixture": "kitchen-sink",
       "kind": "registration",
       "seam": "registerMemoryPromptSupplement",
@@ -4353,7 +4595,7 @@
         "callableProperties": [],
         "reason": "memory prompt supplements are captured as registration metadata before prompt-runtime execution"
       },
-      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:37"
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:116"
     },
     {
       "id": "registration.registerMemoryRuntime:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-29",
@@ -4420,6 +4662,26 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:31"
     },
     {
+      "id": "registration.registerMusicGenerationProvider:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-84",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerMusicGenerationProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "music generation providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:84"
+    },
+    {
       "id": "registration.registerNodeHostCommand:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-32",
       "fixture": "kitchen-sink",
       "kind": "registration",
@@ -4460,7 +4722,7 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:33"
     },
     {
-      "id": "registration.registerProvider:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-23",
+      "id": "registration.registerProvider:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-66",
       "fixture": "kitchen-sink",
       "kind": "registration",
       "seam": "registerProvider",
@@ -4477,7 +4739,7 @@
         "callableProperties": [],
         "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:23"
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:66"
     },
     {
       "id": "registration.registerRealtimeTranscriptionProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-34",
@@ -4500,6 +4762,26 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:34"
     },
     {
+      "id": "registration.registerRealtimeTranscriptionProvider:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-75",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerRealtimeTranscriptionProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "realtime transcription providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:75"
+    },
+    {
       "id": "registration.registerRealtimeVoiceProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-35",
       "fixture": "kitchen-sink",
       "kind": "registration",
@@ -4518,6 +4800,26 @@
         "reason": "realtime voice providers are captured as registration metadata before provider runtime execution"
       },
       "source": "plugins/kitchen-sink/src/generated-registrars.js:35"
+    },
+    {
+      "id": "registration.registerRealtimeVoiceProvider:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-78",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerRealtimeVoiceProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "realtime voice providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:78"
     },
     {
       "id": "registration.registerReload:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-36",
@@ -4589,6 +4891,35 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:38"
     },
     {
+      "id": "registration.registerService:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-109",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop",
+          "dispose"
+        ],
+        "option": "includeLifecycle"
+      },
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:109"
+    },
+    {
       "id": "registration.registerSpeechProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-39",
       "fixture": "kitchen-sink",
       "kind": "registration",
@@ -4615,6 +4946,34 @@
         "option": "includeProviderCapabilities"
       },
       "source": "plugins/kitchen-sink/src/generated-registrars.js:39"
+    },
+    {
+      "id": "registration.registerSpeechProvider:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-73",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerSpeechProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "provider id is stable",
+        "speech request overrides are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-speech",
+          "speak": "function"
+        }
+      ],
+      "execution": {
+        "mode": "provider-opt-in",
+        "callableProperties": [
+          "speak",
+          "synthesize",
+          "tts"
+        ],
+        "option": "includeProviderCapabilities"
+      },
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:73"
     },
     {
       "id": "registration.registerTextTransforms:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-40",
@@ -4669,7 +5028,7 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:41"
     },
     {
-      "id": "registration.registerTool:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-20",
+      "id": "registration.registerTool:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-63",
       "fixture": "kitchen-sink",
       "kind": "registration",
       "seam": "registerTool",
@@ -4698,10 +5057,10 @@
           "execute"
         ]
       },
-      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:20"
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:63"
     },
     {
-      "id": "registration.registerTool:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-21",
+      "id": "registration.registerTool:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-64",
       "fixture": "kitchen-sink",
       "kind": "registration",
       "seam": "registerTool",
@@ -4730,10 +5089,10 @@
           "execute"
         ]
       },
-      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:21"
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:64"
     },
     {
-      "id": "registration.registerTool:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-22",
+      "id": "registration.registerTool:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-65",
       "fixture": "kitchen-sink",
       "kind": "registration",
       "seam": "registerTool",
@@ -4762,7 +5121,7 @@
           "execute"
         ]
       },
-      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:22"
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:65"
     },
     {
       "id": "registration.registerVideoGenerationProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-42",
@@ -4785,6 +5144,26 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:42"
     },
     {
+      "id": "registration.registerVideoGenerationProvider:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-81",
+      "fixture": "kitchen-sink",
+      "kind": "registration",
+      "seam": "registerVideoGenerationProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "video generation providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:81"
+    },
+    {
       "id": "registration.registerWebFetchProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-43",
       "fixture": "kitchen-sink",
       "kind": "registration",
@@ -4805,7 +5184,7 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:43"
     },
     {
-      "id": "registration.registerWebFetchProvider:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-34",
+      "id": "registration.registerWebFetchProvider:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-90",
       "fixture": "kitchen-sink",
       "kind": "registration",
       "seam": "registerWebFetchProvider",
@@ -4822,7 +5201,7 @@
         "callableProperties": [],
         "reason": "web fetch providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:34"
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:90"
     },
     {
       "id": "registration.registerWebSearchProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-44",
@@ -4845,7 +5224,7 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:44"
     },
     {
-      "id": "registration.registerWebSearchProvider:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-31",
+      "id": "registration.registerWebSearchProvider:kitchen-sink:plugins-kitchen-sink-src-kitchen-runtime-js-87",
       "fixture": "kitchen-sink",
       "kind": "registration",
       "seam": "registerWebSearchProvider",
@@ -4862,7 +5241,7 @@
         "callableProperties": [],
         "reason": "web search providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:31"
+      "source": "plugins/kitchen-sink/src/kitchen-runtime.js:87"
     },
     {
       "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-957",

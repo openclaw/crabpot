@@ -3,47 +3,47 @@
   "runs": 1,
   "targetOpenClaw": {
     "status": "ok",
-    "configuredPath": "./openclaw",
-    "compatRecords": 51,
-    "hookNames": 32,
-    "apiRegistrars": 41,
-    "capturedRegistrars": 19,
-    "sdkExports": 316,
+    "configuredPath": "../openclaw",
+    "compatRecords": 61,
+    "hookNames": 35,
+    "apiRegistrars": 48,
+    "capturedRegistrars": 26,
+    "sdkExports": 293,
     "manifestFields": 35,
     "manifestContractFields": 17
   },
   "fixtureInventory": {
     "fixtures": 29,
-    "sourceFiles": 750,
+    "sourceFiles": 751,
     "observedHooks": 76,
     "observedRegistrations": 100,
     "observedSdkImports": 330,
-    "contractProbes": 154,
-    "issueFindings": 195
+    "contractProbes": 153,
+    "issueFindings": 157
   },
   "platform": {
-    "os": "linux",
-    "arch": "x64",
-    "node": "v22.22.2",
+    "os": "darwin",
+    "arch": "arm64",
+    "node": "v25.9.0",
     "rssSampler": "ps",
     "cpuSampler": "ps-percent"
   },
   "summary": {
     "commandCount": 9,
-    "p50WallMs": 444,
-    "p95WallMs": 472,
-    "maxPeakRssMb": 83.1,
-    "maxRssDeltaMb": 18.7,
-    "maxCpuMsEstimate": 517,
-    "maxHarnessHeapDeltaMb": 0.6
+    "p50WallMs": 1300,
+    "p95WallMs": 2455,
+    "maxPeakRssMb": 78.4,
+    "maxRssDeltaMb": 74.9,
+    "maxCpuMsEstimate": 809,
+    "maxHarnessHeapDeltaMb": 2.2
   },
   "groups": [
     {
       "category": "baseline",
       "commandCount": 1,
-      "p50WallMs": 35,
-      "p95WallMs": 35,
-      "maxPeakRssMb": 0,
+      "p50WallMs": 340,
+      "p95WallMs": 340,
+      "maxPeakRssMb": 24.3,
       "maxCpuMsEstimate": 0,
       "commands": [
         "node-boot"
@@ -52,10 +52,10 @@
     {
       "category": "fixture-scan",
       "commandCount": 1,
-      "p50WallMs": 404,
-      "p95WallMs": 404,
-      "maxPeakRssMb": 76.3,
-      "maxCpuMsEstimate": 409,
+      "p50WallMs": 608,
+      "p95WallMs": 608,
+      "maxPeakRssMb": 71.2,
+      "maxCpuMsEstimate": 369,
       "commands": [
         "fixture-inspection"
       ]
@@ -63,10 +63,10 @@
     {
       "category": "target-registry",
       "commandCount": 1,
-      "p50WallMs": 442,
-      "p95WallMs": 442,
-      "maxPeakRssMb": 80.2,
-      "maxCpuMsEstimate": 490,
+      "p50WallMs": 967,
+      "p95WallMs": 967,
+      "maxPeakRssMb": 78.4,
+      "maxCpuMsEstimate": 611,
       "commands": [
         "compat-report-registry"
       ]
@@ -74,10 +74,10 @@
     {
       "category": "contract-capture",
       "commandCount": 1,
-      "p50WallMs": 472,
-      "p95WallMs": 472,
-      "maxPeakRssMb": 80.4,
-      "maxCpuMsEstimate": 517,
+      "p50WallMs": 1396,
+      "p95WallMs": 1396,
+      "maxPeakRssMb": 73,
+      "maxCpuMsEstimate": 547,
       "commands": [
         "contract-capture"
       ]
@@ -85,10 +85,10 @@
     {
       "category": "synthetic-probes",
       "commandCount": 1,
-      "p50WallMs": 444,
-      "p95WallMs": 444,
-      "maxPeakRssMb": 79.4,
-      "maxCpuMsEstimate": 473,
+      "p50WallMs": 2026,
+      "p95WallMs": 2026,
+      "maxPeakRssMb": 77.2,
+      "maxCpuMsEstimate": 632,
       "commands": [
         "synthetic-probe-plan"
       ]
@@ -96,10 +96,10 @@
     {
       "category": "cold-import",
       "commandCount": 1,
-      "p50WallMs": 458,
-      "p95WallMs": 458,
-      "maxPeakRssMb": 82.8,
-      "maxCpuMsEstimate": 481,
+      "p50WallMs": 1596,
+      "p95WallMs": 1596,
+      "maxPeakRssMb": 75,
+      "maxCpuMsEstimate": 809,
       "commands": [
         "cold-import-readiness"
       ]
@@ -107,10 +107,10 @@
     {
       "category": "workspace-plan",
       "commandCount": 1,
-      "p50WallMs": 462,
-      "p95WallMs": 462,
-      "maxPeakRssMb": 83.1,
-      "maxCpuMsEstimate": 485,
+      "p50WallMs": 1300,
+      "p95WallMs": 1300,
+      "maxPeakRssMb": 76.7,
+      "maxCpuMsEstimate": 729,
       "commands": [
         "workspace-plan"
       ]
@@ -118,10 +118,10 @@
     {
       "category": "platform-probes",
       "commandCount": 1,
-      "p50WallMs": 462,
-      "p95WallMs": 462,
-      "maxPeakRssMb": 80.7,
-      "maxCpuMsEstimate": 484,
+      "p50WallMs": 851,
+      "p95WallMs": 851,
+      "maxPeakRssMb": 75.2,
+      "maxCpuMsEstimate": 606,
       "commands": [
         "platform-probes"
       ]
@@ -129,10 +129,10 @@
     {
       "category": "import-loop",
       "commandCount": 1,
-      "p50WallMs": 218,
-      "p95WallMs": 218,
-      "maxPeakRssMb": 58.1,
-      "maxCpuMsEstimate": 109,
+      "p50WallMs": 2455,
+      "p95WallMs": 2455,
+      "maxPeakRssMb": 52.8,
+      "maxCpuMsEstimate": 125,
       "commands": [
         "import-loop-profile"
       ]
@@ -143,29 +143,29 @@
       "id": "node-boot",
       "label": "Node boot",
       "category": "baseline",
-      "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node -e 0",
+      "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node -e 0",
       "samples": [
         {
-          "wallMs": 35,
-          "peakRssMb": 0,
+          "wallMs": 340,
+          "peakRssMb": 24.3,
           "rssDeltaMb": 0,
           "peakCpuPercent": 0,
           "cpuMsEstimate": 0,
-          "harnessHeapDeltaMb": 0.3,
+          "harnessHeapDeltaMb": 0.8,
           "exitCode": 0,
           "stdoutPreview": "",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 35,
-        "median": 35,
-        "max": 35
+        "min": 340,
+        "median": 340,
+        "max": 340
       },
       "peakRssMb": {
-        "min": 0,
-        "median": 0,
-        "max": 0
+        "min": 24.3,
+        "median": 24.3,
+        "max": 24.3
       },
       "rssDeltaMb": {
         "min": 0,
@@ -183,9 +183,9 @@
         "max": 0
       },
       "harnessHeapDeltaMb": {
-        "min": 0.3,
-        "median": 0.3,
-        "max": 0.3
+        "min": 0.8,
+        "median": 0.8,
+        "max": 0.8
       },
       "exitCodes": [
         0
@@ -195,49 +195,49 @@
       "id": "fixture-inspection",
       "label": "Fixture inspection",
       "category": "fixture-scan",
-      "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node scripts/inspect-fixtures.mjs --check",
+      "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/inspect-fixtures.mjs --check",
       "samples": [
         {
-          "wallMs": 404,
-          "peakRssMb": 76.3,
-          "rssDeltaMb": 12.1,
-          "peakCpuPercent": 109,
-          "cpuMsEstimate": 409,
-          "harnessHeapDeltaMb": 0.6,
+          "wallMs": 608,
+          "peakRssMb": 71.2,
+          "rssDeltaMb": 0.9,
+          "peakCpuPercent": 60.7,
+          "cpuMsEstimate": 369,
+          "harnessHeapDeltaMb": 1.5,
           "exitCode": 0,
-          "stdoutPreview": "│ 28      │ 'inworld-tts'        │ 'ok'   │ ''                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            │ 'definePluginEntry,registerSpeechProvider'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         │ 'speechProviders'                                                                                                                                                                                                                                                                                                                                                                        │\n└─────────┴──────────────────────┴────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘",
-          "stderrPreview": ""
+          "stdoutPreview": "│ 28      │ \u001b[32m'inworld-tts'\u001b[39m        │ \u001b[32m'ok'\u001b[39m   │ \u001b[32m''\u001b[39m                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            │ \u001b[32m'definePluginEntry,registerSpeechProvider'\u001b[39m                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         │ \u001b[32m'speechProviders'\u001b[39m                                                                                                                                                                                                                                                                                                                                                                        │\n└─────────┴──────────────────────┴────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘",
+          "stderrPreview": "(node:48160) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)"
         }
       ],
       "wallMs": {
-        "min": 404,
-        "median": 404,
-        "max": 404
+        "min": 608,
+        "median": 608,
+        "max": 608
       },
       "peakRssMb": {
-        "min": 76.3,
-        "median": 76.3,
-        "max": 76.3
+        "min": 71.2,
+        "median": 71.2,
+        "max": 71.2
       },
       "rssDeltaMb": {
-        "min": 12.1,
-        "median": 12.1,
-        "max": 12.1
+        "min": 0.9,
+        "median": 0.9,
+        "max": 0.9
       },
       "peakCpuPercent": {
-        "min": 109,
-        "median": 109,
-        "max": 109
+        "min": 60.7,
+        "median": 60.7,
+        "max": 60.7
       },
       "cpuMsEstimate": {
-        "min": 409,
-        "median": 409,
-        "max": 409
+        "min": 369,
+        "median": 369,
+        "max": 369
       },
       "harnessHeapDeltaMb": {
-        "min": 0.6,
-        "median": 0.6,
-        "max": 0.6
+        "min": 1.5,
+        "median": 1.5,
+        "max": 1.5
       },
       "exitCodes": [
         0
@@ -247,49 +247,49 @@
       "id": "compat-report-registry",
       "label": "Compatibility report plus target registry parse",
       "category": "target-registry",
-      "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node scripts/generate-report.mjs --check",
+      "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/generate-report.mjs --check",
       "samples": [
         {
-          "wallMs": 442,
-          "peakRssMb": 80.2,
-          "rssDeltaMb": 14.8,
-          "peakCpuPercent": 113,
-          "cpuMsEstimate": 490,
-          "harnessHeapDeltaMb": 0.5,
+          "wallMs": 967,
+          "peakRssMb": 78.4,
+          "rssDeltaMb": 12.2,
+          "peakCpuPercent": 68.6,
+          "cpuMsEstimate": 611,
+          "harnessHeapDeltaMb": -16.9,
           "exitCode": 0,
-          "stdoutPreview": "crabpot report check: pass; 0 breakages, 60 warnings, 135 suggestions, 195 issues\nreport targets: /home/runner/work/crabpot/crabpot/reports/crabpot-report.md, /home/runner/work/crabpot/crabpot/reports/crabpot-report.json, /home/runner/work/crabpot/crabpot/reports/crabpot-issues.md",
-          "stderrPreview": ""
+          "stdoutPreview": "crabpot report check: pass; 0 breakages, 59 warnings, 98 suggestions, 157 issues\nreport targets: /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-report.md, /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-report.json, /Users/vincentkoc/GIT/_Perso/crabpot/reports/crabpot-issues.md",
+          "stderrPreview": "(node:48220) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)"
         }
       ],
       "wallMs": {
-        "min": 442,
-        "median": 442,
-        "max": 442
+        "min": 967,
+        "median": 967,
+        "max": 967
       },
       "peakRssMb": {
-        "min": 80.2,
-        "median": 80.2,
-        "max": 80.2
+        "min": 78.4,
+        "median": 78.4,
+        "max": 78.4
       },
       "rssDeltaMb": {
-        "min": 14.8,
-        "median": 14.8,
-        "max": 14.8
+        "min": 12.2,
+        "median": 12.2,
+        "max": 12.2
       },
       "peakCpuPercent": {
-        "min": 113,
-        "median": 113,
-        "max": 113
+        "min": 68.6,
+        "median": 68.6,
+        "max": 68.6
       },
       "cpuMsEstimate": {
-        "min": 490,
-        "median": 490,
-        "max": 490
+        "min": 611,
+        "median": 611,
+        "max": 611
       },
       "harnessHeapDeltaMb": {
-        "min": 0.5,
-        "median": 0.5,
-        "max": 0.5
+        "min": -16.9,
+        "median": -16.9,
+        "max": -16.9
       },
       "exitCodes": [
         0
@@ -299,49 +299,49 @@
       "id": "contract-capture",
       "label": "Contract capture inventory",
       "category": "contract-capture",
-      "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node scripts/capture-contracts.mjs --check",
+      "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/capture-contracts.mjs --check",
       "samples": [
         {
-          "wallMs": 472,
-          "peakRssMb": 80.4,
-          "rssDeltaMb": 16.3,
-          "peakCpuPercent": 113,
-          "cpuMsEstimate": 517,
-          "harnessHeapDeltaMb": 0.5,
+          "wallMs": 1396,
+          "peakRssMb": 73,
+          "rssDeltaMb": 26.6,
+          "peakCpuPercent": 57.5,
+          "cpuMsEstimate": 547,
+          "harnessHeapDeltaMb": 1.8,
           "exitCode": 0,
-          "stdoutPreview": "contract capture: 160 registrations, 80 hooks, 457 sdk imports, 154 issue probes",
-          "stderrPreview": ""
+          "stdoutPreview": "contract capture: 176 registrations, 80 hooks, 457 sdk imports, 153 issue probes",
+          "stderrPreview": "(node:48318) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)"
         }
       ],
       "wallMs": {
-        "min": 472,
-        "median": 472,
-        "max": 472
+        "min": 1396,
+        "median": 1396,
+        "max": 1396
       },
       "peakRssMb": {
-        "min": 80.4,
-        "median": 80.4,
-        "max": 80.4
+        "min": 73,
+        "median": 73,
+        "max": 73
       },
       "rssDeltaMb": {
-        "min": 16.3,
-        "median": 16.3,
-        "max": 16.3
+        "min": 26.6,
+        "median": 26.6,
+        "max": 26.6
       },
       "peakCpuPercent": {
-        "min": 113,
-        "median": 113,
-        "max": 113
+        "min": 57.5,
+        "median": 57.5,
+        "max": 57.5
       },
       "cpuMsEstimate": {
-        "min": 517,
-        "median": 517,
-        "max": 517
+        "min": 547,
+        "median": 547,
+        "max": 547
       },
       "harnessHeapDeltaMb": {
-        "min": 0.5,
-        "median": 0.5,
-        "max": 0.5
+        "min": 1.8,
+        "median": 1.8,
+        "max": 1.8
       },
       "exitCodes": [
         0
@@ -351,49 +351,49 @@
       "id": "synthetic-probe-plan",
       "label": "Synthetic probe plan",
       "category": "synthetic-probes",
-      "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node scripts/synthetic-probes.mjs --check",
+      "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/synthetic-probes.mjs --check",
       "samples": [
         {
-          "wallMs": 444,
-          "peakRssMb": 79.4,
-          "rssDeltaMb": 15.3,
-          "peakCpuPercent": 110,
-          "cpuMsEstimate": 473,
-          "harnessHeapDeltaMb": 0.5,
+          "wallMs": 2026,
+          "peakRssMb": 77.2,
+          "rssDeltaMb": 26.8,
+          "peakCpuPercent": 45.6,
+          "cpuMsEstimate": 632,
+          "harnessHeapDeltaMb": 2.2,
           "exitCode": 0,
-          "stdoutPreview": "synthetic probes: 240 ready, 0 blocked, 240 total",
-          "stderrPreview": ""
+          "stdoutPreview": "synthetic probes: 256 ready, 0 blocked, 256 total",
+          "stderrPreview": "(node:48423) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)"
         }
       ],
       "wallMs": {
-        "min": 444,
-        "median": 444,
-        "max": 444
+        "min": 2026,
+        "median": 2026,
+        "max": 2026
       },
       "peakRssMb": {
-        "min": 79.4,
-        "median": 79.4,
-        "max": 79.4
+        "min": 77.2,
+        "median": 77.2,
+        "max": 77.2
       },
       "rssDeltaMb": {
-        "min": 15.3,
-        "median": 15.3,
-        "max": 15.3
+        "min": 26.8,
+        "median": 26.8,
+        "max": 26.8
       },
       "peakCpuPercent": {
-        "min": 110,
-        "median": 110,
-        "max": 110
+        "min": 45.6,
+        "median": 45.6,
+        "max": 45.6
       },
       "cpuMsEstimate": {
-        "min": 473,
-        "median": 473,
-        "max": 473
+        "min": 632,
+        "median": 632,
+        "max": 632
       },
       "harnessHeapDeltaMb": {
-        "min": 0.5,
-        "median": 0.5,
-        "max": 0.5
+        "min": 2.2,
+        "median": 2.2,
+        "max": 2.2
       },
       "exitCodes": [
         0
@@ -403,49 +403,49 @@
       "id": "cold-import-readiness",
       "label": "Cold import readiness",
       "category": "cold-import",
-      "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node scripts/cold-import-readiness.mjs --check",
+      "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/cold-import-readiness.mjs --check",
       "samples": [
         {
-          "wallMs": 458,
-          "peakRssMb": 82.8,
-          "rssDeltaMb": 18.1,
-          "peakCpuPercent": 109,
-          "cpuMsEstimate": 481,
-          "harnessHeapDeltaMb": 0.5,
+          "wallMs": 1596,
+          "peakRssMb": 75,
+          "rssDeltaMb": 74.9,
+          "peakCpuPercent": 56.1,
+          "cpuMsEstimate": 809,
+          "harnessHeapDeltaMb": 1.9,
           "exitCode": 0,
           "stdoutPreview": "cold import readiness: 34 entrypoints, 3 ready, 31 blocked",
-          "stderrPreview": ""
+          "stderrPreview": "(node:48564) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)"
         }
       ],
       "wallMs": {
-        "min": 458,
-        "median": 458,
-        "max": 458
+        "min": 1596,
+        "median": 1596,
+        "max": 1596
       },
       "peakRssMb": {
-        "min": 82.8,
-        "median": 82.8,
-        "max": 82.8
+        "min": 75,
+        "median": 75,
+        "max": 75
       },
       "rssDeltaMb": {
-        "min": 18.1,
-        "median": 18.1,
-        "max": 18.1
+        "min": 74.9,
+        "median": 74.9,
+        "max": 74.9
       },
       "peakCpuPercent": {
-        "min": 109,
-        "median": 109,
-        "max": 109
+        "min": 56.1,
+        "median": 56.1,
+        "max": 56.1
       },
       "cpuMsEstimate": {
-        "min": 481,
-        "median": 481,
-        "max": 481
+        "min": 809,
+        "median": 809,
+        "max": 809
       },
       "harnessHeapDeltaMb": {
-        "min": 0.5,
-        "median": 0.5,
-        "max": 0.5
+        "min": 1.9,
+        "median": 1.9,
+        "max": 1.9
       },
       "exitCodes": [
         0
@@ -455,49 +455,49 @@
       "id": "workspace-plan",
       "label": "Workspace execution plan",
       "category": "workspace-plan",
-      "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node scripts/workspace-plan.mjs --check",
+      "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/workspace-plan.mjs --check",
       "samples": [
         {
-          "wallMs": 462,
-          "peakRssMb": 83.1,
-          "rssDeltaMb": 18.7,
-          "peakCpuPercent": 109,
-          "cpuMsEstimate": 485,
-          "harnessHeapDeltaMb": -16.3,
+          "wallMs": 1300,
+          "peakRssMb": 76.7,
+          "rssDeltaMb": 39.9,
+          "peakCpuPercent": 65.9,
+          "cpuMsEstimate": 729,
+          "harnessHeapDeltaMb": 1.4,
           "exitCode": 0,
           "stdoutPreview": "workspace plan: 34 entrypoints, 17 installs, 17 audits, 8 builds, 34 captures, 34 synthetic probes, 34 artifact dirs",
-          "stderrPreview": ""
+          "stderrPreview": "(node:48658) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)"
         }
       ],
       "wallMs": {
-        "min": 462,
-        "median": 462,
-        "max": 462
+        "min": 1300,
+        "median": 1300,
+        "max": 1300
       },
       "peakRssMb": {
-        "min": 83.1,
-        "median": 83.1,
-        "max": 83.1
+        "min": 76.7,
+        "median": 76.7,
+        "max": 76.7
       },
       "rssDeltaMb": {
-        "min": 18.7,
-        "median": 18.7,
-        "max": 18.7
+        "min": 39.9,
+        "median": 39.9,
+        "max": 39.9
       },
       "peakCpuPercent": {
-        "min": 109,
-        "median": 109,
-        "max": 109
+        "min": 65.9,
+        "median": 65.9,
+        "max": 65.9
       },
       "cpuMsEstimate": {
-        "min": 485,
-        "median": 485,
-        "max": 485
+        "min": 729,
+        "median": 729,
+        "max": 729
       },
       "harnessHeapDeltaMb": {
-        "min": -16.3,
-        "median": -16.3,
-        "max": -16.3
+        "min": 1.4,
+        "median": 1.4,
+        "max": 1.4
       },
       "exitCodes": [
         0
@@ -507,49 +507,49 @@
       "id": "platform-probes",
       "label": "Platform and loader probes",
       "category": "platform-probes",
-      "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node scripts/platform-probes.mjs --check",
+      "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/platform-probes.mjs --check",
       "samples": [
         {
-          "wallMs": 462,
-          "peakRssMb": 80.7,
-          "rssDeltaMb": 16,
-          "peakCpuPercent": 109,
-          "cpuMsEstimate": 484,
-          "harnessHeapDeltaMb": 0.5,
+          "wallMs": 851,
+          "peakRssMb": 75.2,
+          "rssDeltaMb": 26.6,
+          "peakCpuPercent": 72.9,
+          "cpuMsEstimate": 606,
+          "harnessHeapDeltaMb": 1.1,
           "exitCode": 0,
           "stdoutPreview": "platform probes: 34 entrypoints, 18 TS loader, 14 Windows-risk steps, 14 container-risk steps",
-          "stderrPreview": ""
+          "stderrPreview": "(node:48784) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)"
         }
       ],
       "wallMs": {
-        "min": 462,
-        "median": 462,
-        "max": 462
+        "min": 851,
+        "median": 851,
+        "max": 851
       },
       "peakRssMb": {
-        "min": 80.7,
-        "median": 80.7,
-        "max": 80.7
+        "min": 75.2,
+        "median": 75.2,
+        "max": 75.2
       },
       "rssDeltaMb": {
-        "min": 16,
-        "median": 16,
-        "max": 16
+        "min": 26.6,
+        "median": 26.6,
+        "max": 26.6
       },
       "peakCpuPercent": {
-        "min": 109,
-        "median": 109,
-        "max": 109
+        "min": 72.9,
+        "median": 72.9,
+        "max": 72.9
       },
       "cpuMsEstimate": {
-        "min": 484,
-        "median": 484,
-        "max": 484
+        "min": 606,
+        "median": 606,
+        "max": 606
       },
       "harnessHeapDeltaMb": {
-        "min": 0.5,
-        "median": 0.5,
-        "max": 0.5
+        "min": 1.1,
+        "median": 1.1,
+        "max": 1.1
       },
       "exitCodes": [
         0
@@ -559,49 +559,49 @@
       "id": "import-loop-profile",
       "label": "Repeated cold import capture loop",
       "category": "import-loop",
-      "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node scripts/import-loop-profile.mjs --check --runs 2",
+      "command": "/opt/homebrew/Cellar/node/25.9.0_2/bin/node scripts/import-loop-profile.mjs --check --runs 2",
       "samples": [
         {
-          "wallMs": 218,
-          "peakRssMb": 58.1,
-          "rssDeltaMb": 0,
-          "peakCpuPercent": 50,
-          "cpuMsEstimate": 109,
-          "harnessHeapDeltaMb": 0.3,
+          "wallMs": 2455,
+          "peakRssMb": 52.8,
+          "rssDeltaMb": 2.6,
+          "peakCpuPercent": 14.4,
+          "cpuMsEstimate": 125,
+          "harnessHeapDeltaMb": 1.9,
           "exitCode": 0,
-          "stdoutPreview": "import loop profile: 2 runs, p50 71ms, max RSS 0MB",
-          "stderrPreview": ""
+          "stdoutPreview": "import loop profile: 2 runs, p50 761ms, max RSS 0MB",
+          "stderrPreview": "(node:48835) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)"
         }
       ],
       "wallMs": {
-        "min": 218,
-        "median": 218,
-        "max": 218
+        "min": 2455,
+        "median": 2455,
+        "max": 2455
       },
       "peakRssMb": {
-        "min": 58.1,
-        "median": 58.1,
-        "max": 58.1
+        "min": 52.8,
+        "median": 52.8,
+        "max": 52.8
       },
       "rssDeltaMb": {
-        "min": 0,
-        "median": 0,
-        "max": 0
+        "min": 2.6,
+        "median": 2.6,
+        "max": 2.6
       },
       "peakCpuPercent": {
-        "min": 50,
-        "median": 50,
-        "max": 50
+        "min": 14.4,
+        "median": 14.4,
+        "max": 14.4
       },
       "cpuMsEstimate": {
-        "min": 109,
-        "median": 109,
-        "max": 109
+        "min": 125,
+        "median": 125,
+        "max": 125
       },
       "harnessHeapDeltaMb": {
-        "min": 0.3,
-        "median": 0.3,
-        "max": 0.3
+        "min": 1.9,
+        "median": 1.9,
+        "max": 1.9
       },
       "exitCodes": [
         0
