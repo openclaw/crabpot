@@ -32,6 +32,11 @@ jobs:
           cache-dependency-path: |
             plugins/**/package-lock.json
 
+      - name: Configure git author
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
       - name: Resolve OpenClaw track
         id: openclaw-track
         run: node scripts/resolve-openclaw-track.mjs --branch "${{ github.event.pull_request.base.ref }}" --github-output
@@ -108,8 +113,6 @@ jobs:
       - name: Commit refreshed reports
         run: |
           if ! git diff --quiet README.md reports/; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add README.md reports/
             git commit -m "chore(reports): refresh dependabot compatibility reports"
             git push
