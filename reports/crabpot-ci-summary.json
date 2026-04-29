@@ -29,10 +29,12 @@
     "platformWindowsRisks": 14,
     "platformContainerRisks": 14,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 71,
-    "importLoopP95Ms": 73,
-    "importLoopMaxRssMb": 0,
-    "importLoopMaxCpuMs": 0
+    "importLoopP50Ms": 76,
+    "importLoopP95Ms": 76,
+    "importLoopMaxRssMb": 58,
+    "importLoopMaxCpuMs": 55,
+    "importLoopRssSampleCount": 9,
+    "importLoopCpuSampleCount": 9
   },
   "topIssues": [
     {
