@@ -9,8 +9,8 @@ Entrypoint: test/fixtures/lazy-import-plugin.mjs
 | Metric           | Value |
 | ---------------- | ----- |
 | runs             | 3     |
-| p50WallMs        | 71    |
-| p95WallMs        | 76    |
+| p50WallMs        | 72    |
+| p95WallMs        | 73    |
 | maxPeakRssMb     | 0     |
 | maxCpuMsEstimate | 0     |
 | capturedCount    | 6     |
@@ -20,6 +20,6 @@ Entrypoint: test/fixtures/lazy-import-plugin.mjs
 
 | Run | Status   | Captured | Wall  | Peak RSS | CPU Estimate | Exit |
 | --- | -------- | -------- | ----- | -------- | ------------ | ---- |
-| 0   | captured | 2        | 76 ms | 0 MB     | 0 ms         | 0    |
-| 1   | captured | 2        | 70 ms | 0 MB     | 0 ms         | 0    |
-| 2   | captured | 2        | 71 ms | 0 MB     | 0 ms         | 0    |
+| 0   | captured | 2        | 73 ms | 0 MB     | 0 ms         | 0    |
+| 1   | captured | 2        | 71 ms | 0 MB     | 0 ms         | 0    |
+| 2   | captured | 2        | 72 ms | 0 MB     | 0 ms         | 0    |
