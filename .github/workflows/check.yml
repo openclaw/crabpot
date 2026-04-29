@@ -260,5 +260,5 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git commit -m "chore(readme): update crabpot dashboard [skip ci]"
-            git push
+            git push || echo "::notice::Skipped stale dashboard push because ${GITHUB_REF_NAME} moved; a newer check run will refresh it."
           fi

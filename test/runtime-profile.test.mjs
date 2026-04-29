@@ -31,6 +31,36 @@ test("runtime profile records boot time and target registry surface", async () =
     inspections: [{ sourceFiles: ["plugins/fixture/index.js"] }],
   };
   const profile = await buildRuntimeProfile({
+    commands: [
+      {
+        id: "node-boot",
+        label: "Node boot",
+        category: "baseline",
+        args: ["-e", "0"],
+        openclaw: false,
+      },
+      {
+        id: "compat-report-registry",
+        label: "Compatibility report plus target registry parse",
+        category: "target-registry",
+        args: ["-e", "0"],
+        openclaw: false,
+      },
+      {
+        id: "platform-probes",
+        label: "Platform and loader probes",
+        category: "platform-probes",
+        args: ["-e", "0"],
+        openclaw: false,
+      },
+      {
+        id: "import-loop-profile",
+        label: "Repeated cold import capture loop",
+        category: "import-loop",
+        args: ["-e", "0"],
+        openclaw: false,
+      },
+    ],
     generatedAt: "test",
     runs: 1,
     report,
