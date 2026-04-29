@@ -79,10 +79,11 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.match(workflow, /track:/);
   assert.match(workflow, /branch: crab-beta/);
   assert.match(workflow, /branch: crab-development/);
+  assert.match(workflow, /ref: main/);
   assert.match(workflow, /node scripts\/resolve-openclaw-track\.mjs --track "\$\{\{ matrix\.track \}\}" --github-output/);
   assert.match(workflow, /ref: \$\{\{ steps\.openclaw-track\.outputs\.ref \}\}/);
   assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy dashboard --plugin-inspector-smoke/);
-  assert.match(workflow, /node scripts\/update-track-metadata\.mjs/);
+  assert.match(workflow, /node scripts\/update-track-metadata\.mjs --track "\$\{\{ matrix\.track \}\}"/);
   assert.match(workflow, /origin\/main:reports\/crabpot-dashboard-data\.json/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs \$\{baseline_arg\}/);
   assert.match(workflow, /git push origin HEAD:\$\{\{ matrix\.branch \}\}/);
