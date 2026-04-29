@@ -118,19 +118,17 @@ test("workflows use current action majors and dependency caches", async () => {
     await readWorkflow(".github/workflows/track-dashboard.yml"),
   ].join("\n");
   const actionRefs = [
-    ...workflows.matchAll(/uses:\s+(actions\/(?:cache|checkout|setup-node|upload-artifact)@[^\s]+)/g),
+    ...workflows.matchAll(/uses:\s+(actions\/(?:checkout|setup-node|upload-artifact)@[^\s]+)/g),
   ].map((match) => match[1]);
 
   assert.deepEqual([...new Set(actionRefs)].sort(), [
-    "actions/cache@v4",
     "actions/checkout@v6",
     "actions/setup-node@v6",
     "actions/upload-artifact@v7",
   ]);
-  assert.match(workflows, /path: \.crabpot\/plugin-inspector/);
   assert.match(workflows, /cache: npm/);
   assert.match(workflows, /cache-dependency-path: \|/);
-  assert.doesNotMatch(workflows, /actions\/(checkout|setup-node|upload-artifact|cache)@v3/);
+  assert.doesNotMatch(workflows, /actions\/(checkout|setup-node|upload-artifact)@v4/);
   assert.doesNotMatch(workflows, /FORCE_JAVASCRIPT_ACTIONS_TO_NODE24/);
 });
 

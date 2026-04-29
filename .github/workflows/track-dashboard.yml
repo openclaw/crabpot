@@ -59,13 +59,6 @@ jobs:
           ref: ${{ matrix.branch }}
           submodules: recursive
 
-      - name: Cache plugin-inspector checkout
-        if: ${{ steps.select.outputs.run == 'true' }}
-        uses: actions/cache@v4
-        with:
-          path: .crabpot/plugin-inspector
-          key: crabpot-plugin-inspector-${{ runner.os }}-${{ hashFiles('scripts/plugin-inspector-source.mjs') }}
-
       - uses: actions/setup-node@v6
         if: ${{ steps.select.outputs.run == 'true' }}
         with:

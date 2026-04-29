@@ -25,12 +25,6 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Cache plugin-inspector checkout
-        uses: actions/cache@v4
-        with:
-          path: .crabpot/plugin-inspector
-          key: crabpot-plugin-inspector-${{ runner.os }}-${{ hashFiles('scripts/plugin-inspector-source.mjs') }}
-
       - uses: actions/setup-node@v6
         with:
           node-version: 22
