@@ -5,10 +5,12 @@ import path from "node:path";
 import { test } from "node:test";
 import {
   applyReadmeSummary,
+  buildDashboardData,
   buildReadmeSummary,
   ensureReadmeFrame,
   renderReadmeSummary,
   updateReadmeSummary,
+  writeDashboardData,
 } from "../scripts/update-readme-summary.mjs";
 
 test("readme summary rolls up report counts and top issues", async () => {
@@ -84,6 +86,101 @@ test("readme summary rolls up report counts and top issues", async () => {
   assert.match(markdown, /\| Jiti loader candidates\s+\| 5\s+\|/);
   assert.match(markdown, /p50 51ms \/ p95 57ms \/ max RSS 44\.5MB \/ CPU 32ms/);
   assert.match(markdown, /p50 120ms \/ p95 130ms \/ max RSS 64\.5MB/);
+});
+
+test("readme summary renders metric deltas against main dashboard data", async () => {
+  const summary = await buildReadmeSummary({
+    baseline: {
+      generatedAt: "2026-04-26T00:00:00.000Z",
+      openclawLabel: "openclaw@latest",
+      metrics: {
+        fixtures: 10,
+        hardBreakages: 1,
+        warnings: 7,
+        suggestions: 2,
+        issues: 8,
+        p0Issues: 1,
+        p1Issues: 3,
+      },
+    },
+    baselineLabel: "main",
+    generatedAt: "2026-04-26T01:00:00.000Z",
+    reports: {
+      compatibility: {
+        status: "pass",
+        summary: {
+          fixtureCount: 12,
+          breakageCount: 0,
+          warningCount: 9,
+          suggestionCount: 2,
+          issueCount: 10,
+          p0IssueCount: 1,
+          p1IssueCount: 4,
+          contractProbeCount: 5,
+        },
+        issues: [],
+      },
+    },
+  });
+  const markdown = renderReadmeSummary(summary);
+
+  assert.equal(summary.baseline.deltas.fixtures.value, 2);
+  assert.equal(summary.baseline.deltas.hardBreakages.value, -1);
+  assert.match(markdown, /\| Fixtures\s+\| 12<br><em>\+2 vs main<\/em>\s+\|/);
+  assert.match(markdown, /\| Hard breakages\s+\| 0<br><em>-1 vs main<\/em>\s+\|/);
+  assert.match(markdown, /\| P1 issues\s+\| \[🟠 P1 4\]\(reports\/crabpot-issues\.md#triage-summary\)<br><em>\+1 vs main<\/em>\s+\|/u);
+});
+
+test("readme summary writes dashboard data json for branch comparison", async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-dashboard-data-"));
+  const dataPath = path.join(dir, "dashboard.json");
+  const summary = await buildReadmeSummary({
+    generatedAt: "2026-04-26T00:00:00.000Z",
+    reports: {
+      compatibility: {
+        status: "pass",
+        summary: {
+          fixtureCount: 1,
+          breakageCount: 0,
+          warningCount: 2,
+          suggestionCount: 3,
+          issueCount: 4,
+          p0IssueCount: 0,
+          p1IssueCount: 1,
+          contractProbeCount: 5,
+        },
+        issues: [],
+      },
+    },
+  });
+
+  assert.equal(await writeDashboardData(summary, { dataPath }), dataPath);
+  const data = JSON.parse(await readFile(dataPath, "utf8"));
+  assert.deepEqual(buildDashboardData(summary), data);
+  assert.equal(data.schemaVersion, 1);
+  assert.equal(data.metrics.warnings, 2);
+
+  const compared = await buildReadmeSummary({
+    baselineDataPath: dataPath,
+    generatedAt: "2026-04-26T01:00:00.000Z",
+    reports: {
+      compatibility: {
+        status: "pass",
+        summary: {
+          fixtureCount: 1,
+          breakageCount: 0,
+          warningCount: 5,
+          suggestionCount: 3,
+          issueCount: 7,
+          p0IssueCount: 0,
+          p1IssueCount: 1,
+          contractProbeCount: 5,
+        },
+        issues: [],
+      },
+    },
+  });
+  assert.equal(compared.baseline.deltas.warnings.value, 3);
 });
 
 test("readme summary inserts and replaces marker block", async () => {

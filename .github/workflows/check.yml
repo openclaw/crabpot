@@ -23,9 +23,17 @@ jobs:
       - uses: actions/checkout@v6
         with:
           submodules: recursive
+      - name: Cache plugin-inspector checkout
+        uses: actions/cache@v4
+        with:
+          path: .crabpot/plugin-inspector
+          key: crabpot-plugin-inspector-${{ runner.os }}-${{ hashFiles('scripts/plugin-inspector-source.mjs') }}
       - uses: actions/setup-node@v6
         with:
           node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            plugins/**/package-lock.json
       - name: Resolve OpenClaw track
         id: openclaw-track
         run: node scripts/resolve-openclaw-track.mjs --github-output
@@ -95,6 +103,9 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            plugins/**/package-lock.json
       - name: Resolve OpenClaw track
         id: openclaw-track
         run: node scripts/resolve-openclaw-track.mjs --github-output
@@ -149,6 +160,9 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            plugins/**/package-lock.json
       - name: Resolve OpenClaw track
         id: openclaw-track
         run: node scripts/resolve-openclaw-track.mjs --github-output
@@ -203,9 +217,17 @@ jobs:
       - uses: actions/checkout@v6
         with:
           submodules: recursive
+      - name: Cache plugin-inspector checkout
+        uses: actions/cache@v4
+        with:
+          path: .crabpot/plugin-inspector
+          key: crabpot-plugin-inspector-${{ runner.os }}-${{ hashFiles('scripts/plugin-inspector-source.mjs') }}
       - uses: actions/setup-node@v6
         with:
           node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            plugins/**/package-lock.json
       - name: Resolve OpenClaw track
         id: openclaw-track
         run: node scripts/resolve-openclaw-track.mjs --github-output
@@ -215,6 +237,12 @@ jobs:
           ref: ${{ steps.openclaw-track.outputs.ref }}
           path: openclaw
       - run: node scripts/sync-fixtures.mjs --materialize
+      - name: Fetch main dashboard baseline
+        if: ${{ steps.openclaw-track.outputs.track != 'latest' }}
+        run: |
+          mkdir -p .crabpot/baseline
+          git fetch --no-tags --depth=1 origin main
+          git show origin/main:reports/crabpot-dashboard-data.json > .crabpot/baseline/main-dashboard-data.json || true
       - name: Write README dashboard
         env:
           CRABPOT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -232,7 +260,11 @@ jobs:
           node scripts/check-ci-policy.mjs
           node scripts/write-ci-summary.mjs --mode check --openclaw-label "${{ steps.openclaw-track.outputs.label }}"
           node scripts/update-track-metadata.mjs
-          node scripts/update-readme-summary.mjs
+          baseline_arg=""
+          if [ -f .crabpot/baseline/main-dashboard-data.json ]; then
+            baseline_arg="--baseline-data .crabpot/baseline/main-dashboard-data.json"
+          fi
+          node scripts/update-readme-summary.mjs ${baseline_arg}
           git add README.md reports/
           if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"

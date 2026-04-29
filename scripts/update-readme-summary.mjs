@@ -10,6 +10,7 @@ export const readmeSummaryEnd = "<!-- crabpot-summary:end -->";
 export const trackMetadataStart = "<!-- crabpot-tracks:start -->";
 export const trackMetadataEnd = "<!-- crabpot-tracks:end -->";
 export const defaultReadmePath = path.join(repoRoot, "README.md");
+export const defaultDashboardDataPath = path.join(repoRoot, "reports/crabpot-dashboard-data.json");
 
 const REPORT_PATHS = {
   compatibility: "crabpot-report.json",
@@ -33,6 +34,8 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const summary = await buildReadmeSummary({
+    baselineDataPath: args.baselineDataPath,
+    baselineLabel: args.baselineLabel,
     generatedAt: args.generatedAt,
     reportsDir: args.reportsDir,
     runUrl: args.runUrl,
@@ -48,12 +51,19 @@ async function main() {
     return;
   }
 
+  if (!args.check) {
+    await writeDashboardData(summary, { dataPath: args.dashboardDataPath });
+  }
+
   console.log(`readme summary: ${changed ? "changed" : "current"}; status ${summary.status}`);
 }
 
 function parseArgs(argv) {
   const args = {
+    baselineDataPath: "",
+    baselineLabel: "main",
     check: false,
+    dashboardDataPath: defaultDashboardDataPath,
     generatedAt: process.env.CRABPOT_SUMMARY_GENERATED_AT,
     json: false,
     readmePath: defaultReadmePath,
@@ -65,6 +75,21 @@ function parseArgs(argv) {
     const arg = argv[index];
     if (arg === "--check") {
       args.check = true;
+      continue;
+    }
+    if (arg === "--baseline-data") {
+      args.baselineDataPath = path.resolve(argv[index + 1]);
+      index += 1;
+      continue;
+    }
+    if (arg === "--baseline-label") {
+      args.baselineLabel = argv[index + 1];
+      index += 1;
+      continue;
+    }
+    if (arg === "--dashboard-data") {
+      args.dashboardDataPath = path.resolve(argv[index + 1]);
+      index += 1;
       continue;
     }
     if (arg === "--json") {
@@ -98,6 +123,9 @@ function parseArgs(argv) {
 export async function buildReadmeSummary(options = {}) {
   const reportsDir = options.reportsDir ?? path.join(repoRoot, "reports");
   const reports = options.reports ?? (await readReports(reportsDir));
+  const baselineSummary =
+    options.baseline ??
+    (options.baselineDataPath ? normalizeDashboardData(await readOptionalJson(options.baselineDataPath)) : null);
   const compatibility = reports.compatibility ?? {};
   const ciSummary = reports.ciSummary ?? {};
   const ciGeneratedAt = ciSummary.generatedAt && ciSummary.generatedAt !== "deterministic" ? ciSummary.generatedAt : null;
@@ -125,7 +153,7 @@ export async function buildReadmeSummary(options = {}) {
       title: issue.title,
     }));
 
-  return {
+  const summary = {
     generatedAt,
     runUrl: options.runUrl ?? ciSummary.runUrl ?? "",
     mode: ciSummary.mode ?? "local",
@@ -181,6 +209,19 @@ export async function buildReadmeSummary(options = {}) {
       }),
     ),
   };
+
+  if (baselineSummary?.metrics) {
+    summary.baseline = {
+      label: options.baselineLabel ?? "main",
+      generatedAt: baselineSummary.generatedAt ?? null,
+      openclawLabel: baselineSummary.openclawLabel ?? "",
+      runUrl: baselineSummary.runUrl ?? "",
+      metrics: baselineSummary.metrics,
+      deltas: buildMetricDeltas(summary.metrics, baselineSummary.metrics),
+    };
+  }
+
+  return summary;
 }
 
 async function readReports(reportsDir) {
@@ -204,6 +245,29 @@ export async function updateReadmeSummary({ check = false, readmePath = defaultR
     await writeFile(readmePath, next, "utf8");
   }
   return changed;
+}
+
+export async function writeDashboardData(summary, options = {}) {
+  const dataPath = options.dataPath ?? defaultDashboardDataPath;
+  const data = buildDashboardData(summary);
+  await mkdir(path.dirname(dataPath), { recursive: true });
+  await writeFile(dataPath, `${JSON.stringify(data, null, 2)}\n`, "utf8");
+  return dataPath;
+}
+
+export function buildDashboardData(summary) {
+  return {
+    schemaVersion: 1,
+    generatedAt: summary.generatedAt,
+    runUrl: summary.runUrl ?? "",
+    mode: summary.mode ?? "local",
+    openclawLabel: summary.openclawLabel ?? "",
+    status: summary.status ?? "unknown",
+    metrics: summary.metrics ?? {},
+    baseline: summary.baseline ?? null,
+    topIssues: summary.topIssues ?? [],
+    artifactPaths: summary.artifactPaths ?? {},
+  };
 }
 
 function preserveDashboardMetadata(summary, readme) {
@@ -308,23 +372,23 @@ export function renderReadmeSummary(summary) {
     "",
     markdownTable(
       [
-        ["Fixtures", m.fixtures],
-        ["Hard breakages", m.hardBreakages],
-        ["Warnings", m.warnings],
-        ["Suggestions", m.suggestions],
-        ["Issues", m.issues],
-        ["P0 issues", severityCount("P0", m.p0Issues)],
-        ["P1 issues", severityCount("P1", m.p1Issues)],
+        ["Fixtures", metricCell(summary, "fixtures", m.fixtures)],
+        ["Hard breakages", metricCell(summary, "hardBreakages", m.hardBreakages)],
+        ["Warnings", metricCell(summary, "warnings", m.warnings)],
+        ["Suggestions", metricCell(summary, "suggestions", m.suggestions)],
+        ["Issues", metricCell(summary, "issues", m.issues)],
+        ["P0 issues", metricCell(summary, "p0Issues", severityCount("P0", m.p0Issues))],
+        ["P1 issues", metricCell(summary, "p1Issues", severityCount("P1", m.p1Issues))],
         ["Live issues", `${m.liveIssues} total / ${m.liveP0Issues} P0`],
-        ["Compat gaps", m.compatGaps],
-        ["Deprecation warnings", m.deprecationWarnings],
-        ["Inspector gaps", m.inspectorGaps],
-        ["Upstream metadata", m.upstreamIssues],
-        ["Contract probes", m.contractProbes],
-        ["Policy failures", m.policyFailures],
-        ["Policy warnings", m.policyWarnings],
-        ["Ref diff failures", m.refDiffFailures],
-        ["Profile failures", m.profileFailures],
+        ["Compat gaps", metricCell(summary, "compatGaps", m.compatGaps)],
+        ["Deprecation warnings", metricCell(summary, "deprecationWarnings", m.deprecationWarnings)],
+        ["Inspector gaps", metricCell(summary, "inspectorGaps", m.inspectorGaps)],
+        ["Upstream metadata", metricCell(summary, "upstreamIssues", m.upstreamIssues)],
+        ["Contract probes", metricCell(summary, "contractProbes", m.contractProbes)],
+        ["Policy failures", metricCell(summary, "policyFailures", m.policyFailures)],
+        ["Policy warnings", metricCell(summary, "policyWarnings", m.policyWarnings)],
+        ["Ref diff failures", metricCell(summary, "refDiffFailures", m.refDiffFailures)],
+        ["Profile failures", metricCell(summary, "profileFailures", m.profileFailures)],
         ["Execution probes", `${m.executionPass} pass / ${m.executionFail} fail / ${m.executionBlocked} blocked`],
         ["Synthetic probes", `${m.syntheticReady} ready / ${m.syntheticBlocked} blocked / ${m.syntheticTotal} total`],
         ["Cold import", `${m.coldReady} ready / ${m.coldBlocked} blocked / ${m.coldTotal} entrypoints`],
@@ -364,6 +428,41 @@ export function renderReadmeSummary(summary) {
 
 function severityCount(severity, count) {
   return markdownLink(`${severitySignal(severity)} ${count}`, severityReportAnchor(severity));
+}
+
+function metricCell(summary, metric, value) {
+  const delta = summary.baseline?.deltas?.[metric];
+  if (!delta) {
+    return value;
+  }
+  return `${value}<br><em>${formatMetricDelta(delta.value)} vs ${summary.baseline.label ?? "main"}</em>`;
+}
+
+function buildMetricDeltas(metrics, baselineMetrics) {
+  const deltas = {};
+  for (const [key, value] of Object.entries(metrics ?? {})) {
+    const baselineValue = baselineMetrics?.[key];
+    if (!Number.isFinite(value) || !Number.isFinite(baselineValue)) {
+      continue;
+    }
+    deltas[key] = {
+      current: value,
+      baseline: baselineValue,
+      value: Number((value - baselineValue).toFixed(3)),
+    };
+  }
+  return deltas;
+}
+
+function formatMetricDelta(value) {
+  if (value > 0) {
+    return `+${formatNumber(value)}`;
+  }
+  return formatNumber(value);
+}
+
+function formatNumber(value) {
+  return Number.isInteger(value) ? String(value) : String(value).replace(/(\.\d*?)0+$/, "$1").replace(/\.$/, "");
 }
 
 function severitySignal(severity) {
@@ -416,6 +515,19 @@ function hasP95Label(label) {
 
 async function readOptionalJson(jsonPath) {
   return existsSync(jsonPath) ? JSON.parse(await readFile(jsonPath, "utf8")) : null;
+}
+
+function normalizeDashboardData(data) {
+  if (!data) {
+    return null;
+  }
+  if (data.metrics) {
+    return data;
+  }
+  if (data.summary?.metrics) {
+    return data.summary;
+  }
+  return null;
 }
 
 function formatTimestamp(value) {

@@ -25,9 +25,18 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+      - name: Cache plugin-inspector checkout
+        uses: actions/cache@v4
+        with:
+          path: .crabpot/plugin-inspector
+          key: crabpot-plugin-inspector-${{ runner.os }}-${{ hashFiles('scripts/plugin-inspector-source.mjs') }}
+
       - uses: actions/setup-node@v6
         with:
           node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            plugins/**/package-lock.json
 
       - name: Resolve OpenClaw track
         id: openclaw-track
@@ -46,6 +55,13 @@ jobs:
           set -euo pipefail
           git fetch origin "${{ github.event.pull_request.base.ref }}"
           git merge --no-edit "origin/${{ github.event.pull_request.base.ref }}"
+
+      - name: Fetch main dashboard baseline
+        if: ${{ github.event.pull_request.base.ref != 'main' }}
+        run: |
+          mkdir -p .crabpot/baseline
+          git fetch --no-tags --depth=1 origin main
+          git show origin/main:reports/crabpot-dashboard-data.json > .crabpot/baseline/main-dashboard-data.json || true
 
       - name: Verify Dependabot changed only fixture pins
         env:
@@ -89,7 +105,11 @@ jobs:
           node scripts/check-ci-policy.mjs
           node scripts/write-ci-summary.mjs --mode dependabot --openclaw-label "${{ steps.openclaw-track.outputs.label }}"
           node scripts/update-track-metadata.mjs
-          node scripts/update-readme-summary.mjs
+          baseline_arg=""
+          if [ -f .crabpot/baseline/main-dashboard-data.json ]; then
+            baseline_arg="--baseline-data .crabpot/baseline/main-dashboard-data.json"
+          fi
+          node scripts/update-readme-summary.mjs ${baseline_arg}
 
       - name: Commit refreshed reports
         run: |

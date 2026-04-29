@@ -51,7 +51,8 @@ test("default check workflow uploads policy and summary reports", async () => {
   assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy dashboard --plugin-inspector-smoke/);
   assert.match(workflow, /node scripts\/check-ci-policy\.mjs/);
   assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
-  assert.match(workflow, /node scripts\/update-readme-summary\.mjs/);
+  assert.match(workflow, /--baseline-data \.crabpot\/baseline\/main-dashboard-data\.json/);
+  assert.match(workflow, /node scripts\/update-readme-summary\.mjs \$\{baseline_arg\}/);
   assert.match(workflow, /chore\(readme\): update crabpot dashboard \[skip ci\]/);
   assert.match(workflow, /actions\/upload-artifact@v7/);
 });
@@ -72,6 +73,8 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   const workflow = await readWorkflow(".github/workflows/track-dashboard.yml");
 
   assert.match(workflow, /schedule:/);
+  assert.match(workflow, /cron: "7,22,37,52 \* \* \* \*"/);
+  assert.match(workflow, /cancel-in-progress: true/);
   assert.match(workflow, /workflow_dispatch:/);
   assert.match(workflow, /track:/);
   assert.match(workflow, /branch: crab-beta/);
@@ -80,6 +83,8 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.match(workflow, /ref: \$\{\{ steps\.openclaw-track\.outputs\.ref \}\}/);
   assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy dashboard --plugin-inspector-smoke/);
   assert.match(workflow, /node scripts\/update-track-metadata\.mjs/);
+  assert.match(workflow, /origin\/main:reports\/crabpot-dashboard-data\.json/);
+  assert.match(workflow, /node scripts\/update-readme-summary\.mjs \$\{baseline_arg\}/);
   assert.match(workflow, /git push origin HEAD:\$\{\{ matrix\.branch \}\}/);
 });
 
@@ -105,7 +110,7 @@ test("default check workflow resolves changed submodules into an isolated fixtur
   assert.match(workflow, /npm run workspace:execute -- --fixture "\$\{\{ matrix\.id \}\}" --allow-empty/);
 });
 
-test("workflows use Node 24 action majors", async () => {
+test("workflows use current action majors and dependency caches", async () => {
   const workflows = [
     await readWorkflow(".github/workflows/check.yml"),
     await readWorkflow(".github/workflows/openclaw-ref-compat.yml"),
@@ -113,15 +118,19 @@ test("workflows use Node 24 action majors", async () => {
     await readWorkflow(".github/workflows/track-dashboard.yml"),
   ].join("\n");
   const actionRefs = [
-    ...workflows.matchAll(/uses:\s+(actions\/(?:checkout|setup-node|upload-artifact)@[^\s]+)/g),
+    ...workflows.matchAll(/uses:\s+(actions\/(?:cache|checkout|setup-node|upload-artifact)@[^\s]+)/g),
   ].map((match) => match[1]);
 
   assert.deepEqual([...new Set(actionRefs)].sort(), [
+    "actions/cache@v4",
     "actions/checkout@v6",
     "actions/setup-node@v6",
     "actions/upload-artifact@v7",
   ]);
-  assert.doesNotMatch(workflows, /actions\/(checkout|setup-node|upload-artifact)@v4/);
+  assert.match(workflows, /path: \.crabpot\/plugin-inspector/);
+  assert.match(workflows, /cache: npm/);
+  assert.match(workflows, /cache-dependency-path: \|/);
+  assert.doesNotMatch(workflows, /actions\/(checkout|setup-node|upload-artifact|cache)@v3/);
   assert.doesNotMatch(workflows, /FORCE_JAVASCRIPT_ACTIONS_TO_NODE24/);
 });
 
@@ -140,7 +149,8 @@ test("dependabot auto-merge refreshes reports after fixture pin updates", async 
   assert.match(workflow, /node scripts\/resolve-openclaw-track\.mjs --branch "\$\{\{ github\.event\.pull_request\.base\.ref \}\}" --github-output/);
   assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw/);
   assert.match(workflow, /node scripts\/update-track-metadata\.mjs/);
-  assert.match(workflow, /node scripts\/update-readme-summary\.mjs/);
+  assert.match(workflow, /--baseline-data \.crabpot\/baseline\/main-dashboard-data\.json/);
+  assert.match(workflow, /node scripts\/update-readme-summary\.mjs \$\{baseline_arg\}/);
   assert.match(workflow, /git add README\.md reports\//);
   assert.match(workflow, /gh pr merge "\$\{PR_NUMBER\}" --squash --delete-branch/);
   assert.doesNotMatch(workflow, /gh pr merge "\$\{PR_NUMBER\}" --auto/);
