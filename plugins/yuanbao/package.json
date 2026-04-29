@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for Tencent Yuanbao Bot.",
   "dependencies": {
-    "openclaw-plugin-yuanbao": "2.11.0"
+    "openclaw-plugin-yuanbao": "2.12.0"
   },
   "crabpot": {
     "fixture": "yuanbao",
