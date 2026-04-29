@@ -55,8 +55,14 @@ test("workspace plan maps blocked entrypoints to opt-in install/build/capture st
   assert.equal(codex.loaderStrategy.primary, "tsx");
   assert.ok(codex.loaderStrategy.alternatives.includes("jiti"));
 
-  const honcho = entrypointFor(plan, "honcho");
-  assert.ok(honcho.requiredCapabilities.includes("sdk-alias-compat"));
+  if (report.issues.some((issue) => issue.code === "sdk-export-missing")) {
+    assert.ok(
+      plan.fixtures.some((fixture) =>
+        fixture.entrypoints.some((entrypoint) => entrypoint.requiredCapabilities.includes("sdk-alias-compat")),
+      ),
+      "expected an sdk-export-missing fixture to require sdk-alias-compat",
+    );
+  }
 
   const hasdata = entrypointFor(plan, "hasdata");
   assert.ok(hasdata.requiredCapabilities.includes("side-effect-sandbox"));

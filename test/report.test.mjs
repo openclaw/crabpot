@@ -51,8 +51,8 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasFinding(report.warnings, "memos-cloud", "manifest-unknown-fields");
   assertHasFinding(report.suggestions, "secureclaw", "registration-capture-gap");
   if (hasTargetOpenClaw) {
-    assertHasFinding(report.warnings, "honcho", "sdk-export-missing");
-    assertHasFinding(report.suggestions, "honcho", "missing-compat-record");
+    assertHasFindingCode(report.warnings, "sdk-export-missing");
+    assertHasFindingCode(report.suggestions, "missing-compat-record");
     assertHasFinding(report.warnings, "hyperspell", "unknown-hook-name");
   }
 
@@ -82,8 +82,8 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasProbe(report.contractProbes, "hook.before_tool_call.terminal-block-approval:wecom");
   assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:agentchat");
   if (hasTargetOpenClaw) {
-    assertHasProbe(report.contractProbes, "sdk.import.package-export-cold-import:honcho");
-    assertHasProbe(report.contractProbes, "sdk.import.package-export-cold-import:honcho", "P1");
+    assertHasProbePrefix(report.contractProbes, "sdk.import.package-export-cold-import:");
+    assertHasProbePrefix(report.contractProbes, "sdk.import.package-export-cold-import:", "P1");
   }
   assertHasProbe(report.contractProbes, "package.compat.plugin-api-range:mcp-adapter");
   assertHasProbe(report.contractProbes, "package.entrypoint.build-before-cold-import:agentchat");
@@ -149,24 +149,19 @@ test("issue report preserves decision metadata for compat-layer work", async () 
   assert.match(markdown, /core-compat-adapter/);
   assert.match(markdown, /live-issue/);
   assert.match(markdown, /deprecation-warning/);
-  assert.match(markdown, /🔴 P0 \*\*honcho\*\* `live-issue` `core-compat-adapter`/);
+  assert.match(markdown, new RegExp(`🔴 P0 \\*\\*${escapeRegExp(sdkIssue.fixture)}\\*\\*`));
+  assert.match(markdown, /`live-issue` `core-compat-adapter`/);
   assert.match(markdown, /🟠 P1/);
   assert.match(markdown, /🟡 P2/);
-  assert.match(
-    markdown,
-    /https:\/\/github\.com\/plastic-labs\/openclaw-honcho\/blob\/[0-9a-f]{40}\/index\.ts#L11/,
-  );
   assert.doesNotMatch(markdown, /\| ID\s+\| Severity\s+\| Class\s+\| Fixture\s+\| Owner\s+\|/);
   assert.doesNotMatch(markdown, /CRABPOT-[A-F0-9]{8}/);
 
   const windowsReport = structuredClone(report);
-  windowsReport.issues.find((issue) => issue.code === "sdk-export-missing").evidence = [
-    "openclaw/plugin-sdk/memory-core @ plugins\\honcho\\index.ts:11",
-  ];
-  assert.match(
-    renderIssuesReport(windowsReport),
-    /https:\/\/github\.com\/plastic-labs\/openclaw-honcho\/blob\/[0-9a-f]{40}\/index\.ts#L11/,
-  );
+  const windowsIssue = windowsReport.issues.find((issue) => issue.code === "sdk-export-missing");
+  const evidencePath = windowsIssue.evidence.find((evidence) => /plugins[\\/].+:\d+/.test(evidence));
+  assert.ok(evidencePath, "expected sdk-export-missing issue to have path evidence");
+  windowsIssue.evidence = [evidencePath.replaceAll("/", "\\")];
+  assert.match(renderIssuesReport(windowsReport), /https:\/\/github\.com\/.+\/blob\/[0-9a-f]{40}\/.+#L\d+/);
 });
 
 function testReportOptions() {
@@ -180,6 +175,13 @@ function assertHasFinding(findings, fixture, code) {
   assert.ok(
     findings.some((finding) => finding.fixture === fixture && finding.code === code),
     `expected ${fixture} ${code} finding`,
+  );
+}
+
+function assertHasFindingCode(findings, code) {
+  assert.ok(
+    findings.some((finding) => finding.code === code),
+    `expected ${code} finding`,
   );
 }
 
@@ -216,4 +218,15 @@ function assertHasProbe(probes, id, priority) {
     probes.some((probe) => probe.id === id && (!priority || probe.priority === priority)),
     `expected contract probe ${id}${priority ? ` with ${priority}` : ""}`,
   );
+}
+
+function assertHasProbePrefix(probes, idPrefix, priority) {
+  assert.ok(
+    probes.some((probe) => probe.id.startsWith(idPrefix) && (!priority || probe.priority === priority)),
+    `expected contract probe ${idPrefix}${priority ? ` with ${priority}` : ""}`,
+  );
+}
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }

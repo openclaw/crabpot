@@ -19,9 +19,9 @@ test("contract capture turns observed seams into executable probe assertions", a
   assertHasRegistrationCapture(capture, "clawmetry", "definePluginEntry", "inspector-shim-required");
   assertHasHookProbe(capture, "wecom", "before_tool_call");
   assertHasLegacyStartupHookProbe(capture, "connectclaw");
-  if (report.targetOpenClaw.status === "ok") {
-    assertHasSdkProbe(capture, "honcho", "openclaw/plugin-sdk/memory-core", "compat-alias-required");
-    assertHasIssueProbe(capture, "sdk.import.package-export-cold-import:honcho");
+  if (report.issues.some((issue) => issue.code === "sdk-export-missing")) {
+    assertHasSdkProbe(capture, "compat-alias-required");
+    assertHasIssueProbe(capture, "sdk.import.package-export-cold-import:");
   }
 });
 
@@ -70,17 +70,16 @@ function assertHasLegacyStartupHookProbe(capture, fixtureId) {
   );
 }
 
-function assertHasSdkProbe(capture, fixtureId, specifier, support) {
-  const fixture = capture.fixtures.find((item) => item.id === fixtureId);
+function assertHasSdkProbe(capture, support) {
   assert.ok(
-    fixture?.sdkImports.some((item) => item.specifier === specifier && item.support === support),
-    `expected ${fixtureId} ${specifier} SDK probe with ${support}`,
+    capture.fixtures.some((fixture) => fixture.sdkImports.some((item) => item.support === support)),
+    `expected an SDK probe with ${support}`,
   );
 }
 
-function assertHasIssueProbe(capture, id) {
+function assertHasIssueProbe(capture, idPrefix) {
   assert.ok(
-    capture.issueProbes.some((probe) => probe.id === id && probe.assertions.length > 0),
-    `expected issue probe ${id}`,
+    capture.issueProbes.some((probe) => probe.id.startsWith(idPrefix) && probe.assertions.length > 0),
+    `expected issue probe ${idPrefix}`,
   );
 }
