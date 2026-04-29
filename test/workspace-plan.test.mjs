@@ -51,10 +51,12 @@ test("workspace plan maps blocked entrypoints to opt-in install/build/capture st
   );
 
   const codex = entrypointFor(plan, "codex-app-server");
-  assert.ok(codex.requiredCapabilities.includes("sdk-alias-compat"));
   assert.ok(codex.requiredCapabilities.includes("ts-loader"));
   assert.equal(codex.loaderStrategy.primary, "tsx");
   assert.ok(codex.loaderStrategy.alternatives.includes("jiti"));
+
+  const honcho = entrypointFor(plan, "honcho");
+  assert.ok(honcho.requiredCapabilities.includes("sdk-alias-compat"));
 
   const hasdata = entrypointFor(plan, "hasdata");
   assert.ok(hasdata.requiredCapabilities.includes("side-effect-sandbox"));

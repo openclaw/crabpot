@@ -1,12 +1,13 @@
 {
   "generatedAt": "deterministic",
   "targetOpenClaw": {
-    "configuredPath": "./openclaw",
+    "configuredPath": "../openclaw",
     "searchedPaths": [
+      "../openclaw",
       "./openclaw"
     ],
     "status": "ok",
-    "compatRegistryPath": "openclaw/src/plugins/compat/registry.ts",
+    "compatRegistryPath": "../openclaw/src/plugins/compat/registry.ts",
     "compatRecordCount": 61,
     "compatRecords": [
       "activation-agent-harness-hint",
@@ -134,7 +135,7 @@
       "runtime-taskflow-legacy-alias": "deprecated",
       "setup-runtime-fallback": "active"
     },
-    "hookTypesPath": "openclaw/src/plugins/hook-types.ts",
+    "hookTypesPath": "../openclaw/src/plugins/hook-types.ts",
     "hookNameCount": 35,
     "hookNames": [
       "after_compaction",
@@ -173,7 +174,7 @@
       "subagent_spawning",
       "tool_result_persist"
     ],
-    "apiBuilderPath": "openclaw/src/plugins/api-builder.ts",
+    "apiBuilderPath": "../openclaw/src/plugins/api-builder.ts",
     "apiRegistrarCount": 48,
     "apiRegistrars": [
       "registerAgentEventSubscription",
@@ -225,7 +226,7 @@
       "registerWebFetchProvider",
       "registerWebSearchProvider"
     ],
-    "capturedRegistrationPath": "openclaw/src/plugins/captured-registration.ts",
+    "capturedRegistrationPath": "../openclaw/src/plugins/captured-registration.ts",
     "capturedRegistrarCount": 26,
     "capturedRegistrars": [
       "registerAgentEventSubscription",
@@ -255,7 +256,7 @@
       "registerWebFetchProvider",
       "registerWebSearchProvider"
     ],
-    "packagePath": "openclaw/package.json",
+    "packagePath": "../openclaw/package.json",
     "sdkExportCount": 293,
     "sdkExports": [
       "openclaw/plugin-sdk",
@@ -552,7 +553,7 @@
       "openclaw/plugin-sdk/windows-spawn",
       "openclaw/plugin-sdk/zod"
     ],
-    "pluginSdkEntrypointsPath": "openclaw/src/plugin-sdk/entrypoints.ts",
+    "pluginSdkEntrypointsPath": "../openclaw/src/plugin-sdk/entrypoints.ts",
     "reservedSdkExportCount": 0,
     "reservedSdkExports": [],
     "supportedFacadeSdkExports": [
@@ -589,7 +590,7 @@
       "openclaw/plugin-sdk/telegram-command-config",
       "openclaw/plugin-sdk/video-generation-core"
     ],
-    "manifestTypesPath": "openclaw/src/plugins/manifest.ts",
+    "manifestTypesPath": "../openclaw/src/plugins/manifest.ts",
     "manifestFieldCount": 35,
     "manifestFields": [
       "activation",
