@@ -4,10 +4,10 @@
   "entrypoint": "test/fixtures/lazy-import-plugin.mjs",
   "summary": {
     "runs": 3,
-    "p50WallMs": 431,
-    "p95WallMs": 517,
-    "maxPeakRssMb": 45.1,
-    "maxCpuMsEstimate": 65,
+    "p50WallMs": 71,
+    "p95WallMs": 73,
+    "maxPeakRssMb": 0,
+    "maxCpuMsEstimate": 0,
     "capturedCount": 6,
     "failCount": 0
   },
@@ -17,33 +17,33 @@
       "exitCode": 0,
       "status": "captured",
       "capturedCount": 2,
-      "wallMs": 431,
-      "peakRssMb": 45.1,
-      "peakCpuPercent": 15.1,
-      "cpuMsEstimate": 65,
-      "stderrPreview": "(node:47964) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)"
+      "wallMs": 73,
+      "peakRssMb": 0,
+      "peakCpuPercent": 0,
+      "cpuMsEstimate": 0,
+      "stderrPreview": ""
     },
     {
       "index": 1,
       "exitCode": 0,
       "status": "captured",
       "capturedCount": 2,
-      "wallMs": 517,
-      "peakRssMb": 0.2,
+      "wallMs": 71,
+      "peakRssMb": 0,
       "peakCpuPercent": 0,
       "cpuMsEstimate": 0,
-      "stderrPreview": "(node:47990) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)"
+      "stderrPreview": ""
     },
     {
       "index": 2,
       "exitCode": 0,
       "status": "captured",
       "capturedCount": 2,
-      "wallMs": 350,
+      "wallMs": 71,
       "peakRssMb": 0,
       "peakCpuPercent": 0,
       "cpuMsEstimate": 0,
-      "stderrPreview": "(node:48026) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)"
+      "stderrPreview": ""
     }
   ]
 }

@@ -220,7 +220,7 @@
     {
       "fixture": "honcho",
       "id": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "build-required",
       "entrypoint": "plugins/honcho/dist/index.js",
       "packageManager": "pnpm",
       "loaderSource": "native-node",
@@ -354,7 +354,7 @@
     {
       "fixture": "yuanbao",
       "id": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/yuanbao/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -442,7 +442,7 @@
     {
       "fixture": "clawmetry",
       "id": "cold-import.extension:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts",
-      "status": "sdk-alias-required",
+      "status": "ts-loader-required",
       "entrypoint": "plugins/clawmetry/clawhub-plugin/index.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",
@@ -458,7 +458,7 @@
     {
       "fixture": "clawmetry",
       "id": "cold-import.runtimeExtension:clawmetry:plugins-clawmetry-clawhub-plugin-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "build-required",
       "entrypoint": "plugins/clawmetry/clawhub-plugin/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -472,7 +472,7 @@
     {
       "fixture": "codex-app-server",
       "id": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
-      "status": "ts-loader-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/codex-app-server/index.ts",
       "packageManager": "pnpm",
       "loaderSource": "typescript-source",
@@ -539,7 +539,7 @@
       "fixture": "agentchat",
       "entrypoint": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -573,7 +573,7 @@
       "fixture": "agentchat",
       "entrypoint": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -747,7 +747,7 @@
       "fixture": "connectclaw",
       "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -820,7 +820,7 @@
       "fixture": "honcho",
       "entrypoint": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -910,7 +910,7 @@
       "fixture": "ddingtalk",
       "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -1104,7 +1104,7 @@
       "fixture": "codex-app-server",
       "entrypoint": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -1242,7 +1242,7 @@
       "fixture": "inworld-tts",
       "entrypoint": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "coveredRiskCodes": [],
       "platforms": [
         "container",

@@ -2,9 +2,9 @@
   "generatedAt": "deterministic",
   "targetOpenClaw": {
     "status": "ok",
-    "configuredPath": "../openclaw",
-    "capturedRegistrarCount": 26,
-    "sdkExportCount": 293
+    "configuredPath": "./openclaw",
+    "capturedRegistrarCount": 19,
+    "sdkExportCount": 316
   },
   "summary": {
     "fixtureCount": 29,
@@ -12,9 +12,9 @@
     "hookCount": 80,
     "sdkImportCount": 457,
     "packageEntrypointCount": 34,
-    "issueProbeCount": 153,
+    "issueProbeCount": 154,
     "inspectorShimRequiredCount": 95,
-    "compatAliasRequiredCount": 6
+    "compatAliasRequiredCount": 3
   },
   "fixtures": [
     {
@@ -2935,7 +2935,7 @@
           "fixture": "honcho",
           "specifier": "openclaw/plugin-sdk/memory-core",
           "ref": "plugins/honcho/index.ts:11",
-          "support": "compat-alias-required",
+          "support": "target-exported",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -9396,7 +9396,7 @@
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/matrix",
           "ref": "plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2",
-          "support": "compat-alias-required",
+          "support": "target-exported",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -9407,7 +9407,7 @@
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/matrix",
           "ref": "plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2",
-          "support": "compat-alias-required",
+          "support": "target-exported",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -9418,7 +9418,7 @@
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/mattermost",
           "ref": "plugins/yuanbao/.crabpot-package/dist/src/channel.js:2",
-          "support": "compat-alias-required",
+          "support": "target-exported",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -9429,7 +9429,7 @@
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/mattermost",
           "ref": "plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1",
-          "support": "compat-alias-required",
+          "support": "target-exported",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -9544,10 +9544,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/config-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-auth-accounts-ts-299",
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-auth-accounts-ts-311",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/config-runtime",
-          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:299",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:311",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10164,7 +10164,7 @@
           "fixture": "clawmetry",
           "specifier": "openclaw/plugin-sdk/diagnostics-otel",
           "ref": "plugins/clawmetry/clawhub-plugin/src/service.ts:2",
-          "support": "compat-alias-required",
+          "support": "target-exported",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -10372,7 +10372,7 @@
           "fixture": "codex-app-server",
           "specifier": "openclaw/plugin-sdk/discord",
           "ref": "plugins/codex-app-server/src/controller.ts:104",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -10383,7 +10383,7 @@
           "fixture": "codex-app-server",
           "specifier": "openclaw/plugin-sdk/discord",
           "ref": "plugins/codex-app-server/src/controller.ts:106",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -10394,7 +10394,7 @@
           "fixture": "codex-app-server",
           "specifier": "openclaw/plugin-sdk/telegram-account",
           "ref": "plugins/codex-app-server/src/controller.ts:105",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -11163,41 +11163,14 @@
       ]
     },
     {
-      "id": "sdk.import.package-export-cold-import:clawmetry",
-      "fixture": "clawmetry",
+      "id": "sdk.import.package-export-cold-import:codex-app-server",
+      "fixture": "codex-app-server",
       "priority": "P1",
       "target": "sdk-alias",
       "evidence": [
-        "openclaw/plugin-sdk/diagnostics-otel @ plugins/clawmetry/clawhub-plugin/src/service.ts:2"
-      ],
-      "assertions": [
-        "package export exists",
-        "migration metadata is visible when alias is missing"
-      ]
-    },
-    {
-      "id": "sdk.import.package-export-cold-import:honcho",
-      "fixture": "honcho",
-      "priority": "P1",
-      "target": "sdk-alias",
-      "evidence": [
-        "openclaw/plugin-sdk/memory-core @ plugins/honcho/index.ts:11"
-      ],
-      "assertions": [
-        "package export exists",
-        "migration metadata is visible when alias is missing"
-      ]
-    },
-    {
-      "id": "sdk.import.package-export-cold-import:yuanbao",
-      "fixture": "yuanbao",
-      "priority": "P1",
-      "target": "sdk-alias",
-      "evidence": [
-        "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2",
-        "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2",
-        "openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2",
-        "openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1"
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104",
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106",
+        "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
       ],
       "assertions": [
         "package export exists",
@@ -12101,6 +12074,33 @@
       ]
     },
     {
+      "id": "sdk.import.reserved-bundled-plugin-boundary:honcho",
+      "fixture": "honcho",
+      "priority": "P2",
+      "target": "sdk-import",
+      "evidence": [
+        "openclaw/plugin-sdk/memory-core @ plugins/honcho/index.ts:11"
+      ],
+      "assertions": [
+        "probe has fixture evidence and a target contract"
+      ]
+    },
+    {
+      "id": "sdk.import.reserved-bundled-plugin-boundary:yuanbao",
+      "fixture": "yuanbao",
+      "priority": "P2",
+      "target": "sdk-import",
+      "evidence": [
+        "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2",
+        "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2",
+        "openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2",
+        "openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1"
+      ],
+      "assertions": [
+        "probe has fixture evidence and a target contract"
+      ]
+    },
+    {
       "id": "sdk.import.root-barrel-cold-import:a2a-gateway",
       "fixture": "a2a-gateway",
       "priority": "P2",
@@ -12834,6 +12834,18 @@
       "assertions": [
         "entrypoint metadata resolves",
         "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "sdk.import.reserved-bundled-plugin-boundary:clawmetry",
+      "fixture": "clawmetry",
+      "priority": "P3",
+      "target": "sdk-import",
+      "evidence": [
+        "openclaw/plugin-sdk/diagnostics-otel @ plugins/clawmetry/clawhub-plugin/src/service.ts:2"
+      ],
+      "assertions": [
+        "probe has fixture evidence and a target contract"
       ]
     },
     {
