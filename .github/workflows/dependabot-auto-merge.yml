@@ -10,6 +10,10 @@ permissions:
   contents: write
   pull-requests: write
 
+concurrency:
+  group: crabpot-dependabot-automerge-${{ github.event.pull_request.base.ref }}
+  cancel-in-progress: false
+
 jobs:
   refresh-and-automerge:
     name: Refresh reports and enable auto-merge

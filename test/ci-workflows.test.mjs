@@ -141,6 +141,8 @@ test("dependabot auto-merge refreshes reports after fixture pin updates", async 
   const workflow = await readWorkflow(".github/workflows/dependabot-auto-merge.yml");
 
   assert.match(workflow, /pull_request_target:/);
+  assert.match(workflow, /group: crabpot-dependabot-automerge-\$\{\{ github\.event\.pull_request\.base\.ref \}\}/);
+  assert.match(workflow, /cancel-in-progress: false/);
   assert.match(workflow, /dependabot\[bot\]/);
   assert.match(workflow, /github\.event\.pull_request\.head\.repo\.full_name == github\.repository/);
   assert.match(workflow, /Update Dependabot branch with base/);
