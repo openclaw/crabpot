@@ -132,7 +132,7 @@ export function applyTrackMetadata(readme, renderedMetadata) {
   const start = readme.indexOf(trackMetadataStart);
   const end = readme.indexOf(trackMetadataEnd);
   if (start !== -1 && end !== -1 && end > start) {
-    return `${readme.slice(0, start)}${block}${readme.slice(end + trackMetadataEnd.length)}`;
+    return `${readme.slice(0, start)}${block}${blockSuffix(readme.slice(end + trackMetadataEnd.length))}`;
   }
 
   const insertionPoint = readme.indexOf("\n<!-- crabpot-summary:start -->");
@@ -141,6 +141,19 @@ export function applyTrackMetadata(readme, renderedMetadata) {
   }
 
   return `${readme.trimEnd()}\n\n${block}\n`;
+}
+
+function blockSuffix(suffix) {
+  if (!suffix) {
+    return "\n";
+  }
+  if (suffix.startsWith("\n\n")) {
+    return suffix;
+  }
+  if (suffix.startsWith("\n")) {
+    return `\n${suffix}`;
+  }
+  return `\n\n${suffix}`;
 }
 
 export function renderTrackMetadata(tracks, options = {}) {
