@@ -1,7 +1,7 @@
 # Crabpot CI Summary
 
 Generated: deterministic
-Mode: check
+Mode: dependabot
 OpenClaw: openclaw@latest (2026.4.26, be8c24633aaa)
 Status: PASS
 
@@ -10,9 +10,9 @@ Status: PASS
 | Metric                      | Value                                           |
 | --------------------------- | ----------------------------------------------- |
 | Breakages                   | 0                                               |
-| Warnings                    | 60                                              |
+| Warnings                    | 59                                              |
 | Suggestions                 | 135                                             |
-| Issues                      | 195                                             |
+| Issues                      | 194                                             |
 | P0 issues                   | 2                                               |
 | P1 issues                   | 72                                              |
 | Live issues                 | 2                                               |
@@ -20,7 +20,7 @@ Status: PASS
 | Compat gaps                 | 40                                              |
 | Deprecation warnings        | 24                                              |
 | Inspector gaps              | 102                                             |
-| Upstream metadata           | 27                                              |
+| Upstream metadata           | 26                                              |
 | Ref diff failures           | 0                                               |
 | Ref diff warnings           | 0                                               |
 | Policy failures             | 0                                               |
@@ -33,7 +33,7 @@ Status: PASS
 | Windows portability risks   | 14                                              |
 | Container portability risks | 14                                              |
 | Jiti loader candidates      | 18                                              |
-| Import loop                 | p50 71 ms / p95 72 ms / max RSS 0 MB / CPU 0 ms |
+| Import loop                 | p50 64 ms / p95 66 ms / max RSS 0 MB / CPU 0 ms |
 
 ## Top Issues
 

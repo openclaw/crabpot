@@ -690,11 +690,11 @@
     "fixtureCount": 29,
     "highPriorityFixtures": 20,
     "breakageCount": 0,
-    "warningCount": 60,
+    "warningCount": 59,
     "suggestionCount": 135,
-    "decisionCount": 197,
+    "decisionCount": 196,
     "logCount": 190,
-    "issueCount": 195,
+    "issueCount": 194,
     "p0IssueCount": 2,
     "p1IssueCount": 72,
     "liveIssueCount": 2,
@@ -702,9 +702,9 @@
     "compatGapCount": 40,
     "deprecationWarningCount": 24,
     "inspectorGapCount": 102,
-    "upstreamIssueCount": 27,
+    "upstreamIssueCount": 26,
     "fixtureRegressionCount": 0,
-    "contractProbeCount": 154
+    "contractProbeCount": 153
   },
   "fixtures": [
     {
@@ -2645,8 +2645,8 @@
           ],
           "runtimeExtensions": [],
           "setupEntry": null,
-          "compatPluginApi": null,
-          "buildOpenClawVersion": null,
+          "compatPluginApi": ">=2026.2.17",
+          "buildOpenClawVersion": "2026.2.17",
           "buildPluginSdkVersion": null,
           "entrypoints": [
             {
@@ -2682,8 +2682,8 @@
             ],
             "runtimeExtensions": [],
             "setupEntry": null,
-            "compatPluginApi": null,
-            "buildOpenClawVersion": null,
+            "compatPluginApi": ">=2026.2.17",
+            "buildOpenClawVersion": "2026.2.17",
             "buildPluginSdkVersion": null,
             "entrypoints": [
               {
@@ -2703,51 +2703,15 @@
       "sdkImportDetails": [
         {
           "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/lossless-claw/src/assembler.ts",
-          "line": 2,
-          "ref": "plugins/lossless-claw/src/assembler.ts:2"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/lossless-claw/src/engine.ts",
-          "line": 19,
-          "ref": "plugins/lossless-claw/src/engine.ts:19"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/lossless-claw/src/lcm-log.ts",
-          "line": 1,
-          "ref": "plugins/lossless-claw/src/lcm-log.ts:1"
+          "file": "plugins/lossless-claw/src/openclaw-bridge.ts",
+          "line": 21,
+          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:21"
         },
         {
           "specifier": "openclaw/plugin-sdk",
           "file": "plugins/lossless-claw/src/openclaw-bridge.ts",
-          "line": 17,
-          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:17"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/lossless-claw/src/openclaw-bridge.ts",
-          "line": 22,
-          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:22"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 10,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:10"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/lossless-claw/src/plugin/lcm-command.ts",
-          "line": 9,
-          "ref": "plugins/lossless-claw/src/plugin/lcm-command.ts:9"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/lossless-claw/src/tools/common.ts",
-          "line": 1,
-          "ref": "plugins/lossless-claw/src/tools/common.ts:1"
+          "line": 26,
+          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:26"
         }
       ]
     },
@@ -10191,27 +10155,12 @@
     },
     {
       "fixture": "lossless-claw",
-      "code": "package-plugin-api-compat-missing",
-      "level": "warning",
-      "message": "package openclaw metadata does not declare compat.pluginApi",
-      "evidence": [
-        "plugins/lossless-claw/package.json"
-      ]
-    },
-    {
-      "fixture": "lossless-claw",
       "code": "legacy-root-sdk-import",
       "level": "warning",
       "message": "fixture imports the root plugin SDK barrel",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/assembler.ts:2",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/engine.ts:19",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/lcm-log.ts:1",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:17",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:22",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/index.ts:10",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/lcm-command.ts:9",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/tools/common.ts:1"
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:21",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:26"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
@@ -14831,7 +14780,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-DB268655",
+      "id": "CRABPOT-B969EA17",
       "fixture": "lossless-claw",
       "severity": "P2",
       "owner": "core",
@@ -14844,14 +14793,8 @@
       "compatStatus": "deprecated",
       "title": "lossless-claw: root plugin SDK barrel is still used by fixtures",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/assembler.ts:2",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/engine.ts:19",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/lcm-log.ts:1",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:17",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:22",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/index.ts:10",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/lcm-command.ts:9",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/tools/common.ts:1"
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:21",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:26"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
@@ -14891,24 +14834,6 @@
         "@mariozechner/pi-agent-core @ plugins/lossless-claw/package.json",
         "@mariozechner/pi-ai @ plugins/lossless-claw/package.json",
         "@mariozechner/pi-coding-agent @ plugins/lossless-claw/package.json"
-      ],
-      "compatRecord": null
-    },
-    {
-      "id": "CRABPOT-0DC43A1E",
-      "fixture": "lossless-claw",
-      "severity": "P2",
-      "owner": "plugin",
-      "code": "package-plugin-api-compat-missing",
-      "decision": "plugin-upstream-fix",
-      "status": "open",
-      "issueClass": "upstream-metadata",
-      "live": false,
-      "deprecated": false,
-      "compatStatus": "none",
-      "title": "lossless-claw: plugin API compatibility range is missing",
-      "evidence": [
-        "plugins/lossless-claw/package.json"
       ],
       "compatRecord": null
     },
@@ -16496,16 +16421,6 @@
       ]
     },
     {
-      "id": "package.compat.plugin-api-range:lossless-claw",
-      "fixture": "lossless-claw",
-      "priority": "P2",
-      "target": "package-loader",
-      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
-      "evidence": [
-        "plugins/lossless-claw/package.json"
-      ]
-    },
-    {
       "id": "package.compat.plugin-api-range:mcp-adapter",
       "fixture": "mcp-adapter",
       "priority": "P2",
@@ -17089,14 +17004,8 @@
       "target": "sdk-alias",
       "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/assembler.ts:2",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/engine.ts:19",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/lcm-log.ts:1",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:17",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:22",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/index.ts:10",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/lcm-command.ts:9",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/tools/common.ts:1"
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:21",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:26"
       ]
     },
     {
@@ -20352,13 +20261,6 @@
       "seam": "tool-policy",
       "action": "Probe before_tool_call return shapes before changing tool-call approval or block behavior.",
       "evidence": "before_tool_call"
-    },
-    {
-      "fixture": "lossless-claw",
-      "decision": "plugin-upstream-fix",
-      "seam": "package-metadata",
-      "action": "Ask the plugin to declare the plugin API range it was built against.",
-      "evidence": "plugins/lossless-claw/package.json"
     },
     {
       "fixture": "lossless-claw",

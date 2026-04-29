@@ -10,13 +10,13 @@
 ## Reporting Data
 
 `main` follows the latest published npm package. `crab-beta` follows the beta npm dist-tag. `crab-development` follows the latest `openclaw/openclaw` main commit.
-- **Last dashboard update:** Apr 29, 2026, 13:09 UTC
+- **Last dashboard update:** Apr 29, 2026, 13:13 UTC
 <!-- crabpot-tracks:start -->
 - **Source:** `npm-latest`
 - **OpenClaw version:** `2026.4.26`
 - **OpenClaw SHA:** `be8c24633aaa`
 - **Dashboard target:** `openclaw@latest`
-- **GitHub report run:** [25110568627](https://github.com/openclaw/crabpot/actions/runs/25110568627)
+- **GitHub report run:** [25110904915](https://github.com/openclaw/crabpot/actions/runs/25110904915)
 <!-- crabpot-tracks:end -->
 
 <!-- crabpot-summary:start -->
@@ -26,17 +26,17 @@
 | ---------------------- | ---------------------------------------------------- |
 | Fixtures               | 29                                                   |
 | Hard breakages         | 0                                                    |
-| Warnings               | 60                                                   |
+| Warnings               | 59                                                   |
 | Suggestions            | 135                                                  |
-| Issues                 | 195                                                  |
+| Issues                 | 194                                                  |
 | P0 issues              | [🔴 P0 2](reports/crabpot-issues.md#p0-live-issues)  |
 | P1 issues              | [🟠 P1 72](reports/crabpot-issues.md#triage-summary) |
 | Live issues            | 2 total / 2 P0                                       |
 | Compat gaps            | 40                                                   |
 | Deprecation warnings   | 24                                                   |
 | Inspector gaps         | 102                                                  |
-| Upstream metadata      | 27                                                   |
-| Contract probes        | 154                                                  |
+| Upstream metadata      | 26                                                   |
+| Contract probes        | 153                                                  |
 | Policy failures        | 0                                                    |
 | Policy warnings        | 3                                                    |
 | Ref diff failures      | 0                                                    |

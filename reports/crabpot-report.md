@@ -10,9 +10,9 @@ Status: PASS
 | Fixtures                  | 29    |
 | High-priority fixtures    | 20    |
 | Hard breakages            | 0     |
-| Warnings                  | 60    |
+| Warnings                  | 59    |
 | Compatibility suggestions | 135   |
-| Issue findings            | 195   |
+| Issue findings            | 194   |
 | P0 issues                 | 2     |
 | P1 issues                 | 72    |
 | Live issues               | 2     |
@@ -20,9 +20,9 @@ Status: PASS
 | Compat gaps               | 40    |
 | Deprecation warnings      | 24    |
 | Inspector gaps            | 102   |
-| Upstream metadata         | 27    |
-| Contract probes           | 154   |
-| Decision rows             | 197   |
+| Upstream metadata         | 26    |
+| Contract probes           | 153   |
+| Decision rows             | 196   |
 
 ## Triage Overview
 
@@ -32,7 +32,7 @@ Status: PASS
 | compat-gap          | 40    | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                          |
 | deprecation-warning | 24    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                |
 | inspector-gap       | 102   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments.                        |
-| upstream-metadata   | 27    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.        |
+| upstream-metadata   | 26    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.        |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                           |
 
 ## P0 Live Issues
@@ -452,14 +452,8 @@ Status: PASS
   - **legacy-root-sdk-import**: lossless-claw: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ assembler.ts:2](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/assembler.ts#L2)
-    - [openclaw/plugin-sdk @ engine.ts:19](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/engine.ts#L19)
-    - [openclaw/plugin-sdk @ lcm-log.ts:1](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/lcm-log.ts#L1)
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:17](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/openclaw-bridge.ts#L17)
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:22](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/openclaw-bridge.ts#L22)
-    - [openclaw/plugin-sdk @ index.ts:10](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L10)
-    - [openclaw/plugin-sdk @ lcm-command.ts:9](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/lcm-command.ts#L9)
-    - [openclaw/plugin-sdk @ common.ts:1](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/tools/common.ts#L1)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:21](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/openclaw-bridge.ts#L21)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:26](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/openclaw-bridge.ts#L26)
 
 - 🟡 P2 **memos-cloud** `deprecation-warning` `core-compat-adapter`
   - **legacy-before-agent-start**: memos-cloud: legacy before_agent_start hook compatibility is still used
@@ -696,8 +690,8 @@ Status: PASS
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture before contract judgment
   - state: open · compat:untracked
   - evidence:
-    - [registerCommand @ index.ts:2055](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2055)
-    - [registerContextEngine @ index.ts:2035](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2035)
+    - [registerCommand @ index.ts:2055](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2055)
+    - [registerContextEngine @ index.ts:2035](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2035)
 
 - 🟠 P1 **mcp-adapter** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: mcp-adapter: runtime registrations need capture before contract judgment
@@ -1064,25 +1058,25 @@ Status: PASS
   - **package-build-artifact-entrypoint**: lossless-claw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/dist/index.js)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: lossless-claw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/package.json)
-    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/package.json)
-    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/package.json)
-    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
+    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
+    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
+    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: lossless-claw: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - [registerTool @ index.ts:2037](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2037)
-    - [registerTool @ index.ts:2040](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2040)
-    - [registerTool @ index.ts:2043](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2043)
-    - [registerTool @ index.ts:2046](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2046)
+    - [registerTool @ index.ts:2037](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2037)
+    - [registerTool @ index.ts:2040](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2040)
+    - [registerTool @ index.ts:2043](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2043)
+    - [registerTool @ index.ts:2046](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2046)
 
 - 🟡 P2 **mcp-adapter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: mcp-adapter: cold import requires dependency installation in an isolated workspace
@@ -1398,12 +1392,6 @@ Status: PASS
   - evidence:
     - plugins/lightclawbot/.crabpot-package/package.json
 
-- 🟡 P2 **lossless-claw** `upstream-metadata` `plugin-upstream-fix`
-  - **package-plugin-api-compat-missing**: lossless-claw: plugin API compatibility range is missing
-  - state: open · compat:none
-  - evidence:
-    - [package.json](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/package.json)
-
 - 🟡 P2 **mcp-adapter** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: mcp-adapter: plugin API compatibility range is missing
   - state: open · compat:none
@@ -1517,8 +1505,7 @@ _none_
 | llm-trace-phoenix  | legacy-root-sdk-import            | warning | fixture imports the root plugin SDK barrel                                                     | openclaw/plugin-sdk @ plugins/llm-trace-phoenix/index.ts:12                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | legacy-root-sdk-import            |
 | opik-openclaw      | conversation-access-hook          | warning | fixture observes raw model or conversation content and needs privacy-boundary contract probes  | agent_end @ plugins/opik-openclaw/src/service.ts:560, llm_input @ plugins/opik-openclaw/src/service/hooks/llm.ts:39, llm_output @ plugins/opik-openclaw/src/service/hooks/llm.ts:150                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | hook.llm-observer.privacy-payload |
 | opik-openclaw      | legacy-root-sdk-import            | warning | fixture imports the root plugin SDK barrel                                                     | openclaw/plugin-sdk @ plugins/opik-openclaw/index.ts:1, openclaw/plugin-sdk @ plugins/opik-openclaw/index.ts:2, openclaw/plugin-sdk @ plugins/opik-openclaw/src/cli.ts:1, openclaw/plugin-sdk @ plugins/opik-openclaw/src/configure.ts:2, openclaw/plugin-sdk @ plugins/opik-openclaw/src/service.ts:5, openclaw/plugin-sdk @ plugins/opik-openclaw/src/service.ts:6, openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/llm.ts:1, openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/subagent.ts:1, openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/tool.ts:1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | legacy-root-sdk-import            |
-| lossless-claw      | package-plugin-api-compat-missing | warning | package openclaw metadata does not declare compat.pluginApi                                    | plugins/lossless-claw/package.json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | -                                 |
-| lossless-claw      | legacy-root-sdk-import            | warning | fixture imports the root plugin SDK barrel                                                     | openclaw/plugin-sdk @ plugins/lossless-claw/src/assembler.ts:2, openclaw/plugin-sdk @ plugins/lossless-claw/src/engine.ts:19, openclaw/plugin-sdk @ plugins/lossless-claw/src/lcm-log.ts:1, openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:17, openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:22, openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/index.ts:10, openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/lcm-command.ts:9, openclaw/plugin-sdk @ plugins/lossless-claw/src/tools/common.ts:1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | legacy-root-sdk-import            |
+| lossless-claw      | legacy-root-sdk-import            | warning | fixture imports the root plugin SDK barrel                                                     | openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:21, openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:26                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | legacy-root-sdk-import            |
 | connectclaw        | package-plugin-api-compat-missing | warning | package openclaw metadata does not declare compat.pluginApi                                    | plugins/connectclaw/packages/plugin/package.json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | -                                 |
 | connectclaw        | legacy-root-sdk-import            | warning | fixture imports the root plugin SDK barrel                                                     | openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/index.ts:1, openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/commands.ts:1, openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/hooks.ts:1, openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:1, openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | legacy-root-sdk-import            |
 | connectclaw        | legacy-before-agent-start         | warning | fixture uses deprecated before_agent_start hook compatibility                                  | before_agent_start @ plugins/connectclaw/packages/plugin/src/hooks.ts:17                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | legacy-before-agent-start         |
@@ -2012,8 +1999,8 @@ _none_
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture before contract judgment
   - state: open · compat:untracked
   - evidence:
-    - [registerCommand @ index.ts:2055](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2055)
-    - [registerContextEngine @ index.ts:2035](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2035)
+    - [registerCommand @ index.ts:2055](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2055)
+    - [registerContextEngine @ index.ts:2035](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2035)
 
 - 🟠 P1 **mcp-adapter** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: mcp-adapter: compat-dependent behavior lacks registry coverage
@@ -2717,44 +2704,32 @@ _none_
   - **legacy-root-sdk-import**: lossless-claw: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ assembler.ts:2](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/assembler.ts#L2)
-    - [openclaw/plugin-sdk @ engine.ts:19](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/engine.ts#L19)
-    - [openclaw/plugin-sdk @ lcm-log.ts:1](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/lcm-log.ts#L1)
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:17](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/openclaw-bridge.ts#L17)
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:22](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/openclaw-bridge.ts#L22)
-    - [openclaw/plugin-sdk @ index.ts:10](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L10)
-    - [openclaw/plugin-sdk @ lcm-command.ts:9](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/lcm-command.ts#L9)
-    - [openclaw/plugin-sdk @ common.ts:1](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/tools/common.ts#L1)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:21](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/openclaw-bridge.ts#L21)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:26](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/openclaw-bridge.ts#L26)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: lossless-claw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/dist/index.js)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: lossless-claw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/package.json)
-    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/package.json)
-    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/package.json)
-    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/package.json)
-
-- 🟡 P2 **lossless-claw** `upstream-metadata` `plugin-upstream-fix`
-  - **package-plugin-api-compat-missing**: lossless-claw: plugin API compatibility range is missing
-  - state: open · compat:none
-  - evidence:
-    - [package.json](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
+    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
+    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
+    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: lossless-claw: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - [registerTool @ index.ts:2037](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2037)
-    - [registerTool @ index.ts:2040](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2040)
-    - [registerTool @ index.ts:2043](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2043)
-    - [registerTool @ index.ts:2046](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2046)
+    - [registerTool @ index.ts:2037](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2037)
+    - [registerTool @ index.ts:2040](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2040)
+    - [registerTool @ index.ts:2043](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2043)
+    - [registerTool @ index.ts:2046](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2046)
 
 - 🟡 P2 **mcp-adapter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: mcp-adapter: cold import requires dependency installation in an isolated workspace
@@ -3237,8 +3212,8 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:lossless-claw`
   - evidence:
-    - [registerCommand @ index.ts:2055](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2055)
-    - [registerContextEngine @ index.ts:2035](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2035)
+    - [registerCommand @ index.ts:2055](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2055)
+    - [registerContextEngine @ index.ts:2035](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2035)
 
 - 🟠 P1 **mcp-adapter** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -3526,12 +3501,6 @@ _none_
   - evidence:
     - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
 
-- 🟡 P2 **lossless-claw** `package-loader`
-  - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
-  - id: `package.compat.plugin-api-range:lossless-claw`
-  - evidence:
-    - [package.json](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/package.json)
-
 - 🟡 P2 **mcp-adapter** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:mcp-adapter`
@@ -3585,7 +3554,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:lossless-claw`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/dist/index.js)
 
 - 🟡 P2 **opik-openclaw** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -3665,10 +3634,10 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:lossless-claw`
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/package.json)
-    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/package.json)
-    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/package.json)
-    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
+    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
+    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
+    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
 
 - 🟡 P2 **mcp-adapter** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -3913,14 +3882,8 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:lossless-claw`
   - evidence:
-    - [openclaw/plugin-sdk @ assembler.ts:2](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/assembler.ts#L2)
-    - [openclaw/plugin-sdk @ engine.ts:19](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/engine.ts#L19)
-    - [openclaw/plugin-sdk @ lcm-log.ts:1](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/lcm-log.ts#L1)
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:17](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/openclaw-bridge.ts#L17)
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:22](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/openclaw-bridge.ts#L22)
-    - [openclaw/plugin-sdk @ index.ts:10](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L10)
-    - [openclaw/plugin-sdk @ lcm-command.ts:9](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/lcm-command.ts#L9)
-    - [openclaw/plugin-sdk @ common.ts:1](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/tools/common.ts#L1)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:21](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/openclaw-bridge.ts#L21)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:26](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/openclaw-bridge.ts#L26)
 
 - 🟡 P2 **mocrane-wecom** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
@@ -4031,10 +3994,10 @@ _none_
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
   - id: `tool.registration.schema-capture:lossless-claw`
   - evidence:
-    - [registerTool @ index.ts:2037](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2037)
-    - [registerTool @ index.ts:2040](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2040)
-    - [registerTool @ index.ts:2043](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2043)
-    - [registerTool @ index.ts:2046](https://github.com/Martian-Engineering/lossless-claw/blob/f2574ed9585ebba46b3574d9d2541444766cab19/src/plugin/index.ts#L2046)
+    - [registerTool @ index.ts:2037](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2037)
+    - [registerTool @ index.ts:2040](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2040)
+    - [registerTool @ index.ts:2043](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2043)
+    - [registerTool @ index.ts:2046](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2046)
 
 - 🟡 P2 **mcp-adapter** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
@@ -4363,7 +4326,6 @@ _none_
 | opik-openclaw      | core-compat-adapter | sdk-import           | Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.                  | openclaw/plugin-sdk                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | opik-openclaw      | inspector-follow-up | registration-capture | Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.                 | registerService                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | opik-openclaw      | inspector-follow-up | tool-policy          | Probe before_tool_call return shapes before changing tool-call approval or block behavior.                           | before_tool_call                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| lossless-claw      | plugin-upstream-fix | package-metadata     | Ask the plugin to declare the plugin API range it was built against.                                                 | plugins/lossless-claw/package.json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | lossless-claw      | inspector-follow-up | cold-import          | Run the plugin build or resolve source entrypoint aliases before cold-importing this fixture.                        | ./dist/index.js                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | lossless-claw      | inspector-follow-up | cold-import          | Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.                      | @sinclair/typebox, @mariozechner/pi-agent-core, @mariozechner/pi-ai, @mariozechner/pi-coding-agent                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | lossless-claw      | core-compat-adapter | sdk-import           | Keep the root SDK barrel stable or expose a machine-readable migration map before removing aliases.                  | openclaw/plugin-sdk                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
