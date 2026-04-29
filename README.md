@@ -10,13 +10,13 @@
 ## Reporting Data
 
 `main` follows the latest published npm package. `crab-beta` follows the beta npm dist-tag. `crab-development` follows the latest `openclaw/openclaw` main commit.
-- **Last dashboard update:** Apr 29, 2026, 01:21 UTC
+- **Last dashboard update:** Apr 29, 2026, 01:33 UTC
 <!-- crabpot-tracks:start -->
 - **Source:** `npm-latest`
 - **OpenClaw version:** `2026.4.26`
 - **OpenClaw SHA:** `be8c24633aaa`
 - **Dashboard target:** `openclaw@latest`
-- **GitHub report run:** [25086137618](https://github.com/openclaw/crabpot/actions/runs/25086137618)
+- **GitHub report run:** [25086433745](https://github.com/openclaw/crabpot/actions/runs/25086433745)
 <!-- crabpot-tracks:end -->
 
 <!-- crabpot-summary:start -->
