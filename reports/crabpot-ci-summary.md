@@ -1,7 +1,7 @@
 # Crabpot CI Summary
 
 Generated: deterministic
-Mode: track:latest
+Mode: check
 OpenClaw: openclaw@latest (2026.4.26, be8c24633aaa)
 Status: PASS
 
@@ -33,7 +33,7 @@ Status: PASS
 | Windows portability risks   | 172                                             |
 | Container portability risks | 51                                              |
 | Jiti loader candidates      | 18                                              |
-| Import loop                 | p50 69 ms / p95 70 ms / max RSS 0 MB / CPU 0 ms |
+| Import loop                 | p50 73 ms / p95 74 ms / max RSS 0 MB / CPU 0 ms |
 
 ## Top Issues
 
