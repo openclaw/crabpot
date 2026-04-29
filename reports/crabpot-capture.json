@@ -10,9 +10,9 @@
     "fixtureCount": 29,
     "registrationCount": 176,
     "hookCount": 80,
-    "sdkImportCount": 457,
+    "sdkImportCount": 451,
     "packageEntrypointCount": 34,
-    "issueProbeCount": 154,
+    "issueProbeCount": 153,
     "inspectorShimRequiredCount": 95,
     "compatAliasRequiredCount": 3
   },
@@ -1630,10 +1630,10 @@
       ],
       "sdkImports": [
         {
-          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-assembler-ts-2",
+          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-openclaw-bridge-ts-21",
           "fixture": "lossless-claw",
           "specifier": "openclaw/plugin-sdk",
-          "ref": "plugins/lossless-claw/src/assembler.ts:2",
+          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:21",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -1641,76 +1641,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-engine-ts-19",
+          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-openclaw-bridge-ts-26",
           "fixture": "lossless-claw",
           "specifier": "openclaw/plugin-sdk",
-          "ref": "plugins/lossless-claw/src/engine.ts:19",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-lcm-log-ts-1",
-          "fixture": "lossless-claw",
-          "specifier": "openclaw/plugin-sdk",
-          "ref": "plugins/lossless-claw/src/lcm-log.ts:1",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-openclaw-bridge-ts-17",
-          "fixture": "lossless-claw",
-          "specifier": "openclaw/plugin-sdk",
-          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:17",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-openclaw-bridge-ts-22",
-          "fixture": "lossless-claw",
-          "specifier": "openclaw/plugin-sdk",
-          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:22",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-10",
-          "fixture": "lossless-claw",
-          "specifier": "openclaw/plugin-sdk",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:10",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-plugin-lcm-command-ts-9",
-          "fixture": "lossless-claw",
-          "specifier": "openclaw/plugin-sdk",
-          "ref": "plugins/lossless-claw/src/plugin/lcm-command.ts:9",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk:lossless-claw:plugins-lossless-claw-src-tools-common-ts-1",
-          "fixture": "lossless-claw",
-          "specifier": "openclaw/plugin-sdk",
-          "ref": "plugins/lossless-claw/src/tools/common.ts:1",
+          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:26",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11496,19 +11430,6 @@
       ]
     },
     {
-      "id": "package.compat.plugin-api-range:lossless-claw",
-      "fixture": "lossless-claw",
-      "priority": "P2",
-      "target": "package-loader",
-      "evidence": [
-        "plugins/lossless-claw/package.json"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
       "id": "package.compat.plugin-api-range:mcp-adapter",
       "fixture": "mcp-adapter",
       "priority": "P2",
@@ -12239,14 +12160,8 @@
       "priority": "P2",
       "target": "sdk-alias",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/assembler.ts:2",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/engine.ts:19",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/lcm-log.ts:1",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:17",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:22",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/index.ts:10",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/plugin/lcm-command.ts:9",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/tools/common.ts:1"
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:21",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:26"
       ],
       "assertions": [
         "package export exists",
