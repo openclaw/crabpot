@@ -87,6 +87,7 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.match(workflow, /origin\/main:reports\/crabpot-dashboard-data\.json/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs \$\{baseline_arg\}/);
   assert.match(workflow, /git push origin HEAD:\$\{\{ matrix\.branch \}\}/);
+  assert.match(workflow, /git push --force-with-lease="refs\/heads\/\$\{\{ matrix\.branch \}\}" origin HEAD:\$\{\{ matrix\.branch \}\}/);
 });
 
 test("default check workflow runs OS and container static lanes", async () => {
