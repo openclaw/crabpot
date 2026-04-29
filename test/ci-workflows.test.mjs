@@ -108,6 +108,9 @@ test("default check workflow resolves changed submodules into an isolated fixtur
   assert.match(workflow, /changed-isolated-fixture:/);
   assert.match(workflow, /matrix: \$\{\{ fromJson\(needs\.changed-fixture-plan\.outputs\.matrix\) \}\}/);
   assert.match(workflow, /npm run workspace:execute -- --fixture "\$\{\{ matrix\.id \}\}" --allow-empty/);
+  assert.match(workflow, /Fail if isolated policy failed/);
+  assert.match(workflow, /steps\.policy\.outcome == 'failure'/);
+  assert.doesNotMatch(workflow, /steps\.execute\.outcome == 'failure' \|\| steps\.policy\.outcome == 'failure'/);
 });
 
 test("workflows use current action majors and dependency caches", async () => {

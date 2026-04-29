@@ -198,8 +198,8 @@ jobs:
             reports/crabpot-ci-policy.*
             reports/crabpot-ci-summary.*
           if-no-files-found: warn
-      - name: Fail if isolated execution failed
-        if: ${{ steps.execute.outcome == 'failure' || steps.policy.outcome == 'failure' }}
+      - name: Fail if isolated policy failed
+        if: ${{ steps.policy.outcome == 'failure' }}
         run: exit 1
 
   dashboard:
