@@ -13,11 +13,11 @@
     "tsLoaderEntrypointCount": 18,
     "jitiAlternativeCount": 18,
     "lazyImportProbeCount": 34,
-    "portabilityFindingCount": 173,
-    "windowsRiskStepCount": 173,
-    "macosRiskStepCount": 18,
-    "linuxRiskStepCount": 18,
-    "containerRiskStepCount": 52
+    "portabilityFindingCount": 172,
+    "windowsRiskStepCount": 172,
+    "macosRiskStepCount": 17,
+    "linuxRiskStepCount": 17,
+    "containerRiskStepCount": 51
   },
   "entrypoints": [
     {
@@ -219,7 +219,7 @@
     {
       "fixture": "honcho",
       "id": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "build-required",
       "entrypoint": "plugins/honcho/dist/index.js",
       "packageManager": "pnpm",
       "loaderSource": "native-node",
@@ -249,7 +249,7 @@
     {
       "fixture": "kitchen-sink",
       "id": "cold-import.extension:kitchen-sink:plugins-kitchen-sink-src-index-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/kitchen-sink/src/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -263,7 +263,7 @@
     {
       "fixture": "kitchen-sink",
       "id": "cold-import.runtimeExtension:kitchen-sink:plugins-kitchen-sink-src-index-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/kitchen-sink/src/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -277,7 +277,7 @@
     {
       "fixture": "kitchen-sink",
       "id": "cold-import.setupEntry:kitchen-sink:plugins-kitchen-sink-src-setup-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/kitchen-sink/src/setup.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -353,7 +353,7 @@
     {
       "fixture": "yuanbao",
       "id": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/yuanbao/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -441,7 +441,7 @@
     {
       "fixture": "clawmetry",
       "id": "cold-import.extension:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts",
-      "status": "sdk-alias-required",
+      "status": "ts-loader-required",
       "entrypoint": "plugins/clawmetry/clawhub-plugin/index.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",
@@ -457,7 +457,7 @@
     {
       "fixture": "clawmetry",
       "id": "cold-import.runtimeExtension:clawmetry:plugins-clawmetry-clawhub-plugin-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "build-required",
       "entrypoint": "plugins/clawmetry/clawhub-plugin/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -575,7 +575,7 @@
       "riskCodes": [
         "package-manager-availability"
       ],
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "mitigation": "install the declared package manager before isolated execution"
     },
     {
@@ -661,7 +661,7 @@
       "riskCodes": [
         "package-manager-availability"
       ],
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "mitigation": "install the declared package manager before isolated execution"
     },
     {
@@ -1327,7 +1327,7 @@
       "riskCodes": [
         "package-manager-availability"
       ],
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "mitigation": "install the declared package manager before isolated execution"
     },
     {
@@ -1489,22 +1489,6 @@
       ],
       "command": "mkdir -p .crabpot/results/honcho",
       "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
-    },
-    {
-      "fixture": "honcho",
-      "entrypoint": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
-      "kind": "link-openclaw",
-      "platforms": [
-        "container",
-        "linux",
-        "macos",
-        "windows"
-      ],
-      "riskCodes": [
-        "package-manager-availability"
-      ],
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
-      "mitigation": "install the declared package manager before isolated execution"
     },
     {
       "fixture": "honcho",
@@ -1933,7 +1917,7 @@
       "riskCodes": [
         "package-manager-availability"
       ],
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "mitigation": "install the declared package manager before isolated execution"
     },
     {
@@ -2657,7 +2641,7 @@
       "riskCodes": [
         "package-manager-availability"
       ],
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "mitigation": "install the declared package manager before isolated execution"
     },
     {
@@ -2903,7 +2887,7 @@
       "riskCodes": [
         "package-manager-availability"
       ],
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "mitigation": "install the declared package manager before isolated execution"
     },
     {

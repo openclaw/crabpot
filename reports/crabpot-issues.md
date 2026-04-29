@@ -7,82 +7,53 @@ Status: PASS
 
 | Metric               | Value |
 | -------------------- | ----- |
-| Issue findings       | 163   |
-| 🔴 P0                | 5     |
+| Issue findings       | 160   |
+| 🔴 P0                | 2     |
 | 🟠 P1                | 33    |
-| Live issues          | 5     |
-| Live P0 issues       | 5     |
-| Compat gaps          | 4     |
+| Live issues          | 2     |
+| Live P0 issues       | 2     |
+| Compat gaps          | 1     |
 | Deprecation warnings | 24    |
 | Inspector gaps       | 106   |
-| Upstream metadata    | 24    |
+| Upstream metadata    | 27    |
 | Contract probes      | 158   |
 
 ## Triage Overview
 
 | Class               | Count | P0 | Meaning                                                                                                         |
 | ------------------- | ----- | -- | --------------------------------------------------------------------------------------------------------------- |
-| live-issue          | 5     | 5  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam. |
-| compat-gap          | 4     | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                          |
+| live-issue          | 2     | 2  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam. |
+| compat-gap          | 1     | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                          |
 | deprecation-warning | 24    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                |
 | inspector-gap       | 106   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments.                        |
-| upstream-metadata   | 24    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.        |
+| upstream-metadata   | 27    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.        |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                           |
 
 ## P0 Live Issues
 
-- 🔴 P0 **clawmetry** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: clawmetry: plugin SDK import aliases are missing from target package exports
-  - state: blocking · compat:untracked · live
-  - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
-
 - 🔴 P0 **codex-app-server** `live-issue` `core-compat-adapter`
   - **sdk-export-missing**: codex-app-server: plugin SDK import aliases are missing from target package exports
   - state: blocking · compat:untracked · live
   - evidence:
+    - [openclaw/plugin-sdk/discord @ controller.ts:104](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L104)
+    - [openclaw/plugin-sdk/discord @ controller.ts:106](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L106)
     - [openclaw/plugin-sdk/telegram-account @ controller.ts:105](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L105)
-
-- 🔴 P0 **honcho** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: honcho: plugin SDK import aliases are missing from target package exports
-  - state: blocking · compat:untracked · live
-  - evidence:
-    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
 
 - 🔴 P0 **hyperspell** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: hyperspell: fixture uses a hook missing from target OpenClaw
   - state: blocking · compat:none · live
   - evidence:
     - [file_changed @ index.ts:122](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L122)
-
-- 🔴 P0 **yuanbao** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: yuanbao: plugin SDK import aliases are missing from target package exports
-  - state: blocking · compat:untracked · live
-  - evidence:
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
 
 ## Live Issues
 
-- 🔴 P0 **clawmetry** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: clawmetry: plugin SDK import aliases are missing from target package exports
-  - state: blocking · compat:untracked · live
-  - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
-
 - 🔴 P0 **codex-app-server** `live-issue` `core-compat-adapter`
   - **sdk-export-missing**: codex-app-server: plugin SDK import aliases are missing from target package exports
   - state: blocking · compat:untracked · live
   - evidence:
+    - [openclaw/plugin-sdk/discord @ controller.ts:104](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L104)
+    - [openclaw/plugin-sdk/discord @ controller.ts:106](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L106)
     - [openclaw/plugin-sdk/telegram-account @ controller.ts:105](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L105)
-
-- 🔴 P0 **honcho** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: honcho: plugin SDK import aliases are missing from target package exports
-  - state: blocking · compat:untracked · live
-  - evidence:
-    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
 
 - 🔴 P0 **hyperspell** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: hyperspell: fixture uses a hook missing from target OpenClaw
@@ -90,37 +61,10 @@ Status: PASS
   - evidence:
     - [file_changed @ index.ts:122](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L122)
 
-- 🔴 P0 **yuanbao** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: yuanbao: plugin SDK import aliases are missing from target package exports
-  - state: blocking · compat:untracked · live
-  - evidence:
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
-
 ## Compat Gaps
-
-- 🟠 P1 **clawmetry** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: clawmetry: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - plugin-sdk-export-aliases
 
 - 🟠 P1 **codex-app-server** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: codex-app-server: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - plugin-sdk-export-aliases
-
-- 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - plugin-sdk-export-aliases
-
-- 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: yuanbao: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
     - plugin-sdk-export-aliases
@@ -250,13 +194,13 @@ Status: PASS
   - **legacy-before-agent-start**: kitchen-sink: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ generated-hooks.js:9](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-hooks.js#L9)
+    - [before_agent_start @ generated-hooks.js:9](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L9)
 
 - 🟡 P2 **kitchen-sink** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: kitchen-sink: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ generated-sdk-imports.ts:2](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-sdk-imports.ts#L2)
+    - [openclaw/plugin-sdk @ generated-sdk-imports.ts:2](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-sdk-imports.ts#L2)
 
 - 🟡 P2 **llm-trace-phoenix** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: llm-trace-phoenix: root plugin SDK barrel is still used by fixtures
@@ -446,46 +390,46 @@ Status: PASS
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
   - state: open · compat:none
   - evidence:
-    - [before_tool_call @ generated-hooks.js:17](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-hooks.js#L17)
+    - [before_tool_call @ generated-hooks.js:17](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L17)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: kitchen-sink: conversation-access hooks need privacy-boundary probes
   - state: open · compat:none
   - evidence:
-    - [agent_end @ generated-hooks.js:6](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-hooks.js#L6)
-    - [llm_input @ generated-hooks.js:21](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-hooks.js#L21)
-    - [llm_output @ generated-hooks.js:22](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-hooks.js#L22)
+    - [agent_end @ generated-hooks.js:6](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L6)
+    - [llm_input @ generated-hooks.js:21](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L21)
+    - [llm_output @ generated-hooks.js:22](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L22)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: kitchen-sink: runtime registrations need capture before contract judgment
   - state: open · compat:none
   - evidence:
-    - [registerAutoEnableProbe @ generated-registrars.js:6](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L6)
-    - [registerChannel @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L7)
-    - [registerCommand @ generated-registrars.js:11](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L11)
-    - [registerCommand @ kitchen-runtime.js:15](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/kitchen-runtime.js#L15)
-    - [registerCommand @ kitchen-runtime.js:16](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/kitchen-runtime.js#L16)
-    - [registerCompactionProvider @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L12)
-    - [registerConfigMigration @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L13)
-    - [registerContextEngine @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L14)
-    - [registerDetachedTaskRuntime @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L15)
-    - [registerGatewayDiscoveryService @ generated-registrars.js:16](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L16)
-    - [registerGatewayMethod @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L17)
-    - [registerHook @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L18)
-    - [registerHttpRoute @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L19)
-    - [registerInteractiveHandler @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L21)
-    - [registerInteractiveHandler @ kitchen-runtime.js:18](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/kitchen-runtime.js#L18)
-    - [registerMemoryCapability @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L23)
-    - [registerMemoryCorpusSupplement @ generated-registrars.js:24](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L24)
-    - [registerMemoryFlushPlan @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L26)
-    - [registerMemoryPromptSection @ generated-registrars.js:27](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L27)
-    - [registerMemoryPromptSupplement @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L28)
-    - [registerMemoryPromptSupplement @ kitchen-runtime.js:37](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/kitchen-runtime.js#L37)
-    - [registerMemoryRuntime @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L29)
-    - [registerNodeHostCommand @ generated-registrars.js:32](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L32)
-    - [registerReload @ generated-registrars.js:36](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L36)
-    - [registerSecurityAuditCollector @ generated-registrars.js:37](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L37)
-    - [registerService @ generated-registrars.js:38](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L38)
+    - [registerAutoEnableProbe @ generated-registrars.js:6](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L6)
+    - [registerChannel @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L7)
+    - [registerCommand @ generated-registrars.js:11](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L11)
+    - [registerCommand @ kitchen-runtime.js:15](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/kitchen-runtime.js#L15)
+    - [registerCommand @ kitchen-runtime.js:16](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/kitchen-runtime.js#L16)
+    - [registerCompactionProvider @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L12)
+    - [registerConfigMigration @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L13)
+    - [registerContextEngine @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L14)
+    - [registerDetachedTaskRuntime @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L15)
+    - [registerGatewayDiscoveryService @ generated-registrars.js:16](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L16)
+    - [registerGatewayMethod @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L17)
+    - [registerHook @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L18)
+    - [registerHttpRoute @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L19)
+    - [registerInteractiveHandler @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L21)
+    - [registerInteractiveHandler @ kitchen-runtime.js:18](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/kitchen-runtime.js#L18)
+    - [registerMemoryCapability @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L23)
+    - [registerMemoryCorpusSupplement @ generated-registrars.js:24](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L24)
+    - [registerMemoryFlushPlan @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L26)
+    - [registerMemoryPromptSection @ generated-registrars.js:27](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L27)
+    - [registerMemoryPromptSupplement @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L28)
+    - [registerMemoryPromptSupplement @ kitchen-runtime.js:37](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/kitchen-runtime.js#L37)
+    - [registerMemoryRuntime @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L29)
+    - [registerNodeHostCommand @ generated-registrars.js:32](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L32)
+    - [registerReload @ generated-registrars.js:36](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L36)
+    - [registerSecurityAuditCollector @ generated-registrars.js:37](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L37)
+    - [registerService @ generated-registrars.js:38](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L38)
 
 - 🟠 P1 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lightclawbot: runtime registrations need capture before contract judgment
@@ -860,13 +804,13 @@ Status: PASS
   - **channel-contract-probe**: kitchen-sink: channel runtime needs envelope/config probes
   - state: open · compat:none
   - evidence:
-    - [registerChannel @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L7)
+    - [registerChannel @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L7)
 
 - 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: kitchen-sink: cold import requires isolated dependency installation
   - state: open · compat:none
   - evidence:
-    - [openclaw @ package.json](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/package.json)
+    - [openclaw @ package.json](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/package.json)
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
@@ -1148,6 +1092,27 @@ Status: PASS
 
 ## Upstream Metadata Issues
 
+- 🟠 P1 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: clawmetry: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
+
+- 🟠 P1 **honcho** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: honcho: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
+
+- 🟠 P1 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: yuanbao: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
+
 - 🟡 P2 **a2a-gateway** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: a2a-gateway: manifest uses unsupported top-level fields
   - state: open · compat:none
@@ -1300,38 +1265,19 @@ Status: PASS
 
 ## Issues
 
-- 🔴 P0 **clawmetry** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: clawmetry: plugin SDK import aliases are missing from target package exports
-  - state: blocking · compat:untracked · live
-  - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
-
 - 🔴 P0 **codex-app-server** `live-issue` `core-compat-adapter`
   - **sdk-export-missing**: codex-app-server: plugin SDK import aliases are missing from target package exports
   - state: blocking · compat:untracked · live
   - evidence:
+    - [openclaw/plugin-sdk/discord @ controller.ts:104](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L104)
+    - [openclaw/plugin-sdk/discord @ controller.ts:106](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L106)
     - [openclaw/plugin-sdk/telegram-account @ controller.ts:105](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L105)
-
-- 🔴 P0 **honcho** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: honcho: plugin SDK import aliases are missing from target package exports
-  - state: blocking · compat:untracked · live
-  - evidence:
-    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
 
 - 🔴 P0 **hyperspell** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: hyperspell: fixture uses a hook missing from target OpenClaw
   - state: blocking · compat:none · live
   - evidence:
     - [file_changed @ index.ts:122](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L122)
-
-- 🔴 P0 **yuanbao** `live-issue` `core-compat-adapter`
-  - **sdk-export-missing**: yuanbao: plugin SDK import aliases are missing from target package exports
-  - state: blocking · compat:untracked · live
-  - evidence:
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
 
 - 🟠 P1 **a2a-gateway** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: a2a-gateway: runtime registrations need capture before contract judgment
@@ -1344,17 +1290,17 @@ Status: PASS
     - [registerGatewayMethod @ index.ts:669](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L669)
     - [registerService @ index.ts:857](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L857)
 
-- 🟠 P1 **clawmetry** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: clawmetry: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - plugin-sdk-export-aliases
-
 - 🟠 P1 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture before contract judgment
   - state: open · compat:none
   - evidence:
     - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/index.ts#L9)
+
+- 🟠 P1 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: clawmetry: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
 
 - 🟠 P1 **codex-app-server** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: codex-app-server: compat-dependent behavior lacks registry coverage
@@ -1405,18 +1351,18 @@ Status: PASS
     - [agent_end @ capture.ts:89](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/hooks/capture.ts#L89)
     - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/hooks/subagent.ts#L34)
 
-- 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - plugin-sdk-export-aliases
-
 - 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: honcho: runtime registrations need capture before contract judgment
   - state: open · compat:none
   - evidence:
     - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L97)
     - [registerMemoryRuntime @ runtime.ts:276](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/runtime.ts#L276)
+
+- 🟠 P1 **honcho** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: honcho: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
 
 - 🟠 P1 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: hyperspell: conversation-access hooks need privacy-boundary probes
@@ -1441,46 +1387,46 @@ Status: PASS
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
   - state: open · compat:none
   - evidence:
-    - [before_tool_call @ generated-hooks.js:17](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-hooks.js#L17)
+    - [before_tool_call @ generated-hooks.js:17](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L17)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: kitchen-sink: conversation-access hooks need privacy-boundary probes
   - state: open · compat:none
   - evidence:
-    - [agent_end @ generated-hooks.js:6](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-hooks.js#L6)
-    - [llm_input @ generated-hooks.js:21](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-hooks.js#L21)
-    - [llm_output @ generated-hooks.js:22](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-hooks.js#L22)
+    - [agent_end @ generated-hooks.js:6](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L6)
+    - [llm_input @ generated-hooks.js:21](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L21)
+    - [llm_output @ generated-hooks.js:22](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L22)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: kitchen-sink: runtime registrations need capture before contract judgment
   - state: open · compat:none
   - evidence:
-    - [registerAutoEnableProbe @ generated-registrars.js:6](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L6)
-    - [registerChannel @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L7)
-    - [registerCommand @ generated-registrars.js:11](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L11)
-    - [registerCommand @ kitchen-runtime.js:15](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/kitchen-runtime.js#L15)
-    - [registerCommand @ kitchen-runtime.js:16](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/kitchen-runtime.js#L16)
-    - [registerCompactionProvider @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L12)
-    - [registerConfigMigration @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L13)
-    - [registerContextEngine @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L14)
-    - [registerDetachedTaskRuntime @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L15)
-    - [registerGatewayDiscoveryService @ generated-registrars.js:16](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L16)
-    - [registerGatewayMethod @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L17)
-    - [registerHook @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L18)
-    - [registerHttpRoute @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L19)
-    - [registerInteractiveHandler @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L21)
-    - [registerInteractiveHandler @ kitchen-runtime.js:18](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/kitchen-runtime.js#L18)
-    - [registerMemoryCapability @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L23)
-    - [registerMemoryCorpusSupplement @ generated-registrars.js:24](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L24)
-    - [registerMemoryFlushPlan @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L26)
-    - [registerMemoryPromptSection @ generated-registrars.js:27](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L27)
-    - [registerMemoryPromptSupplement @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L28)
-    - [registerMemoryPromptSupplement @ kitchen-runtime.js:37](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/kitchen-runtime.js#L37)
-    - [registerMemoryRuntime @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L29)
-    - [registerNodeHostCommand @ generated-registrars.js:32](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L32)
-    - [registerReload @ generated-registrars.js:36](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L36)
-    - [registerSecurityAuditCollector @ generated-registrars.js:37](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L37)
-    - [registerService @ generated-registrars.js:38](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L38)
+    - [registerAutoEnableProbe @ generated-registrars.js:6](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L6)
+    - [registerChannel @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L7)
+    - [registerCommand @ generated-registrars.js:11](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L11)
+    - [registerCommand @ kitchen-runtime.js:15](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/kitchen-runtime.js#L15)
+    - [registerCommand @ kitchen-runtime.js:16](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/kitchen-runtime.js#L16)
+    - [registerCompactionProvider @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L12)
+    - [registerConfigMigration @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L13)
+    - [registerContextEngine @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L14)
+    - [registerDetachedTaskRuntime @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L15)
+    - [registerGatewayDiscoveryService @ generated-registrars.js:16](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L16)
+    - [registerGatewayMethod @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L17)
+    - [registerHook @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L18)
+    - [registerHttpRoute @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L19)
+    - [registerInteractiveHandler @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L21)
+    - [registerInteractiveHandler @ kitchen-runtime.js:18](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/kitchen-runtime.js#L18)
+    - [registerMemoryCapability @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L23)
+    - [registerMemoryCorpusSupplement @ generated-registrars.js:24](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L24)
+    - [registerMemoryFlushPlan @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L26)
+    - [registerMemoryPromptSection @ generated-registrars.js:27](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L27)
+    - [registerMemoryPromptSupplement @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L28)
+    - [registerMemoryPromptSupplement @ kitchen-runtime.js:37](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/kitchen-runtime.js#L37)
+    - [registerMemoryRuntime @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L29)
+    - [registerNodeHostCommand @ generated-registrars.js:32](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L32)
+    - [registerReload @ generated-registrars.js:36](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L36)
+    - [registerSecurityAuditCollector @ generated-registrars.js:37](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L37)
+    - [registerService @ generated-registrars.js:38](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L38)
 
 - 🟠 P1 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lightclawbot: runtime registrations need capture before contract judgment
@@ -1586,12 +1532,6 @@ Status: PASS
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L27)
     - [registerHttpRoute @ index.js:56](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L56)
 
-- 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: yuanbao: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - plugin-sdk-export-aliases
-
 - 🟠 P1 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: yuanbao: runtime registrations need capture before contract judgment
   - state: open · compat:none
@@ -1600,6 +1540,15 @@ Status: PASS
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:31
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:32
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:34
+
+- 🟠 P1 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
+  - **reserved-sdk-import**: yuanbao: plugin imports reserved bundled-plugin SDK compatibility subpaths
+  - state: open · compat:none
+  - evidence:
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
 
 - 🟡 P2 **a2a-gateway** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: a2a-gateway: root plugin SDK barrel is still used by fixtures
@@ -2038,25 +1987,25 @@ Status: PASS
   - **channel-contract-probe**: kitchen-sink: channel runtime needs envelope/config probes
   - state: open · compat:none
   - evidence:
-    - [registerChannel @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L7)
+    - [registerChannel @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L7)
 
 - 🟡 P2 **kitchen-sink** `deprecation-warning` `core-compat-adapter`
   - **legacy-before-agent-start**: kitchen-sink: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ generated-hooks.js:9](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-hooks.js#L9)
+    - [before_agent_start @ generated-hooks.js:9](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L9)
 
 - 🟡 P2 **kitchen-sink** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: kitchen-sink: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ generated-sdk-imports.ts:2](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-sdk-imports.ts#L2)
+    - [openclaw/plugin-sdk @ generated-sdk-imports.ts:2](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-sdk-imports.ts#L2)
 
 - 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: kitchen-sink: cold import requires isolated dependency installation
   - state: open · compat:none
   - evidence:
-    - [openclaw @ package.json](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/package.json)
+    - [openclaw @ package.json](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/package.json)
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
@@ -2602,32 +2551,32 @@ Status: PASS
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:kitchen-sink`
   - evidence:
-    - [registerAutoEnableProbe @ generated-registrars.js:6](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L6)
-    - [registerChannel @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L7)
-    - [registerCommand @ generated-registrars.js:11](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L11)
-    - [registerCommand @ kitchen-runtime.js:15](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/kitchen-runtime.js#L15)
-    - [registerCommand @ kitchen-runtime.js:16](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/kitchen-runtime.js#L16)
-    - [registerCompactionProvider @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L12)
-    - [registerConfigMigration @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L13)
-    - [registerContextEngine @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L14)
-    - [registerDetachedTaskRuntime @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L15)
-    - [registerGatewayDiscoveryService @ generated-registrars.js:16](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L16)
-    - [registerGatewayMethod @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L17)
-    - [registerHook @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L18)
-    - [registerHttpRoute @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L19)
-    - [registerInteractiveHandler @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L21)
-    - [registerInteractiveHandler @ kitchen-runtime.js:18](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/kitchen-runtime.js#L18)
-    - [registerMemoryCapability @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L23)
-    - [registerMemoryCorpusSupplement @ generated-registrars.js:24](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L24)
-    - [registerMemoryFlushPlan @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L26)
-    - [registerMemoryPromptSection @ generated-registrars.js:27](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L27)
-    - [registerMemoryPromptSupplement @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L28)
-    - [registerMemoryPromptSupplement @ kitchen-runtime.js:37](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/kitchen-runtime.js#L37)
-    - [registerMemoryRuntime @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L29)
-    - [registerNodeHostCommand @ generated-registrars.js:32](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L32)
-    - [registerReload @ generated-registrars.js:36](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L36)
-    - [registerSecurityAuditCollector @ generated-registrars.js:37](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L37)
-    - [registerService @ generated-registrars.js:38](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L38)
+    - [registerAutoEnableProbe @ generated-registrars.js:6](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L6)
+    - [registerChannel @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L7)
+    - [registerCommand @ generated-registrars.js:11](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L11)
+    - [registerCommand @ kitchen-runtime.js:15](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/kitchen-runtime.js#L15)
+    - [registerCommand @ kitchen-runtime.js:16](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/kitchen-runtime.js#L16)
+    - [registerCompactionProvider @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L12)
+    - [registerConfigMigration @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L13)
+    - [registerContextEngine @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L14)
+    - [registerDetachedTaskRuntime @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L15)
+    - [registerGatewayDiscoveryService @ generated-registrars.js:16](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L16)
+    - [registerGatewayMethod @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L17)
+    - [registerHook @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L18)
+    - [registerHttpRoute @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L19)
+    - [registerInteractiveHandler @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L21)
+    - [registerInteractiveHandler @ kitchen-runtime.js:18](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/kitchen-runtime.js#L18)
+    - [registerMemoryCapability @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L23)
+    - [registerMemoryCorpusSupplement @ generated-registrars.js:24](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L24)
+    - [registerMemoryFlushPlan @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L26)
+    - [registerMemoryPromptSection @ generated-registrars.js:27](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L27)
+    - [registerMemoryPromptSupplement @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L28)
+    - [registerMemoryPromptSupplement @ kitchen-runtime.js:37](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/kitchen-runtime.js#L37)
+    - [registerMemoryRuntime @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L29)
+    - [registerNodeHostCommand @ generated-registrars.js:32](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L32)
+    - [registerReload @ generated-registrars.js:36](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L36)
+    - [registerSecurityAuditCollector @ generated-registrars.js:37](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L37)
+    - [registerService @ generated-registrars.js:38](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L38)
 
 - 🟠 P1 **lightclawbot** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -2707,7 +2656,7 @@ Status: PASS
   - contract: Hook returns preserve terminal, block, and approval semantics.
   - id: `hook.before_tool_call.terminal-block-approval:kitchen-sink`
   - evidence:
-    - [before_tool_call @ generated-hooks.js:17](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-hooks.js#L17)
+    - [before_tool_call @ generated-hooks.js:17](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L17)
 
 - 🟠 P1 **opik-openclaw** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
@@ -2739,9 +2688,9 @@ Status: PASS
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:kitchen-sink`
   - evidence:
-    - [agent_end @ generated-hooks.js:6](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-hooks.js#L6)
-    - [llm_input @ generated-hooks.js:21](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-hooks.js#L21)
-    - [llm_output @ generated-hooks.js:22](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-hooks.js#L22)
+    - [agent_end @ generated-hooks.js:6](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L6)
+    - [llm_input @ generated-hooks.js:21](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L21)
+    - [llm_output @ generated-hooks.js:22](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L22)
 
 - 🟠 P1 **llm-trace-phoenix** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
@@ -2770,32 +2719,13 @@ Status: PASS
     - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L39)
     - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L150)
 
-- 🟠 P1 **clawmetry** `sdk-alias`
-  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
-  - id: `sdk.import.package-export-cold-import:clawmetry`
-  - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
-
 - 🟠 P1 **codex-app-server** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
   - id: `sdk.import.package-export-cold-import:codex-app-server`
   - evidence:
+    - [openclaw/plugin-sdk/discord @ controller.ts:104](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L104)
+    - [openclaw/plugin-sdk/discord @ controller.ts:106](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L106)
     - [openclaw/plugin-sdk/telegram-account @ controller.ts:105](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L105)
-
-- 🟠 P1 **honcho** `sdk-alias`
-  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
-  - id: `sdk.import.package-export-cold-import:honcho`
-  - evidence:
-    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
-
-- 🟠 P1 **yuanbao** `sdk-alias`
-  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
-  - id: `sdk.import.package-export-cold-import:yuanbao`
-  - evidence:
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
 
 - 🟡 P2 **agentchat** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -2819,7 +2749,7 @@ Status: PASS
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:kitchen-sink`
   - evidence:
-    - [registerChannel @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-registrars.js#L7)
+    - [registerChannel @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-registrars.js#L7)
 
 - 🟡 P2 **mocrane-wecom** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -2874,7 +2804,7 @@ Status: PASS
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
   - id: `hook.compat.before-agent-start-migration:kitchen-sink`
   - evidence:
-    - [before_agent_start @ generated-hooks.js:9](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-hooks.js#L9)
+    - [before_agent_start @ generated-hooks.js:9](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-hooks.js#L9)
 
 - 🟡 P2 **agentchat** `manifest-loader`
   - contract: Legacy channel env metadata continues to map into channel setup/help surfaces.
@@ -3097,7 +3027,7 @@ Status: PASS
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:kitchen-sink`
   - evidence:
-    - [openclaw @ package.json](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/package.json)
+    - [openclaw @ package.json](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/package.json)
 
 - 🟡 P2 **lossless-claw** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -3262,6 +3192,21 @@ Status: PASS
     - package:1.4.0
     - manifest:1.3.0
 
+- 🟡 P2 **honcho** `sdk-import`
+  - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
+  - id: `sdk.import.reserved-bundled-plugin-boundary:honcho`
+  - evidence:
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/f1ac095b5d633d463d57c5cc9735547a73ff9199/index.ts#L11)
+
+- 🟡 P2 **yuanbao** `sdk-import`
+  - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
+  - id: `sdk.import.reserved-bundled-plugin-boundary:yuanbao`
+  - evidence:
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
+    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
+
 - 🟡 P2 **a2a-gateway** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:a2a-gateway`
@@ -3331,7 +3276,7 @@ Status: PASS
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:kitchen-sink`
   - evidence:
-    - [openclaw/plugin-sdk @ generated-sdk-imports.ts:2](https://github.com/openclaw/kitchen-sink/blob/d43292fd11dfba36a586c6f439ed2aa129361bfc/src/generated-sdk-imports.ts#L2)
+    - [openclaw/plugin-sdk @ generated-sdk-imports.ts:2](https://github.com/openclaw/kitchen-sink/blob/6dc166f89809def9338625de9f8beb0557c75e5c/src/generated-sdk-imports.ts#L2)
 
 - 🟡 P2 **llm-trace-phoenix** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
@@ -3670,6 +3615,12 @@ Status: PASS
   - evidence:
     - package:1.1.2
     - manifest:1.0.0
+
+- 🟢 P3 **clawmetry** `sdk-import`
+  - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
+  - id: `sdk.import.reserved-bundled-plugin-boundary:clawmetry`
+  - evidence:
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
 
 - 🟢 P3 **apify** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.

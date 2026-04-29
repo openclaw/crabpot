@@ -13,11 +13,11 @@ Targets: linux, macos, windows, container
 | tsLoaderEntrypointCount | 18    |
 | jitiAlternativeCount    | 18    |
 | lazyImportProbeCount    | 34    |
-| portabilityFindingCount | 173   |
-| windowsRiskStepCount    | 173   |
-| macosRiskStepCount      | 18    |
-| linuxRiskStepCount      | 18    |
-| containerRiskStepCount  | 52    |
+| portabilityFindingCount | 172   |
+| windowsRiskStepCount    | 172   |
+| macosRiskStepCount      | 17    |
+| linuxRiskStepCount      | 17    |
+| containerRiskStepCount  | 51    |
 
 ## Loader Probes
 
@@ -36,23 +36,23 @@ Targets: linux, macos, windows, container
 | lossless-claw      | build-required              | node    | -            | no          | no            | plugins/lossless-claw/dist/index.js                                 |
 | connectclaw        | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/connectclaw/packages/plugin/index.ts                        |
 | hyperspell         | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/hyperspell/index.ts                                         |
-| honcho             | sdk-alias-required          | node    | -            | no          | no            | plugins/honcho/dist/index.js                                        |
+| honcho             | build-required              | node    | -            | no          | no            | plugins/honcho/dist/index.js                                        |
 | composio           | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/composio/index.ts                                           |
-| kitchen-sink       | sdk-alias-required          | node    | -            | no          | no            | plugins/kitchen-sink/src/index.js                                   |
-| kitchen-sink       | sdk-alias-required          | node    | -            | no          | no            | plugins/kitchen-sink/src/index.js                                   |
-| kitchen-sink       | sdk-alias-required          | node    | -            | no          | no            | plugins/kitchen-sink/src/setup.js                                   |
+| kitchen-sink       | dependency-install-required | node    | -            | no          | no            | plugins/kitchen-sink/src/index.js                                   |
+| kitchen-sink       | dependency-install-required | node    | -            | no          | no            | plugins/kitchen-sink/src/index.js                                   |
+| kitchen-sink       | dependency-install-required | node    | -            | no          | no            | plugins/kitchen-sink/src/setup.js                                   |
 | memory-tencentdb   | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/memory-tencentdb/.crabpot-package/index.ts                  |
 | ddingtalk          | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/ddingtalk/index.ts                                          |
 | dingtalk-connector | build-required              | node    | -            | no          | no            | plugins/dingtalk-connector/dist/index.mjs                           |
 | mocrane-wecom      | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/mocrane-wecom/index.ts                                      |
-| yuanbao            | sdk-alias-required          | node    | -            | no          | no            | plugins/yuanbao/.crabpot-package/dist/index.js                      |
+| yuanbao            | dependency-install-required | node    | -            | no          | no            | plugins/yuanbao/.crabpot-package/dist/index.js                      |
 | openclaw-weixin    | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/openclaw-weixin/.crabpot-package/index.ts                   |
 | lightclawbot       | dependency-install-required | node    | -            | no          | no            | plugins/lightclawbot/.crabpot-package/dist/index.js                 |
 | memu-engine        | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/memu-engine/index.ts                                        |
 | secureclaw         | build-required              | node    | -            | no          | no            | plugins/secureclaw/secureclaw/dist/index.js                         |
 | memos-cloud        | review-required             | node    | -            | no          | no            | plugins/memos-cloud/index.js                                        |
-| clawmetry          | sdk-alias-required          | tsx     | jiti         | yes         | yes           | plugins/clawmetry/clawhub-plugin/index.ts                           |
-| clawmetry          | sdk-alias-required          | node    | -            | no          | no            | plugins/clawmetry/clawhub-plugin/dist/index.js                      |
+| clawmetry          | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/clawmetry/clawhub-plugin/index.ts                           |
+| clawmetry          | build-required              | node    | -            | no          | no            | plugins/clawmetry/clawhub-plugin/dist/index.js                      |
 | codex-app-server   | sdk-alias-required          | tsx     | jiti         | yes         | yes           | plugins/codex-app-server/index.ts                                   |
 | web-search-plus    | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/web-search-plus/index.ts                                    |
 | apify              | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/apify/src/index.ts                                          |
@@ -130,7 +130,6 @@ Targets: linux, macos, windows, container
 | hyperspell         | synthetic-probe   | windows                          | posix-env-prefix, tsx-loader-runtime                                | run isolated commands through a Node wrapper or set env via the runner API; verify TS source entrypoints with tsx and Jiti loader lanes                                                                         |
 | honcho             | prepare           | container, windows               | posix-mkdir, rsync-required                                         | replace shell mkdir with fs.mkdir({ recursive: true }) in the executor; copy workspaces with a Node fs.cp fallback before Windows/container lanes                                                               |
 | honcho             | prepare-artifacts | windows                          | posix-mkdir                                                         | replace shell mkdir with fs.mkdir({ recursive: true }) in the executor                                                                                                                                          |
-| honcho             | link-openclaw     | container, linux, macos, windows | package-manager-availability                                        | install the declared package manager before isolated execution                                                                                                                                                  |
 | honcho             | build             | container, linux, macos, windows | package-manager-availability                                        | install the declared package manager before isolated execution                                                                                                                                                  |
 | honcho             | capture           | windows                          | posix-env-prefix                                                    | run isolated commands through a Node wrapper or set env via the runner API                                                                                                                                      |
 | honcho             | synthetic-probe   | windows                          | posix-env-prefix                                                    | run isolated commands through a Node wrapper or set env via the runner API                                                                                                                                      |
