@@ -113,12 +113,16 @@ function assertTrack(track) {
 }
 
 async function npmDistTag(tag) {
-  const { stdout } = await execFile("npm", ["view", "openclaw", `dist-tags.${tag}`, "--json"]);
+  const { stdout } = await execFile(npmExecutable(), ["view", "openclaw", `dist-tags.${tag}`, "--json"]);
   const value = JSON.parse(stdout);
   if (!value || typeof value !== "string") {
     throw new Error(`npm dist-tag ${tag} did not resolve to an OpenClaw version`);
   }
   return value;
+}
+
+export function npmExecutable(platform = process.platform) {
+  return platform === "win32" ? "npm.cmd" : "npm";
 }
 
 async function tagSha(version) {

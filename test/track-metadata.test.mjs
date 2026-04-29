@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { normalizeTrack } from "../scripts/resolve-openclaw-track.mjs";
+import { normalizeTrack, npmExecutable } from "../scripts/resolve-openclaw-track.mjs";
 import { applyTrackMetadata, renderTrackMetadata } from "../scripts/update-track-metadata.mjs";
 
 const tracks = [
@@ -37,6 +37,12 @@ test("openclaw track resolver maps crabpot branches to tracks", () => {
   assert.equal(normalizeTrack("beta", "main"), "beta");
   assert.equal(normalizeTrack("auto", "feature"), "latest");
   assert.throws(() => normalizeTrack("nightly", "main"), /unknown OpenClaw track/);
+});
+
+test("openclaw track resolver uses the Windows npm command shim", () => {
+  assert.equal(npmExecutable("win32"), "npm.cmd");
+  assert.equal(npmExecutable("darwin"), "npm");
+  assert.equal(npmExecutable("linux"), "npm");
 });
 
 test("track metadata renders GitHub branch switches with resolved version and sha", () => {
