@@ -1,7 +1,7 @@
 # Crabpot CI Summary
 
 Generated: deterministic
-Mode: dependabot
+Mode: check
 OpenClaw: openclaw@latest (2026.4.26, be8c24633aaa)
 Status: PASS
 
@@ -10,17 +10,17 @@ Status: PASS
 | Metric                      | Value                                           |
 | --------------------------- | ----------------------------------------------- |
 | Breakages                   | 0                                               |
-| Warnings                    | 59                                              |
-| Suggestions                 | 135                                             |
-| Issues                      | 194                                             |
+| Warnings                    | 60                                              |
+| Suggestions                 | 136                                             |
+| Issues                      | 196                                             |
 | P0 issues                   | 2                                               |
 | P1 issues                   | 72                                              |
 | Live issues                 | 2                                               |
 | Live P0 issues              | 2                                               |
 | Compat gaps                 | 40                                              |
 | Deprecation warnings        | 24                                              |
-| Inspector gaps              | 102                                             |
-| Upstream metadata           | 26                                              |
+| Inspector gaps              | 103                                             |
+| Upstream metadata           | 27                                              |
 | Ref diff failures           | 0                                               |
 | Ref diff warnings           | 0                                               |
 | Policy failures             | 0                                               |
@@ -32,8 +32,8 @@ Status: PASS
 | Execution blocked           | 2                                               |
 | Windows portability risks   | 14                                              |
 | Container portability risks | 14                                              |
-| Jiti loader candidates      | 18                                              |
-| Import loop                 | p50 60 ms / p95 63 ms / max RSS 0 MB / CPU 0 ms |
+| Jiti loader candidates      | 20                                              |
+| Import loop                 | p50 71 ms / p95 73 ms / max RSS 0 MB / CPU 0 ms |
 
 ## Top Issues
 

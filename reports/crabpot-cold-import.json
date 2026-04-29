@@ -7,12 +7,12 @@
   },
   "summary": {
     "fixtureCount": 29,
-    "entrypointCount": 34,
+    "entrypointCount": 35,
     "readyCount": 3,
-    "blockedCount": 31,
-    "tsLoaderRequiredCount": 17,
+    "blockedCount": 32,
+    "tsLoaderRequiredCount": 19,
     "buildRequiredCount": 8,
-    "dependencyInstallRequiredCount": 17,
+    "dependencyInstallRequiredCount": 18,
     "sdkAliasRequiredCount": 1
   },
   "fixtures": [
@@ -604,14 +604,19 @@
       "priority": "high",
       "entrypoints": [
         {
-          "id": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
+          "id": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-index-ts",
           "fixture": "yuanbao",
           "packagePath": "plugins/yuanbao/.crabpot-package/package.json",
           "kind": "extension",
-          "specifier": "./dist/index.js",
-          "path": "plugins/yuanbao/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "specifier": "./index.ts",
+          "path": "plugins/yuanbao/.crabpot-package/index.ts",
+          "status": "ts-loader-required",
           "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/yuanbao/.crabpot-package/index.ts"
+            },
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -619,6 +624,32 @@
             }
           ],
           "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
+        },
+        {
+          "id": "cold-import.setupEntry:yuanbao:plugins-yuanbao-crabpot-package-setup-entry-ts",
+          "fixture": "yuanbao",
+          "packagePath": "plugins/yuanbao/.crabpot-package/package.json",
+          "kind": "setupEntry",
+          "specifier": "./setup-entry.ts",
+          "path": "plugins/yuanbao/.crabpot-package/setup-entry.ts",
+          "status": "ts-loader-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/yuanbao/.crabpot-package/setup-entry.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "cos-nodejs-sdk-v5, protobufjs, uuid, ws"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }

@@ -90,13 +90,13 @@
         "mocrane-wecom:legacy-root-sdk-import",
         "opik-openclaw:legacy-root-sdk-import",
         "qqbot:legacy-root-sdk-import",
-        "yuanbao:legacy-root-sdk-import"
+        "yuanbao:channel-env-vars"
       ]
     },
     {
       "id": "compatibility-report.inspector-gaps",
       "action": "pass",
-      "message": "102 inspector proof gaps tracked",
+      "message": "103 inspector proof gaps tracked",
       "evidence": [
         "a2a-gateway:registration-capture-gap",
         "clawmetry:registration-capture-gap",
@@ -199,6 +199,7 @@
         "wecom:runtime-tool-capture",
         "yuanbao:channel-contract-probe",
         "yuanbao:package-dependency-install-required",
+        "yuanbao:package-typescript-source-entrypoint",
         "yuanbao:runtime-tool-capture"
       ]
     },

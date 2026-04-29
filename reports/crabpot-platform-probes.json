@@ -9,12 +9,12 @@
   ],
   "summary": {
     "fixtureCount": 29,
-    "entrypointCount": 34,
-    "tsLoaderEntrypointCount": 18,
-    "jitiAlternativeCount": 18,
-    "lazyImportProbeCount": 34,
-    "portabilityFindingCount": 50,
-    "coveredPortabilityFindingCount": 153,
+    "entrypointCount": 35,
+    "tsLoaderEntrypointCount": 20,
+    "jitiAlternativeCount": 20,
+    "lazyImportProbeCount": 35,
+    "portabilityFindingCount": 54,
+    "coveredPortabilityFindingCount": 158,
     "windowsRiskStepCount": 14,
     "macosRiskStepCount": 14,
     "linuxRiskStepCount": 14,
@@ -353,17 +353,35 @@
     },
     {
       "fixture": "yuanbao",
-      "id": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
-      "status": "dependency-install-required",
-      "entrypoint": "plugins/yuanbao/.crabpot-package/dist/index.js",
+      "id": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-index-ts",
+      "status": "ts-loader-required",
+      "entrypoint": "plugins/yuanbao/.crabpot-package/index.ts",
       "packageManager": "npm",
-      "loaderSource": "native-node",
-      "loaderPrimary": "node",
-      "loaderAlternatives": [],
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "captureUsesTsx": true,
+      "syntheticUsesTsx": true
+    },
+    {
+      "fixture": "yuanbao",
+      "id": "cold-import.setupEntry:yuanbao:plugins-yuanbao-crabpot-package-setup-entry-ts",
+      "status": "ts-loader-required",
+      "entrypoint": "plugins/yuanbao/.crabpot-package/setup-entry.ts",
+      "packageManager": "npm",
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": true,
+      "syntheticUsesTsx": true
     },
     {
       "fixture": "openclaw-weixin",
@@ -1007,6 +1025,62 @@
       "entrypoint": "cold-import.extension:mocrane-wecom:plugins-mocrane-wecom-index-ts",
       "kind": "synthetic-probe",
       "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.synthetic.json",
+      "coveredRiskCodes": [
+        "posix-env-prefix"
+      ],
+      "platforms": [],
+      "riskCodes": [
+        "tsx-loader-runtime"
+      ],
+      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "yuanbao",
+      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-index-ts",
+      "kind": "capture",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.capture.json",
+      "coveredRiskCodes": [
+        "posix-env-prefix"
+      ],
+      "platforms": [],
+      "riskCodes": [
+        "tsx-loader-runtime"
+      ],
+      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "yuanbao",
+      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-index-ts",
+      "kind": "synthetic-probe",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.synthetic.json",
+      "coveredRiskCodes": [
+        "posix-env-prefix"
+      ],
+      "platforms": [],
+      "riskCodes": [
+        "tsx-loader-runtime"
+      ],
+      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "yuanbao",
+      "entrypoint": "cold-import.setupEntry:yuanbao:plugins-yuanbao-crabpot-package-setup-entry-ts",
+      "kind": "capture",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.capture.json",
+      "coveredRiskCodes": [
+        "posix-env-prefix"
+      ],
+      "platforms": [],
+      "riskCodes": [
+        "tsx-loader-runtime"
+      ],
+      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "yuanbao",
+      "entrypoint": "cold-import.setupEntry:yuanbao:plugins-yuanbao-crabpot-package-setup-entry-ts",
+      "kind": "synthetic-probe",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.synthetic.json",
       "coveredRiskCodes": [
         "posix-env-prefix"
       ],
@@ -2629,7 +2703,7 @@
     },
     {
       "fixture": "yuanbao",
-      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
+      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-index-ts",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/yuanbao && rsync -a --delete plugins/yuanbao/.crabpot-package/ .crabpot/workspaces/yuanbao/",
       "coverage": "covered by Crabpot structured executor",
@@ -2644,7 +2718,7 @@
     },
     {
       "fixture": "yuanbao",
-      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
+      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-index-ts",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/yuanbao",
       "coverage": "covered by Crabpot structured executor",
@@ -2657,7 +2731,7 @@
     },
     {
       "fixture": "yuanbao",
-      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
+      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-index-ts",
       "kind": "audit",
       "command": "npm audit --json > ../../results/yuanbao/package-audit.json || true",
       "coverage": "covered by Crabpot structured executor",
@@ -2671,9 +2745,9 @@
     },
     {
       "fixture": "yuanbao",
-      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
+      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -2684,9 +2758,77 @@
     },
     {
       "fixture": "yuanbao",
-      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
+      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.synthetic.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "yuanbao",
+      "entrypoint": "cold-import.setupEntry:yuanbao:plugins-yuanbao-crabpot-package-setup-entry-ts",
+      "kind": "prepare",
+      "command": "mkdir -p .crabpot/workspaces/yuanbao && rsync -a --delete plugins/yuanbao/.crabpot-package/ .crabpot/workspaces/yuanbao/",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ]
+    },
+    {
+      "fixture": "yuanbao",
+      "entrypoint": "cold-import.setupEntry:yuanbao:plugins-yuanbao-crabpot-package-setup-entry-ts",
+      "kind": "prepare-artifacts",
+      "command": "mkdir -p .crabpot/results/yuanbao",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "yuanbao",
+      "entrypoint": "cold-import.setupEntry:yuanbao:plugins-yuanbao-crabpot-package-setup-entry-ts",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/yuanbao/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "yuanbao",
+      "entrypoint": "cold-import.setupEntry:yuanbao:plugins-yuanbao-crabpot-package-setup-entry-ts",
+      "kind": "capture",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.capture.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "yuanbao",
+      "entrypoint": "cold-import.setupEntry:yuanbao:plugins-yuanbao-crabpot-package-setup-entry-ts",
+      "kind": "synthetic-probe",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"

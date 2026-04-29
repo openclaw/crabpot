@@ -11,16 +11,16 @@
   },
   "summary": {
     "fixtureCount": 29,
-    "entrypointCount": 34,
-    "installStepCount": 17,
-    "auditStepCount": 17,
+    "entrypointCount": 35,
+    "installStepCount": 18,
+    "auditStepCount": 18,
     "buildStepCount": 8,
-    "artifactStepCount": 34,
-    "captureStepCount": 34,
-    "syntheticProbeStepCount": 34,
-    "targetOpenClawLinkStepCount": 25,
-    "tsLoaderEntrypointCount": 18,
-    "jitiAlternativeCount": 18,
+    "artifactStepCount": 35,
+    "captureStepCount": 35,
+    "syntheticProbeStepCount": 35,
+    "targetOpenClawLinkStepCount": 26,
+    "tsLoaderEntrypointCount": 20,
+    "jitiAlternativeCount": 20,
     "missingBuildScriptCount": 0,
     "sdkAliasRequiredCount": 1
   },
@@ -1729,27 +1729,35 @@
       "id": "yuanbao",
       "entrypoints": [
         {
-          "id": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
+          "id": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-index-ts",
           "fixture": "yuanbao",
           "packagePath": "plugins/yuanbao/.crabpot-package/package.json",
           "packageName": "openclaw-plugin-yuanbao",
-          "entrypoint": "plugins/yuanbao/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "entrypoint": "plugins/yuanbao/.crabpot-package/index.ts",
+          "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": "plugins/yuanbao/package-lock.json",
           "loaderStrategy": {
-            "source": "native-node",
-            "primary": "node",
-            "alternatives": [],
-            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
           },
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
             "synthetic-probes",
-            "target-openclaw-link"
+            "target-openclaw-link",
+            "ts-loader"
           ],
           "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/yuanbao/.crabpot-package/index.ts"
+            },
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -1790,16 +1798,100 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/yuanbao",
-              "artifactPath": ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.capture.json",
+              "artifactPath": ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/yuanbao",
-              "artifactPath": ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.synthetic.json",
+              "artifactPath": ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        },
+        {
+          "id": "cold-import.setupEntry:yuanbao:plugins-yuanbao-crabpot-package-setup-entry-ts",
+          "fixture": "yuanbao",
+          "packagePath": "plugins/yuanbao/.crabpot-package/package.json",
+          "packageName": "openclaw-plugin-yuanbao",
+          "entrypoint": "plugins/yuanbao/.crabpot-package/setup-entry.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/yuanbao/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/yuanbao/.crabpot-package/setup-entry.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "cos-nodejs-sdk-v5, protobufjs, uuid, ws"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/yuanbao && rsync -a --delete plugins/yuanbao/.crabpot-package/ .crabpot/workspaces/yuanbao/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/yuanbao",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/yuanbao",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/yuanbao",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/yuanbao/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/yuanbao",
+              "artifactPath": ".crabpot/results/yuanbao/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.capture.json",
+              "cwd": ".crabpot/workspaces/yuanbao",
+              "artifactPath": ".crabpot/results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/yuanbao",
+              "artifactPath": ".crabpot/results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]

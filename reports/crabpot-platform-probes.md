@@ -9,12 +9,12 @@ Targets: linux, macos, windows, container
 | Metric                         | Value |
 | ------------------------------ | ----- |
 | fixtureCount                   | 29    |
-| entrypointCount                | 34    |
-| tsLoaderEntrypointCount        | 18    |
-| jitiAlternativeCount           | 18    |
-| lazyImportProbeCount           | 34    |
-| portabilityFindingCount        | 50    |
-| coveredPortabilityFindingCount | 153   |
+| entrypointCount                | 35    |
+| tsLoaderEntrypointCount        | 20    |
+| jitiAlternativeCount           | 20    |
+| lazyImportProbeCount           | 35    |
+| portabilityFindingCount        | 54    |
+| coveredPortabilityFindingCount | 158   |
 | windowsRiskStepCount           | 14    |
 | macosRiskStepCount             | 14    |
 | linuxRiskStepCount             | 14    |
@@ -46,7 +46,8 @@ Targets: linux, macos, windows, container
 | ddingtalk          | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/ddingtalk/index.ts                                          |
 | dingtalk-connector | build-required              | node    | -            | no          | no            | plugins/dingtalk-connector/dist/index.mjs                           |
 | mocrane-wecom      | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/mocrane-wecom/index.ts                                      |
-| yuanbao            | dependency-install-required | node    | -            | no          | no            | plugins/yuanbao/.crabpot-package/dist/index.js                      |
+| yuanbao            | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/yuanbao/.crabpot-package/index.ts                           |
+| yuanbao            | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/yuanbao/.crabpot-package/setup-entry.ts                     |
 | openclaw-weixin    | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/openclaw-weixin/.crabpot-package/index.ts                   |
 | lightclawbot       | dependency-install-required | node    | -            | no          | no            | plugins/lightclawbot/.crabpot-package/dist/index.js                 |
 | memu-engine        | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/memu-engine/index.ts                                        |
@@ -95,6 +96,10 @@ Targets: linux, macos, windows, container
 | ddingtalk         | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
 | mocrane-wecom     | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
 | mocrane-wecom     | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| yuanbao           | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| yuanbao           | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| yuanbao           | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| yuanbao           | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
 | openclaw-weixin   | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
 | openclaw-weixin   | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
 | memu-engine       | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
@@ -217,6 +222,11 @@ Targets: linux, macos, windows, container
 | mocrane-wecom      | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | mocrane-wecom      | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | mocrane-wecom      | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| yuanbao            | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| yuanbao            | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| yuanbao            | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
+| yuanbao            | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| yuanbao            | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | yuanbao            | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | yuanbao            | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | yuanbao            | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |

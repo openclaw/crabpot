@@ -7,16 +7,16 @@ Status: PASS
 
 | Metric               | Value |
 | -------------------- | ----- |
-| Issue findings       | 194   |
+| Issue findings       | 196   |
 | 🔴 P0                | 2     |
 | 🟠 P1                | 72    |
 | Live issues          | 2     |
 | Live P0 issues       | 2     |
 | Compat gaps          | 40    |
 | Deprecation warnings | 24    |
-| Inspector gaps       | 102   |
-| Upstream metadata    | 26    |
-| Contract probes      | 153   |
+| Inspector gaps       | 103   |
+| Upstream metadata    | 27    |
+| Contract probes      | 155   |
 
 ## Triage Overview
 
@@ -25,8 +25,8 @@ Status: PASS
 | live-issue          | 2     | 2  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam. |
 | compat-gap          | 40    | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                          |
 | deprecation-warning | 24    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                |
-| inspector-gap       | 102   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments.                        |
-| upstream-metadata   | 26    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.        |
+| inspector-gap       | 103   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments.                        |
+| upstream-metadata   | 27    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.        |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                           |
 
 ## P0 Live Issues
@@ -521,10 +521,10 @@ Status: PASS
     - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/remind.ts#L1)
 
 - 🟡 P2 **yuanbao** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: yuanbao: root plugin SDK barrel is still used by fixtures
+  - **channel-env-vars**: yuanbao: channelEnvVars legacy manifest metadata must stay covered
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk @ plugins/yuanbao/.crabpot-package/dist/index.js:1
+    - yuanbao
 
 ## Inspector Proof Gaps
 
@@ -775,10 +775,12 @@ Status: PASS
   - **registration-capture-gap**: yuanbao: runtime registrations need capture before contract judgment
   - state: open · compat:untracked
   - evidence:
-    - registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:31
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:32
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:34
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:13
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:31
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:32
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:33
 
 - 🟡 P2 **a2a-gateway** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: a2a-gateway: cold import requires dependency installation in an isolated workspace
@@ -1267,7 +1269,8 @@ Status: PASS
   - **channel-contract-probe**: yuanbao: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29
+    - createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:11
+    - createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/src/channel.ts:32
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: yuanbao: cold import requires dependency installation in an isolated workspace
@@ -1279,12 +1282,22 @@ Status: PASS
     - ws @ plugins/yuanbao/.crabpot-package/package.json
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
+  - **package-typescript-source-entrypoint**: yuanbao: cold import needs TypeScript source entrypoint support
+  - state: open · compat:none
+  - evidence:
+    - extension:plugins/yuanbao/.crabpot-package/index.ts
+    - setupEntry:plugins/yuanbao/.crabpot-package/setup-entry.ts
+
+- 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: yuanbao: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/group.js:43
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/member.js:120
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/remind.js:271
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:49
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:129
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:281
+    - registerTool @ plugins/yuanbao/.crabpot-package/src/business/tools/group.ts:88
+    - registerTool @ plugins/yuanbao/.crabpot-package/src/business/tools/member.ts:198
+    - registerTool @ plugins/yuanbao/.crabpot-package/src/business/tools/remind.ts:395
 
 ## Upstream Metadata Issues
 
@@ -1304,10 +1317,12 @@ Status: PASS
   - **reserved-sdk-import**: yuanbao: plugin imports reserved bundled-plugin SDK compatibility subpaths
   - state: open · compat:none
   - evidence:
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/env.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/utils.js:1
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/log-upload/extractor.ts:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/env.ts:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/utils.ts:2
 
 - 🟡 P2 **a2a-gateway** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: a2a-gateway: manifest uses unsupported top-level fields
@@ -1452,6 +1467,12 @@ Status: PASS
   - state: open · compat:none
   - evidence:
     - [package.json](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/package.json)
+
+- 🟡 P2 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
+  - **package-plugin-api-compat-missing**: yuanbao: plugin API compatibility range is missing
+  - state: open · compat:none
+  - evidence:
+    - plugins/yuanbao/.crabpot-package/package.json
 
 ## Issues
 
@@ -1968,19 +1989,23 @@ Status: PASS
   - **registration-capture-gap**: yuanbao: runtime registrations need capture before contract judgment
   - state: open · compat:untracked
   - evidence:
-    - registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:31
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:32
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:34
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:13
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:31
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:32
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:33
 
 - 🟠 P1 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
   - **reserved-sdk-import**: yuanbao: plugin imports reserved bundled-plugin SDK compatibility subpaths
   - state: open · compat:none
   - evidence:
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/env.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/utils.js:1
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/log-upload/extractor.ts:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/env.ts:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/utils.ts:2
 
 - 🟡 P2 **a2a-gateway** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: a2a-gateway: root plugin SDK barrel is still used by fixtures
@@ -2828,13 +2853,14 @@ Status: PASS
   - **channel-contract-probe**: yuanbao: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29
+    - createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:11
+    - createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/src/channel.ts:32
 
 - 🟡 P2 **yuanbao** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: yuanbao: root plugin SDK barrel is still used by fixtures
+  - **channel-env-vars**: yuanbao: channelEnvVars legacy manifest metadata must stay covered
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk @ plugins/yuanbao/.crabpot-package/dist/index.js:1
+    - yuanbao
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: yuanbao: cold import requires dependency installation in an isolated workspace
@@ -2845,13 +2871,29 @@ Status: PASS
     - uuid @ plugins/yuanbao/.crabpot-package/package.json
     - ws @ plugins/yuanbao/.crabpot-package/package.json
 
+- 🟡 P2 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
+  - **package-plugin-api-compat-missing**: yuanbao: plugin API compatibility range is missing
+  - state: open · compat:none
+  - evidence:
+    - plugins/yuanbao/.crabpot-package/package.json
+
+- 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
+  - **package-typescript-source-entrypoint**: yuanbao: cold import needs TypeScript source entrypoint support
+  - state: open · compat:none
+  - evidence:
+    - extension:plugins/yuanbao/.crabpot-package/index.ts
+    - setupEntry:plugins/yuanbao/.crabpot-package/setup-entry.ts
+
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: yuanbao: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/group.js:43
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/member.js:120
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/remind.js:271
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:49
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:129
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:281
+    - registerTool @ plugins/yuanbao/.crabpot-package/src/business/tools/group.ts:88
+    - registerTool @ plugins/yuanbao/.crabpot-package/src/business/tools/member.ts:198
+    - registerTool @ plugins/yuanbao/.crabpot-package/src/business/tools/remind.ts:395
 
 ## Contract Probe Backlog
 
@@ -3035,10 +3077,12 @@ Status: PASS
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:yuanbao`
   - evidence:
-    - registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:31
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:32
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:34
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:13
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:31
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:32
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:33
 
 - 🟠 P1 **kitchen-sink** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
@@ -3168,7 +3212,8 @@ Status: PASS
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:yuanbao`
   - evidence:
-    - registerChannel @ plugins/yuanbao/.crabpot-package/dist/index.js:29
+    - createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:11
+    - createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/src/channel.ts:32
 
 - 🟡 P2 **connectclaw** `hook-runner`
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
@@ -3200,6 +3245,12 @@ Status: PASS
   - id: `manifest.compat.channel-env-vars:agentchat`
   - evidence:
     - agentchat
+
+- 🟡 P2 **yuanbao** `manifest-loader`
+  - contract: Legacy channel env metadata continues to map into channel setup/help surfaces.
+  - id: `manifest.compat.channel-env-vars:yuanbao`
+  - evidence:
+    - yuanbao
 
 - 🟡 P2 **hasdata** `manifest-loader`
   - contract: Legacy provider auth env metadata continues to map into config/help surfaces.
@@ -3294,6 +3345,12 @@ Status: PASS
   - id: `package.compat.plugin-api-range:wecom`
   - evidence:
     - [package.json](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/package.json)
+
+- 🟡 P2 **yuanbao** `package-loader`
+  - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
+  - id: `package.compat.plugin-api-range:yuanbao`
+  - evidence:
+    - plugins/yuanbao/.crabpot-package/package.json
 
 - 🟡 P2 **agentchat** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -3543,6 +3600,13 @@ Status: PASS
   - evidence:
     - [extension @ index.ts](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts)
 
+- 🟡 P2 **yuanbao** `package-loader`
+  - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
+  - id: `package.entrypoint.typescript-loader:yuanbao`
+  - evidence:
+    - extension:plugins/yuanbao/.crabpot-package/index.ts
+    - setupEntry:plugins/yuanbao/.crabpot-package/setup-entry.ts
+
 - 🟡 P2 **a2a-gateway** `package-loader`
   - contract: Package and OpenClaw manifest versions stay aligned for release compatibility reporting.
   - id: `package.metadata.version-alignment:a2a-gateway`
@@ -3560,10 +3624,12 @@ Status: PASS
   - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
   - id: `sdk.import.reserved-bundled-plugin-boundary:yuanbao`
   - evidence:
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2
-    - openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/env.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/utils.js:1
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/log-upload/extractor.ts:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/env.ts:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/utils.ts:2
 
 - 🟡 P2 **a2a-gateway** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
@@ -3708,12 +3774,6 @@ Status: PASS
     - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/channel.ts#L1)
     - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/remind.ts#L1)
 
-- 🟡 P2 **yuanbao** `sdk-alias`
-  - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
-  - id: `sdk.import.root-barrel-cold-import:yuanbao`
-  - evidence:
-    - openclaw/plugin-sdk @ plugins/yuanbao/.crabpot-package/dist/index.js:1
-
 - 🟡 P2 **a2a-gateway** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
   - id: `tool.registration.schema-capture:a2a-gateway`
@@ -3801,9 +3861,12 @@ Status: PASS
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
   - id: `tool.registration.schema-capture:yuanbao`
   - evidence:
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/group.js:43
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/member.js:120
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/tools/remind.js:271
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:49
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:129
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:281
+    - registerTool @ plugins/yuanbao/.crabpot-package/src/business/tools/group.ts:88
+    - registerTool @ plugins/yuanbao/.crabpot-package/src/business/tools/member.ts:198
+    - registerTool @ plugins/yuanbao/.crabpot-package/src/business/tools/remind.ts:395
 
 - 🟢 P3 **lightclawbot** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
