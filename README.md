@@ -1,40 +1,25 @@
-# crabpot
+# 🦀 crabpot
 
-Compatibility trap for OpenClaw plugin contracts.
+<img width="1376" height="768" alt="crabpot" src="https://github.com/user-attachments/assets/79eb0be1-0736-4a78-a62d-cb66ab080c60" />
+<p></p>
 
-`crabpot` keeps a curated set of real community plugins pinned under `plugins/`
-and runs seam-focused compatibility checks against OpenClaw plugin APIs. The goal
-is to catch contract drift before external plugin authors do.
+**Goto: [Latest Publshed](https://github.com/openclaw/crabpot/tree/main) | [Latest Beta](https://github.com/openclaw/crabpot/tree/crab-beta) | [Main Development](https://github.com/openclaw/crabpot/tree/crab-development)**
 
+**Compatibility trap for OpenClaw plugin contracts.** `crabpot` keeps a curated set of real community plugins pinned under `plugins/` and runs seam-focused compatibility checks against OpenClaw plugin APIs. The goal is to catch contract drift before external plugin authors do. Built on top of  `plugin-inspector` which is a testing harness for OpenClaw.
 
+## Reporting Data
 
+`main` follows the latest published npm package. `crab-beta` branch follows the beta npm dist-tag. `crab-development` brand follows the latest `openclaw/openclaw` main commit.
+- **Last dashboard update:** Apr 29, 2026, 00:29 UTC
 <!-- crabpot-tracks:start -->
-## Tracks
-
-Use these branches to switch the dashboard and generated reports between OpenClaw release tracks.
-
-| Track            | Branch                                                                        | Source      | OpenClaw version | OpenClaw SHA                               | Dashboard target                                 |
-| ---------------- | ----------------------------------------------------------------------------- | ----------- | ---------------- | ------------------------------------------ | ------------------------------------------------ |
-| Latest published | [main](https://github.com/openclaw/crabpot/tree/main)                         | npm-latest  | 2026.4.26        | `be8c24633aaa7ef0425ae1178f096ee8dd6226c0` | openclaw@latest (2026.4.26, be8c24633aaa)        |
-| Beta             | [crab-beta](https://github.com/openclaw/crabpot/tree/crab-beta)               | npm-beta    | 2026.4.26        | `be8c24633aaa7ef0425ae1178f096ee8dd6226c0` | openclaw@beta (2026.4.26, be8c24633aaa)          |
-| Development      | [crab-development](https://github.com/openclaw/crabpot/tree/crab-development) | github-main | 2026.4.27        | `ceeb3a7398bb5e9bf67782875220538db8272ecf` | openclaw/openclaw@main (2026.4.27, ceeb3a7398bb) |
-
-`main` follows the latest published npm package. `crab-beta` follows the beta npm dist-tag. `crab-development` follows the latest `openclaw/openclaw` main commit.
+- **Source:** `npm-latest`
+- **OpenClaw version:** `2026.4.26`
+- **OpenClaw SHA:** `be8c24633aaa`
+- **Dashboard target:** `openclaw@latest`
+- **Github report run:** [25084765760](https://github.com/openclaw/crabpot/actions/runs/25084765760)
 <!-- crabpot-tracks:end -->
-<!-- crabpot-summary:start -->
+
 ## Dashboard
-
-Last dashboard update: Apr 29, 2026, 00:29 UTC
-
-State: PASS
-
-Mode: track:latest
-
-OpenClaw: openclaw@latest (2026.4.26, be8c24633aaa)
-
-Run: https://github.com/openclaw/crabpot/actions/runs/25084765760
-
-### Result Grid
 
 | Metric                 | Result                                               |
 | ---------------------- | ---------------------------------------------------- |
