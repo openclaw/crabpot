@@ -13,8 +13,10 @@ test("static suite keeps the dashboard gate broad and target-explicit", () => {
   const rendered = steps.map(([command, args]) => [command, args.join(" ")]);
 
   assert.deepEqual(rendered[0], ["node", "scripts/sync-fixtures.mjs --materialize"]);
-  assert.ok(rendered.some(([command, args]) => command === "npm" && args === "test"));
-  assert.ok(rendered.some(([command, args]) => command === "npm" && args === "run plugin-inspector:smoke"));
+  assert.ok(rendered.some(([command, args]) => command === "node" && args === "--test test/*.test.mjs"));
+  assert.ok(
+    rendered.some(([command, args]) => command === "node" && args === "scripts/run-plugin-inspector-smoke.mjs --check"),
+  );
   assert.ok(rendered.some(([, args]) => args === "scripts/run-contract-smoke.mjs --strict --openclaw ./openclaw"));
   assert.ok(rendered.some(([, args]) => args === "scripts/profile-contract-runtime.mjs --check --openclaw ./openclaw --runs 2"));
   assert.ok(rendered.some(([, args]) => args === "scripts/check-ci-policy.mjs --check"));
@@ -28,7 +30,7 @@ test("static suite release policy keeps compatibility findings advisory", () => 
 
   const rendered = steps.map(([, args]) => args.join(" "));
 
-  assert.ok(rendered.includes("run plugin-inspector:smoke"));
+  assert.ok(rendered.includes("scripts/run-plugin-inspector-smoke.mjs --check"));
   assert.ok(rendered.includes("scripts/check-ci-policy.mjs --check"));
   assert.equal(rendered.some((args) => args.includes("check-ci-policy.mjs --check --strict")), false);
 });

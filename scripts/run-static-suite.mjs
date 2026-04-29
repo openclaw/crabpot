@@ -30,11 +30,11 @@ function main() {
 export function buildStaticSuiteSteps({ openclawArgs = [], pluginInspectorSmoke = false, policyArgs = [], profileArgs = [] } = {}) {
   return [
     ["node", ["scripts/sync-fixtures.mjs", "--materialize"]],
-    ["npm", ["test"]],
+    ["node", ["--test", "test/*.test.mjs"]],
     ["node", ["scripts/sync-fixtures.mjs", "--check"]],
     ["node", ["scripts/run-contract-smoke.mjs", "--strict", ...openclawArgs]],
     ["node", ["scripts/inspect-fixtures.mjs", "--check"]],
-    ...(pluginInspectorSmoke ? [["npm", ["run", "plugin-inspector:smoke"]]] : []),
+    ...(pluginInspectorSmoke ? [["node", ["scripts/run-plugin-inspector-smoke.mjs", "--check"]]] : []),
     ["node", ["scripts/check-generated-surface-fixture.mjs", "--check", ...openclawArgs]],
     ["node", ["scripts/generate-report.mjs", "--check", ...openclawArgs]],
     ["node", ["scripts/capture-contracts.mjs", "--check", ...openclawArgs]],
