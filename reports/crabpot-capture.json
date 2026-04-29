@@ -9300,10 +9300,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/config-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-auth-accounts-ts-299",
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-auth-accounts-ts-311",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/config-runtime",
-          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:299",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:311",
           "support": "target-exported",
           "assertions": [
             "package export exists",
