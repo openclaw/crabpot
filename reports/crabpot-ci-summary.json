@@ -1,7 +1,7 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "check",
+  "mode": "track:latest",
   "openclawLabel": "openclaw@latest (2026.4.26, be8c24633aaa)",
   "status": "pass",
   "summary": {
@@ -29,12 +29,12 @@
     "platformWindowsRisks": 14,
     "platformContainerRisks": 14,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 76,
-    "importLoopP95Ms": 76,
+    "importLoopP50Ms": 67,
+    "importLoopP95Ms": 68,
     "importLoopMaxRssMb": 58,
-    "importLoopMaxCpuMs": 55,
-    "importLoopRssSampleCount": 9,
-    "importLoopCpuSampleCount": 9
+    "importLoopMaxCpuMs": 38,
+    "importLoopRssSampleCount": 8,
+    "importLoopCpuSampleCount": 8
   },
   "topIssues": [
     {
