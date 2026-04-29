@@ -749,7 +749,7 @@
       "source": "plugins/hyperspell/index.ts:104"
     },
     {
-      "id": "hook.agent_end:honcho:plugins-honcho-hooks-capture-ts-89",
+      "id": "hook.agent_end:honcho:plugins-honcho-hooks-capture-ts-151",
       "fixture": "honcho",
       "kind": "hook",
       "seam": "agent_end",
@@ -777,7 +777,7 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/honcho/hooks/capture.ts:89"
+      "source": "plugins/honcho/hooks/capture.ts:151"
     },
     {
       "id": "hook.agent_end:honcho:plugins-honcho-hooks-subagent-ts-34",
@@ -836,7 +836,7 @@
       "source": "plugins/honcho/hooks/subagent.ts:18"
     },
     {
-      "id": "hook.before_compaction:honcho:plugins-honcho-hooks-capture-ts-115",
+      "id": "hook.before_compaction:honcho:plugins-honcho-hooks-capture-ts-177",
       "fixture": "honcho",
       "kind": "hook",
       "seam": "before_compaction",
@@ -853,7 +853,7 @@
         "hook": "before_compaction",
         "fixture": "honcho"
       },
-      "source": "plugins/honcho/hooks/capture.ts:115"
+      "source": "plugins/honcho/hooks/capture.ts:177"
     },
     {
       "id": "hook.before_prompt_build:honcho:plugins-honcho-hooks-context-ts-7",
@@ -889,7 +889,7 @@
       "source": "plugins/honcho/hooks/context.ts:7"
     },
     {
-      "id": "hook.before_reset:honcho:plugins-honcho-hooks-capture-ts-132",
+      "id": "hook.before_reset:honcho:plugins-honcho-hooks-capture-ts-194",
       "fixture": "honcho",
       "kind": "hook",
       "seam": "before_reset",
@@ -906,7 +906,7 @@
         "hook": "before_reset",
         "fixture": "honcho"
       },
-      "source": "plugins/honcho/hooks/capture.ts:132"
+      "source": "plugins/honcho/hooks/capture.ts:194"
     },
     {
       "id": "hook.gateway_start:honcho:plugins-honcho-hooks-gateway-ts-6",
@@ -3337,7 +3337,7 @@
       "source": "plugins/honcho/index.ts:97"
     },
     {
-      "id": "registration.registerMemoryRuntime:honcho:plugins-honcho-runtime-ts-276",
+      "id": "registration.registerMemoryRuntime:honcho:plugins-honcho-runtime-ts-274",
       "fixture": "honcho",
       "kind": "registration",
       "seam": "registerMemoryRuntime",
@@ -3358,10 +3358,10 @@
         "callableProperties": [],
         "reason": "memory runtime factories are captured as metadata; external memory startup remains isolated opt-in"
       },
-      "source": "plugins/honcho/runtime.ts:276"
+      "source": "plugins/honcho/runtime.ts:274"
     },
     {
-      "id": "registration.registerTool:honcho:plugins-honcho-tools-ask-ts-7",
+      "id": "registration.registerTool:honcho:plugins-honcho-tools-ask-ts-8",
       "fixture": "honcho",
       "kind": "registration",
       "seam": "registerTool",
@@ -3390,10 +3390,10 @@
           "execute"
         ]
       },
-      "source": "plugins/honcho/tools/ask.ts:7"
+      "source": "plugins/honcho/tools/ask.ts:8"
     },
     {
-      "id": "registration.registerTool:honcho:plugins-honcho-tools-context-ts-7",
+      "id": "registration.registerTool:honcho:plugins-honcho-tools-context-ts-8",
       "fixture": "honcho",
       "kind": "registration",
       "seam": "registerTool",
@@ -3422,7 +3422,7 @@
           "execute"
         ]
       },
-      "source": "plugins/honcho/tools/context.ts:7"
+      "source": "plugins/honcho/tools/context.ts:8"
     },
     {
       "id": "registration.registerTool:honcho:plugins-honcho-tools-memory-passthrough-ts-130",
@@ -3489,7 +3489,7 @@
       "source": "plugins/honcho/tools/memory-passthrough.ts:89"
     },
     {
-      "id": "registration.registerTool:honcho:plugins-honcho-tools-message-search-ts-8",
+      "id": "registration.registerTool:honcho:plugins-honcho-tools-message-search-ts-9",
       "fixture": "honcho",
       "kind": "registration",
       "seam": "registerTool",
@@ -3518,10 +3518,10 @@
           "execute"
         ]
       },
-      "source": "plugins/honcho/tools/message-search.ts:8"
+      "source": "plugins/honcho/tools/message-search.ts:9"
     },
     {
-      "id": "registration.registerTool:honcho:plugins-honcho-tools-search-ts-7",
+      "id": "registration.registerTool:honcho:plugins-honcho-tools-search-ts-8",
       "fixture": "honcho",
       "kind": "registration",
       "seam": "registerTool",
@@ -3550,7 +3550,7 @@
           "execute"
         ]
       },
-      "source": "plugins/honcho/tools/search.ts:7"
+      "source": "plugins/honcho/tools/search.ts:8"
     },
     {
       "id": "registration.registerTool:honcho:plugins-honcho-tools-session-ts-8",

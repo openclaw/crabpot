@@ -3247,8 +3247,8 @@
         {
           "name": "agent_end",
           "file": "plugins/honcho/hooks/capture.ts",
-          "line": 89,
-          "ref": "plugins/honcho/hooks/capture.ts:89"
+          "line": 151,
+          "ref": "plugins/honcho/hooks/capture.ts:151"
         },
         {
           "name": "agent_end",
@@ -3265,8 +3265,8 @@
         {
           "name": "before_compaction",
           "file": "plugins/honcho/hooks/capture.ts",
-          "line": 115,
-          "ref": "plugins/honcho/hooks/capture.ts:115"
+          "line": 177,
+          "ref": "plugins/honcho/hooks/capture.ts:177"
         },
         {
           "name": "before_prompt_build",
@@ -3277,8 +3277,8 @@
         {
           "name": "before_reset",
           "file": "plugins/honcho/hooks/capture.ts",
-          "line": 132,
-          "ref": "plugins/honcho/hooks/capture.ts:132"
+          "line": 194,
+          "ref": "plugins/honcho/hooks/capture.ts:194"
         },
         {
           "name": "gateway_start",
@@ -3322,20 +3322,20 @@
         {
           "name": "registerMemoryRuntime",
           "file": "plugins/honcho/runtime.ts",
-          "line": 276,
-          "ref": "plugins/honcho/runtime.ts:276"
+          "line": 274,
+          "ref": "plugins/honcho/runtime.ts:274"
         },
         {
           "name": "registerTool",
           "file": "plugins/honcho/tools/ask.ts",
-          "line": 7,
-          "ref": "plugins/honcho/tools/ask.ts:7"
+          "line": 8,
+          "ref": "plugins/honcho/tools/ask.ts:8"
         },
         {
           "name": "registerTool",
           "file": "plugins/honcho/tools/context.ts",
-          "line": 7,
-          "ref": "plugins/honcho/tools/context.ts:7"
+          "line": 8,
+          "ref": "plugins/honcho/tools/context.ts:8"
         },
         {
           "name": "registerTool",
@@ -3352,14 +3352,14 @@
         {
           "name": "registerTool",
           "file": "plugins/honcho/tools/message-search.ts",
-          "line": 8,
-          "ref": "plugins/honcho/tools/message-search.ts:8"
+          "line": 9,
+          "ref": "plugins/honcho/tools/message-search.ts:9"
         },
         {
           "name": "registerTool",
           "file": "plugins/honcho/tools/search.ts",
-          "line": 7,
-          "ref": "plugins/honcho/tools/search.ts:7"
+          "line": 8,
+          "ref": "plugins/honcho/tools/search.ts:8"
         },
         {
           "name": "registerTool",
@@ -3382,6 +3382,7 @@
         "plugins/honcho/hooks/subagent.ts",
         "plugins/honcho/index.ts",
         "plugins/honcho/install.js",
+        "plugins/honcho/peers.ts",
         "plugins/honcho/runtime.ts",
         "plugins/honcho/state.ts",
         "plugins/honcho/tools/ask.ts",
@@ -3412,7 +3413,7 @@
       "package": {
         "path": "plugins/honcho/package.json",
         "name": "@honcho-ai/openclaw-honcho",
-        "version": "1.3.3",
+        "version": "1.4.0",
         "type": "module",
         "main": "dist/index.js",
         "dependencies": [
@@ -3447,7 +3448,7 @@
         {
           "path": "plugins/honcho/package.json",
           "name": "@honcho-ai/openclaw-honcho",
-          "version": "1.3.3",
+          "version": "1.4.0",
           "type": "module",
           "main": "dist/index.js",
           "dependencies": [
@@ -10255,7 +10256,7 @@
       "level": "warning",
       "message": "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
       "evidence": [
-        "agent_end @ plugins/honcho/hooks/capture.ts:89",
+        "agent_end @ plugins/honcho/hooks/capture.ts:151",
         "agent_end @ plugins/honcho/hooks/subagent.ts:34"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload"
@@ -11076,7 +11077,7 @@
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
         "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
-        "registerMemoryRuntime @ plugins/honcho/runtime.ts:276"
+        "registerMemoryRuntime @ plugins/honcho/runtime.ts:274"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -11086,12 +11087,12 @@
       "level": "suggestion",
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
-        "registerTool @ plugins/honcho/tools/ask.ts:7",
-        "registerTool @ plugins/honcho/tools/context.ts:7",
+        "registerTool @ plugins/honcho/tools/ask.ts:8",
+        "registerTool @ plugins/honcho/tools/context.ts:8",
         "registerTool @ plugins/honcho/tools/memory-passthrough.ts:130",
         "registerTool @ plugins/honcho/tools/memory-passthrough.ts:89",
-        "registerTool @ plugins/honcho/tools/message-search.ts:8",
-        "registerTool @ plugins/honcho/tools/search.ts:7",
+        "registerTool @ plugins/honcho/tools/message-search.ts:9",
+        "registerTool @ plugins/honcho/tools/search.ts:8",
         "registerTool @ plugins/honcho/tools/session.ts:8"
       ]
     },
@@ -12398,7 +12399,7 @@
       "compatRecord": "api.capture.runtime-registrars"
     },
     {
-      "id": "CRABPOT-E00AE3EB",
+      "id": "CRABPOT-2D165A73",
       "fixture": "honcho",
       "severity": "P1",
       "owner": "core",
@@ -12411,7 +12412,7 @@
       "compatStatus": "untracked",
       "title": "honcho: conversation-access hooks need privacy-boundary probes",
       "evidence": [
-        "agent_end @ plugins/honcho/hooks/capture.ts:89",
+        "agent_end @ plugins/honcho/hooks/capture.ts:151",
         "agent_end @ plugins/honcho/hooks/subagent.ts:34"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload"
@@ -12453,7 +12454,7 @@
       "compatRecord": "hook.llm-observer.privacy-payload"
     },
     {
-      "id": "CRABPOT-987F4CBC",
+      "id": "CRABPOT-C443A1E1",
       "fixture": "honcho",
       "severity": "P1",
       "owner": "inspector",
@@ -12467,7 +12468,7 @@
       "title": "honcho: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
-        "registerMemoryRuntime @ plugins/honcho/runtime.ts:276"
+        "registerMemoryRuntime @ plugins/honcho/runtime.ts:274"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -14420,7 +14421,7 @@
       "compatRecord": null
     },
     {
-      "id": "CRABPOT-1EC15E85",
+      "id": "CRABPOT-8823C301",
       "fixture": "honcho",
       "severity": "P2",
       "owner": "inspector",
@@ -14433,12 +14434,12 @@
       "compatStatus": "none",
       "title": "honcho: runtime tool schema needs registration capture",
       "evidence": [
-        "registerTool @ plugins/honcho/tools/ask.ts:7",
-        "registerTool @ plugins/honcho/tools/context.ts:7",
+        "registerTool @ plugins/honcho/tools/ask.ts:8",
+        "registerTool @ plugins/honcho/tools/context.ts:8",
         "registerTool @ plugins/honcho/tools/memory-passthrough.ts:130",
         "registerTool @ plugins/honcho/tools/memory-passthrough.ts:89",
-        "registerTool @ plugins/honcho/tools/message-search.ts:8",
-        "registerTool @ plugins/honcho/tools/search.ts:7",
+        "registerTool @ plugins/honcho/tools/message-search.ts:9",
+        "registerTool @ plugins/honcho/tools/search.ts:8",
         "registerTool @ plugins/honcho/tools/session.ts:8"
       ],
       "compatRecord": null
@@ -15875,7 +15876,7 @@
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
         "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
-        "registerMemoryRuntime @ plugins/honcho/runtime.ts:276"
+        "registerMemoryRuntime @ plugins/honcho/runtime.ts:274"
       ]
     },
     {
@@ -16092,7 +16093,7 @@
       "target": "hook-runner",
       "contract": "LLM observer hooks receive documented prompt/output fields with expected redaction behavior.",
       "evidence": [
-        "agent_end @ plugins/honcho/hooks/capture.ts:89",
+        "agent_end @ plugins/honcho/hooks/capture.ts:151",
         "agent_end @ plugins/honcho/hooks/subagent.ts:34"
       ]
     },
@@ -17126,12 +17127,12 @@
       "target": "tool-runtime",
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
-        "registerTool @ plugins/honcho/tools/ask.ts:7",
-        "registerTool @ plugins/honcho/tools/context.ts:7",
+        "registerTool @ plugins/honcho/tools/ask.ts:8",
+        "registerTool @ plugins/honcho/tools/context.ts:8",
         "registerTool @ plugins/honcho/tools/memory-passthrough.ts:130",
         "registerTool @ plugins/honcho/tools/memory-passthrough.ts:89",
-        "registerTool @ plugins/honcho/tools/message-search.ts:8",
-        "registerTool @ plugins/honcho/tools/search.ts:7",
+        "registerTool @ plugins/honcho/tools/message-search.ts:9",
+        "registerTool @ plugins/honcho/tools/search.ts:8",
         "registerTool @ plugins/honcho/tools/session.ts:8"
       ]
     },
@@ -18288,7 +18289,7 @@
       "evidence": [
         "plugins/honcho/package.json",
         "@honcho-ai/openclaw-honcho",
-        "version:1.3.3"
+        "version:1.4.0"
       ]
     },
     {
