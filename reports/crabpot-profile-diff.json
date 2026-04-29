@@ -35,12 +35,12 @@
     "runs": 1,
     "summary": {
       "commandCount": 9,
-      "p50WallMs": 442,
-      "p95WallMs": 482,
-      "maxPeakRssMb": 80.2,
-      "maxRssDeltaMb": 15.8,
-      "maxCpuMsEstimate": 535,
-      "maxHarnessHeapDeltaMb": 0.5
+      "p50WallMs": 423,
+      "p95WallMs": 444,
+      "maxPeakRssMb": 81.7,
+      "maxRssDeltaMb": 17.7,
+      "maxCpuMsEstimate": 469,
+      "maxHarnessHeapDeltaMb": 0.6
     },
     "targetOpenClaw": {
       "status": "ok",
@@ -59,8 +59,8 @@
       "observedHooks": 76,
       "observedRegistrations": 100,
       "observedSdkImports": 330,
-      "contractProbes": 158,
-      "issueFindings": 199
+      "contractProbes": 154,
+      "issueFindings": 195
     }
   },
   "thresholds": {
@@ -82,9 +82,9 @@
       "metric": "p95WallMs",
       "message": "p95WallMs stayed within 50% regression threshold",
       "baseline": 1273,
-      "current": 482,
-      "delta": -791,
-      "percent": -62.1
+      "current": 444,
+      "delta": -829,
+      "percent": -65.1
     },
     {
       "id": "profile.peak-rss",
@@ -92,8 +92,8 @@
       "metric": "maxPeakRssMb",
       "message": "maxPeakRssMb stayed within 50 absolute regression threshold",
       "baseline": 65.1,
-      "current": 80.2,
-      "delta": 15.100000000000009
+      "current": 81.7,
+      "delta": 16.60000000000001
     },
     {
       "id": "profile.node-boot",
@@ -101,8 +101,8 @@
       "metric": "nodeBootWallMs",
       "message": "nodeBootWallMs stayed within 500 absolute regression threshold",
       "baseline": 917,
-      "current": 32,
-      "delta": -885
+      "current": 36,
+      "delta": -881
     },
     {
       "id": "registry.compatRecords",

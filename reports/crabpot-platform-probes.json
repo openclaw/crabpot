@@ -13,11 +13,11 @@
     "tsLoaderEntrypointCount": 18,
     "jitiAlternativeCount": 18,
     "lazyImportProbeCount": 34,
-    "portabilityFindingCount": 172,
-    "windowsRiskStepCount": 172,
-    "macosRiskStepCount": 17,
-    "linuxRiskStepCount": 17,
-    "containerRiskStepCount": 51
+    "portabilityFindingCount": 165,
+    "windowsRiskStepCount": 165,
+    "macosRiskStepCount": 14,
+    "linuxRiskStepCount": 14,
+    "containerRiskStepCount": 48
   },
   "entrypoints": [
     {
@@ -249,7 +249,7 @@
     {
       "fixture": "kitchen-sink",
       "id": "cold-import.extension:kitchen-sink:plugins-kitchen-sink-src-index-js",
-      "status": "dependency-install-required",
+      "status": "ready",
       "entrypoint": "plugins/kitchen-sink/src/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -263,7 +263,7 @@
     {
       "fixture": "kitchen-sink",
       "id": "cold-import.runtimeExtension:kitchen-sink:plugins-kitchen-sink-src-index-js",
-      "status": "dependency-install-required",
+      "status": "ready",
       "entrypoint": "plugins/kitchen-sink/src/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -277,7 +277,7 @@
     {
       "fixture": "kitchen-sink",
       "id": "cold-import.setupEntry:kitchen-sink:plugins-kitchen-sink-src-setup-js",
-      "status": "dependency-install-required",
+      "status": "ready",
       "entrypoint": "plugins/kitchen-sink/src/setup.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1333,40 +1333,6 @@
     {
       "fixture": "connectclaw",
       "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
-      "kind": "install",
-      "platforms": [
-        "container",
-        "linux",
-        "macos",
-        "windows"
-      ],
-      "riskCodes": [
-        "package-manager-availability"
-      ],
-      "command": "pnpm install --ignore-scripts",
-      "mitigation": "install the declared package manager before isolated execution"
-    },
-    {
-      "fixture": "connectclaw",
-      "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
-      "kind": "audit",
-      "platforms": [
-        "container",
-        "linux",
-        "macos",
-        "windows"
-      ],
-      "riskCodes": [
-        "package-manager-availability",
-        "posix-null-failure",
-        "shell-redirection"
-      ],
-      "command": "pnpm audit --json > ../../results/connectclaw/package-audit.json || true",
-      "mitigation": "install the declared package manager before isolated execution; capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
-    },
-    {
-      "fixture": "connectclaw",
-      "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
       "kind": "capture",
       "platforms": [
         "windows"
@@ -1489,6 +1455,22 @@
       ],
       "command": "mkdir -p .crabpot/results/honcho",
       "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
+    },
+    {
+      "fixture": "honcho",
+      "entrypoint": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
+      "kind": "link-openclaw",
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+      "mitigation": "install the declared package manager before isolated execution"
     },
     {
       "fixture": "honcho",
@@ -1633,20 +1615,6 @@
     {
       "fixture": "kitchen-sink",
       "entrypoint": "cold-import.extension:kitchen-sink:plugins-kitchen-sink-src-index-js",
-      "kind": "audit",
-      "platforms": [
-        "windows"
-      ],
-      "riskCodes": [
-        "posix-null-failure",
-        "shell-redirection"
-      ],
-      "command": "npm audit --json > ../../results/kitchen-sink/package-audit.json || true",
-      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
-    },
-    {
-      "fixture": "kitchen-sink",
-      "entrypoint": "cold-import.extension:kitchen-sink:plugins-kitchen-sink-src-index-js",
       "kind": "capture",
       "platforms": [
         "windows"
@@ -1701,20 +1669,6 @@
     {
       "fixture": "kitchen-sink",
       "entrypoint": "cold-import.runtimeExtension:kitchen-sink:plugins-kitchen-sink-src-index-js",
-      "kind": "audit",
-      "platforms": [
-        "windows"
-      ],
-      "riskCodes": [
-        "posix-null-failure",
-        "shell-redirection"
-      ],
-      "command": "npm audit --json > ../../results/kitchen-sink/package-audit.json || true",
-      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
-    },
-    {
-      "fixture": "kitchen-sink",
-      "entrypoint": "cold-import.runtimeExtension:kitchen-sink:plugins-kitchen-sink-src-index-js",
       "kind": "capture",
       "platforms": [
         "windows"
@@ -1765,20 +1719,6 @@
       ],
       "command": "mkdir -p .crabpot/results/kitchen-sink",
       "mitigation": "replace shell mkdir with fs.mkdir({ recursive: true }) in the executor"
-    },
-    {
-      "fixture": "kitchen-sink",
-      "entrypoint": "cold-import.setupEntry:kitchen-sink:plugins-kitchen-sink-src-setup-js",
-      "kind": "audit",
-      "platforms": [
-        "windows"
-      ],
-      "riskCodes": [
-        "posix-null-failure",
-        "shell-redirection"
-      ],
-      "command": "npm audit --json > ../../results/kitchen-sink/package-audit.json || true",
-      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
     },
     {
       "fixture": "kitchen-sink",
@@ -2737,20 +2677,6 @@
     {
       "fixture": "web-search-plus",
       "entrypoint": "cold-import.extension:web-search-plus:plugins-web-search-plus-index-ts",
-      "kind": "audit",
-      "platforms": [
-        "windows"
-      ],
-      "riskCodes": [
-        "posix-null-failure",
-        "shell-redirection"
-      ],
-      "command": "npm audit --json > ../../results/web-search-plus/package-audit.json || true",
-      "mitigation": "capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
-    },
-    {
-      "fixture": "web-search-plus",
-      "entrypoint": "cold-import.extension:web-search-plus:plugins-web-search-plus-index-ts",
       "kind": "capture",
       "platforms": [
         "windows"
@@ -2889,40 +2815,6 @@
       ],
       "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "mitigation": "install the declared package manager before isolated execution"
-    },
-    {
-      "fixture": "inworld-tts",
-      "entrypoint": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
-      "kind": "install",
-      "platforms": [
-        "container",
-        "linux",
-        "macos",
-        "windows"
-      ],
-      "riskCodes": [
-        "package-manager-availability"
-      ],
-      "command": "pnpm install --ignore-scripts",
-      "mitigation": "install the declared package manager before isolated execution"
-    },
-    {
-      "fixture": "inworld-tts",
-      "entrypoint": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
-      "kind": "audit",
-      "platforms": [
-        "container",
-        "linux",
-        "macos",
-        "windows"
-      ],
-      "riskCodes": [
-        "package-manager-availability",
-        "posix-null-failure",
-        "shell-redirection"
-      ],
-      "command": "pnpm audit --json > ../../results/inworld-tts/package-audit.json || true",
-      "mitigation": "install the declared package manager before isolated execution; capture audit failures in the executor instead of relying on shell fallthrough; write audit JSON from the executor instead of shell redirection"
     },
     {
       "fixture": "inworld-tts",

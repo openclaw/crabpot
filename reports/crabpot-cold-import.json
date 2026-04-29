@@ -8,11 +8,11 @@
   "summary": {
     "fixtureCount": 29,
     "entrypointCount": 34,
-    "readyCount": 0,
-    "blockedCount": 34,
+    "readyCount": 3,
+    "blockedCount": 31,
     "tsLoaderRequiredCount": 17,
     "buildRequiredCount": 8,
-    "dependencyInstallRequiredCount": 23,
+    "dependencyInstallRequiredCount": 17,
     "sdkAliasRequiredCount": 1
   },
   "fixtures": [
@@ -76,7 +76,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@wecom/aibot-node-sdk, file-type, pinyin-pro, openclaw, undici"
+              "evidence": "@wecom/aibot-node-sdk, file-type, pinyin-pro, undici"
             }
           ],
           "assertions": [
@@ -101,7 +101,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "mpg123-decoder, silk-wasm, ws, openclaw"
+              "evidence": "mpg123-decoder, silk-wasm, ws"
             }
           ],
           "assertions": [
@@ -167,7 +167,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@sinclair/typebox, openclaw"
+              "evidence": "@sinclair/typebox"
             }
           ],
           "assertions": [
@@ -261,7 +261,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@clack/prompts, opik, zod, openclaw"
+              "evidence": "@clack/prompts, opik, zod"
             }
           ],
           "assertions": [
@@ -332,16 +332,10 @@
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
               "evidence": "plugins/connectclaw/packages/plugin/index.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "openclaw"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "TypeScript source entrypoint is compiled or loaded before cold import"
           ]
         }
       ]
@@ -372,7 +366,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@clack/prompts, @sinclair/typebox, hyperspell, openclaw"
+              "evidence": "@clack/prompts, @sinclair/typebox, hyperspell"
             }
           ],
           "assertions": [
@@ -450,16 +444,11 @@
           "kind": "extension",
           "specifier": "./src/index.js",
           "path": "plugins/kitchen-sink/src/index.js",
-          "status": "dependency-install-required",
-          "blockers": [
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "openclaw"
-            }
-          ],
+          "status": "ready",
+          "blockers": [],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "entrypoint can be imported by Node without fixture credentials",
+            "registration capture shim receives plugin registrations"
           ]
         },
         {
@@ -469,16 +458,11 @@
           "kind": "runtimeExtension",
           "specifier": "./src/index.js",
           "path": "plugins/kitchen-sink/src/index.js",
-          "status": "dependency-install-required",
-          "blockers": [
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "openclaw"
-            }
-          ],
+          "status": "ready",
+          "blockers": [],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "entrypoint can be imported by Node without fixture credentials",
+            "registration capture shim receives plugin registrations"
           ]
         },
         {
@@ -488,16 +472,11 @@
           "kind": "setupEntry",
           "specifier": "./src/setup.js",
           "path": "plugins/kitchen-sink/src/setup.js",
-          "status": "dependency-install-required",
-          "blockers": [
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "openclaw"
-            }
-          ],
+          "status": "ready",
+          "blockers": [],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "entrypoint can be imported by Node without fixture credentials",
+            "registration capture shim receives plugin registrations"
           ]
         }
       ]
@@ -523,7 +502,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@node-rs/jieba, @tencentdb-agent-memory/tcvdb-text, json5, sqlite-vec, undici, node-llama-cpp, openclaw"
+              "evidence": "@node-rs/jieba, @tencentdb-agent-memory/tcvdb-text, json5, sqlite-vec, undici, node-llama-cpp"
             }
           ],
           "assertions": [
@@ -554,7 +533,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "dingtalk-stream, zod, openclaw"
+              "evidence": "dingtalk-stream, zod"
             }
           ],
           "assertions": [
@@ -610,7 +589,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@wecom/aibot-node-sdk, fast-xml-parser, file-type, undici, zod, openclaw"
+              "evidence": "@wecom/aibot-node-sdk, fast-xml-parser, file-type, undici, zod"
             }
           ],
           "assertions": [
@@ -636,7 +615,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "cos-nodejs-sdk-v5, protobufjs, uuid, ws, openclaw"
+              "evidence": "cos-nodejs-sdk-v5, protobufjs, uuid, ws"
             }
           ],
           "assertions": [
@@ -692,7 +671,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "socket.io-client, openclaw"
+              "evidence": "socket.io-client"
             }
           ],
           "assertions": [
@@ -853,7 +832,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "ws, openclaw"
+              "evidence": "ws"
             },
             {
               "code": "sdk-alias-required",
@@ -903,17 +882,11 @@
               "code": "top-level-side-effect-review",
               "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
               "evidence": "plugins/web-search-plus/index.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "openclaw"
             }
           ],
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
-            "cold import sandbox blocks network/process side effects before register capture",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "cold import sandbox blocks network/process side effects before register capture"
           ]
         }
       ]
@@ -939,7 +912,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@sinclair/typebox, apify-client, openclaw"
+              "evidence": "@sinclair/typebox, apify-client"
             }
           ],
           "assertions": [
@@ -966,16 +939,10 @@
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
               "evidence": "plugins/inworld-tts/index.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "openclaw"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "TypeScript source entrypoint is compiled or loaded before cold import"
           ]
         }
       ]

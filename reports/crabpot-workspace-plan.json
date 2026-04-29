@@ -12,13 +12,13 @@
   "summary": {
     "fixtureCount": 29,
     "entrypointCount": 34,
-    "installStepCount": 23,
-    "auditStepCount": 23,
+    "installStepCount": 17,
+    "auditStepCount": 17,
     "buildStepCount": 8,
     "artifactStepCount": 34,
     "captureStepCount": 34,
     "syntheticProbeStepCount": 34,
-    "targetOpenClawLinkStepCount": 22,
+    "targetOpenClawLinkStepCount": 25,
     "tsLoaderEntrypointCount": 18,
     "jitiAlternativeCount": 18,
     "missingBuildScriptCount": 0,
@@ -196,7 +196,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@wecom/aibot-node-sdk, file-type, pinyin-pro, openclaw, undici"
+              "evidence": "@wecom/aibot-node-sdk, file-type, pinyin-pro, undici"
             }
           ],
           "steps": [
@@ -277,7 +277,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "mpg123-decoder, silk-wasm, ws, openclaw"
+              "evidence": "mpg123-decoder, silk-wasm, ws"
             }
           ],
           "steps": [
@@ -454,7 +454,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@sinclair/typebox, openclaw"
+              "evidence": "@sinclair/typebox"
             }
           ],
           "steps": [
@@ -694,7 +694,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@clack/prompts, opik, zod, openclaw"
+              "evidence": "@clack/prompts, opik, zod"
             }
           ],
           "steps": [
@@ -837,7 +837,8 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
-            "synthetic-probes"
+            "synthetic-probes",
+            "target-openclaw-link"
           ],
           "blockers": [
             {
@@ -858,6 +859,12 @@
               "command": "mkdir -p .crabpot/results/lossless-claw",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/lossless-claw",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "build",
@@ -905,7 +912,6 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link",
             "ts-loader"
@@ -915,11 +921,6 @@
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
               "evidence": "plugins/connectclaw/packages/plugin/index.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "openclaw"
             }
           ],
           "steps": [
@@ -940,19 +941,6 @@
               "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/connectclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
-            },
-            {
-              "kind": "install",
-              "command": "pnpm install --ignore-scripts",
-              "cwd": ".crabpot/workspaces/connectclaw",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
-            },
-            {
-              "kind": "audit",
-              "command": "pnpm audit --json > ../../results/connectclaw/package-audit.json || true",
-              "cwd": ".crabpot/workspaces/connectclaw",
-              "artifactPath": ".crabpot/results/connectclaw/package-audit.json",
-              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "capture",
@@ -1014,7 +1002,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@clack/prompts, @sinclair/typebox, hyperspell, openclaw"
+              "evidence": "@clack/prompts, @sinclair/typebox, hyperspell"
             }
           ],
           "steps": [
@@ -1088,7 +1076,8 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
-            "synthetic-probes"
+            "synthetic-probes",
+            "target-openclaw-link"
           ],
           "blockers": [
             {
@@ -1109,6 +1098,12 @@
               "command": "mkdir -p .crabpot/results/honcho",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/honcho",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "build",
@@ -1225,7 +1220,7 @@
           "packagePath": "plugins/kitchen-sink/package.json",
           "packageName": "openclaw-kitchen-sink",
           "entrypoint": "plugins/kitchen-sink/src/index.js",
-          "status": "dependency-install-required",
+          "status": "ready",
           "packageManager": "npm",
           "lockfile": "plugins/kitchen-sink/package-lock.json",
           "loaderStrategy": {
@@ -1236,17 +1231,10 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
-          "blockers": [
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "openclaw"
-            }
-          ],
+          "blockers": [],
           "steps": [
             {
               "kind": "prepare",
@@ -1265,19 +1253,6 @@
               "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/kitchen-sink",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
-            },
-            {
-              "kind": "install",
-              "command": "npm install --ignore-scripts",
-              "cwd": ".crabpot/workspaces/kitchen-sink",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
-            },
-            {
-              "kind": "audit",
-              "command": "npm audit --json > ../../results/kitchen-sink/package-audit.json || true",
-              "cwd": ".crabpot/workspaces/kitchen-sink",
-              "artifactPath": ".crabpot/results/kitchen-sink/package-audit.json",
-              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "capture",
@@ -1301,7 +1276,7 @@
           "packagePath": "plugins/kitchen-sink/package.json",
           "packageName": "openclaw-kitchen-sink",
           "entrypoint": "plugins/kitchen-sink/src/index.js",
-          "status": "dependency-install-required",
+          "status": "ready",
           "packageManager": "npm",
           "lockfile": "plugins/kitchen-sink/package-lock.json",
           "loaderStrategy": {
@@ -1312,17 +1287,10 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
-          "blockers": [
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "openclaw"
-            }
-          ],
+          "blockers": [],
           "steps": [
             {
               "kind": "prepare",
@@ -1341,19 +1309,6 @@
               "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/kitchen-sink",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
-            },
-            {
-              "kind": "install",
-              "command": "npm install --ignore-scripts",
-              "cwd": ".crabpot/workspaces/kitchen-sink",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
-            },
-            {
-              "kind": "audit",
-              "command": "npm audit --json > ../../results/kitchen-sink/package-audit.json || true",
-              "cwd": ".crabpot/workspaces/kitchen-sink",
-              "artifactPath": ".crabpot/results/kitchen-sink/package-audit.json",
-              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "capture",
@@ -1377,7 +1332,7 @@
           "packagePath": "plugins/kitchen-sink/package.json",
           "packageName": "openclaw-kitchen-sink",
           "entrypoint": "plugins/kitchen-sink/src/setup.js",
-          "status": "dependency-install-required",
+          "status": "ready",
           "packageManager": "npm",
           "lockfile": "plugins/kitchen-sink/package-lock.json",
           "loaderStrategy": {
@@ -1388,17 +1343,10 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
-          "blockers": [
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "openclaw"
-            }
-          ],
+          "blockers": [],
           "steps": [
             {
               "kind": "prepare",
@@ -1417,19 +1365,6 @@
               "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/kitchen-sink",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
-            },
-            {
-              "kind": "install",
-              "command": "npm install --ignore-scripts",
-              "cwd": ".crabpot/workspaces/kitchen-sink",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
-            },
-            {
-              "kind": "audit",
-              "command": "npm audit --json > ../../results/kitchen-sink/package-audit.json || true",
-              "cwd": ".crabpot/workspaces/kitchen-sink",
-              "artifactPath": ".crabpot/results/kitchen-sink/package-audit.json",
-              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "capture",
@@ -1485,7 +1420,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@node-rs/jieba, @tencentdb-agent-memory/tcvdb-text, json5, sqlite-vec, undici, node-llama-cpp, openclaw"
+              "evidence": "@node-rs/jieba, @tencentdb-agent-memory/tcvdb-text, json5, sqlite-vec, undici, node-llama-cpp"
             }
           ],
           "steps": [
@@ -1574,7 +1509,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "dingtalk-stream, zod, openclaw"
+              "evidence": "dingtalk-stream, zod"
             }
           ],
           "steps": [
@@ -1648,7 +1583,8 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
-            "synthetic-probes"
+            "synthetic-probes",
+            "target-openclaw-link"
           ],
           "blockers": [
             {
@@ -1669,6 +1605,12 @@
               "command": "mkdir -p .crabpot/results/dingtalk-connector",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/dingtalk-connector",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "build",
@@ -1730,7 +1672,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@wecom/aibot-node-sdk, fast-xml-parser, file-type, undici, zod, openclaw"
+              "evidence": "@wecom/aibot-node-sdk, fast-xml-parser, file-type, undici, zod"
             }
           ],
           "steps": [
@@ -1811,7 +1753,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "cos-nodejs-sdk-v5, protobufjs, uuid, ws, openclaw"
+              "evidence": "cos-nodejs-sdk-v5, protobufjs, uuid, ws"
             }
           ],
           "steps": [
@@ -1888,7 +1830,6 @@
             "capture-shim",
             "dependency-install",
             "synthetic-probes",
-            "target-openclaw-link",
             "ts-loader"
           ],
           "blockers": [
@@ -1915,12 +1856,6 @@
               "command": "mkdir -p .crabpot/results/openclaw-weixin",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
-            },
-            {
-              "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
-              "cwd": ".crabpot/workspaces/openclaw-weixin",
-              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "install",
@@ -1981,7 +1916,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "socket.io-client, openclaw"
+              "evidence": "socket.io-client"
             }
           ],
           "steps": [
@@ -2124,7 +2059,8 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
-            "synthetic-probes"
+            "synthetic-probes",
+            "target-openclaw-link"
           ],
           "blockers": [
             {
@@ -2145,6 +2081,12 @@
               "command": "mkdir -p .crabpot/results/secureclaw",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/secureclaw",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "build",
@@ -2412,7 +2354,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "ws, openclaw"
+              "evidence": "ws"
             },
             {
               "code": "sdk-alias-required",
@@ -2502,7 +2444,6 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "dependency-install",
             "side-effect-sandbox",
             "synthetic-probes",
             "target-openclaw-link",
@@ -2518,11 +2459,6 @@
               "code": "top-level-side-effect-review",
               "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
               "evidence": "plugins/web-search-plus/index.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "openclaw"
             }
           ],
           "steps": [
@@ -2543,19 +2479,6 @@
               "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/web-search-plus",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
-            },
-            {
-              "kind": "install",
-              "command": "npm install --ignore-scripts",
-              "cwd": ".crabpot/workspaces/web-search-plus",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
-            },
-            {
-              "kind": "audit",
-              "command": "npm audit --json > ../../results/web-search-plus/package-audit.json || true",
-              "cwd": ".crabpot/workspaces/web-search-plus",
-              "artifactPath": ".crabpot/results/web-search-plus/package-audit.json",
-              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "capture",
@@ -2611,7 +2534,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@sinclair/typebox, apify-client, openclaw"
+              "evidence": "@sinclair/typebox, apify-client"
             }
           ],
           "steps": [
@@ -2686,7 +2609,6 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link",
             "ts-loader"
@@ -2696,11 +2618,6 @@
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
               "evidence": "plugins/inworld-tts/index.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "openclaw"
             }
           ],
           "steps": [
@@ -2721,19 +2638,6 @@
               "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/inworld-tts",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
-            },
-            {
-              "kind": "install",
-              "command": "pnpm install --ignore-scripts",
-              "cwd": ".crabpot/workspaces/inworld-tts",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
-            },
-            {
-              "kind": "audit",
-              "command": "pnpm audit --json > ../../results/inworld-tts/package-audit.json || true",
-              "cwd": ".crabpot/workspaces/inworld-tts",
-              "artifactPath": ".crabpot/results/inworld-tts/package-audit.json",
-              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "capture",

@@ -12,7 +12,7 @@
     "hookCount": 80,
     "sdkImportCount": 457,
     "packageEntrypointCount": 34,
-    "issueProbeCount": 158,
+    "issueProbeCount": 154,
     "inspectorShimRequiredCount": 87,
     "compatAliasRequiredCount": 3
   },
@@ -11415,8 +11415,7 @@
         "@sinclair/typebox @ plugins/agentchat/integrations/openclaw-channel/package.json",
         "pino @ plugins/agentchat/integrations/openclaw-channel/package.json",
         "ws @ plugins/agentchat/integrations/openclaw-channel/package.json",
-        "zod @ plugins/agentchat/integrations/openclaw-channel/package.json",
-        "openclaw @ plugins/agentchat/integrations/openclaw-channel/package.json"
+        "zod @ plugins/agentchat/integrations/openclaw-channel/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -11438,27 +11437,13 @@
       ]
     },
     {
-      "id": "package.entrypoint.isolated-dependency-install:connectclaw",
-      "fixture": "connectclaw",
-      "priority": "P2",
-      "target": "package-loader",
-      "evidence": [
-        "openclaw @ plugins/connectclaw/packages/plugin/package.json"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
       "id": "package.entrypoint.isolated-dependency-install:ddingtalk",
       "fixture": "ddingtalk",
       "priority": "P2",
       "target": "package-loader",
       "evidence": [
         "dingtalk-stream @ plugins/ddingtalk/package.json",
-        "zod @ plugins/ddingtalk/package.json",
-        "openclaw @ plugins/ddingtalk/package.json"
+        "zod @ plugins/ddingtalk/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -11476,7 +11461,6 @@
         "form-data @ plugins/dingtalk-connector/package.json",
         "qrcode-terminal @ plugins/dingtalk-connector/package.json",
         "zod @ plugins/dingtalk-connector/package.json",
-        "openclaw @ plugins/dingtalk-connector/package.json",
         "mammoth @ plugins/dingtalk-connector/package.json"
       ],
       "assertions": [
@@ -11490,8 +11474,7 @@
       "priority": "P2",
       "target": "package-loader",
       "evidence": [
-        "@sinclair/typebox @ plugins/hasdata/package.json",
-        "openclaw @ plugins/hasdata/package.json"
+        "@sinclair/typebox @ plugins/hasdata/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -11505,8 +11488,7 @@
       "target": "package-loader",
       "evidence": [
         "@honcho-ai/sdk @ plugins/honcho/package.json",
-        "@sinclair/typebox @ plugins/honcho/package.json",
-        "openclaw @ plugins/honcho/package.json"
+        "@sinclair/typebox @ plugins/honcho/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -11521,21 +11503,7 @@
       "evidence": [
         "@clack/prompts @ plugins/hyperspell/package.json",
         "@sinclair/typebox @ plugins/hyperspell/package.json",
-        "hyperspell @ plugins/hyperspell/package.json",
-        "openclaw @ plugins/hyperspell/package.json"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.entrypoint.isolated-dependency-install:kitchen-sink",
-      "fixture": "kitchen-sink",
-      "priority": "P2",
-      "target": "package-loader",
-      "evidence": [
-        "openclaw @ plugins/kitchen-sink/package.json"
+        "hyperspell @ plugins/hyperspell/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -11551,8 +11519,7 @@
         "@sinclair/typebox @ plugins/lossless-claw/package.json",
         "@mariozechner/pi-agent-core @ plugins/lossless-claw/package.json",
         "@mariozechner/pi-ai @ plugins/lossless-claw/package.json",
-        "@mariozechner/pi-coding-agent @ plugins/lossless-claw/package.json",
-        "openclaw @ plugins/lossless-claw/package.json"
+        "@mariozechner/pi-coding-agent @ plugins/lossless-claw/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -11583,8 +11550,7 @@
         "json5 @ plugins/memory-tencentdb/.crabpot-package/package.json",
         "sqlite-vec @ plugins/memory-tencentdb/.crabpot-package/package.json",
         "undici @ plugins/memory-tencentdb/.crabpot-package/package.json",
-        "node-llama-cpp @ plugins/memory-tencentdb/.crabpot-package/package.json",
-        "openclaw @ plugins/memory-tencentdb/.crabpot-package/package.json"
+        "node-llama-cpp @ plugins/memory-tencentdb/.crabpot-package/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -11601,8 +11567,7 @@
         "fast-xml-parser @ plugins/mocrane-wecom/package.json",
         "file-type @ plugins/mocrane-wecom/package.json",
         "undici @ plugins/mocrane-wecom/package.json",
-        "zod @ plugins/mocrane-wecom/package.json",
-        "openclaw @ plugins/mocrane-wecom/package.json"
+        "zod @ plugins/mocrane-wecom/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -11631,8 +11596,7 @@
       "evidence": [
         "@clack/prompts @ plugins/opik-openclaw/package.json",
         "opik @ plugins/opik-openclaw/package.json",
-        "zod @ plugins/opik-openclaw/package.json",
-        "openclaw @ plugins/opik-openclaw/package.json"
+        "zod @ plugins/opik-openclaw/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -11647,8 +11611,7 @@
       "evidence": [
         "mpg123-decoder @ plugins/qqbot/package.json",
         "silk-wasm @ plugins/qqbot/package.json",
-        "ws @ plugins/qqbot/package.json",
-        "openclaw @ plugins/qqbot/package.json"
+        "ws @ plugins/qqbot/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -11664,7 +11627,6 @@
         "@wecom/aibot-node-sdk @ plugins/wecom/package.json",
         "file-type @ plugins/wecom/package.json",
         "pinyin-pro @ plugins/wecom/package.json",
-        "openclaw @ plugins/wecom/package.json",
         "undici @ plugins/wecom/package.json"
       ],
       "assertions": [
@@ -11681,8 +11643,7 @@
         "cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json",
         "protobufjs @ plugins/yuanbao/.crabpot-package/package.json",
         "uuid @ plugins/yuanbao/.crabpot-package/package.json",
-        "ws @ plugins/yuanbao/.crabpot-package/package.json",
-        "openclaw @ plugins/yuanbao/.crabpot-package/package.json"
+        "ws @ plugins/yuanbao/.crabpot-package/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -12470,8 +12431,7 @@
       "target": "package-loader",
       "evidence": [
         "@sinclair/typebox @ plugins/apify/package.json",
-        "apify-client @ plugins/apify/package.json",
-        "openclaw @ plugins/apify/package.json"
+        "apify-client @ plugins/apify/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -12497,21 +12457,7 @@
       "priority": "P3",
       "target": "package-loader",
       "evidence": [
-        "ws @ plugins/codex-app-server/package.json",
-        "openclaw @ plugins/codex-app-server/package.json"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.entrypoint.isolated-dependency-install:inworld-tts",
-      "fixture": "inworld-tts",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "openclaw @ plugins/inworld-tts/package.json"
+        "ws @ plugins/codex-app-server/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -12524,8 +12470,7 @@
       "priority": "P3",
       "target": "package-loader",
       "evidence": [
-        "socket.io-client @ plugins/lightclawbot/.crabpot-package/package.json",
-        "openclaw @ plugins/lightclawbot/.crabpot-package/package.json"
+        "socket.io-client @ plugins/lightclawbot/.crabpot-package/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -12539,21 +12484,7 @@
       "target": "package-loader",
       "evidence": [
         "chokidar @ plugins/secureclaw/secureclaw/package.json",
-        "node-forge @ plugins/secureclaw/secureclaw/package.json",
-        "openclaw @ plugins/secureclaw/secureclaw/package.json"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.entrypoint.isolated-dependency-install:web-search-plus",
-      "fixture": "web-search-plus",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "openclaw @ plugins/web-search-plus/package.json"
+        "node-forge @ plugins/secureclaw/secureclaw/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
