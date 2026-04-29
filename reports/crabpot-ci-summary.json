@@ -1,22 +1,22 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "check",
-  "openclawLabel": "openclaw@latest (2026.4.26, be8c24633aaa)",
+  "mode": "local",
+  "openclawLabel": "",
   "status": "pass",
   "summary": {
     "breakages": 0,
     "warnings": 60,
-    "suggestions": 100,
-    "issues": 160,
-    "p0Issues": 2,
+    "suggestions": 103,
+    "issues": 163,
+    "p0Issues": 5,
     "p1Issues": 33,
-    "liveIssues": 2,
-    "liveP0Issues": 2,
-    "compatGaps": 1,
+    "liveIssues": 5,
+    "liveP0Issues": 5,
+    "compatGaps": 4,
     "deprecationWarnings": 24,
     "inspectorGaps": 106,
-    "upstreamIssues": 27,
+    "upstreamIssues": 24,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -38,6 +38,14 @@
     {
       "severity": "P0",
       "issueClass": "live-issue",
+      "fixture": "clawmetry",
+      "code": "sdk-export-missing",
+      "title": "clawmetry: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
       "fixture": "codex-app-server",
       "code": "sdk-export-missing",
       "title": "codex-app-server: plugin SDK import aliases are missing from target package exports",
@@ -46,9 +54,25 @@
     {
       "severity": "P0",
       "issueClass": "live-issue",
+      "fixture": "honcho",
+      "code": "sdk-export-missing",
+      "title": "honcho: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
       "fixture": "hyperspell",
       "code": "unknown-hook-name",
       "title": "hyperspell: fixture uses a hook missing from target OpenClaw",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "yuanbao",
+      "code": "sdk-export-missing",
+      "title": "yuanbao: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
     },
     {
@@ -61,19 +85,19 @@
     },
     {
       "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "clawmetry",
+      "code": "missing-compat-record",
+      "title": "clawmetry: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
       "issueClass": "inspector-gap",
       "fixture": "clawmetry",
       "code": "registration-capture-gap",
       "title": "clawmetry: runtime registrations need capture before contract judgment",
       "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "clawmetry",
-      "code": "reserved-sdk-import",
-      "title": "clawmetry: plugin imports reserved bundled-plugin SDK compatibility subpaths",
-      "decision": "plugin-upstream-fix"
     },
     {
       "severity": "P1",
@@ -117,19 +141,19 @@
     },
     {
       "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "honcho",
+      "code": "missing-compat-record",
+      "title": "honcho: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
       "issueClass": "inspector-gap",
       "fixture": "honcho",
       "code": "registration-capture-gap",
       "title": "honcho: runtime registrations need capture before contract judgment",
       "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "honcho",
-      "code": "reserved-sdk-import",
-      "title": "honcho: plugin imports reserved bundled-plugin SDK compatibility subpaths",
-      "decision": "plugin-upstream-fix"
     },
     {
       "severity": "P1",
@@ -169,30 +193,6 @@
       "fixture": "kitchen-sink",
       "code": "registration-capture-gap",
       "title": "kitchen-sink: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "lightclawbot",
-      "code": "registration-capture-gap",
-      "title": "lightclawbot: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "llm-trace-phoenix",
-      "code": "conversation-access-hook",
-      "title": "llm-trace-phoenix: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "lossless-claw",
-      "code": "registration-capture-gap",
-      "title": "lossless-claw: runtime registrations need capture before contract judgment",
       "decision": "inspector-follow-up"
     }
   ],
