@@ -103,7 +103,7 @@ jobs:
           node scripts/workspace-plan.mjs --openclaw ./openclaw
           node scripts/platform-probes.mjs --openclaw ./openclaw
           node scripts/import-loop-profile.mjs
-          node scripts/profile-contract-runtime.mjs --openclaw ./openclaw
+          node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs 3
           node scripts/compare-runtime-profile.mjs
           node scripts/check-ci-policy.mjs
           node scripts/write-ci-summary.mjs --mode dependabot --openclaw-label "${{ steps.openclaw-track.outputs.label }}"

@@ -197,9 +197,15 @@ export async function buildReadmeSummary(options = {}) {
       importLoopP95Ms: reports.importLoop?.summary?.p95WallMs ?? 0,
       importLoopMaxRssMb: reports.importLoop?.summary?.maxPeakRssMb ?? 0,
       importLoopMaxCpuMs: reports.importLoop?.summary?.maxCpuMsEstimate ?? 0,
+      importLoopRssSampleCount: metricSampleCount(reports.importLoop, "rss", "maxPeakRssMb"),
+      importLoopCpuSampleCount: metricSampleCount(reports.importLoop, "cpu", "maxCpuMsEstimate"),
       runtimeP50Ms: reports.runtimeProfile?.summary?.p50WallMs ?? 0,
       runtimeP95Ms: reports.runtimeProfile?.summary?.p95WallMs ?? 0,
       runtimeMaxRssMb: reports.runtimeProfile?.summary?.maxPeakRssMb ?? 0,
+      runtimeRssSampleCount: metricSampleCount(reports.runtimeProfile, "rss", "maxPeakRssMb"),
+      runtimeCpuSampleCount: metricSampleCount(reports.runtimeProfile, "cpu", "maxCpuMsEstimate"),
+      runtimeSamplesPerCommand: reports.runtimeProfile?.runs ?? 0,
+      runtimeWallTimeBasis: reports.runtimeProfile?.summary?.wallTimeBasis ?? "command-median-p95",
     },
     topIssues,
     artifactPaths: Object.fromEntries(
@@ -272,6 +278,7 @@ export function buildDashboardData(summary) {
 
 function preserveDashboardMetadata(summary, readme) {
   const current = readDashboardMetadata(readme);
+  const preserveCurrentReportLabels = current.runUrl && (!summary.generatedAt || summary.generatedAt === "deterministic");
   return {
     ...summary,
     generatedAtLabel:
@@ -283,9 +290,12 @@ function preserveDashboardMetadata(summary, readme) {
       current.runUrl && isLocalOpenclawLabel(summary.openclawLabel) && current.openclawLabel
         ? current.openclawLabel
         : summary.openclawLabel,
-    importLoopLabel: current.runUrl && hasP95Label(current.importLoopLabel) ? current.importLoopLabel : summary.importLoopLabel,
+    importLoopLabel:
+      preserveCurrentReportLabels && hasP95Label(current.importLoopLabel) ? current.importLoopLabel : summary.importLoopLabel,
     runtimeProfileLabel:
-      current.runUrl && hasP95Label(current.runtimeProfileLabel) ? current.runtimeProfileLabel : summary.runtimeProfileLabel,
+      preserveCurrentReportLabels && hasP95Label(current.runtimeProfileLabel)
+        ? current.runtimeProfileLabel
+        : summary.runtimeProfileLabel,
     runUrl: summary.runUrl || current.runUrl || "",
   };
 }
@@ -398,11 +408,12 @@ export function renderReadmeSummary(summary) {
         [
           "Import loop",
           summary.importLoopLabel ??
-            `p50 ${m.importLoopP50Ms}ms / p95 ${m.importLoopP95Ms}ms / max RSS ${m.importLoopMaxRssMb}MB / CPU ${m.importLoopMaxCpuMs}ms`,
+            `p50 ${m.importLoopP50Ms}ms / p95 ${m.importLoopP95Ms}ms / max RSS ${formatSampledMetric(m.importLoopMaxRssMb, m.importLoopRssSampleCount)} / CPU ${formatSampledMetric(m.importLoopMaxCpuMs, m.importLoopCpuSampleCount, "ms")}`,
         ],
         [
           "Runtime profile",
-          summary.runtimeProfileLabel ?? `p50 ${m.runtimeP50Ms}ms / p95 ${m.runtimeP95Ms}ms / max RSS ${m.runtimeMaxRssMb}MB`,
+          summary.runtimeProfileLabel ??
+            `p50 ${m.runtimeP50Ms}ms / command p95 ${m.runtimeP95Ms}ms / max RSS ${formatSampledMetric(m.runtimeMaxRssMb, m.runtimeRssSampleCount)} / ${m.runtimeSamplesPerCommand || 1} sample${(m.runtimeSamplesPerCommand || 1) === 1 ? "" : "s"}/command`,
         ],
       ],
       ["Metric", "Result"],
@@ -511,6 +522,47 @@ function isLocalOpenclawLabel(label) {
 
 function hasP95Label(label) {
   return /\bp95\b/i.test(label ?? "");
+}
+
+function metricSampleCount(report, kind, maxMetric) {
+  const summaryKey = kind === "rss" ? "rssSampleCount" : "cpuSampleCount";
+  const summaryCount = report?.summary?.[summaryKey];
+  if (Number.isFinite(summaryCount)) {
+    return summaryCount;
+  }
+  if (Array.isArray(report?.commands)) {
+    return report.commands.reduce((sum, command) => {
+      const commandCount = command[summaryKey];
+      if (Number.isFinite(commandCount)) {
+        return sum + commandCount;
+      }
+      return sum + inferSampleCount(command.samples, kind);
+    }, 0);
+  }
+  const sampleCount = inferSampleCount(report?.samples, kind);
+  if (sampleCount > 0) {
+    return sampleCount;
+  }
+  return (report?.summary?.[maxMetric] ?? 0) > 0 ? 1 : 0;
+}
+
+function inferSampleCount(samples = [], kind) {
+  if (!Array.isArray(samples)) {
+    return 0;
+  }
+  return samples.reduce((sum, sample) => {
+    if (kind === "rss") {
+      return sum + (sample.rssSampleCount ?? (sample.peakRssMb > 0 ? 1 : 0));
+    }
+    return sum + (sample.cpuSampleCount ?? 0);
+  }, 0);
+}
+
+function formatSampledMetric(value, count, unit = "MB") {
+  if ((count ?? 0) <= 0) {
+    return "n/a";
+  }
+  return `${value}${unit}`;
 }
 
 async function readOptionalJson(jsonPath) {

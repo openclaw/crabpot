@@ -105,7 +105,7 @@ async function main() {
     process.stdout.write(`${JSON.stringify(profile, null, 2)}\n`);
   } else {
     console.log(
-      `runtime profile: ${profile.summary.commandCount} commands, p50 ${profile.summary.p50WallMs}ms, max RSS ${profile.summary.maxPeakRssMb}MB`,
+      `runtime profile: ${profile.summary.commandCount} commands, p50 ${profile.summary.p50WallMs}ms, command p95 ${profile.summary.p95WallMs}ms, max RSS ${formatSampledMetric(profile.summary.maxPeakRssMb, profile.summary.rssSampleCount)}`,
     );
   }
 
@@ -188,4 +188,11 @@ export function renderRuntimeProfileMarkdown(profile, options = {}) {
     ...crabpotRuntimeProfileOptions,
     ...options,
   });
+}
+
+function formatSampledMetric(value, count, unit = "MB") {
+  if ((count ?? 0) <= 0) {
+    return "n/a";
+  }
+  return `${value}${unit}`;
 }

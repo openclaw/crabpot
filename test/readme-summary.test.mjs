@@ -85,7 +85,7 @@ test("readme summary rolls up report counts and top issues", async () => {
   assert.match(markdown, /4 Windows \/ 2 container/);
   assert.match(markdown, /\| Jiti loader candidates\s+\| 5\s+\|/);
   assert.match(markdown, /p50 51ms \/ p95 57ms \/ max RSS 44\.5MB \/ CPU 32ms/);
-  assert.match(markdown, /p50 120ms \/ p95 130ms \/ max RSS 64\.5MB/);
+  assert.match(markdown, /p50 120ms \/ command p95 130ms \/ max RSS 64\.5MB \/ 1 sample\/command/);
 });
 
 test("readme summary renders metric deltas against main dashboard data", async () => {
@@ -259,9 +259,14 @@ test("readme summary preserves CI run metadata during local checks", async () =>
       importLoopP95Ms: 57,
       importLoopMaxRssMb: 44.5,
       importLoopMaxCpuMs: 32,
+      importLoopRssSampleCount: 2,
+      importLoopCpuSampleCount: 2,
       runtimeP50Ms: 231,
       runtimeP95Ms: 245,
       runtimeMaxRssMb: 70.4,
+      runtimeRssSampleCount: 2,
+      runtimeCpuSampleCount: 2,
+      runtimeSamplesPerCommand: 1,
     },
     mode: "check",
     openclawLabel: "openclaw/openclaw@main",
@@ -297,7 +302,7 @@ test("readme summary preserves CI run metadata during local checks", async () =>
   const readme = await readFile(readmePath, "utf8");
   assert.match(readme, /Last dashboard update:\*\* Apr 26, 2026, 01:31 UTC/);
   assert.match(readme, /p50 51ms \/ p95 57ms \/ max RSS 44\.5MB \/ CPU 32ms/);
-  assert.match(readme, /p50 231ms \/ p95 245ms \/ max RSS 70\.4MB/);
+  assert.match(readme, /p50 231ms \/ command p95 245ms \/ max RSS 70\.4MB \/ 1 sample\/command/);
 });
 
 test("readme frame follows compact reporting design and preserves dynamic blocks", async () => {

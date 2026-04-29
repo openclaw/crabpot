@@ -38,7 +38,7 @@ async function main() {
     process.stdout.write(`${JSON.stringify(report, null, 2)}\n`);
   } else {
     console.log(
-      `import loop profile: ${report.summary.runs} runs, p50 ${report.summary.p50WallMs}ms, max RSS ${report.summary.maxPeakRssMb}MB`,
+      `import loop profile: ${report.summary.runs} runs, p50 ${report.summary.p50WallMs}ms, max RSS ${formatSampledMetric(report.summary.maxPeakRssMb, report.summary.rssSampleCount)}`,
     );
   }
 
@@ -111,4 +111,11 @@ export function renderImportLoopProfileMarkdown(report, options = {}) {
     ...crabpotImportLoopProfileOptions,
     ...options,
   });
+}
+
+function formatSampledMetric(value, count, unit = "MB") {
+  if ((count ?? 0) <= 0) {
+    return "n/a";
+  }
+  return `${value}${unit}`;
 }

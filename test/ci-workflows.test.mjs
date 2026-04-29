@@ -48,7 +48,7 @@ test("manual OpenClaw ref workflow has diff and profile modes", async () => {
 test("default check workflow uploads policy and summary reports", async () => {
   const workflow = await readWorkflow(".github/workflows/check.yml");
 
-  assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy dashboard --plugin-inspector-smoke/);
+  assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy dashboard --profile-runs 3 --plugin-inspector-smoke/);
   assert.match(workflow, /node scripts\/check-ci-policy\.mjs/);
   assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
   assert.match(workflow, /--baseline-data \.crabpot\/baseline\/main-dashboard-data\.json/);
@@ -83,7 +83,7 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.match(workflow, /ref: main/);
   assert.match(workflow, /node scripts\/resolve-openclaw-track\.mjs --track "\$\{\{ matrix\.track \}\}" --github-output/);
   assert.match(workflow, /ref: \$\{\{ steps\.openclaw-track\.outputs\.ref \}\}/);
-  assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy dashboard --plugin-inspector-smoke/);
+  assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy dashboard --profile-runs 3 --plugin-inspector-smoke/);
   assert.match(workflow, /node scripts\/update-track-metadata\.mjs --track "\$\{\{ matrix\.track \}\}"/);
   assert.match(workflow, /origin\/main:reports\/crabpot-dashboard-data\.json/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs \$\{baseline_arg\}/);
@@ -98,7 +98,7 @@ test("default check workflow runs OS and container static lanes", async () => {
   assert.match(workflow, /os: \[ubuntu-latest, macos-latest, windows-latest\]/);
   assert.match(workflow, /container-smoke:/);
   assert.match(workflow, /image: node:22-bookworm/);
-  assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy dashboard --plugin-inspector-smoke/);
+  assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy dashboard --profile-runs 3 --plugin-inspector-smoke/);
   assert.match(workflow, /crabpot-check-reports-\$\{\{ matrix\.os \}\}/);
 });
 
