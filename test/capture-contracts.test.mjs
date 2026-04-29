@@ -4,7 +4,7 @@ import { buildContractCapture } from "../scripts/capture-contracts.mjs";
 import { buildReport } from "../scripts/report-lib.mjs";
 
 test("contract capture turns observed seams into executable probe assertions", async () => {
-  const report = await buildReport({ generatedAt: "test" });
+  const report = await buildReport(testReportOptions());
   const capture = await buildContractCapture({ report });
 
   assert.ok(capture.summary.registrationCount > 0);
@@ -19,9 +19,18 @@ test("contract capture turns observed seams into executable probe assertions", a
   assertHasRegistrationCapture(capture, "clawmetry", "definePluginEntry", "inspector-shim-required");
   assertHasHookProbe(capture, "wecom", "before_tool_call");
   assertHasLegacyStartupHookProbe(capture, "connectclaw");
-  assertHasSdkProbe(capture, "codex-app-server", "openclaw/plugin-sdk/telegram-account", "compat-alias-required");
-  assertHasIssueProbe(capture, "sdk.import.package-export-cold-import:codex-app-server");
+  if (report.targetOpenClaw.status === "ok") {
+    assertHasSdkProbe(capture, "honcho", "openclaw/plugin-sdk/memory-core", "compat-alias-required");
+    assertHasIssueProbe(capture, "sdk.import.package-export-cold-import:honcho");
+  }
 });
+
+function testReportOptions() {
+  return {
+    generatedAt: "test",
+    openclawPath: process.env.CRABPOT_TEST_OPENCLAW_PATH,
+  };
+}
 
 function assertHasRegistrationCapture(capture, fixtureId, registrar, support) {
   const fixture = capture.fixtures.find((item) => item.id === fixtureId);

@@ -15,10 +15,11 @@ test("manual OpenClaw ref workflow accepts branch tag or SHA inputs", async () =
   assert.match(workflow, /head_openclaw_ref:/);
   assert.match(workflow, /TARGET_REF:/);
   assert.match(workflow, /ref: \$\{\{ env\.TARGET_REF \}\}/);
+  assert.match(workflow, /strict_contract:[\s\S]*default: true/);
+  assert.match(workflow, /SUITE_POLICY: \$\{\{ inputs\.strict_contract && 'release' \|\| 'dashboard' \}\}/);
+  assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy "\$\{SUITE_POLICY\}"/);
+  assert.match(workflow, /--plugin-inspector-smoke/);
   assert.match(workflow, /node scripts\/check-contract-coverage\.mjs --openclaw \.\/openclaw/);
-  assert.match(workflow, /node scripts\/platform-probes\.mjs --check --openclaw \.\/openclaw/);
-  assert.match(workflow, /node scripts\/check-generated-surface-fixture\.mjs --check --openclaw \.\/openclaw/);
-  assert.match(workflow, /node scripts\/import-loop-profile\.mjs --check/);
 });
 
 test("manual OpenClaw ref workflow keeps isolated fixture execution opt-in", async () => {
@@ -47,11 +48,7 @@ test("manual OpenClaw ref workflow has diff and profile modes", async () => {
 test("default check workflow uploads policy and summary reports", async () => {
   const workflow = await readWorkflow(".github/workflows/check.yml");
 
-  assert.match(workflow, /node scripts\/compare-runtime-profile\.mjs/);
-  assert.match(workflow, /node scripts\/platform-probes\.mjs/);
-  assert.match(workflow, /node scripts\/import-loop-profile\.mjs/);
-  assert.match(workflow, /npm run plugin-inspector:smoke/);
-  assert.match(workflow, /node scripts\/check-generated-surface-fixture\.mjs --check --openclaw \.\/openclaw/);
+  assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy dashboard --plugin-inspector-smoke/);
   assert.match(workflow, /node scripts\/check-ci-policy\.mjs/);
   assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs/);
@@ -81,6 +78,7 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.match(workflow, /branch: crab-development/);
   assert.match(workflow, /node scripts\/resolve-openclaw-track\.mjs --track "\$\{\{ matrix\.track \}\}" --github-output/);
   assert.match(workflow, /ref: \$\{\{ steps\.openclaw-track\.outputs\.ref \}\}/);
+  assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy dashboard --plugin-inspector-smoke/);
   assert.match(workflow, /node scripts\/update-track-metadata\.mjs/);
   assert.match(workflow, /git push origin HEAD:\$\{\{ matrix\.branch \}\}/);
 });
@@ -92,7 +90,7 @@ test("default check workflow runs OS and container static lanes", async () => {
   assert.match(workflow, /os: \[ubuntu-latest, macos-latest, windows-latest\]/);
   assert.match(workflow, /container-smoke:/);
   assert.match(workflow, /image: node:22-bookworm/);
-  assert.match(workflow, /npm run plugin-inspector:smoke/);
+  assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy dashboard --plugin-inspector-smoke/);
   assert.match(workflow, /crabpot-check-reports-\$\{\{ matrix\.os \}\}/);
 });
 

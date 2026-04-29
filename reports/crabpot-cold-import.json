@@ -3,7 +3,7 @@
   "targetOpenClaw": {
     "status": "ok",
     "configuredPath": "./openclaw",
-    "sdkExportCount": 316
+    "sdkExportCount": 293
   },
   "summary": {
     "fixtureCount": 29,
@@ -11,9 +11,9 @@
     "readyCount": 3,
     "blockedCount": 31,
     "tsLoaderRequiredCount": 17,
-    "buildRequiredCount": 8,
+    "buildRequiredCount": 6,
     "dependencyInstallRequiredCount": 17,
-    "sdkAliasRequiredCount": 1
+    "sdkAliasRequiredCount": 4
   },
   "fixtures": [
     {
@@ -388,16 +388,22 @@
           "kind": "extension",
           "specifier": "./dist/index.js",
           "path": "plugins/honcho/dist/index.js",
-          "status": "build-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "build-required",
               "message": "entrypoint points at build output that is absent in the fixture checkout",
               "evidence": "plugins/honcho/dist/index.js"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/memory-core @ plugins/honcho/index.ts:11"
             }
           ],
           "assertions": [
-            "plugin build or source alias resolution runs before cold import"
+            "plugin build or source alias resolution runs before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         }
       ]
@@ -610,16 +616,40 @@
           "kind": "extension",
           "specifier": "./dist/index.js",
           "path": "plugins/yuanbao/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "cos-nodejs-sdk-v5, protobufjs, uuid, ws"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/commands/upgrade/utils.js:2"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/module/log-upload/extractor.js:2"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:2"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/mattermost @ plugins/yuanbao/.crabpot-package/dist/src/message-handler/inbound.js:1"
             }
           ],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         }
       ]
@@ -772,7 +802,7 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/clawmetry/clawhub-plugin/index.ts",
-          "status": "ts-loader-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "ts-loader-required",
@@ -783,11 +813,17 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "node-fetch"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/diagnostics-otel @ plugins/clawmetry/clawhub-plugin/src/service.ts:2"
             }
           ],
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
         {
@@ -797,16 +833,22 @@
           "kind": "runtimeExtension",
           "specifier": "./dist/index.js",
           "path": "plugins/clawmetry/clawhub-plugin/dist/index.js",
-          "status": "build-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "build-required",
               "message": "entrypoint points at build output that is absent in the fixture checkout",
               "evidence": "plugins/clawmetry/clawhub-plugin/dist/index.js"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/diagnostics-otel @ plugins/clawmetry/clawhub-plugin/src/service.ts:2"
             }
           ],
           "assertions": [
-            "plugin build or source alias resolution runs before cold import"
+            "plugin build or source alias resolution runs before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         }
       ]
@@ -822,7 +864,7 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/codex-app-server/index.ts",
-          "status": "sdk-alias-required",
+          "status": "ts-loader-required",
           "blockers": [
             {
               "code": "ts-loader-required",
@@ -833,29 +875,11 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "ws"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
             }
           ],
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim"
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
       ]

@@ -7,21 +7,24 @@ import {
 } from "../scripts/report-lib.mjs";
 
 test("compatibility report classifies current fixture seams", async () => {
-  const report = await buildReport({ generatedAt: "test" });
+  const report = await buildReport(testReportOptions());
+  const hasTargetOpenClaw = report.targetOpenClaw.status === "ok";
 
   assert.equal(report.status, "pass");
   assert.equal(report.breakages.length, 0);
   assert.ok(report.summary.fixtureCount >= 10);
   assert.ok(report.summary.issueCount > 0);
-  assert.ok(report.summary.p0IssueCount > 0);
   assert.ok(report.summary.p1IssueCount > 0);
-  assert.ok(report.summary.liveIssueCount > 0);
-  assert.ok(report.summary.liveP0IssueCount > 0);
-  assert.ok(report.summary.compatGapCount > 0);
   assert.ok(report.summary.deprecationWarningCount > 0);
   assert.ok(report.summary.inspectorGapCount > 0);
   assert.ok(report.summary.upstreamIssueCount > 0);
   assert.ok(report.summary.contractProbeCount > 0);
+  if (hasTargetOpenClaw) {
+    assert.ok(report.summary.p0IssueCount > 0);
+    assert.ok(report.summary.liveIssueCount > 0);
+    assert.ok(report.summary.liveP0IssueCount > 0);
+    assert.ok(report.summary.compatGapCount > 0);
+  }
   assert.ok(report.issues.every((issue) => /^CRABPOT-[A-F0-9]{8}$/.test(issue.id)));
   assert.ok(report.issues.every((issue) => typeof issue.issueClass === "string"));
   assert.deepEqual(
@@ -38,18 +41,20 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasFinding(report.suggestions, "wecom", "before-tool-call-probe");
   assertHasFinding(report.warnings, "a2a-gateway", "package-manifest-version-drift");
   assertHasFinding(report.warnings, "agentchat", "manifest-unknown-fields");
-  assertHasFinding(report.warnings, "codex-app-server", "sdk-export-missing");
   assertHasFinding(report.warnings, "connectclaw", "legacy-before-agent-start");
   assertHasFinding(report.warnings, "mcp-adapter", "package-plugin-api-compat-missing");
   assertHasFinding(report.suggestions, "agentchat", "package-build-artifact-entrypoint");
   assertHasFinding(report.suggestions, "a2a-gateway", "package-typescript-source-entrypoint");
   assertHasFinding(report.suggestions, "wecom", "package-dependency-install-required");
-  assertHasFinding(report.suggestions, "codex-app-server", "missing-compat-record");
-  assertHasFinding(report.warnings, "hyperspell", "unknown-hook-name");
   assertHasFinding(report.warnings, "honcho", "conversation-access-hook");
   assertHasFinding(report.warnings, "composio", "package-plugin-api-compat-missing");
   assertHasFinding(report.warnings, "memos-cloud", "manifest-unknown-fields");
   assertHasFinding(report.suggestions, "secureclaw", "registration-capture-gap");
+  if (hasTargetOpenClaw) {
+    assertHasFinding(report.warnings, "honcho", "sdk-export-missing");
+    assertHasFinding(report.suggestions, "honcho", "missing-compat-record");
+    assertHasFinding(report.warnings, "hyperspell", "unknown-hook-name");
+  }
 
   assertHasDecision(report.decisions, "core-compat-adapter", "env-auth");
   assertHasDecision(report.decisions, "inspector-follow-up", "registration-capture");
@@ -57,25 +62,29 @@ test("compatibility report classifies current fixture seams", async () => {
 
   assertHasIssue(report.issues, "P1", "registration-capture-gap");
   assertHasIssue(report.issues, "P1", "conversation-access-hook");
-  assertHasIssue(report.issues, "P1", "missing-compat-record");
   assertHasIssue(report.issues, "P2", "package-plugin-api-compat-missing");
   assertHasIssue(report.issues, "P2", "package-build-artifact-entrypoint");
   assertHasIssue(report.issues, "P2", "manifest-unknown-fields");
   assertHasIssue(report.issues, "P2", "package-typescript-source-entrypoint");
   assertHasIssue(report.issues, "P2", "package-dependency-install-required");
-  assertHasIssue(report.issues, "P0", "sdk-export-missing");
-  assertHasIssue(report.issues, "P0", "unknown-hook-name");
-  assertHasIssueClass(report.issues, "live-issue", "sdk-export-missing");
-  assertHasIssueClass(report.issues, "live-issue", "unknown-hook-name");
-  assertHasIssueClass(report.issues, "compat-gap", "missing-compat-record");
   assertHasIssueClass(report.issues, "deprecation-warning", "legacy-before-agent-start");
   assertHasIssueClass(report.issues, "inspector-gap", "registration-capture-gap");
   assertHasIssueClass(report.issues, "upstream-metadata", "package-plugin-api-compat-missing");
+  if (hasTargetOpenClaw) {
+    assertHasIssue(report.issues, "P1", "missing-compat-record");
+    assertHasIssue(report.issues, "P0", "sdk-export-missing");
+    assertHasIssue(report.issues, "P0", "unknown-hook-name");
+    assertHasIssueClass(report.issues, "live-issue", "sdk-export-missing");
+    assertHasIssueClass(report.issues, "live-issue", "unknown-hook-name");
+    assertHasIssueClass(report.issues, "compat-gap", "missing-compat-record");
+  }
   assertHasProbe(report.contractProbes, "api.capture.runtime-registrars:wecom");
   assertHasProbe(report.contractProbes, "hook.before_tool_call.terminal-block-approval:wecom");
   assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:agentchat");
-  assertHasProbe(report.contractProbes, "sdk.import.package-export-cold-import:codex-app-server");
-  assertHasProbe(report.contractProbes, "sdk.import.package-export-cold-import:codex-app-server", "P1");
+  if (hasTargetOpenClaw) {
+    assertHasProbe(report.contractProbes, "sdk.import.package-export-cold-import:honcho");
+    assertHasProbe(report.contractProbes, "sdk.import.package-export-cold-import:honcho", "P1");
+  }
   assertHasProbe(report.contractProbes, "package.compat.plugin-api-range:mcp-adapter");
   assertHasProbe(report.contractProbes, "package.entrypoint.build-before-cold-import:agentchat");
   assertHasProbe(report.contractProbes, "package.entrypoint.typescript-loader:a2a-gateway");
@@ -117,11 +126,17 @@ test("disabled OpenClaw target suppresses target-derived compat findings", async
 });
 
 test("issue report preserves decision metadata for compat-layer work", async () => {
-  const report = await buildReport({ generatedAt: "test" });
+  const report = await buildReport(testReportOptions());
   const sdkIssue = report.issues.find((issue) => issue.code === "sdk-export-missing");
   const manifestIssue = report.issues.find((issue) => issue.code === "manifest-unknown-fields");
   const markdown = renderIssuesReport(report);
 
+  if (report.targetOpenClaw.status !== "ok") {
+    assert.equal(sdkIssue, undefined);
+    assert.equal(manifestIssue.owner, "plugin");
+    assert.match(markdown, /## Triage Summary/);
+    return;
+  }
   assert.equal(sdkIssue.owner, "core");
   assert.equal(sdkIssue.decision, "core-compat-adapter");
   assert.equal(sdkIssue.status, "blocking");
@@ -134,25 +149,32 @@ test("issue report preserves decision metadata for compat-layer work", async () 
   assert.match(markdown, /core-compat-adapter/);
   assert.match(markdown, /live-issue/);
   assert.match(markdown, /deprecation-warning/);
-  assert.match(markdown, /🔴 P0 \*\*codex-app-server\*\* `live-issue` `core-compat-adapter`/);
+  assert.match(markdown, /🔴 P0 \*\*honcho\*\* `live-issue` `core-compat-adapter`/);
   assert.match(markdown, /🟠 P1/);
   assert.match(markdown, /🟡 P2/);
   assert.match(
     markdown,
-    /https:\/\/github\.com\/pwrdrvr\/openclaw-codex-app-server\/blob\/[0-9a-f]{40}\/src\/controller\.ts#L105/,
+    /https:\/\/github\.com\/plastic-labs\/openclaw-honcho\/blob\/[0-9a-f]{40}\/index\.ts#L11/,
   );
   assert.doesNotMatch(markdown, /\| ID\s+\| Severity\s+\| Class\s+\| Fixture\s+\| Owner\s+\|/);
   assert.doesNotMatch(markdown, /CRABPOT-[A-F0-9]{8}/);
 
   const windowsReport = structuredClone(report);
   windowsReport.issues.find((issue) => issue.code === "sdk-export-missing").evidence = [
-    "openclaw/plugin-sdk/telegram-account @ plugins\\codex-app-server\\src\\controller.ts:105",
+    "openclaw/plugin-sdk/memory-core @ plugins\\honcho\\index.ts:11",
   ];
   assert.match(
     renderIssuesReport(windowsReport),
-    /https:\/\/github\.com\/pwrdrvr\/openclaw-codex-app-server\/blob\/[0-9a-f]{40}\/src\/controller\.ts#L105/,
+    /https:\/\/github\.com\/plastic-labs\/openclaw-honcho\/blob\/[0-9a-f]{40}\/index\.ts#L11/,
   );
 });
+
+function testReportOptions() {
+  return {
+    generatedAt: "test",
+    openclawPath: process.env.CRABPOT_TEST_OPENCLAW_PATH,
+  };
+}
 
 function assertHasFinding(findings, fixture, code) {
   assert.ok(

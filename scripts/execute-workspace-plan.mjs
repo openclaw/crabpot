@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 import { spawn } from "node:child_process";
-import { mkdir, writeFile } from "node:fs/promises";
+import { cp, mkdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { performance } from "node:perf_hooks";
 import { pathToFileURL } from "node:url";
 import { buildWorkspacePlan } from "./workspace-plan.mjs";
 import { repoRoot } from "./manifest-lib.mjs";
+import { portableCommand } from "./portable-command.mjs";
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   await main();
@@ -136,19 +137,135 @@ export function validateExecutionRequest({ args, selected, env = process.env, fi
   return errors;
 }
 
-function runStep(step) {
+export async function runStep(step) {
+  const operation = parsePortableStep(step);
+  if (operation.type === "copy-workspace") {
+    return measureLocalStep(step, async () => {
+      await rm(repoPath(operation.destination), { force: true, recursive: true });
+      await mkdir(path.dirname(repoPath(operation.destination)), { recursive: true });
+      await cp(repoPath(operation.source), repoPath(operation.destination), {
+        force: true,
+        recursive: true,
+        verbatimSymlinks: true,
+      });
+    });
+  }
+  if (operation.type === "mkdir") {
+    return measureLocalStep(step, () => mkdir(repoPath(operation.path), { recursive: true }));
+  }
+  if (operation.type === "audit") {
+    return measureProcessStep(step, {
+      args: operation.args,
+      captureStdoutPath: path.join(repoPath(step.cwd), operation.outputPath),
+      command: operation.command,
+      env: operation.env,
+      ignoreExitCode: true,
+    });
+  }
+  return measureProcessStep(step, operation);
+}
+
+export function parsePortableStep(step) {
+  const copyMatch = step.command.match(/^mkdir -p (?<workspace>\S+) && rsync -a --delete (?<source>\S+)\/ (?<destination>\S+)\/$/);
+  if (step.kind === "prepare" && copyMatch?.groups) {
+    return {
+      destination: copyMatch.groups.destination,
+      source: copyMatch.groups.source,
+      type: "copy-workspace",
+    };
+  }
+
+  const mkdirMatch = step.command.match(/^mkdir -p (?<path>\S+)$/);
+  if (step.kind === "prepare-artifacts" && mkdirMatch?.groups) {
+    return {
+      path: mkdirMatch.groups.path,
+      type: "mkdir",
+    };
+  }
+
+  const auditMatch = step.command.match(/^(?<command>\S+) audit --json > (?<outputPath>\S+) \|\| true$/);
+  if (step.kind === "audit" && auditMatch?.groups) {
+    return {
+      args: ["audit", "--json"],
+      command: auditMatch.groups.command,
+      env: {},
+      outputPath: auditMatch.groups.outputPath,
+      type: "audit",
+    };
+  }
+
+  const { args, command, env } = parseCommandInvocation(step.command);
+  return {
+    args,
+    command,
+    env,
+    type: "process",
+  };
+}
+
+function parseCommandInvocation(commandText) {
+  const tokens = tokenizeCommand(commandText);
+  const env = {};
+  while (tokens[0] && /^[A-Za-z_][A-Za-z0-9_]*=/.test(tokens[0])) {
+    const token = tokens.shift();
+    const separator = token.indexOf("=");
+    env[token.slice(0, separator)] = token.slice(separator + 1);
+  }
+  const command = tokens.shift();
+  return {
+    args: tokens,
+    command,
+    env,
+  };
+}
+
+function tokenizeCommand(commandText) {
+  const tokens = [];
+  const matcher = /"([^"\\]*(?:\\.[^"\\]*)*)"|'([^'\\]*(?:\\.[^'\\]*)*)'|(\S+)/g;
+  for (const match of commandText.matchAll(matcher)) {
+    tokens.push(normalizeToken((match[1] ?? match[2] ?? match[3]).replaceAll('\\"', '"').replaceAll("\\'", "'")));
+  }
+  return tokens;
+}
+
+function normalizeToken(token) {
+  const assignment = token.match(/^([^=]+)="([^"]*)"$/);
+  return assignment ? `${assignment[1]}=${assignment[2]}` : token;
+}
+
+async function measureLocalStep(step, callback) {
+  const start = performance.now();
+  await callback();
+  return {
+    kind: step.kind,
+    command: step.command,
+    cwd: step.cwd,
+    artifactPath: step.artifactPath ?? null,
+    exitCode: 0,
+    wallMs: Math.round(performance.now() - start),
+    peakRssMb: 0,
+    peakCpuPercent: 0,
+    cpuMsEstimate: 0,
+  };
+}
+
+function measureProcessStep(step, operation) {
   return new Promise((resolve, reject) => {
     const start = performance.now();
     let peakRssKb = 0;
     let peakCpuPercent = 0;
     const cpuSamples = [];
     let pollInFlight = false;
-    const child = spawn(step.command, {
+    const child = spawn(portableCommand(operation.command), operation.args, {
       cwd: path.join(repoRoot, step.cwd),
-      env: { ...process.env, CRABPOT_EXECUTE_ISOLATED: "1" },
-      shell: true,
-      stdio: "inherit",
+      env: { ...process.env, ...operation.env, CRABPOT_EXECUTE_ISOLATED: "1" },
+      shell: false,
+      stdio: operation.captureStdoutPath ? ["ignore", "pipe", "inherit"] : "inherit",
     });
+    const stdoutChunks = [];
+    if (operation.captureStdoutPath) {
+      child.stdout.on("data", (chunk) => stdoutChunks.push(chunk));
+    }
     const recordStats = (stats) => {
       peakRssKb = Math.max(peakRssKb, stats.rssKb);
       peakCpuPercent = Math.max(peakCpuPercent, stats.cpuPercent);
@@ -180,12 +297,18 @@ function runStep(step) {
         cpuSamples.length > 0
           ? cpuSamples.reduce((sum, value) => sum + value, 0) / cpuSamples.length
           : 0;
+      if (operation.captureStdoutPath) {
+        await mkdir(path.dirname(operation.captureStdoutPath), { recursive: true });
+        await writeFile(operation.captureStdoutPath, Buffer.concat(stdoutChunks));
+      }
+      const exitCode = code ?? 1;
       resolve({
         kind: step.kind,
         command: step.command,
         cwd: step.cwd,
         artifactPath: step.artifactPath ?? null,
-        exitCode: code ?? 1,
+        exitCode: operation.ignoreExitCode ? 0 : exitCode,
+        rawExitCode: operation.ignoreExitCode ? exitCode : undefined,
         wallMs,
         peakRssMb: Math.round((peakRssKb / 1024) * 10) / 10,
         peakCpuPercent: Math.round(peakCpuPercent * 10) / 10,
@@ -197,6 +320,10 @@ function runStep(step) {
       reject(error);
     });
   });
+}
+
+function repoPath(relativePath) {
+  return path.join(repoRoot, relativePath);
 }
 
 async function writeExecutionProfile(fixtureId, steps) {

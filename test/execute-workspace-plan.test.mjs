@@ -2,7 +2,12 @@ import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import { test } from "node:test";
 import { repoRoot } from "../scripts/manifest-lib.mjs";
-import { validateExecutionRequest, selectWorkspaceSteps } from "../scripts/execute-workspace-plan.mjs";
+import {
+  parsePortableStep,
+  validateExecutionRequest,
+  selectWorkspaceSteps,
+} from "../scripts/execute-workspace-plan.mjs";
+import { portableCommand } from "../scripts/portable-command.mjs";
 
 test("workspace executor selects a narrow fixture scope", () => {
   const plan = {
@@ -123,6 +128,96 @@ test("workspace executor refuses broad or unguarded execution", () => {
     }),
     [],
   );
+});
+
+test("workspace executor converts known shell-shaped steps to portable operations", () => {
+  assert.deepEqual(
+    parsePortableStep({
+      kind: "prepare",
+      command: "mkdir -p .crabpot/workspaces/wecom && rsync -a --delete plugins/wecom/ .crabpot/workspaces/wecom/",
+      cwd: ".",
+    }),
+    {
+      destination: ".crabpot/workspaces/wecom",
+      source: "plugins/wecom",
+      type: "copy-workspace",
+    },
+  );
+
+  assert.deepEqual(
+    parsePortableStep({
+      kind: "prepare-artifacts",
+      command: "mkdir -p .crabpot/results/wecom",
+      cwd: ".",
+    }),
+    {
+      path: ".crabpot/results/wecom",
+      type: "mkdir",
+    },
+  );
+
+  assert.deepEqual(
+    parsePortableStep({
+      kind: "audit",
+      command: "npm audit --json > ../../results/wecom/package-audit.json || true",
+      cwd: ".crabpot/workspaces/wecom",
+    }),
+    {
+      args: ["audit", "--json"],
+      command: "npm",
+      env: {},
+      outputPath: "../../results/wecom/package-audit.json",
+      type: "audit",
+    },
+  );
+});
+
+test("workspace executor parses env-prefixed capture commands without a shell", () => {
+  assert.deepEqual(
+    parsePortableStep({
+      kind: "capture",
+      command:
+        "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/a2a-gateway/out.capture.json",
+      cwd: ".crabpot/workspaces/a2a-gateway",
+    }),
+    {
+      args: [
+        "--import",
+        "tsx",
+        "../../../scripts/run-cold-import-capture.mjs",
+        "./index.ts",
+        "--mock-sdk",
+        "--output",
+        "../../results/a2a-gateway/out.capture.json",
+      ],
+      command: "node",
+      env: {
+        CRABPOT_EXECUTE_ISOLATED: "1",
+      },
+      type: "process",
+    },
+  );
+
+  assert.deepEqual(
+    parsePortableStep({
+      kind: "link-openclaw",
+      command: 'pnpm pkg set dependencies.openclaw="file:../../../openclaw"',
+      cwd: ".crabpot/workspaces/agentchat",
+    }),
+    {
+      args: ["pkg", "set", "dependencies.openclaw=file:../../../openclaw"],
+      command: "pnpm",
+      env: {},
+      type: "process",
+    },
+  );
+});
+
+test("workspace executor resolves package manager shims portably", () => {
+  assert.equal(portableCommand("npm", "win32"), "npm.cmd");
+  assert.equal(portableCommand("pnpm", "win32"), "pnpm.cmd");
+  assert.equal(portableCommand("node", "win32"), "node");
+  assert.equal(portableCommand("npm", "darwin"), "npm");
 });
 
 test("workspace executor CLI emits a narrow dry-run plan", () => {

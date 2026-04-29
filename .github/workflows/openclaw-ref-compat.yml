@@ -58,7 +58,7 @@ on:
         description: "Fail on warning-level contract policy findings"
         type: boolean
         required: true
-        default: false
+        default: true
       strict_perf:
         description: "Fail on runtime profile threshold regressions when enough samples exist"
         type: boolean
@@ -77,6 +77,7 @@ jobs:
       PROFILE_RUNS: ${{ inputs.profile_runs }}
       STRICT_CONTRACT: ${{ inputs.strict_contract }}
       STRICT_PERF: ${{ inputs.strict_perf }}
+      SUITE_POLICY: ${{ inputs.strict_contract && 'release' || 'dashboard' }}
     steps:
       - name: Checkout Crabpot
         uses: actions/checkout@v6
@@ -100,20 +101,7 @@ jobs:
         with:
           node-version: 22
 
-      - run: node scripts/sync-fixtures.mjs --materialize
-      - run: npm test
-      - run: node scripts/sync-fixtures.mjs --check
-      - run: node scripts/run-contract-smoke.mjs --strict --openclaw ./openclaw
-      - run: node scripts/inspect-fixtures.mjs --check
-      - run: node scripts/check-generated-surface-fixture.mjs --check --openclaw ./openclaw
-      - run: node scripts/generate-report.mjs --check --openclaw ./openclaw
-      - run: node scripts/capture-contracts.mjs --check --openclaw ./openclaw
-      - run: node scripts/synthetic-probes.mjs --check --openclaw ./openclaw
-      - run: node scripts/cold-import-readiness.mjs --check --openclaw ./openclaw
-      - run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
-      - run: node scripts/platform-probes.mjs --check --openclaw ./openclaw
-      - run: node scripts/import-loop-profile.mjs --check
-      - run: node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs "${PROFILE_RUNS}"
+      - run: node scripts/run-static-suite.mjs --openclaw ./openclaw --policy "${SUITE_POLICY}" --profile-runs "${PROFILE_RUNS}" --plugin-inspector-smoke
       - name: Run runtime profile policy
         run: node scripts/compare-runtime-profile.mjs ${{ inputs.strict_perf && '--strict' || '' }}
       - run: node scripts/check-contract-coverage.mjs --openclaw ./openclaw

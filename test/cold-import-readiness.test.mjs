@@ -4,7 +4,7 @@ import { buildColdImportReadiness, validateColdImportReadiness } from "../script
 import { buildReport } from "../scripts/report-lib.mjs";
 
 test("cold import readiness classifies entrypoint blockers", async () => {
-  const report = await buildReport({ generatedAt: "test" });
+  const report = await buildReport(testReportOptions());
   const readiness = await buildColdImportReadiness({ report });
 
   assert.deepEqual(validateColdImportReadiness(readiness), []);
@@ -18,8 +18,17 @@ test("cold import readiness classifies entrypoint blockers", async () => {
   assertHasStatus(readiness, "wecom", "dependency-install-required");
   assertHasStatus(readiness, "agentchat", "build-required");
   assertHasStatus(readiness, "a2a-gateway", "ts-loader-required");
-  assertHasStatus(readiness, "codex-app-server", "sdk-alias-required");
+  if (report.targetOpenClaw.status === "ok") {
+    assertHasStatus(readiness, "honcho", "sdk-alias-required");
+  }
 });
+
+function testReportOptions() {
+  return {
+    generatedAt: "test",
+    openclawPath: process.env.CRABPOT_TEST_OPENCLAW_PATH,
+  };
+}
 
 function assertHasStatus(readiness, fixtureId, status) {
   const fixture = readiness.fixtures.find((item) => item.id === fixtureId);

@@ -24,6 +24,13 @@ test("plugin inspector smoke can run local source or an explicit binary", () => 
     });
   });
 
+  withEnv({}, () => {
+    assert.deepEqual(resolvePluginInspectorCliInvocation({ preferSource: true }), {
+      command: process.execPath,
+      args: [resolvePluginInspectorCliPath()],
+    });
+  });
+
   withEnv({ CRABPOT_PLUGIN_INSPECTOR_BIN: "/tmp/plugin-inspector" }, () => {
     assert.deepEqual(resolvePluginInspectorCliInvocation(), {
       command: "/tmp/plugin-inspector",

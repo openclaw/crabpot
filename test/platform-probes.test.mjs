@@ -28,7 +28,7 @@ test("platform probes classify loader and shell portability risks", async () => 
               steps: [
                 {
                   kind: "prepare",
-                  command: "mkdir -p .crabpot/workspaces/fixture && rsync -a plugins/fixture/ .crabpot/workspaces/fixture/",
+                  command: "mkdir -p .crabpot/workspaces/fixture && rsync -a --delete plugins/fixture/ .crabpot/workspaces/fixture/",
                 },
                 {
                   kind: "install",
@@ -53,8 +53,11 @@ test("platform probes classify loader and shell portability risks", async () => 
   assert.deepEqual(validatePlatformProbes(report), []);
   assert.equal(report.summary.tsLoaderEntrypointCount, 1);
   assert.equal(report.summary.jitiAlternativeCount, 1);
-  assert.ok(report.summary.windowsRiskStepCount > 0);
-  assert.ok(report.summary.containerRiskStepCount > 0);
+  assert.equal(report.summary.windowsRiskStepCount, 1);
+  assert.equal(report.summary.containerRiskStepCount, 1);
+  assert.ok(report.summary.coveredPortabilityFindingCount > 0);
+  assert.ok(report.coveredPortabilityFindings.every((finding) => finding.coverage === "covered by Crabpot structured executor"));
   assert.match(renderPlatformProbesMarkdown(report), /Jiti/);
-  assert.match(renderPlatformProbesMarkdown(report), /rsync/);
+  assert.doesNotMatch(renderPlatformProbesMarkdown(report), /replace shell mkdir/);
+  assert.match(renderPlatformProbesMarkdown(report), /Covered Portability Findings/);
 });

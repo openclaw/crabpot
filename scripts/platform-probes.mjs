@@ -3,6 +3,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
+import { parsePortableStep } from "./execute-workspace-plan.mjs";
 import { buildWorkspacePlan } from "./workspace-plan.mjs";
 
 const pluginInspector = await loadPluginInspectorPublicApi();
@@ -74,7 +75,34 @@ function parseArgs(argv) {
 
 export async function buildPlatformProbes(options = {}) {
   const plan = options.plan ?? (await buildWorkspacePlan({ openclawPath: options.openclawPath }));
-  return pluginInspector.buildFixtureSetPlatformProbes({ ...options, plan });
+  return pluginInspector.buildFixtureSetPlatformProbes({
+    stepCoverage: crabpotStepCoverage,
+    ...options,
+    plan,
+  });
+}
+
+export function crabpotStepCoverage({ riskCodes, step }) {
+  const operation = parsePortableStep(step);
+  const covered = new Set();
+  if (operation.type === "copy-workspace") {
+    covered.add("posix-mkdir");
+    covered.add("rsync-required");
+  }
+  if (operation.type === "mkdir") {
+    covered.add("posix-mkdir");
+  }
+  if (operation.type === "audit") {
+    covered.add("posix-null-failure");
+    covered.add("shell-redirection");
+  }
+  if (operation.type === "process" && Object.keys(operation.env).length > 0) {
+    covered.add("posix-env-prefix");
+  }
+  return {
+    reason: "covered by Crabpot structured executor",
+    riskCodes: riskCodes.filter((code) => covered.has(code)),
+  };
 }
 
 export async function writePlatformProbes(report, options = {}) {
