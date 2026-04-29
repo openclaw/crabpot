@@ -382,7 +382,7 @@
       "priority": "high",
       "seams": ["channel", "media", "command", "account-auth", "sdk-compat"],
       "expect": {
-        "registrations": ["registerChannel", "registerTool", "registerCommand"]
+        "registrations": ["createChatChannelPlugin", "registerTool", "registerCommand"]
       },
       "why": "NPM-pinned Yuanbao channel fixture covering bot auth, media messaging, built-in commands, command queue state compatibility, and root SDK imports."
     },
