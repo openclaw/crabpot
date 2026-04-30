@@ -51,6 +51,9 @@ test("default check workflow uploads policy and summary reports", async () => {
   assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy dashboard --profile-runs 3 --plugin-inspector-smoke/);
   assert.match(workflow, /node scripts\/check-ci-policy\.mjs/);
   assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
+  const dashboardBlock = workflow.slice(workflow.indexOf("  dashboard:"));
+  assert.match(dashboardBlock, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
+  assert.match(dashboardBlock, /node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
   assert.match(workflow, /--baseline-data \.crabpot\/baseline\/main-dashboard-data\.json/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs \$\{baseline_arg\}/);
   assert.match(workflow, /chore\(readme\): update crabpot dashboard \[skip ci\]/);
@@ -84,6 +87,8 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.match(workflow, /node scripts\/resolve-openclaw-track\.mjs --track "\$\{\{ matrix\.track \}\}" --github-output/);
   assert.match(workflow, /ref: \$\{\{ steps\.openclaw-track\.outputs\.ref \}\}/);
   assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy dashboard --profile-runs 3 --plugin-inspector-smoke/);
+  assert.match(workflow, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
+  assert.match(workflow, /node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
   assert.match(workflow, /node scripts\/update-track-metadata\.mjs --track "\$\{\{ matrix\.track \}\}"/);
   assert.match(workflow, /origin\/main:reports\/crabpot-dashboard-data\.json/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs \$\{baseline_arg\}/);
@@ -154,6 +159,8 @@ test("dependabot auto-merge refreshes reports after fixture pin updates", async 
   assert.match(workflow, /node scripts\/sync-fixtures\.mjs --materialize/);
   assert.match(workflow, /node scripts\/resolve-openclaw-track\.mjs --branch "\$\{\{ github\.event\.pull_request\.base\.ref \}\}" --github-output/);
   assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw/);
+  assert.match(workflow, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
+  assert.match(workflow, /node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
   assert.match(workflow, /node scripts\/update-track-metadata\.mjs/);
   assert.match(workflow, /--baseline-data \.crabpot\/baseline\/main-dashboard-data\.json/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs \$\{baseline_arg\}/);
@@ -174,6 +181,13 @@ test("manual workflow enforces strict runtime profile policy before best-effort 
     assert.doesNotMatch(step, /continue-on-error/);
   }
   assert.ok(policySteps.some((step) => step.includes("node scripts/profile-contract-runtime.mjs --openclaw ./openclaw-head")));
+});
+
+test("manual workflow writes OpenClaw lifecycle import profile artifacts", async () => {
+  const workflow = await readWorkflow(".github/workflows/openclaw-ref-compat.yml");
+
+  assert.match(workflow, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
+  assert.match(workflow, /node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs "\$\{PROFILE_RUNS\}"/);
 });
 
 test("manual workflow keeps isolated execution artifacts and failure policy wired", async () => {

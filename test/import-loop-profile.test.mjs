@@ -69,3 +69,18 @@ test("import loop markdown surfaces OpenClaw lifecycle phases when present", () 
   assert.match(markdown, /OpenClaw Activate/);
   assert.match(markdown, /p50OpenClawImportMs/);
 });
+
+test("import loop validation fails requested OpenClaw lifecycle profiles without lifecycle samples", () => {
+  const errors = validateImportLoopProfile(
+    {
+      summary: {
+        openClawLifecycleCount: 0,
+      },
+    },
+    { requireOpenClawLifecycle: true },
+  );
+
+  assert.deepEqual(errors, [
+    "OpenClaw lifecycle profile requested but no import+activate samples were captured",
+  ]);
+});

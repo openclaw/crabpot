@@ -105,6 +105,10 @@ jobs:
       - name: Run runtime profile policy
         run: node scripts/compare-runtime-profile.mjs ${{ inputs.strict_perf && '--strict' || '' }}
       - run: node scripts/check-contract-coverage.mjs --openclaw ./openclaw
+      - name: Install OpenClaw lifecycle dependencies
+        run: |
+          corepack enable
+          pnpm --dir openclaw install --frozen-lockfile --ignore-scripts
 
       - name: Write report artifacts
         if: always()
@@ -117,7 +121,7 @@ jobs:
           node scripts/workspace-plan.mjs --openclaw ./openclaw
           node scripts/platform-probes.mjs --openclaw ./openclaw
           node scripts/check-generated-surface-fixture.mjs --openclaw ./openclaw
-          node scripts/import-loop-profile.mjs
+          node scripts/import-loop-profile.mjs --openclaw ./openclaw --runs "${PROFILE_RUNS}"
           node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs "${PROFILE_RUNS}"
           node scripts/compare-runtime-profile.mjs ${{ inputs.strict_perf && '--strict' || '' }}
           node scripts/check-ci-policy.mjs ${{ inputs.strict_contract && '--strict' || '' }}
