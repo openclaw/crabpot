@@ -8,13 +8,13 @@
     "container"
   ],
   "summary": {
-    "fixtureCount": 29,
-    "entrypointCount": 35,
-    "tsLoaderEntrypointCount": 20,
-    "jitiAlternativeCount": 20,
-    "lazyImportProbeCount": 35,
-    "portabilityFindingCount": 54,
-    "coveredPortabilityFindingCount": 158,
+    "fixtureCount": 32,
+    "entrypointCount": 39,
+    "tsLoaderEntrypointCount": 21,
+    "jitiAlternativeCount": 21,
+    "lazyImportProbeCount": 39,
+    "portabilityFindingCount": 56,
+    "coveredPortabilityFindingCount": 175,
     "windowsRiskStepCount": 14,
     "macosRiskStepCount": 14,
     "linuxRiskStepCount": 14,
@@ -170,6 +170,22 @@
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
       "syntheticUsesTsx": false
+    },
+    {
+      "fixture": "openclaw-telemetry",
+      "id": "cold-import.extension:openclaw-telemetry:plugins-openclaw-telemetry-index-ts",
+      "status": "ts-loader-required",
+      "entrypoint": "plugins/openclaw-telemetry/index.ts",
+      "packageManager": "npm",
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": true,
+      "syntheticUsesTsx": true
     },
     {
       "fixture": "lossless-claw",
@@ -414,6 +430,48 @@
       "syntheticUsesTsx": false
     },
     {
+      "fixture": "telnyx-sms",
+      "id": "cold-import.extension:telnyx-sms:plugins-telnyx-sms-dist-index-js",
+      "status": "build-required",
+      "entrypoint": "plugins/telnyx-sms/dist/index.js",
+      "packageManager": "npm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
+    },
+    {
+      "fixture": "telnyx-sms",
+      "id": "cold-import.setupEntry:telnyx-sms:plugins-telnyx-sms-dist-setup-entry-js",
+      "status": "build-required",
+      "entrypoint": "plugins/telnyx-sms/dist/setup-entry.js",
+      "packageManager": "npm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
+    },
+    {
+      "fixture": "clawrouter",
+      "id": "cold-import.extension:clawrouter:plugins-clawrouter-dist-index-js",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/clawrouter/dist/index.js",
+      "packageManager": "npm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
+    },
+    {
       "fixture": "memu-engine",
       "id": "cold-import.extension:memu-engine:plugins-memu-engine-index-ts",
       "status": "ts-loader-required",
@@ -490,7 +548,7 @@
     {
       "fixture": "codex-app-server",
       "id": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
-      "status": "sdk-alias-required",
+      "status": "ts-loader-required",
       "entrypoint": "plugins/codex-app-server/index.ts",
       "packageManager": "pnpm",
       "loaderSource": "typescript-source",
@@ -752,6 +810,34 @@
       "entrypoint": "cold-import.extension:opik-openclaw:plugins-opik-openclaw-index-ts",
       "kind": "synthetic-probe",
       "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.synthetic.json",
+      "coveredRiskCodes": [
+        "posix-env-prefix"
+      ],
+      "platforms": [],
+      "riskCodes": [
+        "tsx-loader-runtime"
+      ],
+      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "openclaw-telemetry",
+      "entrypoint": "cold-import.extension:openclaw-telemetry:plugins-openclaw-telemetry-index-ts",
+      "kind": "capture",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.capture.json",
+      "coveredRiskCodes": [
+        "posix-env-prefix"
+      ],
+      "platforms": [],
+      "riskCodes": [
+        "tsx-loader-runtime"
+      ],
+      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
+    },
+    {
+      "fixture": "openclaw-telemetry",
+      "entrypoint": "cold-import.extension:openclaw-telemetry:plugins-openclaw-telemetry-index-ts",
+      "kind": "synthetic-probe",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.synthetic.json",
       "coveredRiskCodes": [
         "posix-env-prefix"
       ],
@@ -1984,6 +2070,60 @@
       ]
     },
     {
+      "fixture": "openclaw-telemetry",
+      "entrypoint": "cold-import.extension:openclaw-telemetry:plugins-openclaw-telemetry-index-ts",
+      "kind": "prepare",
+      "command": "mkdir -p .crabpot/workspaces/openclaw-telemetry && rsync -a --delete plugins/openclaw-telemetry/ .crabpot/workspaces/openclaw-telemetry/",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ]
+    },
+    {
+      "fixture": "openclaw-telemetry",
+      "entrypoint": "cold-import.extension:openclaw-telemetry:plugins-openclaw-telemetry-index-ts",
+      "kind": "prepare-artifacts",
+      "command": "mkdir -p .crabpot/results/openclaw-telemetry",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "openclaw-telemetry",
+      "entrypoint": "cold-import.extension:openclaw-telemetry:plugins-openclaw-telemetry-index-ts",
+      "kind": "capture",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.capture.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "openclaw-telemetry",
+      "entrypoint": "cold-import.extension:openclaw-telemetry:plugins-openclaw-telemetry-index-ts",
+      "kind": "synthetic-probe",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.synthetic.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
       "fixture": "lossless-claw",
       "entrypoint": "cold-import.extension:lossless-claw:plugins-lossless-claw-dist-index-js",
       "kind": "prepare",
@@ -2965,6 +3105,182 @@
       "entrypoint": "cold-import.extension:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js",
       "kind": "synthetic-probe",
       "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/lightclawbot/cold-import-extension-lightclawbot-plugins-lightclawbot-crabpot-package-dist-index-js.synthetic.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "telnyx-sms",
+      "entrypoint": "cold-import.extension:telnyx-sms:plugins-telnyx-sms-dist-index-js",
+      "kind": "prepare",
+      "command": "mkdir -p .crabpot/workspaces/telnyx-sms && rsync -a --delete plugins/telnyx-sms/ .crabpot/workspaces/telnyx-sms/",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ]
+    },
+    {
+      "fixture": "telnyx-sms",
+      "entrypoint": "cold-import.extension:telnyx-sms:plugins-telnyx-sms-dist-index-js",
+      "kind": "prepare-artifacts",
+      "command": "mkdir -p .crabpot/results/telnyx-sms",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "telnyx-sms",
+      "entrypoint": "cold-import.extension:telnyx-sms:plugins-telnyx-sms-dist-index-js",
+      "kind": "capture",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/telnyx-sms/cold-import-extension-telnyx-sms-plugins-telnyx-sms-dist-index-js.capture.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "telnyx-sms",
+      "entrypoint": "cold-import.extension:telnyx-sms:plugins-telnyx-sms-dist-index-js",
+      "kind": "synthetic-probe",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/telnyx-sms/cold-import-extension-telnyx-sms-plugins-telnyx-sms-dist-index-js.synthetic.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "telnyx-sms",
+      "entrypoint": "cold-import.setupEntry:telnyx-sms:plugins-telnyx-sms-dist-setup-entry-js",
+      "kind": "prepare",
+      "command": "mkdir -p .crabpot/workspaces/telnyx-sms && rsync -a --delete plugins/telnyx-sms/ .crabpot/workspaces/telnyx-sms/",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ]
+    },
+    {
+      "fixture": "telnyx-sms",
+      "entrypoint": "cold-import.setupEntry:telnyx-sms:plugins-telnyx-sms-dist-setup-entry-js",
+      "kind": "prepare-artifacts",
+      "command": "mkdir -p .crabpot/results/telnyx-sms",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "telnyx-sms",
+      "entrypoint": "cold-import.setupEntry:telnyx-sms:plugins-telnyx-sms-dist-setup-entry-js",
+      "kind": "capture",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/telnyx-sms/cold-import-setupEntry-telnyx-sms-plugins-telnyx-sms-dist-setup-entry-js.capture.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "telnyx-sms",
+      "entrypoint": "cold-import.setupEntry:telnyx-sms:plugins-telnyx-sms-dist-setup-entry-js",
+      "kind": "synthetic-probe",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/telnyx-sms/cold-import-setupEntry-telnyx-sms-plugins-telnyx-sms-dist-setup-entry-js.synthetic.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "clawrouter",
+      "entrypoint": "cold-import.extension:clawrouter:plugins-clawrouter-dist-index-js",
+      "kind": "prepare",
+      "command": "mkdir -p .crabpot/workspaces/clawrouter && rsync -a --delete plugins/clawrouter/ .crabpot/workspaces/clawrouter/",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ]
+    },
+    {
+      "fixture": "clawrouter",
+      "entrypoint": "cold-import.extension:clawrouter:plugins-clawrouter-dist-index-js",
+      "kind": "prepare-artifacts",
+      "command": "mkdir -p .crabpot/results/clawrouter",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "clawrouter",
+      "entrypoint": "cold-import.extension:clawrouter:plugins-clawrouter-dist-index-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/clawrouter/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "clawrouter",
+      "entrypoint": "cold-import.extension:clawrouter:plugins-clawrouter-dist-index-js",
+      "kind": "capture",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.capture.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "clawrouter",
+      "entrypoint": "cold-import.extension:clawrouter:plugins-clawrouter-dist-index-js",
+      "kind": "synthetic-probe",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
