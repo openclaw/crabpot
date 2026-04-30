@@ -32,7 +32,9 @@ async function main() {
     openclawPath: args.openclawPath,
     runs: args.runs,
   });
-  const errors = validateImportLoopProfile(report);
+  const errors = validateImportLoopProfile(report, {
+    requireOpenClawLifecycle: Boolean(args.openclawPath),
+  });
 
   if (args.write) {
     await writeImportLoopProfile(report);
@@ -114,8 +116,12 @@ export async function buildImportLoopProfile(options = {}) {
   });
 }
 
-export function validateImportLoopProfile(report) {
-  return pluginInspector.validateImportLoopProfile(report);
+export function validateImportLoopProfile(report, options = {}) {
+  const errors = pluginInspector.validateImportLoopProfile(report);
+  if (options.requireOpenClawLifecycle && (report.summary?.openClawLifecycleCount ?? 0) < 1) {
+    errors.push("OpenClaw lifecycle profile requested but no import+activate samples were captured");
+  }
+  return errors;
 }
 
 export async function writeImportLoopProfile(report, options = {}) {

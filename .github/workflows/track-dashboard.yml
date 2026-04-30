@@ -82,6 +82,12 @@ jobs:
       - if: ${{ steps.select.outputs.run == 'true' }}
         run: node scripts/run-static-suite.mjs --openclaw ./openclaw --policy dashboard --profile-runs 3 --plugin-inspector-smoke
 
+      - name: Install OpenClaw lifecycle dependencies
+        if: ${{ steps.select.outputs.run == 'true' }}
+        run: |
+          corepack enable
+          pnpm --dir openclaw install --frozen-lockfile --ignore-scripts
+
       - name: Fetch main dashboard baseline
         if: ${{ steps.select.outputs.run == 'true' && matrix.track != 'latest' }}
         run: |
@@ -102,7 +108,7 @@ jobs:
           node scripts/workspace-plan.mjs --openclaw ./openclaw
           node scripts/platform-probes.mjs --openclaw ./openclaw
           node scripts/check-generated-surface-fixture.mjs --openclaw ./openclaw
-          node scripts/import-loop-profile.mjs
+          node scripts/import-loop-profile.mjs --openclaw ./openclaw --runs 3
           node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs 3
           node scripts/compare-runtime-profile.mjs
           node scripts/check-ci-policy.mjs

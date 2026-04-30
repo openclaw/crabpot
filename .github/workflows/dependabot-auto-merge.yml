@@ -86,6 +86,11 @@ jobs:
             exit 1
           done < /tmp/crabpot-dependabot-files.txt
 
+      - name: Install OpenClaw lifecycle dependencies
+        run: |
+          corepack enable
+          pnpm --dir openclaw install --frozen-lockfile --ignore-scripts
+
       - name: Refresh compatibility reports
         env:
           CRABPOT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -102,7 +107,7 @@ jobs:
           node scripts/cold-import-readiness.mjs --openclaw ./openclaw
           node scripts/workspace-plan.mjs --openclaw ./openclaw
           node scripts/platform-probes.mjs --openclaw ./openclaw
-          node scripts/import-loop-profile.mjs
+          node scripts/import-loop-profile.mjs --openclaw ./openclaw --runs 3
           node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs 3
           node scripts/compare-runtime-profile.mjs
           node scripts/check-ci-policy.mjs

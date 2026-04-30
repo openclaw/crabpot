@@ -227,6 +227,10 @@ jobs:
           ref: ${{ steps.openclaw-track.outputs.ref }}
           path: openclaw
       - run: node scripts/sync-fixtures.mjs --materialize
+      - name: Install OpenClaw lifecycle dependencies
+        run: |
+          corepack enable
+          pnpm --dir openclaw install --frozen-lockfile --ignore-scripts
       - name: Fetch main dashboard baseline
         if: ${{ steps.openclaw-track.outputs.track != 'latest' }}
         run: |
@@ -244,7 +248,7 @@ jobs:
           node scripts/cold-import-readiness.mjs --openclaw ./openclaw
           node scripts/workspace-plan.mjs --openclaw ./openclaw
           node scripts/platform-probes.mjs --openclaw ./openclaw
-          node scripts/import-loop-profile.mjs
+          node scripts/import-loop-profile.mjs --openclaw ./openclaw --runs 3
           node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs 3
           node scripts/compare-runtime-profile.mjs
           node scripts/check-ci-policy.mjs
