@@ -42,7 +42,7 @@ export function buildStaticSuiteSteps({ openclawArgs = [], pluginInspectorSmoke 
     ["node", ["scripts/cold-import-readiness.mjs", "--check", ...openclawArgs]],
     ["node", ["scripts/workspace-plan.mjs", "--check", ...openclawArgs]],
     ["node", ["scripts/platform-probes.mjs", "--check", ...openclawArgs]],
-    ["node", ["scripts/import-loop-profile.mjs", "--check"]],
+    ["node", ["scripts/import-loop-profile.mjs", "--check", ...openclawArgs, ...profileArgs]],
     ["node", ["scripts/profile-contract-runtime.mjs", "--check", ...openclawArgs, ...profileArgs]],
     ["node", ["scripts/check-contract-coverage.mjs", ...openclawArgs]],
     ["node", ["scripts/check-ci-policy.mjs", "--check", ...policyArgs]],

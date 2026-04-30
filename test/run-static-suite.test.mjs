@@ -18,6 +18,7 @@ test("static suite keeps the dashboard gate broad and target-explicit", () => {
     rendered.some(([command, args]) => command === "node" && args === "scripts/run-plugin-inspector-smoke.mjs --check"),
   );
   assert.ok(rendered.some(([, args]) => args === "scripts/run-contract-smoke.mjs --strict --openclaw ./openclaw"));
+  assert.ok(rendered.some(([, args]) => args === "scripts/import-loop-profile.mjs --check --openclaw ./openclaw --runs 2"));
   assert.ok(rendered.some(([, args]) => args === "scripts/profile-contract-runtime.mjs --check --openclaw ./openclaw --runs 2"));
   assert.ok(rendered.some(([, args]) => args === "scripts/check-ci-policy.mjs --check"));
 });
