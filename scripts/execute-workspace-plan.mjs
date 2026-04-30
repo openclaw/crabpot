@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { spawn } from "node:child_process";
+import { mkdirSync } from "node:fs";
 import { cp, mkdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { performance } from "node:perf_hooks";
@@ -256,9 +257,13 @@ function measureProcessStep(step, operation) {
     let peakCpuPercent = 0;
     const cpuSamples = [];
     let pollInFlight = false;
+    const env = executionEnvForStep(step, operation.env);
+    mkdirSync(env.HOME, { recursive: true });
+    mkdirSync(env.XDG_CONFIG_HOME, { recursive: true });
+    mkdirSync(env.OPENCLAW_HOME, { recursive: true });
     const child = spawn(portableCommand(operation.command), operation.args, {
       cwd: path.join(repoRoot, step.cwd),
-      env: { ...process.env, ...operation.env, CRABPOT_EXECUTE_ISOLATED: "1" },
+      env,
       shell: false,
       stdio: operation.captureStdoutPath ? ["ignore", "pipe", "inherit"] : "inherit",
     });
@@ -320,6 +325,25 @@ function measureProcessStep(step, operation) {
       reject(error);
     });
   });
+}
+
+export function executionEnvForStep(step, operationEnv = {}) {
+  const home = path.join(repoRoot, ".crabpot", "home", fixtureIdForStep(step));
+  return {
+    ...process.env,
+    ...operationEnv,
+    CRABPOT_EXECUTE_ISOLATED: "1",
+    HOME: home,
+    USERPROFILE: home,
+    XDG_CONFIG_HOME: path.join(home, ".config"),
+    OPENCLAW_HOME: path.join(home, ".openclaw"),
+  };
+}
+
+function fixtureIdForStep(step) {
+  const cwd = String(step.cwd ?? "").replaceAll("\\", "/");
+  const match = cwd.match(/(?:^|\/)\.crabpot\/workspaces\/([^/]+)/);
+  return match?.[1] ?? "default";
 }
 
 function repoPath(relativePath) {

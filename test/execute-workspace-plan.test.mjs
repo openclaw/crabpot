@@ -1,8 +1,10 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
+import path from "node:path";
 import { test } from "node:test";
 import { repoRoot } from "../scripts/manifest-lib.mjs";
 import {
+  executionEnvForStep,
   parsePortableStep,
   validateExecutionRequest,
   selectWorkspaceSteps,
@@ -218,6 +220,23 @@ test("workspace executor resolves package manager shims portably", () => {
   assert.equal(portableCommand("pnpm", "win32"), "pnpm.cmd");
   assert.equal(portableCommand("node", "win32"), "node");
   assert.equal(portableCommand("npm", "darwin"), "npm");
+});
+
+test("workspace executor gives process steps fixture-scoped home directories", () => {
+  const env = executionEnvForStep(
+    {
+      kind: "capture",
+      command: "node capture.js",
+      cwd: ".crabpot/workspaces/clawrouter",
+    },
+    { CUSTOM_ENV: "fixture" },
+  );
+
+  assert.equal(env.CUSTOM_ENV, "fixture");
+  assert.equal(env.CRABPOT_EXECUTE_ISOLATED, "1");
+  assert.match(env.HOME, /\.crabpot[/\\]home[/\\]clawrouter$/);
+  assert.equal(env.USERPROFILE, env.HOME);
+  assert.equal(env.OPENCLAW_HOME, path.join(env.HOME, ".openclaw"));
 });
 
 test("workspace executor CLI emits a narrow dry-run plan", () => {

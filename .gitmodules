@@ -98,3 +98,15 @@
 	path = plugins/kitchen-sink
 	url = https://github.com/openclaw/kitchen-sink.git
 	shallow = true
+[submodule "plugins/openclaw-telemetry"]
+	path = plugins/openclaw-telemetry
+	url = https://github.com/knostic/openclaw-telemetry.git
+	shallow = true
+[submodule "plugins/telnyx-sms"]
+	path = plugins/telnyx-sms
+	url = https://github.com/team-telnyx/telnyx-openclaw-sms-channel.git
+	shallow = true
+[submodule "plugins/clawrouter"]
+	path = plugins/clawrouter
+	url = https://github.com/BlockRunAI/ClawRouter.git
+	shallow = true

@@ -1,15 +1,15 @@
 {
   "generatedAt": "deterministic",
   "summary": {
-    "fixtureCount": 29,
-    "probeCount": 263,
-    "hookProbeCount": 80,
-    "registrationProbeCount": 183,
-    "readyCount": 263,
+    "fixtureCount": 32,
+    "probeCount": 288,
+    "hookProbeCount": 86,
+    "registrationProbeCount": 202,
+    "readyCount": 288,
     "blockedCount": 0,
-    "directExecutionCount": 101,
-    "optInExecutionCount": 23,
-    "metadataOnlyCount": 59
+    "directExecutionCount": 111,
+    "optInExecutionCount": 25,
+    "metadataOnlyCount": 66
   },
   "probes": [
     {
@@ -437,6 +437,147 @@
         "fixture": "opik-openclaw"
       },
       "source": "plugins/opik-openclaw/src/service.ts:541"
+    },
+    {
+      "id": "hook.after_tool_call:openclaw-telemetry:plugins-openclaw-telemetry-index-ts-22",
+      "fixture": "openclaw-telemetry",
+      "kind": "hook",
+      "seam": "after_tool_call",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "after_tool_call",
+        "fixture": "openclaw-telemetry"
+      },
+      "syntheticContext": {
+        "hook": "after_tool_call",
+        "fixture": "openclaw-telemetry"
+      },
+      "source": "plugins/openclaw-telemetry/index.ts:22"
+    },
+    {
+      "id": "hook.agent_end:openclaw-telemetry:plugins-openclaw-telemetry-index-ts-62",
+      "fixture": "openclaw-telemetry",
+      "kind": "hook",
+      "seam": "agent_end",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "final conversation payload is redacted as expected",
+        "agent id and run metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "status": "completed",
+        "transcript": [
+          {
+            "role": "assistant",
+            "content": "[redacted fixture output]"
+          }
+        ]
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/openclaw-telemetry/index.ts:62"
+    },
+    {
+      "id": "hook.before_agent_start:openclaw-telemetry:plugins-openclaw-telemetry-index-ts-53",
+      "fixture": "openclaw-telemetry",
+      "kind": "hook",
+      "seam": "before_agent_start",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "legacy startup hook payload is accepted",
+        "migration metadata can map to prompt/model hooks"
+      ],
+      "syntheticEvent": {
+        "agentId": "agent-fixture",
+        "runId": "run-fixture",
+        "config": {
+          "source": "plugin-inspector"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture"
+      },
+      "source": "plugins/openclaw-telemetry/index.ts:53"
+    },
+    {
+      "id": "hook.before_tool_call:openclaw-telemetry:plugins-openclaw-telemetry-index-ts-12",
+      "fixture": "openclaw-telemetry",
+      "kind": "hook",
+      "seam": "before_tool_call",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "block/allow return shapes are preserved",
+        "terminal and approval metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "toolName": "fixture_tool",
+        "params": {},
+        "toolCallId": "call-fixture"
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "toolName": "fixture_tool"
+      },
+      "source": "plugins/openclaw-telemetry/index.ts:12"
+    },
+    {
+      "id": "hook.message_received:openclaw-telemetry:plugins-openclaw-telemetry-index-ts-34",
+      "fixture": "openclaw-telemetry",
+      "kind": "hook",
+      "seam": "message_received",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "message_received",
+        "fixture": "openclaw-telemetry"
+      },
+      "syntheticContext": {
+        "hook": "message_received",
+        "fixture": "openclaw-telemetry"
+      },
+      "source": "plugins/openclaw-telemetry/index.ts:34"
+    },
+    {
+      "id": "hook.message_sent:openclaw-telemetry:plugins-openclaw-telemetry-index-ts-43",
+      "fixture": "openclaw-telemetry",
+      "kind": "hook",
+      "seam": "message_sent",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "message_sent",
+        "fixture": "openclaw-telemetry"
+      },
+      "syntheticContext": {
+        "hook": "message_sent",
+        "fixture": "openclaw-telemetry"
+      },
+      "source": "plugins/openclaw-telemetry/index.ts:43"
     },
     {
       "id": "hook.before_prompt_build:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2021",
@@ -2578,6 +2719,35 @@
         "option": "includeLifecycle"
       },
       "source": "plugins/opik-openclaw/index.ts:16"
+    },
+    {
+      "id": "registration.registerService:openclaw-telemetry:plugins-openclaw-telemetry-index-ts-10",
+      "fixture": "openclaw-telemetry",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop",
+          "dispose"
+        ],
+        "option": "includeLifecycle"
+      },
+      "source": "plugins/openclaw-telemetry/index.ts:10"
     },
     {
       "id": "registration.registerCommand:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2055",
@@ -6425,6 +6595,462 @@
         ]
       },
       "source": "plugins/lightclawbot/.crabpot-package/dist/src/upload-tool.js:37"
+    },
+    {
+      "id": "registration.defineChannelPluginEntry:telnyx-sms:plugins-telnyx-sms-index-ts-207",
+      "fixture": "telnyx-sms",
+      "kind": "registration",
+      "seam": "defineChannelPluginEntry",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "setup/config schema can be read",
+        "message envelope metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "setup": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "entry wrapper metadata is captured before channel runtime execution"
+      },
+      "source": "plugins/telnyx-sms/index.ts:207"
+    },
+    {
+      "id": "registration.registerCli:telnyx-sms:plugins-telnyx-sms-index-ts-219",
+      "fixture": "telnyx-sms",
+      "kind": "registration",
+      "seam": "registerCli",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command name is stable",
+        "argument schema is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "args": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/telnyx-sms/index.ts:219"
+    },
+    {
+      "id": "registration.registerHttpRoute:telnyx-sms:plugins-telnyx-sms-index-ts-259",
+      "fixture": "telnyx-sms",
+      "kind": "registration",
+      "seam": "registerHttpRoute",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "route method and path are captured",
+        "auth policy metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "method": "POST",
+          "path": "/fixture/probe",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/telnyx-sms/index.ts:259"
+    },
+    {
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1636",
+      "fixture": "clawrouter",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/clawrouter/src/index.ts:1636"
+    },
+    {
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1682",
+      "fixture": "clawrouter",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/clawrouter/src/index.ts:1682"
+    },
+    {
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1736",
+      "fixture": "clawrouter",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/clawrouter/src/index.ts:1736"
+    },
+    {
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1790",
+      "fixture": "clawrouter",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/clawrouter/src/index.ts:1790"
+    },
+    {
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1795",
+      "fixture": "clawrouter",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/clawrouter/src/index.ts:1795"
+    },
+    {
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1799",
+      "fixture": "clawrouter",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/clawrouter/src/index.ts:1799"
+    },
+    {
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1800",
+      "fixture": "clawrouter",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/clawrouter/src/index.ts:1800"
+    },
+    {
+      "id": "registration.registerImageGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1544",
+      "fixture": "clawrouter",
+      "kind": "registration",
+      "seam": "registerImageGenerationProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "image generation providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/clawrouter/src/index.ts:1544"
+    },
+    {
+      "id": "registration.registerMusicGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1545",
+      "fixture": "clawrouter",
+      "kind": "registration",
+      "seam": "registerMusicGenerationProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "music generation providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/clawrouter/src/index.ts:1545"
+    },
+    {
+      "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1535",
+      "fixture": "clawrouter",
+      "kind": "registration",
+      "seam": "registerProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/clawrouter/src/index.ts:1535"
+    },
+    {
+      "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1540",
+      "fixture": "clawrouter",
+      "kind": "registration",
+      "seam": "registerProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/clawrouter/src/index.ts:1540"
+    },
+    {
+      "id": "registration.registerService:clawrouter:plugins-clawrouter-src-index-ts-1809",
+      "fixture": "clawrouter",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop",
+          "dispose"
+        ],
+        "option": "includeLifecycle"
+      },
+      "source": "plugins/clawrouter/src/index.ts:1809"
+    },
+    {
+      "id": "registration.registerTool:clawrouter:plugins-clawrouter-src-index-ts-1622",
+      "fixture": "clawrouter",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/clawrouter/src/index.ts:1622"
+    },
+    {
+      "id": "registration.registerVideoGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1547",
+      "fixture": "clawrouter",
+      "kind": "registration",
+      "seam": "registerVideoGenerationProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "video generation providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/clawrouter/src/index.ts:1547"
+    },
+    {
+      "id": "registration.registerWebSearchProvider:clawrouter:plugins-clawrouter-src-index-ts-1554",
+      "fixture": "clawrouter",
+      "kind": "registration",
+      "seam": "registerWebSearchProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "web search providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/clawrouter/src/index.ts:1554"
     },
     {
       "id": "registration.registerTool:memu-engine:plugins-memu-engine-index-ts-1252",

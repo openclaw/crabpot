@@ -2,64 +2,362 @@
   "generatedAt": "deterministic",
   "resultsDir": ".crabpot/results",
   "summary": {
-    "artifactCount": 2,
+    "artifactCount": 4,
     "captureArtifactCount": 1,
     "syntheticArtifactCount": 1,
-    "capturedRegistrationCount": 8,
-    "passCount": 6,
+    "auditArtifactCount": 1,
+    "profileArtifactCount": 1,
+    "capturedRegistrationCount": 30,
+    "auditFindingCount": 12,
+    "executionWallMs": 27807,
+    "maxPeakRssMb": 1123.9,
+    "maxCpuMsEstimate": 17790,
+    "passCount": 12,
     "failCount": 0,
-    "blockedCount": 2
+    "blockedCount": 18
   },
   "artifacts": [
     {
-      "artifactPath": ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.capture.json",
-      "fixture": "wecom",
+      "artifactPath": ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.capture.json",
+      "fixture": "clawrouter",
       "kind": "capture",
-      "entrypoint": ".crabpot/workspaces/wecom/index.js",
+      "entrypoint": ".crabpot/workspaces/clawrouter/dist/index.js",
       "status": "captured",
-      "capturedCount": 8,
+      "capturedCount": 30,
       "captured": [
-        "registration:registerChannel",
+        "registration:registerProvider",
+        "registration:registerImageGenerationProvider",
+        "registration:registerMusicGenerationProvider",
+        "registration:registerVideoGenerationProvider",
+        "registration:registerWebSearchProvider",
         "registration:registerTool",
         "registration:registerTool",
-        "hook:before_prompt_build",
-        "hook:subagent_delivery_target",
-        "hook:subagent_spawned",
-        "hook:subagent_ended",
-        "hook:before_tool_call"
+        "registration:registerTool",
+        "registration:registerTool",
+        "registration:registerTool",
+        "registration:registerTool",
+        "registration:registerTool",
+        "registration:registerTool",
+        "registration:registerTool",
+        "registration:registerTool",
+        "registration:registerTool",
+        "registration:registerTool",
+        "registration:registerTool",
+        "registration:registerTool",
+        "registration:registerTool",
+        "registration:registerTool",
+        "registration:registerTool",
+        "registration:registerCommand",
+        "registration:registerCommand",
+        "registration:registerCommand",
+        "registration:registerCommand",
+        "registration:registerCommand",
+        "registration:registerCommand",
+        "registration:registerCommand",
+        "registration:registerService"
       ]
     },
     {
-      "artifactPath": ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json",
-      "fixture": "wecom",
+      "artifactPath": ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+      "fixture": "clawrouter",
       "kind": "synthetic",
-      "entrypoint": ".crabpot/workspaces/wecom/index.js",
+      "entrypoint": ".crabpot/workspaces/clawrouter/dist/index.js",
       "status": "captured",
       "summary": {
-        "probeCount": 8,
-        "passCount": 6,
+        "probeCount": 30,
+        "passCount": 12,
         "failCount": 0,
-        "blockedCount": 2
+        "blockedCount": 18
       },
       "failures": [],
       "blocked": [
         {
-          "captureIndex": 0,
-          "kind": "registration",
-          "seam": "registerChannel",
-          "label": "registerChannel",
-          "status": "blocked",
-          "reason": "captured registration requires includeChannelRuntime=true"
-        },
-        {
-          "captureIndex": 2,
+          "captureIndex": 5,
           "kind": "registration",
           "seam": "registerTool",
-          "label": "registerTool",
+          "label": "registerTool.execute",
           "status": "blocked",
-          "reason": "captured registration has no object descriptor"
+          "error": "fetch failed",
+          "reason": "captured tool requires live network access",
+          "blockedBy": "clawrouter-live-network-tools"
+        },
+        {
+          "captureIndex": 6,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool.execute",
+          "status": "blocked",
+          "error": "fetch failed",
+          "reason": "captured tool requires live network access",
+          "blockedBy": "clawrouter-live-network-tools"
+        },
+        {
+          "captureIndex": 7,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool.execute",
+          "status": "blocked",
+          "error": "fetch failed",
+          "reason": "captured tool requires live network access",
+          "blockedBy": "clawrouter-live-network-tools"
+        },
+        {
+          "captureIndex": 8,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool.execute",
+          "status": "blocked",
+          "error": "fetch failed",
+          "reason": "captured tool requires live network access",
+          "blockedBy": "clawrouter-live-network-tools"
+        },
+        {
+          "captureIndex": 9,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool.execute",
+          "status": "blocked",
+          "error": "fetch failed",
+          "reason": "captured tool requires live network access",
+          "blockedBy": "clawrouter-live-network-tools"
+        },
+        {
+          "captureIndex": 10,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool.execute",
+          "status": "blocked",
+          "error": "fetch failed",
+          "reason": "captured tool requires live network access",
+          "blockedBy": "clawrouter-live-network-tools"
+        },
+        {
+          "captureIndex": 11,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool.execute",
+          "status": "blocked",
+          "error": "fetch failed",
+          "reason": "captured tool requires live network access",
+          "blockedBy": "clawrouter-live-network-tools"
+        },
+        {
+          "captureIndex": 12,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool.execute",
+          "status": "blocked",
+          "error": "fetch failed",
+          "reason": "captured tool requires live network access",
+          "blockedBy": "clawrouter-live-network-tools"
+        },
+        {
+          "captureIndex": 13,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool.execute",
+          "status": "blocked",
+          "error": "fetch failed",
+          "reason": "captured tool requires live network access",
+          "blockedBy": "clawrouter-live-network-tools"
+        },
+        {
+          "captureIndex": 14,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool.execute",
+          "status": "blocked",
+          "error": "fetch failed",
+          "reason": "captured tool requires live network access",
+          "blockedBy": "clawrouter-live-network-tools"
+        },
+        {
+          "captureIndex": 15,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool.execute",
+          "status": "blocked",
+          "error": "fetch failed",
+          "reason": "captured tool requires live network access",
+          "blockedBy": "clawrouter-live-network-tools"
+        },
+        {
+          "captureIndex": 16,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool.execute",
+          "status": "blocked",
+          "error": "fetch failed",
+          "reason": "captured tool requires live network access",
+          "blockedBy": "clawrouter-live-network-tools"
+        },
+        {
+          "captureIndex": 17,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool.execute",
+          "status": "blocked",
+          "error": "fetch failed",
+          "reason": "captured tool requires live network access",
+          "blockedBy": "clawrouter-live-network-tools"
+        },
+        {
+          "captureIndex": 18,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool.execute",
+          "status": "blocked",
+          "error": "fetch failed",
+          "reason": "captured tool requires live network access",
+          "blockedBy": "clawrouter-live-network-tools"
+        },
+        {
+          "captureIndex": 19,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool.execute",
+          "status": "blocked",
+          "error": "fetch failed",
+          "reason": "captured tool requires live network access",
+          "blockedBy": "clawrouter-live-network-tools"
+        },
+        {
+          "captureIndex": 20,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool.execute",
+          "status": "blocked",
+          "error": "fetch failed",
+          "reason": "captured tool requires live network access",
+          "blockedBy": "clawrouter-live-network-tools"
+        },
+        {
+          "captureIndex": 21,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool.execute",
+          "status": "blocked",
+          "error": "fetch failed",
+          "reason": "captured tool requires live network access",
+          "blockedBy": "clawrouter-live-network-tools"
+        },
+        {
+          "captureIndex": 29,
+          "kind": "registration",
+          "seam": "registerService",
+          "label": "registerService",
+          "status": "blocked",
+          "reason": "captured registration requires includeLifecycle=true"
         }
       ]
+    },
+    {
+      "artifactPath": ".crabpot/results/clawrouter/execution-profile.json",
+      "fixture": "clawrouter",
+      "kind": "profile",
+      "entrypoint": "-",
+      "status": "pass",
+      "summary": {
+        "stepCount": 7,
+        "failCount": 0,
+        "totalWallMs": 27807,
+        "maxPeakRssMb": 1123.9,
+        "maxCpuMsEstimate": 17790
+      },
+      "slowestSteps": [
+        {
+          "fixture": "clawrouter",
+          "entrypoint": "cold-import.extension:clawrouter:plugins-clawrouter-dist-index-js",
+          "packagePath": "plugins/clawrouter/package.json",
+          "status": "dependency-install-required",
+          "kind": "synthetic-probe",
+          "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+          "cwd": ".crabpot/workspaces/clawrouter",
+          "artifactPath": ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+          "exitCode": 0,
+          "wallMs": 12125,
+          "peakRssMb": 139,
+          "peakCpuPercent": 42.3,
+          "cpuMsEstimate": 593
+        },
+        {
+          "fixture": "clawrouter",
+          "entrypoint": "cold-import.extension:clawrouter:plugins-clawrouter-dist-index-js",
+          "packagePath": "plugins/clawrouter/package.json",
+          "status": "dependency-install-required",
+          "kind": "install",
+          "command": "npm install --ignore-scripts",
+          "cwd": ".crabpot/workspaces/clawrouter",
+          "artifactPath": null,
+          "exitCode": 0,
+          "wallMs": 7565,
+          "peakRssMb": 1123.9,
+          "peakCpuPercent": 349.6,
+          "cpuMsEstimate": 17790
+        },
+        {
+          "fixture": "clawrouter",
+          "entrypoint": "cold-import.extension:clawrouter:plugins-clawrouter-dist-index-js",
+          "packagePath": "plugins/clawrouter/package.json",
+          "status": "dependency-install-required",
+          "kind": "prepare",
+          "command": "mkdir -p .crabpot/workspaces/clawrouter && rsync -a --delete plugins/clawrouter/ .crabpot/workspaces/clawrouter/",
+          "cwd": ".",
+          "artifactPath": null,
+          "exitCode": 0,
+          "wallMs": 4427,
+          "peakRssMb": 0,
+          "peakCpuPercent": 0,
+          "cpuMsEstimate": 0
+        },
+        {
+          "fixture": "clawrouter",
+          "entrypoint": "cold-import.extension:clawrouter:plugins-clawrouter-dist-index-js",
+          "packagePath": "plugins/clawrouter/package.json",
+          "status": "dependency-install-required",
+          "kind": "audit",
+          "command": "npm audit --json > ../../results/clawrouter/package-audit.json || true",
+          "cwd": ".crabpot/workspaces/clawrouter",
+          "artifactPath": ".crabpot/results/clawrouter/package-audit.json",
+          "exitCode": 0,
+          "rawExitCode": 1,
+          "wallMs": 1526,
+          "peakRssMb": 110.3,
+          "peakCpuPercent": 40.8,
+          "cpuMsEstimate": 477
+        },
+        {
+          "fixture": "clawrouter",
+          "entrypoint": "cold-import.extension:clawrouter:plugins-clawrouter-dist-index-js",
+          "packagePath": "plugins/clawrouter/package.json",
+          "status": "dependency-install-required",
+          "kind": "capture",
+          "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.capture.json",
+          "cwd": ".crabpot/workspaces/clawrouter",
+          "artifactPath": ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.capture.json",
+          "exitCode": 0,
+          "wallMs": 1225,
+          "peakRssMb": 78.7,
+          "peakCpuPercent": 16.8,
+          "cpuMsEstimate": 145
+        }
+      ]
+    },
+    {
+      "artifactPath": ".crabpot/results/clawrouter/package-audit.json",
+      "fixture": "clawrouter",
+      "kind": "audit",
+      "entrypoint": "-",
+      "status": "warning",
+      "findingCount": 12,
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 11,
+        "high": 1,
+        "critical": 0,
+        "total": 12
+      }
     }
   ]
 }

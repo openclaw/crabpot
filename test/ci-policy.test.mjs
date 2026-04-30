@@ -157,6 +157,7 @@ test("ci policy surfaces P0 live issues without blocking default lanes", async (
         },
       ],
     }),
+    executionResults: emptyExecutionResults(),
   });
 
   assert.equal(report.status, "pass");
@@ -270,5 +271,15 @@ function executionResults(blocked) {
         })),
       },
     ],
+  };
+}
+
+function emptyExecutionResults() {
+  return {
+    summary: {
+      failCount: 0,
+      auditFindingCount: 0,
+    },
+    artifacts: [],
   };
 }

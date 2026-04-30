@@ -8,13 +8,13 @@ Targets: linux, macos, windows, container
 
 | Metric                         | Value |
 | ------------------------------ | ----- |
-| fixtureCount                   | 29    |
-| entrypointCount                | 35    |
-| tsLoaderEntrypointCount        | 20    |
-| jitiAlternativeCount           | 20    |
-| lazyImportProbeCount           | 35    |
-| portabilityFindingCount        | 54    |
-| coveredPortabilityFindingCount | 158   |
+| fixtureCount                   | 32    |
+| entrypointCount                | 39    |
+| tsLoaderEntrypointCount        | 21    |
+| jitiAlternativeCount           | 21    |
+| lazyImportProbeCount           | 39    |
+| portabilityFindingCount        | 56    |
+| coveredPortabilityFindingCount | 175   |
 | windowsRiskStepCount           | 14    |
 | macosRiskStepCount             | 14    |
 | linuxRiskStepCount             | 14    |
@@ -34,6 +34,7 @@ Targets: linux, macos, windows, container
 | llm-trace-phoenix  | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/llm-trace-phoenix/index.ts                                  |
 | opik-openclaw      | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/opik-openclaw/index.ts                                      |
 | opik-openclaw      | build-required              | node    | -            | no          | no            | plugins/opik-openclaw/dist/index.js                                 |
+| openclaw-telemetry | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/openclaw-telemetry/index.ts                                 |
 | lossless-claw      | build-required              | node    | -            | no          | no            | plugins/lossless-claw/dist/index.js                                 |
 | connectclaw        | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/connectclaw/packages/plugin/index.ts                        |
 | hyperspell         | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/hyperspell/index.ts                                         |
@@ -50,74 +51,79 @@ Targets: linux, macos, windows, container
 | yuanbao            | sdk-alias-required          | tsx     | jiti         | yes         | yes           | plugins/yuanbao/.crabpot-package/setup-entry.ts                     |
 | openclaw-weixin    | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/openclaw-weixin/.crabpot-package/index.ts                   |
 | lightclawbot       | dependency-install-required | node    | -            | no          | no            | plugins/lightclawbot/.crabpot-package/dist/index.js                 |
+| telnyx-sms         | build-required              | node    | -            | no          | no            | plugins/telnyx-sms/dist/index.js                                    |
+| telnyx-sms         | build-required              | node    | -            | no          | no            | plugins/telnyx-sms/dist/setup-entry.js                              |
+| clawrouter         | dependency-install-required | node    | -            | no          | no            | plugins/clawrouter/dist/index.js                                    |
 | memu-engine        | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/memu-engine/index.ts                                        |
 | secureclaw         | build-required              | node    | -            | no          | no            | plugins/secureclaw/secureclaw/dist/index.js                         |
 | memos-cloud        | review-required             | node    | -            | no          | no            | plugins/memos-cloud/index.js                                        |
 | clawmetry          | sdk-alias-required          | tsx     | jiti         | yes         | yes           | plugins/clawmetry/clawhub-plugin/index.ts                           |
 | clawmetry          | sdk-alias-required          | node    | -            | no          | no            | plugins/clawmetry/clawhub-plugin/dist/index.js                      |
-| codex-app-server   | sdk-alias-required          | tsx     | jiti         | yes         | yes           | plugins/codex-app-server/index.ts                                   |
+| codex-app-server   | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/codex-app-server/index.ts                                   |
 | web-search-plus    | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/web-search-plus/index.ts                                    |
 | apify              | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/apify/src/index.ts                                          |
 | inworld-tts        | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/inworld-tts/index.ts                                        |
 
 ## Portability Findings
 
-| Fixture           | Step            | Platforms                        | Risks                        | Mitigation                                                     |
-| ----------------- | --------------- | -------------------------------- | ---------------------------- | -------------------------------------------------------------- |
-| agentchat         | link-openclaw   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| agentchat         | build           | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| agentchat         | link-openclaw   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| agentchat         | build           | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| a2a-gateway       | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| a2a-gateway       | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| hasdata           | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| hasdata           | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| mcp-adapter       | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| mcp-adapter       | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| llm-trace-phoenix | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| llm-trace-phoenix | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| opik-openclaw     | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| opik-openclaw     | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| connectclaw       | link-openclaw   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| connectclaw       | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| connectclaw       | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| hyperspell        | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| hyperspell        | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| honcho            | link-openclaw   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| honcho            | build           | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| composio          | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| composio          | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| memory-tencentdb  | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| memory-tencentdb  | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| ddingtalk         | link-openclaw   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| ddingtalk         | install         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| ddingtalk         | audit           | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| ddingtalk         | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| ddingtalk         | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| mocrane-wecom     | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| mocrane-wecom     | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| yuanbao           | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| yuanbao           | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| yuanbao           | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| yuanbao           | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| openclaw-weixin   | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| openclaw-weixin   | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| memu-engine       | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| memu-engine       | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| clawmetry         | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| clawmetry         | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| codex-app-server  | link-openclaw   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| codex-app-server  | install         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| codex-app-server  | audit           | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| codex-app-server  | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| codex-app-server  | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| web-search-plus   | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| web-search-plus   | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| apify             | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| apify             | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| inworld-tts       | link-openclaw   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| inworld-tts       | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
-| inworld-tts       | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| Fixture            | Step            | Platforms                        | Risks                        | Mitigation                                                     |
+| ------------------ | --------------- | -------------------------------- | ---------------------------- | -------------------------------------------------------------- |
+| agentchat          | link-openclaw   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| agentchat          | build           | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| agentchat          | link-openclaw   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| agentchat          | build           | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| a2a-gateway        | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| a2a-gateway        | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| hasdata            | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| hasdata            | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| mcp-adapter        | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| mcp-adapter        | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| llm-trace-phoenix  | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| llm-trace-phoenix  | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| opik-openclaw      | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| opik-openclaw      | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| openclaw-telemetry | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| openclaw-telemetry | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| connectclaw        | link-openclaw   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| connectclaw        | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| connectclaw        | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| hyperspell         | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| hyperspell         | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| honcho             | link-openclaw   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| honcho             | build           | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| composio           | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| composio           | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| memory-tencentdb   | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| memory-tencentdb   | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| ddingtalk          | link-openclaw   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| ddingtalk          | install         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| ddingtalk          | audit           | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| ddingtalk          | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| ddingtalk          | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| mocrane-wecom      | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| mocrane-wecom      | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| yuanbao            | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| yuanbao            | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| yuanbao            | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| yuanbao            | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| openclaw-weixin    | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| openclaw-weixin    | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| memu-engine        | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| memu-engine        | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| clawmetry          | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| clawmetry          | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| codex-app-server   | link-openclaw   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| codex-app-server   | install         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| codex-app-server   | audit           | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| codex-app-server   | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| codex-app-server   | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| web-search-plus    | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| web-search-plus    | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| apify              | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| apify              | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| inworld-tts        | link-openclaw   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| inworld-tts        | capture         | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
+| inworld-tts        | synthetic-probe | -                                | tsx-loader-runtime           | verify TS source entrypoints with tsx and Jiti loader lanes    |
 
 ## Covered Portability Findings
 
@@ -169,6 +175,10 @@ Targets: linux, macos, windows, container
 | opik-openclaw      | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | opik-openclaw      | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | opik-openclaw      | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| openclaw-telemetry | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| openclaw-telemetry | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| openclaw-telemetry | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| openclaw-telemetry | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | lossless-claw      | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | lossless-claw      | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | lossless-claw      | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
@@ -242,6 +252,19 @@ Targets: linux, macos, windows, container
 | lightclawbot       | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | lightclawbot       | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | lightclawbot       | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| telnyx-sms         | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| telnyx-sms         | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| telnyx-sms         | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| telnyx-sms         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| telnyx-sms         | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| telnyx-sms         | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| telnyx-sms         | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| telnyx-sms         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| clawrouter         | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| clawrouter         | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| clawrouter         | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
+| clawrouter         | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| clawrouter         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | memu-engine        | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | memu-engine        | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | memu-engine        | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |

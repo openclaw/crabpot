@@ -125,6 +125,26 @@
       "why": "Opik trace exporter covering LLM spans, tool spans, subagent spans, stale trace cleanup, CLI setup, and persisted tool-result sanitization."
     },
     {
+      "id": "openclaw-telemetry",
+      "name": "OpenClaw Telemetry",
+      "repo": "https://github.com/knostic/openclaw-telemetry.git",
+      "path": "plugins/openclaw-telemetry",
+      "priority": "high",
+      "seams": ["diagnostics", "llm-observer", "tool-runtime", "message-lifecycle", "gateway-service"],
+      "expect": {
+        "hooks": [
+          "before_tool_call",
+          "after_tool_call",
+          "message_received",
+          "message_sent",
+          "before_agent_start",
+          "agent_end"
+        ],
+        "registrations": ["registerService"]
+      },
+      "why": "Telemetry fixture covering high-volume lifecycle hooks, tool-call capture, message events, JSONL/syslog sinks, redaction, rate limiting, and integrity hash chains."
+    },
+    {
       "id": "lossless-claw",
       "name": "Lossless Claw (LCM)",
       "repo": "https://github.com/Martian-Engineering/lossless-claw.git",
@@ -415,6 +435,49 @@
         "registrations": ["registerChannel", "registerTool"]
       },
       "why": "NPM-pinned channel fixture covering cron/proactive messaging metadata, file upload tooling, bundled Socket.IO dependencies, and built JavaScript-only plugin packages."
+    },
+    {
+      "id": "telnyx-sms",
+      "name": "Telnyx SMS",
+      "repo": "https://github.com/team-telnyx/telnyx-openclaw-sms-channel.git",
+      "path": "plugins/telnyx-sms",
+      "priority": "medium",
+      "seams": ["channel", "media", "account-auth", "http-routes", "cli"],
+      "expect": {
+        "registrations": ["defineChannelPluginEntry", "registerCli", "registerHttpRoute"]
+      },
+      "why": "Telnyx-owned SMS/MMS channel fixture covering channel setup entries, multi-account phone-number auth, inbound webhook verification, HTTP route registration, MMS handling, and auto-exposure flows."
+    },
+    {
+      "id": "clawrouter",
+      "name": "ClawRouter",
+      "repo": "https://github.com/BlockRunAI/ClawRouter.git",
+      "path": "plugins/clawrouter",
+      "priority": "medium",
+      "seams": ["provider-capability", "gateway-service", "process-spawn", "command", "dynamic-tool"],
+      "expect": {
+        "registrations": [
+          "registerProvider",
+          "registerImageGenerationProvider",
+          "registerMusicGenerationProvider",
+          "registerVideoGenerationProvider",
+          "registerWebSearchProvider",
+          "registerTool",
+          "registerCommand",
+          "registerService"
+        ]
+      },
+      "execution": {
+        "blockedFailures": [
+          {
+            "id": "clawrouter-live-network-tools",
+            "seam": "registerTool",
+            "errorIncludes": "fetch failed",
+            "reason": "captured tool requires live network access"
+          }
+        ]
+      },
+      "why": "Model-router fixture covering provider registration, generation/search provider capabilities, proxy sidecar lifecycle, x402 wallet/auth setup, command registration, partner tool surfacing, and config mutation edge cases."
     },
     {
       "id": "memu-engine",

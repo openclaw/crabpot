@@ -4,17 +4,17 @@
     "status": "ok",
     "configuredPath": "./openclaw",
     "capturedRegistrarCount": 26,
-    "sdkExportCount": 291
+    "sdkExportCount": 293
   },
   "summary": {
-    "fixtureCount": 29,
-    "registrationCount": 183,
-    "hookCount": 80,
-    "sdkImportCount": 536,
-    "packageEntrypointCount": 35,
-    "issueProbeCount": 155,
-    "inspectorShimRequiredCount": 99,
-    "compatAliasRequiredCount": 11
+    "fixtureCount": 32,
+    "registrationCount": 202,
+    "hookCount": 86,
+    "sdkImportCount": 549,
+    "packageEntrypointCount": 39,
+    "issueProbeCount": 169,
+    "inspectorShimRequiredCount": 110,
+    "compatAliasRequiredCount": 8
   },
   "fixtures": [
     {
@@ -1389,6 +1389,210 @@
           "specifier": "./dist/index.js",
           "ref": "plugins/opik-openclaw/dist/index.js",
           "support": "build-required",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "openclaw-telemetry",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.registerService:openclaw-telemetry:plugins-openclaw-telemetry-index-ts-10",
+          "fixture": "openclaw-telemetry",
+          "registrar": "registerService",
+          "ref": "plugins/openclaw-telemetry/index.ts:10",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "service id is stable",
+            "start/stop lifecycle handlers are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-service",
+              "start": "function",
+              "stop": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [
+        {
+          "id": "hook.after_tool_call:openclaw-telemetry:plugins-openclaw-telemetry-index-ts-22",
+          "fixture": "openclaw-telemetry",
+          "hook": "after_tool_call",
+          "ref": "plugins/openclaw-telemetry/index.ts:22",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "after_tool_call",
+            "fixture": "openclaw-telemetry"
+          },
+          "syntheticContext": {
+            "hook": "after_tool_call",
+            "fixture": "openclaw-telemetry"
+          }
+        },
+        {
+          "id": "hook.agent_end:openclaw-telemetry:plugins-openclaw-telemetry-index-ts-62",
+          "fixture": "openclaw-telemetry",
+          "hook": "agent_end",
+          "ref": "plugins/openclaw-telemetry/index.ts:62",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "final conversation payload is redacted as expected",
+            "agent id and run metadata are present"
+          ],
+          "syntheticEvent": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "conversationId": "conversation-fixture",
+            "status": "completed",
+            "transcript": [
+              {
+                "role": "assistant",
+                "content": "[redacted fixture output]"
+              }
+            ]
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture",
+            "channelId": "fixture-channel"
+          }
+        },
+        {
+          "id": "hook.before_agent_start:openclaw-telemetry:plugins-openclaw-telemetry-index-ts-53",
+          "fixture": "openclaw-telemetry",
+          "hook": "before_agent_start",
+          "ref": "plugins/openclaw-telemetry/index.ts:53",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "legacy startup hook payload is accepted",
+            "migration metadata can map to prompt/model hooks"
+          ],
+          "syntheticEvent": {
+            "agentId": "agent-fixture",
+            "runId": "run-fixture",
+            "config": {
+              "source": "plugin-inspector"
+            }
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture"
+          }
+        },
+        {
+          "id": "hook.before_tool_call:openclaw-telemetry:plugins-openclaw-telemetry-index-ts-12",
+          "fixture": "openclaw-telemetry",
+          "hook": "before_tool_call",
+          "ref": "plugins/openclaw-telemetry/index.ts:12",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "block/allow return shapes are preserved",
+            "terminal and approval metadata are present"
+          ],
+          "syntheticEvent": {
+            "runId": "run-fixture",
+            "toolName": "fixture_tool",
+            "params": {},
+            "toolCallId": "call-fixture"
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture",
+            "toolName": "fixture_tool"
+          }
+        },
+        {
+          "id": "hook.message_received:openclaw-telemetry:plugins-openclaw-telemetry-index-ts-34",
+          "fixture": "openclaw-telemetry",
+          "hook": "message_received",
+          "ref": "plugins/openclaw-telemetry/index.ts:34",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "message_received",
+            "fixture": "openclaw-telemetry"
+          },
+          "syntheticContext": {
+            "hook": "message_received",
+            "fixture": "openclaw-telemetry"
+          }
+        },
+        {
+          "id": "hook.message_sent:openclaw-telemetry:plugins-openclaw-telemetry-index-ts-43",
+          "fixture": "openclaw-telemetry",
+          "hook": "message_sent",
+          "ref": "plugins/openclaw-telemetry/index.ts:43",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "message_sent",
+            "fixture": "openclaw-telemetry"
+          },
+          "syntheticContext": {
+            "hook": "message_sent",
+            "fixture": "openclaw-telemetry"
+          }
+        }
+      ],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk:openclaw-telemetry:plugins-openclaw-telemetry-index-ts-1",
+          "fixture": "openclaw-telemetry",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/openclaw-telemetry/index.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:openclaw-telemetry:plugins-openclaw-telemetry-src-service-ts-1",
+          "fixture": "openclaw-telemetry",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/openclaw-telemetry/src/service.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:openclaw-telemetry:plugins-openclaw-telemetry-src-service-ts-2",
+          "fixture": "openclaw-telemetry",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/openclaw-telemetry/src/service.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:openclaw-telemetry:plugins-openclaw-telemetry-index-ts",
+          "fixture": "openclaw-telemetry",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "ref": "plugins/openclaw-telemetry/index.ts",
+          "support": "source-present",
           "assertions": [
             "entrypoint path resolves",
             "entrypoint can be cold-imported after required build step"
@@ -10876,6 +11080,469 @@
       ]
     },
     {
+      "id": "telnyx-sms",
+      "priority": "medium",
+      "registrations": [
+        {
+          "id": "registration.defineChannelPluginEntry:telnyx-sms:plugins-telnyx-sms-index-ts-207",
+          "fixture": "telnyx-sms",
+          "registrar": "defineChannelPluginEntry",
+          "ref": "plugins/telnyx-sms/index.ts:207",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "channel id is stable",
+            "setup/config schema can be read",
+            "message envelope metadata is preserved"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-channel",
+              "setup": "function",
+              "receive": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCli:telnyx-sms:plugins-telnyx-sms-index-ts-219",
+          "fixture": "telnyx-sms",
+          "registrar": "registerCli",
+          "ref": "plugins/telnyx-sms/index.ts:219",
+          "support": "target-captured",
+          "assertions": [
+            "command name is stable",
+            "argument schema is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "args": [
+                {
+                  "name": "input",
+                  "type": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "registration.registerHttpRoute:telnyx-sms:plugins-telnyx-sms-index-ts-259",
+          "fixture": "telnyx-sms",
+          "registrar": "registerHttpRoute",
+          "ref": "plugins/telnyx-sms/index.ts:259",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "route method and path are captured",
+            "auth policy metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "method": "POST",
+              "path": "/fixture/probe",
+              "handler": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-config-helpers:telnyx-sms:plugins-telnyx-sms-src-channel-ts-5",
+          "fixture": "telnyx-sms",
+          "specifier": "openclaw/plugin-sdk/channel-config-helpers",
+          "ref": "plugins/telnyx-sms/src/channel.ts:5",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-core:telnyx-sms:plugins-telnyx-sms-index-ts-1",
+          "fixture": "telnyx-sms",
+          "specifier": "openclaw/plugin-sdk/channel-core",
+          "ref": "plugins/telnyx-sms/index.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-core:telnyx-sms:plugins-telnyx-sms-setup-entry-ts-1",
+          "fixture": "telnyx-sms",
+          "specifier": "openclaw/plugin-sdk/channel-core",
+          "ref": "plugins/telnyx-sms/setup-entry.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-core:telnyx-sms:plugins-telnyx-sms-src-channel-ts-4",
+          "fixture": "telnyx-sms",
+          "specifier": "openclaw/plugin-sdk/channel-core",
+          "ref": "plugins/telnyx-sms/src/channel.ts:4",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-core:telnyx-sms:plugins-telnyx-sms-src-channel-ts-6",
+          "fixture": "telnyx-sms",
+          "specifier": "openclaw/plugin-sdk/channel-core",
+          "ref": "plugins/telnyx-sms/src/channel.ts:6",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-core:telnyx-sms:plugins-telnyx-sms-src-inbound-ts-3",
+          "fixture": "telnyx-sms",
+          "specifier": "openclaw/plugin-sdk/channel-core",
+          "ref": "plugins/telnyx-sms/src/inbound.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-core:telnyx-sms:plugins-telnyx-sms-src-setup-wizard-ts-1",
+          "fixture": "telnyx-sms",
+          "specifier": "openclaw/plugin-sdk/channel-core",
+          "ref": "plugins/telnyx-sms/src/setup-wizard.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-core:telnyx-sms:plugins-telnyx-sms-src-types-ts-3",
+          "fixture": "telnyx-sms",
+          "specifier": "openclaw/plugin-sdk/channel-core",
+          "ref": "plugins/telnyx-sms/src/types.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/direct-dm:telnyx-sms:plugins-telnyx-sms-src-inbound-ts-2",
+          "fixture": "telnyx-sms",
+          "specifier": "openclaw/plugin-sdk/direct-dm",
+          "ref": "plugins/telnyx-sms/src/inbound.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/setup:telnyx-sms:plugins-telnyx-sms-src-setup-wizard-ts-2",
+          "fixture": "telnyx-sms",
+          "specifier": "openclaw/plugin-sdk/setup",
+          "ref": "plugins/telnyx-sms/src/setup-wizard.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:telnyx-sms:plugins-telnyx-sms-dist-index-js",
+          "fixture": "telnyx-sms",
+          "kind": "extension",
+          "specifier": "./dist/index.js",
+          "ref": "plugins/telnyx-sms/dist/index.js",
+          "support": "build-required",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        },
+        {
+          "id": "package.setupEntry:telnyx-sms:plugins-telnyx-sms-dist-setup-entry-js",
+          "fixture": "telnyx-sms",
+          "kind": "setupEntry",
+          "specifier": "./dist/setup-entry.js",
+          "ref": "plugins/telnyx-sms/dist/setup-entry.js",
+          "support": "build-required",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clawrouter",
+      "priority": "medium",
+      "registrations": [
+        {
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1636",
+          "fixture": "clawrouter",
+          "registrar": "registerCommand",
+          "ref": "plugins/clawrouter/src/index.ts:1636",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1682",
+          "fixture": "clawrouter",
+          "registrar": "registerCommand",
+          "ref": "plugins/clawrouter/src/index.ts:1682",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1736",
+          "fixture": "clawrouter",
+          "registrar": "registerCommand",
+          "ref": "plugins/clawrouter/src/index.ts:1736",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1790",
+          "fixture": "clawrouter",
+          "registrar": "registerCommand",
+          "ref": "plugins/clawrouter/src/index.ts:1790",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1795",
+          "fixture": "clawrouter",
+          "registrar": "registerCommand",
+          "ref": "plugins/clawrouter/src/index.ts:1795",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1799",
+          "fixture": "clawrouter",
+          "registrar": "registerCommand",
+          "ref": "plugins/clawrouter/src/index.ts:1799",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1800",
+          "fixture": "clawrouter",
+          "registrar": "registerCommand",
+          "ref": "plugins/clawrouter/src/index.ts:1800",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerImageGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1544",
+          "fixture": "clawrouter",
+          "registrar": "registerImageGenerationProvider",
+          "ref": "plugins/clawrouter/src/index.ts:1544",
+          "support": "target-captured",
+          "assertions": [
+            "registration arguments are captured"
+          ],
+          "syntheticArguments": [
+            {}
+          ]
+        },
+        {
+          "id": "registration.registerMusicGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1545",
+          "fixture": "clawrouter",
+          "registrar": "registerMusicGenerationProvider",
+          "ref": "plugins/clawrouter/src/index.ts:1545",
+          "support": "target-captured",
+          "assertions": [
+            "registration arguments are captured"
+          ],
+          "syntheticArguments": [
+            {}
+          ]
+        },
+        {
+          "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1535",
+          "fixture": "clawrouter",
+          "registrar": "registerProvider",
+          "ref": "plugins/clawrouter/src/index.ts:1535",
+          "support": "target-captured",
+          "assertions": [
+            "registration arguments are captured"
+          ],
+          "syntheticArguments": [
+            {}
+          ]
+        },
+        {
+          "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1540",
+          "fixture": "clawrouter",
+          "registrar": "registerProvider",
+          "ref": "plugins/clawrouter/src/index.ts:1540",
+          "support": "target-captured",
+          "assertions": [
+            "registration arguments are captured"
+          ],
+          "syntheticArguments": [
+            {}
+          ]
+        },
+        {
+          "id": "registration.registerService:clawrouter:plugins-clawrouter-src-index-ts-1809",
+          "fixture": "clawrouter",
+          "registrar": "registerService",
+          "ref": "plugins/clawrouter/src/index.ts:1809",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "service id is stable",
+            "start/stop lifecycle handlers are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-service",
+              "start": "function",
+              "stop": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:clawrouter:plugins-clawrouter-src-index-ts-1622",
+          "fixture": "clawrouter",
+          "registrar": "registerTool",
+          "ref": "plugins/clawrouter/src/index.ts:1622",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerVideoGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1547",
+          "fixture": "clawrouter",
+          "registrar": "registerVideoGenerationProvider",
+          "ref": "plugins/clawrouter/src/index.ts:1547",
+          "support": "target-captured",
+          "assertions": [
+            "registration arguments are captured"
+          ],
+          "syntheticArguments": [
+            {}
+          ]
+        },
+        {
+          "id": "registration.registerWebSearchProvider:clawrouter:plugins-clawrouter-src-index-ts-1554",
+          "fixture": "clawrouter",
+          "registrar": "registerWebSearchProvider",
+          "ref": "plugins/clawrouter/src/index.ts:1554",
+          "support": "target-captured",
+          "assertions": [
+            "registration arguments are captured"
+          ],
+          "syntheticArguments": [
+            {}
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:clawrouter:plugins-clawrouter-dist-index-js",
+          "fixture": "clawrouter",
+          "kind": "extension",
+          "specifier": "./dist/index.js",
+          "ref": "plugins/clawrouter/dist/index.js",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
       "id": "memu-engine",
       "priority": "medium",
       "registrations": [
@@ -11393,7 +12060,7 @@
           "fixture": "codex-app-server",
           "specifier": "openclaw/plugin-sdk/discord",
           "ref": "plugins/codex-app-server/src/controller.ts:104",
-          "support": "compat-alias-required",
+          "support": "target-exported",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -11404,7 +12071,7 @@
           "fixture": "codex-app-server",
           "specifier": "openclaw/plugin-sdk/discord",
           "ref": "plugins/codex-app-server/src/controller.ts:106",
-          "support": "compat-alias-required",
+          "support": "target-exported",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -11415,7 +12082,7 @@
           "fixture": "codex-app-server",
           "specifier": "openclaw/plugin-sdk/telegram-account",
           "ref": "plugins/codex-app-server/src/controller.ts:105",
-          "support": "compat-alias-required",
+          "support": "target-exported",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -11760,6 +12427,26 @@
       ]
     },
     {
+      "id": "api.capture.runtime-registrars:clawrouter",
+      "fixture": "clawrouter",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerCommand @ plugins/clawrouter/src/index.ts:1636",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1682",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1736",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1790",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1795",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1799",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1800",
+        "registerService @ plugins/clawrouter/src/index.ts:1809"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:codex-app-server",
       "fixture": "codex-app-server",
       "priority": "P1",
@@ -11963,6 +12650,19 @@
       ]
     },
     {
+      "id": "api.capture.runtime-registrars:openclaw-telemetry",
+      "fixture": "openclaw-telemetry",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerService @ plugins/openclaw-telemetry/index.ts:10"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:openclaw-weixin",
       "fixture": "openclaw-weixin",
       "priority": "P1",
@@ -12017,6 +12717,19 @@
       ]
     },
     {
+      "id": "api.capture.runtime-registrars:telnyx-sms",
+      "fixture": "telnyx-sms",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerHttpRoute @ plugins/telnyx-sms/index.ts:259"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:wecom",
       "fixture": "wecom",
       "priority": "P1",
@@ -12055,6 +12768,19 @@
       "target": "hook-runner",
       "evidence": [
         "before_tool_call @ plugins/kitchen-sink/src/generated-hooks.js:18"
+      ],
+      "assertions": [
+        "synthetic event payload is accepted",
+        "return semantics are preserved"
+      ]
+    },
+    {
+      "id": "hook.before_tool_call.terminal-block-approval:openclaw-telemetry",
+      "fixture": "openclaw-telemetry",
+      "priority": "P1",
+      "target": "hook-runner",
+      "evidence": [
+        "before_tool_call @ plugins/openclaw-telemetry/index.ts:12"
       ],
       "assertions": [
         "synthetic event payload is accepted",
@@ -12171,6 +12897,19 @@
       ]
     },
     {
+      "id": "hook.llm-observer.privacy-payload:openclaw-telemetry",
+      "fixture": "openclaw-telemetry",
+      "priority": "P1",
+      "target": "hook-runner",
+      "evidence": [
+        "agent_end @ plugins/openclaw-telemetry/index.ts:62"
+      ],
+      "assertions": [
+        "synthetic event payload is accepted",
+        "return semantics are preserved"
+      ]
+    },
+    {
       "id": "hook.llm-observer.privacy-payload:opik-openclaw",
       "fixture": "opik-openclaw",
       "priority": "P1",
@@ -12192,21 +12931,6 @@
       "target": "sdk-alias",
       "evidence": [
         "openclaw/plugin-sdk/diagnostics-otel @ plugins/clawmetry/clawhub-plugin/src/service.ts:2"
-      ],
-      "assertions": [
-        "package export exists",
-        "migration metadata is visible when alias is missing"
-      ]
-    },
-    {
-      "id": "sdk.import.package-export-cold-import:codex-app-server",
-      "fixture": "codex-app-server",
-      "priority": "P1",
-      "target": "sdk-alias",
-      "evidence": [
-        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104",
-        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106",
-        "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
       ],
       "assertions": [
         "package export exists",
@@ -12417,6 +13141,19 @@
       ]
     },
     {
+      "id": "hook.compat.before-agent-start-migration:openclaw-telemetry",
+      "fixture": "openclaw-telemetry",
+      "priority": "P2",
+      "target": "hook-runner",
+      "evidence": [
+        "before_agent_start @ plugins/openclaw-telemetry/index.ts:53"
+      ],
+      "assertions": [
+        "synthetic event payload is accepted",
+        "return semantics are preserved"
+      ]
+    },
+    {
       "id": "manifest.compat.channel-env-vars:agentchat",
       "fixture": "agentchat",
       "priority": "P2",
@@ -12596,6 +13333,19 @@
       "target": "package-loader",
       "evidence": [
         "plugins/mocrane-wecom/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:openclaw-telemetry",
+      "fixture": "openclaw-telemetry",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/openclaw-telemetry/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -13115,6 +13865,19 @@
       ]
     },
     {
+      "id": "package.entrypoint.typescript-loader:openclaw-telemetry",
+      "fixture": "openclaw-telemetry",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/openclaw-telemetry/index.ts"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.entrypoint.typescript-loader:openclaw-weixin",
       "fixture": "openclaw-weixin",
       "priority": "P2",
@@ -13347,6 +14110,21 @@
         "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/runtime.ts:1",
         "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/shared/command-auth.ts:1",
         "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/ws-adapter.ts:14"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.root-barrel-cold-import:openclaw-telemetry",
+      "fixture": "openclaw-telemetry",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/openclaw-telemetry/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/openclaw-telemetry/src/service.ts:1",
+        "openclaw/plugin-sdk @ plugins/openclaw-telemetry/src/service.ts:2"
       ],
       "assertions": [
         "package export exists",
@@ -13587,6 +14365,19 @@
       ]
     },
     {
+      "id": "channel.runtime.envelope-config-metadata:telnyx-sms",
+      "fixture": "telnyx-sms",
+      "priority": "P3",
+      "target": "channel-runtime",
+      "evidence": [
+        "defineChannelPluginEntry @ plugins/telnyx-sms/index.ts:207"
+      ],
+      "assertions": [
+        "message envelope is stable",
+        "sender/config metadata is preserved"
+      ]
+    },
+    {
       "id": "hook.compat.before-agent-start-migration:memos-cloud",
       "fixture": "memos-cloud",
       "priority": "P3",
@@ -13597,6 +14388,19 @@
       "assertions": [
         "synthetic event payload is accepted",
         "return semantics are preserved"
+      ]
+    },
+    {
+      "id": "manifest.compat.channel-env-vars:telnyx-sms",
+      "fixture": "telnyx-sms",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "telnyx-sms"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
       ]
     },
     {
@@ -13649,6 +14453,19 @@
       "assertions": [
         "metadata key is accepted",
         "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:clawrouter",
+      "fixture": "clawrouter",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/clawrouter/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
       ]
     },
     {
@@ -13730,6 +14547,20 @@
       ]
     },
     {
+      "id": "package.entrypoint.build-before-cold-import:telnyx-sms",
+      "fixture": "telnyx-sms",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/telnyx-sms/dist/index.js",
+        "setupEntry:./dist/setup-entry.js -> plugins/telnyx-sms/dist/setup-entry.js"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.entrypoint.isolated-dependency-install:apify",
       "fixture": "apify",
       "priority": "P3",
@@ -13750,6 +14581,26 @@
       "target": "package-loader",
       "evidence": [
         "node-fetch @ plugins/clawmetry/clawhub-plugin/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:clawrouter",
+      "fixture": "clawrouter",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "@scure/bip32 @ plugins/clawrouter/package.json",
+        "@scure/bip39 @ plugins/clawrouter/package.json",
+        "@solana/kit @ plugins/clawrouter/package.json",
+        "@x402/core @ plugins/clawrouter/package.json",
+        "@x402/evm @ plugins/clawrouter/package.json",
+        "@x402/fetch @ plugins/clawrouter/package.json",
+        "@x402/svm @ plugins/clawrouter/package.json",
+        "viem @ plugins/clawrouter/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -13939,6 +14790,19 @@
       "target": "tool-runtime",
       "evidence": [
         "registerTool @ plugins/apify/src/index.ts:13"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:clawrouter",
+      "fixture": "clawrouter",
+      "priority": "P3",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/clawrouter/src/index.ts:1622"
       ],
       "assertions": [
         "tool schema is captured",

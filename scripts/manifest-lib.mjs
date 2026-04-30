@@ -71,6 +71,27 @@ export function validateManifest(manifest) {
         errors.push(`${fixture.id}: expect.${key} must be a non-empty array when present`);
       }
     }
+
+    const blockedFailures = fixture.execution?.blockedFailures;
+    if (blockedFailures !== undefined) {
+      if (!Array.isArray(blockedFailures) || blockedFailures.length === 0) {
+        errors.push(`${fixture.id}: execution.blockedFailures must be a non-empty array when present`);
+      }
+      for (const rule of blockedFailures ?? []) {
+        if (typeof rule.id !== "string" || rule.id.length === 0) {
+          errors.push(`${fixture.id}: execution.blockedFailures[].id must be set`);
+        }
+        if (typeof rule.seam !== "string" || rule.seam.length === 0) {
+          errors.push(`${fixture.id}: execution.blockedFailures[].seam must be set`);
+        }
+        if (typeof rule.errorIncludes !== "string" || rule.errorIncludes.length === 0) {
+          errors.push(`${fixture.id}: execution.blockedFailures[].errorIncludes must be set`);
+        }
+        if (typeof rule.reason !== "string" || rule.reason.length === 0) {
+          errors.push(`${fixture.id}: execution.blockedFailures[].reason must be set`);
+        }
+      }
+    }
   }
 
   if (errors.length > 0) {

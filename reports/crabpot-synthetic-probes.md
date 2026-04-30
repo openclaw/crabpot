@@ -6,15 +6,15 @@ Generated: deterministic
 
 | Metric              | Value |
 | ------------------- | ----- |
-| Fixtures            | 29    |
-| Probes              | 263   |
-| Hook probes         | 80    |
-| Registration probes | 183   |
-| Ready               | 263   |
+| Fixtures            | 32    |
+| Probes              | 288   |
+| Hook probes         | 86    |
+| Registration probes | 202   |
+| Ready               | 288   |
 | Blocked             | 0     |
-| Direct execution    | 101   |
-| Opt-in execution    | 23    |
-| Metadata-only       | 59    |
+| Direct execution    | 111   |
+| Opt-in execution    | 25    |
+| Metadata-only       | 66    |
 
 ## Probe Inventory
 
@@ -37,6 +37,12 @@ Generated: deterministic
 | opik-openclaw      | hook         | subagent_spawned                       | ready  | hook-direct      | plugins/opik-openclaw/src/service/hooks/subagent.ts:89                 | spawn payload is preserved; parent/subagent metadata are present                                |
 | opik-openclaw      | hook         | subagent_spawning                      | ready  | hook-direct      | plugins/opik-openclaw/src/service/hooks/subagent.ts:38                 | hook payload and return value are captured                                                      |
 | opik-openclaw      | hook         | tool_result_persist                    | ready  | hook-direct      | plugins/opik-openclaw/src/service.ts:541                               | hook payload and return value are captured                                                      |
+| openclaw-telemetry | hook         | after_tool_call                        | ready  | hook-direct      | plugins/openclaw-telemetry/index.ts:22                                 | hook payload and return value are captured                                                      |
+| openclaw-telemetry | hook         | agent_end                              | ready  | hook-direct      | plugins/openclaw-telemetry/index.ts:62                                 | final conversation payload is redacted as expected; agent id and run metadata are present       |
+| openclaw-telemetry | hook         | before_agent_start                     | ready  | hook-direct      | plugins/openclaw-telemetry/index.ts:53                                 | legacy startup hook payload is accepted; migration metadata can map to prompt/model hooks       |
+| openclaw-telemetry | hook         | before_tool_call                       | ready  | hook-direct      | plugins/openclaw-telemetry/index.ts:12                                 | block/allow return shapes are preserved; terminal and approval metadata are present             |
+| openclaw-telemetry | hook         | message_received                       | ready  | hook-direct      | plugins/openclaw-telemetry/index.ts:34                                 | hook payload and return value are captured                                                      |
+| openclaw-telemetry | hook         | message_sent                           | ready  | hook-direct      | plugins/openclaw-telemetry/index.ts:43                                 | hook payload and return value are captured                                                      |
 | lossless-claw      | hook         | before_prompt_build                    | ready  | hook-direct      | plugins/lossless-claw/src/plugin/index.ts:2021                         | prompt mutation result is preserved; agent and conversation metadata are present                |
 | lossless-claw      | hook         | before_reset                           | ready  | hook-direct      | plugins/lossless-claw/src/plugin/index.ts:2014                         | hook payload and return value are captured                                                      |
 | lossless-claw      | hook         | gateway_start                          | ready  | hook-direct      | plugins/lossless-claw/src/plugin/index.ts:2217                         | hook payload and return value are captured                                                      |
@@ -121,6 +127,7 @@ Generated: deterministic
 | mcp-adapter        | registration | registerTool                           | ready  | direct           | plugins/mcp-adapter/index.ts:30                                        | tool name is stable; input schema is captured; result shape metadata is captured                |
 | opik-openclaw      | registration | registerCli                            | ready  | direct           | plugins/opik-openclaw/index.ts:17                                      | command name is stable; argument schema is captured                                             |
 | opik-openclaw      | registration | registerService                        | ready  | lifecycle-opt-in | plugins/opik-openclaw/index.ts:16                                      | service id is stable; start/stop lifecycle handlers are captured                                |
+| openclaw-telemetry | registration | registerService                        | ready  | lifecycle-opt-in | plugins/openclaw-telemetry/index.ts:10                                 | service id is stable; start/stop lifecycle handlers are captured                                |
 | lossless-claw      | registration | registerCommand                        | ready  | direct           | plugins/lossless-claw/src/plugin/index.ts:2055                         | command id is stable; interactive command payload is captured                                   |
 | lossless-claw      | registration | registerContextEngine                  | ready  | metadata-only    | plugins/lossless-claw/src/plugin/index.ts:2035                         | context engine id is stable; factory metadata is captured                                       |
 | lossless-claw      | registration | registerTool                           | ready  | direct           | plugins/lossless-claw/src/plugin/index.ts:2037                         | tool name is stable; input schema is captured; result shape metadata is captured                |
@@ -265,6 +272,24 @@ Generated: deterministic
 | lightclawbot       | registration | registerChannel                        | ready  | channel-opt-in   | plugins/lightclawbot/.crabpot-package/dist/index.js:13                 | channel id is stable; inbound/outbound envelope shape is captured; sender metadata is preserved |
 | lightclawbot       | registration | registerTool                           | ready  | direct           | plugins/lightclawbot/.crabpot-package/dist/src/download-tool.js:49     | tool name is stable; input schema is captured; result shape metadata is captured                |
 | lightclawbot       | registration | registerTool                           | ready  | direct           | plugins/lightclawbot/.crabpot-package/dist/src/upload-tool.js:37       | tool name is stable; input schema is captured; result shape metadata is captured                |
+| telnyx-sms         | registration | defineChannelPluginEntry               | ready  | metadata-only    | plugins/telnyx-sms/index.ts:207                                        | channel id is stable; setup/config schema can be read; message envelope metadata is preserved   |
+| telnyx-sms         | registration | registerCli                            | ready  | direct           | plugins/telnyx-sms/index.ts:219                                        | command name is stable; argument schema is captured                                             |
+| telnyx-sms         | registration | registerHttpRoute                      | ready  | direct           | plugins/telnyx-sms/index.ts:259                                        | route method and path are captured; auth policy metadata is captured                            |
+| clawrouter         | registration | registerCommand                        | ready  | direct           | plugins/clawrouter/src/index.ts:1636                                   | command id is stable; interactive command payload is captured                                   |
+| clawrouter         | registration | registerCommand                        | ready  | direct           | plugins/clawrouter/src/index.ts:1682                                   | command id is stable; interactive command payload is captured                                   |
+| clawrouter         | registration | registerCommand                        | ready  | direct           | plugins/clawrouter/src/index.ts:1736                                   | command id is stable; interactive command payload is captured                                   |
+| clawrouter         | registration | registerCommand                        | ready  | direct           | plugins/clawrouter/src/index.ts:1790                                   | command id is stable; interactive command payload is captured                                   |
+| clawrouter         | registration | registerCommand                        | ready  | direct           | plugins/clawrouter/src/index.ts:1795                                   | command id is stable; interactive command payload is captured                                   |
+| clawrouter         | registration | registerCommand                        | ready  | direct           | plugins/clawrouter/src/index.ts:1799                                   | command id is stable; interactive command payload is captured                                   |
+| clawrouter         | registration | registerCommand                        | ready  | direct           | plugins/clawrouter/src/index.ts:1800                                   | command id is stable; interactive command payload is captured                                   |
+| clawrouter         | registration | registerImageGenerationProvider        | ready  | metadata-only    | plugins/clawrouter/src/index.ts:1544                                   | registration arguments are captured                                                             |
+| clawrouter         | registration | registerMusicGenerationProvider        | ready  | metadata-only    | plugins/clawrouter/src/index.ts:1545                                   | registration arguments are captured                                                             |
+| clawrouter         | registration | registerProvider                       | ready  | metadata-only    | plugins/clawrouter/src/index.ts:1535                                   | registration arguments are captured                                                             |
+| clawrouter         | registration | registerProvider                       | ready  | metadata-only    | plugins/clawrouter/src/index.ts:1540                                   | registration arguments are captured                                                             |
+| clawrouter         | registration | registerService                        | ready  | lifecycle-opt-in | plugins/clawrouter/src/index.ts:1809                                   | service id is stable; start/stop lifecycle handlers are captured                                |
+| clawrouter         | registration | registerTool                           | ready  | direct           | plugins/clawrouter/src/index.ts:1622                                   | tool name is stable; input schema is captured; result shape metadata is captured                |
+| clawrouter         | registration | registerVideoGenerationProvider        | ready  | metadata-only    | plugins/clawrouter/src/index.ts:1547                                   | registration arguments are captured                                                             |
+| clawrouter         | registration | registerWebSearchProvider              | ready  | metadata-only    | plugins/clawrouter/src/index.ts:1554                                   | registration arguments are captured                                                             |
 | memu-engine        | registration | registerTool                           | ready  | direct           | plugins/memu-engine/index.ts:1252                                      | tool name is stable; input schema is captured; result shape metadata is captured                |
 | secureclaw         | registration | registerCli                            | ready  | direct           | plugins/secureclaw/secureclaw/src/index.ts:351                         | command name is stable; argument schema is captured                                             |
 | secureclaw         | registration | registerService                        | ready  | lifecycle-opt-in | plugins/secureclaw/secureclaw/src/index.ts:295                         | service id is stable; start/stop lifecycle handlers are captured                                |

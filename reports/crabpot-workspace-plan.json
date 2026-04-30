@@ -10,19 +10,19 @@
     "configuredPath": "./openclaw"
   },
   "summary": {
-    "fixtureCount": 29,
-    "entrypointCount": 35,
-    "installStepCount": 18,
-    "auditStepCount": 18,
-    "buildStepCount": 8,
-    "artifactStepCount": 35,
-    "captureStepCount": 35,
-    "syntheticProbeStepCount": 35,
-    "targetOpenClawLinkStepCount": 26,
-    "tsLoaderEntrypointCount": 20,
-    "jitiAlternativeCount": 20,
+    "fixtureCount": 32,
+    "entrypointCount": 39,
+    "installStepCount": 19,
+    "auditStepCount": 19,
+    "buildStepCount": 10,
+    "artifactStepCount": 39,
+    "captureStepCount": 39,
+    "syntheticProbeStepCount": 39,
+    "targetOpenClawLinkStepCount": 27,
+    "tsLoaderEntrypointCount": 21,
+    "jitiAlternativeCount": 21,
     "missingBuildScriptCount": 0,
-    "sdkAliasRequiredCount": 6
+    "sdkAliasRequiredCount": 5
   },
   "fixtures": [
     {
@@ -810,6 +810,69 @@
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/opik-openclaw/cold-import-runtimeExtension-opik-openclaw-plugins-opik-openclaw-dist-index-js.synthetic.json",
               "cwd": ".crabpot/workspaces/opik-openclaw",
               "artifactPath": ".crabpot/results/opik-openclaw/cold-import-runtimeExtension-opik-openclaw-plugins-opik-openclaw-dist-index-js.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "openclaw-telemetry",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:openclaw-telemetry:plugins-openclaw-telemetry-index-ts",
+          "fixture": "openclaw-telemetry",
+          "packagePath": "plugins/openclaw-telemetry/package.json",
+          "packageName": "@openclaw/telemetry",
+          "entrypoint": "plugins/openclaw-telemetry/index.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": null,
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "synthetic-probes",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/openclaw-telemetry/index.ts"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/openclaw-telemetry && rsync -a --delete plugins/openclaw-telemetry/ .crabpot/workspaces/openclaw-telemetry/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/openclaw-telemetry",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.capture.json",
+              "cwd": ".crabpot/workspaces/openclaw-telemetry",
+              "artifactPath": ".crabpot/results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/openclaw-telemetry",
+              "artifactPath": ".crabpot/results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -2130,6 +2193,222 @@
       ]
     },
     {
+      "id": "telnyx-sms",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:telnyx-sms:plugins-telnyx-sms-dist-index-js",
+          "fixture": "telnyx-sms",
+          "packagePath": "plugins/telnyx-sms/package.json",
+          "packageName": "telnyx-openclaw-sms-channel",
+          "entrypoint": "plugins/telnyx-sms/dist/index.js",
+          "status": "build-required",
+          "packageManager": "npm",
+          "lockfile": null,
+          "loaderStrategy": {
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+          },
+          "requiredCapabilities": [
+            "build",
+            "capture-shim",
+            "synthetic-probes"
+          ],
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/telnyx-sms/dist/index.js"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/telnyx-sms && rsync -a --delete plugins/telnyx-sms/ .crabpot/workspaces/telnyx-sms/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/telnyx-sms",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "build",
+              "command": "npm run build",
+              "cwd": ".crabpot/workspaces/telnyx-sms",
+              "reason": "produce missing OpenClaw build entrypoint"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/telnyx-sms/cold-import-extension-telnyx-sms-plugins-telnyx-sms-dist-index-js.capture.json",
+              "cwd": ".crabpot/workspaces/telnyx-sms",
+              "artifactPath": ".crabpot/results/telnyx-sms/cold-import-extension-telnyx-sms-plugins-telnyx-sms-dist-index-js.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/telnyx-sms/cold-import-extension-telnyx-sms-plugins-telnyx-sms-dist-index-js.synthetic.json",
+              "cwd": ".crabpot/workspaces/telnyx-sms",
+              "artifactPath": ".crabpot/results/telnyx-sms/cold-import-extension-telnyx-sms-plugins-telnyx-sms-dist-index-js.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        },
+        {
+          "id": "cold-import.setupEntry:telnyx-sms:plugins-telnyx-sms-dist-setup-entry-js",
+          "fixture": "telnyx-sms",
+          "packagePath": "plugins/telnyx-sms/package.json",
+          "packageName": "telnyx-openclaw-sms-channel",
+          "entrypoint": "plugins/telnyx-sms/dist/setup-entry.js",
+          "status": "build-required",
+          "packageManager": "npm",
+          "lockfile": null,
+          "loaderStrategy": {
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+          },
+          "requiredCapabilities": [
+            "build",
+            "capture-shim",
+            "synthetic-probes"
+          ],
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/telnyx-sms/dist/setup-entry.js"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/telnyx-sms && rsync -a --delete plugins/telnyx-sms/ .crabpot/workspaces/telnyx-sms/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/telnyx-sms",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "build",
+              "command": "npm run build",
+              "cwd": ".crabpot/workspaces/telnyx-sms",
+              "reason": "produce missing OpenClaw build entrypoint"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/telnyx-sms/cold-import-setupEntry-telnyx-sms-plugins-telnyx-sms-dist-setup-entry-js.capture.json",
+              "cwd": ".crabpot/workspaces/telnyx-sms",
+              "artifactPath": ".crabpot/results/telnyx-sms/cold-import-setupEntry-telnyx-sms-plugins-telnyx-sms-dist-setup-entry-js.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/telnyx-sms/cold-import-setupEntry-telnyx-sms-plugins-telnyx-sms-dist-setup-entry-js.synthetic.json",
+              "cwd": ".crabpot/workspaces/telnyx-sms",
+              "artifactPath": ".crabpot/results/telnyx-sms/cold-import-setupEntry-telnyx-sms-plugins-telnyx-sms-dist-setup-entry-js.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clawrouter",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:clawrouter:plugins-clawrouter-dist-index-js",
+          "fixture": "clawrouter",
+          "packagePath": "plugins/clawrouter/package.json",
+          "packageName": "@blockrun/clawrouter",
+          "entrypoint": "plugins/clawrouter/dist/index.js",
+          "status": "dependency-install-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/clawrouter/package-lock.json",
+          "loaderStrategy": {
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "side-effect-sandbox",
+            "synthetic-probes",
+            "target-openclaw-link"
+          ],
+          "blockers": [
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/clawrouter/dist/index.js"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@scure/bip32, @scure/bip39, @solana/kit, @x402/core, @x402/evm, @x402/fetch, @x402/svm, viem"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/clawrouter && rsync -a --delete plugins/clawrouter/ .crabpot/workspaces/clawrouter/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/clawrouter",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/clawrouter",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/clawrouter",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/clawrouter/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/clawrouter",
+              "artifactPath": ".crabpot/results/clawrouter/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.capture.json",
+              "cwd": ".crabpot/workspaces/clawrouter",
+              "artifactPath": ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+              "cwd": ".crabpot/workspaces/clawrouter",
+              "artifactPath": ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "memu-engine",
       "entrypoints": [
         {
@@ -2498,7 +2777,7 @@
           "packagePath": "plugins/codex-app-server/package.json",
           "packageName": "openclaw-codex-app-server",
           "entrypoint": "plugins/codex-app-server/index.ts",
-          "status": "sdk-alias-required",
+          "status": "ts-loader-required",
           "packageManager": "pnpm",
           "lockfile": "plugins/codex-app-server/pnpm-lock.yaml",
           "loaderStrategy": {
@@ -2512,7 +2791,6 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link",
             "ts-loader"
@@ -2527,21 +2805,6 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "ws"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
             }
           ],
           "steps": [

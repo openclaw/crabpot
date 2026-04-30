@@ -2,8 +2,8 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { readManifest, repoRoot } from "./manifest-lib.mjs";
 import { buildReport } from "./report-lib.mjs";
-import { repoRoot } from "./manifest-lib.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 import { captureEntrypoint } from "./run-cold-import-capture.mjs";
 
@@ -124,14 +124,71 @@ export async function writeSyntheticProbePlan(plan, options = {}) {
 }
 
 export async function runCapturedSyntheticProbes(capture, options = {}) {
-  return pluginInspector.runCapturedSyntheticProbes(capture, {
+  const result = await pluginInspector.runCapturedSyntheticProbes(capture, {
     ...options,
     syntheticSource: "crabpot.synthetic",
   });
+  const manifest = options.manifest ?? (await readManifest());
+  return applyFixtureSyntheticFailurePolicy(result, manifest);
 }
 
 export function renderSyntheticProbeMarkdown(plan) {
   return pluginInspector.renderSyntheticProbeMarkdown(plan, { title: "Crabpot Synthetic Probes" });
+}
+
+export function applyFixtureSyntheticFailurePolicy(result, manifest) {
+  const fixture = fixtureForSyntheticResult(result, manifest);
+  const rules = fixture?.execution?.blockedFailures ?? [];
+  if (rules.length === 0 || !Array.isArray(result.results)) {
+    return result;
+  }
+
+  let changed = false;
+  const results = result.results.map((item) => {
+    if (item.status !== "fail") {
+      return item;
+    }
+    const rule = rules.find((candidate) => syntheticFailureMatchesRule(item, candidate));
+    if (!rule) {
+      return item;
+    }
+    changed = true;
+    return {
+      ...item,
+      status: "blocked",
+      reason: rule.reason,
+      blockedBy: rule.id,
+    };
+  });
+
+  if (!changed) {
+    return result;
+  }
+
+  return {
+    ...result,
+    summary: {
+      ...result.summary,
+      passCount: results.filter((item) => item.status === "pass").length,
+      failCount: results.filter((item) => item.status === "fail").length,
+      blockedCount: results.filter((item) => item.status === "blocked").length,
+    },
+    results,
+  };
+}
+
+function fixtureForSyntheticResult(result, manifest) {
+  const entrypoint = String(result.entrypoint ?? "").replaceAll("\\", "/");
+  return (manifest.fixtures ?? []).find((fixture) => entrypoint.includes(`/.crabpot/workspaces/${fixture.id}/`));
+}
+
+function syntheticFailureMatchesRule(item, rule) {
+  return (
+    item.seam === rule.seam &&
+    typeof item.error === "string" &&
+    typeof rule.errorIncludes === "string" &&
+    item.error.includes(rule.errorIncludes)
+  );
 }
 
 async function writeJsonResult(result, outputPath) {
