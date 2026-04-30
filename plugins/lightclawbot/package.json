@@ -6,6 +6,9 @@
   "dependencies": {
     "lightclawbot": "1.1.2"
   },
+  "overrides": {
+    "@anthropic-ai/sdk": "0.91.1"
+  },
   "crabpot": {
     "fixture": "lightclawbot",
     "source": "npm",
