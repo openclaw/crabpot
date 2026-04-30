@@ -118,6 +118,35 @@ test("readme summary renders metric deltas against main dashboard data", async (
         issues: 8,
         p0Issues: 1,
         p1Issues: 3,
+        liveIssues: 2,
+        liveP0Issues: 1,
+        executionPass: 4,
+        executionFail: 1,
+        executionBlocked: 0,
+        syntheticReady: 5,
+        syntheticBlocked: 2,
+        syntheticTotal: 7,
+        coldReady: 1,
+        coldBlocked: 4,
+        coldTotal: 5,
+        workspaceEntrypoints: 5,
+        workspaceInstalls: 1,
+        workspaceBuilds: 1,
+        platformWindowsRisks: 1,
+        platformContainerRisks: 3,
+        loaderJitiCandidates: 2,
+        importLoopP50Ms: 40,
+        importLoopP95Ms: 50,
+        importLoopMaxRssMb: 5,
+        importLoopMaxCpuMs: 2,
+        importLoopOpenClawLifecycleCount: 3,
+        importLoopOpenClawImportP50Ms: 300,
+        importLoopOpenClawImportP95Ms: 340,
+        importLoopOpenClawActivationP50Ms: 0.1,
+        importLoopOpenClawActivationP95Ms: 0.2,
+        runtimeP50Ms: 100,
+        runtimeP95Ms: 110,
+        runtimeMaxRssMb: 50,
       },
     },
     baselineLabel: "main",
@@ -133,19 +162,64 @@ test("readme summary renders metric deltas against main dashboard data", async (
           issueCount: 10,
           p0IssueCount: 1,
           p1IssueCount: 4,
+          liveIssueCount: 5,
+          liveP0IssueCount: 2,
           contractProbeCount: 5,
         },
         issues: [],
       },
+      ciSummary: {
+        summary: {
+          executionPass: 6,
+          executionFail: 0,
+          executionBlocked: 2,
+        },
+      },
+      synthetic: { summary: { readyCount: 8, blockedCount: 1, probeCount: 9 } },
+      coldImport: { summary: { readyCount: 2, blockedCount: 7, entrypointCount: 9 } },
+      workspace: { summary: { entrypointCount: 9, installStepCount: 3, buildStepCount: 2 } },
+      platform: { summary: { windowsRiskStepCount: 4, containerRiskStepCount: 2, jitiAlternativeCount: 5 } },
+      importLoop: {
+        summary: {
+          p50WallMs: 51,
+          p95WallMs: 57,
+          maxPluginPeakRssDeltaMb: 6.5,
+          maxPluginCpuDeltaMsEstimate: 4,
+          rssSampleCount: 2,
+          cpuSampleCount: 2,
+          openClawLifecycleCount: 3,
+          p50OpenClawImportMs: 325.4,
+          p95OpenClawImportMs: 367.5,
+          p50OpenClawActivationMs: 0.3,
+          p95OpenClawActivationMs: 0.4,
+        },
+      },
+      runtimeProfile: { summary: { p50WallMs: 120, p95WallMs: 130, maxPeakRssMb: 64.5, rssSampleCount: 2 } },
     },
   });
   const markdown = renderReadmeSummary(summary);
 
   assert.equal(summary.baseline.deltas.fixtures.value, 2);
   assert.equal(summary.baseline.deltas.hardBreakages.value, -1);
+  assert.equal(summary.baseline.deltas.importLoopOpenClawImportP50Ms.value, 25.4);
   assert.match(markdown, /\| Fixtures\s+\| 12<br><em>\+2 vs main<\/em>\s+\|/);
   assert.match(markdown, /\| Hard breakages\s+\| 0<br><em>-1 vs main<\/em>\s+\|/);
   assert.match(markdown, /\| P1 issues\s+\| \[🟠 P1 4\]\(reports\/crabpot-issues\.md#triage-summary\)<br><em>\+1 vs main<\/em>\s+\|/u);
+  assert.match(markdown, /\| Live issues\s+\| 5 total<br><em>\+3 vs main<\/em> \/ 2 P0<br><em>\+1 vs main<\/em>\s+\|/);
+  assert.match(
+    markdown,
+    /\| Execution probes\s+\| 6 pass<br><em>\+2 vs main<\/em> \/ 0 fail<br><em>-1 vs main<\/em> \/ 2 blocked<br><em>\+2 vs main<\/em>\s+\|/,
+  );
+  assert.match(markdown, /\| Synthetic probes\s+\| 8 ready<br><em>\+3 vs main<\/em> \/ 1 blocked<br><em>-1 vs main<\/em> \/ 9 total<br><em>\+2 vs main<\/em>\s+\|/);
+  assert.match(markdown, /\| Cold import\s+\| 2 ready<br><em>\+1 vs main<\/em> \/ 7 blocked<br><em>\+3 vs main<\/em> \/ 9 entrypoints<br><em>\+4 vs main<\/em>\s+\|/);
+  assert.match(markdown, /\| Workspace plan\s+\| 9 entrypoints<br><em>\+4 vs main<\/em> \/ 3 installs<br><em>\+2 vs main<\/em> \/ 2 builds<br><em>\+1 vs main<\/em>\s+\|/);
+  assert.match(markdown, /\| Platform risks\s+\| 4 Windows<br><em>\+3 vs main<\/em> \/ 2 container<br><em>-1 vs main<\/em>\s+\|/);
+  assert.match(markdown, /\| Jiti loader candidates\s+\| 5<br><em>\+3 vs main<\/em>\s+\|/);
+  assert.match(markdown, /p50 51ms<br><em>\+11 vs main<\/em> \/ p95 57ms<br><em>\+7 vs main<\/em> \/ plugin delta RSS 6\.5MB<br><em>\+1\.5 vs main<\/em> \/ plugin delta CPU 4ms<br><em>\+2 vs main<\/em>/);
+  assert.match(markdown, /OpenClaw import 325\.4ms<br><em>\+25\.4 vs main<\/em> \/ activate 0\.3ms<br><em>\+0\.2 vs main<\/em>/);
+  assert.match(markdown, /p50 120ms<br><em>\+20 vs main<\/em> \/ command p95 130ms<br><em>\+20 vs main<\/em> \/ max RSS 64\.5MB<br><em>\+14\.5 vs main<\/em> \/ 1 sample\/command/);
+  assert.match(markdown, /\| Import \(`full`\)\s+\| 325\.4ms<br><em>\+25\.4 vs main<\/em>\s+\| 367\.5ms<br><em>\+27\.5 vs main<\/em>\s+\|/);
+  assert.match(markdown, /\| Activate \(`full:register`\)\s+\| 0\.3ms<br><em>\+0\.2 vs main<\/em>\s+\| 0\.4ms<br><em>\+0\.2 vs main<\/em>\s+\|/);
 });
 
 test("readme summary writes dashboard data json for branch comparison", async () => {

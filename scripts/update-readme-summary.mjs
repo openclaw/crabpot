@@ -284,7 +284,8 @@ export function buildDashboardData(summary) {
 
 function preserveDashboardMetadata(summary, readme) {
   const current = readDashboardMetadata(readme);
-  const preserveCurrentReportLabels = current.runUrl && (!summary.generatedAt || summary.generatedAt === "deterministic");
+  const preserveCurrentReportLabels =
+    current.runUrl && !summary.baseline && (!summary.generatedAt || summary.generatedAt === "deterministic");
   return {
     ...summary,
     generatedAtLabel:
@@ -397,7 +398,13 @@ export function renderReadmeSummary(summary) {
         ["Issues", metricCell(summary, "issues", m.issues)],
         ["P0 issues", metricCell(summary, "p0Issues", severityCount("P0", m.p0Issues))],
         ["P1 issues", metricCell(summary, "p1Issues", severityCount("P1", m.p1Issues))],
-        ["Live issues", `${m.liveIssues} total / ${m.liveP0Issues} P0`],
+        [
+          "Live issues",
+          metricParts(summary, [
+            ["liveIssues", m.liveIssues, "total"],
+            ["liveP0Issues", m.liveP0Issues, "P0"],
+          ]),
+        ],
         ["Compat gaps", metricCell(summary, "compatGaps", m.compatGaps)],
         ["Deprecation warnings", metricCell(summary, "deprecationWarnings", m.deprecationWarnings)],
         ["Inspector gaps", metricCell(summary, "inspectorGaps", m.inspectorGaps)],
@@ -407,26 +414,60 @@ export function renderReadmeSummary(summary) {
         ["Policy warnings", metricCell(summary, "policyWarnings", m.policyWarnings)],
         ["Ref diff failures", metricCell(summary, "refDiffFailures", m.refDiffFailures)],
         ["Profile failures", metricCell(summary, "profileFailures", m.profileFailures)],
-        ["Execution probes", `${m.executionPass} pass / ${m.executionFail} fail / ${m.executionBlocked} blocked`],
-        ["Synthetic probes", `${m.syntheticReady} ready / ${m.syntheticBlocked} blocked / ${m.syntheticTotal} total`],
-        ["Cold import", `${m.coldReady} ready / ${m.coldBlocked} blocked / ${m.coldTotal} entrypoints`],
-        ["Workspace plan", `${m.workspaceEntrypoints} entrypoints / ${m.workspaceInstalls} installs / ${m.workspaceBuilds} builds`],
-        ["Platform risks", `${m.platformWindowsRisks} Windows / ${m.platformContainerRisks} container`],
-        ["Jiti loader candidates", m.loaderJitiCandidates],
+        [
+          "Execution probes",
+          metricParts(summary, [
+            ["executionPass", m.executionPass, "pass"],
+            ["executionFail", m.executionFail, "fail"],
+            ["executionBlocked", m.executionBlocked, "blocked"],
+          ]),
+        ],
+        [
+          "Synthetic probes",
+          metricParts(summary, [
+            ["syntheticReady", m.syntheticReady, "ready"],
+            ["syntheticBlocked", m.syntheticBlocked, "blocked"],
+            ["syntheticTotal", m.syntheticTotal, "total"],
+          ]),
+        ],
+        [
+          "Cold import",
+          metricParts(summary, [
+            ["coldReady", m.coldReady, "ready"],
+            ["coldBlocked", m.coldBlocked, "blocked"],
+            ["coldTotal", m.coldTotal, "entrypoints"],
+          ]),
+        ],
+        [
+          "Workspace plan",
+          metricParts(summary, [
+            ["workspaceEntrypoints", m.workspaceEntrypoints, "entrypoints"],
+            ["workspaceInstalls", m.workspaceInstalls, "installs"],
+            ["workspaceBuilds", m.workspaceBuilds, "builds"],
+          ]),
+        ],
+        [
+          "Platform risks",
+          metricParts(summary, [
+            ["platformWindowsRisks", m.platformWindowsRisks, "Windows"],
+            ["platformContainerRisks", m.platformContainerRisks, "container"],
+          ]),
+        ],
+        ["Jiti loader candidates", metricCell(summary, "loaderJitiCandidates", m.loaderJitiCandidates)],
         [
           "Import loop",
           summary.importLoopLabel ??
-            importLoopMetricLabel(m),
+            importLoopMetricLabel(summary),
         ],
         [
           "Runtime profile",
           summary.runtimeProfileLabel ??
-            `p50 ${m.runtimeP50Ms}ms / command p95 ${m.runtimeP95Ms}ms / max RSS ${formatSampledMetric(m.runtimeMaxRssMb, m.runtimeRssSampleCount)} / ${m.runtimeSamplesPerCommand || 1} sample${(m.runtimeSamplesPerCommand || 1) === 1 ? "" : "s"}/command`,
+            runtimeProfileMetricLabel(summary),
         ],
       ],
       ["Metric", "Result"],
     ),
-    ...renderOpenClawLifecycleSection(m),
+    ...renderOpenClawLifecycleSection(summary),
     "",
     "### Top Discovered Issues",
     "",
@@ -456,6 +497,10 @@ function metricCell(summary, metric, value) {
     return value;
   }
   return `${value}<br><em>${formatMetricDelta(delta.value)} vs ${summary.baseline.label ?? "main"}</em>`;
+}
+
+function metricParts(summary, parts) {
+  return parts.map(([metric, value, label]) => metricCell(summary, metric, `${value} ${label}`)).join(" / ");
 }
 
 function buildMetricDeltas(metrics, baselineMetrics) {
@@ -547,16 +592,29 @@ function shouldPreserveImportLoopLabel(label, summary) {
   return true;
 }
 
-function importLoopMetricLabel(metrics) {
+function labeledMetricCell(summary, metric, label, value) {
+  return metricCell(summary, metric, `${label} ${value}`);
+}
+
+function importLoopMetricLabel(summary) {
+  const metrics = summary.metrics;
   const metricLabel = metrics.importLoopMetricBasis === "baseline-adjusted" ? "plugin delta" : "raw";
   const lifecycle =
     metrics.importLoopOpenClawLifecycleCount > 0
-      ? ` / OpenClaw import ${metrics.importLoopOpenClawImportP50Ms}ms / activate ${metrics.importLoopOpenClawActivationP50Ms}ms`
+      ? ` / ${labeledMetricCell(summary, "importLoopOpenClawImportP50Ms", "OpenClaw import", `${metrics.importLoopOpenClawImportP50Ms}ms`)} / ${labeledMetricCell(summary, "importLoopOpenClawActivationP50Ms", "activate", `${metrics.importLoopOpenClawActivationP50Ms}ms`)}`
       : "";
-  return `p50 ${metrics.importLoopP50Ms}ms / p95 ${metrics.importLoopP95Ms}ms / ${metricLabel} RSS ${formatSampledMetric(metrics.importLoopMaxRssMb, metrics.importLoopRssSampleCount)} / ${metricLabel} CPU ${formatSampledMetric(metrics.importLoopMaxCpuMs, metrics.importLoopCpuSampleCount, "ms")}${lifecycle}`;
+  return `${labeledMetricCell(summary, "importLoopP50Ms", "p50", `${metrics.importLoopP50Ms}ms`)} / ${labeledMetricCell(summary, "importLoopP95Ms", "p95", `${metrics.importLoopP95Ms}ms`)} / ${labeledMetricCell(summary, "importLoopMaxRssMb", `${metricLabel} RSS`, formatSampledMetric(metrics.importLoopMaxRssMb, metrics.importLoopRssSampleCount))} / ${labeledMetricCell(summary, "importLoopMaxCpuMs", `${metricLabel} CPU`, formatSampledMetric(metrics.importLoopMaxCpuMs, metrics.importLoopCpuSampleCount, "ms"))}${lifecycle}`;
 }
 
-function renderOpenClawLifecycleSection(metrics) {
+function runtimeProfileMetricLabel(summary) {
+  const metrics = summary.metrics;
+  const samples = metrics.runtimeSamplesPerCommand || 1;
+  const sampleLabel = `${samples} sample${samples === 1 ? "" : "s"}/command`;
+  return `${labeledMetricCell(summary, "runtimeP50Ms", "p50", `${metrics.runtimeP50Ms}ms`)} / ${labeledMetricCell(summary, "runtimeP95Ms", "command p95", `${metrics.runtimeP95Ms}ms`)} / ${labeledMetricCell(summary, "runtimeMaxRssMb", "max RSS", formatSampledMetric(metrics.runtimeMaxRssMb, metrics.runtimeRssSampleCount))} / ${sampleLabel}`;
+}
+
+function renderOpenClawLifecycleSection(summary) {
+  const metrics = summary.metrics;
   if ((metrics.importLoopOpenClawLifecycleCount ?? 0) <= 0) {
     return [];
   }
@@ -566,11 +624,15 @@ function renderOpenClawLifecycleSection(metrics) {
     "",
     markdownTable(
       [
-        ["Import (`full`)", `${metrics.importLoopOpenClawImportP50Ms}ms`, `${metrics.importLoopOpenClawImportP95Ms}ms`],
+        [
+          "Import (`full`)",
+          metricCell(summary, "importLoopOpenClawImportP50Ms", `${metrics.importLoopOpenClawImportP50Ms}ms`),
+          metricCell(summary, "importLoopOpenClawImportP95Ms", `${metrics.importLoopOpenClawImportP95Ms}ms`),
+        ],
         [
           "Activate (`full:register`)",
-          `${metrics.importLoopOpenClawActivationP50Ms}ms`,
-          `${metrics.importLoopOpenClawActivationP95Ms}ms`,
+          metricCell(summary, "importLoopOpenClawActivationP50Ms", `${metrics.importLoopOpenClawActivationP50Ms}ms`),
+          metricCell(summary, "importLoopOpenClawActivationP95Ms", `${metrics.importLoopOpenClawActivationP95Ms}ms`),
         ],
       ],
       ["Phase", "p50", "p95"],
