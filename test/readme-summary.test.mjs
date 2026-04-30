@@ -69,6 +69,11 @@ test("readme summary rolls up report counts and top issues", async () => {
           maxCpuMsEstimate: 32,
           maxPluginPeakRssDeltaMb: 6.5,
           maxPluginCpuDeltaMsEstimate: 4,
+          openClawLifecycleCount: 3,
+          p50OpenClawImportMs: 325.4,
+          p95OpenClawImportMs: 367.5,
+          p50OpenClawActivationMs: 0.1,
+          p95OpenClawActivationMs: 0.3,
         },
       },
       runtimeProfile: { summary: { p50WallMs: 120, p95WallMs: 130, maxPeakRssMb: 64.5 } },
@@ -93,7 +98,10 @@ test("readme summary rolls up report counts and top issues", async () => {
   assert.match(markdown, /8 ready \/ 1 blocked \/ 9 total/);
   assert.match(markdown, /4 Windows \/ 2 container/);
   assert.match(markdown, /\| Jiti loader candidates\s+\| 5\s+\|/);
-  assert.match(markdown, /p50 51ms \/ p95 57ms \/ plugin delta RSS 6\.5MB \/ plugin delta CPU 4ms/);
+  assert.match(markdown, /p50 51ms \/ p95 57ms \/ plugin delta RSS 6\.5MB \/ plugin delta CPU 4ms \/ OpenClaw import 325\.4ms \/ activate 0\.1ms/);
+  assert.match(markdown, /### OpenClaw Lifecycle Probe/);
+  assert.match(markdown, /\| Import \(`full`\)\s+\| 325\.4ms\s+\| 367\.5ms\s+\|/);
+  assert.match(markdown, /\| Activate \(`full:register`\)\s+\| 0\.1ms\s+\| 0\.3ms\s+\|/);
   assert.match(markdown, /p50 120ms \/ command p95 130ms \/ max RSS 64\.5MB \/ 1 sample\/command/);
 });
 

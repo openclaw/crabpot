@@ -195,6 +195,11 @@ export async function buildReadmeSummary(options = {}) {
       loaderJitiCandidates: reports.platform?.summary?.jitiAlternativeCount ?? 0,
       importLoopP50Ms: reports.importLoop?.summary?.p50WallMs ?? 0,
       importLoopP95Ms: reports.importLoop?.summary?.p95WallMs ?? 0,
+      importLoopOpenClawLifecycleCount: reports.importLoop?.summary?.openClawLifecycleCount ?? 0,
+      importLoopOpenClawImportP50Ms: reports.importLoop?.summary?.p50OpenClawImportMs ?? 0,
+      importLoopOpenClawImportP95Ms: reports.importLoop?.summary?.p95OpenClawImportMs ?? 0,
+      importLoopOpenClawActivationP50Ms: reports.importLoop?.summary?.p50OpenClawActivationMs ?? 0,
+      importLoopOpenClawActivationP95Ms: reports.importLoop?.summary?.p95OpenClawActivationMs ?? 0,
       importLoopMetricBasis: reports.importLoop?.summary?.maxPluginPeakRssDeltaMb === undefined ? "raw" : "baseline-adjusted",
       importLoopMaxRssMb: reports.importLoop?.summary?.maxPluginPeakRssDeltaMb ?? reports.importLoop?.summary?.maxPeakRssMb ?? 0,
       importLoopMaxCpuMs: reports.importLoop?.summary?.maxPluginCpuDeltaMsEstimate ?? reports.importLoop?.summary?.maxCpuMsEstimate ?? 0,
@@ -292,7 +297,7 @@ function preserveDashboardMetadata(summary, readme) {
         ? current.openclawLabel
         : summary.openclawLabel,
     importLoopLabel:
-      preserveCurrentReportLabels && hasCurrentImportLoopLabel(current.importLoopLabel)
+      preserveCurrentReportLabels && shouldPreserveImportLoopLabel(current.importLoopLabel, summary)
         ? current.importLoopLabel
         : summary.importLoopLabel,
     runtimeProfileLabel:
@@ -421,6 +426,7 @@ export function renderReadmeSummary(summary) {
       ],
       ["Metric", "Result"],
     ),
+    ...renderOpenClawLifecycleSection(m),
     "",
     "### Top Discovered Issues",
     "",
@@ -531,9 +537,45 @@ function hasCurrentImportLoopLabel(label) {
   return hasP95Label(label) && /\b(?:plugin delta|raw) RSS\b/.test(label ?? "");
 }
 
+function shouldPreserveImportLoopLabel(label, summary) {
+  if (!hasCurrentImportLoopLabel(label)) {
+    return false;
+  }
+  if ((summary.metrics?.importLoopOpenClawLifecycleCount ?? 0) > 0) {
+    return /\bOpenClaw import\b/.test(label ?? "");
+  }
+  return true;
+}
+
 function importLoopMetricLabel(metrics) {
   const metricLabel = metrics.importLoopMetricBasis === "baseline-adjusted" ? "plugin delta" : "raw";
-  return `p50 ${metrics.importLoopP50Ms}ms / p95 ${metrics.importLoopP95Ms}ms / ${metricLabel} RSS ${formatSampledMetric(metrics.importLoopMaxRssMb, metrics.importLoopRssSampleCount)} / ${metricLabel} CPU ${formatSampledMetric(metrics.importLoopMaxCpuMs, metrics.importLoopCpuSampleCount, "ms")}`;
+  const lifecycle =
+    metrics.importLoopOpenClawLifecycleCount > 0
+      ? ` / OpenClaw import ${metrics.importLoopOpenClawImportP50Ms}ms / activate ${metrics.importLoopOpenClawActivationP50Ms}ms`
+      : "";
+  return `p50 ${metrics.importLoopP50Ms}ms / p95 ${metrics.importLoopP95Ms}ms / ${metricLabel} RSS ${formatSampledMetric(metrics.importLoopMaxRssMb, metrics.importLoopRssSampleCount)} / ${metricLabel} CPU ${formatSampledMetric(metrics.importLoopMaxCpuMs, metrics.importLoopCpuSampleCount, "ms")}${lifecycle}`;
+}
+
+function renderOpenClawLifecycleSection(metrics) {
+  if ((metrics.importLoopOpenClawLifecycleCount ?? 0) <= 0) {
+    return [];
+  }
+  return [
+    "",
+    "### OpenClaw Lifecycle Probe",
+    "",
+    markdownTable(
+      [
+        ["Import (`full`)", `${metrics.importLoopOpenClawImportP50Ms}ms`, `${metrics.importLoopOpenClawImportP95Ms}ms`],
+        [
+          "Activate (`full:register`)",
+          `${metrics.importLoopOpenClawActivationP50Ms}ms`,
+          `${metrics.importLoopOpenClawActivationP95Ms}ms`,
+        ],
+      ],
+      ["Phase", "p50", "p95"],
+    ),
+  ];
 }
 
 function metricSampleCount(report, kind, maxMetric) {
