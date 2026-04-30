@@ -1,42 +1,38 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "check",
-  "openclawLabel": "openclaw@latest (2026.4.27, cbc2ba093146)",
+  "mode": "local",
+  "openclawLabel": "",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 60,
-    "suggestions": 139,
-    "issues": 199,
-    "p0Issues": 5,
-    "p1Issues": 72,
-    "liveIssues": 5,
-    "liveP0Issues": 5,
-    "compatGaps": 43,
-    "deprecationWarnings": 24,
-    "inspectorGaps": 103,
-    "upstreamIssues": 24,
+    "warnings": 65,
+    "suggestions": 108,
+    "issues": 173,
+    "p0Issues": 4,
+    "p1Issues": 37,
+    "liveIssues": 4,
+    "liveP0Issues": 4,
+    "compatGaps": 3,
+    "deprecationWarnings": 27,
+    "inspectorGaps": 113,
+    "upstreamIssues": 26,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
-    "policyWarnings": 3,
+    "policyWarnings": 20,
     "profileFailures": 0,
     "profileWarnings": 0,
-    "executionPass": 6,
+    "executionPass": 12,
     "executionFail": 0,
-    "executionBlocked": 2,
+    "executionBlocked": 18,
     "platformWindowsRisks": 14,
     "platformContainerRisks": 14,
-    "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 72,
-    "importLoopP95Ms": 72,
-    "importLoopOpenClawLifecycleCount": 0,
-    "importLoopOpenClawImportP50Ms": 0,
-    "importLoopOpenClawActivationP50Ms": 0,
-    "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 0.3,
-    "importLoopMaxCpuMs": 14,
+    "loaderJitiCandidates": 21,
+    "importLoopP50Ms": 73,
+    "importLoopP95Ms": 74,
+    "importLoopMaxRssMb": 58.1,
+    "importLoopMaxCpuMs": 54,
     "importLoopRssSampleCount": 9,
     "importLoopCpuSampleCount": 9
   },
@@ -47,14 +43,6 @@
       "fixture": "clawmetry",
       "code": "sdk-export-missing",
       "title": "clawmetry: plugin SDK import aliases are missing from target package exports",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "codex-app-server",
-      "code": "sdk-export-missing",
-      "title": "codex-app-server: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
     },
     {
@@ -83,35 +71,11 @@
     },
     {
       "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "a2a-gateway",
-      "code": "missing-compat-record",
-      "title": "a2a-gateway: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
       "issueClass": "inspector-gap",
       "fixture": "a2a-gateway",
       "code": "registration-capture-gap",
       "title": "a2a-gateway: runtime registrations need capture before contract judgment",
       "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "agentchat",
-      "code": "missing-compat-record",
-      "title": "agentchat: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "clawmetry",
-      "code": "missing-compat-record",
-      "title": "clawmetry: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
@@ -131,19 +95,11 @@
     },
     {
       "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "codex-app-server",
-      "code": "missing-compat-record",
-      "title": "codex-app-server: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "codex-app-server",
-      "code": "missing-compat-record",
-      "title": "codex-app-server: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
+      "issueClass": "inspector-gap",
+      "fixture": "clawrouter",
+      "code": "registration-capture-gap",
+      "title": "clawrouter: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
     },
     {
       "severity": "P1",
@@ -155,14 +111,6 @@
     },
     {
       "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "connectclaw",
-      "code": "missing-compat-record",
-      "title": "connectclaw: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
       "issueClass": "inspector-gap",
       "fixture": "connectclaw",
       "code": "registration-capture-gap",
@@ -171,34 +119,82 @@
     },
     {
       "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "ddingtalk",
-      "code": "missing-compat-record",
-      "title": "ddingtalk: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
+      "issueClass": "inspector-gap",
+      "fixture": "dingtalk-connector",
+      "code": "registration-capture-gap",
+      "title": "dingtalk-connector: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "honcho",
+      "code": "conversation-access-hook",
+      "title": "honcho: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
     },
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "dingtalk-connector",
+      "fixture": "honcho",
       "code": "missing-compat-record",
-      "title": "dingtalk-connector: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "dingtalk-connector",
-      "code": "missing-compat-record",
-      "title": "dingtalk-connector: compat-dependent behavior lacks registry coverage",
+      "title": "honcho: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
       "issueClass": "inspector-gap",
-      "fixture": "dingtalk-connector",
+      "fixture": "honcho",
       "code": "registration-capture-gap",
-      "title": "dingtalk-connector: runtime registrations need capture before contract judgment",
+      "title": "honcho: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "hyperspell",
+      "code": "conversation-access-hook",
+      "title": "hyperspell: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "hyperspell",
+      "code": "registration-capture-gap",
+      "title": "hyperspell: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "kitchen-sink",
+      "code": "before-tool-call-probe",
+      "title": "kitchen-sink: before_tool_call needs terminal/block/approval probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "kitchen-sink",
+      "code": "conversation-access-hook",
+      "title": "kitchen-sink: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "kitchen-sink",
+      "code": "registration-capture-gap",
+      "title": "kitchen-sink: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "lightclawbot",
+      "code": "registration-capture-gap",
+      "title": "lightclawbot: runtime registrations need capture before contract judgment",
       "decision": "inspector-follow-up"
     }
   ],
@@ -207,35 +203,218 @@
     {
       "id": "compatibility-report.live-p0-issues",
       "action": "warn",
-      "message": "5 live P0 issues tracked",
+      "message": "4 live P0 issues tracked",
       "evidence": [
         "clawmetry:sdk-export-missing:untracked",
-        "codex-app-server:sdk-export-missing:untracked",
         "honcho:sdk-export-missing:untracked",
         "hyperspell:unknown-hook-name:none",
         "yuanbao:sdk-export-missing:untracked"
       ]
     },
     {
-      "id": "execution-results.blocked.wecom.registerChannel.0",
+      "id": "execution-results.audit-findings",
       "action": "warn",
-      "message": "allowed-blocked: captured registration requires includeChannelRuntime=true",
+      "message": "12 package audit findings",
       "evidence": [
-        ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json",
-        "registerChannel",
-        "captured registration requires includeChannelRuntime=true",
-        "channel-runtime-harness"
+        "clawrouter:12"
       ]
     },
     {
-      "id": "execution-results.blocked.wecom.registerTool.2",
+      "id": "execution-results.blocked.clawrouter.registerService.29",
       "action": "warn",
-      "message": "expected-warning: captured registration has no object descriptor",
+      "message": "allowed-blocked: captured registration requires includeLifecycle=true",
       "evidence": [
-        ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json",
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerService",
+        "captured registration requires includeLifecycle=true",
+        "service-lifecycle-harness"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.10",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no object descriptor",
-        "tool-factory-descriptor"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.11",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.12",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.13",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.14",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.15",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.16",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.17",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.18",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.19",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.20",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.21",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.5",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.6",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.7",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.8",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.9",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     }
   ],

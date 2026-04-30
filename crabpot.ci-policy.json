@@ -22,6 +22,13 @@
       "reasonIncludes": "includeProviderCapabilities=true",
       "decision": "allowed-blocked",
       "until": "provider capability harness lands"
+    },
+    {
+      "id": "live-network-tool-probes",
+      "seam": "registerTool",
+      "reasonIncludes": "live network access",
+      "decision": "allowed-blocked",
+      "until": "network-capability harness lands"
     }
   ],
   "expectedWarnings": [

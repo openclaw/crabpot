@@ -58,6 +58,7 @@ test("manifest validation rejects invalid fixture contracts before CI materializ
       "priority must be high, medium, or low",
       "seams must be non-empty",
       "expect.hooks must be a non-empty array",
+      "execution.blockedFailures must be a non-empty array",
     ]) {
       assert.match(error.message, new RegExp(escapeRegExp(expected)));
     }
@@ -77,6 +78,9 @@ function invalidManifest() {
         package: {},
         priority: "urgent",
         seams: [],
+        execution: {
+          blockedFailures: [],
+        },
         expect: {
           hooks: [],
         },

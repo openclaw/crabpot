@@ -467,6 +467,16 @@
           "registerService"
         ]
       },
+      "execution": {
+        "blockedFailures": [
+          {
+            "id": "clawrouter-live-network-tools",
+            "seam": "registerTool",
+            "errorIncludes": "fetch failed",
+            "reason": "captured tool requires live network access"
+          }
+        ]
+      },
       "why": "Model-router fixture covering provider registration, generation/search provider capabilities, proxy sidecar lifecycle, x402 wallet/auth setup, command registration, partner tool surfacing, and config mutation edge cases."
     },
     {

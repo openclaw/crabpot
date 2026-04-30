@@ -26,11 +26,11 @@
 | ---------------------- | ---------------------------------------------------------------- |
 | Fixtures               | 32                                                               |
 | Hard breakages         | 0                                                                |
-| Warnings               | 60                                                               |
-| Suggestions            | 136                                                              |
-| Issues                 | 196                                                              |
-| P0 issues              | [🔴 P0 2](reports/crabpot-issues.md#p0-live-issues)              |
-| P1 issues              | [🟠 P1 72](reports/crabpot-issues.md#triage-summary)             |
+| Warnings               | 65                                                               |
+| Suggestions            | 108                                                              |
+| Issues                 | 173                                                              |
+| P0 issues              | [🔴 P0 4](reports/crabpot-issues.md#p0-live-issues)              |
+| P1 issues              | [🟠 P1 37](reports/crabpot-issues.md#triage-summary)             |
 | Live issues            | 4 total / 4 P0                                                   |
 | Compat gaps            | 3                                                                |
 | Deprecation warnings   | 27                                                               |
@@ -38,10 +38,10 @@
 | Upstream metadata      | 26                                                               |
 | Contract probes        | 169                                                              |
 | Policy failures        | 0                                                                |
-| Policy warnings        | 3                                                                |
+| Policy warnings        | 20                                                               |
 | Ref diff failures      | 0                                                                |
 | Profile failures       | 0                                                                |
-| Execution probes       | 6 pass / 0 fail / 2 blocked                                      |
+| Execution probes       | 12 pass / 0 fail / 18 blocked                                    |
 | Synthetic probes       | 288 ready / 0 blocked / 288 total                                |
 | Cold import            | 3 ready / 36 blocked / 39 entrypoints                            |
 | Workspace plan         | 39 entrypoints / 19 installs / 10 builds                         |
