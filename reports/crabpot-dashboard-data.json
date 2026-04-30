@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-29T21:07:57Z",
-  "runUrl": "https://github.com/openclaw/crabpot/actions/runs/25133803320",
+  "generatedAt": "2026-04-30T02:45:09Z",
+  "runUrl": "https://github.com/openclaw/crabpot/actions/runs/25144568864",
   "mode": "check",
-  "openclawLabel": "openclaw@latest (2026.4.26, be8c24633aaa)",
+  "openclawLabel": "openclaw@latest (2026.4.27, cbc2ba093146)",
   "status": "pass",
   "metrics": {
     "fixtures": 29,
     "hardBreakages": 0,
     "warnings": 60,
-    "suggestions": 136,
-    "issues": 196,
-    "p0Issues": 2,
+    "suggestions": 139,
+    "issues": 199,
+    "p0Issues": 5,
     "p1Issues": 72,
-    "liveIssues": 2,
-    "liveP0Issues": 2,
-    "compatGaps": 40,
+    "liveIssues": 5,
+    "liveP0Issues": 5,
+    "compatGaps": 43,
     "deprecationWarnings": 24,
     "inspectorGaps": 103,
-    "upstreamIssues": 27,
+    "upstreamIssues": 24,
     "contractProbes": 155,
     "policyFailures": 0,
     "policyWarnings": 3,
@@ -39,22 +39,32 @@
     "platformWindowsRisks": 14,
     "platformContainerRisks": 14,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 73,
-    "importLoopP95Ms": 74,
-    "importLoopMaxRssMb": 58.1,
-    "importLoopMaxCpuMs": 54,
+    "importLoopP50Ms": 72,
+    "importLoopP95Ms": 73,
+    "importLoopMetricBasis": "baseline-adjusted",
+    "importLoopMaxRssMb": 2.4,
+    "importLoopMaxCpuMs": 0,
     "importLoopRssSampleCount": 9,
     "importLoopCpuSampleCount": 9,
-    "runtimeP50Ms": 511,
-    "runtimeP95Ms": 543,
-    "runtimeMaxRssMb": 85,
-    "runtimeRssSampleCount": 451,
-    "runtimeCpuSampleCount": 451,
+    "runtimeP50Ms": 470,
+    "runtimeP95Ms": 486,
+    "runtimeMaxRssMb": 85.2,
+    "runtimeRssSampleCount": 430,
+    "runtimeCpuSampleCount": 430,
     "runtimeSamplesPerCommand": 3,
     "runtimeWallTimeBasis": "command-median-p95"
   },
   "baseline": null,
   "topIssues": [
+    {
+      "id": "CRABPOT-C3F02198",
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "clawmetry",
+      "code": "sdk-export-missing",
+      "decision": "core-compat-adapter",
+      "title": "clawmetry: plugin SDK import aliases are missing from target package exports"
+    },
     {
       "id": "CRABPOT-62AC9404",
       "severity": "P0",
@@ -65,6 +75,15 @@
       "title": "codex-app-server: plugin SDK import aliases are missing from target package exports"
     },
     {
+      "id": "CRABPOT-E2CB6C9A",
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "honcho",
+      "code": "sdk-export-missing",
+      "decision": "core-compat-adapter",
+      "title": "honcho: plugin SDK import aliases are missing from target package exports"
+    },
+    {
       "id": "CRABPOT-D7817FEA",
       "severity": "P0",
       "issueClass": "live-issue",
@@ -72,6 +91,15 @@
       "code": "unknown-hook-name",
       "decision": "core-compat-adapter",
       "title": "hyperspell: fixture uses a hook missing from target OpenClaw"
+    },
+    {
+      "id": "CRABPOT-97F49BB1",
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "yuanbao",
+      "code": "sdk-export-missing",
+      "decision": "core-compat-adapter",
+      "title": "yuanbao: plugin SDK import aliases are missing from target package exports"
     },
     {
       "id": "CRABPOT-DC39E00B",
@@ -110,40 +138,13 @@
       "title": "clawmetry: compat-dependent behavior lacks registry coverage"
     },
     {
-      "id": "CRABPOT-CE344535",
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "clawmetry",
-      "code": "registration-capture-gap",
-      "decision": "inspector-follow-up",
-      "title": "clawmetry: runtime registrations need capture before contract judgment"
-    },
-    {
-      "id": "CRABPOT-9C6BDA50",
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "clawmetry",
-      "code": "reserved-sdk-import",
-      "decision": "plugin-upstream-fix",
-      "title": "clawmetry: plugin imports reserved bundled-plugin SDK compatibility subpaths"
-    },
-    {
-      "id": "CRABPOT-632F52B3",
+      "id": "CRABPOT-08C6582D",
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "codex-app-server",
+      "fixture": "clawmetry",
       "code": "missing-compat-record",
       "decision": "core-compat-adapter",
-      "title": "codex-app-server: compat-dependent behavior lacks registry coverage"
-    },
-    {
-      "id": "CRABPOT-6D9E51D9",
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "codex-app-server",
-      "code": "missing-compat-record",
-      "decision": "core-compat-adapter",
-      "title": "codex-app-server: compat-dependent behavior lacks registry coverage"
+      "title": "clawmetry: compat-dependent behavior lacks registry coverage"
     }
   ],
   "artifactPaths": {

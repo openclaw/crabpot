@@ -7,30 +7,36 @@ Status: PASS
 
 | Metric               | Value |
 | -------------------- | ----- |
-| Issue findings       | 196   |
-| 🔴 P0                | 2     |
+| Issue findings       | 199   |
+| 🔴 P0                | 5     |
 | 🟠 P1                | 72    |
-| Live issues          | 2     |
-| Live P0 issues       | 2     |
-| Compat gaps          | 40    |
+| Live issues          | 5     |
+| Live P0 issues       | 5     |
+| Compat gaps          | 43    |
 | Deprecation warnings | 24    |
 | Inspector gaps       | 103   |
-| Upstream metadata    | 27    |
+| Upstream metadata    | 24    |
 | Contract probes      | 155   |
 
 ## Triage Overview
 
 | Class               | Count | P0 | Meaning                                                                                                         |
 | ------------------- | ----- | -- | --------------------------------------------------------------------------------------------------------------- |
-| live-issue          | 2     | 2  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam. |
-| compat-gap          | 40    | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                          |
+| live-issue          | 5     | 5  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam. |
+| compat-gap          | 43    | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                          |
 | deprecation-warning | 24    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                |
 | inspector-gap       | 103   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments.                        |
-| upstream-metadata   | 27    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.        |
+| upstream-metadata   | 24    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.        |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                           |
 
 ## P0 Live Issues
 
+- 🔴 P0 **clawmetry** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: clawmetry: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
+
 - 🔴 P0 **codex-app-server** `live-issue` `core-compat-adapter`
   - **sdk-export-missing**: codex-app-server: plugin SDK import aliases are missing from target package exports
   - state: blocking · compat:untracked · live
@@ -39,14 +45,37 @@ Status: PASS
     - [openclaw/plugin-sdk/discord @ controller.ts:106](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L106)
     - [openclaw/plugin-sdk/telegram-account @ controller.ts:105](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L105)
 
+- 🔴 P0 **honcho** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: honcho: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L11)
+
 - 🔴 P0 **hyperspell** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: hyperspell: fixture uses a hook missing from target OpenClaw
   - state: blocking · compat:none · live
   - evidence:
     - [file_changed @ index.ts:122](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L122)
+
+- 🔴 P0 **yuanbao** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: yuanbao: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/env.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/utils.js:1
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/log-upload/extractor.ts:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/env.ts:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/utils.ts:2
 
 ## Live Issues
 
+- 🔴 P0 **clawmetry** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: clawmetry: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
+
 - 🔴 P0 **codex-app-server** `live-issue` `core-compat-adapter`
   - **sdk-export-missing**: codex-app-server: plugin SDK import aliases are missing from target package exports
   - state: blocking · compat:untracked · live
@@ -55,11 +84,28 @@ Status: PASS
     - [openclaw/plugin-sdk/discord @ controller.ts:106](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L106)
     - [openclaw/plugin-sdk/telegram-account @ controller.ts:105](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L105)
 
+- 🔴 P0 **honcho** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: honcho: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L11)
+
 - 🔴 P0 **hyperspell** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: hyperspell: fixture uses a hook missing from target OpenClaw
   - state: blocking · compat:none · live
   - evidence:
     - [file_changed @ index.ts:122](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L122)
+
+- 🔴 P0 **yuanbao** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: yuanbao: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/env.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/utils.js:1
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/log-upload/extractor.ts:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/env.ts:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/utils.ts:2
 
 ## Compat Gaps
 
@@ -80,6 +126,12 @@ Status: PASS
   - state: open · compat:missing
   - evidence:
     - api.capture.runtime-registrars
+
+- 🟠 P1 **clawmetry** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: clawmetry: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - plugin-sdk-export-aliases
 
 - 🟠 P1 **codex-app-server** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: codex-app-server: compat-dependent behavior lacks registry coverage
@@ -128,6 +180,12 @@ Status: PASS
   - state: open · compat:missing
   - evidence:
     - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - plugin-sdk-export-aliases
 
 - 🟠 P1 **hyperspell** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: hyperspell: compat-dependent behavior lacks registry coverage
@@ -302,6 +360,12 @@ Status: PASS
   - state: open · compat:missing
   - evidence:
     - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: yuanbao: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - plugin-sdk-export-aliases
 
 ## Deprecation Warnings
 
@@ -1301,29 +1365,6 @@ Status: PASS
 
 ## Upstream Metadata Issues
 
-- 🟠 P1 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
-  - **reserved-sdk-import**: clawmetry: plugin imports reserved bundled-plugin SDK compatibility subpaths
-  - state: open · compat:none
-  - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
-
-- 🟠 P1 **honcho** `upstream-metadata` `plugin-upstream-fix`
-  - **reserved-sdk-import**: honcho: plugin imports reserved bundled-plugin SDK compatibility subpaths
-  - state: open · compat:none
-  - evidence:
-    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L11)
-
-- 🟠 P1 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
-  - **reserved-sdk-import**: yuanbao: plugin imports reserved bundled-plugin SDK compatibility subpaths
-  - state: open · compat:none
-  - evidence:
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/log-upload/extractor.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/env.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/utils.js:1
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/log-upload/extractor.ts:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/env.ts:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/utils.ts:2
-
 - 🟡 P2 **a2a-gateway** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: a2a-gateway: manifest uses unsupported top-level fields
   - state: open · compat:none
@@ -1476,6 +1517,12 @@ Status: PASS
 
 ## Issues
 
+- 🔴 P0 **clawmetry** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: clawmetry: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
+
 - 🔴 P0 **codex-app-server** `live-issue` `core-compat-adapter`
   - **sdk-export-missing**: codex-app-server: plugin SDK import aliases are missing from target package exports
   - state: blocking · compat:untracked · live
@@ -1484,11 +1531,28 @@ Status: PASS
     - [openclaw/plugin-sdk/discord @ controller.ts:106](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L106)
     - [openclaw/plugin-sdk/telegram-account @ controller.ts:105](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L105)
 
+- 🔴 P0 **honcho** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: honcho: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L11)
+
 - 🔴 P0 **hyperspell** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: hyperspell: fixture uses a hook missing from target OpenClaw
   - state: blocking · compat:none · live
   - evidence:
     - [file_changed @ index.ts:122](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L122)
+
+- 🔴 P0 **yuanbao** `live-issue` `core-compat-adapter`
+  - **sdk-export-missing**: yuanbao: plugin SDK import aliases are missing from target package exports
+  - state: blocking · compat:untracked · live
+  - evidence:
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/env.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/utils.js:1
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/log-upload/extractor.ts:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/env.ts:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/utils.ts:2
 
 - 🟠 P1 **a2a-gateway** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: a2a-gateway: compat-dependent behavior lacks registry coverage
@@ -1519,17 +1583,17 @@ Status: PASS
   - evidence:
     - api.capture.runtime-registrars
 
+- 🟠 P1 **clawmetry** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: clawmetry: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - plugin-sdk-export-aliases
+
 - 🟠 P1 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture before contract judgment
   - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/index.ts#L9)
-
-- 🟠 P1 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
-  - **reserved-sdk-import**: clawmetry: plugin imports reserved bundled-plugin SDK compatibility subpaths
-  - state: open · compat:none
-  - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
 
 - 🟠 P1 **codex-app-server** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: codex-app-server: compat-dependent behavior lacks registry coverage
@@ -1622,18 +1686,18 @@ Status: PASS
   - evidence:
     - hook.llm-observer.privacy-payload
 
+- 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - plugin-sdk-export-aliases
+
 - 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: honcho: runtime registrations need capture before contract judgment
   - state: open · compat:untracked
   - evidence:
     - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L97)
     - [registerMemoryRuntime @ runtime.ts:274](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/runtime.ts#L274)
-
-- 🟠 P1 **honcho** `upstream-metadata` `plugin-upstream-fix`
-  - **reserved-sdk-import**: honcho: plugin imports reserved bundled-plugin SDK compatibility subpaths
-  - state: open · compat:none
-  - evidence:
-    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L11)
 
 - 🟠 P1 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: hyperspell: conversation-access hooks need privacy-boundary probes
@@ -1985,6 +2049,12 @@ Status: PASS
   - evidence:
     - channel.runtime.envelope-config-metadata
 
+- 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: yuanbao: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - plugin-sdk-export-aliases
+
 - 🟠 P1 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: yuanbao: runtime registrations need capture before contract judgment
   - state: open · compat:untracked
@@ -1995,17 +2065,6 @@ Status: PASS
     - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:31
     - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:32
     - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:33
-
-- 🟠 P1 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
-  - **reserved-sdk-import**: yuanbao: plugin imports reserved bundled-plugin SDK compatibility subpaths
-  - state: open · compat:none
-  - evidence:
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/log-upload/extractor.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/env.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/utils.js:1
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/log-upload/extractor.ts:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/env.ts:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/utils.ts:2
 
 - 🟡 P2 **a2a-gateway** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: a2a-gateway: root plugin SDK barrel is still used by fixtures
@@ -3151,6 +3210,12 @@ Status: PASS
     - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L39)
     - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L150)
 
+- 🟠 P1 **clawmetry** `sdk-alias`
+  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
+  - id: `sdk.import.package-export-cold-import:clawmetry`
+  - evidence:
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
+
 - 🟠 P1 **codex-app-server** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
   - id: `sdk.import.package-export-cold-import:codex-app-server`
@@ -3158,6 +3223,23 @@ Status: PASS
     - [openclaw/plugin-sdk/discord @ controller.ts:104](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L104)
     - [openclaw/plugin-sdk/discord @ controller.ts:106](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L106)
     - [openclaw/plugin-sdk/telegram-account @ controller.ts:105](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L105)
+
+- 🟠 P1 **honcho** `sdk-alias`
+  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
+  - id: `sdk.import.package-export-cold-import:honcho`
+  - evidence:
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L11)
+
+- 🟠 P1 **yuanbao** `sdk-alias`
+  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
+  - id: `sdk.import.package-export-cold-import:yuanbao`
+  - evidence:
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/log-upload/extractor.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/env.js:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/utils.js:1
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/log-upload/extractor.ts:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/env.ts:2
+    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/utils.ts:2
 
 - 🟡 P2 **agentchat** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -3614,23 +3696,6 @@ Status: PASS
     - package:1.4.0
     - manifest:1.3.0
 
-- 🟡 P2 **honcho** `sdk-import`
-  - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
-  - id: `sdk.import.reserved-bundled-plugin-boundary:honcho`
-  - evidence:
-    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L11)
-
-- 🟡 P2 **yuanbao** `sdk-import`
-  - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
-  - id: `sdk.import.reserved-bundled-plugin-boundary:yuanbao`
-  - evidence:
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/log-upload/extractor.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/env.js:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/utils.js:1
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/log-upload/extractor.ts:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/env.ts:2
-    - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/utils.ts:2
-
 - 🟡 P2 **a2a-gateway** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:a2a-gateway`
@@ -4014,12 +4079,6 @@ Status: PASS
   - evidence:
     - package:1.1.2
     - manifest:1.0.0
-
-- 🟢 P3 **clawmetry** `sdk-import`
-  - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
-  - id: `sdk.import.reserved-bundled-plugin-boundary:clawmetry`
-  - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d6b8c926d0aadcf4f428843f3757ce0fb0825143/clawhub-plugin/src/service.ts#L2)
 
 - 🟢 P3 **apify** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.

@@ -22,7 +22,7 @@
     "tsLoaderEntrypointCount": 20,
     "jitiAlternativeCount": 20,
     "missingBuildScriptCount": 0,
-    "sdkAliasRequiredCount": 1
+    "sdkAliasRequiredCount": 6
   },
   "fixtures": [
     {
@@ -1064,7 +1064,7 @@
           "packagePath": "plugins/honcho/package.json",
           "packageName": "@honcho-ai/openclaw-honcho",
           "entrypoint": "plugins/honcho/dist/index.js",
-          "status": "build-required",
+          "status": "sdk-alias-required",
           "packageManager": "pnpm",
           "lockfile": "plugins/honcho/pnpm-lock.yaml",
           "loaderStrategy": {
@@ -1076,6 +1076,7 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -1084,6 +1085,11 @@
               "code": "build-required",
               "message": "entrypoint points at build output that is absent in the fixture checkout",
               "evidence": "plugins/honcho/dist/index.js"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/memory-core @ plugins/honcho/index.ts:11"
             }
           ],
           "steps": [
@@ -1734,7 +1740,7 @@
           "packagePath": "plugins/yuanbao/.crabpot-package/package.json",
           "packageName": "openclaw-plugin-yuanbao",
           "entrypoint": "plugins/yuanbao/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/yuanbao/package-lock.json",
           "loaderStrategy": {
@@ -1748,6 +1754,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link",
             "ts-loader"
@@ -1762,6 +1769,36 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "cos-nodejs-sdk-v5, protobufjs, uuid, ws"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/log-upload/extractor.js:2"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/env.js:2"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/utils.js:1"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/log-upload/extractor.ts:2"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/env.ts:2"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/utils.ts:2"
             }
           ],
           "steps": [
@@ -1818,7 +1855,7 @@
           "packagePath": "plugins/yuanbao/.crabpot-package/package.json",
           "packageName": "openclaw-plugin-yuanbao",
           "entrypoint": "plugins/yuanbao/.crabpot-package/setup-entry.ts",
-          "status": "ts-loader-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/yuanbao/package-lock.json",
           "loaderStrategy": {
@@ -1832,6 +1869,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link",
             "ts-loader"
@@ -1846,6 +1884,36 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "cos-nodejs-sdk-v5, protobufjs, uuid, ws"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/log-upload/extractor.js:2"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/env.js:2"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/utils.js:1"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/log-upload/extractor.ts:2"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/env.ts:2"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/utils.ts:2"
             }
           ],
           "steps": [
@@ -2274,7 +2342,7 @@
           "packagePath": "plugins/clawmetry/clawhub-plugin/package.json",
           "packageName": "@clawmetry/openclaw-plugin",
           "entrypoint": "plugins/clawmetry/clawhub-plugin/index.ts",
-          "status": "ts-loader-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": null,
           "loaderStrategy": {
@@ -2288,6 +2356,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "ts-loader"
           ],
@@ -2301,6 +2370,11 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "node-fetch"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/diagnostics-otel @ plugins/clawmetry/clawhub-plugin/src/service.ts:2"
             }
           ],
           "steps": [
@@ -2351,7 +2425,7 @@
           "packagePath": "plugins/clawmetry/clawhub-plugin/package.json",
           "packageName": "@clawmetry/openclaw-plugin",
           "entrypoint": "plugins/clawmetry/clawhub-plugin/dist/index.js",
-          "status": "build-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": null,
           "loaderStrategy": {
@@ -2363,6 +2437,7 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
+            "sdk-alias-compat",
             "synthetic-probes"
           ],
           "blockers": [
@@ -2370,6 +2445,11 @@
               "code": "build-required",
               "message": "entrypoint points at build output that is absent in the fixture checkout",
               "evidence": "plugins/clawmetry/clawhub-plugin/dist/index.js"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/diagnostics-otel @ plugins/clawmetry/clawhub-plugin/src/service.ts:2"
             }
           ],
           "steps": [

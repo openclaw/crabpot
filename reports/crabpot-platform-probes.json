@@ -220,7 +220,7 @@
     {
       "fixture": "honcho",
       "id": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
-      "status": "build-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/honcho/dist/index.js",
       "packageManager": "pnpm",
       "loaderSource": "native-node",
@@ -354,7 +354,7 @@
     {
       "fixture": "yuanbao",
       "id": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-index-ts",
-      "status": "ts-loader-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/yuanbao/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",
@@ -370,7 +370,7 @@
     {
       "fixture": "yuanbao",
       "id": "cold-import.setupEntry:yuanbao:plugins-yuanbao-crabpot-package-setup-entry-ts",
-      "status": "ts-loader-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/yuanbao/.crabpot-package/setup-entry.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",
@@ -460,7 +460,7 @@
     {
       "fixture": "clawmetry",
       "id": "cold-import.extension:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts",
-      "status": "ts-loader-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/clawmetry/clawhub-plugin/index.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",
@@ -476,7 +476,7 @@
     {
       "fixture": "clawmetry",
       "id": "cold-import.runtimeExtension:clawmetry:plugins-clawmetry-clawhub-plugin-dist-index-js",
-      "status": "build-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/clawmetry/clawhub-plugin/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
