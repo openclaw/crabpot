@@ -195,8 +195,9 @@ export async function buildReadmeSummary(options = {}) {
       loaderJitiCandidates: reports.platform?.summary?.jitiAlternativeCount ?? 0,
       importLoopP50Ms: reports.importLoop?.summary?.p50WallMs ?? 0,
       importLoopP95Ms: reports.importLoop?.summary?.p95WallMs ?? 0,
-      importLoopMaxRssMb: reports.importLoop?.summary?.maxPeakRssMb ?? 0,
-      importLoopMaxCpuMs: reports.importLoop?.summary?.maxCpuMsEstimate ?? 0,
+      importLoopMetricBasis: reports.importLoop?.summary?.maxPluginPeakRssDeltaMb === undefined ? "raw" : "baseline-adjusted",
+      importLoopMaxRssMb: reports.importLoop?.summary?.maxPluginPeakRssDeltaMb ?? reports.importLoop?.summary?.maxPeakRssMb ?? 0,
+      importLoopMaxCpuMs: reports.importLoop?.summary?.maxPluginCpuDeltaMsEstimate ?? reports.importLoop?.summary?.maxCpuMsEstimate ?? 0,
       importLoopRssSampleCount: metricSampleCount(reports.importLoop, "rss", "maxPeakRssMb"),
       importLoopCpuSampleCount: metricSampleCount(reports.importLoop, "cpu", "maxCpuMsEstimate"),
       runtimeP50Ms: reports.runtimeProfile?.summary?.p50WallMs ?? 0,
@@ -291,7 +292,9 @@ function preserveDashboardMetadata(summary, readme) {
         ? current.openclawLabel
         : summary.openclawLabel,
     importLoopLabel:
-      preserveCurrentReportLabels && hasP95Label(current.importLoopLabel) ? current.importLoopLabel : summary.importLoopLabel,
+      preserveCurrentReportLabels && hasCurrentImportLoopLabel(current.importLoopLabel)
+        ? current.importLoopLabel
+        : summary.importLoopLabel,
     runtimeProfileLabel:
       preserveCurrentReportLabels && hasP95Label(current.runtimeProfileLabel)
         ? current.runtimeProfileLabel
@@ -408,7 +411,7 @@ export function renderReadmeSummary(summary) {
         [
           "Import loop",
           summary.importLoopLabel ??
-            `p50 ${m.importLoopP50Ms}ms / p95 ${m.importLoopP95Ms}ms / max RSS ${formatSampledMetric(m.importLoopMaxRssMb, m.importLoopRssSampleCount)} / CPU ${formatSampledMetric(m.importLoopMaxCpuMs, m.importLoopCpuSampleCount, "ms")}`,
+            importLoopMetricLabel(m),
         ],
         [
           "Runtime profile",
@@ -522,6 +525,15 @@ function isLocalOpenclawLabel(label) {
 
 function hasP95Label(label) {
   return /\bp95\b/i.test(label ?? "");
+}
+
+function hasCurrentImportLoopLabel(label) {
+  return hasP95Label(label) && /\b(?:plugin delta|raw) RSS\b/.test(label ?? "");
+}
+
+function importLoopMetricLabel(metrics) {
+  const metricLabel = metrics.importLoopMetricBasis === "baseline-adjusted" ? "plugin delta" : "raw";
+  return `p50 ${metrics.importLoopP50Ms}ms / p95 ${metrics.importLoopP95Ms}ms / ${metricLabel} RSS ${formatSampledMetric(metrics.importLoopMaxRssMb, metrics.importLoopRssSampleCount)} / ${metricLabel} CPU ${formatSampledMetric(metrics.importLoopMaxCpuMs, metrics.importLoopCpuSampleCount, "ms")}`;
 }
 
 function metricSampleCount(report, kind, maxMetric) {

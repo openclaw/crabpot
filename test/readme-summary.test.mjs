@@ -61,7 +61,16 @@ test("readme summary rolls up report counts and top issues", async () => {
       coldImport: { summary: { readyCount: 2, blockedCount: 7, entrypointCount: 9 } },
       workspace: { summary: { entrypointCount: 9, installStepCount: 3, buildStepCount: 2 } },
       platform: { summary: { windowsRiskStepCount: 4, containerRiskStepCount: 2, jitiAlternativeCount: 5 } },
-      importLoop: { summary: { p50WallMs: 51, p95WallMs: 57, maxPeakRssMb: 44.5, maxCpuMsEstimate: 32 } },
+      importLoop: {
+        summary: {
+          p50WallMs: 51,
+          p95WallMs: 57,
+          maxPeakRssMb: 44.5,
+          maxCpuMsEstimate: 32,
+          maxPluginPeakRssDeltaMb: 6.5,
+          maxPluginCpuDeltaMsEstimate: 4,
+        },
+      },
       runtimeProfile: { summary: { p50WallMs: 120, p95WallMs: 130, maxPeakRssMb: 64.5 } },
     },
   });
@@ -84,7 +93,7 @@ test("readme summary rolls up report counts and top issues", async () => {
   assert.match(markdown, /8 ready \/ 1 blocked \/ 9 total/);
   assert.match(markdown, /4 Windows \/ 2 container/);
   assert.match(markdown, /\| Jiti loader candidates\s+\| 5\s+\|/);
-  assert.match(markdown, /p50 51ms \/ p95 57ms \/ max RSS 44\.5MB \/ CPU 32ms/);
+  assert.match(markdown, /p50 51ms \/ p95 57ms \/ plugin delta RSS 6\.5MB \/ plugin delta CPU 4ms/);
   assert.match(markdown, /p50 120ms \/ command p95 130ms \/ max RSS 64\.5MB \/ 1 sample\/command/);
 });
 
@@ -257,6 +266,7 @@ test("readme summary preserves CI run metadata during local checks", async () =>
       ...summary.metrics,
       importLoopP50Ms: 51,
       importLoopP95Ms: 57,
+      importLoopMetricBasis: "baseline-adjusted",
       importLoopMaxRssMb: 44.5,
       importLoopMaxCpuMs: 32,
       importLoopRssSampleCount: 2,
@@ -301,7 +311,7 @@ test("readme summary preserves CI run metadata during local checks", async () =>
   assert.equal(await updateReadmeSummary({ check: true, readmePath, summary: localSummary }), false);
   const readme = await readFile(readmePath, "utf8");
   assert.match(readme, /Last dashboard update:\*\* Apr 26, 2026, 01:31 UTC/);
-  assert.match(readme, /p50 51ms \/ p95 57ms \/ max RSS 44\.5MB \/ CPU 32ms/);
+  assert.match(readme, /p50 51ms \/ p95 57ms \/ plugin delta RSS 44\.5MB \/ plugin delta CPU 32ms/);
   assert.match(readme, /p50 231ms \/ command p95 245ms \/ max RSS 70\.4MB \/ 1 sample\/command/);
 });
 

@@ -38,7 +38,7 @@ async function main() {
     process.stdout.write(`${JSON.stringify(report, null, 2)}\n`);
   } else {
     console.log(
-      `import loop profile: ${report.summary.runs} runs, p50 ${report.summary.p50WallMs}ms, max RSS ${formatSampledMetric(report.summary.maxPeakRssMb, report.summary.rssSampleCount)}`,
+      `import loop profile: ${report.summary.runs} runs, ${importLoopMetricLabel(report.summary)}`,
     );
   }
 
@@ -118,4 +118,11 @@ function formatSampledMetric(value, count, unit = "MB") {
     return "n/a";
   }
   return `${value}${unit}`;
+}
+
+function importLoopMetricLabel(summary) {
+  const metricLabel = summary.maxPluginPeakRssDeltaMb === undefined ? "raw" : "plugin delta";
+  const rss = summary.maxPluginPeakRssDeltaMb ?? summary.maxPeakRssMb;
+  const cpu = summary.maxPluginCpuDeltaMsEstimate ?? summary.maxCpuMsEstimate;
+  return `p50 ${summary.p50WallMs}ms / p95 ${summary.p95WallMs}ms / ${metricLabel} RSS ${formatSampledMetric(rss, summary.rssSampleCount)} / ${metricLabel} CPU ${formatSampledMetric(cpu, summary.cpuSampleCount, "ms")}`;
 }
