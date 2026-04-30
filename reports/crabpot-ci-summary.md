@@ -1,64 +1,64 @@
 # Crabpot CI Summary
 
 Generated: deterministic
-Mode: local
-OpenClaw: -
+Mode: check
+OpenClaw: openclaw@latest (2026.4.27, cbc2ba093146)
 Status: PASS
 
 ## Counts
 
-| Metric                      | Value                                                                                                                      |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| Breakages                   | 0                                                                                                                          |
-| Warnings                    | 65                                                                                                                         |
-| Suggestions                 | 108                                                                                                                        |
-| Issues                      | 173                                                                                                                        |
-| P0 issues                   | 4                                                                                                                          |
-| P1 issues                   | 37                                                                                                                         |
-| Live issues                 | 4                                                                                                                          |
-| Live P0 issues              | 4                                                                                                                          |
-| Compat gaps                 | 3                                                                                                                          |
-| Deprecation warnings        | 27                                                                                                                         |
-| Inspector gaps              | 113                                                                                                                        |
-| Upstream metadata           | 26                                                                                                                         |
-| Ref diff failures           | 0                                                                                                                          |
-| Ref diff warnings           | 0                                                                                                                          |
-| Policy failures             | 0                                                                                                                          |
-| Policy warnings             | 20                                                                                                                         |
-| Profile failures            | 0                                                                                                                          |
-| Profile warnings            | 0                                                                                                                          |
-| Execution pass              | 12                                                                                                                         |
-| Execution fail              | 0                                                                                                                          |
-| Execution blocked           | 18                                                                                                                         |
-| Windows portability risks   | 14                                                                                                                         |
-| Container portability risks | 14                                                                                                                         |
-| Jiti loader candidates      | 21                                                                                                                         |
-| Import loop                 | p50 1886 ms / p95 2624 ms / plugin delta RSS 23.7 MB / plugin delta CPU 81 ms / OpenClaw import 302.4 ms / activate 0.1 ms |
+| Metric                      | Value                                                                   |
+| --------------------------- | ----------------------------------------------------------------------- |
+| Breakages                   | 0                                                                       |
+| Warnings                    | 68                                                                      |
+| Suggestions                 | 154                                                                     |
+| Issues                      | 222                                                                     |
+| P0 issues                   | 5                                                                       |
+| P1 issues                   | 83                                                                      |
+| Live issues                 | 5                                                                       |
+| Live P0 issues              | 5                                                                       |
+| Compat gaps                 | 49                                                                      |
+| Deprecation warnings        | 27                                                                      |
+| Inspector gaps              | 113                                                                     |
+| Upstream metadata           | 28                                                                      |
+| Ref diff failures           | 0                                                                       |
+| Ref diff warnings           | 0                                                                       |
+| Policy failures             | 0                                                                       |
+| Policy warnings             | 20                                                                      |
+| Profile failures            | 0                                                                       |
+| Profile warnings            | 0                                                                       |
+| Execution pass              | 12                                                                      |
+| Execution fail              | 0                                                                       |
+| Execution blocked           | 18                                                                      |
+| Windows portability risks   | 14                                                                      |
+| Container portability risks | 14                                                                      |
+| Jiti loader candidates      | 21                                                                      |
+| Import loop                 | p50 73 ms / p95 77 ms / plugin delta RSS 0.1 MB / plugin delta CPU 4 ms |
 
 ## Top Issues
 
-| Severity | Class         | Fixture            | Code                     | Decision            | Title                                                                           |
-| -------- | ------------- | ------------------ | ------------------------ | ------------------- | ------------------------------------------------------------------------------- |
-| P0       | live-issue    | clawmetry          | sdk-export-missing       | core-compat-adapter | clawmetry: plugin SDK import aliases are missing from target package exports    |
-| P0       | live-issue    | honcho             | sdk-export-missing       | core-compat-adapter | honcho: plugin SDK import aliases are missing from target package exports       |
-| P0       | live-issue    | hyperspell         | unknown-hook-name        | core-compat-adapter | hyperspell: fixture uses a hook missing from target OpenClaw                    |
-| P0       | live-issue    | yuanbao            | sdk-export-missing       | core-compat-adapter | yuanbao: plugin SDK import aliases are missing from target package exports      |
-| P1       | inspector-gap | a2a-gateway        | registration-capture-gap | inspector-follow-up | a2a-gateway: runtime registrations need capture before contract judgment        |
-| P1       | compat-gap    | clawmetry          | missing-compat-record    | core-compat-adapter | clawmetry: compat-dependent behavior lacks registry coverage                    |
-| P1       | inspector-gap | clawmetry          | registration-capture-gap | inspector-follow-up | clawmetry: runtime registrations need capture before contract judgment          |
-| P1       | inspector-gap | clawrouter         | registration-capture-gap | inspector-follow-up | clawrouter: runtime registrations need capture before contract judgment         |
-| P1       | inspector-gap | codex-app-server   | registration-capture-gap | inspector-follow-up | codex-app-server: runtime registrations need capture before contract judgment   |
-| P1       | inspector-gap | connectclaw        | registration-capture-gap | inspector-follow-up | connectclaw: runtime registrations need capture before contract judgment        |
-| P1       | inspector-gap | dingtalk-connector | registration-capture-gap | inspector-follow-up | dingtalk-connector: runtime registrations need capture before contract judgment |
-| P1       | inspector-gap | honcho             | conversation-access-hook | inspector-follow-up | honcho: conversation-access hooks need privacy-boundary probes                  |
-| P1       | compat-gap    | honcho             | missing-compat-record    | core-compat-adapter | honcho: compat-dependent behavior lacks registry coverage                       |
-| P1       | inspector-gap | honcho             | registration-capture-gap | inspector-follow-up | honcho: runtime registrations need capture before contract judgment             |
-| P1       | inspector-gap | hyperspell         | conversation-access-hook | inspector-follow-up | hyperspell: conversation-access hooks need privacy-boundary probes              |
-| P1       | inspector-gap | hyperspell         | registration-capture-gap | inspector-follow-up | hyperspell: runtime registrations need capture before contract judgment         |
-| P1       | inspector-gap | kitchen-sink       | before-tool-call-probe   | inspector-follow-up | kitchen-sink: before_tool_call needs terminal/block/approval probes             |
-| P1       | inspector-gap | kitchen-sink       | conversation-access-hook | inspector-follow-up | kitchen-sink: conversation-access hooks need privacy-boundary probes            |
-| P1       | inspector-gap | kitchen-sink       | registration-capture-gap | inspector-follow-up | kitchen-sink: runtime registrations need capture before contract judgment       |
-| P1       | inspector-gap | lightclawbot       | registration-capture-gap | inspector-follow-up | lightclawbot: runtime registrations need capture before contract judgment       |
+| Severity | Class         | Fixture            | Code                     | Decision            | Title                                                                               |
+| -------- | ------------- | ------------------ | ------------------------ | ------------------- | ----------------------------------------------------------------------------------- |
+| P0       | live-issue    | clawmetry          | sdk-export-missing       | core-compat-adapter | clawmetry: plugin SDK import aliases are missing from target package exports        |
+| P0       | live-issue    | codex-app-server   | sdk-export-missing       | core-compat-adapter | codex-app-server: plugin SDK import aliases are missing from target package exports |
+| P0       | live-issue    | honcho             | sdk-export-missing       | core-compat-adapter | honcho: plugin SDK import aliases are missing from target package exports           |
+| P0       | live-issue    | hyperspell         | unknown-hook-name        | core-compat-adapter | hyperspell: fixture uses a hook missing from target OpenClaw                        |
+| P0       | live-issue    | yuanbao            | sdk-export-missing       | core-compat-adapter | yuanbao: plugin SDK import aliases are missing from target package exports          |
+| P1       | compat-gap    | a2a-gateway        | missing-compat-record    | core-compat-adapter | a2a-gateway: compat-dependent behavior lacks registry coverage                      |
+| P1       | inspector-gap | a2a-gateway        | registration-capture-gap | inspector-follow-up | a2a-gateway: runtime registrations need capture before contract judgment            |
+| P1       | compat-gap    | agentchat          | missing-compat-record    | core-compat-adapter | agentchat: compat-dependent behavior lacks registry coverage                        |
+| P1       | compat-gap    | clawmetry          | missing-compat-record    | core-compat-adapter | clawmetry: compat-dependent behavior lacks registry coverage                        |
+| P1       | compat-gap    | clawmetry          | missing-compat-record    | core-compat-adapter | clawmetry: compat-dependent behavior lacks registry coverage                        |
+| P1       | inspector-gap | clawmetry          | registration-capture-gap | inspector-follow-up | clawmetry: runtime registrations need capture before contract judgment              |
+| P1       | compat-gap    | clawrouter         | missing-compat-record    | core-compat-adapter | clawrouter: compat-dependent behavior lacks registry coverage                       |
+| P1       | inspector-gap | clawrouter         | registration-capture-gap | inspector-follow-up | clawrouter: runtime registrations need capture before contract judgment             |
+| P1       | compat-gap    | codex-app-server   | missing-compat-record    | core-compat-adapter | codex-app-server: compat-dependent behavior lacks registry coverage                 |
+| P1       | compat-gap    | codex-app-server   | missing-compat-record    | core-compat-adapter | codex-app-server: compat-dependent behavior lacks registry coverage                 |
+| P1       | inspector-gap | codex-app-server   | registration-capture-gap | inspector-follow-up | codex-app-server: runtime registrations need capture before contract judgment       |
+| P1       | compat-gap    | connectclaw        | missing-compat-record    | core-compat-adapter | connectclaw: compat-dependent behavior lacks registry coverage                      |
+| P1       | inspector-gap | connectclaw        | registration-capture-gap | inspector-follow-up | connectclaw: runtime registrations need capture before contract judgment            |
+| P1       | compat-gap    | ddingtalk          | missing-compat-record    | core-compat-adapter | ddingtalk: compat-dependent behavior lacks registry coverage                        |
+| P1       | compat-gap    | dingtalk-connector | missing-compat-record    | core-compat-adapter | dingtalk-connector: compat-dependent behavior lacks registry coverage               |
 
 ## Ref Regressions
 
@@ -68,7 +68,7 @@ _none_
 
 | Action | ID                                                      | Message                                                               | Evidence                                                                                                                                                                                                       |
 | ------ | ------------------------------------------------------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| warn   | compatibility-report.live-p0-issues                     | 4 live P0 issues tracked                                              | clawmetry:sdk-export-missing:untracked, honcho:sdk-export-missing:untracked, hyperspell:unknown-hook-name:none, yuanbao:sdk-export-missing:untracked                                                           |
+| warn   | compatibility-report.live-p0-issues                     | 5 live P0 issues tracked                                              | clawmetry:sdk-export-missing:untracked, codex-app-server:sdk-export-missing:untracked, honcho:sdk-export-missing:untracked, hyperspell:unknown-hook-name:none, yuanbao:sdk-export-missing:untracked            |
 | warn   | execution-results.audit-findings                        | 12 package audit findings                                             | clawrouter:12                                                                                                                                                                                                  |
 | warn   | execution-results.blocked.clawrouter.registerService.29 | allowed-blocked: captured registration requires includeLifecycle=true | .crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json, registerService, captured registration requires includeLifecycle=true, service-lifecycle-harness |
 | warn   | execution-results.blocked.clawrouter.registerTool.10    | allowed-blocked: captured tool requires live network access           | .crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json, registerTool, captured tool requires live network access, live-network-tool-probes               |

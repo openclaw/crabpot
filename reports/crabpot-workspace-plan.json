@@ -22,7 +22,7 @@
     "tsLoaderEntrypointCount": 21,
     "jitiAlternativeCount": 21,
     "missingBuildScriptCount": 0,
-    "sdkAliasRequiredCount": 5
+    "sdkAliasRequiredCount": 6
   },
   "fixtures": [
     {
@@ -2777,7 +2777,7 @@
           "packagePath": "plugins/codex-app-server/package.json",
           "packageName": "openclaw-codex-app-server",
           "entrypoint": "plugins/codex-app-server/index.ts",
-          "status": "ts-loader-required",
+          "status": "sdk-alias-required",
           "packageManager": "pnpm",
           "lockfile": "plugins/codex-app-server/pnpm-lock.yaml",
           "loaderStrategy": {
@@ -2791,6 +2791,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link",
             "ts-loader"
@@ -2805,6 +2806,21 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "ws"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
             }
           ],
           "steps": [

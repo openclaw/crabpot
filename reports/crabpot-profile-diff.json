@@ -36,14 +36,14 @@
     "summary": {
       "commandCount": 9,
       "sampleCount": 27,
-      "rssSampleCount": 477,
-      "cpuSampleCount": 477,
+      "rssSampleCount": 470,
+      "cpuSampleCount": 470,
       "wallTimeBasis": "command-median-p95",
-      "p50WallMs": 520,
-      "p95WallMs": 546,
-      "maxPeakRssMb": 85.6,
-      "maxRssDeltaMb": 56.1,
-      "maxCpuMsEstimate": 567,
+      "p50WallMs": 521,
+      "p95WallMs": 547,
+      "maxPeakRssMb": 88.1,
+      "maxRssDeltaMb": 59.4,
+      "maxCpuMsEstimate": 586,
       "maxHarnessHeapDeltaMb": 2
     },
     "targetOpenClaw": {
@@ -58,13 +58,13 @@
       "manifestContractFields": 17
     },
     "fixtureInventory": {
-      "fixtures": 29,
-      "sourceFiles": 889,
-      "observedHooks": 76,
-      "observedRegistrations": 100,
-      "observedSdkImports": 345,
-      "contractProbes": 155,
-      "issueFindings": 199
+      "fixtures": 32,
+      "sourceFiles": 976,
+      "observedHooks": 82,
+      "observedRegistrations": 112,
+      "observedSdkImports": 350,
+      "contractProbes": 170,
+      "issueFindings": 222
     }
   },
   "thresholds": {
@@ -86,9 +86,9 @@
       "metric": "p95WallMs",
       "message": "p95WallMs stayed within 50% regression threshold",
       "baseline": 1273,
-      "current": 546,
-      "delta": -727,
-      "percent": -57.1
+      "current": 547,
+      "delta": -726,
+      "percent": -57
     },
     {
       "id": "profile.peak-rss",
@@ -96,8 +96,8 @@
       "metric": "maxPeakRssMb",
       "message": "maxPeakRssMb stayed within 50 absolute regression threshold",
       "baseline": 65.1,
-      "current": 85.6,
-      "delta": 20.5
+      "current": 88.1,
+      "delta": 23
     },
     {
       "id": "profile.node-boot",
@@ -105,8 +105,8 @@
       "metric": "nodeBootWallMs",
       "message": "nodeBootWallMs stayed within 500 absolute regression threshold",
       "baseline": 917,
-      "current": 29,
-      "delta": -888
+      "current": 32,
+      "delta": -885
     },
     {
       "id": "registry.compatRecords",

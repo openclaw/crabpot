@@ -3,12 +3,11 @@
   "targetOpenClaw": {
     "configuredPath": "./openclaw",
     "searchedPaths": [
-      "../openclaw",
       "./openclaw"
     ],
     "status": "ok",
     "compatRegistryPath": "openclaw/src/plugins/compat/registry.ts",
-    "compatRecordCount": 61,
+    "compatRecordCount": 56,
     "compatRecords": [
       "activation-agent-harness-hint",
       "activation-capability-hint",
@@ -20,10 +19,8 @@
       "agent-harness-id-alias",
       "agent-harness-sdk-alias",
       "agent-tool-result-harness-alias",
-      "api.capture.runtime-registrars",
       "approval-capability-approvals-alias",
       "bundled-channel-config-schema-legacy",
-      "bundled-channel-sdk-compat-facades",
       "bundled-plugin-allowlist",
       "bundled-plugin-enablement",
       "bundled-plugin-load-path-aliases",
@@ -35,15 +32,12 @@
       "channel-route-key-aliases",
       "channel-runtime-sdk-alias",
       "channel-target-comparable-aliases",
-      "channel.runtime.envelope-config-metadata",
       "clawdbot-config-type-alias",
       "command-auth-status-builders",
       "disable-persisted-plugin-registry-env",
       "embedded-harness-config-alias",
       "generated-bundled-channel-config-fallback",
       "hook-only-plugin-shape",
-      "hook.before_tool_call.terminal-block-approval",
-      "hook.llm-observer.privacy-payload",
       "legacy-before-agent-start",
       "legacy-extension-api-import",
       "legacy-implicit-startup-sidecar",
@@ -83,10 +77,8 @@
       "agent-harness-id-alias": "deprecated",
       "agent-harness-sdk-alias": "deprecated",
       "agent-tool-result-harness-alias": "deprecated",
-      "api.capture.runtime-registrars": "active",
       "approval-capability-approvals-alias": "deprecated",
       "bundled-channel-config-schema-legacy": "deprecated",
-      "bundled-channel-sdk-compat-facades": "active",
       "bundled-plugin-allowlist": "active",
       "bundled-plugin-enablement": "active",
       "bundled-plugin-load-path-aliases": "deprecated",
@@ -98,15 +90,12 @@
       "channel-route-key-aliases": "deprecated",
       "channel-runtime-sdk-alias": "deprecated",
       "channel-target-comparable-aliases": "deprecated",
-      "channel.runtime.envelope-config-metadata": "active",
       "clawdbot-config-type-alias": "deprecated",
       "command-auth-status-builders": "deprecated",
       "disable-persisted-plugin-registry-env": "deprecated",
       "embedded-harness-config-alias": "deprecated",
       "generated-bundled-channel-config-fallback": "active",
       "hook-only-plugin-shape": "active",
-      "hook.before_tool_call.terminal-block-approval": "active",
-      "hook.llm-observer.privacy-payload": "active",
       "legacy-before-agent-start": "deprecated",
       "legacy-extension-api-import": "deprecated",
       "legacy-implicit-startup-sidecar": "deprecated",
@@ -136,7 +125,7 @@
       "setup-runtime-fallback": "active"
     },
     "hookTypesPath": "openclaw/src/plugins/hook-types.ts",
-    "hookNameCount": 35,
+    "hookNameCount": 34,
     "hookNames": [
       "after_compaction",
       "after_tool_call",
@@ -153,7 +142,6 @@
       "before_prompt_build",
       "before_reset",
       "before_tool_call",
-      "cron_changed",
       "gateway_start",
       "gateway_stop",
       "heartbeat_prompt_contribution",
@@ -257,7 +245,7 @@
       "registerWebSearchProvider"
     ],
     "packagePath": "openclaw/package.json",
-    "sdkExportCount": 293,
+    "sdkExportCount": 291,
     "sdkExports": [
       "openclaw/plugin-sdk",
       "openclaw/plugin-sdk/account-core",
@@ -361,7 +349,6 @@
       "openclaw/plugin-sdk/direct-dm-guard-policy",
       "openclaw/plugin-sdk/directory-config-runtime",
       "openclaw/plugin-sdk/directory-runtime",
-      "openclaw/plugin-sdk/discord",
       "openclaw/plugin-sdk/document-extractor",
       "openclaw/plugin-sdk/error-runtime",
       "openclaw/plugin-sdk/extension-shared",
@@ -524,7 +511,6 @@
       "openclaw/plugin-sdk/system-event-runtime",
       "openclaw/plugin-sdk/talk-config-runtime",
       "openclaw/plugin-sdk/target-resolver-runtime",
-      "openclaw/plugin-sdk/telegram-account",
       "openclaw/plugin-sdk/telegram-command-config",
       "openclaw/plugin-sdk/temp-path",
       "openclaw/plugin-sdk/test-env",
@@ -557,12 +543,10 @@
     "reservedSdkExportCount": 0,
     "reservedSdkExports": [],
     "supportedFacadeSdkExports": [
-      "openclaw/plugin-sdk/discord",
       "openclaw/plugin-sdk/lmstudio",
       "openclaw/plugin-sdk/lmstudio-runtime",
       "openclaw/plugin-sdk/memory-core-engine-runtime",
       "openclaw/plugin-sdk/qa-runner-runtime",
-      "openclaw/plugin-sdk/telegram-account",
       "openclaw/plugin-sdk/tts-runtime"
     ],
     "publicPluginOwnedSdkExports": [
@@ -655,21 +639,21 @@
     "fixtureCount": 32,
     "highPriorityFixtures": 21,
     "breakageCount": 0,
-    "warningCount": 65,
-    "suggestionCount": 108,
-    "decisionCount": 175,
-    "logCount": 256,
-    "issueCount": 173,
-    "p0IssueCount": 4,
-    "p1IssueCount": 37,
-    "liveIssueCount": 4,
-    "liveP0IssueCount": 4,
-    "compatGapCount": 3,
+    "warningCount": 68,
+    "suggestionCount": 154,
+    "decisionCount": 224,
+    "logCount": 210,
+    "issueCount": 222,
+    "p0IssueCount": 5,
+    "p1IssueCount": 83,
+    "liveIssueCount": 5,
+    "liveP0IssueCount": 5,
+    "compatGapCount": 49,
     "deprecationWarningCount": 27,
     "inspectorGapCount": 113,
-    "upstreamIssueCount": 26,
+    "upstreamIssueCount": 28,
     "fixtureRegressionCount": 0,
-    "contractProbeCount": 169
+    "contractProbeCount": 170
   },
   "fixtures": [
     {
@@ -777,6 +761,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/agentchat/integrations/openclaw-channel/package.json",
         "name": "@agentchatme/openclaw",
@@ -1108,6 +1093,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/wecom/package.json",
         "name": "@sunnoy/wecom",
@@ -1337,6 +1323,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/qqbot/package.json",
         "name": "@tencent-connect/openclaw-qqbot",
@@ -1613,6 +1600,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/a2a-gateway/package.json",
         "name": "openclaw-a2a-gateway",
@@ -1788,6 +1776,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/hasdata/package.json",
         "name": "@hasdata/hasdata-openclaw-plugin",
@@ -1919,6 +1908,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/mcp-adapter/package.json",
         "name": "openclaw-mcp-adapter",
@@ -2046,6 +2036,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/llm-trace-phoenix/package.json",
         "name": "llm-trace-phoenix",
@@ -2268,6 +2259,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/opik-openclaw/package.json",
         "name": "@opik/opik-openclaw",
@@ -2519,6 +2511,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/openclaw-telemetry/package.json",
         "name": "@openclaw/telemetry",
@@ -2773,6 +2766,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/lossless-claw/package.json",
         "name": "@martian-engineering/lossless-claw",
@@ -2950,6 +2944,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/connectclaw/packages/plugin/package.json",
         "name": "@connectclaw/connectclaw",
@@ -3275,6 +3270,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/hyperspell/package.json",
         "name": "@hyperspell/openclaw-hyperspell",
@@ -3560,6 +3556,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/honcho/package.json",
         "name": "@honcho-ai/openclaw-honcho",
@@ -3797,6 +3794,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/composio/package.json",
         "name": "@composio/openclaw-plugin",
@@ -4699,6 +4697,7 @@
           }
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/kitchen-sink/package.json",
         "name": "@openclaw/kitchen-sink",
@@ -6821,6 +6820,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/memory-tencentdb/.crabpot-package/package.json",
         "name": "@tencentdb-agent-memory/memory-tencentdb",
@@ -6991,6 +6991,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/ddingtalk/package.json",
         "name": "@largezhou/ddingtalk",
@@ -7371,6 +7372,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/dingtalk-connector/package.json",
         "name": "@dingtalk-real-ai/dingtalk-connector",
@@ -7754,6 +7756,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/mocrane-wecom/package.json",
         "name": "@mocrane/wecom",
@@ -8351,6 +8354,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/yuanbao/.crabpot-package/package.json",
         "name": "openclaw-plugin-yuanbao",
@@ -9133,6 +9137,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/openclaw-weixin/.crabpot-package/package.json",
         "name": "@tencent-weixin/openclaw-weixin",
@@ -9453,6 +9458,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/lightclawbot/.crabpot-package/package.json",
         "name": "lightclawbot",
@@ -9646,6 +9652,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/telnyx-sms/package.json",
         "name": "telnyx-openclaw-sms-channel",
@@ -9997,6 +10004,17 @@
           "activation": null
         }
       ],
+      "securityManifests": [
+        {
+          "path": "plugins/clawrouter/openclaw.security.json",
+          "schema": "https://openclaw.ai/schemas/plugin-security.json",
+          "version": "1.0",
+          "plugin": "@blockrun/clawrouter",
+          "expectedBehaviorCount": 1,
+          "securityNoteCount": 5,
+          "validJson": true
+        }
+      ],
       "package": {
         "path": "plugins/clawrouter/package.json",
         "name": "@blockrun/clawrouter",
@@ -10134,6 +10152,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/memu-engine/package.json",
         "name": "memu-engine",
@@ -10306,6 +10325,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/secureclaw/secureclaw/package.json",
         "name": "@adversa/secureclaw",
@@ -10456,6 +10476,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/memos-cloud/package.json",
         "name": "@memtensor/memos-cloud-openclaw-plugin",
@@ -10564,6 +10585,7 @@
         "plugins/clawmetry/clawmetry/static/js/nav-dropdown.js"
       ],
       "pluginManifests": [],
+      "securityManifests": [],
       "package": {
         "path": "plugins/clawmetry/clawhub-plugin/package.json",
         "name": "@clawmetry/openclaw-plugin",
@@ -10784,6 +10806,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/codex-app-server/package.json",
         "name": "openclaw-codex-app-server",
@@ -10967,6 +10990,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/web-search-plus/package.json",
         "name": "web-search-plus-plugin-v2",
@@ -11098,6 +11122,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/apify/package.json",
         "name": "@apify/apify-openclaw-plugin",
@@ -11272,6 +11297,7 @@
           "activation": null
         }
       ],
+      "securityManifests": [],
       "package": {
         "path": "plugins/inworld-tts/package.json",
         "name": "openclaw-inworld-tts",
@@ -11978,6 +12004,24 @@
       ]
     },
     {
+      "fixture": "clawrouter",
+      "code": "unrecognized-security-manifest",
+      "level": "warning",
+      "message": "openclaw.security.json is not a supported OpenClaw or ClawHub security contract and is ignored by install safety checks",
+      "evidence": [
+        "plugins/clawrouter/openclaw.security.json"
+      ]
+    },
+    {
+      "fixture": "clawrouter",
+      "code": "security-manifest-schema-unavailable",
+      "level": "warning",
+      "message": "openclaw.security.json references an OpenClaw schema URL that is not currently published",
+      "evidence": [
+        "plugins/clawrouter/openclaw.security.json:$schema=https://openclaw.ai/schemas/plugin-security.json"
+      ]
+    },
+    {
       "fixture": "memu-engine",
       "code": "package-plugin-api-compat-missing",
       "level": "warning",
@@ -12050,6 +12094,18 @@
       "message": "fixture imports plugin SDK aliases that are not exported by the target OpenClaw package",
       "evidence": [
         "openclaw/plugin-sdk/diagnostics-otel @ plugins/clawmetry/clawhub-plugin/src/service.ts:2"
+      ],
+      "compatRecord": "plugin-sdk-export-aliases"
+    },
+    {
+      "fixture": "codex-app-server",
+      "code": "sdk-export-missing",
+      "level": "warning",
+      "message": "fixture imports plugin SDK aliases that are not exported by the target OpenClaw package",
+      "evidence": [
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104",
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106",
+        "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
       ],
       "compatRecord": "plugin-sdk-export-aliases"
     },
@@ -13243,6 +13299,46 @@
       ]
     },
     {
+      "fixture": "llm-trace-phoenix",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "hook.llm-observer.privacy-payload"
+      ],
+      "compatRecord": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "hook.llm-observer.privacy-payload"
+      ],
+      "compatRecord": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "fixture": "openclaw-telemetry",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "hook.llm-observer.privacy-payload"
+      ],
+      "compatRecord": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "fixture": "hyperspell",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "hook.llm-observer.privacy-payload"
+      ],
+      "compatRecord": "hook.llm-observer.privacy-payload"
+    },
+    {
       "fixture": "honcho",
       "code": "missing-compat-record",
       "level": "suggestion",
@@ -13251,6 +13347,36 @@
         "plugin-sdk-export-aliases"
       ],
       "compatRecord": "plugin-sdk-export-aliases"
+    },
+    {
+      "fixture": "honcho",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "hook.llm-observer.privacy-payload"
+      ],
+      "compatRecord": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "hook.llm-observer.privacy-payload"
+      ],
+      "compatRecord": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "hook.llm-observer.privacy-payload"
+      ],
+      "compatRecord": "hook.llm-observer.privacy-payload"
     },
     {
       "fixture": "yuanbao",
@@ -13263,6 +13389,16 @@
       "compatRecord": "plugin-sdk-export-aliases"
     },
     {
+      "fixture": "memos-cloud",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "hook.llm-observer.privacy-payload"
+      ],
+      "compatRecord": "hook.llm-observer.privacy-payload"
+    },
+    {
       "fixture": "clawmetry",
       "code": "missing-compat-record",
       "level": "suggestion",
@@ -13271,6 +13407,386 @@
         "plugin-sdk-export-aliases"
       ],
       "compatRecord": "plugin-sdk-export-aliases"
+    },
+    {
+      "fixture": "codex-app-server",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "plugin-sdk-export-aliases"
+      ],
+      "compatRecord": "plugin-sdk-export-aliases"
+    },
+    {
+      "fixture": "agentchat",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "wecom",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "wecom",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "hook.before_tool_call.terminal-block-approval"
+      ],
+      "compatRecord": "hook.before_tool_call.terminal-block-approval"
+    },
+    {
+      "fixture": "wecom",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "qqbot",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "qqbot",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "a2a-gateway",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "mcp-adapter",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "hook.before_tool_call.terminal-block-approval"
+      ],
+      "compatRecord": "hook.before_tool_call.terminal-block-approval"
+    },
+    {
+      "fixture": "openclaw-telemetry",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "openclaw-telemetry",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "hook.before_tool_call.terminal-block-approval"
+      ],
+      "compatRecord": "hook.before_tool_call.terminal-block-approval"
+    },
+    {
+      "fixture": "lossless-claw",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "connectclaw",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "hyperspell",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "honcho",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "hook.before_tool_call.terminal-block-approval"
+      ],
+      "compatRecord": "hook.before_tool_call.terminal-block-approval"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "ddingtalk",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "yuanbao",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "yuanbao",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "lightclawbot",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "lightclawbot",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "telnyx-sms",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "telnyx-sms",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "clawrouter",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "secureclaw",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "memos-cloud",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "clawmetry",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "codex-app-server",
+      "code": "missing-compat-record",
+      "level": "suggestion",
+      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
     }
   ],
   "issues": [
@@ -13289,6 +13805,26 @@
       "title": "clawmetry: plugin SDK import aliases are missing from target package exports",
       "evidence": [
         "openclaw/plugin-sdk/diagnostics-otel @ plugins/clawmetry/clawhub-plugin/src/service.ts:2"
+      ],
+      "compatRecord": "plugin-sdk-export-aliases"
+    },
+    {
+      "id": "CRABPOT-62AC9404",
+      "fixture": "codex-app-server",
+      "severity": "P0",
+      "owner": "core",
+      "code": "sdk-export-missing",
+      "decision": "core-compat-adapter",
+      "status": "blocking",
+      "issueClass": "live-issue",
+      "live": true,
+      "deprecated": false,
+      "compatStatus": "untracked",
+      "title": "codex-app-server: plugin SDK import aliases are missing from target package exports",
+      "evidence": [
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104",
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106",
+        "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
       ],
       "compatRecord": "plugin-sdk-export-aliases"
     },
@@ -13352,6 +13888,24 @@
       "compatRecord": "plugin-sdk-export-aliases"
     },
     {
+      "id": "CRABPOT-DC39E00B",
+      "fixture": "a2a-gateway",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "a2a-gateway: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
       "id": "CRABPOT-955F01E4",
       "fixture": "a2a-gateway",
       "severity": "P1",
@@ -13362,7 +13916,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "a2a-gateway: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerGatewayMethod @ plugins/a2a-gateway/index.ts:616",
@@ -13371,6 +13925,42 @@
         "registerGatewayMethod @ plugins/a2a-gateway/index.ts:657",
         "registerGatewayMethod @ plugins/a2a-gateway/index.ts:669",
         "registerService @ plugins/a2a-gateway/index.ts:857"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-B6F9FB5F",
+      "fixture": "agentchat",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "agentchat: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "id": "CRABPOT-15A7C122",
+      "fixture": "clawmetry",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "clawmetry: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -13403,10 +13993,28 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "clawmetry: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerService @ plugins/clawmetry/clawhub-plugin/index.ts:9"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-D7C9CF91",
+      "fixture": "clawrouter",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "clawrouter: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -13421,7 +14029,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "clawrouter: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerCommand @ plugins/clawrouter/src/index.ts:1636",
@@ -13436,6 +14044,42 @@
       "compatRecord": "api.capture.runtime-registrars"
     },
     {
+      "id": "CRABPOT-632F52B3",
+      "fixture": "codex-app-server",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "codex-app-server: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-6D9E51D9",
+      "fixture": "codex-app-server",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "codex-app-server: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "plugin-sdk-export-aliases"
+      ],
+      "compatRecord": "plugin-sdk-export-aliases"
+    },
+    {
       "id": "CRABPOT-5F421FDE",
       "fixture": "codex-app-server",
       "severity": "P1",
@@ -13446,13 +14090,31 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "codex-app-server: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerCommand @ plugins/codex-app-server/index.ts:48",
         "registerInteractiveHandler @ plugins/codex-app-server/index.ts:29",
         "registerInteractiveHandler @ plugins/codex-app-server/index.ts:38",
         "registerService @ plugins/codex-app-server/index.ts:12"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-2C205B0D",
+      "fixture": "connectclaw",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "connectclaw: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -13467,7 +14129,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "connectclaw: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerCommand @ plugins/connectclaw/packages/plugin/src/commands.ts:18",
@@ -13475,6 +14137,60 @@
         "registerService @ plugins/connectclaw/packages/plugin/src/hooks.ts:91"
       ],
       "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-5CE53DB3",
+      "fixture": "ddingtalk",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "ddingtalk: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "id": "CRABPOT-2D2F3FFF",
+      "fixture": "dingtalk-connector",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "dingtalk-connector: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-98472FFD",
+      "fixture": "dingtalk-connector",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "dingtalk-connector: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
     },
     {
       "id": "CRABPOT-CDA3D540",
@@ -13487,7 +14203,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "dingtalk-connector: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerChannel @ plugins/dingtalk-connector/index.ts:74",
@@ -13518,11 +14234,47 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "honcho: conversation-access hooks need privacy-boundary probes",
       "evidence": [
         "agent_end @ plugins/honcho/hooks/capture.ts:151",
         "agent_end @ plugins/honcho/hooks/subagent.ts:34"
+      ],
+      "compatRecord": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "id": "CRABPOT-D2E78DA4",
+      "fixture": "honcho",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "honcho: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-25268ADE",
+      "fixture": "honcho",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "honcho: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "hook.llm-observer.privacy-payload"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload"
     },
@@ -13555,7 +14307,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "honcho: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
@@ -13574,11 +14326,47 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "hyperspell: conversation-access hooks need privacy-boundary probes",
       "evidence": [
         "agent_end @ plugins/hyperspell/index.ts:105",
         "agent_end @ plugins/hyperspell/index.ts:116"
+      ],
+      "compatRecord": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "id": "CRABPOT-6C4C7DB9",
+      "fixture": "hyperspell",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "hyperspell: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-25864701",
+      "fixture": "hyperspell",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "hyperspell: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "hook.llm-observer.privacy-payload"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload"
     },
@@ -13593,7 +14381,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "hyperspell: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
@@ -13617,7 +14405,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "kitchen-sink: before_tool_call needs terminal/block/approval probes",
       "evidence": [
         "before_tool_call @ plugins/kitchen-sink/src/generated-hooks.js:18"
@@ -13635,12 +14423,84 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "kitchen-sink: conversation-access hooks need privacy-boundary probes",
       "evidence": [
         "agent_end @ plugins/kitchen-sink/src/generated-hooks.js:7",
         "llm_input @ plugins/kitchen-sink/src/generated-hooks.js:22",
         "llm_output @ plugins/kitchen-sink/src/generated-hooks.js:23"
+      ],
+      "compatRecord": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "id": "CRABPOT-41C8DB57",
+      "fixture": "kitchen-sink",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "kitchen-sink: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-E43CE1AA",
+      "fixture": "kitchen-sink",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "kitchen-sink: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "id": "CRABPOT-9AFA0D49",
+      "fixture": "kitchen-sink",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "kitchen-sink: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "hook.before_tool_call.terminal-block-approval"
+      ],
+      "compatRecord": "hook.before_tool_call.terminal-block-approval"
+    },
+    {
+      "id": "CRABPOT-3EAC7DAE",
+      "fixture": "kitchen-sink",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "kitchen-sink: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "hook.llm-observer.privacy-payload"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload"
     },
@@ -13655,7 +14515,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "kitchen-sink: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerAutoEnableProbe @ plugins/kitchen-sink/src/generated-registrars.js:6",
@@ -13696,6 +14556,42 @@
       "compatRecord": "api.capture.runtime-registrars"
     },
     {
+      "id": "CRABPOT-AD7FD546",
+      "fixture": "lightclawbot",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "lightclawbot: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-8275FEE2",
+      "fixture": "lightclawbot",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "lightclawbot: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
+    },
+    {
       "id": "CRABPOT-0E5CAC6E",
       "fixture": "lightclawbot",
       "severity": "P1",
@@ -13706,7 +14602,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "lightclawbot: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13"
@@ -13724,13 +14620,49 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "llm-trace-phoenix: conversation-access hooks need privacy-boundary probes",
       "evidence": [
         "llm_input @ plugins/llm-trace-phoenix/index.ts:154",
         "llm_output @ plugins/llm-trace-phoenix/index.ts:168"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "id": "CRABPOT-C109E3EA",
+      "fixture": "llm-trace-phoenix",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "llm-trace-phoenix: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "hook.llm-observer.privacy-payload"
+      ],
+      "compatRecord": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "id": "CRABPOT-5D1AA6D5",
+      "fixture": "lossless-claw",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "lossless-claw: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "id": "CRABPOT-9F52FF3F",
@@ -13743,11 +14675,29 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "lossless-claw: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2055",
         "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2035"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-A47CE38B",
+      "fixture": "mcp-adapter",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "mcp-adapter: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -13762,7 +14712,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "mcp-adapter: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerService @ plugins/mcp-adapter/index.ts:15"
@@ -13780,10 +14730,28 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "memory-tencentdb: conversation-access hooks need privacy-boundary probes",
       "evidence": [
         "agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:820"
+      ],
+      "compatRecord": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "id": "CRABPOT-2699E2FF",
+      "fixture": "memory-tencentdb",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "memory-tencentdb: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "hook.llm-observer.privacy-payload"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload"
     },
@@ -13798,10 +14766,46 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "memos-cloud: conversation-access hooks need privacy-boundary probes",
       "evidence": [
         "agent_end @ plugins/memos-cloud/index.js:515"
+      ],
+      "compatRecord": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "id": "CRABPOT-A5CDAA9D",
+      "fixture": "memos-cloud",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "memos-cloud: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-086AC5F8",
+      "fixture": "memos-cloud",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "memos-cloud: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "hook.llm-observer.privacy-payload"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload"
     },
@@ -13816,12 +14820,48 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "memos-cloud: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerHook @ plugins/memos-cloud/index.js:467"
       ],
       "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-E21AEA4A",
+      "fixture": "mocrane-wecom",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "mocrane-wecom: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-FD153FAC",
+      "fixture": "mocrane-wecom",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "mocrane-wecom: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
     },
     {
       "id": "CRABPOT-B7E96EE7",
@@ -13834,7 +14874,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "mocrane-wecom: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerChannel @ plugins/mocrane-wecom/index.ts:31",
@@ -13853,7 +14893,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "openclaw-telemetry: before_tool_call needs terminal/block/approval probes",
       "evidence": [
         "before_tool_call @ plugins/openclaw-telemetry/index.ts:12"
@@ -13871,10 +14911,64 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "openclaw-telemetry: conversation-access hooks need privacy-boundary probes",
       "evidence": [
         "agent_end @ plugins/openclaw-telemetry/index.ts:62"
+      ],
+      "compatRecord": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "id": "CRABPOT-926958D0",
+      "fixture": "openclaw-telemetry",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "openclaw-telemetry: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-2C3C844F",
+      "fixture": "openclaw-telemetry",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "openclaw-telemetry: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "hook.before_tool_call.terminal-block-approval"
+      ],
+      "compatRecord": "hook.before_tool_call.terminal-block-approval"
+    },
+    {
+      "id": "CRABPOT-E9593347",
+      "fixture": "openclaw-telemetry",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "openclaw-telemetry: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "hook.llm-observer.privacy-payload"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload"
     },
@@ -13889,12 +14983,48 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "openclaw-telemetry: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerService @ plugins/openclaw-telemetry/index.ts:10"
       ],
       "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-DA09388C",
+      "fixture": "openclaw-weixin",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "openclaw-weixin: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-3984A9D5",
+      "fixture": "openclaw-weixin",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "openclaw-weixin: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
     },
     {
       "id": "CRABPOT-AACD04BD",
@@ -13907,7 +15037,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "openclaw-weixin: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
@@ -13925,7 +15055,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "opik-openclaw: before_tool_call needs terminal/block/approval probes",
       "evidence": [
         "before_tool_call @ plugins/opik-openclaw/src/service/hooks/tool.ts:34"
@@ -13943,12 +15073,66 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "opik-openclaw: conversation-access hooks need privacy-boundary probes",
       "evidence": [
         "agent_end @ plugins/opik-openclaw/src/service.ts:560",
         "llm_input @ plugins/opik-openclaw/src/service/hooks/llm.ts:39",
         "llm_output @ plugins/opik-openclaw/src/service/hooks/llm.ts:150"
+      ],
+      "compatRecord": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "id": "CRABPOT-47587310",
+      "fixture": "opik-openclaw",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "opik-openclaw: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-7F50C61E",
+      "fixture": "opik-openclaw",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "opik-openclaw: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "hook.before_tool_call.terminal-block-approval"
+      ],
+      "compatRecord": "hook.before_tool_call.terminal-block-approval"
+    },
+    {
+      "id": "CRABPOT-D1D87BFD",
+      "fixture": "opik-openclaw",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "opik-openclaw: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "hook.llm-observer.privacy-payload"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload"
     },
@@ -13963,12 +15147,48 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "opik-openclaw: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerService @ plugins/opik-openclaw/index.ts:16"
       ],
       "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-80BC634E",
+      "fixture": "qqbot",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "qqbot: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-77516CA6",
+      "fixture": "qqbot",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "qqbot: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
     },
     {
       "id": "CRABPOT-2E059FBD",
@@ -13981,10 +15201,28 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "qqbot: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerChannel @ plugins/qqbot/index.ts:16"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-06325244",
+      "fixture": "secureclaw",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "secureclaw: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -13999,7 +15237,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "secureclaw: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerService @ plugins/secureclaw/secureclaw/src/index.ts:295",
@@ -14007,6 +15245,42 @@
         "registerService @ plugins/secureclaw/secureclaw/src/index.ts:307"
       ],
       "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-F6AFB055",
+      "fixture": "telnyx-sms",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "telnyx-sms: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-B7572FB5",
+      "fixture": "telnyx-sms",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "telnyx-sms: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
     },
     {
       "id": "CRABPOT-5B7CB483",
@@ -14019,7 +15293,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "telnyx-sms: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerHttpRoute @ plugins/telnyx-sms/index.ts:259"
@@ -14037,10 +15311,64 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "wecom: before_tool_call needs terminal/block/approval probes",
       "evidence": [
         "before_tool_call @ plugins/wecom/index.js:76"
+      ],
+      "compatRecord": "hook.before_tool_call.terminal-block-approval"
+    },
+    {
+      "id": "CRABPOT-A49D177D",
+      "fixture": "wecom",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "wecom: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-2A199DA9",
+      "fixture": "wecom",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "wecom: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "id": "CRABPOT-3E6EE0B8",
+      "fixture": "wecom",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "wecom: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "hook.before_tool_call.terminal-block-approval"
       ],
       "compatRecord": "hook.before_tool_call.terminal-block-approval"
     },
@@ -14055,13 +15383,49 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "wecom: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27",
         "registerHttpRoute @ plugins/wecom/index.js:56"
       ],
       "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-D1D0863B",
+      "fixture": "yuanbao",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "yuanbao: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "api.capture.runtime-registrars"
+      ],
+      "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "id": "CRABPOT-7ECE0D11",
+      "fixture": "yuanbao",
+      "severity": "P1",
+      "owner": "core",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "missing",
+      "title": "yuanbao: compat-dependent behavior lacks registry coverage",
+      "evidence": [
+        "channel.runtime.envelope-config-metadata"
+      ],
+      "compatRecord": "channel.runtime.envelope-config-metadata"
     },
     {
       "id": "CRABPOT-FA6EA79E",
@@ -14092,7 +15456,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "yuanbao: runtime registrations need capture before contract judgment",
       "evidence": [
         "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:13",
@@ -14248,7 +15612,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "agentchat: channel runtime needs envelope/config probes",
       "evidence": [
         "defineChannelPluginEntry @ plugins/agentchat/integrations/openclaw-channel/src/channel.ts:333"
@@ -14780,7 +16144,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "ddingtalk: channel runtime needs envelope/config probes",
       "evidence": [
         "defineChannelPluginEntry @ plugins/ddingtalk/index.ts:8"
@@ -14853,7 +16217,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "dingtalk-connector: channel runtime needs envelope/config probes",
       "evidence": [
         "registerChannel @ plugins/dingtalk-connector/index.ts:74"
@@ -15273,7 +16637,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "kitchen-sink: channel runtime needs envelope/config probes",
       "evidence": [
         "registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:7",
@@ -15328,7 +16692,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "lightclawbot: channel runtime needs envelope/config probes",
       "evidence": [
         "registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13"
@@ -15811,7 +17175,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "mocrane-wecom: channel runtime needs envelope/config probes",
       "evidence": [
         "registerChannel @ plugins/mocrane-wecom/index.ts:31"
@@ -16022,7 +17386,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "openclaw-weixin: channel runtime needs envelope/config probes",
       "evidence": [
         "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
@@ -16177,7 +17541,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "qqbot: channel runtime needs envelope/config probes",
       "evidence": [
         "registerChannel @ plugins/qqbot/index.ts:16"
@@ -16352,7 +17716,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "telnyx-sms: channel runtime needs envelope/config probes",
       "evidence": [
         "defineChannelPluginEntry @ plugins/telnyx-sms/index.ts:207"
@@ -16462,7 +17826,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "wecom: channel runtime needs envelope/config probes",
       "evidence": [
         "registerChannel @ plugins/wecom/index.js:27"
@@ -16539,7 +17903,7 @@
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
-      "compatStatus": "active",
+      "compatStatus": "untracked",
       "title": "yuanbao: channel runtime needs envelope/config probes",
       "evidence": [
         "createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:11",
@@ -16643,6 +18007,42 @@
         "registerTool @ plugins/yuanbao/.crabpot-package/src/business/tools/group.ts:88",
         "registerTool @ plugins/yuanbao/.crabpot-package/src/business/tools/member.ts:198",
         "registerTool @ plugins/yuanbao/.crabpot-package/src/business/tools/remind.ts:395"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-CB326D97",
+      "fixture": "clawrouter",
+      "severity": "P3",
+      "owner": "plugin",
+      "code": "security-manifest-schema-unavailable",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "clawrouter: plugin security manifest references an unavailable schema",
+      "evidence": [
+        "plugins/clawrouter/openclaw.security.json:$schema=https://openclaw.ai/schemas/plugin-security.json"
+      ],
+      "compatRecord": null
+    },
+    {
+      "id": "CRABPOT-0FE0A4E3",
+      "fixture": "clawrouter",
+      "severity": "P3",
+      "owner": "plugin",
+      "code": "unrecognized-security-manifest",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "clawrouter: plugin ships an unsupported security manifest",
+      "evidence": [
+        "plugins/clawrouter/openclaw.security.json"
       ],
       "compatRecord": null
     }
@@ -17083,6 +18483,18 @@
       "contract": "Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.",
       "evidence": [
         "openclaw/plugin-sdk/diagnostics-otel @ plugins/clawmetry/clawhub-plugin/src/service.ts:2"
+      ]
+    },
+    {
+      "id": "sdk.import.package-export-cold-import:codex-app-server",
+      "fixture": "codex-app-server",
+      "priority": "P1",
+      "target": "sdk-alias",
+      "contract": "Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.",
+      "evidence": [
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104",
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106",
+        "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
       ]
     },
     {
@@ -20717,17 +22129,6 @@
     },
     {
       "fixture": "codex-app-server",
-      "code": "sdk-exports-present",
-      "level": "log",
-      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
-      "evidence": [
-        "openclaw/plugin-sdk",
-        "openclaw/plugin-sdk/discord",
-        "openclaw/plugin-sdk/telegram-account"
-      ]
-    },
-    {
-      "fixture": "codex-app-server",
       "code": "manifest-fields-checked",
       "level": "log",
       "message": "plugin manifest fields were compared with target OpenClaw manifest types",
@@ -20965,17 +22366,6 @@
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
       "evidence": [
-        "hook.llm-observer.privacy-payload",
-        "status:active"
-      ],
-      "compatRecord": "hook.llm-observer.privacy-payload"
-    },
-    {
-      "fixture": "llm-trace-phoenix",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
         "legacy-root-sdk-import",
         "status:deprecated"
       ],
@@ -20987,32 +22377,10 @@
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
       "evidence": [
-        "hook.llm-observer.privacy-payload",
-        "status:active"
-      ],
-      "compatRecord": "hook.llm-observer.privacy-payload"
-    },
-    {
-      "fixture": "opik-openclaw",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
         "legacy-root-sdk-import",
         "status:deprecated"
       ],
       "compatRecord": "legacy-root-sdk-import"
-    },
-    {
-      "fixture": "openclaw-telemetry",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "hook.llm-observer.privacy-payload",
-        "status:active"
-      ],
-      "compatRecord": "hook.llm-observer.privacy-payload"
     },
     {
       "fixture": "openclaw-telemetry",
@@ -21075,17 +22443,6 @@
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
       "evidence": [
-        "hook.llm-observer.privacy-payload",
-        "status:active"
-      ],
-      "compatRecord": "hook.llm-observer.privacy-payload"
-    },
-    {
-      "fixture": "hyperspell",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
         "legacy-root-sdk-import",
         "status:deprecated"
       ],
@@ -21101,17 +22458,6 @@
         "status:deprecated"
       ],
       "compatRecord": "legacy-before-agent-start"
-    },
-    {
-      "fixture": "honcho",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "hook.llm-observer.privacy-payload",
-        "status:active"
-      ],
-      "compatRecord": "hook.llm-observer.privacy-payload"
     },
     {
       "fixture": "honcho",
@@ -21152,17 +22498,6 @@
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
       "evidence": [
-        "hook.llm-observer.privacy-payload",
-        "status:active"
-      ],
-      "compatRecord": "hook.llm-observer.privacy-payload"
-    },
-    {
-      "fixture": "kitchen-sink",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
         "legacy-root-sdk-import",
         "status:deprecated"
       ],
@@ -21178,17 +22513,6 @@
         "status:deprecated"
       ],
       "compatRecord": "legacy-before-agent-start"
-    },
-    {
-      "fixture": "memory-tencentdb",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "hook.llm-observer.privacy-payload",
-        "status:active"
-      ],
-      "compatRecord": "hook.llm-observer.privacy-payload"
     },
     {
       "fixture": "dingtalk-connector",
@@ -21251,17 +22575,6 @@
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
       "evidence": [
-        "hook.llm-observer.privacy-payload",
-        "status:active"
-      ],
-      "compatRecord": "hook.llm-observer.privacy-payload"
-    },
-    {
-      "fixture": "memos-cloud",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
         "legacy-before-agent-start",
         "status:deprecated"
       ],
@@ -21299,413 +22612,6 @@
         "status:deprecated"
       ],
       "compatRecord": "provider-auth-env-vars"
-    },
-    {
-      "fixture": "agentchat",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "channel.runtime.envelope-config-metadata",
-        "status:active"
-      ],
-      "compatRecord": "channel.runtime.envelope-config-metadata"
-    },
-    {
-      "fixture": "wecom",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "wecom",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "hook.before_tool_call.terminal-block-approval",
-        "status:active"
-      ],
-      "compatRecord": "hook.before_tool_call.terminal-block-approval"
-    },
-    {
-      "fixture": "wecom",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "channel.runtime.envelope-config-metadata",
-        "status:active"
-      ],
-      "compatRecord": "channel.runtime.envelope-config-metadata"
-    },
-    {
-      "fixture": "qqbot",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "qqbot",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "channel.runtime.envelope-config-metadata",
-        "status:active"
-      ],
-      "compatRecord": "channel.runtime.envelope-config-metadata"
-    },
-    {
-      "fixture": "a2a-gateway",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "mcp-adapter",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "opik-openclaw",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "opik-openclaw",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "hook.before_tool_call.terminal-block-approval",
-        "status:active"
-      ],
-      "compatRecord": "hook.before_tool_call.terminal-block-approval"
-    },
-    {
-      "fixture": "openclaw-telemetry",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "openclaw-telemetry",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "hook.before_tool_call.terminal-block-approval",
-        "status:active"
-      ],
-      "compatRecord": "hook.before_tool_call.terminal-block-approval"
-    },
-    {
-      "fixture": "lossless-claw",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "connectclaw",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "hyperspell",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "honcho",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "kitchen-sink",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "kitchen-sink",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "hook.before_tool_call.terminal-block-approval",
-        "status:active"
-      ],
-      "compatRecord": "hook.before_tool_call.terminal-block-approval"
-    },
-    {
-      "fixture": "kitchen-sink",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "channel.runtime.envelope-config-metadata",
-        "status:active"
-      ],
-      "compatRecord": "channel.runtime.envelope-config-metadata"
-    },
-    {
-      "fixture": "ddingtalk",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "channel.runtime.envelope-config-metadata",
-        "status:active"
-      ],
-      "compatRecord": "channel.runtime.envelope-config-metadata"
-    },
-    {
-      "fixture": "dingtalk-connector",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "dingtalk-connector",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "channel.runtime.envelope-config-metadata",
-        "status:active"
-      ],
-      "compatRecord": "channel.runtime.envelope-config-metadata"
-    },
-    {
-      "fixture": "mocrane-wecom",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "mocrane-wecom",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "channel.runtime.envelope-config-metadata",
-        "status:active"
-      ],
-      "compatRecord": "channel.runtime.envelope-config-metadata"
-    },
-    {
-      "fixture": "yuanbao",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "yuanbao",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "channel.runtime.envelope-config-metadata",
-        "status:active"
-      ],
-      "compatRecord": "channel.runtime.envelope-config-metadata"
-    },
-    {
-      "fixture": "openclaw-weixin",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "openclaw-weixin",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "channel.runtime.envelope-config-metadata",
-        "status:active"
-      ],
-      "compatRecord": "channel.runtime.envelope-config-metadata"
-    },
-    {
-      "fixture": "lightclawbot",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "lightclawbot",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "channel.runtime.envelope-config-metadata",
-        "status:active"
-      ],
-      "compatRecord": "channel.runtime.envelope-config-metadata"
-    },
-    {
-      "fixture": "telnyx-sms",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "telnyx-sms",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "channel.runtime.envelope-config-metadata",
-        "status:active"
-      ],
-      "compatRecord": "channel.runtime.envelope-config-metadata"
-    },
-    {
-      "fixture": "clawrouter",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "secureclaw",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "memos-cloud",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "clawmetry",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "codex-app-server",
-      "code": "compat-record-present",
-      "level": "log",
-      "message": "target OpenClaw checkout has a matching compat registry record",
-      "evidence": [
-        "api.capture.runtime-registrars",
-        "status:active"
-      ],
-      "compatRecord": "api.capture.runtime-registrars"
     }
   ],
   "decisions": [
@@ -22677,6 +23583,20 @@
     },
     {
       "fixture": "clawrouter",
+      "decision": "plugin-upstream-fix",
+      "seam": "security-metadata",
+      "action": "Remove the advisory security manifest or replace it with a supported, versioned OpenClaw/ClawHub security contract once one exists.",
+      "evidence": "plugins/clawrouter/openclaw.security.json"
+    },
+    {
+      "fixture": "clawrouter",
+      "decision": "plugin-upstream-fix",
+      "seam": "security-metadata",
+      "action": "Do not rely on the schema URL until OpenClaw publishes and documents a real plugin security metadata schema.",
+      "evidence": "https://openclaw.ai/schemas/plugin-security.json"
+    },
+    {
+      "fixture": "clawrouter",
       "decision": "inspector-follow-up",
       "seam": "registration-capture",
       "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
@@ -22817,6 +23737,13 @@
     },
     {
       "fixture": "codex-app-server",
+      "decision": "core-compat-adapter",
+      "seam": "sdk-alias",
+      "action": "Restore the package export alias or publish a versioned migration map before cold-importing old plugins.",
+      "evidence": "openclaw/plugin-sdk/discord, openclaw/plugin-sdk/telegram-account"
+    },
+    {
+      "fixture": "codex-app-server",
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
@@ -22914,11 +23841,60 @@
       "evidence": "speechProviders"
     },
     {
+      "fixture": "llm-trace-phoenix",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "fixture": "openclaw-telemetry",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "fixture": "hyperspell",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "hook.llm-observer.privacy-payload"
+    },
+    {
       "fixture": "honcho",
       "decision": "core-compat-adapter",
       "seam": "compat-registry",
       "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
       "evidence": "plugin-sdk-export-aliases"
+    },
+    {
+      "fixture": "honcho",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "hook.llm-observer.privacy-payload"
     },
     {
       "fixture": "yuanbao",
@@ -22928,11 +23904,284 @@
       "evidence": "plugin-sdk-export-aliases"
     },
     {
+      "fixture": "memos-cloud",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "hook.llm-observer.privacy-payload"
+    },
+    {
       "fixture": "clawmetry",
       "decision": "core-compat-adapter",
       "seam": "compat-registry",
       "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
       "evidence": "plugin-sdk-export-aliases"
+    },
+    {
+      "fixture": "codex-app-server",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "plugin-sdk-export-aliases"
+    },
+    {
+      "fixture": "agentchat",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "wecom",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "wecom",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "hook.before_tool_call.terminal-block-approval"
+    },
+    {
+      "fixture": "wecom",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "qqbot",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "qqbot",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "a2a-gateway",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "mcp-adapter",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "hook.before_tool_call.terminal-block-approval"
+    },
+    {
+      "fixture": "openclaw-telemetry",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "openclaw-telemetry",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "hook.before_tool_call.terminal-block-approval"
+    },
+    {
+      "fixture": "lossless-claw",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "connectclaw",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "hyperspell",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "honcho",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "hook.before_tool_call.terminal-block-approval"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "ddingtalk",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "mocrane-wecom",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "yuanbao",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "yuanbao",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "openclaw-weixin",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "lightclawbot",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "lightclawbot",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "telnyx-sms",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "telnyx-sms",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "clawrouter",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "secureclaw",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "memos-cloud",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "clawmetry",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "codex-app-server",
+      "decision": "core-compat-adapter",
+      "seam": "compat-registry",
+      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
+      "evidence": "api.capture.runtime-registrars"
     }
   ]
 }

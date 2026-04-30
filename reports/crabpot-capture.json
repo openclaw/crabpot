@@ -4,7 +4,7 @@
     "status": "ok",
     "configuredPath": "./openclaw",
     "capturedRegistrarCount": 26,
-    "sdkExportCount": 293
+    "sdkExportCount": 291
   },
   "summary": {
     "fixtureCount": 32,
@@ -12,9 +12,9 @@
     "hookCount": 86,
     "sdkImportCount": 549,
     "packageEntrypointCount": 39,
-    "issueProbeCount": 169,
+    "issueProbeCount": 170,
     "inspectorShimRequiredCount": 110,
-    "compatAliasRequiredCount": 8
+    "compatAliasRequiredCount": 11
   },
   "fixtures": [
     {
@@ -12060,7 +12060,7 @@
           "fixture": "codex-app-server",
           "specifier": "openclaw/plugin-sdk/discord",
           "ref": "plugins/codex-app-server/src/controller.ts:104",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -12071,7 +12071,7 @@
           "fixture": "codex-app-server",
           "specifier": "openclaw/plugin-sdk/discord",
           "ref": "plugins/codex-app-server/src/controller.ts:106",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -12082,7 +12082,7 @@
           "fixture": "codex-app-server",
           "specifier": "openclaw/plugin-sdk/telegram-account",
           "ref": "plugins/codex-app-server/src/controller.ts:105",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -12931,6 +12931,21 @@
       "target": "sdk-alias",
       "evidence": [
         "openclaw/plugin-sdk/diagnostics-otel @ plugins/clawmetry/clawhub-plugin/src/service.ts:2"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.package-export-cold-import:codex-app-server",
+      "fixture": "codex-app-server",
+      "priority": "P1",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104",
+        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106",
+        "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
       ],
       "assertions": [
         "package export exists",

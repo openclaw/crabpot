@@ -548,7 +548,7 @@
     {
       "fixture": "codex-app-server",
       "id": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
-      "status": "ts-loader-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/codex-app-server/index.ts",
       "packageManager": "pnpm",
       "loaderSource": "typescript-source",

@@ -59,7 +59,7 @@ Targets: linux, macos, windows, container
 | memos-cloud        | review-required             | node    | -            | no          | no            | plugins/memos-cloud/index.js                                        |
 | clawmetry          | sdk-alias-required          | tsx     | jiti         | yes         | yes           | plugins/clawmetry/clawhub-plugin/index.ts                           |
 | clawmetry          | sdk-alias-required          | node    | -            | no          | no            | plugins/clawmetry/clawhub-plugin/dist/index.js                      |
-| codex-app-server   | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/codex-app-server/index.ts                                   |
+| codex-app-server   | sdk-alias-required          | tsx     | jiti         | yes         | yes           | plugins/codex-app-server/index.ts                                   |
 | web-search-plus    | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/web-search-plus/index.ts                                    |
 | apify              | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/apify/src/index.ts                                          |
 | inworld-tts        | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/inworld-tts/index.ts                                        |
