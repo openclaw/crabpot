@@ -24,6 +24,7 @@
     "fixtures:inspect": "node scripts/inspect-fixtures.mjs",
     "fixtures:sync": "node scripts/sync-fixtures.mjs --materialize",
     "import:profile": "node scripts/import-loop-profile.mjs",
+    "import:profile:openclaw": "node scripts/import-loop-profile.mjs --openclaw ../openclaw",
     "plugin-inspector:smoke": "node scripts/run-plugin-inspector-smoke.mjs --check",
     "profile": "node scripts/profile-contract-runtime.mjs",
     "profile:compare": "node scripts/compare-runtime-profile.mjs",
