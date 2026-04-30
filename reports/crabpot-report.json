@@ -4192,8 +4192,8 @@
         {
           "name": "registerAgentToolResultMiddleware",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 105,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:105"
+          "line": 107,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:107"
         },
         {
           "name": "registerAutoEnableProbe",
@@ -4210,8 +4210,8 @@
         {
           "name": "registerChannel",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 62,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:62"
+          "line": 63,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:63"
         },
         {
           "name": "registerCli",
@@ -4222,8 +4222,8 @@
         {
           "name": "registerCli",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 114,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:114"
+          "line": 117,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:117"
         },
         {
           "name": "registerCliBackend",
@@ -4246,14 +4246,14 @@
         {
           "name": "registerCommand",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 57,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:57"
+          "line": 58,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:58"
         },
         {
           "name": "registerCommand",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 58,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:58"
+          "line": 59,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:59"
         },
         {
           "name": "registerCompactionProvider",
@@ -4264,8 +4264,8 @@
         {
           "name": "registerCompactionProvider",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 102,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:102"
+          "line": 103,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:103"
         },
         {
           "name": "registerConfigMigration",
@@ -4294,8 +4294,8 @@
         {
           "name": "registerDetachedTaskRuntime",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 93,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:93"
+          "line": 94,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:94"
         },
         {
           "name": "registerGatewayDiscoveryService",
@@ -4312,8 +4312,8 @@
         {
           "name": "registerGatewayMethod",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 112,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:112"
+          "line": 115,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:115"
         },
         {
           "name": "registerHook",
@@ -4330,8 +4330,8 @@
         {
           "name": "registerHttpRoute",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 110,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:110"
+          "line": 113,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:113"
         },
         {
           "name": "registerImageGenerationProvider",
@@ -4342,8 +4342,8 @@
         {
           "name": "registerImageGenerationProvider",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 68,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:68"
+          "line": 69,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:69"
         },
         {
           "name": "registerInteractiveHandler",
@@ -4354,8 +4354,8 @@
         {
           "name": "registerInteractiveHandler",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 60,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:60"
+          "line": 61,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:61"
         },
         {
           "name": "registerMediaUnderstandingProvider",
@@ -4366,8 +4366,8 @@
         {
           "name": "registerMediaUnderstandingProvider",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 71,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:71"
+          "line": 72,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:72"
         },
         {
           "name": "registerMemoryCapability",
@@ -4384,8 +4384,8 @@
         {
           "name": "registerMemoryCorpusSupplement",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 99,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:99"
+          "line": 100,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:100"
         },
         {
           "name": "registerMemoryEmbeddingProvider",
@@ -4396,8 +4396,8 @@
         {
           "name": "registerMemoryEmbeddingProvider",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 96,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:96"
+          "line": 97,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:97"
         },
         {
           "name": "registerMemoryFlushPlan",
@@ -4420,8 +4420,8 @@
         {
           "name": "registerMemoryPromptSupplement",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 116,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:116"
+          "line": 119,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:119"
         },
         {
           "name": "registerMemoryRuntime",
@@ -4444,8 +4444,8 @@
         {
           "name": "registerMusicGenerationProvider",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 84,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:84"
+          "line": 85,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:85"
         },
         {
           "name": "registerNodeHostCommand",
@@ -4462,8 +4462,8 @@
         {
           "name": "registerProvider",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 66,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:66"
+          "line": 67,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:67"
         },
         {
           "name": "registerRealtimeTranscriptionProvider",
@@ -4474,8 +4474,8 @@
         {
           "name": "registerRealtimeTranscriptionProvider",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 75,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:75"
+          "line": 76,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:76"
         },
         {
           "name": "registerRealtimeVoiceProvider",
@@ -4486,8 +4486,8 @@
         {
           "name": "registerRealtimeVoiceProvider",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 78,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:78"
+          "line": 79,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:79"
         },
         {
           "name": "registerReload",
@@ -4510,8 +4510,8 @@
         {
           "name": "registerService",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 109,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:109"
+          "line": 112,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:112"
         },
         {
           "name": "registerSpeechProvider",
@@ -4522,8 +4522,8 @@
         {
           "name": "registerSpeechProvider",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 73,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:73"
+          "line": 74,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:74"
         },
         {
           "name": "registerTextTransforms",
@@ -4540,12 +4540,6 @@
         {
           "name": "registerTool",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 63,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:63"
-        },
-        {
-          "name": "registerTool",
-          "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
           "line": 64,
           "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:64"
         },
@@ -4556,6 +4550,12 @@
           "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:65"
         },
         {
+          "name": "registerTool",
+          "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
+          "line": 66,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:66"
+        },
+        {
           "name": "registerVideoGenerationProvider",
           "file": "plugins/kitchen-sink/src/generated-registrars.js",
           "line": 42,
@@ -4564,8 +4564,8 @@
         {
           "name": "registerVideoGenerationProvider",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 81,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:81"
+          "line": 82,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:82"
         },
         {
           "name": "registerWebFetchProvider",
@@ -4576,8 +4576,8 @@
         {
           "name": "registerWebFetchProvider",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 90,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:90"
+          "line": 91,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:91"
         },
         {
           "name": "registerWebSearchProvider",
@@ -4588,8 +4588,8 @@
         {
           "name": "registerWebSearchProvider",
           "file": "plugins/kitchen-sink/src/kitchen-runtime.js",
-          "line": 87,
-          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:87"
+          "line": 88,
+          "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:88"
         }
       ],
       "manifestContracts": [
@@ -4615,6 +4615,8 @@
         "plugins/kitchen-sink/openclaw.plugin.json"
       ],
       "sourceFiles": [
+        "plugins/kitchen-sink/scripts/check-installed-package.mjs",
+        "plugins/kitchen-sink/scripts/check-kitchen-contract-probes.mjs",
         "plugins/kitchen-sink/scripts/check-kitchen-runtime.mjs",
         "plugins/kitchen-sink/scripts/check-pack-payload.mjs",
         "plugins/kitchen-sink/scripts/check-sdk-surface.mjs",
@@ -4626,6 +4628,7 @@
         "plugins/kitchen-sink/src/generated-sdk-imports.ts",
         "plugins/kitchen-sink/src/index.js",
         "plugins/kitchen-sink/src/kitchen-runtime.js",
+        "plugins/kitchen-sink/src/personality.js",
         "plugins/kitchen-sink/src/scenarios.js",
         "plugins/kitchen-sink/src/setup.js"
       ],
@@ -4634,7 +4637,7 @@
           "path": "plugins/kitchen-sink/openclaw.plugin.json",
           "id": "openclaw-kitchen-sink-fixture",
           "name": "OpenClaw Kitchen Sink",
-          "version": "0.2.1",
+          "version": "0.2.2",
           "keys": [
             "activation",
             "channels",
@@ -4701,7 +4704,7 @@
       "package": {
         "path": "plugins/kitchen-sink/package.json",
         "name": "@openclaw/kitchen-sink",
-        "version": "0.2.1",
+        "version": "0.2.2",
         "type": "module",
         "main": null,
         "dependencies": [
@@ -4749,7 +4752,7 @@
         {
           "path": "plugins/kitchen-sink/package.json",
           "name": "@openclaw/kitchen-sink",
-          "version": "0.2.1",
+          "version": "0.2.2",
           "type": "module",
           "main": null,
           "dependencies": [
@@ -12677,38 +12680,38 @@
       "evidence": [
         "registerAutoEnableProbe @ plugins/kitchen-sink/src/generated-registrars.js:6",
         "registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:7",
-        "registerChannel @ plugins/kitchen-sink/src/kitchen-runtime.js:62",
+        "registerChannel @ plugins/kitchen-sink/src/kitchen-runtime.js:63",
         "registerCommand @ plugins/kitchen-sink/src/generated-registrars.js:11",
-        "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:57",
         "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:58",
+        "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:59",
         "registerCompactionProvider @ plugins/kitchen-sink/src/generated-registrars.js:12",
-        "registerCompactionProvider @ plugins/kitchen-sink/src/kitchen-runtime.js:102",
+        "registerCompactionProvider @ plugins/kitchen-sink/src/kitchen-runtime.js:103",
         "registerConfigMigration @ plugins/kitchen-sink/src/generated-registrars.js:13",
         "registerContextEngine @ plugins/kitchen-sink/src/generated-registrars.js:14",
         "registerDetachedTaskRuntime @ plugins/kitchen-sink/scripts/sync-surface.mjs:113",
         "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/generated-registrars.js:15",
-        "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/kitchen-runtime.js:93",
+        "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/kitchen-runtime.js:94",
         "registerGatewayDiscoveryService @ plugins/kitchen-sink/src/generated-registrars.js:16",
         "registerGatewayMethod @ plugins/kitchen-sink/src/generated-registrars.js:17",
-        "registerGatewayMethod @ plugins/kitchen-sink/src/kitchen-runtime.js:112",
+        "registerGatewayMethod @ plugins/kitchen-sink/src/kitchen-runtime.js:115",
         "registerHook @ plugins/kitchen-sink/src/generated-registrars.js:18",
         "registerHttpRoute @ plugins/kitchen-sink/src/generated-registrars.js:19",
-        "registerHttpRoute @ plugins/kitchen-sink/src/kitchen-runtime.js:110",
+        "registerHttpRoute @ plugins/kitchen-sink/src/kitchen-runtime.js:113",
         "registerInteractiveHandler @ plugins/kitchen-sink/src/generated-registrars.js:21",
-        "registerInteractiveHandler @ plugins/kitchen-sink/src/kitchen-runtime.js:60",
+        "registerInteractiveHandler @ plugins/kitchen-sink/src/kitchen-runtime.js:61",
         "registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:23",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:24",
-        "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:99",
+        "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:100",
         "registerMemoryFlushPlan @ plugins/kitchen-sink/src/generated-registrars.js:26",
         "registerMemoryPromptSection @ plugins/kitchen-sink/src/generated-registrars.js:27",
         "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:28",
-        "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:116",
+        "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:119",
         "registerMemoryRuntime @ plugins/kitchen-sink/src/generated-registrars.js:29",
         "registerNodeHostCommand @ plugins/kitchen-sink/src/generated-registrars.js:32",
         "registerReload @ plugins/kitchen-sink/src/generated-registrars.js:36",
         "registerSecurityAuditCollector @ plugins/kitchen-sink/src/generated-registrars.js:37",
         "registerService @ plugins/kitchen-sink/src/generated-registrars.js:38",
-        "registerService @ plugins/kitchen-sink/src/kitchen-runtime.js:109"
+        "registerService @ plugins/kitchen-sink/src/kitchen-runtime.js:112"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -12729,7 +12732,7 @@
       "message": "add channel envelope, config-schema, and runtime metadata probes",
       "evidence": [
         "registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:7",
-        "registerChannel @ plugins/kitchen-sink/src/kitchen-runtime.js:62"
+        "registerChannel @ plugins/kitchen-sink/src/kitchen-runtime.js:63"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata"
     },
@@ -14505,7 +14508,7 @@
       "compatRecord": "hook.llm-observer.privacy-payload"
     },
     {
-      "id": "CRABPOT-7DF6E4DA",
+      "id": "CRABPOT-8FBA613A",
       "fixture": "kitchen-sink",
       "severity": "P1",
       "owner": "inspector",
@@ -14520,38 +14523,38 @@
       "evidence": [
         "registerAutoEnableProbe @ plugins/kitchen-sink/src/generated-registrars.js:6",
         "registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:7",
-        "registerChannel @ plugins/kitchen-sink/src/kitchen-runtime.js:62",
+        "registerChannel @ plugins/kitchen-sink/src/kitchen-runtime.js:63",
         "registerCommand @ plugins/kitchen-sink/src/generated-registrars.js:11",
-        "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:57",
         "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:58",
+        "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:59",
         "registerCompactionProvider @ plugins/kitchen-sink/src/generated-registrars.js:12",
-        "registerCompactionProvider @ plugins/kitchen-sink/src/kitchen-runtime.js:102",
+        "registerCompactionProvider @ plugins/kitchen-sink/src/kitchen-runtime.js:103",
         "registerConfigMigration @ plugins/kitchen-sink/src/generated-registrars.js:13",
         "registerContextEngine @ plugins/kitchen-sink/src/generated-registrars.js:14",
         "registerDetachedTaskRuntime @ plugins/kitchen-sink/scripts/sync-surface.mjs:113",
         "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/generated-registrars.js:15",
-        "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/kitchen-runtime.js:93",
+        "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/kitchen-runtime.js:94",
         "registerGatewayDiscoveryService @ plugins/kitchen-sink/src/generated-registrars.js:16",
         "registerGatewayMethod @ plugins/kitchen-sink/src/generated-registrars.js:17",
-        "registerGatewayMethod @ plugins/kitchen-sink/src/kitchen-runtime.js:112",
+        "registerGatewayMethod @ plugins/kitchen-sink/src/kitchen-runtime.js:115",
         "registerHook @ plugins/kitchen-sink/src/generated-registrars.js:18",
         "registerHttpRoute @ plugins/kitchen-sink/src/generated-registrars.js:19",
-        "registerHttpRoute @ plugins/kitchen-sink/src/kitchen-runtime.js:110",
+        "registerHttpRoute @ plugins/kitchen-sink/src/kitchen-runtime.js:113",
         "registerInteractiveHandler @ plugins/kitchen-sink/src/generated-registrars.js:21",
-        "registerInteractiveHandler @ plugins/kitchen-sink/src/kitchen-runtime.js:60",
+        "registerInteractiveHandler @ plugins/kitchen-sink/src/kitchen-runtime.js:61",
         "registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:23",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:24",
-        "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:99",
+        "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:100",
         "registerMemoryFlushPlan @ plugins/kitchen-sink/src/generated-registrars.js:26",
         "registerMemoryPromptSection @ plugins/kitchen-sink/src/generated-registrars.js:27",
         "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:28",
-        "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:116",
+        "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:119",
         "registerMemoryRuntime @ plugins/kitchen-sink/src/generated-registrars.js:29",
         "registerNodeHostCommand @ plugins/kitchen-sink/src/generated-registrars.js:32",
         "registerReload @ plugins/kitchen-sink/src/generated-registrars.js:36",
         "registerSecurityAuditCollector @ plugins/kitchen-sink/src/generated-registrars.js:37",
         "registerService @ plugins/kitchen-sink/src/generated-registrars.js:38",
-        "registerService @ plugins/kitchen-sink/src/kitchen-runtime.js:109"
+        "registerService @ plugins/kitchen-sink/src/kitchen-runtime.js:112"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -16627,7 +16630,7 @@
       "compatRecord": "provider-auth-env-vars"
     },
     {
-      "id": "CRABPOT-60E7495D",
+      "id": "CRABPOT-B604E86D",
       "fixture": "kitchen-sink",
       "severity": "P2",
       "owner": "inspector",
@@ -16641,7 +16644,7 @@
       "title": "kitchen-sink: channel runtime needs envelope/config probes",
       "evidence": [
         "registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:7",
-        "registerChannel @ plugins/kitchen-sink/src/kitchen-runtime.js:62"
+        "registerChannel @ plugins/kitchen-sink/src/kitchen-runtime.js:63"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata"
     },
@@ -18174,38 +18177,38 @@
       "evidence": [
         "registerAutoEnableProbe @ plugins/kitchen-sink/src/generated-registrars.js:6",
         "registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:7",
-        "registerChannel @ plugins/kitchen-sink/src/kitchen-runtime.js:62",
+        "registerChannel @ plugins/kitchen-sink/src/kitchen-runtime.js:63",
         "registerCommand @ plugins/kitchen-sink/src/generated-registrars.js:11",
-        "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:57",
         "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:58",
+        "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:59",
         "registerCompactionProvider @ plugins/kitchen-sink/src/generated-registrars.js:12",
-        "registerCompactionProvider @ plugins/kitchen-sink/src/kitchen-runtime.js:102",
+        "registerCompactionProvider @ plugins/kitchen-sink/src/kitchen-runtime.js:103",
         "registerConfigMigration @ plugins/kitchen-sink/src/generated-registrars.js:13",
         "registerContextEngine @ plugins/kitchen-sink/src/generated-registrars.js:14",
         "registerDetachedTaskRuntime @ plugins/kitchen-sink/scripts/sync-surface.mjs:113",
         "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/generated-registrars.js:15",
-        "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/kitchen-runtime.js:93",
+        "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/kitchen-runtime.js:94",
         "registerGatewayDiscoveryService @ plugins/kitchen-sink/src/generated-registrars.js:16",
         "registerGatewayMethod @ plugins/kitchen-sink/src/generated-registrars.js:17",
-        "registerGatewayMethod @ plugins/kitchen-sink/src/kitchen-runtime.js:112",
+        "registerGatewayMethod @ plugins/kitchen-sink/src/kitchen-runtime.js:115",
         "registerHook @ plugins/kitchen-sink/src/generated-registrars.js:18",
         "registerHttpRoute @ plugins/kitchen-sink/src/generated-registrars.js:19",
-        "registerHttpRoute @ plugins/kitchen-sink/src/kitchen-runtime.js:110",
+        "registerHttpRoute @ plugins/kitchen-sink/src/kitchen-runtime.js:113",
         "registerInteractiveHandler @ plugins/kitchen-sink/src/generated-registrars.js:21",
-        "registerInteractiveHandler @ plugins/kitchen-sink/src/kitchen-runtime.js:60",
+        "registerInteractiveHandler @ plugins/kitchen-sink/src/kitchen-runtime.js:61",
         "registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:23",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:24",
-        "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:99",
+        "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:100",
         "registerMemoryFlushPlan @ plugins/kitchen-sink/src/generated-registrars.js:26",
         "registerMemoryPromptSection @ plugins/kitchen-sink/src/generated-registrars.js:27",
         "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:28",
-        "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:116",
+        "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:119",
         "registerMemoryRuntime @ plugins/kitchen-sink/src/generated-registrars.js:29",
         "registerNodeHostCommand @ plugins/kitchen-sink/src/generated-registrars.js:32",
         "registerReload @ plugins/kitchen-sink/src/generated-registrars.js:36",
         "registerSecurityAuditCollector @ plugins/kitchen-sink/src/generated-registrars.js:37",
         "registerService @ plugins/kitchen-sink/src/generated-registrars.js:38",
-        "registerService @ plugins/kitchen-sink/src/kitchen-runtime.js:109"
+        "registerService @ plugins/kitchen-sink/src/kitchen-runtime.js:112"
       ]
     },
     {
@@ -18560,7 +18563,7 @@
       "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
       "evidence": [
         "registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:7",
-        "registerChannel @ plugins/kitchen-sink/src/kitchen-runtime.js:62"
+        "registerChannel @ plugins/kitchen-sink/src/kitchen-runtime.js:63"
       ]
     },
     {
@@ -21343,7 +21346,7 @@
       "evidence": [
         "plugins/kitchen-sink/package.json",
         "@openclaw/kitchen-sink",
-        "version:0.2.1"
+        "version:0.2.2"
       ]
     },
     {
