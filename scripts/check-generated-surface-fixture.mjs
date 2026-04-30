@@ -386,7 +386,24 @@ function safeSurfaceName(value, label) {
 }
 
 function jsStringLiteral(value) {
-  return JSON.stringify(value);
+  return escapeUnsafeCodeChars(JSON.stringify(value));
+}
+
+const unsafeCodeCharEscapes = Object.freeze({
+  "<": "\\u003C",
+  ">": "\\u003E",
+  "\b": "\\b",
+  "\f": "\\f",
+  "\n": "\\n",
+  "\r": "\\r",
+  "\t": "\\t",
+  "\0": "\\0",
+  "\u2028": "\\u2028",
+  "\u2029": "\\u2029",
+});
+
+function escapeUnsafeCodeChars(value) {
+  return value.replace(/[<>\b\f\n\r\t\0\u2028\u2029]/g, (char) => unsafeCodeCharEscapes[char]);
 }
 
 function renderSdkImports(sdkExports) {
