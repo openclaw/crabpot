@@ -8,13 +8,13 @@
     "container"
   ],
   "summary": {
-    "fixtureCount": 32,
-    "entrypointCount": 39,
+    "fixtureCount": 33,
+    "entrypointCount": 40,
     "tsLoaderEntrypointCount": 21,
     "jitiAlternativeCount": 21,
-    "lazyImportProbeCount": 39,
+    "lazyImportProbeCount": 40,
     "portabilityFindingCount": 56,
-    "coveredPortabilityFindingCount": 175,
+    "coveredPortabilityFindingCount": 179,
     "windowsRiskStepCount": 14,
     "macosRiskStepCount": 14,
     "linuxRiskStepCount": 14,
@@ -306,6 +306,20 @@
       "syntheticUsesTsx": false
     },
     {
+      "fixture": "nemoclaw",
+      "id": "cold-import.extension:nemoclaw:plugins-nemoclaw-nemoclaw-dist-index-js",
+      "status": "build-required",
+      "entrypoint": "plugins/nemoclaw/nemoclaw/dist/index.js",
+      "packageManager": "npm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false
+    },
+    {
       "fixture": "memory-tencentdb",
       "id": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
       "status": "ts-loader-required",
@@ -548,7 +562,7 @@
     {
       "fixture": "codex-app-server",
       "id": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
-      "status": "sdk-alias-required",
+      "status": "ts-loader-required",
       "entrypoint": "plugins/codex-app-server/index.ts",
       "packageManager": "pnpm",
       "loaderSource": "typescript-source",
@@ -2575,6 +2589,60 @@
       "entrypoint": "cold-import.setupEntry:kitchen-sink:plugins-kitchen-sink-src-setup-js",
       "kind": "synthetic-probe",
       "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./src/setup.js --mock-sdk --output ../../results/kitchen-sink/cold-import-setupEntry-kitchen-sink-plugins-kitchen-sink-src-setup-js.synthetic.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "nemoclaw",
+      "entrypoint": "cold-import.extension:nemoclaw:plugins-nemoclaw-nemoclaw-dist-index-js",
+      "kind": "prepare",
+      "command": "mkdir -p .crabpot/workspaces/nemoclaw && rsync -a --delete plugins/nemoclaw/nemoclaw/ .crabpot/workspaces/nemoclaw/",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ]
+    },
+    {
+      "fixture": "nemoclaw",
+      "entrypoint": "cold-import.extension:nemoclaw:plugins-nemoclaw-nemoclaw-dist-index-js",
+      "kind": "prepare-artifacts",
+      "command": "mkdir -p .crabpot/results/nemoclaw",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "nemoclaw",
+      "entrypoint": "cold-import.extension:nemoclaw:plugins-nemoclaw-nemoclaw-dist-index-js",
+      "kind": "capture",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.capture.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "nemoclaw",
+      "entrypoint": "cold-import.extension:nemoclaw:plugins-nemoclaw-nemoclaw-dist-index-js",
+      "kind": "synthetic-probe",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"

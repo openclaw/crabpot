@@ -6,15 +6,15 @@ Generated: deterministic
 
 | Metric              | Value |
 | ------------------- | ----- |
-| Fixtures            | 32    |
-| Probes              | 288   |
-| Hook probes         | 86    |
-| Registration probes | 202   |
-| Ready               | 288   |
+| Fixtures            | 33    |
+| Probes              | 292   |
+| Hook probes         | 88    |
+| Registration probes | 204   |
+| Ready               | 292   |
 | Blocked             | 0     |
-| Direct execution    | 111   |
+| Direct execution    | 112   |
 | Opt-in execution    | 25    |
-| Metadata-only       | 66    |
+| Metadata-only       | 67    |
 
 ## Probe Inventory
 
@@ -97,6 +97,8 @@ Generated: deterministic
 | kitchen-sink       | hook         | subagent_spawned                       | ready  | hook-direct      | plugins/kitchen-sink/src/generated-hooks.js:34                         | spawn payload is preserved; parent/subagent metadata are present                                |
 | kitchen-sink       | hook         | subagent_spawning                      | ready  | hook-direct      | plugins/kitchen-sink/src/generated-hooks.js:35                         | hook payload and return value are captured                                                      |
 | kitchen-sink       | hook         | tool_result_persist                    | ready  | hook-direct      | plugins/kitchen-sink/src/generated-hooks.js:36                         | hook payload and return value are captured                                                      |
+| nemoclaw           | hook         | before_agent_start                     | ready  | hook-direct      | plugins/nemoclaw/nemoclaw/src/runtime-context.ts:474                   | legacy startup hook payload is accepted; migration metadata can map to prompt/model hooks       |
+| nemoclaw           | hook         | before_tool_call                       | ready  | hook-direct      | plugins/nemoclaw/nemoclaw/src/index.ts:384                             | block/allow return shapes are preserved; terminal and approval metadata are present             |
 | memory-tencentdb   | hook         | agent_end                              | ready  | hook-direct      | plugins/memory-tencentdb/.crabpot-package/index.ts:820                 | final conversation payload is redacted as expected; agent id and run metadata are present       |
 | memory-tencentdb   | hook         | before_prompt_build                    | ready  | hook-direct      | plugins/memory-tencentdb/.crabpot-package/index.ts:464                 | prompt mutation result is preserved; agent and conversation metadata are present                |
 | memory-tencentdb   | hook         | gateway_stop                           | ready  | hook-direct      | plugins/memory-tencentdb/.crabpot-package/index.ts:745                 | hook payload and return value are captured                                                      |
@@ -233,6 +235,8 @@ Generated: deterministic
 | kitchen-sink       | registration | registerWebFetchProvider               | ready  | metadata-only    | plugins/kitchen-sink/src/kitchen-runtime.js:91                         | registration arguments are captured                                                             |
 | kitchen-sink       | registration | registerWebSearchProvider              | ready  | metadata-only    | plugins/kitchen-sink/src/generated-registrars.js:44                    | registration arguments are captured                                                             |
 | kitchen-sink       | registration | registerWebSearchProvider              | ready  | metadata-only    | plugins/kitchen-sink/src/kitchen-runtime.js:88                         | registration arguments are captured                                                             |
+| nemoclaw           | registration | registerCommand                        | ready  | direct           | plugins/nemoclaw/nemoclaw/src/index.ts:336                             | command id is stable; interactive command payload is captured                                   |
+| nemoclaw           | registration | registerProvider                       | ready  | metadata-only    | plugins/nemoclaw/nemoclaw/src/index.ts:372                             | registration arguments are captured                                                             |
 | memory-tencentdb   | registration | registerCli                            | ready  | direct           | plugins/memory-tencentdb/.crabpot-package/index.ts:957                 | command name is stable; argument schema is captured                                             |
 | memory-tencentdb   | registration | registerTool                           | ready  | direct           | plugins/memory-tencentdb/.crabpot-package/index.ts:268                 | tool name is stable; input schema is captured; result shape metadata is captured                |
 | memory-tencentdb   | registration | registerTool                           | ready  | direct           | plugins/memory-tencentdb/.crabpot-package/index.ts:365                 | tool name is stable; input schema is captured; result shape metadata is captured                |

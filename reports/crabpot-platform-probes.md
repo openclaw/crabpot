@@ -8,13 +8,13 @@ Targets: linux, macos, windows, container
 
 | Metric                         | Value |
 | ------------------------------ | ----- |
-| fixtureCount                   | 32    |
-| entrypointCount                | 39    |
+| fixtureCount                   | 33    |
+| entrypointCount                | 40    |
 | tsLoaderEntrypointCount        | 21    |
 | jitiAlternativeCount           | 21    |
-| lazyImportProbeCount           | 39    |
+| lazyImportProbeCount           | 40    |
 | portabilityFindingCount        | 56    |
-| coveredPortabilityFindingCount | 175   |
+| coveredPortabilityFindingCount | 179   |
 | windowsRiskStepCount           | 14    |
 | macosRiskStepCount             | 14    |
 | linuxRiskStepCount             | 14    |
@@ -43,6 +43,7 @@ Targets: linux, macos, windows, container
 | kitchen-sink       | ready                       | node    | -            | no          | no            | plugins/kitchen-sink/src/index.js                                   |
 | kitchen-sink       | ready                       | node    | -            | no          | no            | plugins/kitchen-sink/src/index.js                                   |
 | kitchen-sink       | ready                       | node    | -            | no          | no            | plugins/kitchen-sink/src/setup.js                                   |
+| nemoclaw           | build-required              | node    | -            | no          | no            | plugins/nemoclaw/nemoclaw/dist/index.js                             |
 | memory-tencentdb   | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/memory-tencentdb/.crabpot-package/index.ts                  |
 | ddingtalk          | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/ddingtalk/index.ts                                          |
 | dingtalk-connector | build-required              | node    | -            | no          | no            | plugins/dingtalk-connector/dist/index.mjs                           |
@@ -59,7 +60,7 @@ Targets: linux, macos, windows, container
 | memos-cloud        | review-required             | node    | -            | no          | no            | plugins/memos-cloud/index.js                                        |
 | clawmetry          | sdk-alias-required          | tsx     | jiti         | yes         | yes           | plugins/clawmetry/clawhub-plugin/index.ts                           |
 | clawmetry          | sdk-alias-required          | node    | -            | no          | no            | plugins/clawmetry/clawhub-plugin/dist/index.js                      |
-| codex-app-server   | sdk-alias-required          | tsx     | jiti         | yes         | yes           | plugins/codex-app-server/index.ts                                   |
+| codex-app-server   | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/codex-app-server/index.ts                                   |
 | web-search-plus    | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/web-search-plus/index.ts                                    |
 | apify              | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/apify/src/index.ts                                          |
 | inworld-tts        | ts-loader-required          | tsx     | jiti         | yes         | yes           | plugins/inworld-tts/index.ts                                        |
@@ -213,6 +214,10 @@ Targets: linux, macos, windows, container
 | kitchen-sink       | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | kitchen-sink       | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | kitchen-sink       | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| nemoclaw           | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| nemoclaw           | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| nemoclaw           | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| nemoclaw           | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | memory-tencentdb   | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | memory-tencentdb   | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | memory-tencentdb   | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |

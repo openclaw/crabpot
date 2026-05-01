@@ -1,15 +1,15 @@
 {
   "generatedAt": "deterministic",
   "summary": {
-    "fixtureCount": 32,
-    "probeCount": 288,
-    "hookProbeCount": 86,
-    "registrationProbeCount": 202,
-    "readyCount": 288,
+    "fixtureCount": 33,
+    "probeCount": 292,
+    "hookProbeCount": 88,
+    "registrationProbeCount": 204,
+    "readyCount": 292,
     "blockedCount": 0,
-    "directExecutionCount": 111,
+    "directExecutionCount": 112,
     "optInExecutionCount": 25,
-    "metadataOnlyCount": 66
+    "metadataOnlyCount": 67
   },
   "probes": [
     {
@@ -1832,6 +1832,56 @@
         "fixture": "kitchen-sink"
       },
       "source": "plugins/kitchen-sink/src/generated-hooks.js:36"
+    },
+    {
+      "id": "hook.before_agent_start:nemoclaw:plugins-nemoclaw-nemoclaw-src-runtime-context-ts-474",
+      "fixture": "nemoclaw",
+      "kind": "hook",
+      "seam": "before_agent_start",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "legacy startup hook payload is accepted",
+        "migration metadata can map to prompt/model hooks"
+      ],
+      "syntheticEvent": {
+        "agentId": "agent-fixture",
+        "runId": "run-fixture",
+        "config": {
+          "source": "plugin-inspector"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture"
+      },
+      "source": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:474"
+    },
+    {
+      "id": "hook.before_tool_call:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-384",
+      "fixture": "nemoclaw",
+      "kind": "hook",
+      "seam": "before_tool_call",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "block/allow return shapes are preserved",
+        "terminal and approval metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "toolName": "fixture_tool",
+        "params": {},
+        "toolCallId": "call-fixture"
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "toolName": "fixture_tool"
+      },
+      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:384"
     },
     {
       "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-820",
@@ -5412,6 +5462,53 @@
         "reason": "web search providers are captured as registration metadata before provider runtime execution"
       },
       "source": "plugins/kitchen-sink/src/kitchen-runtime.js:88"
+    },
+    {
+      "id": "registration.registerCommand:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-336",
+      "fixture": "nemoclaw",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:336"
+    },
+    {
+      "id": "registration.registerProvider:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-372",
+      "fixture": "nemoclaw",
+      "kind": "registration",
+      "seam": "registerProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:372"
     },
     {
       "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-957",

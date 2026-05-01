@@ -3,17 +3,17 @@
   "targetOpenClaw": {
     "status": "ok",
     "configuredPath": "./openclaw",
-    "sdkExportCount": 291
+    "sdkExportCount": 294
   },
   "summary": {
-    "fixtureCount": 32,
-    "entrypointCount": 39,
+    "fixtureCount": 33,
+    "entrypointCount": 40,
     "readyCount": 3,
-    "blockedCount": 36,
-    "tsLoaderRequiredCount": 17,
-    "buildRequiredCount": 8,
+    "blockedCount": 37,
+    "tsLoaderRequiredCount": 18,
+    "buildRequiredCount": 9,
     "dependencyInstallRequiredCount": 19,
-    "sdkAliasRequiredCount": 6
+    "sdkAliasRequiredCount": 5
   },
   "fixtures": [
     {
@@ -508,6 +508,31 @@
           "assertions": [
             "entrypoint can be imported by Node without fixture credentials",
             "registration capture shim receives plugin registrations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nemoclaw",
+      "priority": "high",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:nemoclaw:plugins-nemoclaw-nemoclaw-dist-index-js",
+          "fixture": "nemoclaw",
+          "packagePath": "plugins/nemoclaw/nemoclaw/package.json",
+          "kind": "extension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/nemoclaw/nemoclaw/dist/index.js",
+          "status": "build-required",
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/nemoclaw/nemoclaw/dist/index.js"
+            }
+          ],
+          "assertions": [
+            "plugin build or source alias resolution runs before cold import"
           ]
         }
       ]
@@ -1043,7 +1068,7 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/codex-app-server/index.ts",
-          "status": "sdk-alias-required",
+          "status": "ts-loader-required",
           "blockers": [
             {
               "code": "ts-loader-required",
@@ -1054,29 +1079,11 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "ws"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
             }
           ],
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim"
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
       ]

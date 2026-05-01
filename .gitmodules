@@ -110,3 +110,7 @@
 	path = plugins/clawrouter
 	url = https://github.com/BlockRunAI/ClawRouter.git
 	shallow = true
+[submodule "plugins/nemoclaw"]
+	path = plugins/nemoclaw
+	url = https://github.com/NVIDIA/NemoClaw.git
+	shallow = true
