@@ -10,13 +10,13 @@
 ## Reporting Data
 
 `main` follows the latest published npm package. `crab-beta` follows the beta npm dist-tag. `crab-development` follows the latest `openclaw/openclaw` main commit.
-- **Last dashboard update:** Apr 30, 2026, 09:53 UTC
+- **Last dashboard update:** May 01, 2026, 08:59 UTC
 <!-- crabpot-tracks:start -->
 - **Source:** `npm-latest`
-- **OpenClaw version:** `2026.4.27`
-- **OpenClaw SHA:** `cbc2ba093146`
+- **OpenClaw version:** `2026.4.29`
+- **OpenClaw SHA:** `a448042c2edd`
 - **Dashboard target:** `openclaw@latest`
-- **GitHub report run:** [25158883422](https://github.com/openclaw/crabpot/actions/runs/25158883422)
+- **GitHub report run:** [25208851888](https://github.com/openclaw/crabpot/actions/runs/25208851888)
 <!-- crabpot-tracks:end -->
 
 <!-- crabpot-summary:start -->
@@ -26,11 +26,11 @@
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | Fixtures               | 33                                                                                                                  |
 | Hard breakages         | 0                                                                                                                   |
-| Warnings               | 68                                                                                                                  |
-| Suggestions            | 154                                                                                                                 |
-| Issues                 | 222                                                                                                                 |
-| P0 issues              | [🔴 P0 5](reports/crabpot-issues.md#p0-live-issues)                                                                 |
-| P1 issues              | [🟠 P1 83](reports/crabpot-issues.md#triage-summary)                                                                |
+| Warnings               | 69                                                                                                                  |
+| Suggestions            | 112                                                                                                                 |
+| Issues                 | 181                                                                                                                 |
+| P0 issues              | [🔴 P0 4](reports/crabpot-issues.md#p0-live-issues)                                                                 |
+| P1 issues              | [🟠 P1 39](reports/crabpot-issues.md#triage-summary)                                                                |
 | Live issues            | 4 total / 4 P0                                                                                                      |
 | Compat gaps            | 3                                                                                                                   |
 | Deprecation warnings   | 28                                                                                                                  |
@@ -47,15 +47,15 @@
 | Workspace plan         | 40 entrypoints / 19 installs / 11 builds                                                                            |
 | Platform risks         | 14 Windows / 14 container                                                                                           |
 | Jiti loader candidates | 21                                                                                                                  |
-| Import loop            | p50 1534ms / p95 1576ms / plugin delta RSS 1.5MB / plugin delta CPU 61ms / OpenClaw import 100.7ms / activate 0.3ms |
-| Runtime profile        | p50 547ms / command p95 570ms / max RSS 88.3MB / 3 samples/command                                                  |
+| Import loop            | p50 1569ms / p95 1618ms / plugin delta RSS 2.1MB / plugin delta CPU 68ms / OpenClaw import 101.4ms / activate 0.2ms |
+| Runtime profile        | p50 577ms / command p95 620ms / max RSS 91.7MB / 3 samples/command                                                  |
 
 ### OpenClaw Lifecycle Probe
 
 | Phase                      | p50     | p95     |
 | -------------------------- | ------- | ------- |
-| Import (`full`)            | 315.9ms | 316.1ms |
-| Activate (`full:register`) | 0.1ms   | 0.2ms   |
+| Import (`full`)            | 101.4ms | 102.4ms |
+| Activate (`full:register`) | 0.2ms   | 0.3ms   |
 
 ### Top Discovered Issues
 
