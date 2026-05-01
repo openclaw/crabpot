@@ -42,7 +42,6 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasFinding(report.suggestions, "a2a-gateway", "registration-capture-gap");
   assertHasFinding(report.suggestions, "wecom", "before-tool-call-probe");
   assertHasFinding(report.warnings, "a2a-gateway", "package-manifest-version-drift");
-  assertHasFinding(report.warnings, "agentchat", "manifest-unknown-fields");
   assertHasFinding(report.warnings, "connectclaw", "legacy-before-agent-start");
   assertHasFinding(report.warnings, "mcp-adapter", "package-plugin-api-compat-missing");
   assertHasFinding(report.suggestions, "agentchat", "package-build-artifact-entrypoint");
@@ -66,23 +65,25 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasIssue(report.issues, "P1", "conversation-access-hook");
   assertHasIssue(report.issues, "P2", "package-plugin-api-compat-missing");
   assertHasIssue(report.issues, "P2", "package-build-artifact-entrypoint");
-  assertHasIssue(report.issues, "P2", "manifest-unknown-fields");
   assertHasIssue(report.issues, "P2", "package-typescript-source-entrypoint");
   assertHasIssue(report.issues, "P2", "package-dependency-install-required");
   assertHasIssueClass(report.issues, "deprecation-warning", "legacy-before-agent-start");
   assertHasIssueClass(report.issues, "inspector-gap", "registration-capture-gap");
   assertHasIssueClass(report.issues, "upstream-metadata", "package-plugin-api-compat-missing");
   if (hasTargetOpenClaw) {
+    assertHasFinding(report.warnings, "agentchat", "manifest-unknown-fields");
     assertHasIssue(report.issues, "P1", "missing-compat-record");
     assertHasIssue(report.issues, "P0", "sdk-export-missing");
     assertHasIssue(report.issues, "P0", "unknown-hook-name");
+    assertHasIssue(report.issues, "P2", "manifest-unknown-fields");
     assertHasIssueClass(report.issues, "live-issue", "sdk-export-missing");
     assertHasIssueClass(report.issues, "live-issue", "unknown-hook-name");
     assertHasIssueClass(report.issues, "compat-gap", "missing-compat-record");
+    assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:agentchat");
+    assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:memos-cloud");
   }
   assertHasProbe(report.contractProbes, "api.capture.runtime-registrars:wecom");
   assertHasProbe(report.contractProbes, "hook.before_tool_call.terminal-block-approval:wecom");
-  assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:agentchat");
   if (hasTargetOpenClaw) {
     assertHasProbePrefix(report.contractProbes, "sdk.import.package-export-cold-import:");
     assertHasProbePrefix(report.contractProbes, "sdk.import.package-export-cold-import:", "P1");
@@ -94,7 +95,6 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasProbe(report.contractProbes, "api.capture.runtime-registrars:hyperspell");
   assertHasProbe(report.contractProbes, "hook.compat.before-agent-start-migration:honcho");
   assertHasProbe(report.contractProbes, "package.compat.plugin-api-range:secureclaw");
-  assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:memos-cloud");
 });
 
 test("markdown report includes review sections", async () => {
@@ -131,11 +131,14 @@ test("issue report preserves decision metadata for compat-layer work", async () 
   const report = await buildReport(testReportOptions());
   const sdkIssue = report.issues.find((issue) => issue.code === "sdk-export-missing");
   const manifestIssue = report.issues.find((issue) => issue.code === "manifest-unknown-fields");
+  const pluginCompatIssue = report.issues.find((issue) => issue.code === "package-plugin-api-compat-missing");
   const markdown = renderIssuesReport(report);
 
   if (report.targetOpenClaw.status !== "ok") {
     assert.equal(sdkIssue, undefined);
-    assert.equal(manifestIssue.owner, "plugin");
+    assert.equal(manifestIssue, undefined);
+    assert.equal(pluginCompatIssue.owner, "plugin");
+    assert.equal(pluginCompatIssue.decision, "plugin-upstream-fix");
     assert.match(markdown, /## Triage Summary/);
     return;
   }

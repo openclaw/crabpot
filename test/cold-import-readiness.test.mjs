@@ -14,7 +14,7 @@ test("cold import readiness classifies entrypoint blockers", async () => {
   assert.ok(readiness.summary.buildRequiredCount > 0);
   assert.ok(readiness.summary.dependencyInstallRequiredCount > 0);
 
-  assertHasStatus(readiness, "wecom", "dependency-install-required");
+  assertHasBlocker(readiness, "wecom", "dependency-install-required");
   assertHasStatus(readiness, "agentchat", "build-required");
   assertHasStatus(readiness, "a2a-gateway", "ts-loader-required");
   if (report.issues.some((issue) => issue.code === "sdk-export-missing")) {
@@ -35,6 +35,14 @@ function assertHasStatus(readiness, fixtureId, status) {
   assert.ok(
     fixture?.entrypoints.some((entrypoint) => entrypoint.status === status),
     `expected ${fixtureId} to have ${status} entrypoint`,
+  );
+}
+
+function assertHasBlocker(readiness, fixtureId, code) {
+  const fixture = readiness.fixtures.find((item) => item.id === fixtureId);
+  assert.ok(
+    fixture?.entrypoints.some((entrypoint) => entrypoint.blockers.some((blocker) => blocker.code === code)),
+    `expected ${fixtureId} to have ${code} blocker`,
   );
 }
 

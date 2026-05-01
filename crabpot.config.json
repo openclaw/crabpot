@@ -339,6 +339,27 @@
       "why": "Credential-free generated fixture covering the public OpenClaw plugin API surface across hooks, registrars, provider capabilities, setup metadata, manifest contracts, and SDK import compatibility."
     },
     {
+      "id": "nemoclaw",
+      "name": "NemoClaw",
+      "repo": "https://github.com/NVIDIA/NemoClaw.git",
+      "path": "plugins/nemoclaw",
+      "subdir": "nemoclaw",
+      "priority": "high",
+      "seams": [
+        "provider-capability",
+        "prompt-mutation",
+        "security-audit",
+        "process-spawn",
+        "command",
+        "config-schema"
+      ],
+      "expect": {
+        "hooks": ["before_agent_start", "before_tool_call"],
+        "registrations": ["registerCommand", "registerProvider"]
+      },
+      "why": "NVIDIA OpenShell fixture covering sandbox-aware runtime context injection, managed inference provider registration, slash-command migration/status flows, OpenShell CLI probing, and secret-blocking tool-call policy."
+    },
+    {
       "id": "memory-tencentdb",
       "name": "TencentDB Agent Memory",
       "package": {

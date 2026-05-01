@@ -4,17 +4,17 @@
     "status": "ok",
     "configuredPath": "./openclaw",
     "capturedRegistrarCount": 26,
-    "sdkExportCount": 291
+    "sdkExportCount": 294
   },
   "summary": {
-    "fixtureCount": 32,
-    "registrationCount": 202,
-    "hookCount": 86,
+    "fixtureCount": 33,
+    "registrationCount": 204,
+    "hookCount": 88,
     "sdkImportCount": 549,
-    "packageEntrypointCount": 39,
-    "issueProbeCount": 170,
-    "inspectorShimRequiredCount": 110,
-    "compatAliasRequiredCount": 11
+    "packageEntrypointCount": 40,
+    "issueProbeCount": 175,
+    "inspectorShimRequiredCount": 111,
+    "compatAliasRequiredCount": 8
   },
   "fixtures": [
     {
@@ -7885,6 +7885,105 @@
       ]
     },
     {
+      "id": "nemoclaw",
+      "priority": "high",
+      "registrations": [
+        {
+          "id": "registration.registerCommand:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-336",
+          "fixture": "nemoclaw",
+          "registrar": "registerCommand",
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:336",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerProvider:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-372",
+          "fixture": "nemoclaw",
+          "registrar": "registerProvider",
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:372",
+          "support": "target-captured",
+          "assertions": [
+            "registration arguments are captured"
+          ],
+          "syntheticArguments": [
+            {}
+          ]
+        }
+      ],
+      "hooks": [
+        {
+          "id": "hook.before_agent_start:nemoclaw:plugins-nemoclaw-nemoclaw-src-runtime-context-ts-474",
+          "fixture": "nemoclaw",
+          "hook": "before_agent_start",
+          "ref": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:474",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "legacy startup hook payload is accepted",
+            "migration metadata can map to prompt/model hooks"
+          ],
+          "syntheticEvent": {
+            "agentId": "agent-fixture",
+            "runId": "run-fixture",
+            "config": {
+              "source": "plugin-inspector"
+            }
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture"
+          }
+        },
+        {
+          "id": "hook.before_tool_call:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-384",
+          "fixture": "nemoclaw",
+          "hook": "before_tool_call",
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:384",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "block/allow return shapes are preserved",
+            "terminal and approval metadata are present"
+          ],
+          "syntheticEvent": {
+            "runId": "run-fixture",
+            "toolName": "fixture_tool",
+            "params": {},
+            "toolCallId": "call-fixture"
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture",
+            "toolName": "fixture_tool"
+          }
+        }
+      ],
+      "sdkImports": [],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:nemoclaw:plugins-nemoclaw-nemoclaw-dist-index-js",
+          "fixture": "nemoclaw",
+          "kind": "extension",
+          "specifier": "./dist/index.js",
+          "ref": "plugins/nemoclaw/nemoclaw/dist/index.js",
+          "support": "build-required",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
       "id": "memory-tencentdb",
       "priority": "high",
       "registrations": [
@@ -12060,7 +12159,7 @@
           "fixture": "codex-app-server",
           "specifier": "openclaw/plugin-sdk/discord",
           "ref": "plugins/codex-app-server/src/controller.ts:104",
-          "support": "compat-alias-required",
+          "support": "target-exported",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -12071,7 +12170,7 @@
           "fixture": "codex-app-server",
           "specifier": "openclaw/plugin-sdk/discord",
           "ref": "plugins/codex-app-server/src/controller.ts:106",
-          "support": "compat-alias-required",
+          "support": "target-exported",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -12082,7 +12181,7 @@
           "fixture": "codex-app-server",
           "specifier": "openclaw/plugin-sdk/telegram-account",
           "ref": "plugins/codex-app-server/src/controller.ts:105",
-          "support": "compat-alias-required",
+          "support": "target-exported",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -12650,6 +12749,19 @@
       ]
     },
     {
+      "id": "api.capture.runtime-registrars:nemoclaw",
+      "fixture": "nemoclaw",
+      "priority": "P1",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:336"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:openclaw-telemetry",
       "fixture": "openclaw-telemetry",
       "priority": "P1",
@@ -12768,6 +12880,19 @@
       "target": "hook-runner",
       "evidence": [
         "before_tool_call @ plugins/kitchen-sink/src/generated-hooks.js:18"
+      ],
+      "assertions": [
+        "synthetic event payload is accepted",
+        "return semantics are preserved"
+      ]
+    },
+    {
+      "id": "hook.before_tool_call.terminal-block-approval:nemoclaw",
+      "fixture": "nemoclaw",
+      "priority": "P1",
+      "target": "hook-runner",
+      "evidence": [
+        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:384"
       ],
       "assertions": [
         "synthetic event payload is accepted",
@@ -12931,21 +13056,6 @@
       "target": "sdk-alias",
       "evidence": [
         "openclaw/plugin-sdk/diagnostics-otel @ plugins/clawmetry/clawhub-plugin/src/service.ts:2"
-      ],
-      "assertions": [
-        "package export exists",
-        "migration metadata is visible when alias is missing"
-      ]
-    },
-    {
-      "id": "sdk.import.package-export-cold-import:codex-app-server",
-      "fixture": "codex-app-server",
-      "priority": "P1",
-      "target": "sdk-alias",
-      "evidence": [
-        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104",
-        "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106",
-        "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
       ],
       "assertions": [
         "package export exists",
@@ -13156,6 +13266,19 @@
       ]
     },
     {
+      "id": "hook.compat.before-agent-start-migration:nemoclaw",
+      "fixture": "nemoclaw",
+      "priority": "P2",
+      "target": "hook-runner",
+      "evidence": [
+        "before_agent_start @ plugins/nemoclaw/nemoclaw/src/runtime-context.ts:474"
+      ],
+      "assertions": [
+        "synthetic event payload is accepted",
+        "return semantics are preserved"
+      ]
+    },
+    {
       "id": "hook.compat.before-agent-start-migration:openclaw-telemetry",
       "fixture": "openclaw-telemetry",
       "priority": "P2",
@@ -13355,6 +13478,19 @@
       ]
     },
     {
+      "id": "package.compat.plugin-api-range:nemoclaw",
+      "fixture": "nemoclaw",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/nemoclaw/nemoclaw/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "package.compat.plugin-api-range:openclaw-telemetry",
       "fixture": "openclaw-telemetry",
       "priority": "P2",
@@ -13466,6 +13602,19 @@
       "target": "package-loader",
       "evidence": [
         "extension:./dist/index.js -> plugins/lossless-claw/dist/index.js"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.build-before-cold-import:nemoclaw",
+      "fixture": "nemoclaw",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "extension:./dist/index.js -> plugins/nemoclaw/nemoclaw/dist/index.js"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -13667,6 +13816,23 @@
         "file-type @ plugins/mocrane-wecom/package.json",
         "undici @ plugins/mocrane-wecom/package.json",
         "zod @ plugins/mocrane-wecom/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:nemoclaw",
+      "fixture": "nemoclaw",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "commander @ plugins/nemoclaw/nemoclaw/package.json",
+        "execa @ plugins/nemoclaw/nemoclaw/package.json",
+        "json5 @ plugins/nemoclaw/nemoclaw/package.json",
+        "tar @ plugins/nemoclaw/nemoclaw/package.json",
+        "yaml @ plugins/nemoclaw/nemoclaw/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",

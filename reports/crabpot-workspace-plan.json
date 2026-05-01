@@ -10,19 +10,19 @@
     "configuredPath": "./openclaw"
   },
   "summary": {
-    "fixtureCount": 32,
-    "entrypointCount": 39,
+    "fixtureCount": 33,
+    "entrypointCount": 40,
     "installStepCount": 19,
     "auditStepCount": 19,
-    "buildStepCount": 10,
-    "artifactStepCount": 39,
-    "captureStepCount": 39,
-    "syntheticProbeStepCount": 39,
+    "buildStepCount": 11,
+    "artifactStepCount": 40,
+    "captureStepCount": 40,
+    "syntheticProbeStepCount": 40,
     "targetOpenClawLinkStepCount": 27,
     "tsLoaderEntrypointCount": 21,
     "jitiAlternativeCount": 21,
     "missingBuildScriptCount": 0,
-    "sdkAliasRequiredCount": 6
+    "sdkAliasRequiredCount": 5
   },
   "fixtures": [
     {
@@ -1454,6 +1454,73 @@
       ]
     },
     {
+      "id": "nemoclaw",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:nemoclaw:plugins-nemoclaw-nemoclaw-dist-index-js",
+          "fixture": "nemoclaw",
+          "packagePath": "plugins/nemoclaw/nemoclaw/package.json",
+          "packageName": "nemoclaw",
+          "entrypoint": "plugins/nemoclaw/nemoclaw/dist/index.js",
+          "status": "build-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/nemoclaw/nemoclaw/package-lock.json",
+          "loaderStrategy": {
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+          },
+          "requiredCapabilities": [
+            "build",
+            "capture-shim",
+            "synthetic-probes"
+          ],
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/nemoclaw/nemoclaw/dist/index.js"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/nemoclaw && rsync -a --delete plugins/nemoclaw/nemoclaw/ .crabpot/workspaces/nemoclaw/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/nemoclaw",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "build",
+              "command": "npm run build",
+              "cwd": ".crabpot/workspaces/nemoclaw",
+              "reason": "produce missing OpenClaw build entrypoint"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.capture.json",
+              "cwd": ".crabpot/workspaces/nemoclaw",
+              "artifactPath": ".crabpot/results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.synthetic.json",
+              "cwd": ".crabpot/workspaces/nemoclaw",
+              "artifactPath": ".crabpot/results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "memory-tencentdb",
       "entrypoints": [
         {
@@ -2777,7 +2844,7 @@
           "packagePath": "plugins/codex-app-server/package.json",
           "packageName": "openclaw-codex-app-server",
           "entrypoint": "plugins/codex-app-server/index.ts",
-          "status": "sdk-alias-required",
+          "status": "ts-loader-required",
           "packageManager": "pnpm",
           "lockfile": "plugins/codex-app-server/pnpm-lock.yaml",
           "loaderStrategy": {
@@ -2791,7 +2858,6 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link",
             "ts-loader"
@@ -2806,21 +2872,6 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "ws"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:104"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/discord @ plugins/codex-app-server/src/controller.ts:106"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/telegram-account @ plugins/codex-app-server/src/controller.ts:105"
             }
           ],
           "steps": [
