@@ -28,6 +28,8 @@ async function main() {
     const capture = await captureEntrypoint(args.entrypoint, {
       apiOptions: { retainHandlers: true },
       cwd: args.cwd,
+      mockSdk: args.mockSdk,
+      pluginRoot: args.pluginRoot,
     });
     const result = await runCapturedSyntheticProbes(capture);
     await writeJsonResult(result, args.output);
@@ -61,8 +63,10 @@ function parseArgs(argv) {
     cwd: undefined,
     entrypoint: null,
     json: false,
+    mockSdk: false,
     openclawPath: undefined,
     output: null,
+    pluginRoot: undefined,
     write: true,
   };
 
@@ -86,6 +90,14 @@ function parseArgs(argv) {
       args.json = true;
       continue;
     }
+    if (arg === "--mock-sdk") {
+      args.mockSdk = true;
+      continue;
+    }
+    if (arg === "--no-mock-sdk") {
+      args.mockSdk = false;
+      continue;
+    }
     if (arg === "--openclaw") {
       args.openclawPath = argv[index + 1];
       index += 1;
@@ -93,6 +105,11 @@ function parseArgs(argv) {
     }
     if (arg === "--output") {
       args.output = argv[index + 1];
+      index += 1;
+      continue;
+    }
+    if (arg === "--plugin-root") {
+      args.pluginRoot = argv[index + 1];
       index += 1;
       continue;
     }

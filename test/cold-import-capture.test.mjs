@@ -75,3 +75,38 @@ test("cold import capture CLI refuses execution outside isolated opt-in", async 
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /CRABPOT_EXECUTE_ISOLATED=1/);
 });
+
+test("cold import capture CLI honors mock SDK for OpenClaw SDK imports", async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-capture-sdk-"));
+  const entrypoint = path.join(dir, "index.mjs");
+  await writeFile(
+    entrypoint,
+    [
+      "import { definePluginEntry } from 'openclaw/plugin-sdk';",
+      "export default definePluginEntry({",
+      "  register(api) {",
+      "    api.registerProvider({ id: 'fixture-provider' });",
+      "  },",
+      "});",
+    ].join("\n"),
+    "utf8",
+  );
+
+  const result = spawnSync(
+    process.execPath,
+    ["scripts/run-cold-import-capture.mjs", entrypoint, "--mock-sdk", "--plugin-root", dir],
+    {
+      cwd: repoRoot,
+      encoding: "utf8",
+      env: { ...process.env, CRABPOT_EXECUTE_ISOLATED: "1" },
+    },
+  );
+
+  assert.equal(result.status, 0, result.stderr);
+  const capture = JSON.parse(result.stdout);
+  assert.equal(capture.status, "captured");
+  assert.equal(capture.mockSdk, true);
+  assert.deepEqual(capture.captured.map((item) => `${item.kind}:${item.name}`), [
+    "registration:registerProvider",
+  ]);
+});

@@ -41,6 +41,38 @@ test("synthetic probe CLI refuses isolated execution without opt-in", async () =
   assert.match(result.stderr, /CRABPOT_EXECUTE_ISOLATED=1/);
 });
 
+test("synthetic probe CLI honors mock SDK for OpenClaw SDK imports", async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-probes-sdk-"));
+  const entrypoint = path.join(dir, "index.mjs");
+  await writeFile(
+    entrypoint,
+    [
+      "import { definePluginEntry } from 'openclaw/plugin-sdk';",
+      "export default definePluginEntry({",
+      "  register(api) {",
+      "    api.registerProvider({ id: 'fixture-provider' });",
+      "  },",
+      "});",
+    ].join("\n"),
+    "utf8",
+  );
+
+  const result = spawnSync(
+    process.execPath,
+    ["scripts/synthetic-probes.mjs", "--entrypoint", entrypoint, "--mock-sdk", "--plugin-root", dir],
+    {
+      cwd: repoRoot,
+      encoding: "utf8",
+      env: { ...process.env, CRABPOT_EXECUTE_ISOLATED: "1" },
+    },
+  );
+
+  assert.equal(result.status, 0, result.stderr);
+  const probes = JSON.parse(result.stdout);
+  assert.equal(probes.status, "captured");
+  assert.equal(probes.summary.failCount, 0);
+});
+
 test("fixture execution policy classifies known live tool failures as blocked", () => {
   const result = applyFixtureSyntheticFailurePolicy(
     {

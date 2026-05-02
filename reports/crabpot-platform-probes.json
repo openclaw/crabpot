@@ -13,7 +13,7 @@
     "tsLoaderEntrypointCount": 47,
     "jitiAlternativeCount": 47,
     "lazyImportProbeCount": 66,
-    "portabilityFindingCount": 108,
+    "portabilityFindingCount": 14,
     "coveredPortabilityFindingCount": 305,
     "windowsRiskStepCount": 14,
     "macosRiskStepCount": 14,
@@ -33,7 +33,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "agentchat",
@@ -47,7 +51,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "wecom",
@@ -61,7 +69,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "qqbot",
@@ -75,7 +87,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "a2a-gateway",
@@ -90,8 +106,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "hasdata",
@@ -106,8 +126,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "mcp-adapter",
@@ -122,8 +146,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "llm-trace-phoenix",
@@ -138,8 +166,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "opik-openclaw",
@@ -154,8 +186,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "opik-openclaw",
@@ -169,7 +205,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "openclaw-telemetry",
@@ -184,8 +224,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "lossless-claw",
@@ -199,7 +243,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "connectclaw",
@@ -214,8 +262,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "hyperspell",
@@ -230,8 +282,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "honcho",
@@ -245,7 +301,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "composio",
@@ -260,8 +320,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "kitchen-sink",
@@ -275,7 +339,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "kitchen-sink",
@@ -289,7 +357,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "kitchen-sink",
@@ -303,7 +375,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "bluebubbles",
@@ -318,8 +394,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "diagnostics-otel",
@@ -334,8 +414,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "discord",
@@ -350,8 +434,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "lobster",
@@ -366,8 +454,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "matrix",
@@ -382,8 +474,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "msteams",
@@ -398,8 +494,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "nextcloud-talk",
@@ -414,8 +514,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "nostr",
@@ -430,8 +534,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "voice-call",
@@ -446,8 +554,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "zalo",
@@ -462,8 +574,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "zalouser",
@@ -478,8 +594,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "feishu",
@@ -494,8 +614,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "tlon",
@@ -510,8 +634,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "twitch",
@@ -526,8 +654,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "mattermost",
@@ -542,8 +674,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "synology-chat",
@@ -558,8 +694,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "brave-plugin",
@@ -574,8 +714,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "codex",
@@ -590,8 +734,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "diagnostics-prometheus",
@@ -606,8 +754,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "google-meet",
@@ -622,8 +774,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "diffs",
@@ -638,8 +794,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "memory-lancedb",
@@ -654,8 +814,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "openclaw-qqbot",
@@ -670,8 +834,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "openclaw-qqbot",
@@ -686,8 +854,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "whatsapp",
@@ -702,8 +874,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "whatsapp",
@@ -718,8 +894,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "nemoclaw",
@@ -733,7 +913,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "memory-tencentdb",
@@ -748,8 +932,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "ddingtalk",
@@ -764,8 +952,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "dingtalk-connector",
@@ -779,7 +971,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "mocrane-wecom",
@@ -794,8 +990,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "yuanbao",
@@ -810,8 +1010,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "yuanbao",
@@ -826,8 +1030,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "openclaw-weixin",
@@ -842,8 +1050,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "lightclawbot",
@@ -857,7 +1069,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "telnyx-sms",
@@ -871,7 +1087,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "telnyx-sms",
@@ -885,7 +1105,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "clawrouter",
@@ -899,7 +1123,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "memu-engine",
@@ -914,8 +1142,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "secureclaw",
@@ -929,7 +1161,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "memos-cloud",
@@ -943,7 +1179,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "clawmetry",
@@ -958,8 +1198,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "clawmetry",
@@ -973,7 +1217,11 @@
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
-      "syntheticUsesTsx": false
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "codex-app-server",
@@ -988,8 +1236,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "web-search-plus",
@@ -1004,8 +1256,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "apify",
@@ -1020,8 +1276,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     },
     {
       "fixture": "inworld-tts",
@@ -1036,8 +1296,12 @@
       ],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
-      "captureUsesTsx": true,
-      "syntheticUsesTsx": true
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
     }
   ],
   "portabilityFindings": [
@@ -1045,7 +1309,7 @@
       "fixture": "agentchat",
       "entrypoint": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -1079,7 +1343,7 @@
       "fixture": "agentchat",
       "entrypoint": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -1110,178 +1374,10 @@
       "mitigation": "install the declared package manager before isolated execution"
     },
     {
-      "fixture": "a2a-gateway",
-      "entrypoint": "cold-import.extension:a2a-gateway:plugins-a2a-gateway-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "a2a-gateway",
-      "entrypoint": "cold-import.extension:a2a-gateway:plugins-a2a-gateway-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "hasdata",
-      "entrypoint": "cold-import.extension:hasdata:plugins-hasdata-src-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --mock-sdk --output ../../results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "hasdata",
-      "entrypoint": "cold-import.extension:hasdata:plugins-hasdata-src-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --mock-sdk --output ../../results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "mcp-adapter",
-      "entrypoint": "cold-import.extension:mcp-adapter:plugins-mcp-adapter-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "mcp-adapter",
-      "entrypoint": "cold-import.extension:mcp-adapter:plugins-mcp-adapter-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "llm-trace-phoenix",
-      "entrypoint": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "llm-trace-phoenix",
-      "entrypoint": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "opik-openclaw",
-      "entrypoint": "cold-import.extension:opik-openclaw:plugins-opik-openclaw-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "opik-openclaw",
-      "entrypoint": "cold-import.extension:opik-openclaw:plugins-opik-openclaw-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "openclaw-telemetry",
-      "entrypoint": "cold-import.extension:openclaw-telemetry:plugins-openclaw-telemetry-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "openclaw-telemetry",
-      "entrypoint": "cold-import.extension:openclaw-telemetry:plugins-openclaw-telemetry-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
       "fixture": "connectclaw",
       "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -1295,66 +1391,10 @@
       "mitigation": "install the declared package manager before isolated execution"
     },
     {
-      "fixture": "connectclaw",
-      "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "connectclaw",
-      "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "hyperspell",
-      "entrypoint": "cold-import.extension:hyperspell:plugins-hyperspell-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "hyperspell",
-      "entrypoint": "cold-import.extension:hyperspell:plugins-hyperspell-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
       "fixture": "honcho",
       "entrypoint": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -1385,794 +1425,10 @@
       "mitigation": "install the declared package manager before isolated execution"
     },
     {
-      "fixture": "composio",
-      "entrypoint": "cold-import.extension:composio:plugins-composio-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "composio",
-      "entrypoint": "cold-import.extension:composio:plugins-composio-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "bluebubbles",
-      "entrypoint": "cold-import.extension:bluebubbles:plugins-bluebubbles-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/bluebubbles/cold-import-extension-bluebubbles-plugins-bluebubbles-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "bluebubbles",
-      "entrypoint": "cold-import.extension:bluebubbles:plugins-bluebubbles-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/bluebubbles/cold-import-extension-bluebubbles-plugins-bluebubbles-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "diagnostics-otel",
-      "entrypoint": "cold-import.extension:diagnostics-otel:plugins-diagnostics-otel-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/diagnostics-otel/cold-import-extension-diagnostics-otel-plugins-diagnostics-otel-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "diagnostics-otel",
-      "entrypoint": "cold-import.extension:diagnostics-otel:plugins-diagnostics-otel-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/diagnostics-otel/cold-import-extension-diagnostics-otel-plugins-diagnostics-otel-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "discord",
-      "entrypoint": "cold-import.extension:discord:plugins-discord-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/discord/cold-import-extension-discord-plugins-discord-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "discord",
-      "entrypoint": "cold-import.extension:discord:plugins-discord-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/discord/cold-import-extension-discord-plugins-discord-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "lobster",
-      "entrypoint": "cold-import.extension:lobster:plugins-lobster-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/lobster/cold-import-extension-lobster-plugins-lobster-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "lobster",
-      "entrypoint": "cold-import.extension:lobster:plugins-lobster-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/lobster/cold-import-extension-lobster-plugins-lobster-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "matrix",
-      "entrypoint": "cold-import.extension:matrix:plugins-matrix-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "matrix",
-      "entrypoint": "cold-import.extension:matrix:plugins-matrix-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "msteams",
-      "entrypoint": "cold-import.extension:msteams:plugins-msteams-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/msteams/cold-import-extension-msteams-plugins-msteams-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "msteams",
-      "entrypoint": "cold-import.extension:msteams:plugins-msteams-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/msteams/cold-import-extension-msteams-plugins-msteams-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "nextcloud-talk",
-      "entrypoint": "cold-import.extension:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/nextcloud-talk/cold-import-extension-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "nextcloud-talk",
-      "entrypoint": "cold-import.extension:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/nextcloud-talk/cold-import-extension-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "nostr",
-      "entrypoint": "cold-import.extension:nostr:plugins-nostr-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/nostr/cold-import-extension-nostr-plugins-nostr-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "nostr",
-      "entrypoint": "cold-import.extension:nostr:plugins-nostr-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/nostr/cold-import-extension-nostr-plugins-nostr-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "voice-call",
-      "entrypoint": "cold-import.extension:voice-call:plugins-voice-call-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/voice-call/cold-import-extension-voice-call-plugins-voice-call-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "voice-call",
-      "entrypoint": "cold-import.extension:voice-call:plugins-voice-call-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/voice-call/cold-import-extension-voice-call-plugins-voice-call-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "zalo",
-      "entrypoint": "cold-import.extension:zalo:plugins-zalo-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/zalo/cold-import-extension-zalo-plugins-zalo-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "zalo",
-      "entrypoint": "cold-import.extension:zalo:plugins-zalo-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/zalo/cold-import-extension-zalo-plugins-zalo-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "zalouser",
-      "entrypoint": "cold-import.extension:zalouser:plugins-zalouser-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/zalouser/cold-import-extension-zalouser-plugins-zalouser-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "zalouser",
-      "entrypoint": "cold-import.extension:zalouser:plugins-zalouser-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/zalouser/cold-import-extension-zalouser-plugins-zalouser-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "feishu",
-      "entrypoint": "cold-import.extension:feishu:plugins-feishu-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/feishu/cold-import-extension-feishu-plugins-feishu-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "feishu",
-      "entrypoint": "cold-import.extension:feishu:plugins-feishu-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/feishu/cold-import-extension-feishu-plugins-feishu-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "tlon",
-      "entrypoint": "cold-import.extension:tlon:plugins-tlon-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/tlon/cold-import-extension-tlon-plugins-tlon-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "tlon",
-      "entrypoint": "cold-import.extension:tlon:plugins-tlon-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/tlon/cold-import-extension-tlon-plugins-tlon-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "twitch",
-      "entrypoint": "cold-import.extension:twitch:plugins-twitch-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/twitch/cold-import-extension-twitch-plugins-twitch-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "twitch",
-      "entrypoint": "cold-import.extension:twitch:plugins-twitch-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/twitch/cold-import-extension-twitch-plugins-twitch-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "mattermost",
-      "entrypoint": "cold-import.extension:mattermost:plugins-mattermost-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "mattermost",
-      "entrypoint": "cold-import.extension:mattermost:plugins-mattermost-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "synology-chat",
-      "entrypoint": "cold-import.extension:synology-chat:plugins-synology-chat-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/synology-chat/cold-import-extension-synology-chat-plugins-synology-chat-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "synology-chat",
-      "entrypoint": "cold-import.extension:synology-chat:plugins-synology-chat-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/synology-chat/cold-import-extension-synology-chat-plugins-synology-chat-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "brave-plugin",
-      "entrypoint": "cold-import.extension:brave-plugin:plugins-brave-plugin-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/brave-plugin/cold-import-extension-brave-plugin-plugins-brave-plugin-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "brave-plugin",
-      "entrypoint": "cold-import.extension:brave-plugin:plugins-brave-plugin-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/brave-plugin/cold-import-extension-brave-plugin-plugins-brave-plugin-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "codex",
-      "entrypoint": "cold-import.extension:codex:plugins-codex-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "codex",
-      "entrypoint": "cold-import.extension:codex:plugins-codex-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "diagnostics-prometheus",
-      "entrypoint": "cold-import.extension:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "diagnostics-prometheus",
-      "entrypoint": "cold-import.extension:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "google-meet",
-      "entrypoint": "cold-import.extension:google-meet:plugins-google-meet-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "google-meet",
-      "entrypoint": "cold-import.extension:google-meet:plugins-google-meet-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "diffs",
-      "entrypoint": "cold-import.extension:diffs:plugins-diffs-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "diffs",
-      "entrypoint": "cold-import.extension:diffs:plugins-diffs-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "memory-lancedb",
-      "entrypoint": "cold-import.extension:memory-lancedb:plugins-memory-lancedb-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "memory-lancedb",
-      "entrypoint": "cold-import.extension:memory-lancedb:plugins-memory-lancedb-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "openclaw-qqbot",
-      "entrypoint": "cold-import.extension:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-extension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "openclaw-qqbot",
-      "entrypoint": "cold-import.extension:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-extension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "openclaw-qqbot",
-      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-setup-entry-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "openclaw-qqbot",
-      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-setup-entry-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "whatsapp",
-      "entrypoint": "cold-import.extension:whatsapp:plugins-whatsapp-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "whatsapp",
-      "entrypoint": "cold-import.extension:whatsapp:plugins-whatsapp-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "whatsapp",
-      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "whatsapp",
-      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "memory-tencentdb",
-      "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "memory-tencentdb",
-      "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
       "fixture": "ddingtalk",
       "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -2223,206 +1479,10 @@
       "mitigation": "install the declared package manager before isolated execution"
     },
     {
-      "fixture": "ddingtalk",
-      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "ddingtalk",
-      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "mocrane-wecom",
-      "entrypoint": "cold-import.extension:mocrane-wecom:plugins-mocrane-wecom-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "mocrane-wecom",
-      "entrypoint": "cold-import.extension:mocrane-wecom:plugins-mocrane-wecom-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "yuanbao",
-      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "yuanbao",
-      "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "yuanbao",
-      "entrypoint": "cold-import.setupEntry:yuanbao:plugins-yuanbao-crabpot-package-setup-entry-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "yuanbao",
-      "entrypoint": "cold-import.setupEntry:yuanbao:plugins-yuanbao-crabpot-package-setup-entry-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "openclaw-weixin",
-      "entrypoint": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "openclaw-weixin",
-      "entrypoint": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "memu-engine",
-      "entrypoint": "cold-import.extension:memu-engine:plugins-memu-engine-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "memu-engine",
-      "entrypoint": "cold-import.extension:memu-engine:plugins-memu-engine-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "clawmetry",
-      "entrypoint": "cold-import.extension:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "clawmetry",
-      "entrypoint": "cold-import.extension:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
       "fixture": "codex-app-server",
       "entrypoint": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -2473,94 +1533,10 @@
       "mitigation": "install the declared package manager before isolated execution"
     },
     {
-      "fixture": "codex-app-server",
-      "entrypoint": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "codex-app-server",
-      "entrypoint": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "web-search-plus",
-      "entrypoint": "cold-import.extension:web-search-plus:plugins-web-search-plus-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "web-search-plus",
-      "entrypoint": "cold-import.extension:web-search-plus:plugins-web-search-plus-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "apify",
-      "entrypoint": "cold-import.extension:apify:plugins-apify-src-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "apify",
-      "entrypoint": "cold-import.extension:apify:plugins-apify-src-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
       "fixture": "inworld-tts",
       "entrypoint": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -2572,34 +1548,6 @@
         "package-manager-availability"
       ],
       "mitigation": "install the declared package manager before isolated execution"
-    },
-    {
-      "fixture": "inworld-tts",
-      "entrypoint": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
-      "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.capture.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
-    },
-    {
-      "fixture": "inworld-tts",
-      "entrypoint": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
-      "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.synthetic.json",
-      "coveredRiskCodes": [
-        "posix-env-prefix"
-      ],
-      "platforms": [],
-      "riskCodes": [
-        "tsx-loader-runtime"
-      ],
-      "mitigation": "verify TS source entrypoints with tsx and Jiti loader lanes"
     }
   ],
   "coveredPortabilityFindings": [
@@ -2893,7 +1841,7 @@
       "fixture": "a2a-gateway",
       "entrypoint": "cold-import.extension:a2a-gateway:plugins-a2a-gateway-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -2906,7 +1854,7 @@
       "fixture": "a2a-gateway",
       "entrypoint": "cold-import.extension:a2a-gateway:plugins-a2a-gateway-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -2961,7 +1909,7 @@
       "fixture": "hasdata",
       "entrypoint": "cold-import.extension:hasdata:plugins-hasdata-src-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --mock-sdk --output ../../results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --mock-sdk --output ../../results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -2974,7 +1922,7 @@
       "fixture": "hasdata",
       "entrypoint": "cold-import.extension:hasdata:plugins-hasdata-src-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --mock-sdk --output ../../results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --mock-sdk --output ../../results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3029,7 +1977,7 @@
       "fixture": "mcp-adapter",
       "entrypoint": "cold-import.extension:mcp-adapter:plugins-mcp-adapter-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3042,7 +1990,7 @@
       "fixture": "mcp-adapter",
       "entrypoint": "cold-import.extension:mcp-adapter:plugins-mcp-adapter-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3083,7 +2031,7 @@
       "fixture": "llm-trace-phoenix",
       "entrypoint": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3096,7 +2044,7 @@
       "fixture": "llm-trace-phoenix",
       "entrypoint": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3151,7 +2099,7 @@
       "fixture": "opik-openclaw",
       "entrypoint": "cold-import.extension:opik-openclaw:plugins-opik-openclaw-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3164,7 +2112,7 @@
       "fixture": "opik-openclaw",
       "entrypoint": "cold-import.extension:opik-openclaw:plugins-opik-openclaw-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3259,7 +2207,7 @@
       "fixture": "openclaw-telemetry",
       "entrypoint": "cold-import.extension:openclaw-telemetry:plugins-openclaw-telemetry-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3272,7 +2220,7 @@
       "fixture": "openclaw-telemetry",
       "entrypoint": "cold-import.extension:openclaw-telemetry:plugins-openclaw-telemetry-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3367,7 +2315,7 @@
       "fixture": "connectclaw",
       "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3380,7 +2328,7 @@
       "fixture": "connectclaw",
       "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3435,7 +2383,7 @@
       "fixture": "hyperspell",
       "entrypoint": "cold-import.extension:hyperspell:plugins-hyperspell-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3448,7 +2396,7 @@
       "fixture": "hyperspell",
       "entrypoint": "cold-import.extension:hyperspell:plugins-hyperspell-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3557,7 +2505,7 @@
       "fixture": "composio",
       "entrypoint": "cold-import.extension:composio:plugins-composio-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3570,7 +2518,7 @@
       "fixture": "composio",
       "entrypoint": "cold-import.extension:composio:plugins-composio-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3787,7 +2735,7 @@
       "fixture": "bluebubbles",
       "entrypoint": "cold-import.extension:bluebubbles:plugins-bluebubbles-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/bluebubbles/cold-import-extension-bluebubbles-plugins-bluebubbles-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/bluebubbles/cold-import-extension-bluebubbles-plugins-bluebubbles-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3800,7 +2748,7 @@
       "fixture": "bluebubbles",
       "entrypoint": "cold-import.extension:bluebubbles:plugins-bluebubbles-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/bluebubbles/cold-import-extension-bluebubbles-plugins-bluebubbles-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/bluebubbles/cold-import-extension-bluebubbles-plugins-bluebubbles-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3855,7 +2803,7 @@
       "fixture": "diagnostics-otel",
       "entrypoint": "cold-import.extension:diagnostics-otel:plugins-diagnostics-otel-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/diagnostics-otel/cold-import-extension-diagnostics-otel-plugins-diagnostics-otel-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/diagnostics-otel/cold-import-extension-diagnostics-otel-plugins-diagnostics-otel-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3868,7 +2816,7 @@
       "fixture": "diagnostics-otel",
       "entrypoint": "cold-import.extension:diagnostics-otel:plugins-diagnostics-otel-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/diagnostics-otel/cold-import-extension-diagnostics-otel-plugins-diagnostics-otel-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/diagnostics-otel/cold-import-extension-diagnostics-otel-plugins-diagnostics-otel-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3909,7 +2857,7 @@
       "fixture": "discord",
       "entrypoint": "cold-import.extension:discord:plugins-discord-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/discord/cold-import-extension-discord-plugins-discord-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/discord/cold-import-extension-discord-plugins-discord-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3922,7 +2870,7 @@
       "fixture": "discord",
       "entrypoint": "cold-import.extension:discord:plugins-discord-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/discord/cold-import-extension-discord-plugins-discord-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/discord/cold-import-extension-discord-plugins-discord-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3977,7 +2925,7 @@
       "fixture": "lobster",
       "entrypoint": "cold-import.extension:lobster:plugins-lobster-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/lobster/cold-import-extension-lobster-plugins-lobster-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/lobster/cold-import-extension-lobster-plugins-lobster-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3990,7 +2938,7 @@
       "fixture": "lobster",
       "entrypoint": "cold-import.extension:lobster:plugins-lobster-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/lobster/cold-import-extension-lobster-plugins-lobster-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/lobster/cold-import-extension-lobster-plugins-lobster-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4045,7 +2993,7 @@
       "fixture": "matrix",
       "entrypoint": "cold-import.extension:matrix:plugins-matrix-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4058,7 +3006,7 @@
       "fixture": "matrix",
       "entrypoint": "cold-import.extension:matrix:plugins-matrix-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4113,7 +3061,7 @@
       "fixture": "msteams",
       "entrypoint": "cold-import.extension:msteams:plugins-msteams-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/msteams/cold-import-extension-msteams-plugins-msteams-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/msteams/cold-import-extension-msteams-plugins-msteams-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4126,7 +3074,7 @@
       "fixture": "msteams",
       "entrypoint": "cold-import.extension:msteams:plugins-msteams-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/msteams/cold-import-extension-msteams-plugins-msteams-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/msteams/cold-import-extension-msteams-plugins-msteams-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4181,7 +3129,7 @@
       "fixture": "nextcloud-talk",
       "entrypoint": "cold-import.extension:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/nextcloud-talk/cold-import-extension-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/nextcloud-talk/cold-import-extension-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4194,7 +3142,7 @@
       "fixture": "nextcloud-talk",
       "entrypoint": "cold-import.extension:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/nextcloud-talk/cold-import-extension-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/nextcloud-talk/cold-import-extension-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4249,7 +3197,7 @@
       "fixture": "nostr",
       "entrypoint": "cold-import.extension:nostr:plugins-nostr-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/nostr/cold-import-extension-nostr-plugins-nostr-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/nostr/cold-import-extension-nostr-plugins-nostr-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4262,7 +3210,7 @@
       "fixture": "nostr",
       "entrypoint": "cold-import.extension:nostr:plugins-nostr-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/nostr/cold-import-extension-nostr-plugins-nostr-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/nostr/cold-import-extension-nostr-plugins-nostr-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4317,7 +3265,7 @@
       "fixture": "voice-call",
       "entrypoint": "cold-import.extension:voice-call:plugins-voice-call-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/voice-call/cold-import-extension-voice-call-plugins-voice-call-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/voice-call/cold-import-extension-voice-call-plugins-voice-call-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4330,7 +3278,7 @@
       "fixture": "voice-call",
       "entrypoint": "cold-import.extension:voice-call:plugins-voice-call-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/voice-call/cold-import-extension-voice-call-plugins-voice-call-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/voice-call/cold-import-extension-voice-call-plugins-voice-call-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4385,7 +3333,7 @@
       "fixture": "zalo",
       "entrypoint": "cold-import.extension:zalo:plugins-zalo-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/zalo/cold-import-extension-zalo-plugins-zalo-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/zalo/cold-import-extension-zalo-plugins-zalo-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4398,7 +3346,7 @@
       "fixture": "zalo",
       "entrypoint": "cold-import.extension:zalo:plugins-zalo-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/zalo/cold-import-extension-zalo-plugins-zalo-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/zalo/cold-import-extension-zalo-plugins-zalo-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4453,7 +3401,7 @@
       "fixture": "zalouser",
       "entrypoint": "cold-import.extension:zalouser:plugins-zalouser-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/zalouser/cold-import-extension-zalouser-plugins-zalouser-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/zalouser/cold-import-extension-zalouser-plugins-zalouser-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4466,7 +3414,7 @@
       "fixture": "zalouser",
       "entrypoint": "cold-import.extension:zalouser:plugins-zalouser-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/zalouser/cold-import-extension-zalouser-plugins-zalouser-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/zalouser/cold-import-extension-zalouser-plugins-zalouser-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4521,7 +3469,7 @@
       "fixture": "feishu",
       "entrypoint": "cold-import.extension:feishu:plugins-feishu-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/feishu/cold-import-extension-feishu-plugins-feishu-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/feishu/cold-import-extension-feishu-plugins-feishu-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4534,7 +3482,7 @@
       "fixture": "feishu",
       "entrypoint": "cold-import.extension:feishu:plugins-feishu-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/feishu/cold-import-extension-feishu-plugins-feishu-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/feishu/cold-import-extension-feishu-plugins-feishu-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4589,7 +3537,7 @@
       "fixture": "tlon",
       "entrypoint": "cold-import.extension:tlon:plugins-tlon-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/tlon/cold-import-extension-tlon-plugins-tlon-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/tlon/cold-import-extension-tlon-plugins-tlon-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4602,7 +3550,7 @@
       "fixture": "tlon",
       "entrypoint": "cold-import.extension:tlon:plugins-tlon-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/tlon/cold-import-extension-tlon-plugins-tlon-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/tlon/cold-import-extension-tlon-plugins-tlon-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4657,7 +3605,7 @@
       "fixture": "twitch",
       "entrypoint": "cold-import.extension:twitch:plugins-twitch-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/twitch/cold-import-extension-twitch-plugins-twitch-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/twitch/cold-import-extension-twitch-plugins-twitch-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4670,7 +3618,7 @@
       "fixture": "twitch",
       "entrypoint": "cold-import.extension:twitch:plugins-twitch-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/twitch/cold-import-extension-twitch-plugins-twitch-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/twitch/cold-import-extension-twitch-plugins-twitch-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4711,7 +3659,7 @@
       "fixture": "mattermost",
       "entrypoint": "cold-import.extension:mattermost:plugins-mattermost-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4724,7 +3672,7 @@
       "fixture": "mattermost",
       "entrypoint": "cold-import.extension:mattermost:plugins-mattermost-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4779,7 +3727,7 @@
       "fixture": "synology-chat",
       "entrypoint": "cold-import.extension:synology-chat:plugins-synology-chat-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/synology-chat/cold-import-extension-synology-chat-plugins-synology-chat-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/synology-chat/cold-import-extension-synology-chat-plugins-synology-chat-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4792,7 +3740,7 @@
       "fixture": "synology-chat",
       "entrypoint": "cold-import.extension:synology-chat:plugins-synology-chat-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/synology-chat/cold-import-extension-synology-chat-plugins-synology-chat-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/synology-chat/cold-import-extension-synology-chat-plugins-synology-chat-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4833,7 +3781,7 @@
       "fixture": "brave-plugin",
       "entrypoint": "cold-import.extension:brave-plugin:plugins-brave-plugin-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/brave-plugin/cold-import-extension-brave-plugin-plugins-brave-plugin-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/brave-plugin/cold-import-extension-brave-plugin-plugins-brave-plugin-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4846,7 +3794,7 @@
       "fixture": "brave-plugin",
       "entrypoint": "cold-import.extension:brave-plugin:plugins-brave-plugin-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/brave-plugin/cold-import-extension-brave-plugin-plugins-brave-plugin-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/brave-plugin/cold-import-extension-brave-plugin-plugins-brave-plugin-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4901,7 +3849,7 @@
       "fixture": "codex",
       "entrypoint": "cold-import.extension:codex:plugins-codex-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4914,7 +3862,7 @@
       "fixture": "codex",
       "entrypoint": "cold-import.extension:codex:plugins-codex-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4955,7 +3903,7 @@
       "fixture": "diagnostics-prometheus",
       "entrypoint": "cold-import.extension:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4968,7 +3916,7 @@
       "fixture": "diagnostics-prometheus",
       "entrypoint": "cold-import.extension:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5023,7 +3971,7 @@
       "fixture": "google-meet",
       "entrypoint": "cold-import.extension:google-meet:plugins-google-meet-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5036,7 +3984,7 @@
       "fixture": "google-meet",
       "entrypoint": "cold-import.extension:google-meet:plugins-google-meet-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5091,7 +4039,7 @@
       "fixture": "diffs",
       "entrypoint": "cold-import.extension:diffs:plugins-diffs-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5104,7 +4052,7 @@
       "fixture": "diffs",
       "entrypoint": "cold-import.extension:diffs:plugins-diffs-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5159,7 +4107,7 @@
       "fixture": "memory-lancedb",
       "entrypoint": "cold-import.extension:memory-lancedb:plugins-memory-lancedb-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5172,7 +4120,7 @@
       "fixture": "memory-lancedb",
       "entrypoint": "cold-import.extension:memory-lancedb:plugins-memory-lancedb-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5227,7 +4175,7 @@
       "fixture": "openclaw-qqbot",
       "entrypoint": "cold-import.extension:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-extension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-extension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5240,7 +4188,7 @@
       "fixture": "openclaw-qqbot",
       "entrypoint": "cold-import.extension:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-extension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-extension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5295,7 +4243,7 @@
       "fixture": "openclaw-qqbot",
       "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-setup-entry-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5308,7 +4256,7 @@
       "fixture": "openclaw-qqbot",
       "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-setup-entry-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5363,7 +4311,7 @@
       "fixture": "whatsapp",
       "entrypoint": "cold-import.extension:whatsapp:plugins-whatsapp-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5376,7 +4324,7 @@
       "fixture": "whatsapp",
       "entrypoint": "cold-import.extension:whatsapp:plugins-whatsapp-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5431,7 +4379,7 @@
       "fixture": "whatsapp",
       "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5444,7 +4392,7 @@
       "fixture": "whatsapp",
       "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5553,7 +4501,7 @@
       "fixture": "memory-tencentdb",
       "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5566,7 +4514,7 @@
       "fixture": "memory-tencentdb",
       "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5621,7 +4569,7 @@
       "fixture": "ddingtalk",
       "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5634,7 +4582,7 @@
       "fixture": "ddingtalk",
       "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5743,7 +4691,7 @@
       "fixture": "mocrane-wecom",
       "entrypoint": "cold-import.extension:mocrane-wecom:plugins-mocrane-wecom-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5756,7 +4704,7 @@
       "fixture": "mocrane-wecom",
       "entrypoint": "cold-import.extension:mocrane-wecom:plugins-mocrane-wecom-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5811,7 +4759,7 @@
       "fixture": "yuanbao",
       "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5824,7 +4772,7 @@
       "fixture": "yuanbao",
       "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5879,7 +4827,7 @@
       "fixture": "yuanbao",
       "entrypoint": "cold-import.setupEntry:yuanbao:plugins-yuanbao-crabpot-package-setup-entry-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5892,7 +4840,7 @@
       "fixture": "yuanbao",
       "entrypoint": "cold-import.setupEntry:yuanbao:plugins-yuanbao-crabpot-package-setup-entry-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5947,7 +4895,7 @@
       "fixture": "openclaw-weixin",
       "entrypoint": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5960,7 +4908,7 @@
       "fixture": "openclaw-weixin",
       "entrypoint": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -6245,7 +5193,7 @@
       "fixture": "memu-engine",
       "entrypoint": "cold-import.extension:memu-engine:plugins-memu-engine-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -6258,7 +5206,7 @@
       "fixture": "memu-engine",
       "entrypoint": "cold-import.extension:memu-engine:plugins-memu-engine-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -6421,7 +5369,7 @@
       "fixture": "clawmetry",
       "entrypoint": "cold-import.extension:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -6434,7 +5382,7 @@
       "fixture": "clawmetry",
       "entrypoint": "cold-import.extension:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -6543,7 +5491,7 @@
       "fixture": "codex-app-server",
       "entrypoint": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -6556,7 +5504,7 @@
       "fixture": "codex-app-server",
       "entrypoint": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -6597,7 +5545,7 @@
       "fixture": "web-search-plus",
       "entrypoint": "cold-import.extension:web-search-plus:plugins-web-search-plus-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -6610,7 +5558,7 @@
       "fixture": "web-search-plus",
       "entrypoint": "cold-import.extension:web-search-plus:plugins-web-search-plus-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -6665,7 +5613,7 @@
       "fixture": "apify",
       "entrypoint": "cold-import.extension:apify:plugins-apify-src-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -6678,7 +5626,7 @@
       "fixture": "apify",
       "entrypoint": "cold-import.extension:apify:plugins-apify-src-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -6719,7 +5667,7 @@
       "fixture": "inworld-tts",
       "entrypoint": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -6732,7 +5680,7 @@
       "fixture": "inworld-tts",
       "entrypoint": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -6745,7 +5693,7 @@
   "recommendations": [
     {
       "area": "loader",
-      "action": "keep tsx as the source-entrypoint smoke path, add a Jiti execution lane before treating TS plugin source compatibility as covered"
+      "action": "keep mock-SDK TypeScript capture green, add a real host-loader/Jiti lane before treating TS plugin source compatibility as covered"
     }
   ]
 }

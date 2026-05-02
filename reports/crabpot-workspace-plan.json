@@ -7,7 +7,7 @@
   },
   "targetOpenClaw": {
     "status": "ok",
-    "configuredPath": "./openclaw"
+    "configuredPath": "../openclaw"
   },
   "summary": {
     "fixtureCount": 57,
@@ -15,6 +15,7 @@
     "installStepCount": 41,
     "auditStepCount": 41,
     "buildStepCount": 11,
+    "pruneDevWorkspaceDependencyStepCount": 11,
     "artifactStepCount": 66,
     "captureStepCount": 66,
     "syntheticProbeStepCount": 66,
@@ -71,7 +72,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/agentchat",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -140,7 +141,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/agentchat",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -214,7 +215,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/wecom",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -295,7 +296,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/qqbot",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -396,14 +397,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/a2a-gateway",
               "artifactPath": ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/a2a-gateway",
               "artifactPath": ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -472,7 +473,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/hasdata",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -491,14 +492,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --mock-sdk --output ../../results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --mock-sdk --output ../../results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/hasdata",
               "artifactPath": ".crabpot/results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --mock-sdk --output ../../results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --mock-sdk --output ../../results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/hasdata",
               "artifactPath": ".crabpot/results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -573,14 +574,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/mcp-adapter",
               "artifactPath": ".crabpot/results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/mcp-adapter",
               "artifactPath": ".crabpot/results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -642,14 +643,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/llm-trace-phoenix",
               "artifactPath": ".crabpot/results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/llm-trace-phoenix",
               "artifactPath": ".crabpot/results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -712,7 +713,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/opik-openclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -731,14 +732,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/opik-openclaw",
               "artifactPath": ".crabpot/results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/opik-openclaw",
               "artifactPath": ".crabpot/results/opik-openclaw/cold-import-extension-opik-openclaw-plugins-opik-openclaw-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -788,7 +789,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/opik-openclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -863,14 +864,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/openclaw-telemetry",
               "artifactPath": ".crabpot/results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/openclaw-telemetry",
               "artifactPath": ".crabpot/results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -925,7 +926,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/lossless-claw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1001,20 +1002,20 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/connectclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/connectclaw",
               "artifactPath": ".crabpot/results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/connectclaw",
               "artifactPath": ".crabpot/results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -1083,7 +1084,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/hyperspell",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1102,14 +1103,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/hyperspell",
               "artifactPath": ".crabpot/results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/hyperspell",
               "artifactPath": ".crabpot/results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -1170,7 +1171,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/honcho",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1264,14 +1265,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/composio",
               "artifactPath": ".crabpot/results/composio/cold-import-extension-composio-plugins-composio-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/composio/cold-import-extension-composio-plugins-composio-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/composio",
               "artifactPath": ".crabpot/results/composio/cold-import-extension-composio-plugins-composio-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -1319,7 +1320,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/kitchen-sink",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1375,7 +1376,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/kitchen-sink",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1431,7 +1432,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/kitchen-sink",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1675,14 +1676,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/bluebubbles/cold-import-extension-bluebubbles-plugins-bluebubbles-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/bluebubbles/cold-import-extension-bluebubbles-plugins-bluebubbles-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/bluebubbles",
               "artifactPath": ".crabpot/results/bluebubbles/cold-import-extension-bluebubbles-plugins-bluebubbles-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/bluebubbles/cold-import-extension-bluebubbles-plugins-bluebubbles-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/bluebubbles/cold-import-extension-bluebubbles-plugins-bluebubbles-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/bluebubbles",
               "artifactPath": ".crabpot/results/bluebubbles/cold-import-extension-bluebubbles-plugins-bluebubbles-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -1778,14 +1779,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/diagnostics-otel/cold-import-extension-diagnostics-otel-plugins-diagnostics-otel-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/diagnostics-otel/cold-import-extension-diagnostics-otel-plugins-diagnostics-otel-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/diagnostics-otel",
               "artifactPath": ".crabpot/results/diagnostics-otel/cold-import-extension-diagnostics-otel-plugins-diagnostics-otel-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/diagnostics-otel/cold-import-extension-diagnostics-otel-plugins-diagnostics-otel-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/diagnostics-otel/cold-import-extension-diagnostics-otel-plugins-diagnostics-otel-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/diagnostics-otel",
               "artifactPath": ".crabpot/results/diagnostics-otel/cold-import-extension-diagnostics-otel-plugins-diagnostics-otel-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -1841,14 +1842,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/discord/cold-import-extension-discord-plugins-discord-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/discord/cold-import-extension-discord-plugins-discord-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/discord",
               "artifactPath": ".crabpot/results/discord/cold-import-extension-discord-plugins-discord-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/discord/cold-import-extension-discord-plugins-discord-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/discord/cold-import-extension-discord-plugins-discord-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/discord",
               "artifactPath": ".crabpot/results/discord/cold-import-extension-discord-plugins-discord-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -1939,14 +1940,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/lobster/cold-import-extension-lobster-plugins-lobster-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/lobster/cold-import-extension-lobster-plugins-lobster-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/lobster",
               "artifactPath": ".crabpot/results/lobster/cold-import-extension-lobster-plugins-lobster-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/lobster/cold-import-extension-lobster-plugins-lobster-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/lobster/cold-import-extension-lobster-plugins-lobster-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/lobster",
               "artifactPath": ".crabpot/results/lobster/cold-import-extension-lobster-plugins-lobster-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -2172,14 +2173,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/matrix",
               "artifactPath": ".crabpot/results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/matrix",
               "artifactPath": ".crabpot/results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -2415,14 +2416,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/msteams/cold-import-extension-msteams-plugins-msteams-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/msteams/cold-import-extension-msteams-plugins-msteams-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/msteams",
               "artifactPath": ".crabpot/results/msteams/cold-import-extension-msteams-plugins-msteams-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/msteams/cold-import-extension-msteams-plugins-msteams-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/msteams/cold-import-extension-msteams-plugins-msteams-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/msteams",
               "artifactPath": ".crabpot/results/msteams/cold-import-extension-msteams-plugins-msteams-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -2578,14 +2579,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/nextcloud-talk/cold-import-extension-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/nextcloud-talk/cold-import-extension-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/nextcloud-talk",
               "artifactPath": ".crabpot/results/nextcloud-talk/cold-import-extension-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/nextcloud-talk/cold-import-extension-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/nextcloud-talk/cold-import-extension-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/nextcloud-talk",
               "artifactPath": ".crabpot/results/nextcloud-talk/cold-import-extension-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -2696,14 +2697,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/nostr/cold-import-extension-nostr-plugins-nostr-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/nostr/cold-import-extension-nostr-plugins-nostr-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/nostr",
               "artifactPath": ".crabpot/results/nostr/cold-import-extension-nostr-plugins-nostr-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/nostr/cold-import-extension-nostr-plugins-nostr-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/nostr/cold-import-extension-nostr-plugins-nostr-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/nostr",
               "artifactPath": ".crabpot/results/nostr/cold-import-extension-nostr-plugins-nostr-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -2809,14 +2810,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/voice-call/cold-import-extension-voice-call-plugins-voice-call-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/voice-call/cold-import-extension-voice-call-plugins-voice-call-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/voice-call",
               "artifactPath": ".crabpot/results/voice-call/cold-import-extension-voice-call-plugins-voice-call-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/voice-call/cold-import-extension-voice-call-plugins-voice-call-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/voice-call/cold-import-extension-voice-call-plugins-voice-call-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/voice-call",
               "artifactPath": ".crabpot/results/voice-call/cold-import-extension-voice-call-plugins-voice-call-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -3007,14 +3008,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/zalo/cold-import-extension-zalo-plugins-zalo-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/zalo/cold-import-extension-zalo-plugins-zalo-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/zalo",
               "artifactPath": ".crabpot/results/zalo/cold-import-extension-zalo-plugins-zalo-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/zalo/cold-import-extension-zalo-plugins-zalo-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/zalo/cold-import-extension-zalo-plugins-zalo-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/zalo",
               "artifactPath": ".crabpot/results/zalo/cold-import-extension-zalo-plugins-zalo-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -3089,14 +3090,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/zalouser/cold-import-extension-zalouser-plugins-zalouser-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/zalouser/cold-import-extension-zalouser-plugins-zalouser-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/zalouser",
               "artifactPath": ".crabpot/results/zalouser/cold-import-extension-zalouser-plugins-zalouser-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/zalouser/cold-import-extension-zalouser-plugins-zalouser-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/zalouser/cold-import-extension-zalouser-plugins-zalouser-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/zalouser",
               "artifactPath": ".crabpot/results/zalouser/cold-import-extension-zalouser-plugins-zalouser-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -3372,14 +3373,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/feishu/cold-import-extension-feishu-plugins-feishu-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/feishu/cold-import-extension-feishu-plugins-feishu-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/feishu",
               "artifactPath": ".crabpot/results/feishu/cold-import-extension-feishu-plugins-feishu-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/feishu/cold-import-extension-feishu-plugins-feishu-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/feishu/cold-import-extension-feishu-plugins-feishu-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/feishu",
               "artifactPath": ".crabpot/results/feishu/cold-import-extension-feishu-plugins-feishu-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -3440,6 +3441,12 @@
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
             },
             {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/tlon",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
               "kind": "install",
               "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/tlon",
@@ -3454,14 +3461,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/tlon/cold-import-extension-tlon-plugins-tlon-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/tlon/cold-import-extension-tlon-plugins-tlon-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/tlon",
               "artifactPath": ".crabpot/results/tlon/cold-import-extension-tlon-plugins-tlon-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/tlon/cold-import-extension-tlon-plugins-tlon-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/tlon/cold-import-extension-tlon-plugins-tlon-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/tlon",
               "artifactPath": ".crabpot/results/tlon/cold-import-extension-tlon-plugins-tlon-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -3522,6 +3529,12 @@
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
             },
             {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/twitch",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
               "kind": "install",
               "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/twitch",
@@ -3536,14 +3549,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/twitch/cold-import-extension-twitch-plugins-twitch-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/twitch/cold-import-extension-twitch-plugins-twitch-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/twitch",
               "artifactPath": ".crabpot/results/twitch/cold-import-extension-twitch-plugins-twitch-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/twitch/cold-import-extension-twitch-plugins-twitch-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/twitch/cold-import-extension-twitch-plugins-twitch-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/twitch",
               "artifactPath": ".crabpot/results/twitch/cold-import-extension-twitch-plugins-twitch-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -3599,14 +3612,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/mattermost",
               "artifactPath": ".crabpot/results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/mattermost",
               "artifactPath": ".crabpot/results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -3667,6 +3680,12 @@
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
             },
             {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/synology-chat",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
               "kind": "install",
               "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/synology-chat",
@@ -3681,14 +3700,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/synology-chat/cold-import-extension-synology-chat-plugins-synology-chat-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/synology-chat/cold-import-extension-synology-chat-plugins-synology-chat-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/synology-chat",
               "artifactPath": ".crabpot/results/synology-chat/cold-import-extension-synology-chat-plugins-synology-chat-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/synology-chat/cold-import-extension-synology-chat-plugins-synology-chat-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/synology-chat/cold-import-extension-synology-chat-plugins-synology-chat-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/synology-chat",
               "artifactPath": ".crabpot/results/synology-chat/cold-import-extension-synology-chat-plugins-synology-chat-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -3744,14 +3763,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/brave-plugin/cold-import-extension-brave-plugin-plugins-brave-plugin-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/brave-plugin/cold-import-extension-brave-plugin-plugins-brave-plugin-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/brave-plugin",
               "artifactPath": ".crabpot/results/brave-plugin/cold-import-extension-brave-plugin-plugins-brave-plugin-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/brave-plugin/cold-import-extension-brave-plugin-plugins-brave-plugin-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/brave-plugin/cold-import-extension-brave-plugin-plugins-brave-plugin-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/brave-plugin",
               "artifactPath": ".crabpot/results/brave-plugin/cold-import-extension-brave-plugin-plugins-brave-plugin-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -3812,6 +3831,12 @@
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
             },
             {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/codex",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
               "kind": "install",
               "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/codex",
@@ -3826,14 +3851,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/codex",
               "artifactPath": ".crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/codex",
               "artifactPath": ".crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -3889,14 +3914,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/diagnostics-prometheus",
               "artifactPath": ".crabpot/results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/diagnostics-prometheus",
               "artifactPath": ".crabpot/results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -3959,9 +3984,15 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/google-meet",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/google-meet",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -3978,14 +4009,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/google-meet",
               "artifactPath": ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/google-meet",
               "artifactPath": ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -4046,6 +4077,12 @@
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
             },
             {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/diffs",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
               "kind": "install",
               "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/diffs",
@@ -4060,14 +4097,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/diffs",
               "artifactPath": ".crabpot/results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/diffs",
               "artifactPath": ".crabpot/results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -4128,6 +4165,12 @@
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
             },
             {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/memory-lancedb",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
               "kind": "install",
               "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/memory-lancedb",
@@ -4142,14 +4185,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/memory-lancedb",
               "artifactPath": ".crabpot/results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/memory-lancedb",
               "artifactPath": ".crabpot/results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -4212,9 +4255,15 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/openclaw-qqbot",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -4231,14 +4280,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-extension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-extension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
               "artifactPath": ".crabpot/results/openclaw-qqbot/cold-import-extension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-extension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-extension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
               "artifactPath": ".crabpot/results/openclaw-qqbot/cold-import-extension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -4296,9 +4345,15 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/openclaw-qqbot",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -4315,14 +4370,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.capture.json",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
               "artifactPath": ".crabpot/results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
               "artifactPath": ".crabpot/results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -4385,9 +4440,15 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/whatsapp",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/whatsapp",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -4404,14 +4465,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/whatsapp",
               "artifactPath": ".crabpot/results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/whatsapp",
               "artifactPath": ".crabpot/results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -4469,9 +4530,15 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/whatsapp",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/whatsapp",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -4488,14 +4555,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.capture.json",
               "cwd": ".crabpot/workspaces/whatsapp",
               "artifactPath": ".crabpot/results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/whatsapp",
               "artifactPath": ".crabpot/results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -4625,7 +4692,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/memory-tencentdb",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4644,14 +4711,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/memory-tencentdb",
               "artifactPath": ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/memory-tencentdb",
               "artifactPath": ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -4714,7 +4781,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/ddingtalk",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4733,14 +4800,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/ddingtalk",
               "artifactPath": ".crabpot/results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/ddingtalk",
               "artifactPath": ".crabpot/results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -4795,7 +4862,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/dingtalk-connector",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4877,7 +4944,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/mocrane-wecom",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4896,14 +4963,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/mocrane-wecom",
               "artifactPath": ".crabpot/results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/mocrane-wecom",
               "artifactPath": ".crabpot/results/mocrane-wecom/cold-import-extension-mocrane-wecom-plugins-mocrane-wecom-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -4997,7 +5064,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/yuanbao",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5016,14 +5083,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/yuanbao",
               "artifactPath": ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/yuanbao",
               "artifactPath": ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -5112,7 +5179,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/yuanbao",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5131,14 +5198,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.capture.json",
               "cwd": ".crabpot/workspaces/yuanbao",
               "artifactPath": ".crabpot/results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/yuanbao",
               "artifactPath": ".crabpot/results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-setup-entry-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -5213,14 +5280,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/openclaw-weixin",
               "artifactPath": ".crabpot/results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/openclaw-weixin",
               "artifactPath": ".crabpot/results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -5275,7 +5342,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/lightclawbot",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5491,7 +5558,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/clawrouter",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5579,14 +5646,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/memu-engine",
               "artifactPath": ".crabpot/results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/memu-engine",
               "artifactPath": ".crabpot/results/memu-engine/cold-import-extension-memu-engine-plugins-memu-engine-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -5641,7 +5708,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/secureclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5802,14 +5869,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/clawmetry",
               "artifactPath": ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/clawmetry",
               "artifactPath": ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -5940,7 +6007,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/codex-app-server",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5959,14 +6026,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/codex-app-server",
               "artifactPath": ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/codex-app-server",
               "artifactPath": ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -6029,20 +6096,20 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/web-search-plus",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/web-search-plus",
               "artifactPath": ".crabpot/results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/web-search-plus",
               "artifactPath": ".crabpot/results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -6105,7 +6172,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/apify",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6124,14 +6191,14 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/apify",
               "artifactPath": ".crabpot/results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/apify",
               "artifactPath": ".crabpot/results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
@@ -6188,20 +6255,20 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
               "cwd": ".crabpot/workspaces/inworld-tts",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/inworld-tts",
               "artifactPath": ".crabpot/results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node --import tsx ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/inworld-tts",
               "artifactPath": ".crabpot/results/inworld-tts/cold-import-extension-inworld-tts-plugins-inworld-tts-index-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
