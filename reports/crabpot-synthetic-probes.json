@@ -1,15 +1,15 @@
 {
   "generatedAt": "deterministic",
   "summary": {
-    "fixtureCount": 33,
-    "probeCount": 293,
-    "hookProbeCount": 84,
-    "registrationProbeCount": 209,
-    "readyCount": 293,
+    "fixtureCount": 57,
+    "probeCount": 377,
+    "hookProbeCount": 92,
+    "registrationProbeCount": 285,
+    "readyCount": 377,
     "blockedCount": 0,
-    "directExecutionCount": 110,
-    "optInExecutionCount": 24,
-    "metadataOnlyCount": 75
+    "directExecutionCount": 155,
+    "optInExecutionCount": 42,
+    "metadataOnlyCount": 88
   },
   "probes": [
     {
@@ -1720,6 +1720,220 @@
         "fixture": "kitchen-sink"
       },
       "source": "plugins/kitchen-sink/src/generated-hooks.js:39"
+    },
+    {
+      "id": "hook.subagent_delivery_target:discord:plugins-discord-crabpot-package-src-subagent-hooks-ts-103",
+      "fixture": "discord",
+      "kind": "hook",
+      "seam": "subagent_delivery_target",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "target routing result is preserved",
+        "parent/subagent metadata are present"
+      ],
+      "syntheticEvent": {
+        "childSessionKey": "child-session",
+        "agentId": "agent-child",
+        "label": "fixture child",
+        "mode": "run",
+        "requester": {
+          "channel": "fixture-channel",
+          "accountId": "fixture-account"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "parentAgentId": "agent-parent"
+      },
+      "source": "plugins/discord/.crabpot-package/src/subagent-hooks.ts:103"
+    },
+    {
+      "id": "hook.subagent_ended:discord:plugins-discord-crabpot-package-src-subagent-hooks-ts-93",
+      "fixture": "discord",
+      "kind": "hook",
+      "seam": "subagent_ended",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "subagent completion payload is preserved",
+        "status metadata is present"
+      ],
+      "syntheticEvent": {
+        "childSessionKey": "child-session",
+        "agentId": "agent-child",
+        "status": "completed"
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "parentAgentId": "agent-parent"
+      },
+      "source": "plugins/discord/.crabpot-package/src/subagent-hooks.ts:93"
+    },
+    {
+      "id": "hook.subagent_spawning:discord:plugins-discord-crabpot-package-src-subagent-hooks-ts-41",
+      "fixture": "discord",
+      "kind": "hook",
+      "seam": "subagent_spawning",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "subagent_spawning",
+        "fixture": "discord"
+      },
+      "syntheticContext": {
+        "hook": "subagent_spawning",
+        "fixture": "discord"
+      },
+      "source": "plugins/discord/.crabpot-package/src/subagent-hooks.ts:41"
+    },
+    {
+      "id": "hook.inbound_claim:codex:plugins-codex-crabpot-package-index-ts-34",
+      "fixture": "codex",
+      "kind": "hook",
+      "seam": "inbound_claim",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "claim payload preserves channel/source identity",
+        "routing metadata is present"
+      ],
+      "syntheticEvent": {
+        "channelId": "fixture-channel",
+        "source": {
+          "type": "external",
+          "id": "fixture-source"
+        },
+        "message": {
+          "id": "message-fixture",
+          "text": "claim this message"
+        }
+      },
+      "syntheticContext": {
+        "channelId": "fixture-channel",
+        "accountId": "fixture-account"
+      },
+      "source": "plugins/codex/.crabpot-package/index.ts:34"
+    },
+    {
+      "id": "hook.before_prompt_build:diffs:plugins-diffs-crabpot-package-src-plugin-ts-70",
+      "fixture": "diffs",
+      "kind": "hook",
+      "seam": "before_prompt_build",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "prompt mutation result is preserved",
+        "agent and conversation metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "messages": [
+          {
+            "role": "user",
+            "content": "fixture prompt"
+          }
+        ],
+        "metadata": {
+          "source": "plugin-inspector"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/diffs/.crabpot-package/src/plugin.ts:70"
+    },
+    {
+      "id": "hook.agent_end:memory-lancedb:plugins-memory-lancedb-crabpot-package-index-ts-1005",
+      "fixture": "memory-lancedb",
+      "kind": "hook",
+      "seam": "agent_end",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "final conversation payload is redacted as expected",
+        "agent id and run metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "status": "completed",
+        "transcript": [
+          {
+            "role": "assistant",
+            "content": "[redacted fixture output]"
+          }
+        ]
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/memory-lancedb/.crabpot-package/index.ts:1005"
+    },
+    {
+      "id": "hook.before_prompt_build:memory-lancedb:plugins-memory-lancedb-crabpot-package-index-ts-955",
+      "fixture": "memory-lancedb",
+      "kind": "hook",
+      "seam": "before_prompt_build",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "prompt mutation result is preserved",
+        "agent and conversation metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "messages": [
+          {
+            "role": "user",
+            "content": "fixture prompt"
+          }
+        ],
+        "metadata": {
+          "source": "plugin-inspector"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/memory-lancedb/.crabpot-package/index.ts:955"
+    },
+    {
+      "id": "hook.session_end:memory-lancedb:plugins-memory-lancedb-crabpot-package-index-ts-1072",
+      "fixture": "memory-lancedb",
+      "kind": "hook",
+      "seam": "session_end",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "session_end",
+        "fixture": "memory-lancedb"
+      },
+      "syntheticContext": {
+        "hook": "session_end",
+        "fixture": "memory-lancedb"
+      },
+      "source": "plugins/memory-lancedb/.crabpot-package/index.ts:1072"
     },
     {
       "id": "hook.before_agent_start:nemoclaw:plugins-nemoclaw-nemoclaw-src-runtime-context-ts-474",
@@ -5417,6 +5631,2241 @@
         "reason": "web search providers are captured as registration metadata before provider runtime execution"
       },
       "source": "plugins/kitchen-sink/src/kitchen-runtime.js:80"
+    },
+    {
+      "id": "registration.registerChannel:bluebubbles:plugins-bluebubbles-crabpot-package-index-ts-13",
+      "fixture": "bluebubbles",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "sendMessage",
+          "receive",
+          "handleMessage"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/bluebubbles/.crabpot-package/index.ts:13"
+    },
+    {
+      "id": "registration.registerService:diagnostics-otel:plugins-diagnostics-otel-crabpot-package-index-ts-11",
+      "fixture": "diagnostics-otel",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop",
+          "dispose"
+        ],
+        "option": "includeLifecycle"
+      },
+      "source": "plugins/diagnostics-otel/.crabpot-package/index.ts:11"
+    },
+    {
+      "id": "registration.registerChannel:discord:plugins-discord-crabpot-package-index-ts-14",
+      "fixture": "discord",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "sendMessage",
+          "receive",
+          "handleMessage"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/discord/.crabpot-package/index.ts:14"
+    },
+    {
+      "id": "registration.registerTool:lobster:plugins-lobster-crabpot-package-index-ts-9",
+      "fixture": "lobster",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/lobster/.crabpot-package/index.ts:9"
+    },
+    {
+      "id": "registration.registerChannel:matrix:plugins-matrix-crabpot-package-index-ts-18",
+      "fixture": "matrix",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "sendMessage",
+          "receive",
+          "handleMessage"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/matrix/.crabpot-package/index.ts:18"
+    },
+    {
+      "id": "registration.registerChannel:msteams:plugins-msteams-crabpot-package-index-ts-13",
+      "fixture": "msteams",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "sendMessage",
+          "receive",
+          "handleMessage"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/msteams/.crabpot-package/index.ts:13"
+    },
+    {
+      "id": "registration.registerChannel:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-index-ts-13",
+      "fixture": "nextcloud-talk",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "sendMessage",
+          "receive",
+          "handleMessage"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/nextcloud-talk/.crabpot-package/index.ts:13"
+    },
+    {
+      "id": "registration.registerChannel:nostr:plugins-nostr-crabpot-package-index-ts-16",
+      "fixture": "nostr",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "sendMessage",
+          "receive",
+          "handleMessage"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/nostr/.crabpot-package/index.ts:16"
+    },
+    {
+      "id": "registration.registerHttpRoute:nostr:plugins-nostr-crabpot-package-index-ts-64",
+      "fixture": "nostr",
+      "kind": "registration",
+      "seam": "registerHttpRoute",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "route method and path are captured",
+        "auth policy metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "method": "POST",
+          "path": "/fixture/probe",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/nostr/.crabpot-package/index.ts:64"
+    },
+    {
+      "id": "registration.registerCli:voice-call:plugins-voice-call-crabpot-package-index-ts-521",
+      "fixture": "voice-call",
+      "kind": "registration",
+      "seam": "registerCli",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command name is stable",
+        "argument schema is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "args": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/voice-call/.crabpot-package/index.ts:521"
+    },
+    {
+      "id": "registration.registerGatewayMethod:voice-call:plugins-voice-call-crabpot-package-index-ts-261",
+      "fixture": "voice-call",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/voice-call/.crabpot-package/index.ts:261"
+    },
+    {
+      "id": "registration.registerGatewayMethod:voice-call:plugins-voice-call-crabpot-package-index-ts-294",
+      "fixture": "voice-call",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/voice-call/.crabpot-package/index.ts:294"
+    },
+    {
+      "id": "registration.registerGatewayMethod:voice-call:plugins-voice-call-crabpot-package-index-ts-311",
+      "fixture": "voice-call",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/voice-call/.crabpot-package/index.ts:311"
+    },
+    {
+      "id": "registration.registerGatewayMethod:voice-call:plugins-voice-call-crabpot-package-index-ts-327",
+      "fixture": "voice-call",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/voice-call/.crabpot-package/index.ts:327"
+    },
+    {
+      "id": "registration.registerGatewayMethod:voice-call:plugins-voice-call-crabpot-package-index-ts-349",
+      "fixture": "voice-call",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/voice-call/.crabpot-package/index.ts:349"
+    },
+    {
+      "id": "registration.registerGatewayMethod:voice-call:plugins-voice-call-crabpot-package-index-ts-376",
+      "fixture": "voice-call",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/voice-call/.crabpot-package/index.ts:376"
+    },
+    {
+      "id": "registration.registerService:voice-call:plugins-voice-call-crabpot-package-index-ts-532",
+      "fixture": "voice-call",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop",
+          "dispose"
+        ],
+        "option": "includeLifecycle"
+      },
+      "source": "plugins/voice-call/.crabpot-package/index.ts:532"
+    },
+    {
+      "id": "registration.registerTool:voice-call:plugins-voice-call-crabpot-package-index-ts-399",
+      "fixture": "voice-call",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/voice-call/.crabpot-package/index.ts:399"
+    },
+    {
+      "id": "registration.registerChannel:zalo:plugins-zalo-crabpot-package-index-ts-13",
+      "fixture": "zalo",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "sendMessage",
+          "receive",
+          "handleMessage"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/zalo/.crabpot-package/index.ts:13"
+    },
+    {
+      "id": "registration.registerChannel:zalouser:plugins-zalouser-crabpot-package-index-ts-14",
+      "fixture": "zalouser",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "sendMessage",
+          "receive",
+          "handleMessage"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/zalouser/.crabpot-package/index.ts:14"
+    },
+    {
+      "id": "registration.registerTool:zalouser:plugins-zalouser-crabpot-package-index-ts-16",
+      "fixture": "zalouser",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/zalouser/.crabpot-package/index.ts:16"
+    },
+    {
+      "id": "registration.registerChannel:feishu:plugins-feishu-crabpot-package-index-ts-55",
+      "fixture": "feishu",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "sendMessage",
+          "receive",
+          "handleMessage"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/feishu/.crabpot-package/index.ts:55"
+    },
+    {
+      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-src-bitable-ts-559",
+      "fixture": "feishu",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/feishu/.crabpot-package/src/bitable.ts:559"
+    },
+    {
+      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-src-chat-ts-95",
+      "fixture": "feishu",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/feishu/.crabpot-package/src/chat.ts:95"
+    },
+    {
+      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-src-docx-ts-1262",
+      "fixture": "feishu",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/feishu/.crabpot-package/src/docx.ts:1262"
+    },
+    {
+      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-src-docx-ts-1436",
+      "fixture": "feishu",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/feishu/.crabpot-package/src/docx.ts:1436"
+    },
+    {
+      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-src-drive-ts-186",
+      "fixture": "feishu",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/feishu/.crabpot-package/src/drive.ts:186"
+    },
+    {
+      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-src-perm-ts-135",
+      "fixture": "feishu",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/feishu/.crabpot-package/src/perm.ts:135"
+    },
+    {
+      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-src-wiki-ts-174",
+      "fixture": "feishu",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/feishu/.crabpot-package/src/wiki.ts:174"
+    },
+    {
+      "id": "registration.registerChannel:tlon:plugins-tlon-crabpot-package-index-ts-13",
+      "fixture": "tlon",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "sendMessage",
+          "receive",
+          "handleMessage"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/tlon/.crabpot-package/index.ts:13"
+    },
+    {
+      "id": "registration.registerChannel:twitch:plugins-twitch-crabpot-package-index-ts-16",
+      "fixture": "twitch",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "sendMessage",
+          "receive",
+          "handleMessage"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/twitch/.crabpot-package/index.ts:16"
+    },
+    {
+      "id": "registration.registerChannel:mattermost:plugins-mattermost-crabpot-package-index-ts-13",
+      "fixture": "mattermost",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "sendMessage",
+          "receive",
+          "handleMessage"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/mattermost/.crabpot-package/index.ts:13"
+    },
+    {
+      "id": "registration.registerChannel:synology-chat:plugins-synology-chat-crabpot-package-index-ts-13",
+      "fixture": "synology-chat",
+      "kind": "registration",
+      "seam": "registerChannel",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel id is stable",
+        "inbound/outbound envelope shape is captured",
+        "sender metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-channel",
+          "send": "function",
+          "receive": "function"
+        }
+      ],
+      "execution": {
+        "mode": "channel-opt-in",
+        "callableProperties": [
+          "send",
+          "sendMessage",
+          "receive",
+          "handleMessage"
+        ],
+        "option": "includeChannelRuntime"
+      },
+      "source": "plugins/synology-chat/.crabpot-package/index.ts:13"
+    },
+    {
+      "id": "registration.definePluginEntry:brave-plugin:plugins-brave-plugin-crabpot-package-index-ts-4",
+      "fixture": "brave-plugin",
+      "kind": "registration",
+      "seam": "definePluginEntry",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "entrypoint register function is callable",
+        "entrypoint metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-plugin",
+          "register": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "entry wrapper metadata is captured before plugin runtime execution"
+      },
+      "source": "plugins/brave-plugin/.crabpot-package/index.ts:4"
+    },
+    {
+      "id": "registration.registerWebSearchProvider:brave-plugin:plugins-brave-plugin-crabpot-package-index-ts-9",
+      "fixture": "brave-plugin",
+      "kind": "registration",
+      "seam": "registerWebSearchProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "web search providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/brave-plugin/.crabpot-package/index.ts:9"
+    },
+    {
+      "id": "registration.definePluginEntry:codex:plugins-codex-crabpot-package-index-ts-14",
+      "fixture": "codex",
+      "kind": "registration",
+      "seam": "definePluginEntry",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "entrypoint register function is callable",
+        "entrypoint metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-plugin",
+          "register": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "entry wrapper metadata is captured before plugin runtime execution"
+      },
+      "source": "plugins/codex/.crabpot-package/index.ts:14"
+    },
+    {
+      "id": "registration.registerAgentHarness:codex:plugins-codex-crabpot-package-index-ts-27",
+      "fixture": "codex",
+      "kind": "registration",
+      "seam": "registerAgentHarness",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "agent harness factories are captured as registration metadata; agent runtime execution remains isolated opt-in"
+      },
+      "source": "plugins/codex/.crabpot-package/index.ts:27"
+    },
+    {
+      "id": "registration.registerCommand:codex:plugins-codex-crabpot-package-index-ts-33",
+      "fixture": "codex",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/codex/.crabpot-package/index.ts:33"
+    },
+    {
+      "id": "registration.registerMediaUnderstandingProvider:codex:plugins-codex-crabpot-package-index-ts-29",
+      "fixture": "codex",
+      "kind": "registration",
+      "seam": "registerMediaUnderstandingProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "media understanding providers are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/codex/.crabpot-package/index.ts:29"
+    },
+    {
+      "id": "registration.registerMigrationProvider:codex:plugins-codex-crabpot-package-index-ts-32",
+      "fixture": "codex",
+      "kind": "registration",
+      "seam": "registerMigrationProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "migration providers are captured as registration metadata before migration runtime execution"
+      },
+      "source": "plugins/codex/.crabpot-package/index.ts:32"
+    },
+    {
+      "id": "registration.registerProvider:codex:plugins-codex-crabpot-package-index-ts-28",
+      "fixture": "codex",
+      "kind": "registration",
+      "seam": "registerProvider",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
+      },
+      "source": "plugins/codex/.crabpot-package/index.ts:28"
+    },
+    {
+      "id": "registration.definePluginEntry:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-index-ts-6",
+      "fixture": "diagnostics-prometheus",
+      "kind": "registration",
+      "seam": "definePluginEntry",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "entrypoint register function is callable",
+        "entrypoint metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-plugin",
+          "register": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "entry wrapper metadata is captured before plugin runtime execution"
+      },
+      "source": "plugins/diagnostics-prometheus/.crabpot-package/index.ts:6"
+    },
+    {
+      "id": "registration.registerHttpRoute:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-index-ts-12",
+      "fixture": "diagnostics-prometheus",
+      "kind": "registration",
+      "seam": "registerHttpRoute",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "route method and path are captured",
+        "auth policy metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "method": "POST",
+          "path": "/fixture/probe",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/diagnostics-prometheus/.crabpot-package/index.ts:12"
+    },
+    {
+      "id": "registration.registerService:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-index-ts-11",
+      "fixture": "diagnostics-prometheus",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop",
+          "dispose"
+        ],
+        "option": "includeLifecycle"
+      },
+      "source": "plugins/diagnostics-prometheus/.crabpot-package/index.ts:11"
+    },
+    {
+      "id": "registration.definePluginEntry:google-meet:plugins-google-meet-crabpot-package-index-ts-585",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "definePluginEntry",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "entrypoint register function is callable",
+        "entrypoint metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-plugin",
+          "register": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "entry wrapper metadata is captured before plugin runtime execution"
+      },
+      "source": "plugins/google-meet/.crabpot-package/index.ts:585"
+    },
+    {
+      "id": "registration.registerCli:google-meet:plugins-google-meet-crabpot-package-index-ts-1024",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "registerCli",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command name is stable",
+        "argument schema is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "args": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/google-meet/.crabpot-package/index.ts:1024"
+    },
+    {
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-index-ts-631",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/google-meet/.crabpot-package/index.ts:631"
+    },
+    {
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-index-ts-652",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/google-meet/.crabpot-package/index.ts:652"
+    },
+    {
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-index-ts-674",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/google-meet/.crabpot-package/index.ts:674"
+    },
+    {
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-index-ts-686",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/google-meet/.crabpot-package/index.ts:686"
+    },
+    {
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-index-ts-704",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/google-meet/.crabpot-package/index.ts:704"
+    },
+    {
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-index-ts-722",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/google-meet/.crabpot-package/index.ts:722"
+    },
+    {
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-index-ts-746",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/google-meet/.crabpot-package/index.ts:746"
+    },
+    {
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-index-ts-768",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/google-meet/.crabpot-package/index.ts:768"
+    },
+    {
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-index-ts-792",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/google-meet/.crabpot-package/index.ts:792"
+    },
+    {
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-index-ts-817",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/google-meet/.crabpot-package/index.ts:817"
+    },
+    {
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-index-ts-828",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/google-meet/.crabpot-package/index.ts:828"
+    },
+    {
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-index-ts-845",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/google-meet/.crabpot-package/index.ts:845"
+    },
+    {
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-index-ts-862",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/google-meet/.crabpot-package/index.ts:862"
+    },
+    {
+      "id": "registration.registerNodeHostCommand:google-meet:plugins-google-meet-crabpot-package-index-ts-1018",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "registerNodeHostCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "node host commands are captured as registration metadata before host process execution"
+      },
+      "source": "plugins/google-meet/.crabpot-package/index.ts:1018"
+    },
+    {
+      "id": "registration.registerTool:google-meet:plugins-google-meet-crabpot-package-index-ts-883",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/google-meet/.crabpot-package/index.ts:883"
+    },
+    {
+      "id": "registration.definePluginEntry:diffs:plugins-diffs-crabpot-package-index-ts-5",
+      "fixture": "diffs",
+      "kind": "registration",
+      "seam": "definePluginEntry",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "entrypoint register function is callable",
+        "entrypoint metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-plugin",
+          "register": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "entry wrapper metadata is captured before plugin runtime execution"
+      },
+      "source": "plugins/diffs/.crabpot-package/index.ts:5"
+    },
+    {
+      "id": "registration.registerHttpRoute:diffs:plugins-diffs-crabpot-package-src-plugin-ts-57",
+      "fixture": "diffs",
+      "kind": "registration",
+      "seam": "registerHttpRoute",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "route method and path are captured",
+        "auth policy metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "method": "POST",
+          "path": "/fixture/probe",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/diffs/.crabpot-package/src/plugin.ts:57"
+    },
+    {
+      "id": "registration.registerTool:diffs:plugins-diffs-crabpot-package-src-plugin-ts-42",
+      "fixture": "diffs",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/diffs/.crabpot-package/src/plugin.ts:42"
+    },
+    {
+      "id": "registration.definePluginEntry:memory-lancedb:plugins-memory-lancedb-crabpot-package-cli-metadata-ts-3",
+      "fixture": "memory-lancedb",
+      "kind": "registration",
+      "seam": "definePluginEntry",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "entrypoint register function is callable",
+        "entrypoint metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-plugin",
+          "register": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "entry wrapper metadata is captured before plugin runtime execution"
+      },
+      "source": "plugins/memory-lancedb/.crabpot-package/cli-metadata.ts:3"
+    },
+    {
+      "id": "registration.definePluginEntry:memory-lancedb:plugins-memory-lancedb-crabpot-package-index-ts-574",
+      "fixture": "memory-lancedb",
+      "kind": "registration",
+      "seam": "definePluginEntry",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "entrypoint register function is callable",
+        "entrypoint metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-plugin",
+          "register": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "entry wrapper metadata is captured before plugin runtime execution"
+      },
+      "source": "plugins/memory-lancedb/.crabpot-package/index.ts:574"
+    },
+    {
+      "id": "registration.registerCli:memory-lancedb:plugins-memory-lancedb-crabpot-package-cli-metadata-ts-8",
+      "fixture": "memory-lancedb",
+      "kind": "registration",
+      "seam": "registerCli",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command name is stable",
+        "argument schema is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "args": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/memory-lancedb/.crabpot-package/cli-metadata.ts:8"
+    },
+    {
+      "id": "registration.registerCli:memory-lancedb:plugins-memory-lancedb-crabpot-package-index-ts-835",
+      "fixture": "memory-lancedb",
+      "kind": "registration",
+      "seam": "registerCli",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command name is stable",
+        "argument schema is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "args": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/memory-lancedb/.crabpot-package/index.ts:835"
+    },
+    {
+      "id": "registration.registerService:memory-lancedb:plugins-memory-lancedb-crabpot-package-index-ts-1085",
+      "fixture": "memory-lancedb",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop",
+          "dispose"
+        ],
+        "option": "includeLifecycle"
+      },
+      "source": "plugins/memory-lancedb/.crabpot-package/index.ts:1085"
+    },
+    {
+      "id": "registration.registerService:memory-lancedb:plugins-memory-lancedb-crabpot-package-index-ts-586",
+      "fixture": "memory-lancedb",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop",
+          "dispose"
+        ],
+        "option": "includeLifecycle"
+      },
+      "source": "plugins/memory-lancedb/.crabpot-package/index.ts:586"
+    },
+    {
+      "id": "registration.registerTool:memory-lancedb:plugins-memory-lancedb-crabpot-package-index-ts-643",
+      "fixture": "memory-lancedb",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/memory-lancedb/.crabpot-package/index.ts:643"
+    },
+    {
+      "id": "registration.registerTool:memory-lancedb:plugins-memory-lancedb-crabpot-package-index-ts-694",
+      "fixture": "memory-lancedb",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/memory-lancedb/.crabpot-package/index.ts:694"
+    },
+    {
+      "id": "registration.registerTool:memory-lancedb:plugins-memory-lancedb-crabpot-package-index-ts-757",
+      "fixture": "memory-lancedb",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/memory-lancedb/.crabpot-package/index.ts:757"
+    },
+    {
+      "id": "registration.registerCommand:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-src-bridge-commands-framework-registration-ts-23",
+      "fixture": "openclaw-qqbot",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/openclaw-qqbot/.crabpot-package/src/bridge/commands/framework-registration.ts:23"
+    },
+    {
+      "id": "registration.registerTool:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-src-bridge-tools-channel-ts-32",
+      "fixture": "openclaw-qqbot",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/openclaw-qqbot/.crabpot-package/src/bridge/tools/channel.ts:32"
+    },
+    {
+      "id": "registration.registerTool:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-src-bridge-tools-remind-ts-90",
+      "fixture": "openclaw-qqbot",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/openclaw-qqbot/.crabpot-package/src/bridge/tools/remind.ts:90"
     },
     {
       "id": "registration.registerCommand:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-336",

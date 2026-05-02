@@ -37,6 +37,16 @@
               "tag": { "type": "string", "minLength": 1 }
             }
           },
+          "source": {
+            "type": "object",
+            "required": ["repo", "path", "ref"],
+            "additionalProperties": false,
+            "properties": {
+              "repo": { "type": "string", "pattern": "^https://github.com/.+\\.git$" },
+              "path": { "type": "string", "pattern": "^[^/].*" },
+              "ref": { "type": "string", "minLength": 1 }
+            }
+          },
           "path": { "type": "string", "pattern": "^plugins/[a-z0-9][a-z0-9-]*$" },
           "subdir": { "type": "string", "minLength": 1 },
           "priority": { "enum": ["high", "medium", "low"] },

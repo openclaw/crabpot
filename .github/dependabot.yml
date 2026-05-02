@@ -55,3 +55,267 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/bluebubbles"
+    schedule:
+      interval: "cron"
+      cronjob: "01 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/diagnostics-otel"
+    schedule:
+      interval: "cron"
+      cronjob: "02 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/discord"
+    schedule:
+      interval: "cron"
+      cronjob: "03 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/lobster"
+    schedule:
+      interval: "cron"
+      cronjob: "04 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/matrix"
+    schedule:
+      interval: "cron"
+      cronjob: "05 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/msteams"
+    schedule:
+      interval: "cron"
+      cronjob: "06 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/nextcloud-talk"
+    schedule:
+      interval: "cron"
+      cronjob: "07 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/nostr"
+    schedule:
+      interval: "cron"
+      cronjob: "08 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/voice-call"
+    schedule:
+      interval: "cron"
+      cronjob: "09 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/zalo"
+    schedule:
+      interval: "cron"
+      cronjob: "10 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/zalouser"
+    schedule:
+      interval: "cron"
+      cronjob: "11 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/feishu"
+    schedule:
+      interval: "cron"
+      cronjob: "12 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/tlon"
+    schedule:
+      interval: "cron"
+      cronjob: "13 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/twitch"
+    schedule:
+      interval: "cron"
+      cronjob: "14 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/mattermost"
+    schedule:
+      interval: "cron"
+      cronjob: "15 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/synology-chat"
+    schedule:
+      interval: "cron"
+      cronjob: "16 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/brave-plugin"
+    schedule:
+      interval: "cron"
+      cronjob: "17 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/codex"
+    schedule:
+      interval: "cron"
+      cronjob: "18 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/diagnostics-prometheus"
+    schedule:
+      interval: "cron"
+      cronjob: "19 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/google-meet"
+    schedule:
+      interval: "cron"
+      cronjob: "20 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/diffs"
+    schedule:
+      interval: "cron"
+      cronjob: "21 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/memory-lancedb"
+    schedule:
+      interval: "cron"
+      cronjob: "22 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/openclaw-qqbot"
+    schedule:
+      interval: "cron"
+      cronjob: "23 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/plugins/whatsapp"
+    schedule:
+      interval: "cron"
+      cronjob: "24 9,21 * * *"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"

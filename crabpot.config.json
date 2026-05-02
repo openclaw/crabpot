@@ -338,6 +338,720 @@
       "why": "Credential-free generated fixture covering the public OpenClaw plugin API surface across hooks, registrars, provider capabilities, setup metadata, manifest contracts, and SDK import compatibility."
     },
     {
+      "id": "bluebubbles",
+      "name": "OpenClaw BlueBubbles channel plugin",
+      "package": {
+        "name": "@openclaw/bluebubbles",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/bluebubbles",
+        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+      },
+      "path": "plugins/bluebubbles",
+      "priority": "medium",
+      "seams": [
+        "channel",
+        "account-auth",
+        "media",
+        "macos-bridge",
+        "npm-artifact"
+      ],
+      "why": "Official OpenClaw BlueBubbles channel package covering macOS/iMessage bridge assumptions, account auth, media-capable channel metadata, and npm artifact packaging from the monorepo.",
+      "expect": {
+        "registrations": [
+          "registerChannel"
+        ]
+      }
+    },
+    {
+      "id": "diagnostics-otel",
+      "name": "OpenClaw diagnostics OpenTelemetry exporter",
+      "package": {
+        "name": "@openclaw/diagnostics-otel",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/diagnostics-otel",
+        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+      },
+      "path": "plugins/diagnostics-otel",
+      "priority": "medium",
+      "seams": [
+        "diagnostics",
+        "telemetry",
+        "otel-export",
+        "service",
+        "npm-artifact"
+      ],
+      "expect": {
+        "registrations": [
+          "registerService"
+        ]
+      },
+      "why": "Official OpenClaw OpenTelemetry diagnostics package covering service registration, telemetry exporter setup, and npm package metadata mapped back to the monorepo source."
+    },
+    {
+      "id": "discord",
+      "name": "OpenClaw Discord channel plugin",
+      "package": {
+        "name": "@openclaw/discord",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/discord",
+        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+      },
+      "path": "plugins/discord",
+      "priority": "medium",
+      "seams": [
+        "channel",
+        "subagent-routing",
+        "message-policy",
+        "account-auth",
+        "npm-artifact"
+      ],
+      "expect": {
+        "hooks": [
+          "subagent_delivery_target",
+          "subagent_ended",
+          "subagent_spawning"
+        ],
+        "registrations": [
+          "registerChannel"
+        ]
+      },
+      "why": "Official OpenClaw Discord channel package covering subagent routing hooks, message policy, account auth, and npm artifact packaging from the monorepo."
+    },
+    {
+      "id": "lobster",
+      "name": "Lobster workflow tool plugin (typed pipelines + resumable approvals)",
+      "package": {
+        "name": "@openclaw/lobster",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/lobster",
+        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+      },
+      "path": "plugins/lobster",
+      "priority": "medium",
+      "seams": [
+        "tool",
+        "workflow",
+        "approval",
+        "async-job",
+        "npm-artifact"
+      ],
+      "expect": {
+        "registrations": [
+          "registerTool"
+        ]
+      },
+      "why": "Official Lobster workflow package covering typed pipeline tools, resumable approval semantics, manifest tool contracts, and npm artifact packaging."
+    },
+    {
+      "id": "matrix",
+      "name": "OpenClaw Matrix channel plugin",
+      "package": {
+        "name": "@openclaw/matrix",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/matrix",
+        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+      },
+      "path": "plugins/matrix",
+      "priority": "medium",
+      "seams": [
+        "channel",
+        "gateway-method",
+        "subagent-routing",
+        "cli",
+        "npm-artifact"
+      ],
+      "expect": {
+        "registrations": [
+          "registerChannel"
+        ]
+      },
+      "why": "Official OpenClaw Matrix channel package covering CLI setup, gateway methods, subagent routing hooks, and monorepo-backed npm packaging."
+    },
+    {
+      "id": "msteams",
+      "name": "OpenClaw Microsoft Teams channel plugin",
+      "package": {
+        "name": "@openclaw/msteams",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/msteams",
+        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+      },
+      "path": "plugins/msteams",
+      "priority": "medium",
+      "seams": [
+        "channel",
+        "account-auth",
+        "enterprise-chat",
+        "message-policy",
+        "npm-artifact"
+      ],
+      "expect": {
+        "registrations": [
+          "registerChannel"
+        ]
+      },
+      "why": "Official Microsoft Teams channel package covering enterprise chat auth, channel factory metadata, message policy, and npm artifact packaging."
+    },
+    {
+      "id": "nextcloud-talk",
+      "name": "OpenClaw Nextcloud Talk channel plugin",
+      "package": {
+        "name": "@openclaw/nextcloud-talk",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/nextcloud-talk",
+        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+      },
+      "path": "plugins/nextcloud-talk",
+      "priority": "medium",
+      "seams": [
+        "channel",
+        "account-auth",
+        "self-hosted-chat",
+        "message-policy",
+        "npm-artifact"
+      ],
+      "expect": {
+        "registrations": [
+          "registerChannel"
+        ]
+      },
+      "why": "Official Nextcloud Talk channel package covering self-hosted chat setup, account auth, channel factory metadata, and npm artifact packaging."
+    },
+    {
+      "id": "nostr",
+      "name": "OpenClaw Nostr channel plugin for NIP-04 encrypted DMs",
+      "package": {
+        "name": "@openclaw/nostr",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/nostr",
+        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+      },
+      "path": "plugins/nostr",
+      "priority": "medium",
+      "seams": [
+        "channel",
+        "encrypted-dm",
+        "http-routes",
+        "account-auth",
+        "npm-artifact"
+      ],
+      "expect": {
+        "registrations": [
+          "registerChannel",
+          "registerHttpRoute"
+        ]
+      },
+      "why": "Official Nostr channel package covering encrypted DM channel behavior, HTTP route registration, account auth, and npm artifact packaging."
+    },
+    {
+      "id": "voice-call",
+      "name": "OpenClaw voice-call plugin",
+      "package": {
+        "name": "@openclaw/voice-call",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/voice-call",
+        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+      },
+      "path": "plugins/voice-call",
+      "priority": "medium",
+      "seams": [
+        "tool",
+        "gateway-method",
+        "service",
+        "config-migration",
+        "cli"
+      ],
+      "expect": {
+        "registrations": [
+          "registerCli",
+          "registerGatewayMethod",
+          "registerService",
+          "registerTool"
+        ]
+      },
+      "why": "Official voice-call package covering gateway methods, service lifecycle, tool registration, config migration, CLI setup, and npm artifact packaging."
+    },
+    {
+      "id": "zalo",
+      "name": "OpenClaw Zalo channel plugin",
+      "package": {
+        "name": "@openclaw/zalo",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/zalo",
+        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+      },
+      "path": "plugins/zalo",
+      "priority": "medium",
+      "seams": [
+        "channel",
+        "account-auth",
+        "media",
+        "message-policy",
+        "npm-artifact"
+      ],
+      "expect": {
+        "registrations": [
+          "registerChannel"
+        ]
+      },
+      "why": "Official Zalo channel package covering account auth, media-capable channel metadata, channel factory registration, and npm artifact packaging."
+    },
+    {
+      "id": "zalouser",
+      "name": "OpenClaw Zalo Personal Account plugin via native zca-js integration",
+      "package": {
+        "name": "@openclaw/zalouser",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/zalouser",
+        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+      },
+      "path": "plugins/zalouser",
+      "priority": "medium",
+      "seams": [
+        "channel",
+        "native-integration",
+        "account-auth",
+        "tool",
+        "npm-artifact"
+      ],
+      "expect": {
+        "registrations": [
+          "registerChannel",
+          "registerTool"
+        ]
+      },
+      "why": "Official Zalo personal account package covering native zca-js integration, channel factory registration, tool contracts, and npm artifact packaging."
+    },
+    {
+      "id": "feishu",
+      "name": "OpenClaw Feishu/Lark channel plugin (community maintained by @m1heng)",
+      "package": {
+        "name": "@openclaw/feishu",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/feishu",
+        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+      },
+      "path": "plugins/feishu",
+      "priority": "medium",
+      "seams": [
+        "channel",
+        "subagent-routing",
+        "tool",
+        "account-auth",
+        "npm-artifact"
+      ],
+      "expect": {
+        "registrations": [
+          "registerChannel",
+          "registerTool"
+        ]
+      },
+      "why": "Official Feishu/Lark channel package covering subagent routing hooks, account auth, tool contracts, and npm artifact packaging."
+    },
+    {
+      "id": "tlon",
+      "name": "OpenClaw Tlon/Urbit channel plugin",
+      "package": {
+        "name": "@openclaw/tlon",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/tlon",
+        "ref": "35a57bc940833a6c1f594b2308e349e5ee0148db"
+      },
+      "path": "plugins/tlon",
+      "priority": "medium",
+      "seams": [
+        "channel",
+        "federated-network",
+        "account-auth",
+        "tool",
+        "npm-artifact"
+      ],
+      "expect": {
+        "registrations": [
+          "registerChannel"
+        ]
+      },
+      "why": "Official Tlon/Urbit channel package covering federated-network account setup, channel factory registration, tool contracts, and npm artifact packaging."
+    },
+    {
+      "id": "twitch",
+      "name": "OpenClaw Twitch channel plugin",
+      "package": {
+        "name": "@openclaw/twitch",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/twitch",
+        "ref": "35a57bc940833a6c1f594b2308e349e5ee0148db"
+      },
+      "path": "plugins/twitch",
+      "priority": "medium",
+      "seams": [
+        "channel",
+        "streaming-chat",
+        "account-auth",
+        "message-policy",
+        "npm-artifact"
+      ],
+      "why": "Official Twitch channel package covering streaming-chat channel metadata, account auth, message policy, and npm artifact packaging.",
+      "expect": {
+        "registrations": [
+          "registerChannel"
+        ]
+      }
+    },
+    {
+      "id": "mattermost",
+      "name": "OpenClaw Mattermost channel plugin",
+      "package": {
+        "name": "@openclaw/mattermost",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/mattermost",
+        "ref": "35a57bc940833a6c1f594b2308e349e5ee0148db"
+      },
+      "path": "plugins/mattermost",
+      "priority": "medium",
+      "seams": [
+        "channel",
+        "http-routes",
+        "self-hosted-chat",
+        "account-auth",
+        "npm-artifact"
+      ],
+      "expect": {
+        "registrations": [
+          "registerChannel"
+        ]
+      },
+      "why": "Official Mattermost channel package covering self-hosted chat auth, HTTP route registration, channel factory metadata, and npm artifact packaging."
+    },
+    {
+      "id": "synology-chat",
+      "name": "Synology Chat channel plugin for OpenClaw",
+      "package": {
+        "name": "@openclaw/synology-chat",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/synology-chat",
+        "ref": "b19a6ee62db342d400a233903adcaf17f67246c5"
+      },
+      "path": "plugins/synology-chat",
+      "priority": "medium",
+      "seams": [
+        "channel",
+        "self-hosted-chat",
+        "account-auth",
+        "message-policy",
+        "npm-artifact"
+      ],
+      "expect": {
+        "registrations": [
+          "registerChannel"
+        ]
+      },
+      "why": "Official Synology Chat channel package covering self-hosted chat setup, channel factory registration, account auth, and npm artifact packaging."
+    },
+    {
+      "id": "brave-plugin",
+      "name": "OpenClaw Brave plugin",
+      "package": {
+        "name": "@openclaw/brave-plugin",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/brave",
+        "ref": "a22f06504376e7203a2bec8fde094b7cdcb06c02"
+      },
+      "path": "plugins/brave-plugin",
+      "priority": "medium",
+      "seams": [
+        "provider-capability",
+        "web-search-provider",
+        "external-api",
+        "env-auth",
+        "npm-artifact"
+      ],
+      "expect": {
+        "registrations": [
+          "definePluginEntry",
+          "registerWebSearchProvider"
+        ],
+        "manifestContracts": [
+          "webSearchProviders"
+        ]
+      },
+      "why": "Official Brave search package covering web search provider registration, external API/env auth metadata, manifest provider contracts, and npm artifact packaging."
+    },
+    {
+      "id": "codex",
+      "name": "OpenClaw Codex harness and model provider plugin",
+      "package": {
+        "name": "@openclaw/codex",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/codex",
+        "ref": "a22f06504376e7203a2bec8fde094b7cdcb06c02"
+      },
+      "path": "plugins/codex",
+      "priority": "medium",
+      "seams": [
+        "agent-harness",
+        "provider-capability",
+        "media-understanding",
+        "migration-provider",
+        "channel-bridge"
+      ],
+      "expect": {
+        "hooks": [
+          "inbound_claim"
+        ],
+        "registrations": [
+          "definePluginEntry",
+          "registerAgentHarness",
+          "registerCommand",
+          "registerMediaUnderstandingProvider",
+          "registerMigrationProvider",
+          "registerProvider"
+        ],
+        "manifestContracts": [
+          "mediaUnderstandingProviders",
+          "migrationProviders"
+        ]
+      },
+      "why": "Official Codex package covering agent harness registration, model provider wiring, media understanding, migrations, inbound claims, and npm artifact packaging."
+    },
+    {
+      "id": "diagnostics-prometheus",
+      "name": "OpenClaw diagnostics Prometheus exporter",
+      "package": {
+        "name": "@openclaw/diagnostics-prometheus",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/diagnostics-prometheus",
+        "ref": "f4ef1bf04e9637958418428db0ff9e75e6698159"
+      },
+      "path": "plugins/diagnostics-prometheus",
+      "priority": "medium",
+      "seams": [
+        "diagnostics",
+        "telemetry",
+        "prometheus-export",
+        "http-routes",
+        "service"
+      ],
+      "expect": {
+        "registrations": [
+          "definePluginEntry",
+          "registerHttpRoute",
+          "registerService"
+        ]
+      },
+      "why": "Official Prometheus diagnostics package covering service lifecycle, metrics HTTP routes, telemetry export, and monorepo-backed npm packaging."
+    },
+    {
+      "id": "google-meet",
+      "name": "OpenClaw Google Meet participant plugin",
+      "package": {
+        "name": "@openclaw/google-meet",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/google-meet",
+        "ref": "f4ef1bf04e9637958418428db0ff9e75e6698159"
+      },
+      "path": "plugins/google-meet",
+      "priority": "medium",
+      "seams": [
+        "tool",
+        "gateway-method",
+        "node-host-command",
+        "meeting",
+        "cli"
+      ],
+      "expect": {
+        "registrations": [
+          "definePluginEntry",
+          "registerCli",
+          "registerGatewayMethod",
+          "registerNodeHostCommand",
+          "registerTool"
+        ]
+      },
+      "why": "Official Google Meet package covering meeting tools, gateway methods, node host commands, CLI setup, and npm artifact packaging."
+    },
+    {
+      "id": "diffs",
+      "name": "OpenClaw diff viewer plugin",
+      "package": {
+        "name": "@openclaw/diffs",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/diffs",
+        "ref": "355680f1f21af3782c8ffbb5f3cec281dc584af6"
+      },
+      "path": "plugins/diffs",
+      "priority": "medium",
+      "seams": [
+        "tool",
+        "http-routes",
+        "prompt-mutation",
+        "diff-viewer",
+        "npm-artifact"
+      ],
+      "expect": {
+        "hooks": [
+          "before_prompt_build"
+        ],
+        "registrations": [
+          "definePluginEntry",
+          "registerHttpRoute",
+          "registerTool"
+        ]
+      },
+      "why": "Official diff viewer package covering prompt mutation, HTTP route UI surface, tool registration, manifest tool contracts, and npm artifact packaging."
+    },
+    {
+      "id": "memory-lancedb",
+      "name": "OpenClaw LanceDB-backed long-term memory plugin with auto-recall/capture",
+      "package": {
+        "name": "@openclaw/memory-lancedb",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/memory-lancedb",
+        "ref": "355680f1f21af3782c8ffbb5f3cec281dc584af6"
+      },
+      "path": "plugins/memory-lancedb",
+      "priority": "medium",
+      "seams": [
+        "memory-runtime",
+        "prompt-mutation",
+        "session-lifecycle",
+        "vector-store",
+        "cli"
+      ],
+      "expect": {
+        "hooks": [
+          "agent_end",
+          "before_prompt_build",
+          "session_end"
+        ],
+        "registrations": [
+          "definePluginEntry",
+          "registerCli",
+          "registerService",
+          "registerTool"
+        ]
+      },
+      "why": "Official LanceDB memory package covering automatic recall/capture hooks, vector-store lifecycle, service/CLI setup, tool contracts, and npm artifact packaging."
+    },
+    {
+      "id": "openclaw-qqbot",
+      "name": "OpenClaw QQ Bot channel plugin",
+      "package": {
+        "name": "@openclaw/qqbot",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/qqbot",
+        "ref": "355680f1f21af3782c8ffbb5f3cec281dc584af6"
+      },
+      "path": "plugins/openclaw-qqbot",
+      "priority": "medium",
+      "seams": [
+        "channel",
+        "command",
+        "tool",
+        "media",
+        "npm-artifact"
+      ],
+      "expect": {
+        "registrations": [
+          "registerCommand",
+          "registerTool"
+        ]
+      },
+      "why": "Official OpenClaw QQ Bot npm package covering command/tool registration, channel manifest metadata, media-capable messaging, and monorepo source mapping without replacing the external QQBot fixture."
+    },
+    {
+      "id": "whatsapp",
+      "name": "OpenClaw WhatsApp channel plugin",
+      "package": {
+        "name": "@openclaw/whatsapp",
+        "tag": "latest"
+      },
+      "source": {
+        "repo": "https://github.com/openclaw/openclaw.git",
+        "path": "extensions/whatsapp",
+        "ref": "355680f1f21af3782c8ffbb5f3cec281dc584af6"
+      },
+      "path": "plugins/whatsapp",
+      "priority": "medium",
+      "seams": [
+        "channel",
+        "account-auth",
+        "media",
+        "message-policy",
+        "npm-artifact"
+      ],
+      "why": "Official WhatsApp channel package covering account auth, media-capable channel metadata, message policy, and npm artifact packaging from the monorepo."
+    },
+    {
       "id": "nemoclaw",
       "name": "NemoClaw",
       "repo": "https://github.com/NVIDIA/NemoClaw.git",

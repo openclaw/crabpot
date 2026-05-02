@@ -1,0 +1,17 @@
+{
+  "name": "@crabpot/fixture-google-meet",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Crabpot npm fixture shim for OpenClaw Google Meet participant plugin.",
+  "dependencies": {
+    "@openclaw/google-meet": "2026.5.1-beta.2"
+  },
+  "crabpot": {
+    "fixture": "google-meet",
+    "source": "npm",
+    "package": "@openclaw/google-meet",
+    "sourceRepo": "https://github.com/openclaw/openclaw.git",
+    "sourcePath": "extensions/google-meet",
+    "sourceRef": "f4ef1bf04e9637958418428db0ff9e75e6698159"
+  }
+}

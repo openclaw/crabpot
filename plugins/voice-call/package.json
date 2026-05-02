@@ -1,0 +1,17 @@
+{
+  "name": "@crabpot/fixture-voice-call",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Crabpot npm fixture shim for OpenClaw voice-call plugin.",
+  "dependencies": {
+    "@openclaw/voice-call": "2026.3.13"
+  },
+  "crabpot": {
+    "fixture": "voice-call",
+    "source": "npm",
+    "package": "@openclaw/voice-call",
+    "sourceRepo": "https://github.com/openclaw/openclaw.git",
+    "sourcePath": "extensions/voice-call",
+    "sourceRef": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+  }
+}

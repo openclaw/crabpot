@@ -1,0 +1,17 @@
+{
+  "name": "@crabpot/fixture-diagnostics-prometheus",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Crabpot npm fixture shim for OpenClaw diagnostics Prometheus exporter.",
+  "dependencies": {
+    "@openclaw/diagnostics-prometheus": "2026.5.1-beta.2"
+  },
+  "crabpot": {
+    "fixture": "diagnostics-prometheus",
+    "source": "npm",
+    "package": "@openclaw/diagnostics-prometheus",
+    "sourceRepo": "https://github.com/openclaw/openclaw.git",
+    "sourcePath": "extensions/diagnostics-prometheus",
+    "sourceRef": "f4ef1bf04e9637958418428db0ff9e75e6698159"
+  }
+}

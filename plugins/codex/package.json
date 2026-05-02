@@ -1,0 +1,17 @@
+{
+  "name": "@crabpot/fixture-codex",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Crabpot npm fixture shim for OpenClaw Codex harness and model provider plugin.",
+  "dependencies": {
+    "@openclaw/codex": "2026.5.1-beta.1"
+  },
+  "crabpot": {
+    "fixture": "codex",
+    "source": "npm",
+    "package": "@openclaw/codex",
+    "sourceRepo": "https://github.com/openclaw/openclaw.git",
+    "sourcePath": "extensions/codex",
+    "sourceRef": "a22f06504376e7203a2bec8fde094b7cdcb06c02"
+  }
+}

@@ -59,6 +59,25 @@ export function validateManifest(manifest) {
         errors.push(`${fixture.id}: package.name must be set`);
       }
     }
+    if (fixture.source !== undefined) {
+      if (!fixture.source || typeof fixture.source !== "object" || Array.isArray(fixture.source)) {
+        errors.push(`${fixture.id}: source must be an object when present`);
+      } else {
+        if (
+          typeof fixture.source.repo !== "string" ||
+          !fixture.source.repo.startsWith("https://github.com/") ||
+          !fixture.source.repo.endsWith(".git")
+        ) {
+          errors.push(`${fixture.id}: source.repo must be a GitHub HTTPS .git URL`);
+        }
+        if (typeof fixture.source.path !== "string" || fixture.source.path.length === 0 || fixture.source.path.includes("..")) {
+          errors.push(`${fixture.id}: source.path must be a repo-relative path`);
+        }
+        if (typeof fixture.source.ref !== "string" || fixture.source.ref.length === 0) {
+          errors.push(`${fixture.id}: source.ref must be set`);
+        }
+      }
+    }
     if (!["high", "medium", "low"].includes(fixture.priority)) {
       errors.push(`${fixture.id}: priority must be high, medium, or low`);
     }

@@ -1,0 +1,17 @@
+{
+  "name": "@crabpot/fixture-zalo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Crabpot npm fixture shim for OpenClaw Zalo channel plugin.",
+  "dependencies": {
+    "@openclaw/zalo": "2026.3.13"
+  },
+  "crabpot": {
+    "fixture": "zalo",
+    "source": "npm",
+    "package": "@openclaw/zalo",
+    "sourceRepo": "https://github.com/openclaw/openclaw.git",
+    "sourcePath": "extensions/zalo",
+    "sourceRef": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+  }
+}

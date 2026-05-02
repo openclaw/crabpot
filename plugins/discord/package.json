@@ -1,0 +1,17 @@
+{
+  "name": "@crabpot/fixture-discord",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Crabpot npm fixture shim for OpenClaw Discord channel plugin.",
+  "dependencies": {
+    "@openclaw/discord": "2026.3.13"
+  },
+  "crabpot": {
+    "fixture": "discord",
+    "source": "npm",
+    "package": "@openclaw/discord",
+    "sourceRepo": "https://github.com/openclaw/openclaw.git",
+    "sourcePath": "extensions/discord",
+    "sourceRef": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@crabpot/fixture-memory-lancedb",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Crabpot npm fixture shim for OpenClaw LanceDB-backed long-term memory plugin with auto-recall/capture.",
+  "dependencies": {
+    "@openclaw/memory-lancedb": "2026.5.1-beta.1"
+  },
+  "crabpot": {
+    "fixture": "memory-lancedb",
+    "source": "npm",
+    "package": "@openclaw/memory-lancedb",
+    "sourceRepo": "https://github.com/openclaw/openclaw.git",
+    "sourcePath": "extensions/memory-lancedb",
+    "sourceRef": "355680f1f21af3782c8ffbb5f3cec281dc584af6"
+  }
+}

@@ -112,6 +112,47 @@ test("markdown report includes review sections", async () => {
   assert.match(markdown, /provider-auth-env-vars/);
 });
 
+test("issue report maps npm payload evidence to monorepo source links", () => {
+  const markdown = renderIssuesReport({
+    generatedAt: "test",
+    status: "pass",
+    targetOpenClaw: { status: "disabled" },
+    summary: {
+      issueCount: 1,
+      p0IssueCount: 0,
+      p1IssueCount: 0,
+      liveIssueCount: 0,
+      liveP0IssueCount: 0,
+      compatGapCount: 0,
+      deprecationWarningCount: 0,
+      inspectorGapCount: 0,
+      upstreamIssueCount: 1,
+      contractProbeCount: 0,
+    },
+    issues: [
+      {
+        fixture: "bluebubbles",
+        code: "package-openclaw-metadata-missing",
+        issueClass: "upstream-metadata",
+        decision: "plugin-upstream-fix",
+        severity: "P2",
+        title: "OpenClaw package metadata is missing",
+        status: "open",
+        compatStatus: "none",
+        live: false,
+        deprecated: false,
+        evidence: ["plugins/bluebubbles/.crabpot-package/index.js:12"],
+      },
+    ],
+    contractProbes: [],
+  });
+
+  assert.match(
+    markdown,
+    /https:\/\/github\.com\/openclaw\/openclaw\/blob\/2ce6b77205187c76ce7cde6cb0913de14d4452fa\/extensions\/bluebubbles\/index\.js#L12/,
+  );
+});
+
 test("disabled OpenClaw target suppresses target-derived compat findings", async () => {
   const report = await buildReport({ generatedAt: "test", openclawPath: false });
   const markdown = renderMarkdownReport(report);

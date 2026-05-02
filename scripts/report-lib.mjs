@@ -112,7 +112,8 @@ function submoduleLinkTarget(filePath) {
     return null;
   }
   const subPath = normalizedFilePath === target.path ? "" : normalizedFilePath.slice(target.path.length + 1);
-  const encodedPath = subPath
+  const repoPath = target.sourcePath ? path.posix.join(target.sourcePath, subPath) : subPath;
+  const encodedPath = repoPath
     .split("/")
     .filter(Boolean)
     .map((part) => encodeURIComponent(part))
@@ -128,15 +129,36 @@ function submoduleLinkTargetsForRepo() {
   }
   const modules = readGitmodules();
   const shas = readSubmoduleShas();
-  submoduleLinkTargets = [...modules.values()]
+  const manifest = readManifestSync();
+  const sourceTargets = (manifest.fixtures ?? [])
+    .filter((fixture) => fixture.source)
+    .map((fixture) => ({
+      path: fixture.package ? path.posix.join(fixture.path, ".crabpot-package") : fixture.path,
+      sha: fixture.source.ref,
+      sourcePath: normalizeRepoPath(fixture.source.path),
+      webUrl: githubWebUrl(fixture.source.repo),
+    }))
+    .filter((entry) => entry.sha && entry.sourcePath && entry.webUrl);
+
+  const moduleTargets = [...modules.values()]
     .map((entry) => ({
       ...entry,
       sha: shas.get(entry.path),
       webUrl: githubWebUrl(entry.url),
     }))
-    .filter((entry) => entry.sha && entry.webUrl)
+    .filter((entry) => entry.sha && entry.webUrl);
+
+  submoduleLinkTargets = [...sourceTargets, ...moduleTargets]
     .sort((left, right) => right.path.length - left.path.length);
   return submoduleLinkTargets;
+}
+
+function readManifestSync() {
+  try {
+    return JSON.parse(readFileSync(path.join(repoRoot, "crabpot.config.json"), "utf8"));
+  } catch {
+    return { fixtures: [] };
+  }
 }
 
 function readGitmodules() {
@@ -224,4 +246,8 @@ function githubWebUrl(url) {
     return `https://github.com/${sshMatch[1].replace(/\/$/, "")}`;
   }
   return null;
+}
+
+function normalizeRepoPath(value) {
+  return String(value ?? "").replaceAll("\\", "/").replace(/^\.\/+/u, "").replace(/\/$/u, "");
 }

@@ -4,7 +4,9 @@ Crabpot keeps external plugins under `plugins/`. Most fixtures are git
 submodules. Npm-only fixtures use committed `plugins/<id>/package.json` shim
 packages with one exact dependency pin; `node scripts/sync-fixtures.mjs --materialize`
 unpacks the package payload into ignored `plugins/<id>/.crabpot-package/`
-directories for static inspection. The parent repo owns only pins, fixture
+directories for static inspection. OpenClaw monorepo npm fixtures also declare
+`source.repo`, `source.path`, and `source.ref` so report evidence links point at
+the owning `openclaw/openclaw` source tree. The parent repo owns only pins, fixture
 metadata, generated reports, and tests. Plugin source stays upstream-owned.
 
 Dependabot watches `.gitmodules` with the `gitsubmodule` ecosystem and the npm
@@ -32,6 +34,8 @@ directory: "/plugins/<id>"
 - Npm fixtures use `crabpot.config.json` for package identity and
   `plugins/<id>/package.json` for the exact dependency pin; materialization
   unpacks the package into ignored `plugins/<id>/.crabpot-package/`.
+- Monorepo npm fixtures add `source.repo`, `source.path`, and `source.ref`;
+  generated report links map packed payload paths back to the owning source path.
 - `scripts/inspect-fixtures.mjs` reads source statically and checks expected
   hooks, registrations, manifests, packages, and SDK imports.
 - `scripts/generate-report.mjs` compares observed plugin seams with the target
@@ -59,6 +63,30 @@ directory: "/plugins/<id>"
 | `honcho` | `plugins/honcho` | git | high | memory runtime, gateway lifecycle, subagents | Memory-runtime fixture covering plugin-entry aliases, memory runtime/prompt sections, gateway lifecycle, subagent capture, and external memory tools. |
 | `composio` | `plugins/composio` | git | high | dynamic tool, MCP, external API | NPM-installed dynamic tool fixture for Composio/MCP, prompt context injection, CLI setup, external API auth, and remote tool catalogs. |
 | `kitchen-sink` | `plugins/kitchen-sink` | git | high | plugin API surface, hooks, manifest contracts | Credential-free generated fixture covering hooks, registrars, provider capabilities, setup metadata, manifest contracts, and SDK import compatibility. |
+| `bluebubbles` | `plugins/bluebubbles` | npm + source | medium | channel, account auth, media | Official OpenClaw BlueBubbles channel package covering macOS/iMessage bridge assumptions, account auth, media-capable channel metadata, and npm artifact packaging from the monorepo. |
+| `diagnostics-otel` | `plugins/diagnostics-otel` | npm + source | medium | diagnostics, telemetry, otel export | Official OpenClaw OpenTelemetry diagnostics package covering service registration, telemetry exporter setup, and npm package metadata mapped back to the monorepo source. |
+| `discord` | `plugins/discord` | npm + source | medium | channel, subagent routing, message policy | Official OpenClaw Discord channel package covering subagent routing hooks, message policy, account auth, and npm artifact packaging from the monorepo. |
+| `lobster` | `plugins/lobster` | npm + source | medium | tool, workflow, approval | Official Lobster workflow package covering typed pipeline tools, resumable approval semantics, manifest tool contracts, and npm artifact packaging. |
+| `matrix` | `plugins/matrix` | npm + source | medium | channel, gateway method, subagent routing | Official OpenClaw Matrix channel package covering CLI setup, gateway methods, subagent routing hooks, and monorepo-backed npm packaging. |
+| `msteams` | `plugins/msteams` | npm + source | medium | channel, account auth, enterprise chat | Official Microsoft Teams channel package covering enterprise chat auth, channel factory metadata, message policy, and npm artifact packaging. |
+| `nextcloud-talk` | `plugins/nextcloud-talk` | npm + source | medium | channel, account auth, self hosted chat | Official Nextcloud Talk channel package covering self-hosted chat setup, account auth, channel factory metadata, and npm artifact packaging. |
+| `nostr` | `plugins/nostr` | npm + source | medium | channel, encrypted dm, http routes | Official Nostr channel package covering encrypted DM channel behavior, HTTP route registration, account auth, and npm artifact packaging. |
+| `voice-call` | `plugins/voice-call` | npm + source | medium | tool, gateway method, service | Official voice-call package covering gateway methods, service lifecycle, tool registration, config migration, CLI setup, and npm artifact packaging. |
+| `zalo` | `plugins/zalo` | npm + source | medium | channel, account auth, media | Official Zalo channel package covering account auth, media-capable channel metadata, channel factory registration, and npm artifact packaging. |
+| `zalouser` | `plugins/zalouser` | npm + source | medium | channel, native integration, account auth | Official Zalo personal account package covering native zca-js integration, channel factory registration, tool contracts, and npm artifact packaging. |
+| `feishu` | `plugins/feishu` | npm + source | medium | channel, subagent routing, tool | Official Feishu/Lark channel package covering subagent routing hooks, account auth, tool contracts, and npm artifact packaging. |
+| `tlon` | `plugins/tlon` | npm + source | medium | channel, federated network, account auth | Official Tlon/Urbit channel package covering federated-network account setup, channel factory registration, tool contracts, and npm artifact packaging. |
+| `twitch` | `plugins/twitch` | npm + source | medium | channel, streaming chat, account auth | Official Twitch channel package covering streaming-chat channel metadata, account auth, message policy, and npm artifact packaging. |
+| `mattermost` | `plugins/mattermost` | npm + source | medium | channel, http routes, self hosted chat | Official Mattermost channel package covering self-hosted chat auth, HTTP route registration, channel factory metadata, and npm artifact packaging. |
+| `synology-chat` | `plugins/synology-chat` | npm + source | medium | channel, self hosted chat, account auth | Official Synology Chat channel package covering self-hosted chat setup, channel factory registration, account auth, and npm artifact packaging. |
+| `brave-plugin` | `plugins/brave-plugin` | npm + source | medium | provider capability, web search provider, external api | Official Brave search package covering web search provider registration, external API/env auth metadata, manifest provider contracts, and npm artifact packaging. |
+| `codex` | `plugins/codex` | npm + source | medium | agent harness, provider capability, media understanding | Official Codex package covering agent harness registration, model provider wiring, media understanding, migrations, inbound claims, and npm artifact packaging. |
+| `diagnostics-prometheus` | `plugins/diagnostics-prometheus` | npm + source | medium | diagnostics, telemetry, prometheus export | Official Prometheus diagnostics package covering service lifecycle, metrics HTTP routes, telemetry export, and monorepo-backed npm packaging. |
+| `google-meet` | `plugins/google-meet` | npm + source | medium | tool, gateway method, node host command | Official Google Meet package covering meeting tools, gateway methods, node host commands, CLI setup, and npm artifact packaging. |
+| `diffs` | `plugins/diffs` | npm + source | medium | tool, http routes, prompt mutation | Official diff viewer package covering prompt mutation, HTTP route UI surface, tool registration, manifest tool contracts, and npm artifact packaging. |
+| `memory-lancedb` | `plugins/memory-lancedb` | npm + source | medium | memory runtime, prompt mutation, session lifecycle | Official LanceDB memory package covering automatic recall/capture hooks, vector-store lifecycle, service/CLI setup, tool contracts, and npm artifact packaging. |
+| `openclaw-qqbot` | `plugins/openclaw-qqbot` | npm + source | medium | channel, command, tool | Official OpenClaw QQ Bot npm package covering command/tool registration, channel manifest metadata, media-capable messaging, and monorepo source mapping without replacing the external QQBot fixture. |
+| `whatsapp` | `plugins/whatsapp` | npm + source | medium | channel, account auth, media | Official WhatsApp channel package covering account auth, media-capable channel metadata, message policy, and npm artifact packaging from the monorepo. |
 | `nemoclaw` | `plugins/nemoclaw` | git | high | provider capability, runtime context, security policy | NVIDIA OpenShell fixture covering sandbox-aware runtime context injection, managed inference provider registration, slash-command migration/status flows, OpenShell CLI probing, and secret-blocking tool-call policy. |
 | `memory-tencentdb` | `plugins/memory-tencentdb` | npm | high | memory runtime, vector store, lifecycle | TencentDB memory fixture covering recall/capture hooks, SQLite/TCVDB storage, cleanup lifecycle, and seed/export CLI commands. |
 | `ddingtalk` | `plugins/ddingtalk` | git | high | channel, media, webhook | DingTalk channel fixture covering enterprise IM auth, channel setup, media handling, and webhook-style ingress. |
@@ -104,6 +132,7 @@ directory: "/plugins/<id>"
 6. Add a fixture entry to `crabpot.config.json` with:
    - `id`, `name`, `path`, and optional `subdir`
    - exactly one of `repo` or `package: { name, tag }`
+   - optional `source: { repo, path, ref }` for npm packages published from a monorepo
    - `priority`
    - seam labels
    - expected hooks, registrations, or manifest contracts

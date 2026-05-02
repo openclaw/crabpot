@@ -55,6 +55,9 @@ test("manifest validation rejects invalid fixture contracts before CI materializ
       "fixture must declare exactly one of repo or package",
       "repo must be a GitHub HTTPS .git URL",
       "package.name must be set",
+      "source.repo must be a GitHub HTTPS .git URL",
+      "source.path must be a repo-relative path",
+      "source.ref must be set",
       "priority must be high, medium, or low",
       "seams must be non-empty",
       "expect.hooks must be a non-empty array",
@@ -76,6 +79,11 @@ function invalidManifest() {
         path: "../outside",
         repo: "git@github.com:owner/repo",
         package: {},
+        source: {
+          repo: "git@github.com:owner/repo",
+          path: "../outside",
+          ref: "",
+        },
         priority: "urgent",
         seams: [],
         execution: {

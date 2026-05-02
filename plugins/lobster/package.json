@@ -1,0 +1,17 @@
+{
+  "name": "@crabpot/fixture-lobster",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Crabpot npm fixture shim for Lobster workflow tool plugin (typed pipelines + resumable approvals).",
+  "dependencies": {
+    "@openclaw/lobster": "2026.3.13"
+  },
+  "crabpot": {
+    "fixture": "lobster",
+    "source": "npm",
+    "package": "@openclaw/lobster",
+    "sourceRepo": "https://github.com/openclaw/openclaw.git",
+    "sourcePath": "extensions/lobster",
+    "sourceRef": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+  }
+}
