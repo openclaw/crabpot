@@ -3,6 +3,7 @@ import path from "node:path";
 
 export const repoRoot = path.resolve(import.meta.dirname, "..");
 export const manifestPath = path.join(repoRoot, "crabpot.config.json");
+export const defaultCiPolicyPath = path.join(repoRoot, "crabpot.ci-policy.json");
 export const npmPackagePayloadDir = ".crabpot-package";
 
 export async function readManifest() {
@@ -10,6 +11,45 @@ export async function readManifest() {
   const manifest = JSON.parse(raw);
   validateManifest(manifest);
   return manifest;
+}
+
+export async function readConfiguredManifest(options = {}) {
+  const manifest = await readManifest();
+  return selectManifestFixtures(manifest, {
+    fixtureSet: options.fixtureSet ?? process.env.CRABPOT_FIXTURE_SET,
+    policyPath: options.policyPath ?? defaultCiPolicyPath,
+  });
+}
+
+export async function selectManifestFixtures(manifest, options = {}) {
+  const fixtureSet = normalizeFixtureSet(options.fixtureSet);
+  if (!fixtureSet) {
+    return manifest;
+  }
+  const policy = JSON.parse(await readFile(options.policyPath ?? defaultCiPolicyPath, "utf8"));
+  const ids = policy.fixtureSets?.[fixtureSet];
+  if (!Array.isArray(ids) || ids.length === 0) {
+    throw new Error(`fixture set ${fixtureSet} is not defined in ${path.relative(repoRoot, options.policyPath ?? defaultCiPolicyPath)}`);
+  }
+  const wanted = new Set(ids);
+  const fixtures = manifest.fixtures.filter((fixture) => wanted.has(fixture.id));
+  const missing = ids.filter((id) => !fixtures.some((fixture) => fixture.id === id));
+  if (missing.length > 0) {
+    throw new Error(`fixture set ${fixtureSet} references unknown fixture(s): ${missing.join(", ")}`);
+  }
+  return {
+    ...manifest,
+    fixtureSelection: {
+      fixtureSet,
+      ids,
+    },
+    fixtures,
+  };
+}
+
+export function normalizeFixtureSet(value) {
+  const normalized = String(value ?? "").trim();
+  return normalized && normalized !== "all" ? normalized : "";
 }
 
 export function validateManifest(manifest) {
@@ -57,6 +97,12 @@ export function validateManifest(manifest) {
     if (hasPackage) {
       if (!fixture.package.name || typeof fixture.package.name !== "string") {
         errors.push(`${fixture.id}: package.name must be set`);
+      }
+      if (fixture.package.tag !== undefined && (typeof fixture.package.tag !== "string" || fixture.package.tag.length === 0)) {
+        errors.push(`${fixture.id}: package.tag must be a non-empty string when present`);
+      }
+      if (fixture.package.version !== undefined && (typeof fixture.package.version !== "string" || fixture.package.version.length === 0)) {
+        errors.push(`${fixture.id}: package.version must be a non-empty string when present`);
       }
     }
     if (fixture.source !== undefined) {

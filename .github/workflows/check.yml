@@ -37,10 +37,20 @@ jobs:
           repository: openclaw/openclaw
           ref: ${{ steps.openclaw-track.outputs.ref }}
           path: openclaw
-      - run: node scripts/run-static-suite.mjs --openclaw ./openclaw --policy dashboard --profile-runs 3 --plugin-inspector-smoke
+      - shell: bash
+        run: |
+          extra_args=(--openclaw-track "${{ steps.openclaw-track.outputs.track }}")
+          if [ "${{ steps.openclaw-track.outputs.track }}" = "development" ]; then
+            extra_args+=(--fixture-set openclaw-beta --plugin-track beta)
+          fi
+          node scripts/run-static-suite.mjs --openclaw ./openclaw --policy dashboard --profile-runs 3 --plugin-inspector-smoke "${extra_args[@]}"
       - name: Write CI summary artifacts
         if: always()
         continue-on-error: true
+        env:
+          CRABPOT_FIXTURE_SET: ${{ steps.openclaw-track.outputs.track == 'development' && 'openclaw-beta' || '' }}
+          CRABPOT_OPENCLAW_TRACK: ${{ steps.openclaw-track.outputs.track }}
+          CRABPOT_PLUGIN_TRACK: ${{ steps.openclaw-track.outputs.track == 'development' && 'beta' || '' }}
         run: |
           node scripts/generate-report.mjs --openclaw ./openclaw
           node scripts/capture-contracts.mjs --openclaw ./openclaw
@@ -80,7 +90,13 @@ jobs:
           ref: ${{ steps.openclaw-track.outputs.ref }}
           path: openclaw
       - run: node --version
-      - run: node scripts/run-static-suite.mjs --openclaw ./openclaw --policy dashboard --profile-runs 3 --plugin-inspector-smoke
+      - shell: bash
+        run: |
+          extra_args=(--openclaw-track "${{ steps.openclaw-track.outputs.track }}")
+          if [ "${{ steps.openclaw-track.outputs.track }}" = "development" ]; then
+            extra_args+=(--fixture-set openclaw-beta --plugin-track beta)
+          fi
+          node scripts/run-static-suite.mjs --openclaw ./openclaw --policy dashboard --profile-runs 3 --plugin-inspector-smoke "${extra_args[@]}"
 
   changed-fixture-plan:
     name: Resolve changed fixture matrix
@@ -227,6 +243,9 @@ jobs:
           ref: ${{ steps.openclaw-track.outputs.ref }}
           path: openclaw
       - run: node scripts/sync-fixtures.mjs --materialize
+        env:
+          CRABPOT_FIXTURE_SET: ${{ steps.openclaw-track.outputs.track == 'development' && 'openclaw-beta' || '' }}
+          CRABPOT_PLUGIN_TRACK: ${{ steps.openclaw-track.outputs.track == 'development' && 'beta' || '' }}
       - name: Install OpenClaw lifecycle dependencies
         run: |
           corepack enable
@@ -239,6 +258,9 @@ jobs:
           git show origin/main:reports/crabpot-dashboard-data.json > .crabpot/baseline/main-dashboard-data.json || true
       - name: Write README dashboard
         env:
+          CRABPOT_FIXTURE_SET: ${{ steps.openclaw-track.outputs.track == 'development' && 'openclaw-beta' || '' }}
+          CRABPOT_OPENCLAW_TRACK: ${{ steps.openclaw-track.outputs.track }}
+          CRABPOT_PLUGIN_TRACK: ${{ steps.openclaw-track.outputs.track == 'development' && 'beta' || '' }}
           CRABPOT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           export CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"

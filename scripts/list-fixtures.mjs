@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import { readManifest } from "./manifest-lib.mjs";
+import { readConfiguredManifest } from "./manifest-lib.mjs";
 
-const manifest = await readManifest();
+const manifest = await readConfiguredManifest();
 
 const rows = manifest.fixtures.map((fixture) => ({
   id: fixture.id,
@@ -11,4 +11,3 @@ const rows = manifest.fixtures.map((fixture) => ({
 }));
 
 console.table(rows);
-

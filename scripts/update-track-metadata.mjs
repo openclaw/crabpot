@@ -18,7 +18,7 @@ const branchUrls = {
 
 const trackTargets = {
   beta: "openclaw@beta",
-  development: "openclaw/openclaw@main",
+  development: "openclaw/openclaw@main + @openclaw/*@beta",
   latest: "openclaw@latest",
 };
 
@@ -163,6 +163,7 @@ export function renderTrackMetadata(tracks, options = {}) {
     `- **OpenClaw version:** \`${selected.version}\``,
     `- **OpenClaw SHA:** \`${selected.sha.slice(0, 12)}\``,
     `- **Dashboard target:** \`${trackTargets[selected.track] ?? selected.label}\``,
+    `- **Plugin artifacts:** \`${selected.track === "development" ? "npm beta fixture set" : "manifest package pins"}\``,
     `- **GitHub report run:** ${formatRunLink(options.runUrl)}`,
   ].join("\n");
 }

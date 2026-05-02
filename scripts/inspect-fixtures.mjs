@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { pathToFileURL } from "node:url";
-import { readManifest, repoRoot } from "./manifest-lib.mjs";
+import { readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 
 const pluginInspector = await loadPluginInspectorPublicApi();
@@ -37,7 +37,7 @@ async function main() {
 }
 
 export async function inspectManifest() {
-  const manifest = await readManifest();
+  const manifest = await readConfiguredManifest();
   const report = await pluginInspector.inspectFixtureSetConfig({
     config: {
       ...manifest,

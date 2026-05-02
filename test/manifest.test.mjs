@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { readManifest, validateManifest } from "../scripts/manifest-lib.mjs";
+import { readConfiguredManifest, readManifest, validateManifest } from "../scripts/manifest-lib.mjs";
 
 test("fixture manifest is valid and seam-rich", async () => {
   const manifest = await readManifest();
@@ -33,6 +33,22 @@ test("fixture manifest is valid and seam-rich", async () => {
   ]) {
     assert.ok(seams.has(seam), `missing seam coverage: ${seam}`);
   }
+});
+
+test("openclaw beta fixture set narrows to beta npm packages", async () => {
+  const manifest = await readConfiguredManifest({ fixtureSet: "openclaw-beta" });
+
+  assert.deepEqual(manifest.fixtures.map((fixture) => fixture.id), [
+    "brave-plugin",
+    "codex",
+    "diagnostics-prometheus",
+    "google-meet",
+    "diffs",
+    "memory-lancedb",
+    "openclaw-qqbot",
+    "whatsapp",
+  ]);
+  assert.ok(manifest.fixtures.every((fixture) => fixture.package?.tag === "beta"));
 });
 
 test("fixture paths are stable plugin submodule paths", async () => {

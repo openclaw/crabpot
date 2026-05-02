@@ -1,7 +1,8 @@
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
+import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { readManifest, repoRoot } from "./manifest-lib.mjs";
+import { readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 
 export const defaultReportDir = path.join(repoRoot, "reports");
@@ -19,8 +20,8 @@ export const targetOpenClawPathCandidates = pluginInspector.openClawTargetPathCa
 
 export async function buildReport(options = {}) {
   const generatedAt = options.generatedAt ?? process.env.CRABPOT_REPORT_GENERATED_AT ?? "deterministic";
-  const manifest = await readManifest();
-  return pluginInspector.inspectCompatibilityFixtureSetConfig({
+  const manifest = await readConfiguredManifest({ fixtureSet: options.fixtureSet });
+  const report = await pluginInspector.inspectCompatibilityFixtureSetConfig({
     config: {
       ...manifest,
       rootDir: repoRoot,
@@ -28,32 +29,80 @@ export async function buildReport(options = {}) {
     generatedAt,
     openclawPath: options.openclawPath,
   });
+  return {
+    ...report,
+    crabpotContext: buildReportContext({ manifest, openclawPath: options.openclawPath }),
+  };
 }
 
 export async function writeReport(report, options = {}) {
   const markdownPath = options.markdownPath ?? defaultMarkdownReportPath;
   const jsonPath = options.jsonPath ?? defaultJsonReportPath;
   const issuesPath = options.issuesPath ?? defaultIssuesReportPath;
-  return pluginInspector.writeFixtureSetReports(report, {
-    jsonPath,
-    markdownPath,
-    issuesPath,
-    ...compatibilityRenderOptions(),
-  });
+  await Promise.all([
+    mkdir(path.dirname(markdownPath), { recursive: true }),
+    mkdir(path.dirname(jsonPath), { recursive: true }),
+    mkdir(path.dirname(issuesPath), { recursive: true }),
+  ]);
+  await Promise.all([
+    writeFile(markdownPath, `${renderMarkdownReport(report)}\n`, "utf8"),
+    writeFile(jsonPath, `${JSON.stringify(report, null, 2)}\n`, "utf8"),
+    writeFile(issuesPath, `${renderIssuesReport(report)}\n`, "utf8"),
+  ]);
+  return { markdownPath, jsonPath, issuesPath };
+}
+
+function buildReportContext({ manifest, openclawPath }) {
+  return {
+    fixtureSet: manifest.fixtureSelection?.fixtureSet ?? "all",
+    fixtureIds: manifest.fixtureSelection?.ids ?? manifest.fixtures.map((fixture) => fixture.id),
+    openclawTarget: process.env.CRABPOT_OPENCLAW_TRACK || (openclawPath ? "explicit" : "auto"),
+    pluginTrack: process.env.CRABPOT_PLUGIN_TRACK || "manifest",
+  };
 }
 
 export function renderMarkdownReport(report) {
-  return pluginInspector.renderFixtureSetMarkdownReport(report, {
-    ...compatibilityRenderOptions(),
-    title: "Crabpot Compatibility Report",
-  });
+  return withReportContext(
+    report,
+    pluginInspector.renderFixtureSetMarkdownReport(report, {
+      ...compatibilityRenderOptions(),
+      title: "Crabpot Compatibility Report",
+    }),
+  );
 }
 
 export function renderIssuesReport(report) {
-  return pluginInspector.renderFixtureSetIssuesReport(report, {
-    ...compatibilityRenderOptions(),
-    title: "Crabpot Issue Findings",
-  });
+  return withReportContext(
+    report,
+    pluginInspector.renderFixtureSetIssuesReport(report, {
+      ...compatibilityRenderOptions(),
+      title: "Crabpot Issue Findings",
+    }),
+  );
+}
+
+function withReportContext(report, markdown) {
+  const context = report.crabpotContext;
+  if (!context) {
+    return markdown;
+  }
+  const fixtureLabel =
+    context.fixtureSet === "all"
+      ? `all (${context.fixtureIds.length} fixtures)`
+      : `${context.fixtureSet} (${context.fixtureIds.length} fixtures)`;
+  const block = [
+    "## Crabpot Target Context",
+    "",
+    `- **OpenClaw host track:** \`${context.openclawTarget}\``,
+    `- **Plugin artifact track:** \`${context.pluginTrack}\``,
+    `- **Fixture set:** \`${fixtureLabel}\``,
+    "",
+  ].join("\n");
+  const firstSection = markdown.indexOf("\n## ");
+  if (firstSection === -1) {
+    return `${markdown}\n\n${block.trimEnd()}`;
+  }
+  return `${markdown.slice(0, firstSection)}\n\n${block}${markdown.slice(firstSection + 1)}`;
 }
 
 function compatibilityRenderOptions() {
@@ -134,7 +183,7 @@ function submoduleLinkTargetsForRepo() {
     .filter((fixture) => fixture.source)
     .map((fixture) => ({
       path: fixture.package ? path.posix.join(fixture.path, ".crabpot-package") : fixture.path,
-      sha: fixture.source.ref,
+      sha: fixture.package ? readPackagePayloadGitHead(fixture) || fixture.source.ref : fixture.source.ref,
       sourcePath: normalizeRepoPath(fixture.source.path),
       webUrl: githubWebUrl(fixture.source.repo),
     }))
@@ -151,6 +200,23 @@ function submoduleLinkTargetsForRepo() {
   submoduleLinkTargets = [...sourceTargets, ...moduleTargets]
     .sort((left, right) => right.path.length - left.path.length);
   return submoduleLinkTargets;
+}
+
+function readPackagePayloadGitHead(fixture) {
+  const sidecar = readJsonFile(path.join(repoRoot, fixture.path, ".crabpot-package", ".crabpot-source.json"));
+  if (/^[0-9a-f]{40}$/i.test(sidecar?.gitHead ?? "")) {
+    return sidecar.gitHead;
+  }
+  const pkg = readJsonFile(path.join(repoRoot, fixture.path, ".crabpot-package", "package.json"));
+  return /^[0-9a-f]{40}$/i.test(pkg?.gitHead ?? "") ? pkg.gitHead : "";
+}
+
+function readJsonFile(jsonPath) {
+  try {
+    return JSON.parse(readFileSync(jsonPath, "utf8"));
+  } catch {
+    return null;
+  }
 }
 
 function readManifestSync() {

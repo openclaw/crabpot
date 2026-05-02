@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { readManifest, repoRoot } from "./manifest-lib.mjs";
+import { readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 
 const pluginInspector = await loadPluginInspectorPublicApi();
@@ -75,7 +75,7 @@ export async function buildColdImportReadiness(options = {}) {
   const config = options.report
     ? undefined
     : {
-        ...(await readManifest()),
+        ...(await readConfiguredManifest()),
         rootDir: repoRoot,
       };
   return pluginInspector.buildFixtureSetColdImportReadiness({

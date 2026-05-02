@@ -2,7 +2,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { readManifest, repoRoot } from "./manifest-lib.mjs";
+import { readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
 import { buildReport } from "./report-lib.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 import { captureEntrypoint } from "./run-cold-import-capture.mjs";
@@ -128,7 +128,7 @@ export async function runCapturedSyntheticProbes(capture, options = {}) {
     ...options,
     syntheticSource: "crabpot.synthetic",
   });
-  const manifest = options.manifest ?? (await readManifest());
+  const manifest = options.manifest ?? (await readConfiguredManifest());
   return applyFixtureSyntheticFailurePolicy(result, manifest);
 }
 

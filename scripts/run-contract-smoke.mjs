@@ -2,7 +2,7 @@
 import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { fixtureCheckoutPath, fixtureSourceRoot, readManifest, repoRoot } from "./manifest-lib.mjs";
+import { fixtureCheckoutPath, fixtureSourceRoot, readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
 
 const args = process.argv.slice(2);
 const strict = args.includes("--strict");
@@ -10,7 +10,7 @@ const openclawArgIndex = args.indexOf("--openclaw");
 const openclawPath =
   openclawArgIndex === -1 ? "../openclaw" : args[openclawArgIndex + 1];
 
-const manifest = await readManifest();
+const manifest = await readConfiguredManifest();
 const openclawRoot = path.resolve(repoRoot, openclawPath);
 
 const openclawPackage = path.join(openclawRoot, "package.json");

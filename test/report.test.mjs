@@ -98,6 +98,8 @@ test("markdown report includes review sections", async () => {
   const report = await buildReport({ generatedAt: "test", openclawPath: false });
   const markdown = renderMarkdownReport(report);
 
+  assert.match(markdown, /## Crabpot Target Context/);
+  assert.match(markdown, /Plugin artifact track/);
   assert.match(markdown, /## Hard Breakages/);
   assert.match(markdown, /## Target OpenClaw Compat Records/);
   assert.match(markdown, /## Triage Overview/);
@@ -110,6 +112,24 @@ test("markdown report includes review sections", async () => {
   assert.match(markdown, /## Contract Probe Backlog/);
   assert.match(markdown, /## Decision Matrix/);
   assert.match(markdown, /provider-auth-env-vars/);
+});
+
+test("report can focus on the OpenClaw beta npm fixture set", async () => {
+  const report = await buildReport({ fixtureSet: "openclaw-beta", generatedAt: "test", openclawPath: false });
+
+  assert.equal(report.summary.fixtureCount, 8);
+  assert.equal(report.crabpotContext.fixtureSet, "openclaw-beta");
+  assert.deepEqual(report.crabpotContext.fixtureIds, [
+    "brave-plugin",
+    "codex",
+    "diagnostics-prometheus",
+    "google-meet",
+    "diffs",
+    "memory-lancedb",
+    "openclaw-qqbot",
+    "whatsapp",
+  ]);
+  assert.ok(report.fixtures.every((fixture) => report.crabpotContext.fixtureIds.includes(fixture.id)));
 });
 
 test("issue report maps npm payload evidence to monorepo source links", () => {

@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 import { existsSync } from "node:fs";
-import { mkdir, mkdtemp, readFile, readdir, rm } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import { spawnSync } from "node:child_process";
 import path from "node:path";
-import { fixtureSourceRoot, readManifest, repoRoot } from "./manifest-lib.mjs";
+import { fixtureSourceRoot, readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
 
-const args = new Set(process.argv.slice(2));
-const materialize = args.has("--materialize");
-const check = args.has("--check") || !materialize;
+const args = parseArgs(process.argv.slice(2));
+const materialize = args.materialize;
+const check = args.check || !materialize;
 
-const manifest = await readManifest();
+const manifest = await readConfiguredManifest({ fixtureSet: args.fixtureSet });
 
 if (check) {
   await checkGitmodules(manifest);
@@ -76,7 +76,7 @@ async function checkNpmFixtureShims(manifest) {
 }
 
 async function materializeNpmFixture(fixture, target) {
-  const dependency = await readNpmFixtureDependency(fixture);
+  const dependency = await resolveNpmFixtureDependency(fixture, { pluginTrack: args.pluginTrack });
   const spec = `${dependency.name}@${dependency.version}`;
   const tempDir = await mkdtemp(path.join(os.tmpdir(), "crabpot-npm-fixture-"));
   const payloadDir = fixtureSourceRoot(fixture);
@@ -101,9 +101,28 @@ async function materializeNpmFixture(fixture, target) {
     await rm(payloadDir, { recursive: true, force: true });
     await mkdir(payloadDir, { recursive: true });
     run("tar", ["-xzf", path.join(tempDir, packed.filename), "-C", payloadDir, "--strip-components", "1"]);
+    await writePackageSourceMetadata(payloadDir, {
+      gitHead: packed.gitHead || (await npmPackageGitHead(dependency.name, dependency.version)),
+      name: dependency.name,
+      tag: dependency.tag ?? "",
+      version: dependency.version,
+    });
   } finally {
     await rm(tempDir, { recursive: true, force: true });
   }
+}
+
+async function resolveNpmFixtureDependency(fixture, options = {}) {
+  const declared = await readNpmFixtureDependency(fixture);
+  const tag = selectedPackageTag(fixture, options.pluginTrack);
+  if (!tag) {
+    return declared;
+  }
+  return {
+    name: fixture.package.name,
+    version: await npmDistTag(fixture.package.name, tag),
+    tag,
+  };
 }
 
 async function readNpmFixtureDependency(fixture) {
@@ -126,6 +145,102 @@ async function readNpmFixtureDependency(fixture) {
     name: fixture.package.name,
     version: declared,
   };
+}
+
+function selectedPackageTag(fixture, pluginTrack) {
+  if (pluginTrack && pluginTrack !== "manifest" && isOpenClawPackage(fixture.package.name)) {
+    return pluginTrack;
+  }
+  if (fixture.package.version) {
+    return "";
+  }
+  return fixture.package.tag ?? "";
+}
+
+function isOpenClawPackage(name) {
+  return /^@openclaw\//.test(name);
+}
+
+async function npmDistTag(name, tag) {
+  const result = spawnSync("npm", ["view", name, "dist-tags", "--json"], {
+    cwd: repoRoot,
+    encoding: "utf8",
+    env: process.env,
+    shell: process.platform === "win32",
+  });
+  if (result.status !== 0) {
+    const detail = result.stderr?.trim() ? `: ${result.stderr.trim()}` : "";
+    throw new Error(`${name}: npm dist-tag ${tag} could not be resolved${detail}`);
+  }
+  const tags = JSON.parse(result.stdout || "{}");
+  const version = tags[tag];
+  if (typeof version !== "string" || !/^\d+\.\d+\.\d+/.test(version)) {
+    throw new Error(`${name}: npm dist-tag ${tag} resolved to invalid version ${JSON.stringify(version)}`);
+  }
+  return version;
+}
+
+async function npmPackageGitHead(name, version) {
+  const result = spawnSync("npm", ["view", `${name}@${version}`, "gitHead", "--json"], {
+    cwd: repoRoot,
+    encoding: "utf8",
+    env: process.env,
+    shell: process.platform === "win32",
+  });
+  if (result.status !== 0 || !result.stdout.trim()) {
+    return "";
+  }
+  const gitHead = JSON.parse(result.stdout);
+  return /^[0-9a-f]{40}$/i.test(gitHead ?? "") ? gitHead : "";
+}
+
+async function writePackageSourceMetadata(payloadDir, metadata) {
+  await writeFile(
+    path.join(payloadDir, ".crabpot-source.json"),
+    `${JSON.stringify(
+      {
+        gitHead: metadata.gitHead || null,
+        name: metadata.name,
+        tag: metadata.tag || null,
+        version: metadata.version,
+      },
+      null,
+      2,
+    )}\n`,
+    "utf8",
+  );
+}
+
+function parseArgs(argv) {
+  const parsed = {
+    check: false,
+    fixtureSet: undefined,
+    materialize: false,
+    pluginTrack: process.env.CRABPOT_PLUGIN_TRACK || "",
+  };
+
+  for (let index = 0; index < argv.length; index += 1) {
+    const arg = argv[index];
+    if (arg === "--check") {
+      parsed.check = true;
+      continue;
+    }
+    if (arg === "--materialize") {
+      parsed.materialize = true;
+      continue;
+    }
+    if (arg === "--fixture-set") {
+      parsed.fixtureSet = argv[index + 1];
+      index += 1;
+      continue;
+    }
+    if (arg === "--plugin-track") {
+      parsed.pluginTrack = argv[index + 1];
+      index += 1;
+    }
+  }
+
+  return parsed;
 }
 
 async function hasEntries(target) {

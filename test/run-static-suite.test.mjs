@@ -35,3 +35,19 @@ test("static suite release policy keeps compatibility findings advisory", () => 
   assert.ok(rendered.includes("scripts/check-ci-policy.mjs --check"));
   assert.equal(rendered.some((args) => args.includes("check-ci-policy.mjs --check --strict")), false);
 });
+
+test("static suite can focus operational report steps without filtering unit tests", () => {
+  const steps = buildStaticSuiteSteps({
+    fixtureEnv: {
+      CRABPOT_FIXTURE_SET: "openclaw-beta",
+      CRABPOT_PLUGIN_TRACK: "beta",
+    },
+  });
+
+  const testStep = steps.find(([, args]) => args.join(" ") === "--test test/*.test.mjs");
+  const reportStep = steps.find(([, args]) => args.join(" ") === "scripts/generate-report.mjs --check");
+
+  assert.deepEqual(testStep[2], undefined);
+  assert.equal(reportStep[2].CRABPOT_FIXTURE_SET, "openclaw-beta");
+  assert.equal(reportStep[2].CRABPOT_PLUGIN_TRACK, "beta");
+});

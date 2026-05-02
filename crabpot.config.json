@@ -801,7 +801,7 @@
       "name": "OpenClaw Brave plugin",
       "package": {
         "name": "@openclaw/brave-plugin",
-        "tag": "latest"
+        "tag": "beta"
       },
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
@@ -833,7 +833,7 @@
       "name": "OpenClaw Codex harness and model provider plugin",
       "package": {
         "name": "@openclaw/codex",
-        "tag": "latest"
+        "tag": "beta"
       },
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
@@ -873,7 +873,7 @@
       "name": "OpenClaw diagnostics Prometheus exporter",
       "package": {
         "name": "@openclaw/diagnostics-prometheus",
-        "tag": "latest"
+        "tag": "beta"
       },
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
@@ -903,7 +903,7 @@
       "name": "OpenClaw Google Meet participant plugin",
       "package": {
         "name": "@openclaw/google-meet",
-        "tag": "latest"
+        "tag": "beta"
       },
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
@@ -935,7 +935,7 @@
       "name": "OpenClaw diff viewer plugin",
       "package": {
         "name": "@openclaw/diffs",
-        "tag": "latest"
+        "tag": "beta"
       },
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
@@ -968,7 +968,7 @@
       "name": "OpenClaw LanceDB-backed long-term memory plugin with auto-recall/capture",
       "package": {
         "name": "@openclaw/memory-lancedb",
-        "tag": "latest"
+        "tag": "beta"
       },
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
@@ -1004,7 +1004,7 @@
       "name": "OpenClaw QQ Bot channel plugin",
       "package": {
         "name": "@openclaw/qqbot",
-        "tag": "latest"
+        "tag": "beta"
       },
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
@@ -1033,7 +1033,7 @@
       "name": "OpenClaw WhatsApp channel plugin",
       "package": {
         "name": "@openclaw/whatsapp",
-        "tag": "latest"
+        "tag": "beta"
       },
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",

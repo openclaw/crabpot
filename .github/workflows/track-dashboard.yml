@@ -35,10 +35,16 @@ jobs:
         include:
           - track: latest
             branch: main
+            fixture_set: ""
+            plugin_track: ""
           - track: beta
             branch: crab-beta
+            fixture_set: ""
+            plugin_track: ""
           - track: development
             branch: crab-development
+            fixture_set: openclaw-beta
+            plugin_track: beta
     steps:
       - name: Select requested track
         id: select
@@ -80,7 +86,15 @@ jobs:
           path: openclaw
 
       - if: ${{ steps.select.outputs.run == 'true' }}
-        run: node scripts/run-static-suite.mjs --openclaw ./openclaw --policy dashboard --profile-runs 3 --plugin-inspector-smoke
+        run: |
+          node scripts/run-static-suite.mjs \
+            --openclaw ./openclaw \
+            --policy dashboard \
+            --profile-runs 3 \
+            --plugin-inspector-smoke \
+            --openclaw-track "${{ matrix.track }}" \
+            --fixture-set "${{ matrix.fixture_set }}" \
+            --plugin-track "${{ matrix.plugin_track }}"
 
       - name: Install OpenClaw lifecycle dependencies
         if: ${{ steps.select.outputs.run == 'true' }}
@@ -98,6 +112,9 @@ jobs:
       - name: Write branch dashboard
         if: ${{ steps.select.outputs.run == 'true' }}
         env:
+          CRABPOT_FIXTURE_SET: ${{ matrix.fixture_set }}
+          CRABPOT_OPENCLAW_TRACK: ${{ matrix.track }}
+          CRABPOT_PLUGIN_TRACK: ${{ matrix.plugin_track }}
           CRABPOT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           export CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"

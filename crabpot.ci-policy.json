@@ -48,6 +48,16 @@
   },
   "fixtureSets": {
     "smoke": ["wecom", "llm-trace-phoenix", "codex-app-server", "opik-openclaw"],
+    "openclaw-beta": [
+      "brave-plugin",
+      "codex",
+      "diagnostics-prometheus",
+      "google-meet",
+      "diffs",
+      "memory-lancedb",
+      "openclaw-qqbot",
+      "whatsapp"
+    ],
     "sdk-alias": ["codex-app-server"],
     "side-effect-review": ["hasdata", "llm-trace-phoenix", "web-search-plus"],
     "build": ["agentchat", "clawmetry", "opik-openclaw"]
