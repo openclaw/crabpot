@@ -6,47 +6,71 @@
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 69,
-    "suggestions": 112,
-    "issues": 181,
-    "p0Issues": 3,
-    "p1Issues": 39,
-    "liveIssues": 3,
-    "liveP0Issues": 3,
-    "compatGaps": 3,
-    "deprecationWarnings": 27,
-    "inspectorGaps": 116,
-    "upstreamIssues": 32,
+    "warnings": 117,
+    "suggestions": 208,
+    "issues": 325,
+    "p0Issues": 13,
+    "p1Issues": 71,
+    "liveIssues": 13,
+    "liveP0Issues": 13,
+    "compatGaps": 13,
+    "deprecationWarnings": 33,
+    "inspectorGaps": 203,
+    "upstreamIssues": 63,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
     "policyWarnings": 20,
     "profileFailures": 0,
-    "profileWarnings": 1,
+    "profileWarnings": 2,
     "executionPass": 12,
     "executionFail": 0,
     "executionBlocked": 18,
     "platformWindowsRisks": 14,
     "platformContainerRisks": 14,
-    "loaderJitiCandidates": 21,
-    "importLoopP50Ms": 1611,
-    "importLoopP95Ms": 1637,
+    "loaderJitiCandidates": 47,
+    "importLoopP50Ms": 1571,
+    "importLoopP95Ms": 1573,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 97.2,
-    "importLoopOpenClawActivationP50Ms": 0.3,
+    "importLoopOpenClawImportP50Ms": 99.1,
+    "importLoopOpenClawActivationP50Ms": 0.2,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 10.7,
-    "importLoopMaxCpuMs": 102,
-    "importLoopRssSampleCount": 189,
-    "importLoopCpuSampleCount": 189
+    "importLoopMaxRssMb": 0,
+    "importLoopMaxCpuMs": 0,
+    "importLoopRssSampleCount": 185,
+    "importLoopCpuSampleCount": 185
   },
   "topIssues": [
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "bluebubbles",
+      "code": "sdk-export-missing",
+      "title": "bluebubbles: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
     {
       "severity": "P0",
       "issueClass": "live-issue",
       "fixture": "clawmetry",
       "code": "sdk-export-missing",
       "title": "clawmetry: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "diagnostics-otel",
+      "code": "sdk-export-missing",
+      "title": "diagnostics-otel: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "feishu",
+      "code": "sdk-export-missing",
+      "title": "feishu: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
     },
     {
@@ -60,9 +84,65 @@
     {
       "severity": "P0",
       "issueClass": "live-issue",
+      "fixture": "lobster",
+      "code": "sdk-export-missing",
+      "title": "lobster: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "matrix",
+      "code": "sdk-export-missing",
+      "title": "matrix: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "msteams",
+      "code": "sdk-export-missing",
+      "title": "msteams: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "nextcloud-talk",
+      "code": "sdk-export-missing",
+      "title": "nextcloud-talk: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "nostr",
+      "code": "sdk-export-missing",
+      "title": "nostr: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "voice-call",
+      "code": "sdk-export-missing",
+      "title": "voice-call: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
       "fixture": "yuanbao",
       "code": "sdk-export-missing",
       "title": "yuanbao: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "zalo",
+      "code": "sdk-export-missing",
+      "title": "zalo: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
     },
     {
@@ -71,6 +151,22 @@
       "fixture": "a2a-gateway",
       "code": "registration-capture-gap",
       "title": "a2a-gateway: runtime registrations need capture before contract judgment",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "bluebubbles",
+      "code": "missing-compat-record",
+      "title": "bluebubbles: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "bluebubbles",
+      "code": "registration-capture-gap",
+      "title": "bluebubbles: runtime registrations need capture before contract judgment",
       "decision": "inspector-follow-up"
     },
     {
@@ -104,102 +200,6 @@
       "code": "registration-capture-gap",
       "title": "clawrouter: runtime registrations need capture before contract judgment",
       "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "codex-app-server",
-      "code": "registration-capture-gap",
-      "title": "codex-app-server: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "connectclaw",
-      "code": "registration-capture-gap",
-      "title": "connectclaw: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "dingtalk-connector",
-      "code": "registration-capture-gap",
-      "title": "dingtalk-connector: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "honcho",
-      "code": "conversation-access-hook",
-      "title": "honcho: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "honcho",
-      "code": "missing-compat-record",
-      "title": "honcho: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "honcho",
-      "code": "registration-capture-gap",
-      "title": "honcho: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "hyperspell",
-      "code": "registration-capture-gap",
-      "title": "hyperspell: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "kitchen-sink",
-      "code": "before-tool-call-probe",
-      "title": "kitchen-sink: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "kitchen-sink",
-      "code": "conversation-access-hook",
-      "title": "kitchen-sink: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "kitchen-sink",
-      "code": "registration-capture-gap",
-      "title": "kitchen-sink: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "lightclawbot",
-      "code": "registration-capture-gap",
-      "title": "lightclawbot: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "llm-trace-phoenix",
-      "code": "conversation-access-hook",
-      "title": "llm-trace-phoenix: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
     }
   ],
   "refRegressions": [],
@@ -207,11 +207,21 @@
     {
       "id": "compatibility-report.live-p0-issues",
       "action": "warn",
-      "message": "3 live P0 issues tracked",
+      "message": "13 live P0 issues tracked",
       "evidence": [
+        "bluebubbles:sdk-export-missing:untracked",
         "clawmetry:sdk-export-missing:untracked",
+        "diagnostics-otel:sdk-export-missing:untracked",
+        "feishu:sdk-export-missing:untracked",
         "honcho:sdk-export-missing:untracked",
-        "yuanbao:sdk-export-missing:untracked"
+        "lobster:sdk-export-missing:untracked",
+        "matrix:sdk-export-missing:untracked",
+        "msteams:sdk-export-missing:untracked",
+        "nextcloud-talk:sdk-export-missing:untracked",
+        "nostr:sdk-export-missing:untracked",
+        "voice-call:sdk-export-missing:untracked",
+        "yuanbao:sdk-export-missing:untracked",
+        "zalo:sdk-export-missing:untracked"
       ]
     },
     {
@@ -423,13 +433,23 @@
   ],
   "profileFindings": [
     {
+      "id": "profile.wall-p95",
+      "action": "warn",
+      "metric": "p95WallMs",
+      "message": "p95WallMs regressed 76.1% over baseline",
+      "baseline": 1273,
+      "current": 2242,
+      "delta": 969,
+      "percent": 76.1
+    },
+    {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 54 over baseline",
+      "message": "maxPeakRssMb regressed 369.4 over baseline",
       "baseline": 65.1,
-      "current": 119.1,
-      "delta": 54
+      "current": 434.5,
+      "delta": 369.4
     }
   ],
   "artifacts": {

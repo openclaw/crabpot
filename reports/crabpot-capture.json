@@ -2,7 +2,7 @@
   "generatedAt": "deterministic",
   "targetOpenClaw": {
     "status": "ok",
-    "configuredPath": ".crabpot/openclaw-main",
+    "configuredPath": "./openclaw",
     "capturedRegistrarCount": 26,
     "sdkExportCount": 294
   },

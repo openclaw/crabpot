@@ -36,15 +36,15 @@
     "summary": {
       "commandCount": 9,
       "sampleCount": 27,
-      "rssSampleCount": 674,
-      "cpuSampleCount": 674,
+      "rssSampleCount": 1888,
+      "cpuSampleCount": 1888,
       "wallTimeBasis": "command-median-p95",
-      "p50WallMs": 756,
-      "p95WallMs": 799,
-      "maxPeakRssMb": 119.1,
-      "maxRssDeltaMb": 90.2,
-      "maxCpuMsEstimate": 911,
-      "maxHarnessHeapDeltaMb": 2.9
+      "p50WallMs": 2230,
+      "p95WallMs": 2242,
+      "maxPeakRssMb": 434.5,
+      "maxRssDeltaMb": 405.8,
+      "maxCpuMsEstimate": 2493,
+      "maxHarnessHeapDeltaMb": 7.6
     },
     "targetOpenClaw": {
       "status": "ok",
@@ -58,13 +58,13 @@
       "manifestContractFields": 17
     },
     "fixtureInventory": {
-      "fixtures": 33,
-      "sourceFiles": 1009,
-      "observedHooks": 82,
-      "observedRegistrations": 121,
-      "observedSdkImports": 379,
-      "contractProbes": 176,
-      "issueFindings": 181
+      "fixtures": 57,
+      "sourceFiles": 2315,
+      "observedHooks": 90,
+      "observedRegistrations": 168,
+      "observedSdkImports": 572,
+      "contractProbes": 310,
+      "issueFindings": 325
     }
   },
   "thresholds": {
@@ -76,28 +76,28 @@
   "summary": {
     "checkCount": 10,
     "failCount": 0,
-    "warnCount": 1,
-    "passCount": 9
+    "warnCount": 2,
+    "passCount": 8
   },
   "checks": [
     {
       "id": "profile.wall-p95",
-      "action": "pass",
+      "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs stayed within 50% regression threshold",
+      "message": "p95WallMs regressed 76.1% over baseline",
       "baseline": 1273,
-      "current": 799,
-      "delta": -474,
-      "percent": -37.2
+      "current": 2242,
+      "delta": 969,
+      "percent": 76.1
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 54 over baseline",
+      "message": "maxPeakRssMb regressed 369.4 over baseline",
       "baseline": 65.1,
-      "current": 119.1,
-      "delta": 54
+      "current": 434.5,
+      "delta": 369.4
     },
     {
       "id": "profile.node-boot",
@@ -105,8 +105,8 @@
       "metric": "nodeBootWallMs",
       "message": "nodeBootWallMs stayed within 500 absolute regression threshold",
       "baseline": 917,
-      "current": 31,
-      "delta": -886
+      "current": 34,
+      "delta": -883
     },
     {
       "id": "registry.compatRecords",

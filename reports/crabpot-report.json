@@ -1,13 +1,13 @@
 {
   "generatedAt": "deterministic",
   "targetOpenClaw": {
-    "configuredPath": ".crabpot/openclaw-main",
+    "configuredPath": "./openclaw",
     "searchedPaths": [
-      ".crabpot/openclaw-main"
+      "./openclaw"
     ],
     "status": "ok",
-    "compatRegistryPath": ".crabpot/openclaw-main/src/plugins/compat/registry.ts",
-    "compatRecordCount": 60,
+    "compatRegistryPath": "openclaw/src/plugins/compat/registry.ts",
+    "compatRecordCount": 61,
     "compatRecords": [
       "activation-agent-harness-hint",
       "activation-capability-hint",
@@ -45,6 +45,7 @@
       "hook.llm-observer.privacy-payload",
       "legacy-before-agent-start",
       "legacy-extension-api-import",
+      "legacy-implicit-startup-sidecar",
       "legacy-root-sdk-import",
       "memory-split-registration",
       "openclaw-schema-type-alias",
@@ -107,6 +108,7 @@
       "hook.llm-observer.privacy-payload": "active",
       "legacy-before-agent-start": "deprecated",
       "legacy-extension-api-import": "deprecated",
+      "legacy-implicit-startup-sidecar": "deprecated",
       "legacy-root-sdk-import": "deprecated",
       "memory-split-registration": "deprecated",
       "openclaw-schema-type-alias": "deprecated",
@@ -132,7 +134,7 @@
       "runtime-taskflow-legacy-alias": "deprecated",
       "setup-runtime-fallback": "active"
     },
-    "hookTypesPath": ".crabpot/openclaw-main/src/plugins/hook-types.ts",
+    "hookTypesPath": "openclaw/src/plugins/hook-types.ts",
     "hookNameCount": 35,
     "hookNames": [
       "after_compaction",
@@ -171,7 +173,7 @@
       "subagent_spawning",
       "tool_result_persist"
     ],
-    "apiBuilderPath": ".crabpot/openclaw-main/src/plugins/api-builder.ts",
+    "apiBuilderPath": "openclaw/src/plugins/api-builder.ts",
     "apiRegistrarCount": 49,
     "apiRegistrars": [
       "registerAgentEventSubscription",
@@ -224,7 +226,7 @@
       "registerWebFetchProvider",
       "registerWebSearchProvider"
     ],
-    "capturedRegistrationPath": ".crabpot/openclaw-main/src/plugins/captured-registration.ts",
+    "capturedRegistrationPath": "openclaw/src/plugins/captured-registration.ts",
     "capturedRegistrarCount": 26,
     "capturedRegistrars": [
       "registerAgentEventSubscription",
@@ -254,7 +256,7 @@
       "registerWebFetchProvider",
       "registerWebSearchProvider"
     ],
-    "packagePath": ".crabpot/openclaw-main/package.json",
+    "packagePath": "openclaw/package.json",
     "sdkExportCount": 294,
     "sdkExports": [
       "openclaw/plugin-sdk",
@@ -552,7 +554,7 @@
       "openclaw/plugin-sdk/zalouser",
       "openclaw/plugin-sdk/zod"
     ],
-    "pluginSdkEntrypointsPath": ".crabpot/openclaw-main/src/plugin-sdk/entrypoints.ts",
+    "pluginSdkEntrypointsPath": "openclaw/src/plugin-sdk/entrypoints.ts",
     "reservedSdkExportCount": 0,
     "reservedSdkExports": [],
     "supportedFacadeSdkExports": [
@@ -590,8 +592,8 @@
       "openclaw/plugin-sdk/telegram-command-config",
       "openclaw/plugin-sdk/video-generation-core"
     ],
-    "manifestTypesPath": ".crabpot/openclaw-main/src/plugins/manifest.ts",
-    "manifestFieldCount": 39,
+    "manifestTypesPath": "openclaw/src/plugins/manifest.ts",
+    "manifestFieldCount": 35,
     "manifestFields": [
       "activation",
       "autoEnableWhenConfiguredProviders",
@@ -606,7 +608,6 @@
       "description",
       "enabledByDefault",
       "id",
-      "imageGenerationProviderMetadata",
       "kind",
       "legacyPluginIds",
       "mediaUnderstandingProviderMetadata",
@@ -614,7 +615,6 @@
       "modelIdNormalization",
       "modelPricing",
       "modelSupport",
-      "musicGenerationProviderMetadata",
       "name",
       "nonSecretAuthMarkers",
       "providerAuthAliases",
@@ -628,10 +628,8 @@
       "setup",
       "skills",
       "syntheticAuthRefs",
-      "toolMetadata",
       "uiHints",
-      "version",
-      "videoGenerationProviderMetadata"
+      "version"
     ],
     "manifestContractFieldCount": 17,
     "manifestContractFields": [
