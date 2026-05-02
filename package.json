@@ -9,6 +9,7 @@
   },
   "scripts": {
     "check": "node scripts/run-static-suite.mjs --policy dashboard",
+    "check:contracts": "node scripts/check-openclaw-plugin-contracts.mjs",
     "check:release": "node scripts/run-static-suite.mjs --policy release",
     "ci:policy": "node scripts/check-ci-policy.mjs",
     "ci:summary": "node scripts/write-ci-summary.mjs",

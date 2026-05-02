@@ -41,6 +41,7 @@ export function buildStaticSuiteSteps({
   profileArgs = [],
 } = {}) {
   return [
+    ["node", ["scripts/check-openclaw-plugin-contracts.mjs"]],
     ["node", ["scripts/sync-fixtures.mjs", "--materialize"]],
     ["node", ["--test", "test/*.test.mjs"]],
     ...(Object.keys(fixtureEnv).length > 0

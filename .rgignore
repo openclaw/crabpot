@@ -1,0 +1,4 @@
+# External plugin submodule history/comments that mention retired OpenClaw
+# metadata. Crabpot-owned files are checked by npm run check:contracts.
+plugins/agentchat/integrations/openclaw-channel/CHANGELOG.md
+plugins/nemoclaw/scripts/generate-openclaw-config.py
