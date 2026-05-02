@@ -4,6 +4,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
+import { defaultExecutionResultsJsonPath } from "./summarize-execution-results.mjs";
 
 export const defaultReportDir = path.join(repoRoot, "reports");
 export const defaultMarkdownReportPath = path.join(defaultReportDir, "crabpot-report.md");
@@ -21,17 +22,25 @@ export const targetOpenClawPathCandidates = pluginInspector.openClawTargetPathCa
 export async function buildReport(options = {}) {
   const generatedAt = options.generatedAt ?? process.env.CRABPOT_REPORT_GENERATED_AT ?? "deterministic";
   const manifest = await readConfiguredManifest({ fixtureSet: options.fixtureSet });
+  const executionResults =
+    options.executionResults ?? readOptionalExecutionResults(options.executionResultsPath);
   const report = await pluginInspector.inspectCompatibilityFixtureSetConfig({
     config: {
       ...manifest,
       rootDir: repoRoot,
     },
     generatedAt,
+    executionResults,
     openclawPath: options.openclawPath,
   });
   return {
     ...report,
-    crabpotContext: buildReportContext({ manifest, openclawPath: options.openclawPath }),
+    crabpotContext: buildReportContext({
+      executionResults,
+      executionResultsPath: options.executionResultsPath,
+      manifest,
+      openclawPath: options.openclawPath,
+    }),
   };
 }
 
@@ -52,12 +61,20 @@ export async function writeReport(report, options = {}) {
   return { markdownPath, jsonPath, issuesPath };
 }
 
-function buildReportContext({ manifest, openclawPath }) {
+function buildReportContext({ executionResults, executionResultsPath, manifest, openclawPath }) {
   return {
     fixtureSet: manifest.fixtureSelection?.fixtureSet ?? "all",
     fixtureIds: manifest.fixtureSelection?.ids ?? manifest.fixtures.map((fixture) => fixture.id),
     openclawTarget: process.env.CRABPOT_OPENCLAW_TRACK || (openclawPath ? "explicit" : "auto"),
     pluginTrack: process.env.CRABPOT_PLUGIN_TRACK || "manifest",
+    runtimeEvidence: executionResults
+      ? {
+          path: executionResultsPath ?? defaultExecutionResultsJsonPath,
+          artifacts: executionResults.summary?.artifactCount ?? 0,
+          captureArtifacts: executionResults.summary?.captureArtifactCount ?? 0,
+          capturedRegistrations: executionResults.summary?.capturedRegistrationCount ?? 0,
+        }
+      : null,
   };
 }
 
@@ -96,6 +113,11 @@ function withReportContext(report, markdown) {
     `- **OpenClaw host track:** \`${context.openclawTarget}\``,
     `- **Plugin artifact track:** \`${context.pluginTrack}\``,
     `- **Fixture set:** \`${fixtureLabel}\``,
+    ...(context.runtimeEvidence
+      ? [
+          `- **Runtime evidence:** \`${relativePathLabel(context.runtimeEvidence.path)}\` (${context.runtimeEvidence.captureArtifacts} capture artifacts, ${context.runtimeEvidence.capturedRegistrations} captured registrations/hooks)`,
+        ]
+      : []),
     "",
   ].join("\n");
   const firstSection = markdown.indexOf("\n## ");
@@ -103,6 +125,21 @@ function withReportContext(report, markdown) {
     return `${markdown}\n\n${block.trimEnd()}`;
   }
   return `${markdown.slice(0, firstSection)}\n\n${block}${markdown.slice(firstSection + 1)}`;
+}
+
+function readOptionalExecutionResults(executionResultsPath) {
+  if (!executionResultsPath) {
+    return null;
+  }
+  const resolvedPath = path.resolve(repoRoot, executionResultsPath);
+  if (!existsSync(resolvedPath)) {
+    return null;
+  }
+  return JSON.parse(readFileSync(resolvedPath, "utf8"));
+}
+
+function relativePathLabel(filePath) {
+  return path.relative(repoRoot, path.resolve(repoRoot, filePath)).replaceAll("\\", "/");
 }
 
 function compatibilityRenderOptions() {

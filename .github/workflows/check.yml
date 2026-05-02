@@ -194,6 +194,10 @@ jobs:
         if: always()
         continue-on-error: true
         run: npm run execution:report
+      - name: Reconcile compatibility report with runtime evidence
+        if: always()
+        continue-on-error: true
+        run: node scripts/generate-report.mjs --openclaw ./openclaw --execution-results reports/crabpot-execution-results.json
       - name: Run execution policy
         id: policy
         if: always()
@@ -210,6 +214,8 @@ jobs:
           name: crabpot-changed-isolated-${{ matrix.id }}
           path: |
             .crabpot/results/
+            reports/crabpot-report.*
+            reports/crabpot-issues.*
             reports/crabpot-execution-results.*
             reports/crabpot-ci-policy.*
             reports/crabpot-ci-summary.*

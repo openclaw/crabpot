@@ -109,13 +109,13 @@ function parseArgs(argv) {
 
 export async function buildCiPolicyReport(options = {}) {
   const policy = options.policy ?? (await readJson(options.policyPath ?? defaultCiPolicyPath));
-  const compatibilityReport =
-    options.compatibilityReport ??
-    (await readOptionalJson(options.reportPath ?? defaultJsonReportPath)) ??
-    (await buildReport({ generatedAt: "deterministic" }));
   const executionResults =
     options.executionResults ??
     (await readOptionalJson(options.executionResultsPath ?? defaultExecutionResultsJsonPath));
+  const compatibilityReport =
+    options.compatibilityReport ??
+    (await readOptionalJson(options.reportPath ?? defaultJsonReportPath)) ??
+    (await buildReport({ executionResults, generatedAt: "deterministic" }));
   const refDiff = options.refDiff ?? (await readOptionalJson(options.refDiffPath ?? defaultRefDiffJsonPath));
 
   return pluginInspector.buildCiPolicyReport({

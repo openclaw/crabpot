@@ -19,7 +19,10 @@ async function main() {
   const json = args.has("--json");
   const write = !check || args.has("--write");
 
-  const report = await buildReport({ openclawPath: parsedArgs.openclawPath });
+  const report = await buildReport({
+    executionResultsPath: parsedArgs.executionResultsPath,
+    openclawPath: parsedArgs.openclawPath,
+  });
 
   if (write) {
     const paths = await writeReport(report);
@@ -47,6 +50,7 @@ async function main() {
 function parseArgs(argv) {
   const flags = [];
   let openclawPath;
+  let executionResultsPath;
 
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
@@ -59,8 +63,13 @@ function parseArgs(argv) {
       openclawPath = false;
       continue;
     }
+    if (arg === "--execution-results") {
+      executionResultsPath = argv[index + 1];
+      index += 1;
+      continue;
+    }
     flags.push(arg);
   }
 
-  return { flags, openclawPath };
+  return { executionResultsPath, flags, openclawPath };
 }
