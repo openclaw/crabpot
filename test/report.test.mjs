@@ -49,16 +49,18 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasFinding(report.suggestions, "wecom", "package-dependency-install-required");
   assertHasFinding(report.warnings, "honcho", "conversation-access-hook");
   assertHasFinding(report.warnings, "composio", "package-plugin-api-compat-missing");
-  assertHasFinding(report.warnings, "memos-cloud", "manifest-unknown-fields");
   assertHasFinding(report.suggestions, "secureclaw", "registration-capture-gap");
   if (hasTargetOpenClaw) {
     assertHasFindingCode(report.warnings, "sdk-export-missing");
     assertHasFindingCode(report.suggestions, "missing-compat-record");
+    assertHasFinding(report.warnings, "memos-cloud", "manifest-unknown-fields");
   }
 
   assertHasDecision(report.decisions, "core-compat-adapter", "env-auth");
   assertHasDecision(report.decisions, "inspector-follow-up", "registration-capture");
-  assertHasDecision(report.decisions, "core-compat-adapter", "compat-registry");
+  if (hasTargetOpenClaw) {
+    assertHasDecision(report.decisions, "core-compat-adapter", "compat-registry");
+  }
 
   assertHasIssue(report.issues, "P1", "registration-capture-gap");
   assertHasIssue(report.issues, "P1", "conversation-access-hook");

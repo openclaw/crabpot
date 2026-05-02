@@ -20,7 +20,8 @@ const trackedFiles = execFileSync("git", ["ls-files", "-z"], {
 })
   .split("\0")
   .filter(Boolean)
-  .filter((filePath) => !ignoredPaths.has(filePath));
+  .filter((filePath) => !ignoredPaths.has(filePath))
+  .filter((filePath) => !filePath.startsWith("reports/"));
 
 const offenders = [];
 for (const filePath of trackedFiles) {

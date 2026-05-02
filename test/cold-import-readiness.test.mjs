@@ -15,8 +15,8 @@ test("cold import readiness classifies entrypoint blockers", async () => {
   assert.ok(readiness.summary.dependencyInstallRequiredCount > 0);
 
   assertHasBlocker(readiness, "wecom", "dependency-install-required");
-  assertHasStatus(readiness, "agentchat", "build-required");
-  assertHasStatus(readiness, "a2a-gateway", "ts-loader-required");
+  assertHasBlocker(readiness, "agentchat", "build-required");
+  assertHasBlocker(readiness, "a2a-gateway", "ts-loader-required");
   if (report.issues.some((issue) => issue.code === "sdk-export-missing")) {
     assert.ok(readiness.summary.sdkAliasRequiredCount > 0);
     assertHasAnyStatus(readiness, "sdk-alias-required");
