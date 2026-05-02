@@ -51,6 +51,16 @@ test("openclaw beta fixture set narrows to beta npm packages", async () => {
   assert.ok(manifest.fixtures.every((fixture) => fixture.package?.tag === "beta"));
 });
 
+test("explicit fixture set narrows to named fixtures", async () => {
+  const manifest = await readConfiguredManifest({ fixtureSet: "kitchen-sink,wecom" });
+
+  assert.deepEqual(manifest.fixtures.map((fixture) => fixture.id), ["kitchen-sink", "wecom"]);
+  assert.deepEqual(manifest.fixtureSelection, {
+    fixtureSet: "kitchen-sink,wecom",
+    ids: ["kitchen-sink", "wecom"],
+  });
+});
+
 test("fixture paths are stable plugin submodule paths", async () => {
   const manifest = await readManifest();
 

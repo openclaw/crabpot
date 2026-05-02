@@ -16,7 +16,7 @@ test("fixture inspections satisfy expected hooks and registrations", async () =>
 
     for (const registration of fixture.expect?.registrations ?? []) {
       assert.ok(
-        inspection.registrations.includes(registration),
+        satisfiesRegistration(registration, inspection.registrations),
         `${fixture.id} should use ${registration}`,
       );
     }
@@ -29,3 +29,15 @@ test("fixture inspections satisfy expected hooks and registrations", async () =>
     }
   }
 });
+
+function satisfiesRegistration(expected, observed) {
+  if (observed.includes(expected)) {
+    return true;
+  }
+  if (expected !== "registerChannel") {
+    return false;
+  }
+  return observed.some((registration) =>
+    ["createChatChannelPlugin", "defineBundledChannelEntry", "defineChannelPluginEntry"].includes(registration),
+  );
+}

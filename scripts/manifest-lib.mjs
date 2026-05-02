@@ -27,12 +27,9 @@ export async function selectManifestFixtures(manifest, options = {}) {
     return manifest;
   }
   const policy = JSON.parse(await readFile(options.policyPath ?? defaultCiPolicyPath, "utf8"));
-  const ids = policy.fixtureSets?.[fixtureSet];
-  if (!Array.isArray(ids) || ids.length === 0) {
-    throw new Error(`fixture set ${fixtureSet} is not defined in ${path.relative(repoRoot, options.policyPath ?? defaultCiPolicyPath)}`);
-  }
-  const wanted = new Set(ids);
-  const fixtures = manifest.fixtures.filter((fixture) => wanted.has(fixture.id));
+  const ids = policy.fixtureSets?.[fixtureSet] ?? fixtureSet.split(",").map((value) => value.trim()).filter(Boolean);
+  const fixturesById = new Map(manifest.fixtures.map((fixture) => [fixture.id, fixture]));
+  const fixtures = ids.map((id) => fixturesById.get(id)).filter(Boolean);
   const missing = ids.filter((id) => !fixtures.some((fixture) => fixture.id === id));
   if (missing.length > 0) {
     throw new Error(`fixture set ${fixtureSet} references unknown fixture(s): ${missing.join(", ")}`);

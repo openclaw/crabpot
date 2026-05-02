@@ -21,6 +21,7 @@ async function main() {
 
   const report = await buildReport({
     executionResultsPath: parsedArgs.executionResultsPath,
+    fixtureSet: parsedArgs.fixtureSet,
     openclawPath: parsedArgs.openclawPath,
   });
 
@@ -51,6 +52,7 @@ function parseArgs(argv) {
   const flags = [];
   let openclawPath;
   let executionResultsPath;
+  let fixtureSet;
 
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
@@ -68,8 +70,13 @@ function parseArgs(argv) {
       index += 1;
       continue;
     }
+    if (arg === "--fixture-set") {
+      fixtureSet = argv[index + 1];
+      index += 1;
+      continue;
+    }
     flags.push(arg);
   }
 
-  return { executionResultsPath, flags, openclawPath };
+  return { executionResultsPath, fixtureSet, flags, openclawPath };
 }

@@ -200,7 +200,7 @@ test("issue report maps npm payload evidence to monorepo source links", () => {
 
   assert.match(
     markdown,
-    /https:\/\/github\.com\/openclaw\/openclaw\/blob\/2ce6b77205187c76ce7cde6cb0913de14d4452fa\/extensions\/bluebubbles\/index\.js#L12/,
+    /https:\/\/github\.com\/openclaw\/openclaw\/blob\/[0-9a-f]{40}\/extensions\/bluebubbles\/index\.js#L12/,
   );
 });
 

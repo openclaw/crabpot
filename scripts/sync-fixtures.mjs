@@ -100,7 +100,12 @@ async function materializeNpmFixture(fixture, target) {
     await mkdir(target, { recursive: true });
     await rm(payloadDir, { recursive: true, force: true });
     await mkdir(payloadDir, { recursive: true });
-    run("tar", ["-xzf", path.join(tempDir, packed.filename), "-C", payloadDir, "--strip-components", "1"]);
+    const tarballPath = path.join(tempDir, packed.filename);
+    const tarArgs = ["-xzf", tarballPath, "-C", payloadDir, "--strip-components", "1"];
+    if (process.platform === "win32") {
+      tarArgs.unshift("--force-local");
+    }
+    run("tar", tarArgs);
     await writePackageSourceMetadata(payloadDir, {
       gitHead: packed.gitHead || (await npmPackageGitHead(dependency.name, dependency.version)),
       name: dependency.name,

@@ -14,7 +14,7 @@ const retiredTerms = [
 
 const ignoredPaths = new Set([path.relative(repoRoot, import.meta.filename)]);
 
-const trackedFiles = execFileSync("git", ["ls-files", "-z"], {
+const trackedFiles = execFileSync("git", ["-c", "safe.directory=*", "ls-files", "-z"], {
   cwd: repoRoot,
   encoding: "utf8",
 })
