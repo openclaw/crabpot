@@ -54,7 +54,6 @@ test("compatibility report classifies current fixture seams", async () => {
   if (hasTargetOpenClaw) {
     assertHasFindingCode(report.warnings, "sdk-export-missing");
     assertHasFindingCode(report.suggestions, "missing-compat-record");
-    assertHasFinding(report.warnings, "hyperspell", "unknown-hook-name");
   }
 
   assertHasDecision(report.decisions, "core-compat-adapter", "env-auth");
@@ -74,10 +73,8 @@ test("compatibility report classifies current fixture seams", async () => {
     assertHasFinding(report.warnings, "agentchat", "manifest-unknown-fields");
     assertHasIssue(report.issues, "P1", "missing-compat-record");
     assertHasIssue(report.issues, "P0", "sdk-export-missing");
-    assertHasIssue(report.issues, "P0", "unknown-hook-name");
     assertHasIssue(report.issues, "P2", "manifest-unknown-fields");
     assertHasIssueClass(report.issues, "live-issue", "sdk-export-missing");
-    assertHasIssueClass(report.issues, "live-issue", "unknown-hook-name");
     assertHasIssueClass(report.issues, "compat-gap", "missing-compat-record");
     assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:agentchat");
     assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:memos-cloud");

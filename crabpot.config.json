@@ -177,12 +177,11 @@
       "repo": "https://github.com/hyperspell/hyperspell-openclaw.git",
       "path": "plugins/hyperspell",
       "priority": "high",
-      "seams": ["memory-runtime", "prompt-mutation", "session-lifecycle", "file-watch", "cli"],
+      "seams": ["dynamic-tool", "external-memory", "cli"],
       "expect": {
-        "hooks": ["before_agent_start", "after_compaction", "session_end", "agent_end", "file_changed"],
-        "registrations": ["registerCli", "registerCommand", "registerService", "registerTool"]
+        "registrations": ["registerCli", "registerCommand", "registerTool"]
       },
-      "why": "Memory and context fixture covering legacy startup hooks, compaction/session hooks, file-change sync, CLI setup, command handlers, and tool-backed external memory search/write."
+      "why": "Memory and context fixture covering CLI setup, command handlers, and tool-backed external memory search/write."
     },
     {
       "id": "honcho",
