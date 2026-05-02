@@ -1,7 +1,7 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "dependabot",
+  "mode": "check",
   "openclawLabel": "openclaw@latest (2026.4.29, a448042c2edd)",
   "status": "pass",
   "summary": {
@@ -9,36 +9,36 @@
     "warnings": 69,
     "suggestions": 112,
     "issues": 181,
-    "p0Issues": 4,
+    "p0Issues": 3,
     "p1Issues": 39,
-    "liveIssues": 4,
-    "liveP0Issues": 4,
+    "liveIssues": 3,
+    "liveP0Issues": 3,
     "compatGaps": 3,
-    "deprecationWarnings": 28,
-    "inspectorGaps": 117,
-    "upstreamIssues": 29,
+    "deprecationWarnings": 27,
+    "inspectorGaps": 116,
+    "upstreamIssues": 32,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
     "policyWarnings": 20,
     "profileFailures": 0,
-    "profileWarnings": 0,
+    "profileWarnings": 1,
     "executionPass": 12,
     "executionFail": 0,
     "executionBlocked": 18,
     "platformWindowsRisks": 14,
     "platformContainerRisks": 14,
     "loaderJitiCandidates": 21,
-    "importLoopP50Ms": 1401,
-    "importLoopP95Ms": 1502,
+    "importLoopP50Ms": 1611,
+    "importLoopP95Ms": 1637,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 96,
-    "importLoopOpenClawActivationP50Ms": 0.2,
+    "importLoopOpenClawImportP50Ms": 97.2,
+    "importLoopOpenClawActivationP50Ms": 0.3,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 3.3,
-    "importLoopMaxCpuMs": 175,
-    "importLoopRssSampleCount": 169,
-    "importLoopCpuSampleCount": 169
+    "importLoopMaxRssMb": 10.7,
+    "importLoopMaxCpuMs": 102,
+    "importLoopRssSampleCount": 189,
+    "importLoopCpuSampleCount": 189
   },
   "topIssues": [
     {
@@ -55,14 +55,6 @@
       "fixture": "honcho",
       "code": "sdk-export-missing",
       "title": "honcho: plugin SDK import aliases are missing from target package exports",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "hyperspell",
-      "code": "unknown-hook-name",
-      "title": "hyperspell: fixture uses a hook missing from target OpenClaw",
       "decision": "core-compat-adapter"
     },
     {
@@ -88,6 +80,14 @@
       "code": "missing-compat-record",
       "title": "clawmetry: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "upstream-metadata",
+      "fixture": "clawmetry",
+      "code": "package-npm-pack-entrypoint-missing",
+      "title": "clawmetry: advertised npm artifact is missing OpenClaw entrypoints",
+      "decision": "plugin-upstream-fix"
     },
     {
       "severity": "P1",
@@ -157,14 +157,6 @@
       "severity": "P1",
       "issueClass": "inspector-gap",
       "fixture": "hyperspell",
-      "code": "conversation-access-hook",
-      "title": "hyperspell: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "hyperspell",
       "code": "registration-capture-gap",
       "title": "hyperspell: runtime registrations need capture before contract judgment",
       "decision": "inspector-follow-up"
@@ -200,6 +192,14 @@
       "code": "registration-capture-gap",
       "title": "lightclawbot: runtime registrations need capture before contract judgment",
       "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "llm-trace-phoenix",
+      "code": "conversation-access-hook",
+      "title": "llm-trace-phoenix: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
     }
   ],
   "refRegressions": [],
@@ -207,11 +207,10 @@
     {
       "id": "compatibility-report.live-p0-issues",
       "action": "warn",
-      "message": "4 live P0 issues tracked",
+      "message": "3 live P0 issues tracked",
       "evidence": [
         "clawmetry:sdk-export-missing:untracked",
         "honcho:sdk-export-missing:untracked",
-        "hyperspell:unknown-hook-name:none",
         "yuanbao:sdk-export-missing:untracked"
       ]
     },
@@ -422,7 +421,17 @@
       ]
     }
   ],
-  "profileFindings": [],
+  "profileFindings": [
+    {
+      "id": "profile.peak-rss",
+      "action": "warn",
+      "metric": "maxPeakRssMb",
+      "message": "maxPeakRssMb regressed 54 over baseline",
+      "baseline": 65.1,
+      "current": 119.1,
+      "delta": 54
+    }
+  ],
   "artifacts": {
     "compatibility": "reports/crabpot-report.json",
     "capture": "reports/crabpot-capture.json",
