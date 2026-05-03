@@ -5308,13 +5308,13 @@
           ],
           "setupEntry": "./src/setup.js",
           "compatPluginApi": "2026.4",
-          "buildOpenClawVersion": "2026.4.29",
-          "buildPluginSdkVersion": "2026.4.29",
+          "buildOpenClawVersion": "2026.5.2",
+          "buildPluginSdkVersion": "2026.5.2",
           "install": {
             "clawhubSpec": "clawhub:@openclaw/kitchen-sink",
             "npmSpec": "@openclaw/kitchen-sink",
             "defaultChoice": "clawhub",
-            "minHostVersion": ">=2026.4.29"
+            "minHostVersion": ">=2026.5.2"
           },
           "release": {
             "publishToClawHub": true,
@@ -5379,13 +5379,13 @@
             ],
             "setupEntry": "./src/setup.js",
             "compatPluginApi": "2026.4",
-            "buildOpenClawVersion": "2026.4.29",
-            "buildPluginSdkVersion": "2026.4.29",
+            "buildOpenClawVersion": "2026.5.2",
+            "buildPluginSdkVersion": "2026.5.2",
             "install": {
               "clawhubSpec": "clawhub:@openclaw/kitchen-sink",
               "npmSpec": "@openclaw/kitchen-sink",
               "defaultChoice": "clawhub",
-              "minHostVersion": ">=2026.4.29"
+              "minHostVersion": ">=2026.5.2"
             },
             "release": {
               "publishToClawHub": true,

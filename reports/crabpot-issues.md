@@ -324,13 +324,13 @@ Status: PASS
   - **legacy-before-agent-start**: kitchen-sink: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ generated-hooks.js:11](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-hooks.js#L11)
+    - [before_agent_start @ generated-hooks.js:11](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L11)
 
 - 🟡 P2 **kitchen-sink** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: kitchen-sink: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ generated-sdk-imports.ts:2](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-sdk-imports.ts#L2)
+    - [openclaw/plugin-sdk @ generated-sdk-imports.ts:2](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-sdk-imports.ts#L2)
 
 - 🟡 P2 **llm-trace-phoenix** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: llm-trace-phoenix: root plugin SDK barrel is still used by fixtures
@@ -668,55 +668,55 @@ Status: PASS
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ generated-hooks.js:19](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-hooks.js#L19)
+    - [before_tool_call @ generated-hooks.js:19](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L19)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: kitchen-sink: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ generated-hooks.js:7](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-hooks.js#L7)
-    - [llm_input @ generated-hooks.js:25](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-hooks.js#L25)
-    - [llm_output @ generated-hooks.js:26](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-hooks.js#L26)
+    - [agent_end @ generated-hooks.js:7](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L7)
+    - [llm_input @ generated-hooks.js:25](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L25)
+    - [llm_output @ generated-hooks.js:26](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L26)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: kitchen-sink: runtime registrations need capture before contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L7)
-    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L8)
-    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L55)
-    - [registerCommand @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L12)
-    - [registerCommand @ kitchen-runtime.js:50](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L50)
-    - [registerCommand @ kitchen-runtime.js:51](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L51)
-    - [registerCompactionProvider @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L13)
-    - [registerCompactionProvider @ kitchen-runtime.js:95](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L95)
-    - [registerConfigMigration @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L14)
-    - [registerContextEngine @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L15)
-    - [registerDetachedTaskRuntime @ sync-surface.mjs:113](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/scripts/sync-surface.mjs#L113)
-    - [registerDetachedTaskRuntime @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L17)
-    - [registerDetachedTaskRuntime @ kitchen-runtime.js:86](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L86)
-    - [registerGatewayDiscoveryService @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L18)
-    - [registerGatewayMethod @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L19)
-    - [registerGatewayMethod @ kitchen-runtime.js:107](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L107)
-    - [registerHook @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L20)
-    - [registerHttpRoute @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L21)
-    - [registerHttpRoute @ kitchen-runtime.js:105](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L105)
-    - [registerInteractiveHandler @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L23)
-    - [registerInteractiveHandler @ kitchen-runtime.js:53](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L53)
-    - [registerMemoryCapability @ generated-registrars.js:25](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L25)
-    - [registerMemoryCorpusSupplement @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L26)
-    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:92](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L92)
-    - [registerMemoryFlushPlan @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L28)
-    - [registerMemoryPromptSection @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L29)
-    - [registerMemoryPromptSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L30)
-    - [registerMemoryPromptSupplement @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L111)
-    - [registerMemoryRuntime @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L31)
-    - [registerNodeHostCommand @ generated-registrars.js:34](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L34)
-    - [registerNodeInvokePolicy @ generated-registrars.js:35](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L35)
-    - [registerReload @ generated-registrars.js:39](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L39)
-    - [registerSecurityAuditCollector @ generated-registrars.js:41](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L41)
-    - [registerService @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L42)
-    - [registerService @ kitchen-runtime.js:104](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L104)
+    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L7)
+    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L8)
+    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L55)
+    - [registerCommand @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L12)
+    - [registerCommand @ kitchen-runtime.js:50](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L50)
+    - [registerCommand @ kitchen-runtime.js:51](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L51)
+    - [registerCompactionProvider @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L13)
+    - [registerCompactionProvider @ kitchen-runtime.js:95](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L95)
+    - [registerConfigMigration @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L14)
+    - [registerContextEngine @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L15)
+    - [registerDetachedTaskRuntime @ sync-surface.mjs:113](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/scripts/sync-surface.mjs#L113)
+    - [registerDetachedTaskRuntime @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L17)
+    - [registerDetachedTaskRuntime @ kitchen-runtime.js:86](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L86)
+    - [registerGatewayDiscoveryService @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L18)
+    - [registerGatewayMethod @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L19)
+    - [registerGatewayMethod @ kitchen-runtime.js:107](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L107)
+    - [registerHook @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L20)
+    - [registerHttpRoute @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L21)
+    - [registerHttpRoute @ kitchen-runtime.js:105](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L105)
+    - [registerInteractiveHandler @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L23)
+    - [registerInteractiveHandler @ kitchen-runtime.js:53](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L53)
+    - [registerMemoryCapability @ generated-registrars.js:25](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L25)
+    - [registerMemoryCorpusSupplement @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L26)
+    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:92](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L92)
+    - [registerMemoryFlushPlan @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L28)
+    - [registerMemoryPromptSection @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L29)
+    - [registerMemoryPromptSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L30)
+    - [registerMemoryPromptSupplement @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L111)
+    - [registerMemoryRuntime @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L31)
+    - [registerNodeHostCommand @ generated-registrars.js:34](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L34)
+    - [registerNodeInvokePolicy @ generated-registrars.js:35](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L35)
+    - [registerReload @ generated-registrars.js:39](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L39)
+    - [registerSecurityAuditCollector @ generated-registrars.js:41](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L41)
+    - [registerService @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L42)
+    - [registerService @ kitchen-runtime.js:104](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L104)
 
 - 🟠 P1 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lightclawbot: runtime registrations need capture before contract judgment
@@ -1303,8 +1303,8 @@ Status: PASS
   - **channel-contract-probe**: kitchen-sink: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L8)
-    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L55)
+    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L8)
+    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L55)
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
@@ -2601,55 +2601,55 @@ _none_
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ generated-hooks.js:19](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-hooks.js#L19)
+    - [before_tool_call @ generated-hooks.js:19](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L19)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: kitchen-sink: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ generated-hooks.js:7](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-hooks.js#L7)
-    - [llm_input @ generated-hooks.js:25](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-hooks.js#L25)
-    - [llm_output @ generated-hooks.js:26](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-hooks.js#L26)
+    - [agent_end @ generated-hooks.js:7](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L7)
+    - [llm_input @ generated-hooks.js:25](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L25)
+    - [llm_output @ generated-hooks.js:26](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L26)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: kitchen-sink: runtime registrations need capture before contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L7)
-    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L8)
-    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L55)
-    - [registerCommand @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L12)
-    - [registerCommand @ kitchen-runtime.js:50](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L50)
-    - [registerCommand @ kitchen-runtime.js:51](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L51)
-    - [registerCompactionProvider @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L13)
-    - [registerCompactionProvider @ kitchen-runtime.js:95](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L95)
-    - [registerConfigMigration @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L14)
-    - [registerContextEngine @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L15)
-    - [registerDetachedTaskRuntime @ sync-surface.mjs:113](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/scripts/sync-surface.mjs#L113)
-    - [registerDetachedTaskRuntime @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L17)
-    - [registerDetachedTaskRuntime @ kitchen-runtime.js:86](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L86)
-    - [registerGatewayDiscoveryService @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L18)
-    - [registerGatewayMethod @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L19)
-    - [registerGatewayMethod @ kitchen-runtime.js:107](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L107)
-    - [registerHook @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L20)
-    - [registerHttpRoute @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L21)
-    - [registerHttpRoute @ kitchen-runtime.js:105](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L105)
-    - [registerInteractiveHandler @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L23)
-    - [registerInteractiveHandler @ kitchen-runtime.js:53](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L53)
-    - [registerMemoryCapability @ generated-registrars.js:25](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L25)
-    - [registerMemoryCorpusSupplement @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L26)
-    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:92](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L92)
-    - [registerMemoryFlushPlan @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L28)
-    - [registerMemoryPromptSection @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L29)
-    - [registerMemoryPromptSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L30)
-    - [registerMemoryPromptSupplement @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L111)
-    - [registerMemoryRuntime @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L31)
-    - [registerNodeHostCommand @ generated-registrars.js:34](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L34)
-    - [registerNodeInvokePolicy @ generated-registrars.js:35](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L35)
-    - [registerReload @ generated-registrars.js:39](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L39)
-    - [registerSecurityAuditCollector @ generated-registrars.js:41](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L41)
-    - [registerService @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L42)
-    - [registerService @ kitchen-runtime.js:104](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L104)
+    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L7)
+    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L8)
+    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L55)
+    - [registerCommand @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L12)
+    - [registerCommand @ kitchen-runtime.js:50](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L50)
+    - [registerCommand @ kitchen-runtime.js:51](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L51)
+    - [registerCompactionProvider @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L13)
+    - [registerCompactionProvider @ kitchen-runtime.js:95](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L95)
+    - [registerConfigMigration @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L14)
+    - [registerContextEngine @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L15)
+    - [registerDetachedTaskRuntime @ sync-surface.mjs:113](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/scripts/sync-surface.mjs#L113)
+    - [registerDetachedTaskRuntime @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L17)
+    - [registerDetachedTaskRuntime @ kitchen-runtime.js:86](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L86)
+    - [registerGatewayDiscoveryService @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L18)
+    - [registerGatewayMethod @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L19)
+    - [registerGatewayMethod @ kitchen-runtime.js:107](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L107)
+    - [registerHook @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L20)
+    - [registerHttpRoute @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L21)
+    - [registerHttpRoute @ kitchen-runtime.js:105](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L105)
+    - [registerInteractiveHandler @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L23)
+    - [registerInteractiveHandler @ kitchen-runtime.js:53](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L53)
+    - [registerMemoryCapability @ generated-registrars.js:25](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L25)
+    - [registerMemoryCorpusSupplement @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L26)
+    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:92](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L92)
+    - [registerMemoryFlushPlan @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L28)
+    - [registerMemoryPromptSection @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L29)
+    - [registerMemoryPromptSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L30)
+    - [registerMemoryPromptSupplement @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L111)
+    - [registerMemoryRuntime @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L31)
+    - [registerNodeHostCommand @ generated-registrars.js:34](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L34)
+    - [registerNodeInvokePolicy @ generated-registrars.js:35](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L35)
+    - [registerReload @ generated-registrars.js:39](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L39)
+    - [registerSecurityAuditCollector @ generated-registrars.js:41](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L41)
+    - [registerService @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L42)
+    - [registerService @ kitchen-runtime.js:104](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L104)
 
 - 🟠 P1 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lightclawbot: runtime registrations need capture before contract judgment
@@ -3554,20 +3554,20 @@ _none_
   - **channel-contract-probe**: kitchen-sink: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L8)
-    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L55)
+    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L8)
+    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L55)
 
 - 🟡 P2 **kitchen-sink** `deprecation-warning` `core-compat-adapter`
   - **legacy-before-agent-start**: kitchen-sink: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ generated-hooks.js:11](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-hooks.js#L11)
+    - [before_agent_start @ generated-hooks.js:11](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L11)
 
 - 🟡 P2 **kitchen-sink** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: kitchen-sink: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ generated-sdk-imports.ts:2](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-sdk-imports.ts#L2)
+    - [openclaw/plugin-sdk @ generated-sdk-imports.ts:2](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-sdk-imports.ts#L2)
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
@@ -4786,41 +4786,41 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:kitchen-sink`
   - evidence:
-    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L7)
-    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L8)
-    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L55)
-    - [registerCommand @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L12)
-    - [registerCommand @ kitchen-runtime.js:50](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L50)
-    - [registerCommand @ kitchen-runtime.js:51](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L51)
-    - [registerCompactionProvider @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L13)
-    - [registerCompactionProvider @ kitchen-runtime.js:95](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L95)
-    - [registerConfigMigration @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L14)
-    - [registerContextEngine @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L15)
-    - [registerDetachedTaskRuntime @ sync-surface.mjs:113](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/scripts/sync-surface.mjs#L113)
-    - [registerDetachedTaskRuntime @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L17)
-    - [registerDetachedTaskRuntime @ kitchen-runtime.js:86](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L86)
-    - [registerGatewayDiscoveryService @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L18)
-    - [registerGatewayMethod @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L19)
-    - [registerGatewayMethod @ kitchen-runtime.js:107](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L107)
-    - [registerHook @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L20)
-    - [registerHttpRoute @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L21)
-    - [registerHttpRoute @ kitchen-runtime.js:105](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L105)
-    - [registerInteractiveHandler @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L23)
-    - [registerInteractiveHandler @ kitchen-runtime.js:53](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L53)
-    - [registerMemoryCapability @ generated-registrars.js:25](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L25)
-    - [registerMemoryCorpusSupplement @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L26)
-    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:92](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L92)
-    - [registerMemoryFlushPlan @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L28)
-    - [registerMemoryPromptSection @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L29)
-    - [registerMemoryPromptSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L30)
-    - [registerMemoryPromptSupplement @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L111)
-    - [registerMemoryRuntime @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L31)
-    - [registerNodeHostCommand @ generated-registrars.js:34](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L34)
-    - [registerNodeInvokePolicy @ generated-registrars.js:35](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L35)
-    - [registerReload @ generated-registrars.js:39](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L39)
-    - [registerSecurityAuditCollector @ generated-registrars.js:41](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L41)
-    - [registerService @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L42)
-    - [registerService @ kitchen-runtime.js:104](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L104)
+    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L7)
+    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L8)
+    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L55)
+    - [registerCommand @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L12)
+    - [registerCommand @ kitchen-runtime.js:50](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L50)
+    - [registerCommand @ kitchen-runtime.js:51](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L51)
+    - [registerCompactionProvider @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L13)
+    - [registerCompactionProvider @ kitchen-runtime.js:95](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L95)
+    - [registerConfigMigration @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L14)
+    - [registerContextEngine @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L15)
+    - [registerDetachedTaskRuntime @ sync-surface.mjs:113](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/scripts/sync-surface.mjs#L113)
+    - [registerDetachedTaskRuntime @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L17)
+    - [registerDetachedTaskRuntime @ kitchen-runtime.js:86](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L86)
+    - [registerGatewayDiscoveryService @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L18)
+    - [registerGatewayMethod @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L19)
+    - [registerGatewayMethod @ kitchen-runtime.js:107](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L107)
+    - [registerHook @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L20)
+    - [registerHttpRoute @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L21)
+    - [registerHttpRoute @ kitchen-runtime.js:105](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L105)
+    - [registerInteractiveHandler @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L23)
+    - [registerInteractiveHandler @ kitchen-runtime.js:53](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L53)
+    - [registerMemoryCapability @ generated-registrars.js:25](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L25)
+    - [registerMemoryCorpusSupplement @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L26)
+    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:92](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L92)
+    - [registerMemoryFlushPlan @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L28)
+    - [registerMemoryPromptSection @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L29)
+    - [registerMemoryPromptSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L30)
+    - [registerMemoryPromptSupplement @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L111)
+    - [registerMemoryRuntime @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L31)
+    - [registerNodeHostCommand @ generated-registrars.js:34](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L34)
+    - [registerNodeInvokePolicy @ generated-registrars.js:35](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L35)
+    - [registerReload @ generated-registrars.js:39](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L39)
+    - [registerSecurityAuditCollector @ generated-registrars.js:41](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L41)
+    - [registerService @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L42)
+    - [registerService @ kitchen-runtime.js:104](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L104)
 
 - 🟠 P1 **lightclawbot** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -4967,7 +4967,7 @@ _none_
   - contract: Hook returns preserve terminal, block, and approval semantics.
   - id: `hook.before_tool_call.terminal-block-approval:kitchen-sink`
   - evidence:
-    - [before_tool_call @ generated-hooks.js:19](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-hooks.js#L19)
+    - [before_tool_call @ generated-hooks.js:19](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L19)
 
 - 🟠 P1 **nemoclaw** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
@@ -5004,9 +5004,9 @@ _none_
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:kitchen-sink`
   - evidence:
-    - [agent_end @ generated-hooks.js:7](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-hooks.js#L7)
-    - [llm_input @ generated-hooks.js:25](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-hooks.js#L25)
-    - [llm_output @ generated-hooks.js:26](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-hooks.js#L26)
+    - [agent_end @ generated-hooks.js:7](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L7)
+    - [llm_input @ generated-hooks.js:25](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L25)
+    - [llm_output @ generated-hooks.js:26](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L26)
 
 - 🟠 P1 **llm-trace-phoenix** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
@@ -5127,8 +5127,8 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:kitchen-sink`
   - evidence:
-    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-registrars.js#L8)
-    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/kitchen-runtime.js#L55)
+    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L8)
+    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L55)
 
 - 🟡 P2 **mocrane-wecom** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -5177,7 +5177,7 @@ _none_
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
   - id: `hook.compat.before-agent-start-migration:kitchen-sink`
   - evidence:
-    - [before_agent_start @ generated-hooks.js:11](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-hooks.js#L11)
+    - [before_agent_start @ generated-hooks.js:11](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L11)
 
 - 🟡 P2 **nemoclaw** `hook-runner`
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
@@ -5668,7 +5668,7 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:kitchen-sink`
   - evidence:
-    - [openclaw/plugin-sdk @ generated-sdk-imports.ts:2](https://github.com/openclaw/kitchen-sink/blob/998901973d5ce083764a77861a4839f4f184aaa3/src/generated-sdk-imports.ts#L2)
+    - [openclaw/plugin-sdk @ generated-sdk-imports.ts:2](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-sdk-imports.ts#L2)
 
 - 🟡 P2 **llm-trace-phoenix** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
