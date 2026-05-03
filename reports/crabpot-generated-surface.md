@@ -1,23 +1,23 @@
 # Crabpot Generated Surface Fixture
 
-Generated: 2026-04-29T20:33:15.009Z
+Generated: 2026-05-03T05:24:20.117Z
 Status: PASS
 
 ## Summary
 
 | Metric                      | Value |
 | --------------------------- | ----- |
-| Expected hooks              | 32    |
-| Expected registrars         | 41    |
+| Expected hooks              | 35    |
+| Expected registrars         | 49    |
 | Expected direct callbacks   | 1     |
-| Expected SDK exports        | 316   |
+| Expected SDK exports        | 294   |
 | Expected manifest contracts | 17    |
-| Static hooks                | 32    |
-| Static registrars           | 41    |
-| Static SDK imports          | 316   |
+| Static hooks                | 35    |
+| Static registrars           | 49    |
+| Static SDK imports          | 294   |
 | Static manifest contracts   | 17    |
-| Runtime hooks               | 32    |
-| Runtime registrars          | 41    |
+| Runtime hooks               | 35    |
+| Runtime registrars          | 49    |
 | Runtime direct callbacks    | 1     |
 | Missing static surface      | 0     |
 | Missing runtime surface     | 0     |
