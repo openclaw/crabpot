@@ -36,11 +36,11 @@ jobs:
           - track: latest
             branch: main
             fixture_set: ""
-            plugin_track: ""
+            plugin_track: latest
           - track: beta
             branch: crab-beta
             fixture_set: ""
-            plugin_track: ""
+            plugin_track: beta
           - track: development
             branch: crab-development
             fixture_set: openclaw-beta

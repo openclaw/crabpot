@@ -84,6 +84,8 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.match(workflow, /branch: crab-beta/);
   assert.match(workflow, /branch: crab-development/);
   assert.match(workflow, /fixture_set: openclaw-beta/);
+  assert.match(workflow, /track: latest[\s\S]*plugin_track: latest/);
+  assert.match(workflow, /track: beta[\s\S]*plugin_track: beta/);
   assert.match(workflow, /plugin_track: source-pack/);
   assert.match(workflow, /ref: main/);
   assert.match(workflow, /node scripts\/resolve-openclaw-track\.mjs --track "\$\{\{ matrix\.track \}\}" --github-output/);
@@ -108,6 +110,7 @@ test("default check workflow runs OS and container static lanes", async () => {
   assert.match(workflow, /container-smoke:/);
   assert.match(workflow, /image: node:22-bookworm/);
   assert.match(workflow, /node scripts\/run-static-suite\.mjs[\s\S]*--openclaw \.\/openclaw[\s\S]*--plugin-inspector-smoke/);
+  assert.match(workflow, /--plugin-track "\$\{plugin_track\}"/);
   assert.match(workflow, /--fixture-set openclaw-beta --plugin-track source-pack/);
   assert.match(workflow, /crabpot-check-reports-\$\{\{ matrix\.os \}\}/);
 });
