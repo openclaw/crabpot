@@ -118,7 +118,13 @@ jobs:
           CRABPOT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           export CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-          node scripts/generate-report.mjs --openclaw ./openclaw
+          execution_results_arg=""
+          if [ "${{ matrix.track }}" = "development" ]; then
+            CRABPOT_EXECUTE_ISOLATED=1 node scripts/execute-workspace-plan.mjs --fixture memory-lancedb --openclaw ./openclaw
+            node scripts/summarize-execution-results.mjs --write
+            execution_results_arg="--execution-results reports/crabpot-execution-results.json"
+          fi
+          node scripts/generate-report.mjs --openclaw ./openclaw ${execution_results_arg}
           node scripts/capture-contracts.mjs --openclaw ./openclaw
           node scripts/synthetic-probes.mjs --openclaw ./openclaw
           node scripts/cold-import-readiness.mjs --openclaw ./openclaw
