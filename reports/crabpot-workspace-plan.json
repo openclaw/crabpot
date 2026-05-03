@@ -7,23 +7,23 @@
   },
   "targetOpenClaw": {
     "status": "ok",
-    "configuredPath": "../openclaw"
+    "configuredPath": "./openclaw"
   },
   "summary": {
     "fixtureCount": 57,
-    "entrypointCount": 66,
-    "installStepCount": 41,
-    "auditStepCount": 41,
+    "entrypointCount": 77,
+    "installStepCount": 51,
+    "auditStepCount": 51,
     "buildStepCount": 11,
-    "pruneDevWorkspaceDependencyStepCount": 11,
-    "artifactStepCount": 66,
-    "captureStepCount": 66,
-    "syntheticProbeStepCount": 66,
-    "targetOpenClawLinkStepCount": 32,
-    "tsLoaderEntrypointCount": 47,
-    "jitiAlternativeCount": 47,
+    "pruneDevWorkspaceDependencyStepCount": 31,
+    "artifactStepCount": 77,
+    "captureStepCount": 77,
+    "syntheticProbeStepCount": 77,
+    "targetOpenClawLinkStepCount": 51,
+    "tsLoaderEntrypointCount": 58,
+    "jitiAlternativeCount": 58,
     "missingBuildScriptCount": 0,
-    "sdkAliasRequiredCount": 15
+    "sdkAliasRequiredCount": 6
   },
   "fixtures": [
     {
@@ -72,7 +72,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/agentchat",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -141,7 +141,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/agentchat",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -215,7 +215,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/wecom",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -296,7 +296,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/qqbot",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -473,7 +473,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/hasdata",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -713,7 +713,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/opik-openclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -789,7 +789,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/opik-openclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -926,7 +926,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/lossless-claw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1002,7 +1002,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/connectclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1084,7 +1084,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/hyperspell",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1171,7 +1171,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/honcho",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1320,7 +1320,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/kitchen-sink",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1376,7 +1376,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/kitchen-sink",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1432,7 +1432,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/kitchen-sink",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1463,7 +1463,7 @@
           "packagePath": "plugins/bluebubbles/.crabpot-package/package.json",
           "packageName": "@openclaw/bluebubbles",
           "entrypoint": "plugins/bluebubbles/.crabpot-package/index.ts",
-          "status": "sdk-alias-required",
+          "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": "plugins/bluebubbles/package-lock.json",
           "loaderStrategy": {
@@ -1476,9 +1476,8 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
+            "target-openclaw-link",
             "ts-loader"
           ],
           "blockers": [
@@ -1486,166 +1485,6 @@
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
               "evidence": "plugins/bluebubbles/.crabpot-package/index.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "zod"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/index.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/index.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/account-resolve.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/accounts.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/actions.ts:13"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/attachments.ts:3"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/channel.ts:20"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/channel.ts:5"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/chat.ts:3"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/config-apply.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/config-schema.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/history.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/media-send.ts:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/monitor-debounce.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/monitor-normalize.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/monitor-processing.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/monitor-processing.ts:19"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/monitor-shared.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/monitor.ts:9"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/onboarding.ts:16"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/onboarding.ts:7"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/probe.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/reactions.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/request-url.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/runtime.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/secret-input.ts:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/send.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/send.ts:3"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/targets.ts:8"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/types.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/bluebubbles @ plugins/bluebubbles/.crabpot-package/src/types.ts:3"
             }
           ],
           "steps": [
@@ -1662,17 +1501,10 @@
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
             },
             {
-              "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/bluebubbles",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
-            },
-            {
-              "kind": "audit",
-              "command": "npm audit --json > ../../results/bluebubbles/package-audit.json || true",
-              "cwd": ".crabpot/workspaces/bluebubbles",
-              "artifactPath": ".crabpot/results/bluebubbles/package-audit.json",
-              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "capture",
@@ -1689,6 +1521,71 @@
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
+        },
+        {
+          "id": "cold-import.setupEntry:bluebubbles:plugins-bluebubbles-crabpot-package-setup-entry-ts",
+          "fixture": "bluebubbles",
+          "packagePath": "plugins/bluebubbles/.crabpot-package/package.json",
+          "packageName": "@openclaw/bluebubbles",
+          "entrypoint": "plugins/bluebubbles/.crabpot-package/setup-entry.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/bluebubbles/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/bluebubbles/.crabpot-package/setup-entry.ts"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/bluebubbles && rsync -a --delete plugins/bluebubbles/.crabpot-package/ .crabpot/workspaces/bluebubbles/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/bluebubbles",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/bluebubbles",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/bluebubbles/cold-import-setupEntry-bluebubbles-plugins-bluebubbles-crabpot-package-setup-entry-ts.capture.json",
+              "cwd": ".crabpot/workspaces/bluebubbles",
+              "artifactPath": ".crabpot/results/bluebubbles/cold-import-setupEntry-bluebubbles-plugins-bluebubbles-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/bluebubbles/cold-import-setupEntry-bluebubbles-plugins-bluebubbles-crabpot-package-setup-entry-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/bluebubbles",
+              "artifactPath": ".crabpot/results/bluebubbles/cold-import-setupEntry-bluebubbles-plugins-bluebubbles-crabpot-package-setup-entry-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
         }
       ]
     },
@@ -1701,7 +1598,7 @@
           "packagePath": "plugins/diagnostics-otel/.crabpot-package/package.json",
           "packageName": "@openclaw/diagnostics-otel",
           "entrypoint": "plugins/diagnostics-otel/.crabpot-package/index.ts",
-          "status": "sdk-alias-required",
+          "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": "plugins/diagnostics-otel/package-lock.json",
           "loaderStrategy": {
@@ -1715,7 +1612,6 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
             "ts-loader"
           ],
@@ -1729,26 +1625,6 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@opentelemetry/api, @opentelemetry/api-logs, @opentelemetry/exporter-logs-otlp-proto, @opentelemetry/exporter-metrics-otlp-proto, @opentelemetry/exporter-trace-otlp-proto, @opentelemetry/resources, @opentelemetry/sdk-logs, @opentelemetry/sdk-metrics, @opentelemetry/sdk-node, @opentelemetry/sdk-trace-base, @opentelemetry/semantic-conventions"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/diagnostics-otel @ plugins/diagnostics-otel/.crabpot-package/index.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/diagnostics-otel @ plugins/diagnostics-otel/.crabpot-package/index.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/diagnostics-otel @ plugins/diagnostics-otel/.crabpot-package/src/service.ts:15"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/diagnostics-otel @ plugins/diagnostics-otel/.crabpot-package/src/service.ts:20"
             }
           ],
           "steps": [
@@ -1763,6 +1639,12 @@
               "command": "mkdir -p .crabpot/results/diagnostics-otel",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/diagnostics-otel",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -1817,7 +1699,9 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
+            "target-openclaw-link",
             "ts-loader"
           ],
           "blockers": [
@@ -1825,6 +1709,11 @@
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
               "evidence": "plugins/discord/.crabpot-package/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@discordjs/voice, discord-api-types, https-proxy-agent, opusscript, typebox, undici, ws"
             }
           ],
           "steps": [
@@ -1841,6 +1730,31 @@
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
             },
             {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/discord",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/discord",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/discord",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/discord/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/discord",
+              "artifactPath": ".crabpot/results/discord/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
               "kind": "capture",
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/discord/cold-import-extension-discord-plugins-discord-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/discord",
@@ -1852,6 +1766,96 @@
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/discord/cold-import-extension-discord-plugins-discord-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/discord",
               "artifactPath": ".crabpot/results/discord/cold-import-extension-discord-plugins-discord-crabpot-package-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        },
+        {
+          "id": "cold-import.setupEntry:discord:plugins-discord-crabpot-package-setup-entry-ts",
+          "fixture": "discord",
+          "packagePath": "plugins/discord/.crabpot-package/package.json",
+          "packageName": "@openclaw/discord",
+          "entrypoint": "plugins/discord/.crabpot-package/setup-entry.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/discord/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/discord/.crabpot-package/setup-entry.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@discordjs/voice, discord-api-types, https-proxy-agent, opusscript, typebox, undici, ws"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/discord && rsync -a --delete plugins/discord/.crabpot-package/ .crabpot/workspaces/discord/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/discord",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/discord",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/discord",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/discord",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/discord/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/discord",
+              "artifactPath": ".crabpot/results/discord/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/discord/cold-import-setupEntry-discord-plugins-discord-crabpot-package-setup-entry-ts.capture.json",
+              "cwd": ".crabpot/workspaces/discord",
+              "artifactPath": ".crabpot/results/discord/cold-import-setupEntry-discord-plugins-discord-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/discord/cold-import-setupEntry-discord-plugins-discord-crabpot-package-setup-entry-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/discord",
+              "artifactPath": ".crabpot/results/discord/cold-import-setupEntry-discord-plugins-discord-crabpot-package-setup-entry-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -1867,7 +1871,7 @@
           "packagePath": "plugins/lobster/.crabpot-package/package.json",
           "packageName": "@openclaw/lobster",
           "entrypoint": "plugins/lobster/.crabpot-package/index.ts",
-          "status": "sdk-alias-required",
+          "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": "plugins/lobster/package-lock.json",
           "loaderStrategy": {
@@ -1881,7 +1885,6 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
             "ts-loader"
           ],
@@ -1894,22 +1897,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@sinclair/typebox"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/lobster @ plugins/lobster/.crabpot-package/index.ts:5"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/lobster @ plugins/lobster/.crabpot-package/src/lobster-tool.ts:4"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/lobster @ plugins/lobster/.crabpot-package/src/windows-spawn.ts:5"
+              "evidence": "@clawdbot/lobster, ajv, typebox"
             }
           ],
           "steps": [
@@ -1924,6 +1912,12 @@
               "command": "mkdir -p .crabpot/results/lobster",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/lobster",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -2198,7 +2192,7 @@
           "packagePath": "plugins/msteams/.crabpot-package/package.json",
           "packageName": "@openclaw/msteams",
           "entrypoint": "plugins/msteams/.crabpot-package/index.ts",
-          "status": "sdk-alias-required",
+          "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": "plugins/msteams/package-lock.json",
           "loaderStrategy": {
@@ -2212,8 +2206,8 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
+            "target-openclaw-link",
             "ts-loader"
           ],
           "blockers": [
@@ -2225,167 +2219,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@microsoft/agents-hosting, express"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/index.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/index.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/attachments/graph.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/attachments/payload.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/attachments/remote-media.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/attachments/shared.ts:7"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/attachments/shared.ts:8"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/channel.ts:18"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/channel.ts:9"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/directory-live.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/file-lock.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/graph.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/media-helpers.ts:11"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/messenger.ts:10"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/monitor-handler.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/monitor-handler/message-handler.ts:22"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/monitor.ts:10"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/onboarding.ts:18"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/onboarding.ts:8"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/outbound.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/policy.ts:10"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/policy.ts:20"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/probe.ts:5"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/reply-dispatcher.ts:9"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/runtime.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/secret-input.ts:5"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/send-context.ts:5"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/send.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/send.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/store-fs.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/test-runtime.ts:3"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/msteams @ plugins/msteams/.crabpot-package/src/token.ts:1"
+              "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, jsonwebtoken, jwks-rsa, typebox"
             }
           ],
           "steps": [
@@ -2400,6 +2234,18 @@
               "command": "mkdir -p .crabpot/results/msteams",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/msteams",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/msteams",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -2429,6 +2275,96 @@
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
+        },
+        {
+          "id": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-setup-entry-ts",
+          "fixture": "msteams",
+          "packagePath": "plugins/msteams/.crabpot-package/package.json",
+          "packageName": "@openclaw/msteams",
+          "entrypoint": "plugins/msteams/.crabpot-package/setup-entry.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/msteams/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/msteams/.crabpot-package/setup-entry.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, jsonwebtoken, jwks-rsa, typebox"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/msteams && rsync -a --delete plugins/msteams/.crabpot-package/ .crabpot/workspaces/msteams/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/msteams",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/msteams",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/msteams",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/msteams",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/msteams/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/msteams",
+              "artifactPath": ".crabpot/results/msteams/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-setup-entry-ts.capture.json",
+              "cwd": ".crabpot/workspaces/msteams",
+              "artifactPath": ".crabpot/results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-setup-entry-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/msteams",
+              "artifactPath": ".crabpot/results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-setup-entry-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
         }
       ]
     },
@@ -2441,7 +2377,7 @@
           "packagePath": "plugins/nextcloud-talk/.crabpot-package/package.json",
           "packageName": "@openclaw/nextcloud-talk",
           "entrypoint": "plugins/nextcloud-talk/.crabpot-package/index.ts",
-          "status": "sdk-alias-required",
+          "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": "plugins/nextcloud-talk/package-lock.json",
           "loaderStrategy": {
@@ -2455,8 +2391,8 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
+            "target-openclaw-link",
             "ts-loader"
           ],
           "blockers": [
@@ -2469,86 +2405,6 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "zod"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nextcloud-talk @ plugins/nextcloud-talk/.crabpot-package/index.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nextcloud-talk @ plugins/nextcloud-talk/.crabpot-package/index.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nextcloud-talk @ plugins/nextcloud-talk/.crabpot-package/src/accounts.ts:7"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nextcloud-talk @ plugins/nextcloud-talk/.crabpot-package/src/channel.ts:22"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nextcloud-talk @ plugins/nextcloud-talk/.crabpot-package/src/config-schema.ts:10"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nextcloud-talk @ plugins/nextcloud-talk/.crabpot-package/src/inbound.ts:17"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nextcloud-talk @ plugins/nextcloud-talk/.crabpot-package/src/monitor.ts:8"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nextcloud-talk @ plugins/nextcloud-talk/.crabpot-package/src/onboarding.ts:16"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nextcloud-talk @ plugins/nextcloud-talk/.crabpot-package/src/policy.ts:14"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nextcloud-talk @ plugins/nextcloud-talk/.crabpot-package/src/policy.ts:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nextcloud-talk @ plugins/nextcloud-talk/.crabpot-package/src/replay-guard.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nextcloud-talk @ plugins/nextcloud-talk/.crabpot-package/src/room-info.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nextcloud-talk @ plugins/nextcloud-talk/.crabpot-package/src/room-info.ts:3"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nextcloud-talk @ plugins/nextcloud-talk/.crabpot-package/src/runtime.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nextcloud-talk @ plugins/nextcloud-talk/.crabpot-package/src/secret-input.ts:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nextcloud-talk @ plugins/nextcloud-talk/.crabpot-package/src/types.ts:7"
             }
           ],
           "steps": [
@@ -2563,6 +2419,18 @@
               "command": "mkdir -p .crabpot/results/nextcloud-talk",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/nextcloud-talk",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/nextcloud-talk",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -2592,6 +2460,96 @@
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
+        },
+        {
+          "id": "cold-import.setupEntry:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-setup-entry-ts",
+          "fixture": "nextcloud-talk",
+          "packagePath": "plugins/nextcloud-talk/.crabpot-package/package.json",
+          "packageName": "@openclaw/nextcloud-talk",
+          "entrypoint": "plugins/nextcloud-talk/.crabpot-package/setup-entry.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/nextcloud-talk/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/nextcloud-talk/.crabpot-package/setup-entry.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "zod"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/nextcloud-talk && rsync -a --delete plugins/nextcloud-talk/.crabpot-package/ .crabpot/workspaces/nextcloud-talk/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/nextcloud-talk",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/nextcloud-talk",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/nextcloud-talk",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/nextcloud-talk",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/nextcloud-talk/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/nextcloud-talk",
+              "artifactPath": ".crabpot/results/nextcloud-talk/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/nextcloud-talk/cold-import-setupEntry-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-setup-entry-ts.capture.json",
+              "cwd": ".crabpot/workspaces/nextcloud-talk",
+              "artifactPath": ".crabpot/results/nextcloud-talk/cold-import-setupEntry-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/nextcloud-talk/cold-import-setupEntry-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-setup-entry-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/nextcloud-talk",
+              "artifactPath": ".crabpot/results/nextcloud-talk/cold-import-setupEntry-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-setup-entry-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
         }
       ]
     },
@@ -2604,7 +2562,7 @@
           "packagePath": "plugins/nostr/.crabpot-package/package.json",
           "packageName": "@openclaw/nostr",
           "entrypoint": "plugins/nostr/.crabpot-package/index.ts",
-          "status": "sdk-alias-required",
+          "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": "plugins/nostr/package-lock.json",
           "loaderStrategy": {
@@ -2618,8 +2576,8 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
+            "target-openclaw-link",
             "ts-loader"
           ],
           "blockers": [
@@ -2632,41 +2590,6 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "nostr-tools, zod"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nostr @ plugins/nostr/.crabpot-package/index.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nostr @ plugins/nostr/.crabpot-package/index.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nostr @ plugins/nostr/.crabpot-package/src/channel.ts:9"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nostr @ plugins/nostr/.crabpot-package/src/config-schema.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nostr @ plugins/nostr/.crabpot-package/src/nostr-profile-http.ts:16"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nostr @ plugins/nostr/.crabpot-package/src/runtime.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/nostr @ plugins/nostr/.crabpot-package/src/types.ts:6"
             }
           ],
           "steps": [
@@ -2681,6 +2604,18 @@
               "command": "mkdir -p .crabpot/results/nostr",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/nostr",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/nostr",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -2710,6 +2645,96 @@
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
+        },
+        {
+          "id": "cold-import.setupEntry:nostr:plugins-nostr-crabpot-package-setup-entry-ts",
+          "fixture": "nostr",
+          "packagePath": "plugins/nostr/.crabpot-package/package.json",
+          "packageName": "@openclaw/nostr",
+          "entrypoint": "plugins/nostr/.crabpot-package/setup-entry.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/nostr/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/nostr/.crabpot-package/setup-entry.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "nostr-tools, zod"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/nostr && rsync -a --delete plugins/nostr/.crabpot-package/ .crabpot/workspaces/nostr/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/nostr",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/nostr",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/nostr",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/nostr",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/nostr/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/nostr",
+              "artifactPath": ".crabpot/results/nostr/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/nostr/cold-import-setupEntry-nostr-plugins-nostr-crabpot-package-setup-entry-ts.capture.json",
+              "cwd": ".crabpot/workspaces/nostr",
+              "artifactPath": ".crabpot/results/nostr/cold-import-setupEntry-nostr-plugins-nostr-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/nostr/cold-import-setupEntry-nostr-plugins-nostr-crabpot-package-setup-entry-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/nostr",
+              "artifactPath": ".crabpot/results/nostr/cold-import-setupEntry-nostr-plugins-nostr-crabpot-package-setup-entry-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
         }
       ]
     },
@@ -2722,7 +2747,7 @@
           "packagePath": "plugins/voice-call/.crabpot-package/package.json",
           "packageName": "@openclaw/voice-call",
           "entrypoint": "plugins/voice-call/.crabpot-package/index.ts",
-          "status": "sdk-alias-required",
+          "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": "plugins/voice-call/package-lock.json",
           "loaderStrategy": {
@@ -2736,8 +2761,9 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
+            "side-effect-sandbox",
             "synthetic-probes",
+            "target-openclaw-link",
             "ts-loader"
           ],
           "blockers": [
@@ -2747,39 +2773,14 @@
               "evidence": "plugins/voice-call/.crabpot-package/index.ts"
             },
             {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/voice-call/.crabpot-package/index.ts"
+            },
+            {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@sinclair/typebox, commander, ws, zod"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/voice-call @ plugins/voice-call/.crabpot-package/index.ts:5"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/voice-call @ plugins/voice-call/.crabpot-package/src/cli.ts:5"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/voice-call @ plugins/voice-call/.crabpot-package/src/config.ts:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/voice-call @ plugins/voice-call/.crabpot-package/src/providers/shared/guarded-json-api.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/voice-call @ plugins/voice-call/.crabpot-package/src/providers/tts-openai.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/voice-call @ plugins/voice-call/.crabpot-package/src/webhook.ts:7"
+              "evidence": "commander, typebox, ws"
             }
           ],
           "steps": [
@@ -2794,6 +2795,18 @@
               "command": "mkdir -p .crabpot/results/voice-call",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/voice-call",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/voice-call",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -2835,7 +2848,7 @@
           "packagePath": "plugins/zalo/.crabpot-package/package.json",
           "packageName": "@openclaw/zalo",
           "entrypoint": "plugins/zalo/.crabpot-package/index.ts",
-          "status": "sdk-alias-required",
+          "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": "plugins/zalo/package-lock.json",
           "loaderStrategy": {
@@ -2849,8 +2862,8 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
+            "target-openclaw-link",
             "ts-loader"
           ],
           "blockers": [
@@ -2862,122 +2875,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "undici, zod"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/index.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/index.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/accounts.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/actions.ts:5"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/actions.ts:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/channel.ts:14"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/channel.ts:34"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/config-schema.ts:7"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/group-access.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/group-access.ts:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/monitor.ts:22"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/monitor.ts:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/monitor.webhook.ts:18"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/monitor.webhook.ts:3"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/onboarding.ts:18"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/onboarding.ts:7"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/probe.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/runtime.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/secret-input.ts:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/send.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/status-issues.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/token.ts:3"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/zalo @ plugins/zalo/.crabpot-package/src/types.ts:1"
+              "evidence": "undici"
             }
           ],
           "steps": [
@@ -2992,6 +2890,18 @@
               "command": "mkdir -p .crabpot/results/zalo",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/zalo",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/zalo",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -3018,6 +2928,96 @@
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/zalo/cold-import-extension-zalo-plugins-zalo-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/zalo",
               "artifactPath": ".crabpot/results/zalo/cold-import-extension-zalo-plugins-zalo-crabpot-package-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        },
+        {
+          "id": "cold-import.setupEntry:zalo:plugins-zalo-crabpot-package-setup-entry-ts",
+          "fixture": "zalo",
+          "packagePath": "plugins/zalo/.crabpot-package/package.json",
+          "packageName": "@openclaw/zalo",
+          "entrypoint": "plugins/zalo/.crabpot-package/setup-entry.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/zalo/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/zalo/.crabpot-package/setup-entry.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "undici"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/zalo && rsync -a --delete plugins/zalo/.crabpot-package/ .crabpot/workspaces/zalo/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/zalo",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/zalo",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/zalo",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/zalo",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/zalo/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/zalo",
+              "artifactPath": ".crabpot/results/zalo/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/zalo/cold-import-setupEntry-zalo-plugins-zalo-crabpot-package-setup-entry-ts.capture.json",
+              "cwd": ".crabpot/workspaces/zalo",
+              "artifactPath": ".crabpot/results/zalo/cold-import-setupEntry-zalo-plugins-zalo-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/zalo/cold-import-setupEntry-zalo-plugins-zalo-crabpot-package-setup-entry-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/zalo",
+              "artifactPath": ".crabpot/results/zalo/cold-import-setupEntry-zalo-plugins-zalo-crabpot-package-setup-entry-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -3048,6 +3048,7 @@
             "capture-shim",
             "dependency-install",
             "synthetic-probes",
+            "target-openclaw-link",
             "ts-loader"
           ],
           "blockers": [
@@ -3059,7 +3060,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@sinclair/typebox, zca-js, zod"
+              "evidence": "typebox, zca-js"
             }
           ],
           "steps": [
@@ -3074,6 +3075,18 @@
               "command": "mkdir -p .crabpot/results/zalouser",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/zalouser",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/zalouser",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -3103,6 +3116,96 @@
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
+        },
+        {
+          "id": "cold-import.setupEntry:zalouser:plugins-zalouser-crabpot-package-setup-entry-ts",
+          "fixture": "zalouser",
+          "packagePath": "plugins/zalouser/.crabpot-package/package.json",
+          "packageName": "@openclaw/zalouser",
+          "entrypoint": "plugins/zalouser/.crabpot-package/setup-entry.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/zalouser/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/zalouser/.crabpot-package/setup-entry.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "typebox, zca-js"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/zalouser && rsync -a --delete plugins/zalouser/.crabpot-package/ .crabpot/workspaces/zalouser/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/zalouser",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/zalouser",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/zalouser",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/zalouser",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/zalouser/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/zalouser",
+              "artifactPath": ".crabpot/results/zalouser/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/zalouser/cold-import-setupEntry-zalouser-plugins-zalouser-crabpot-package-setup-entry-ts.capture.json",
+              "cwd": ".crabpot/workspaces/zalouser",
+              "artifactPath": ".crabpot/results/zalouser/cold-import-setupEntry-zalouser-plugins-zalouser-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/zalouser/cold-import-setupEntry-zalouser-plugins-zalouser-crabpot-package-setup-entry-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/zalouser",
+              "artifactPath": ".crabpot/results/zalouser/cold-import-setupEntry-zalouser-plugins-zalouser-crabpot-package-setup-entry-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
         }
       ]
     },
@@ -3115,7 +3218,7 @@
           "packagePath": "plugins/feishu/.crabpot-package/package.json",
           "packageName": "@openclaw/feishu",
           "entrypoint": "plugins/feishu/.crabpot-package/index.ts",
-          "status": "sdk-alias-required",
+          "status": "ts-loader-required",
           "packageManager": "npm",
           "lockfile": "plugins/feishu/package-lock.json",
           "loaderStrategy": {
@@ -3129,8 +3232,8 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
+            "target-openclaw-link",
             "ts-loader"
           ],
           "blockers": [
@@ -3142,207 +3245,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@larksuiteoapi/node-sdk, @sinclair/typebox, https-proxy-agent, zod"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/index.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/index.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/accounts.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/bitable.ts:3"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/bot.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/bot.ts:15"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/card-action.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/channel.ts:13"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/channel.ts:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/chat.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/dedup.ts:7"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/directory.ts:5"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/docx.ts:7"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/drive.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/dynamic-agent.ts:4"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/media.ts:4"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/monitor.account.ts:3"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/monitor.startup.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/monitor.state.ts:9"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/monitor.transport.ts:9"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/monitor.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/monitor.webhook.test-helpers.ts:3"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/onboarding.ts:20"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/onboarding.ts:8"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/outbound.ts:3"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/perm.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/policy.ts:5"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/policy.ts:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/reactions.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/reply-dispatcher.ts:8"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/runtime.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/secret-input.ts:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/send-target.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/send.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/streaming-card.ts:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/tool-account.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/tool-factory-test-harness.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/types.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/typing.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/feishu @ plugins/feishu/.crabpot-package/src/wiki.ts:2"
+              "evidence": "@larksuiteoapi/node-sdk, typebox"
             }
           ],
           "steps": [
@@ -3357,6 +3260,18 @@
               "command": "mkdir -p .crabpot/results/feishu",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/feishu",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/feishu",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -3386,6 +3301,96 @@
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
+        },
+        {
+          "id": "cold-import.setupEntry:feishu:plugins-feishu-crabpot-package-setup-entry-ts",
+          "fixture": "feishu",
+          "packagePath": "plugins/feishu/.crabpot-package/package.json",
+          "packageName": "@openclaw/feishu",
+          "entrypoint": "plugins/feishu/.crabpot-package/setup-entry.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/feishu/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/feishu/.crabpot-package/setup-entry.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@larksuiteoapi/node-sdk, typebox"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/feishu && rsync -a --delete plugins/feishu/.crabpot-package/ .crabpot/workspaces/feishu/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/feishu",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/feishu",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/feishu",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/feishu",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/feishu/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/feishu",
+              "artifactPath": ".crabpot/results/feishu/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/feishu/cold-import-setupEntry-feishu-plugins-feishu-crabpot-package-setup-entry-ts.capture.json",
+              "cwd": ".crabpot/workspaces/feishu",
+              "artifactPath": ".crabpot/results/feishu/cold-import-setupEntry-feishu-plugins-feishu-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/feishu/cold-import-setupEntry-feishu-plugins-feishu-crabpot-package-setup-entry-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/feishu",
+              "artifactPath": ".crabpot/results/feishu/cold-import-setupEntry-feishu-plugins-feishu-crabpot-package-setup-entry-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
         }
       ]
     },
@@ -3412,7 +3417,9 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "side-effect-sandbox",
             "synthetic-probes",
+            "target-openclaw-link",
             "ts-loader"
           ],
           "blockers": [
@@ -3422,9 +3429,14 @@
               "evidence": "plugins/tlon/.crabpot-package/index.ts"
             },
             {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/tlon/.crabpot-package/index.ts"
+            },
+            {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@urbit/aura"
+              "evidence": "@aws-sdk/client-s3, @aws-sdk/s3-request-presigner, @tloncorp/tlon-skill, @urbit/aura"
             }
           ],
           "steps": [
@@ -3441,8 +3453,14 @@
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
             },
             {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/tlon",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/tlon",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -3471,6 +3489,96 @@
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/tlon/cold-import-extension-tlon-plugins-tlon-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/tlon",
               "artifactPath": ".crabpot/results/tlon/cold-import-extension-tlon-plugins-tlon-crabpot-package-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        },
+        {
+          "id": "cold-import.setupEntry:tlon:plugins-tlon-crabpot-package-setup-entry-ts",
+          "fixture": "tlon",
+          "packagePath": "plugins/tlon/.crabpot-package/package.json",
+          "packageName": "@openclaw/tlon",
+          "entrypoint": "plugins/tlon/.crabpot-package/setup-entry.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/tlon/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/tlon/.crabpot-package/setup-entry.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@aws-sdk/client-s3, @aws-sdk/s3-request-presigner, @tloncorp/tlon-skill, @urbit/aura"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/tlon && rsync -a --delete plugins/tlon/.crabpot-package/ .crabpot/workspaces/tlon/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/tlon",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/tlon",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/tlon",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/tlon",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/tlon/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/tlon",
+              "artifactPath": ".crabpot/results/tlon/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/tlon/cold-import-setupEntry-tlon-plugins-tlon-crabpot-package-setup-entry-ts.capture.json",
+              "cwd": ".crabpot/workspaces/tlon",
+              "artifactPath": ".crabpot/results/tlon/cold-import-setupEntry-tlon-plugins-tlon-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/tlon/cold-import-setupEntry-tlon-plugins-tlon-crabpot-package-setup-entry-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/tlon",
+              "artifactPath": ".crabpot/results/tlon/cold-import-setupEntry-tlon-plugins-tlon-crabpot-package-setup-entry-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -3512,7 +3620,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@twurple/api, @twurple/auth, @twurple/chat, zod"
+              "evidence": "@twurple/api, @twurple/auth, @twurple/chat"
             }
           ],
           "steps": [
@@ -3530,7 +3638,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/twitch",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -3559,6 +3667,89 @@
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/twitch/cold-import-extension-twitch-plugins-twitch-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/twitch",
               "artifactPath": ".crabpot/results/twitch/cold-import-extension-twitch-plugins-twitch-crabpot-package-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        },
+        {
+          "id": "cold-import.setupEntry:twitch:plugins-twitch-crabpot-package-setup-entry-ts",
+          "fixture": "twitch",
+          "packagePath": "plugins/twitch/.crabpot-package/package.json",
+          "packageName": "@openclaw/twitch",
+          "entrypoint": "plugins/twitch/.crabpot-package/setup-entry.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/twitch/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/twitch/.crabpot-package/setup-entry.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@twurple/api, @twurple/auth, @twurple/chat"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/twitch && rsync -a --delete plugins/twitch/.crabpot-package/ .crabpot/workspaces/twitch/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/twitch",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/twitch",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/twitch",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/twitch/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/twitch",
+              "artifactPath": ".crabpot/results/twitch/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/twitch/cold-import-setupEntry-twitch-plugins-twitch-crabpot-package-setup-entry-ts.capture.json",
+              "cwd": ".crabpot/workspaces/twitch",
+              "artifactPath": ".crabpot/results/twitch/cold-import-setupEntry-twitch-plugins-twitch-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/twitch/cold-import-setupEntry-twitch-plugins-twitch-crabpot-package-setup-entry-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/twitch",
+              "artifactPath": ".crabpot/results/twitch/cold-import-setupEntry-twitch-plugins-twitch-crabpot-package-setup-entry-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -3681,7 +3872,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/synology-chat",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -3710,6 +3901,89 @@
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/synology-chat/cold-import-extension-synology-chat-plugins-synology-chat-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/synology-chat",
               "artifactPath": ".crabpot/results/synology-chat/cold-import-extension-synology-chat-plugins-synology-chat-crabpot-package-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        },
+        {
+          "id": "cold-import.setupEntry:synology-chat:plugins-synology-chat-crabpot-package-setup-entry-ts",
+          "fixture": "synology-chat",
+          "packagePath": "plugins/synology-chat/.crabpot-package/package.json",
+          "packageName": "@openclaw/synology-chat",
+          "entrypoint": "plugins/synology-chat/.crabpot-package/setup-entry.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/synology-chat/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/synology-chat/.crabpot-package/setup-entry.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "zod"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/synology-chat && rsync -a --delete plugins/synology-chat/.crabpot-package/ .crabpot/workspaces/synology-chat/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/synology-chat",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/synology-chat",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/synology-chat",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/synology-chat/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/synology-chat",
+              "artifactPath": ".crabpot/results/synology-chat/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/synology-chat/cold-import-setupEntry-synology-chat-plugins-synology-chat-crabpot-package-setup-entry-ts.capture.json",
+              "cwd": ".crabpot/workspaces/synology-chat",
+              "artifactPath": ".crabpot/results/synology-chat/cold-import-setupEntry-synology-chat-plugins-synology-chat-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/synology-chat/cold-import-setupEntry-synology-chat-plugins-synology-chat-crabpot-package-setup-entry-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/synology-chat",
+              "artifactPath": ".crabpot/results/synology-chat/cold-import-setupEntry-synology-chat-plugins-synology-chat-crabpot-package-setup-entry-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -3832,7 +4106,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/codex",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -3984,13 +4258,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/google-meet",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/google-meet",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4078,7 +4352,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/diffs",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4166,7 +4440,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/memory-lancedb",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4255,13 +4529,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4345,13 +4619,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4440,13 +4714,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/whatsapp",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/whatsapp",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4530,13 +4804,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/whatsapp",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../../../plugin-inspector/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/06cc55ce517a0c53c6a42ad6f3b00b58fd87879f/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/whatsapp",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4692,7 +4966,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/memory-tencentdb",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4781,7 +5055,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/ddingtalk",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4862,7 +5136,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/dingtalk-connector",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4944,7 +5218,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/mocrane-wecom",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5064,7 +5338,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/yuanbao",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5179,7 +5453,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/yuanbao",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5342,7 +5616,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/lightclawbot",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5558,7 +5832,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/clawrouter",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5708,7 +5982,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/secureclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6007,7 +6281,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/codex-app-server",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6096,7 +6370,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/web-search-plus",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6172,7 +6446,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/apify",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6255,7 +6529,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/inworld-tts",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },

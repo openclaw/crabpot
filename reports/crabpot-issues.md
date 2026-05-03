@@ -6,7 +6,7 @@ Status: PASS
 
 ## Crabpot Target Context
 
-- **OpenClaw host track:** `explicit`
+- **OpenClaw host track:** `latest`
 - **Plugin artifact track:** `manifest`
 - **Fixture set:** `all (57 fixtures)`
 ## Triage Summary

@@ -1,12 +1,12 @@
 {
   "generatedAt": "deterministic",
   "targetOpenClaw": {
-    "configuredPath": "/Users/vincentkoc/.codex/worktrees/openclaw-openclaw/qa-kitchen-sink-crabbox",
+    "configuredPath": "./openclaw",
     "searchedPaths": [
-      "/Users/vincentkoc/.codex/worktrees/openclaw-openclaw/qa-kitchen-sink-crabbox"
+      "./openclaw"
     ],
     "status": "ok",
-    "compatRegistryPath": "../../openclaw-openclaw/qa-kitchen-sink-crabbox/src/plugins/compat/registry.ts",
+    "compatRegistryPath": "openclaw/src/plugins/compat/registry.ts",
     "compatRecordCount": 60,
     "compatRecords": [
       "activation-agent-harness-hint",
@@ -132,7 +132,7 @@
       "runtime-taskflow-legacy-alias": "deprecated",
       "setup-runtime-fallback": "active"
     },
-    "hookTypesPath": "../../openclaw-openclaw/qa-kitchen-sink-crabbox/src/plugins/hook-types.ts",
+    "hookTypesPath": "openclaw/src/plugins/hook-types.ts",
     "hookNameCount": 35,
     "hookNames": [
       "after_compaction",
@@ -171,7 +171,7 @@
       "subagent_spawning",
       "tool_result_persist"
     ],
-    "apiBuilderPath": "../../openclaw-openclaw/qa-kitchen-sink-crabbox/src/plugins/api-builder.ts",
+    "apiBuilderPath": "openclaw/src/plugins/api-builder.ts",
     "apiRegistrarCount": 49,
     "apiRegistrars": [
       "registerAgentEventSubscription",
@@ -224,7 +224,7 @@
       "registerWebFetchProvider",
       "registerWebSearchProvider"
     ],
-    "capturedRegistrationPath": "../../openclaw-openclaw/qa-kitchen-sink-crabbox/src/plugins/captured-registration.ts",
+    "capturedRegistrationPath": "openclaw/src/plugins/captured-registration.ts",
     "capturedRegistrarCount": 26,
     "capturedRegistrars": [
       "registerAgentEventSubscription",
@@ -254,7 +254,7 @@
       "registerWebFetchProvider",
       "registerWebSearchProvider"
     ],
-    "packagePath": "../../openclaw-openclaw/qa-kitchen-sink-crabbox/package.json",
+    "packagePath": "openclaw/package.json",
     "sdkExportCount": 294,
     "sdkExports": [
       "openclaw/plugin-sdk",
@@ -552,7 +552,7 @@
       "openclaw/plugin-sdk/zalouser",
       "openclaw/plugin-sdk/zod"
     ],
-    "pluginSdkEntrypointsPath": "../../openclaw-openclaw/qa-kitchen-sink-crabbox/src/plugin-sdk/entrypoints.ts",
+    "pluginSdkEntrypointsPath": "openclaw/src/plugin-sdk/entrypoints.ts",
     "reservedSdkExportCount": 0,
     "reservedSdkExports": [],
     "supportedFacadeSdkExports": [
@@ -590,7 +590,7 @@
       "openclaw/plugin-sdk/telegram-command-config",
       "openclaw/plugin-sdk/video-generation-core"
     ],
-    "manifestTypesPath": "../../openclaw-openclaw/qa-kitchen-sink-crabbox/src/plugins/manifest.ts",
+    "manifestTypesPath": "openclaw/src/plugins/manifest.ts",
     "manifestFieldCount": 39,
     "manifestFields": [
       "activation",
@@ -54781,7 +54781,7 @@
       "apify",
       "inworld-tts"
     ],
-    "openclawTarget": "explicit",
+    "openclawTarget": "latest",
     "pluginTrack": "manifest",
     "runtimeEvidence": null
   }
