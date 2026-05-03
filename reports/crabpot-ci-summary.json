@@ -10,7 +10,7 @@
     "suggestions": 178,
     "issues": 307,
     "p0Issues": 4,
-    "p1Issues": 52,
+    "p1Issues": 18,
     "liveIssues": 4,
     "liveP0Issues": 4,
     "compatGaps": 4,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 14,
     "platformContainerRisks": 14,
     "loaderJitiCandidates": 58,
-    "importLoopP50Ms": 2366,
-    "importLoopP95Ms": 2394,
-    "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 53,
-    "importLoopOpenClawActivationP50Ms": 0.3,
+    "importLoopP50Ms": 88,
+    "importLoopP95Ms": 96,
+    "importLoopOpenClawLifecycleCount": 0,
+    "importLoopOpenClawImportP50Ms": 0,
+    "importLoopOpenClawActivationP50Ms": 0,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 2.6,
-    "importLoopMaxCpuMs": 74,
-    "importLoopRssSampleCount": 278,
-    "importLoopCpuSampleCount": 278
+    "importLoopMaxRssMb": 1.4,
+    "importLoopMaxCpuMs": 0,
+    "importLoopRssSampleCount": 10,
+    "importLoopCpuSampleCount": 10
   },
   "topIssues": [
     {
@@ -75,14 +75,6 @@
     },
     {
       "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "a2a-gateway",
-      "code": "registration-capture-gap",
-      "title": "a2a-gateway: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
       "issueClass": "compat-gap",
       "fixture": "clawmetry",
       "code": "missing-compat-record",
@@ -96,86 +88,6 @@
       "code": "package-npm-pack-entrypoint-missing",
       "title": "clawmetry: advertised npm artifact is missing OpenClaw entrypoints",
       "decision": "plugin-upstream-fix"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "clawmetry",
-      "code": "registration-capture-gap",
-      "title": "clawmetry: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "clawrouter",
-      "code": "registration-capture-gap",
-      "title": "clawrouter: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "codex",
-      "code": "registration-capture-gap",
-      "title": "codex: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "codex-app-server",
-      "code": "registration-capture-gap",
-      "title": "codex-app-server: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "connectclaw",
-      "code": "registration-capture-gap",
-      "title": "connectclaw: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "diagnostics-otel",
-      "code": "registration-capture-gap",
-      "title": "diagnostics-otel: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "diagnostics-prometheus",
-      "code": "registration-capture-gap",
-      "title": "diagnostics-prometheus: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "diffs",
-      "code": "registration-capture-gap",
-      "title": "diffs: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "dingtalk-connector",
-      "code": "registration-capture-gap",
-      "title": "dingtalk-connector: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "google-meet",
-      "code": "registration-capture-gap",
-      "title": "google-meet: runtime registrations need capture before contract judgment",
-      "decision": "inspector-follow-up"
     },
     {
       "severity": "P1",
@@ -196,9 +108,97 @@
     {
       "severity": "P1",
       "issueClass": "inspector-gap",
-      "fixture": "honcho",
-      "code": "registration-capture-gap",
-      "title": "honcho: runtime registrations need capture before contract judgment",
+      "fixture": "kitchen-sink",
+      "code": "before-tool-call-probe",
+      "title": "kitchen-sink: before_tool_call needs terminal/block/approval probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "kitchen-sink",
+      "code": "conversation-access-hook",
+      "title": "kitchen-sink: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "llm-trace-phoenix",
+      "code": "conversation-access-hook",
+      "title": "llm-trace-phoenix: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "matrix",
+      "code": "missing-compat-record",
+      "title": "matrix: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "memory-lancedb",
+      "code": "conversation-access-hook",
+      "title": "memory-lancedb: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "memory-tencentdb",
+      "code": "conversation-access-hook",
+      "title": "memory-tencentdb: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "memos-cloud",
+      "code": "conversation-access-hook",
+      "title": "memos-cloud: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "nemoclaw",
+      "code": "before-tool-call-probe",
+      "title": "nemoclaw: before_tool_call needs terminal/block/approval probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "openclaw-telemetry",
+      "code": "before-tool-call-probe",
+      "title": "openclaw-telemetry: before_tool_call needs terminal/block/approval probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "openclaw-telemetry",
+      "code": "conversation-access-hook",
+      "title": "openclaw-telemetry: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "opik-openclaw",
+      "code": "before-tool-call-probe",
+      "title": "opik-openclaw: before_tool_call needs terminal/block/approval probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "opik-openclaw",
+      "code": "conversation-access-hook",
+      "title": "opik-openclaw: conversation-access hooks need privacy-boundary probes",
       "decision": "inspector-follow-up"
     }
   ],

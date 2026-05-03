@@ -62,7 +62,7 @@ test("compatibility report classifies current fixture seams", async () => {
     assertHasDecision(report.decisions, "core-compat-adapter", "compat-registry");
   }
 
-  assertHasIssue(report.issues, "P1", "registration-capture-gap");
+  assertHasIssue(report.issues, "P2", "registration-capture-gap");
   assertHasIssue(report.issues, "P1", "conversation-access-hook");
   assertHasIssue(report.issues, "P2", "package-plugin-api-compat-missing");
   assertHasIssue(report.issues, "P2", "package-build-artifact-entrypoint");

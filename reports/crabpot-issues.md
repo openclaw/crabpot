@@ -18,9 +18,9 @@ Status: PASS
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
 | 🔴 P0                      | 4     |
-| 🟠 P1                      | 52    |
+| 🟠 P1                      | 18    |
 | Open 🔴 P0                 | 4     |
-| Open 🟠 P1                 | 52    |
+| Open 🟠 P1                 | 18    |
 | Live issues                | 4     |
 | Live P0 issues             | 4     |
 | Compat gaps                | 4     |
@@ -527,142 +527,12 @@ Status: PASS
 
 ## Inspector Proof Gaps
 
-- 🟠 P1 **a2a-gateway** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: a2a-gateway: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerGatewayMethod @ index.ts:616](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L616)
-    - [registerGatewayMethod @ index.ts:622](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L622)
-    - [registerGatewayMethod @ index.ts:631](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L631)
-    - [registerGatewayMethod @ index.ts:657](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L657)
-    - [registerGatewayMethod @ index.ts:669](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L669)
-    - [registerService @ index.ts:857](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L857)
-
-- 🟠 P1 **clawmetry** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: clawmetry: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts#L9)
-
-- 🟠 P1 **clawrouter** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: clawrouter: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerCommand @ index.ts:1636](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1636)
-    - [registerCommand @ index.ts:1682](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1682)
-    - [registerCommand @ index.ts:1736](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1736)
-    - [registerCommand @ index.ts:1790](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1790)
-    - [registerCommand @ index.ts:1795](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1795)
-    - [registerCommand @ index.ts:1799](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1799)
-    - [registerCommand @ index.ts:1800](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1800)
-    - [registerService @ index.ts:1809](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1809)
-
-- 🟠 P1 **codex** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: codex: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerCommand @ index.ts:33](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/index.ts#L33)
-
-- 🟠 P1 **codex-app-server** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: codex-app-server: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerCommand @ index.ts:48](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L48)
-    - [registerInteractiveHandler @ index.ts:29](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L29)
-    - [registerInteractiveHandler @ index.ts:38](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L38)
-    - [registerService @ index.ts:12](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L12)
-
-- 🟠 P1 **connectclaw** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: connectclaw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerCommand @ commands.ts:18](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L18)
-    - [registerCommand @ commands.ts:64](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L64)
-    - [registerService @ hooks.ts:91](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/hooks.ts#L91)
-
-- 🟠 P1 **diagnostics-otel** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: diagnostics-otel: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerService @ index.ts:9](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diagnostics-otel/index.ts#L9)
-
-- 🟠 P1 **diagnostics-prometheus** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: diagnostics-prometheus: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerHttpRoute @ index.ts:12](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diagnostics-prometheus/index.ts#L12)
-    - [registerService @ index.ts:11](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diagnostics-prometheus/index.ts#L11)
-
-- 🟠 P1 **diffs** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: diffs: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerHttpRoute @ plugin.ts:57](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/src/plugin.ts#L57)
-
-- 🟠 P1 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerChannel @ index.ts:74](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L74)
-    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L130)
-    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L190)
-    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L258)
-    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L311)
-    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L351)
-    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L388)
-    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L425)
-    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L452)
-    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L506)
-    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L593)
-    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L60)
-    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L652)
-    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L719)
-
-- 🟠 P1 **google-meet** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: google-meet: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerGatewayMethod @ index.ts:703](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L703)
-    - [registerGatewayMethod @ index.ts:724](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L724)
-    - [registerGatewayMethod @ index.ts:746](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L746)
-    - [registerGatewayMethod @ index.ts:758](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L758)
-    - [registerGatewayMethod @ index.ts:776](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L776)
-    - [registerGatewayMethod @ index.ts:795](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L795)
-    - [registerGatewayMethod @ index.ts:819](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L819)
-    - [registerGatewayMethod @ index.ts:841](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L841)
-    - [registerGatewayMethod @ index.ts:865](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L865)
-    - [registerGatewayMethod @ index.ts:890](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L890)
-    - [registerGatewayMethod @ index.ts:901](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L901)
-    - [registerGatewayMethod @ index.ts:918](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L918)
-    - [registerGatewayMethod @ index.ts:937](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L937)
-    - [registerGatewayMethod @ index.ts:954](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L954)
-    - [registerGatewayMethod @ index.ts:975](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L975)
-    - [registerNodeHostCommand @ index.ts:1143](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L1143)
-
 - 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: honcho: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
     - [agent_end @ capture.ts:151](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/capture.ts#L151)
     - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/subagent.ts#L34)
-
-- 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: honcho: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L97)
-    - [registerMemoryRuntime @ runtime.ts:274](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/runtime.ts#L274)
-
-- 🟠 P1 **hyperspell** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: hyperspell: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L166)
-    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L43)
-    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:46](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L46)
-    - [registerCommand @ index.ts:57](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L57)
-    - [registerCommand @ index.ts:68](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L68)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
@@ -678,52 +548,6 @@ Status: PASS
     - [llm_input @ generated-hooks.js:25](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L25)
     - [llm_output @ generated-hooks.js:26](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L26)
 
-- 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: kitchen-sink: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L7)
-    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L8)
-    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L55)
-    - [registerCommand @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L12)
-    - [registerCommand @ kitchen-runtime.js:50](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L50)
-    - [registerCommand @ kitchen-runtime.js:51](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L51)
-    - [registerCompactionProvider @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L13)
-    - [registerCompactionProvider @ kitchen-runtime.js:95](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L95)
-    - [registerConfigMigration @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L14)
-    - [registerContextEngine @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L15)
-    - [registerDetachedTaskRuntime @ sync-surface.mjs:113](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/scripts/sync-surface.mjs#L113)
-    - [registerDetachedTaskRuntime @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L17)
-    - [registerDetachedTaskRuntime @ kitchen-runtime.js:86](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L86)
-    - [registerGatewayDiscoveryService @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L18)
-    - [registerGatewayMethod @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L19)
-    - [registerGatewayMethod @ kitchen-runtime.js:107](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L107)
-    - [registerHook @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L20)
-    - [registerHttpRoute @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L21)
-    - [registerHttpRoute @ kitchen-runtime.js:105](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L105)
-    - [registerInteractiveHandler @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L23)
-    - [registerInteractiveHandler @ kitchen-runtime.js:53](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L53)
-    - [registerMemoryCapability @ generated-registrars.js:25](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L25)
-    - [registerMemoryCorpusSupplement @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L26)
-    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:92](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L92)
-    - [registerMemoryFlushPlan @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L28)
-    - [registerMemoryPromptSection @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L29)
-    - [registerMemoryPromptSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L30)
-    - [registerMemoryPromptSupplement @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L111)
-    - [registerMemoryRuntime @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L31)
-    - [registerNodeHostCommand @ generated-registrars.js:34](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L34)
-    - [registerNodeInvokePolicy @ generated-registrars.js:35](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L35)
-    - [registerReload @ generated-registrars.js:39](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L39)
-    - [registerSecurityAuditCollector @ generated-registrars.js:41](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L41)
-    - [registerService @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L42)
-    - [registerService @ kitchen-runtime.js:104](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L104)
-
-- 🟠 P1 **lightclawbot** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: lightclawbot: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13
-
 - 🟠 P1 **llm-trace-phoenix** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: llm-trace-phoenix: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
@@ -731,43 +555,11 @@ Status: PASS
     - [llm_input @ index.ts:154](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L154)
     - [llm_output @ index.ts:168](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L168)
 
-- 🟠 P1 **lossless-claw** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: lossless-claw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerCommand @ index.ts:2055](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2055)
-    - [registerContextEngine @ index.ts:2035](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2035)
-
-- 🟠 P1 **matrix** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: matrix: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerChannel @ index.ts:18](https://github.com/openclaw/openclaw/blob/2ce6b77205187c76ce7cde6cb0913de14d4452fa/extensions/matrix/index.ts#L18)
-
-- 🟠 P1 **mattermost** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: mattermost: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerChannel @ index.ts:13](https://github.com/openclaw/openclaw/blob/35a57bc940833a6c1f594b2308e349e5ee0148db/extensions/mattermost/index.ts#L13)
-
-- 🟠 P1 **mcp-adapter** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: mcp-adapter: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerService @ index.ts:15](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L15)
-
 - 🟠 P1 **memory-lancedb** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: memory-lancedb: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ index.ts:1005](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/index.ts#L1005)
-
-- 🟠 P1 **memory-lancedb** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: memory-lancedb: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerService @ index.ts:1085](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/index.ts#L1085)
-    - [registerService @ index.ts:586](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/index.ts#L586)
+    - [agent_end @ index.ts:1005](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/index.ts#L1005)
 
 - 🟠 P1 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: memory-tencentdb: conversation-access hooks need privacy-boundary probes
@@ -781,42 +573,11 @@ Status: PASS
   - evidence:
     - [agent_end @ index.js:515](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/03fcc33c5fd285971d4b3dbaa8bbb31cb727db7c/index.js#L515)
 
-- 🟠 P1 **memos-cloud** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: memos-cloud: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerHook @ index.js:467](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/03fcc33c5fd285971d4b3dbaa8bbb31cb727db7c/index.js#L467)
-
-- 🟠 P1 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: mocrane-wecom: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
-    - [registerHttpRoute @ index.ts:34](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L34)
-
 - 🟠 P1 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
     - [before_tool_call @ index.ts:384](https://github.com/NVIDIA/NemoClaw/blob/f9d21afa193c2b67cb55e79eca03db40f0fbe836/nemoclaw/src/index.ts#L384)
-
-- 🟠 P1 **nemoclaw** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: nemoclaw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerCommand @ index.ts:336](https://github.com/NVIDIA/NemoClaw/blob/f9d21afa193c2b67cb55e79eca03db40f0fbe836/nemoclaw/src/index.ts#L336)
-
-- 🟠 P1 **nostr** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: nostr: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerHttpRoute @ index.ts:89](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/nostr/index.ts#L89)
-
-- 🟠 P1 **openclaw-qqbot** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: openclaw-qqbot: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerCommand @ framework-registration.ts:23](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/src/bridge/commands/framework-registration.ts#L23)
 
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
@@ -829,18 +590,6 @@ Status: PASS
   - state: open · compat:active
   - evidence:
     - [agent_end @ index.ts:62](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L62)
-
-- 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: openclaw-telemetry: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerService @ index.ts:10](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L10)
-
-- 🟠 P1 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: openclaw-weixin: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
 
 - 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: opik-openclaw: before_tool_call needs terminal/block/approval probes
@@ -856,71 +605,11 @@ Status: PASS
     - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L39)
     - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L150)
 
-- 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: opik-openclaw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerService @ index.ts:16](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts#L16)
-
-- 🟠 P1 **qqbot** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: qqbot: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L16)
-
-- 🟠 P1 **secureclaw** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: secureclaw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerService @ index.ts:295](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L295)
-    - [registerService @ index.ts:301](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L301)
-    - [registerService @ index.ts:307](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L307)
-
-- 🟠 P1 **telnyx-sms** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: telnyx-sms: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerHttpRoute @ index.ts:259](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/index.ts#L259)
-
-- 🟠 P1 **voice-call** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: voice-call: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerConfigMigration @ setup-api.ts:45](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/setup-api.ts#L45)
-    - [registerGatewayMethod @ index.ts:390](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L390)
-    - [registerGatewayMethod @ index.ts:420](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L420)
-    - [registerGatewayMethod @ index.ts:437](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L437)
-    - [registerGatewayMethod @ index.ts:457](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L457)
-    - [registerGatewayMethod @ index.ts:478](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L478)
-    - [registerGatewayMethod @ index.ts:513](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L513)
-    - [registerGatewayMethod @ index.ts:536](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L536)
-    - [registerGatewayMethod @ index.ts:558](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L558)
-    - [registerGatewayMethod @ index.ts:581](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L581)
-    - [registerService @ index.ts:748](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L748)
-
 - 🟠 P1 **wecom** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: wecom: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
     - [before_tool_call @ index.js:76](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L76)
-
-- 🟠 P1 **wecom** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: wecom: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L27)
-    - [registerHttpRoute @ index.js:56](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L56)
-
-- 🟠 P1 **yuanbao** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: yuanbao: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:13
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15
-    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:31
-    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:32
-    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:33
 
 - 🟡 P2 **a2a-gateway** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: a2a-gateway: cold import requires dependency installation in an isolated workspace
@@ -939,6 +628,17 @@ Status: PASS
   - state: open · compat:none
   - evidence:
     - [extension @ index.ts](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts)
+
+- 🟡 P2 **a2a-gateway** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: a2a-gateway: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerGatewayMethod @ index.ts:616](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L616)
+    - [registerGatewayMethod @ index.ts:622](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L622)
+    - [registerGatewayMethod @ index.ts:631](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L631)
+    - [registerGatewayMethod @ index.ts:657](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L657)
+    - [registerGatewayMethod @ index.ts:669](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L669)
+    - [registerService @ index.ts:857](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L857)
 
 - 🟡 P2 **a2a-gateway** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: a2a-gateway: runtime tool schema needs registration capture
@@ -999,7 +699,7 @@ Status: PASS
   - **package-typescript-source-entrypoint**: brave-plugin: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/brave/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/brave/index.ts)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: clawmetry: cold import requires package build output
@@ -1019,6 +719,12 @@ Status: PASS
   - evidence:
     - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts)
 
+- 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts#L9)
+
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -1033,6 +739,19 @@ Status: PASS
     - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/package.json)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: clawrouter: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerCommand @ index.ts:1636](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1636)
+    - [registerCommand @ index.ts:1682](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1682)
+    - [registerCommand @ index.ts:1736](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1736)
+    - [registerCommand @ index.ts:1790](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1790)
+    - [registerCommand @ index.ts:1795](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1795)
+    - [registerCommand @ index.ts:1799](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1799)
+    - [registerCommand @ index.ts:1800](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1800)
+    - [registerService @ index.ts:1809](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1809)
+
+- 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: clawrouter: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
@@ -1042,17 +761,23 @@ Status: PASS
   - **package-dependency-install-required**: codex: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/package.json)
-    - [@openai/codex @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/package.json)
-    - [ajv @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/package.json)
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/package.json)
+    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/package.json)
+    - [@openai/codex @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/package.json)
+    - [ajv @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/package.json)
+    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/package.json)
 
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: codex: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/index.ts)
+
+- 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: codex: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerCommand @ index.ts:33](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/index.ts#L33)
 
 - 🟡 P2 **codex-app-server** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: codex-app-server: cold import requires dependency installation in an isolated workspace
@@ -1065,6 +790,15 @@ Status: PASS
   - state: open · compat:none
   - evidence:
     - [extension @ index.ts](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts)
+
+- 🟡 P2 **codex-app-server** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: codex-app-server: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerCommand @ index.ts:48](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L48)
+    - [registerInteractiveHandler @ index.ts:29](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L29)
+    - [registerInteractiveHandler @ index.ts:38](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L38)
+    - [registerService @ index.ts:12](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L12)
 
 - 🟡 P2 **composio** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: composio: cold import requires dependency installation in an isolated workspace
@@ -1090,6 +824,14 @@ Status: PASS
   - state: open · compat:none
   - evidence:
     - [extension @ index.ts](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/index.ts)
+
+- 🟡 P2 **connectclaw** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: connectclaw: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerCommand @ commands.ts:18](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L18)
+    - [registerCommand @ commands.ts:64](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L64)
+    - [registerService @ hooks.ts:91](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/hooks.ts#L91)
 
 - 🟡 P2 **connectclaw** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: connectclaw: runtime tool schema needs registration capture
@@ -1138,26 +880,45 @@ Status: PASS
   - evidence:
     - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diagnostics-otel/index.ts)
 
+- 🟡 P2 **diagnostics-otel** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: diagnostics-otel: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerService @ index.ts:9](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diagnostics-otel/index.ts#L9)
+
 - 🟡 P2 **diagnostics-prometheus** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: diagnostics-prometheus: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diagnostics-prometheus/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diagnostics-prometheus/index.ts)
+
+- 🟡 P2 **diagnostics-prometheus** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: diagnostics-prometheus: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerHttpRoute @ index.ts:12](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diagnostics-prometheus/index.ts#L12)
+    - [registerService @ index.ts:11](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diagnostics-prometheus/index.ts#L11)
 
 - 🟡 P2 **diffs** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: diffs: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@pierre/diffs @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/package.json)
-    - [@pierre/theme @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/package.json)
-    - [playwright-core @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/package.json)
+    - [@pierre/diffs @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/package.json)
+    - [@pierre/theme @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/package.json)
+    - [playwright-core @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/package.json)
 
 - 🟡 P2 **diffs** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: diffs: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/index.ts)
+
+- 🟡 P2 **diffs** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: diffs: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerHttpRoute @ plugin.ts:57](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/src/plugin.ts#L57)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
@@ -1181,6 +942,25 @@ Status: PASS
     - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
     - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
     - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+
+- 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerChannel @ index.ts:74](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L74)
+    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L130)
+    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L190)
+    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L258)
+    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L311)
+    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L351)
+    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L388)
+    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L425)
+    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L452)
+    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L506)
+    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L593)
+    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L60)
+    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L652)
+    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L719)
 
 - 🟡 P2 **discord** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: discord: cold import requires dependency installation in an isolated workspace
@@ -1225,14 +1005,35 @@ Status: PASS
   - **package-dependency-install-required**: google-meet: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [commander @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/package.json)
+    - [commander @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/package.json)
 
 - 🟡 P2 **google-meet** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: google-meet: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts)
+
+- 🟡 P2 **google-meet** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: google-meet: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerGatewayMethod @ index.ts:703](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L703)
+    - [registerGatewayMethod @ index.ts:724](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L724)
+    - [registerGatewayMethod @ index.ts:746](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L746)
+    - [registerGatewayMethod @ index.ts:758](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L758)
+    - [registerGatewayMethod @ index.ts:776](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L776)
+    - [registerGatewayMethod @ index.ts:795](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L795)
+    - [registerGatewayMethod @ index.ts:819](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L819)
+    - [registerGatewayMethod @ index.ts:841](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L841)
+    - [registerGatewayMethod @ index.ts:865](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L865)
+    - [registerGatewayMethod @ index.ts:890](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L890)
+    - [registerGatewayMethod @ index.ts:901](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L901)
+    - [registerGatewayMethod @ index.ts:918](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L918)
+    - [registerGatewayMethod @ index.ts:937](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L937)
+    - [registerGatewayMethod @ index.ts:954](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L954)
+    - [registerGatewayMethod @ index.ts:975](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L975)
+    - [registerNodeHostCommand @ index.ts:1143](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L1143)
 
 - 🟡 P2 **hasdata** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hasdata: cold import requires dependency installation in an isolated workspace
@@ -1258,6 +1059,13 @@ Status: PASS
   - evidence:
     - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/package.json)
     - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/package.json)
+
+- 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: honcho: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L97)
+    - [registerMemoryRuntime @ runtime.ts:274](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/runtime.ts#L274)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: honcho: runtime tool schema needs registration capture
@@ -1286,6 +1094,17 @@ Status: PASS
     - [extension @ index.ts](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: hyperspell: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L166)
+    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L43)
+    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L98)
+    - [registerCommand @ index.ts:46](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L46)
+    - [registerCommand @ index.ts:57](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L57)
+    - [registerCommand @ index.ts:68](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L68)
+
+- 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: hyperspell: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
@@ -1306,6 +1125,46 @@ Status: PASS
     - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L8)
     - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L55)
 
+- 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: kitchen-sink: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L7)
+    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L8)
+    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L55)
+    - [registerCommand @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L12)
+    - [registerCommand @ kitchen-runtime.js:50](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L50)
+    - [registerCommand @ kitchen-runtime.js:51](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L51)
+    - [registerCompactionProvider @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L13)
+    - [registerCompactionProvider @ kitchen-runtime.js:95](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L95)
+    - [registerConfigMigration @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L14)
+    - [registerContextEngine @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L15)
+    - [registerDetachedTaskRuntime @ sync-surface.mjs:113](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/scripts/sync-surface.mjs#L113)
+    - [registerDetachedTaskRuntime @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L17)
+    - [registerDetachedTaskRuntime @ kitchen-runtime.js:86](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L86)
+    - [registerGatewayDiscoveryService @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L18)
+    - [registerGatewayMethod @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L19)
+    - [registerGatewayMethod @ kitchen-runtime.js:107](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L107)
+    - [registerHook @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L20)
+    - [registerHttpRoute @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L21)
+    - [registerHttpRoute @ kitchen-runtime.js:105](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L105)
+    - [registerInteractiveHandler @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L23)
+    - [registerInteractiveHandler @ kitchen-runtime.js:53](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L53)
+    - [registerMemoryCapability @ generated-registrars.js:25](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L25)
+    - [registerMemoryCorpusSupplement @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L26)
+    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:92](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L92)
+    - [registerMemoryFlushPlan @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L28)
+    - [registerMemoryPromptSection @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L29)
+    - [registerMemoryPromptSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L30)
+    - [registerMemoryPromptSupplement @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L111)
+    - [registerMemoryRuntime @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L31)
+    - [registerNodeHostCommand @ generated-registrars.js:34](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L34)
+    - [registerNodeInvokePolicy @ generated-registrars.js:35](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L35)
+    - [registerReload @ generated-registrars.js:39](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L39)
+    - [registerSecurityAuditCollector @ generated-registrars.js:41](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L41)
+    - [registerService @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L42)
+    - [registerService @ kitchen-runtime.js:104](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L104)
+
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
   - state: open · compat:active
@@ -1317,6 +1176,12 @@ Status: PASS
   - state: open · compat:none
   - evidence:
     - socket.io-client @ plugins/lightclawbot/.crabpot-package/package.json
+
+- 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: lightclawbot: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: lightclawbot: runtime tool schema needs registration capture
@@ -1361,6 +1226,13 @@ Status: PASS
     - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: lossless-claw: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerCommand @ index.ts:2055](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2055)
+    - [registerContextEngine @ index.ts:2035](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2035)
+
+- 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: lossless-claw: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
@@ -1392,6 +1264,12 @@ Status: PASS
   - evidence:
     - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/2ce6b77205187c76ce7cde6cb0913de14d4452fa/extensions/matrix/index.ts)
 
+- 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: matrix: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerChannel @ index.ts:18](https://github.com/openclaw/openclaw/blob/2ce6b77205187c76ce7cde6cb0913de14d4452fa/extensions/matrix/index.ts#L18)
+
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: mattermost: channel runtime needs envelope/config probes
   - state: open · compat:active
@@ -1403,6 +1281,12 @@ Status: PASS
   - state: open · compat:none
   - evidence:
     - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/35a57bc940833a6c1f594b2308e349e5ee0148db/extensions/mattermost/index.ts)
+
+- 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: mattermost: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerChannel @ index.ts:13](https://github.com/openclaw/openclaw/blob/35a57bc940833a6c1f594b2308e349e5ee0148db/extensions/mattermost/index.ts#L13)
 
 - 🟡 P2 **mcp-adapter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: mcp-adapter: cold import requires dependency installation in an isolated workspace
@@ -1417,6 +1301,12 @@ Status: PASS
     - [extension @ index.ts](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts)
 
 - 🟡 P2 **mcp-adapter** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: mcp-adapter: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerService @ index.ts:15](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L15)
+
+- 🟡 P2 **mcp-adapter** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: mcp-adapter: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
@@ -1426,15 +1316,22 @@ Status: PASS
   - **package-dependency-install-required**: memory-lancedb: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@lancedb/lancedb @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/package.json)
-    - [openai @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/package.json)
+    - [@lancedb/lancedb @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/package.json)
+    - [openai @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/package.json)
 
 - 🟡 P2 **memory-lancedb** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: memory-lancedb: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/index.ts)
+
+- 🟡 P2 **memory-lancedb** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: memory-lancedb: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerService @ index.ts:1085](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/index.ts#L1085)
+    - [registerService @ index.ts:586](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/index.ts#L586)
 
 - 🟡 P2 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: memory-tencentdb: cold import requires dependency installation in an isolated workspace
@@ -1459,6 +1356,12 @@ Status: PASS
   - evidence:
     - registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:268
     - registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:365
+
+- 🟡 P2 **memos-cloud** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: memos-cloud: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerHook @ index.js:467](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/03fcc33c5fd285971d4b3dbaa8bbb31cb727db7c/index.js#L467)
 
 - 🟡 P2 **memu-engine** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: memu-engine: cold import needs TypeScript source entrypoint support
@@ -1493,6 +1396,13 @@ Status: PASS
   - state: open · compat:none
   - evidence:
     - [extension @ index.ts](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts)
+
+- 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: mocrane-wecom: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
+    - [registerHttpRoute @ index.ts:34](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L34)
 
 - 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: mocrane-wecom: runtime tool schema needs registration capture
@@ -1541,6 +1451,12 @@ Status: PASS
     - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/f9d21afa193c2b67cb55e79eca03db40f0fbe836/nemoclaw/package.json)
     - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/f9d21afa193c2b67cb55e79eca03db40f0fbe836/nemoclaw/package.json)
 
+- 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerCommand @ index.ts:336](https://github.com/NVIDIA/NemoClaw/blob/f9d21afa193c2b67cb55e79eca03db40f0fbe836/nemoclaw/src/index.ts#L336)
+
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
   - state: open · compat:active
@@ -1580,28 +1496,46 @@ Status: PASS
     - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/nostr/index.ts)
     - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/nostr/setup-entry.ts)
 
+- 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: nostr: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerHttpRoute @ index.ts:89](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/nostr/index.ts#L89)
+
 - 🟡 P2 **openclaw-qqbot** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: openclaw-qqbot: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@tencent-connect/qqbot-connector @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/package.json)
-    - [mpg123-decoder @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/package.json)
-    - [silk-wasm @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/package.json)
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/package.json)
+    - [@tencent-connect/qqbot-connector @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/package.json)
+    - [mpg123-decoder @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/package.json)
+    - [silk-wasm @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/package.json)
+    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/package.json)
 
 - 🟡 P2 **openclaw-qqbot** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: openclaw-qqbot: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/setup-entry.ts)
+
+- 🟡 P2 **openclaw-qqbot** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: openclaw-qqbot: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerCommand @ framework-registration.ts:23](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/src/bridge/commands/framework-registration.ts#L23)
 
 - 🟡 P2 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: openclaw-telemetry: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
     - [extension @ index.ts](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts)
+
+- 🟡 P2 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: openclaw-telemetry: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerService @ index.ts:10](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L10)
 
 - 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: openclaw-weixin: channel runtime needs envelope/config probes
@@ -1621,6 +1555,12 @@ Status: PASS
   - state: open · compat:none
   - evidence:
     - extension:plugins/openclaw-weixin/.crabpot-package/index.ts
+
+- 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: openclaw-weixin: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
 
 - 🟡 P2 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: opik-openclaw: cold import requires package build output
@@ -1642,6 +1582,12 @@ Status: PASS
   - evidence:
     - [extension @ index.ts](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts)
 
+- 🟡 P2 **opik-openclaw** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: opik-openclaw: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerService @ index.ts:16](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts#L16)
+
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: qqbot: channel runtime needs envelope/config probes
   - state: open · compat:active
@@ -1655,6 +1601,12 @@ Status: PASS
     - [mpg123-decoder @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
     - [silk-wasm @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
     - [ws @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
+
+- 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: qqbot: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L16)
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: qqbot: runtime tool schema needs registration capture
@@ -1675,6 +1627,14 @@ Status: PASS
   - evidence:
     - [chokidar @ package.json](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/package.json)
     - [node-forge @ package.json](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/package.json)
+
+- 🟡 P2 **secureclaw** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: secureclaw: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerService @ index.ts:295](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L295)
+    - [registerService @ index.ts:301](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L301)
+    - [registerService @ index.ts:307](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L307)
 
 - 🟡 P2 **synology-chat** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: synology-chat: channel runtime needs envelope/config probes
@@ -1707,6 +1667,12 @@ Status: PASS
   - evidence:
     - [extension:./dist/index.js @ index.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/dist/index.js)
     - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/dist/setup-entry.js)
+
+- 🟡 P2 **telnyx-sms** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: telnyx-sms: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerHttpRoute @ index.ts:259](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/index.ts#L259)
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: tlon: channel runtime needs envelope/config probes
@@ -1759,6 +1725,22 @@ Status: PASS
   - evidence:
     - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts)
 
+- 🟡 P2 **voice-call** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: voice-call: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerConfigMigration @ setup-api.ts:45](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/setup-api.ts#L45)
+    - [registerGatewayMethod @ index.ts:390](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L390)
+    - [registerGatewayMethod @ index.ts:420](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L420)
+    - [registerGatewayMethod @ index.ts:437](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L437)
+    - [registerGatewayMethod @ index.ts:457](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L457)
+    - [registerGatewayMethod @ index.ts:478](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L478)
+    - [registerGatewayMethod @ index.ts:513](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L513)
+    - [registerGatewayMethod @ index.ts:536](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L536)
+    - [registerGatewayMethod @ index.ts:558](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L558)
+    - [registerGatewayMethod @ index.ts:581](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L581)
+    - [registerService @ index.ts:748](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L748)
+
 - 🟡 P2 **web-search-plus** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: web-search-plus: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
@@ -1788,6 +1770,13 @@ Status: PASS
     - [undici @ package.json](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/package.json)
 
 - 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: wecom: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L27)
+    - [registerHttpRoute @ index.js:56](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L56)
+
+- 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: wecom: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
@@ -1799,18 +1788,18 @@ Status: PASS
   - **package-dependency-install-required**: whatsapp: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@whiskeysockets/baileys @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/package.json)
-    - [https-proxy-agent @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/package.json)
-    - [jimp @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/package.json)
-    - [undici @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/package.json)
+    - [@whiskeysockets/baileys @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/package.json)
+    - [https-proxy-agent @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/package.json)
+    - [jimp @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/package.json)
+    - [undici @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/package.json)
 
 - 🟡 P2 **whatsapp** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: whatsapp: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/setup-entry.ts)
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: yuanbao: channel runtime needs envelope/config probes
@@ -1834,6 +1823,17 @@ Status: PASS
   - evidence:
     - extension:plugins/yuanbao/.crabpot-package/index.ts
     - setupEntry:plugins/yuanbao/.crabpot-package/setup-entry.ts
+
+- 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: yuanbao: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:13
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:31
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:32
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:33
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: yuanbao: runtime tool schema needs registration capture
@@ -1948,7 +1948,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟡 P2 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: clawmetry: OpenClaw package install metadata is incomplete
@@ -1974,7 +1974,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.5.1-beta.1
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟡 P2 **composio** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: composio: plugin API compatibility range is missing
@@ -2006,7 +2006,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟡 P2 **diffs** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: diffs: OpenClaw package install metadata is incomplete
@@ -2019,7 +2019,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.30
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟡 P2 **dingtalk-connector** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: dingtalk-connector: manifest uses unsupported top-level fields
@@ -2071,7 +2071,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.20
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟡 P2 **lightclawbot** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: lightclawbot: manifest uses unsupported top-level fields
@@ -2134,7 +2134,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟡 P2 **memory-tencentdb** `upstream-metadata` `plugin-upstream-fix`
   - **package-openclaw-unsupported-metadata**: memory-tencentdb: package declares unsupported OpenClaw metadata
@@ -2222,7 +2222,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟡 P2 **openclaw-telemetry** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: openclaw-telemetry: plugin API compatibility range is missing
@@ -2330,7 +2330,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟡 P2 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
   - **package-openclaw-unsupported-metadata**: yuanbao: package declares unsupported OpenClaw metadata
@@ -2442,17 +2442,6 @@ _none_
     - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/env.ts:2
     - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/utils.ts:2
 
-- 🟠 P1 **a2a-gateway** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: a2a-gateway: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerGatewayMethod @ index.ts:616](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L616)
-    - [registerGatewayMethod @ index.ts:622](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L622)
-    - [registerGatewayMethod @ index.ts:631](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L631)
-    - [registerGatewayMethod @ index.ts:657](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L657)
-    - [registerGatewayMethod @ index.ts:669](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L669)
-    - [registerService @ index.ts:857](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L857)
-
 - 🟠 P1 **clawmetry** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: clawmetry: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
@@ -2464,107 +2453,6 @@ _none_
   - state: open · compat:none
   - evidence:
     - [extension:./index.ts @ index.ts](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts)
-
-- 🟠 P1 **clawmetry** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: clawmetry: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts#L9)
-
-- 🟠 P1 **clawrouter** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: clawrouter: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerCommand @ index.ts:1636](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1636)
-    - [registerCommand @ index.ts:1682](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1682)
-    - [registerCommand @ index.ts:1736](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1736)
-    - [registerCommand @ index.ts:1790](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1790)
-    - [registerCommand @ index.ts:1795](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1795)
-    - [registerCommand @ index.ts:1799](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1799)
-    - [registerCommand @ index.ts:1800](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1800)
-    - [registerService @ index.ts:1809](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1809)
-
-- 🟠 P1 **codex** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: codex: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerCommand @ index.ts:33](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/index.ts#L33)
-
-- 🟠 P1 **codex-app-server** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: codex-app-server: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerCommand @ index.ts:48](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L48)
-    - [registerInteractiveHandler @ index.ts:29](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L29)
-    - [registerInteractiveHandler @ index.ts:38](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L38)
-    - [registerService @ index.ts:12](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L12)
-
-- 🟠 P1 **connectclaw** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: connectclaw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerCommand @ commands.ts:18](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L18)
-    - [registerCommand @ commands.ts:64](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L64)
-    - [registerService @ hooks.ts:91](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/hooks.ts#L91)
-
-- 🟠 P1 **diagnostics-otel** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: diagnostics-otel: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerService @ index.ts:9](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diagnostics-otel/index.ts#L9)
-
-- 🟠 P1 **diagnostics-prometheus** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: diagnostics-prometheus: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerHttpRoute @ index.ts:12](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diagnostics-prometheus/index.ts#L12)
-    - [registerService @ index.ts:11](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diagnostics-prometheus/index.ts#L11)
-
-- 🟠 P1 **diffs** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: diffs: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerHttpRoute @ plugin.ts:57](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/src/plugin.ts#L57)
-
-- 🟠 P1 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerChannel @ index.ts:74](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L74)
-    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L130)
-    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L190)
-    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L258)
-    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L311)
-    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L351)
-    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L388)
-    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L425)
-    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L452)
-    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L506)
-    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L593)
-    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L60)
-    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L652)
-    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L719)
-
-- 🟠 P1 **google-meet** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: google-meet: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerGatewayMethod @ index.ts:703](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L703)
-    - [registerGatewayMethod @ index.ts:724](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L724)
-    - [registerGatewayMethod @ index.ts:746](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L746)
-    - [registerGatewayMethod @ index.ts:758](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L758)
-    - [registerGatewayMethod @ index.ts:776](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L776)
-    - [registerGatewayMethod @ index.ts:795](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L795)
-    - [registerGatewayMethod @ index.ts:819](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L819)
-    - [registerGatewayMethod @ index.ts:841](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L841)
-    - [registerGatewayMethod @ index.ts:865](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L865)
-    - [registerGatewayMethod @ index.ts:890](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L890)
-    - [registerGatewayMethod @ index.ts:901](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L901)
-    - [registerGatewayMethod @ index.ts:918](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L918)
-    - [registerGatewayMethod @ index.ts:937](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L937)
-    - [registerGatewayMethod @ index.ts:954](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L954)
-    - [registerGatewayMethod @ index.ts:975](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L975)
-    - [registerNodeHostCommand @ index.ts:1143](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L1143)
 
 - 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: honcho: conversation-access hooks need privacy-boundary probes
@@ -2578,24 +2466,6 @@ _none_
   - state: open · compat:missing
   - evidence:
     - plugin-sdk-export-aliases
-
-- 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: honcho: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L97)
-    - [registerMemoryRuntime @ runtime.ts:274](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/runtime.ts#L274)
-
-- 🟠 P1 **hyperspell** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: hyperspell: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L166)
-    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L43)
-    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:46](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L46)
-    - [registerCommand @ index.ts:57](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L57)
-    - [registerCommand @ index.ts:68](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L68)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
@@ -2611,52 +2481,6 @@ _none_
     - [llm_input @ generated-hooks.js:25](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L25)
     - [llm_output @ generated-hooks.js:26](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-hooks.js#L26)
 
-- 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: kitchen-sink: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L7)
-    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L8)
-    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L55)
-    - [registerCommand @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L12)
-    - [registerCommand @ kitchen-runtime.js:50](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L50)
-    - [registerCommand @ kitchen-runtime.js:51](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L51)
-    - [registerCompactionProvider @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L13)
-    - [registerCompactionProvider @ kitchen-runtime.js:95](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L95)
-    - [registerConfigMigration @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L14)
-    - [registerContextEngine @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L15)
-    - [registerDetachedTaskRuntime @ sync-surface.mjs:113](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/scripts/sync-surface.mjs#L113)
-    - [registerDetachedTaskRuntime @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L17)
-    - [registerDetachedTaskRuntime @ kitchen-runtime.js:86](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L86)
-    - [registerGatewayDiscoveryService @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L18)
-    - [registerGatewayMethod @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L19)
-    - [registerGatewayMethod @ kitchen-runtime.js:107](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L107)
-    - [registerHook @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L20)
-    - [registerHttpRoute @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L21)
-    - [registerHttpRoute @ kitchen-runtime.js:105](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L105)
-    - [registerInteractiveHandler @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L23)
-    - [registerInteractiveHandler @ kitchen-runtime.js:53](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L53)
-    - [registerMemoryCapability @ generated-registrars.js:25](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L25)
-    - [registerMemoryCorpusSupplement @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L26)
-    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:92](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L92)
-    - [registerMemoryFlushPlan @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L28)
-    - [registerMemoryPromptSection @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L29)
-    - [registerMemoryPromptSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L30)
-    - [registerMemoryPromptSupplement @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L111)
-    - [registerMemoryRuntime @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L31)
-    - [registerNodeHostCommand @ generated-registrars.js:34](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L34)
-    - [registerNodeInvokePolicy @ generated-registrars.js:35](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L35)
-    - [registerReload @ generated-registrars.js:39](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L39)
-    - [registerSecurityAuditCollector @ generated-registrars.js:41](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L41)
-    - [registerService @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L42)
-    - [registerService @ kitchen-runtime.js:104](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L104)
-
-- 🟠 P1 **lightclawbot** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: lightclawbot: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13
-
 - 🟠 P1 **llm-trace-phoenix** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: llm-trace-phoenix: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
@@ -2664,49 +2488,17 @@ _none_
     - [llm_input @ index.ts:154](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L154)
     - [llm_output @ index.ts:168](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L168)
 
-- 🟠 P1 **lossless-claw** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: lossless-claw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerCommand @ index.ts:2055](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2055)
-    - [registerContextEngine @ index.ts:2035](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2035)
-
 - 🟠 P1 **matrix** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: matrix: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
     - plugin-sdk-export-aliases
 
-- 🟠 P1 **matrix** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: matrix: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerChannel @ index.ts:18](https://github.com/openclaw/openclaw/blob/2ce6b77205187c76ce7cde6cb0913de14d4452fa/extensions/matrix/index.ts#L18)
-
-- 🟠 P1 **mattermost** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: mattermost: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerChannel @ index.ts:13](https://github.com/openclaw/openclaw/blob/35a57bc940833a6c1f594b2308e349e5ee0148db/extensions/mattermost/index.ts#L13)
-
-- 🟠 P1 **mcp-adapter** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: mcp-adapter: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerService @ index.ts:15](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L15)
-
 - 🟠 P1 **memory-lancedb** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: memory-lancedb: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ index.ts:1005](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/index.ts#L1005)
-
-- 🟠 P1 **memory-lancedb** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: memory-lancedb: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerService @ index.ts:1085](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/index.ts#L1085)
-    - [registerService @ index.ts:586](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/index.ts#L586)
+    - [agent_end @ index.ts:1005](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/index.ts#L1005)
 
 - 🟠 P1 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: memory-tencentdb: conversation-access hooks need privacy-boundary probes
@@ -2720,42 +2512,11 @@ _none_
   - evidence:
     - [agent_end @ index.js:515](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/03fcc33c5fd285971d4b3dbaa8bbb31cb727db7c/index.js#L515)
 
-- 🟠 P1 **memos-cloud** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: memos-cloud: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerHook @ index.js:467](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/03fcc33c5fd285971d4b3dbaa8bbb31cb727db7c/index.js#L467)
-
-- 🟠 P1 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: mocrane-wecom: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
-    - [registerHttpRoute @ index.ts:34](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L34)
-
 - 🟠 P1 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
     - [before_tool_call @ index.ts:384](https://github.com/NVIDIA/NemoClaw/blob/f9d21afa193c2b67cb55e79eca03db40f0fbe836/nemoclaw/src/index.ts#L384)
-
-- 🟠 P1 **nemoclaw** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: nemoclaw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerCommand @ index.ts:336](https://github.com/NVIDIA/NemoClaw/blob/f9d21afa193c2b67cb55e79eca03db40f0fbe836/nemoclaw/src/index.ts#L336)
-
-- 🟠 P1 **nostr** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: nostr: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerHttpRoute @ index.ts:89](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/nostr/index.ts#L89)
-
-- 🟠 P1 **openclaw-qqbot** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: openclaw-qqbot: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerCommand @ framework-registration.ts:23](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/src/bridge/commands/framework-registration.ts#L23)
 
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
@@ -2768,18 +2529,6 @@ _none_
   - state: open · compat:active
   - evidence:
     - [agent_end @ index.ts:62](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L62)
-
-- 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: openclaw-telemetry: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerService @ index.ts:10](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L10)
-
-- 🟠 P1 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: openclaw-weixin: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
 
 - 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: opik-openclaw: before_tool_call needs terminal/block/approval probes
@@ -2795,77 +2544,17 @@ _none_
     - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L39)
     - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L150)
 
-- 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: opik-openclaw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerService @ index.ts:16](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts#L16)
-
-- 🟠 P1 **qqbot** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: qqbot: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L16)
-
-- 🟠 P1 **secureclaw** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: secureclaw: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerService @ index.ts:295](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L295)
-    - [registerService @ index.ts:301](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L301)
-    - [registerService @ index.ts:307](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L307)
-
-- 🟠 P1 **telnyx-sms** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: telnyx-sms: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerHttpRoute @ index.ts:259](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/index.ts#L259)
-
-- 🟠 P1 **voice-call** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: voice-call: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerConfigMigration @ setup-api.ts:45](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/setup-api.ts#L45)
-    - [registerGatewayMethod @ index.ts:390](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L390)
-    - [registerGatewayMethod @ index.ts:420](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L420)
-    - [registerGatewayMethod @ index.ts:437](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L437)
-    - [registerGatewayMethod @ index.ts:457](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L457)
-    - [registerGatewayMethod @ index.ts:478](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L478)
-    - [registerGatewayMethod @ index.ts:513](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L513)
-    - [registerGatewayMethod @ index.ts:536](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L536)
-    - [registerGatewayMethod @ index.ts:558](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L558)
-    - [registerGatewayMethod @ index.ts:581](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L581)
-    - [registerService @ index.ts:748](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L748)
-
 - 🟠 P1 **wecom** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: wecom: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
     - [before_tool_call @ index.js:76](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L76)
 
-- 🟠 P1 **wecom** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: wecom: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L27)
-    - [registerHttpRoute @ index.js:56](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L56)
-
 - 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: yuanbao: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
     - plugin-sdk-export-aliases
-
-- 🟠 P1 **yuanbao** `inspector-gap` `inspector-follow-up`
-  - **registration-capture-gap**: yuanbao: runtime registrations need capture before contract judgment
-  - state: open · compat:active
-  - evidence:
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:13
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15
-    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:31
-    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:32
-    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:33
 
 - 🟡 P2 **a2a-gateway** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: a2a-gateway: root plugin SDK barrel is still used by fixtures
@@ -2909,6 +2598,17 @@ _none_
   - state: open · compat:none
   - evidence:
     - [extension @ index.ts](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts)
+
+- 🟡 P2 **a2a-gateway** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: a2a-gateway: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerGatewayMethod @ index.ts:616](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L616)
+    - [registerGatewayMethod @ index.ts:622](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L622)
+    - [registerGatewayMethod @ index.ts:631](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L631)
+    - [registerGatewayMethod @ index.ts:657](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L657)
+    - [registerGatewayMethod @ index.ts:669](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L669)
+    - [registerService @ index.ts:857](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L857)
 
 - 🟡 P2 **a2a-gateway** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: a2a-gateway: runtime tool schema needs registration capture
@@ -3011,13 +2711,13 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟡 P2 **brave-plugin** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: brave-plugin: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/brave/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/brave/index.ts)
 
 - 🟡 P2 **brave-plugin** `deprecation-warning` `core-compat-adapter`
   - **provider-auth-env-vars**: brave-plugin: providerAuthEnvVars legacy manifest metadata must stay covered
@@ -3050,6 +2750,12 @@ _none_
   - evidence:
     - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts)
 
+- 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts#L9)
+
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -3070,6 +2776,19 @@ _none_
     - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/package.json)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: clawrouter: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerCommand @ index.ts:1636](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1636)
+    - [registerCommand @ index.ts:1682](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1682)
+    - [registerCommand @ index.ts:1736](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1736)
+    - [registerCommand @ index.ts:1790](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1790)
+    - [registerCommand @ index.ts:1795](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1795)
+    - [registerCommand @ index.ts:1799](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1799)
+    - [registerCommand @ index.ts:1800](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1800)
+    - [registerService @ index.ts:1809](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1809)
+
+- 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: clawrouter: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
@@ -3079,11 +2798,11 @@ _none_
   - **package-dependency-install-required**: codex: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/package.json)
-    - [@openai/codex @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/package.json)
-    - [ajv @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/package.json)
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/package.json)
+    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/package.json)
+    - [@openai/codex @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/package.json)
+    - [ajv @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/package.json)
+    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/package.json)
 
 - 🟡 P2 **codex** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: codex: OpenClaw package install metadata is incomplete
@@ -3096,13 +2815,19 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.5.1-beta.1
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: codex: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/index.ts)
+
+- 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: codex: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerCommand @ index.ts:33](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/index.ts#L33)
 
 - 🟡 P2 **codex-app-server** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: codex-app-server: root plugin SDK barrel is still used by fixtures
@@ -3124,6 +2849,15 @@ _none_
   - state: open · compat:none
   - evidence:
     - [extension @ index.ts](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts)
+
+- 🟡 P2 **codex-app-server** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: codex-app-server: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerCommand @ index.ts:48](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L48)
+    - [registerInteractiveHandler @ index.ts:29](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L29)
+    - [registerInteractiveHandler @ index.ts:38](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L38)
+    - [registerService @ index.ts:12](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L12)
 
 - 🟡 P2 **composio** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: composio: root plugin SDK barrel is still used by fixtures
@@ -3188,6 +2922,14 @@ _none_
     - [extension @ index.ts](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/index.ts)
 
 - 🟡 P2 **connectclaw** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: connectclaw: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerCommand @ commands.ts:18](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L18)
+    - [registerCommand @ commands.ts:64](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L64)
+    - [registerService @ hooks.ts:91](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/hooks.ts#L91)
+
+- 🟡 P2 **connectclaw** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: connectclaw: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
@@ -3247,27 +2989,40 @@ _none_
   - evidence:
     - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diagnostics-otel/index.ts)
 
+- 🟡 P2 **diagnostics-otel** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: diagnostics-otel: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerService @ index.ts:9](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diagnostics-otel/index.ts#L9)
+
 - 🟡 P2 **diagnostics-prometheus** `upstream-metadata` `plugin-upstream-fix`
   - **package-min-host-version-drift**: diagnostics-prometheus: OpenClaw package minimum host version drifts from build target
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟡 P2 **diagnostics-prometheus** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: diagnostics-prometheus: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diagnostics-prometheus/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diagnostics-prometheus/index.ts)
+
+- 🟡 P2 **diagnostics-prometheus** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: diagnostics-prometheus: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerHttpRoute @ index.ts:12](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diagnostics-prometheus/index.ts#L12)
+    - [registerService @ index.ts:11](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diagnostics-prometheus/index.ts#L11)
 
 - 🟡 P2 **diffs** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: diffs: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@pierre/diffs @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/package.json)
-    - [@pierre/theme @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/package.json)
-    - [playwright-core @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/package.json)
+    - [@pierre/diffs @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/package.json)
+    - [@pierre/theme @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/package.json)
+    - [playwright-core @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/package.json)
 
 - 🟡 P2 **diffs** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: diffs: OpenClaw package install metadata is incomplete
@@ -3280,13 +3035,19 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.30
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟡 P2 **diffs** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: diffs: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/index.ts)
+
+- 🟡 P2 **diffs** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: diffs: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerHttpRoute @ plugin.ts:57](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/src/plugin.ts#L57)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
@@ -3338,6 +3099,25 @@ _none_
   - state: open · compat:none
   - evidence:
     - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/package.json)
+
+- 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerChannel @ index.ts:74](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L74)
+    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L130)
+    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L190)
+    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L258)
+    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L311)
+    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L351)
+    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L388)
+    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L425)
+    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L452)
+    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L506)
+    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L593)
+    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L60)
+    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L652)
+    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L719)
 
 - 🟡 P2 **discord** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: discord: channelEnvVars legacy manifest metadata must stay covered
@@ -3420,8 +3200,8 @@ _none_
   - **package-dependency-install-required**: google-meet: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [commander @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/package.json)
+    - [commander @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/package.json)
 
 - 🟡 P2 **google-meet** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: google-meet: OpenClaw package install metadata is incomplete
@@ -3434,13 +3214,34 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.20
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟡 P2 **google-meet** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: google-meet: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts)
+
+- 🟡 P2 **google-meet** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: google-meet: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerGatewayMethod @ index.ts:703](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L703)
+    - [registerGatewayMethod @ index.ts:724](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L724)
+    - [registerGatewayMethod @ index.ts:746](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L746)
+    - [registerGatewayMethod @ index.ts:758](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L758)
+    - [registerGatewayMethod @ index.ts:776](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L776)
+    - [registerGatewayMethod @ index.ts:795](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L795)
+    - [registerGatewayMethod @ index.ts:819](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L819)
+    - [registerGatewayMethod @ index.ts:841](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L841)
+    - [registerGatewayMethod @ index.ts:865](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L865)
+    - [registerGatewayMethod @ index.ts:890](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L890)
+    - [registerGatewayMethod @ index.ts:901](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L901)
+    - [registerGatewayMethod @ index.ts:918](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L918)
+    - [registerGatewayMethod @ index.ts:937](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L937)
+    - [registerGatewayMethod @ index.ts:954](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L954)
+    - [registerGatewayMethod @ index.ts:975](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L975)
+    - [registerNodeHostCommand @ index.ts:1143](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L1143)
 
 - 🟡 P2 **hasdata** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hasdata: cold import requires dependency installation in an isolated workspace
@@ -3497,6 +3298,13 @@ _none_
     - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/package.json)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: honcho: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L97)
+    - [registerMemoryRuntime @ runtime.ts:274](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/runtime.ts#L274)
+
+- 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: honcho: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
@@ -3529,6 +3337,17 @@ _none_
   - state: open · compat:none
   - evidence:
     - [extension @ index.ts](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts)
+
+- 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: hyperspell: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L166)
+    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L43)
+    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L98)
+    - [registerCommand @ index.ts:46](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L46)
+    - [registerCommand @ index.ts:57](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L57)
+    - [registerCommand @ index.ts:68](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L68)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: hyperspell: runtime tool schema needs registration capture
@@ -3569,6 +3388,46 @@ _none_
   - evidence:
     - [openclaw/plugin-sdk @ generated-sdk-imports.ts:2](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-sdk-imports.ts#L2)
 
+- 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: kitchen-sink: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L7)
+    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L8)
+    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L55)
+    - [registerCommand @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L12)
+    - [registerCommand @ kitchen-runtime.js:50](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L50)
+    - [registerCommand @ kitchen-runtime.js:51](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L51)
+    - [registerCompactionProvider @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L13)
+    - [registerCompactionProvider @ kitchen-runtime.js:95](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L95)
+    - [registerConfigMigration @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L14)
+    - [registerContextEngine @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L15)
+    - [registerDetachedTaskRuntime @ sync-surface.mjs:113](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/scripts/sync-surface.mjs#L113)
+    - [registerDetachedTaskRuntime @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L17)
+    - [registerDetachedTaskRuntime @ kitchen-runtime.js:86](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L86)
+    - [registerGatewayDiscoveryService @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L18)
+    - [registerGatewayMethod @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L19)
+    - [registerGatewayMethod @ kitchen-runtime.js:107](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L107)
+    - [registerHook @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L20)
+    - [registerHttpRoute @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L21)
+    - [registerHttpRoute @ kitchen-runtime.js:105](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L105)
+    - [registerInteractiveHandler @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L23)
+    - [registerInteractiveHandler @ kitchen-runtime.js:53](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L53)
+    - [registerMemoryCapability @ generated-registrars.js:25](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L25)
+    - [registerMemoryCorpusSupplement @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L26)
+    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:92](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L92)
+    - [registerMemoryFlushPlan @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L28)
+    - [registerMemoryPromptSection @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L29)
+    - [registerMemoryPromptSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L30)
+    - [registerMemoryPromptSupplement @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L111)
+    - [registerMemoryRuntime @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L31)
+    - [registerNodeHostCommand @ generated-registrars.js:34](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L34)
+    - [registerNodeInvokePolicy @ generated-registrars.js:35](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L35)
+    - [registerReload @ generated-registrars.js:39](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L39)
+    - [registerSecurityAuditCollector @ generated-registrars.js:41](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L41)
+    - [registerService @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L42)
+    - [registerService @ kitchen-runtime.js:104](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L104)
+
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
   - state: open · compat:active
@@ -3599,6 +3458,12 @@ _none_
   - state: open · compat:none
   - evidence:
     - plugins/lightclawbot/.crabpot-package/package.json
+
+- 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: lightclawbot: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: lightclawbot: runtime tool schema needs registration capture
@@ -3669,6 +3534,13 @@ _none_
     - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: lossless-claw: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerCommand @ index.ts:2055](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2055)
+    - [registerContextEngine @ index.ts:2035](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2035)
+
+- 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: lossless-claw: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
@@ -3705,6 +3577,12 @@ _none_
   - state: open · compat:none
   - evidence:
     - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/2ce6b77205187c76ce7cde6cb0913de14d4452fa/extensions/matrix/index.ts)
+
+- 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: matrix: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerChannel @ index.ts:18](https://github.com/openclaw/openclaw/blob/2ce6b77205187c76ce7cde6cb0913de14d4452fa/extensions/matrix/index.ts#L18)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: mattermost: channel runtime needs envelope/config probes
@@ -3747,6 +3625,12 @@ _none_
   - evidence:
     - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/35a57bc940833a6c1f594b2308e349e5ee0148db/extensions/mattermost/index.ts)
 
+- 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: mattermost: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerChannel @ index.ts:13](https://github.com/openclaw/openclaw/blob/35a57bc940833a6c1f594b2308e349e5ee0148db/extensions/mattermost/index.ts#L13)
+
 - 🟡 P2 **mcp-adapter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: mcp-adapter: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -3766,6 +3650,12 @@ _none_
     - [extension @ index.ts](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts)
 
 - 🟡 P2 **mcp-adapter** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: mcp-adapter: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerService @ index.ts:15](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L15)
+
+- 🟡 P2 **mcp-adapter** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: mcp-adapter: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
@@ -3775,9 +3665,9 @@ _none_
   - **package-dependency-install-required**: memory-lancedb: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@lancedb/lancedb @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/package.json)
-    - [openai @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/package.json)
+    - [@lancedb/lancedb @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/package.json)
+    - [openai @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/package.json)
 
 - 🟡 P2 **memory-lancedb** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: memory-lancedb: OpenClaw package install metadata is incomplete
@@ -3790,13 +3680,20 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟡 P2 **memory-lancedb** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: memory-lancedb: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/index.ts)
+
+- 🟡 P2 **memory-lancedb** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: memory-lancedb: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerService @ index.ts:1085](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/index.ts#L1085)
+    - [registerService @ index.ts:586](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/index.ts#L586)
 
 - 🟡 P2 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: memory-tencentdb: cold import requires dependency installation in an isolated workspace
@@ -3845,6 +3742,12 @@ _none_
   - state: open · compat:none
   - evidence:
     - [package.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/03fcc33c5fd285971d4b3dbaa8bbb31cb727db7c/package.json)
+
+- 🟡 P2 **memos-cloud** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: memos-cloud: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerHook @ index.js:467](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/03fcc33c5fd285971d4b3dbaa8bbb31cb727db7c/index.js#L467)
 
 - 🟡 P2 **memu-engine** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: memu-engine: root plugin SDK barrel is still used by fixtures
@@ -3930,6 +3833,13 @@ _none_
     - [extension @ index.ts](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts)
 
 - 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: mocrane-wecom: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
+    - [registerHttpRoute @ index.ts:34](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L34)
+
+- 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: mocrane-wecom: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
@@ -4006,6 +3916,12 @@ _none_
   - state: open · compat:none
   - evidence:
     - [package.json](https://github.com/NVIDIA/NemoClaw/blob/f9d21afa193c2b67cb55e79eca03db40f0fbe836/nemoclaw/package.json)
+
+- 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerCommand @ index.ts:336](https://github.com/NVIDIA/NemoClaw/blob/f9d21afa193c2b67cb55e79eca03db40f0fbe836/nemoclaw/src/index.ts#L336)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
@@ -4084,6 +4000,12 @@ _none_
     - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/nostr/index.ts)
     - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/nostr/setup-entry.ts)
 
+- 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: nostr: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerHttpRoute @ index.ts:89](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/nostr/index.ts#L89)
+
 - 🟡 P2 **openclaw-qqbot** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: openclaw-qqbot: channelEnvVars legacy manifest metadata must stay covered
   - state: open · compat:deprecated · deprecated
@@ -4094,11 +4016,11 @@ _none_
   - **package-dependency-install-required**: openclaw-qqbot: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@tencent-connect/qqbot-connector @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/package.json)
-    - [mpg123-decoder @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/package.json)
-    - [silk-wasm @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/package.json)
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/package.json)
+    - [@tencent-connect/qqbot-connector @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/package.json)
+    - [mpg123-decoder @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/package.json)
+    - [silk-wasm @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/package.json)
+    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/package.json)
 
 - 🟡 P2 **openclaw-qqbot** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: openclaw-qqbot: OpenClaw package install metadata is incomplete
@@ -4111,14 +4033,20 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟡 P2 **openclaw-qqbot** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: openclaw-qqbot: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/setup-entry.ts)
+
+- 🟡 P2 **openclaw-qqbot** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: openclaw-qqbot: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerCommand @ framework-registration.ts:23](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/src/bridge/commands/framework-registration.ts#L23)
 
 - 🟡 P2 **openclaw-telemetry** `deprecation-warning` `core-compat-adapter`
   - **legacy-before-agent-start**: openclaw-telemetry: legacy before_agent_start hook compatibility is still used
@@ -4146,6 +4074,12 @@ _none_
   - evidence:
     - [extension @ index.ts](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts)
 
+- 🟡 P2 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: openclaw-telemetry: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerService @ index.ts:10](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L10)
+
 - 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: openclaw-weixin: channel runtime needs envelope/config probes
   - state: open · compat:active
@@ -4170,6 +4104,12 @@ _none_
   - state: open · compat:none
   - evidence:
     - extension:plugins/openclaw-weixin/.crabpot-package/index.ts
+
+- 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: openclaw-weixin: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
 
 - 🟡 P2 **opik-openclaw** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: opik-openclaw: root plugin SDK barrel is still used by fixtures
@@ -4204,6 +4144,12 @@ _none_
   - state: open · compat:none
   - evidence:
     - [extension @ index.ts](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts)
+
+- 🟡 P2 **opik-openclaw** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: opik-openclaw: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerService @ index.ts:16](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts#L16)
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: qqbot: channel runtime needs envelope/config probes
@@ -4247,6 +4193,12 @@ _none_
     - [package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: qqbot: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L16)
+
+- 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: qqbot: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
@@ -4271,6 +4223,14 @@ _none_
   - state: open · compat:none
   - evidence:
     - [package.json](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/package.json)
+
+- 🟡 P2 **secureclaw** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: secureclaw: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerService @ index.ts:295](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L295)
+    - [registerService @ index.ts:301](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L301)
+    - [registerService @ index.ts:307](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L307)
 
 - 🟡 P2 **synology-chat** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: synology-chat: channel runtime needs envelope/config probes
@@ -4328,6 +4288,12 @@ _none_
   - evidence:
     - [extension:./dist/index.js @ index.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/dist/index.js)
     - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/dist/setup-entry.js)
+
+- 🟡 P2 **telnyx-sms** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: telnyx-sms: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerHttpRoute @ index.ts:259](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/index.ts#L259)
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: tlon: channel runtime needs envelope/config probes
@@ -4431,6 +4397,22 @@ _none_
   - evidence:
     - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts)
 
+- 🟡 P2 **voice-call** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: voice-call: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerConfigMigration @ setup-api.ts:45](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/setup-api.ts#L45)
+    - [registerGatewayMethod @ index.ts:390](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L390)
+    - [registerGatewayMethod @ index.ts:420](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L420)
+    - [registerGatewayMethod @ index.ts:437](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L437)
+    - [registerGatewayMethod @ index.ts:457](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L457)
+    - [registerGatewayMethod @ index.ts:478](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L478)
+    - [registerGatewayMethod @ index.ts:513](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L513)
+    - [registerGatewayMethod @ index.ts:536](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L536)
+    - [registerGatewayMethod @ index.ts:558](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L558)
+    - [registerGatewayMethod @ index.ts:581](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L581)
+    - [registerService @ index.ts:748](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L748)
+
 - 🟡 P2 **web-search-plus** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: web-search-plus: manifest uses unsupported top-level fields
   - state: open · compat:none
@@ -4472,6 +4454,13 @@ _none_
     - [package.json](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/package.json)
 
 - 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: wecom: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L27)
+    - [registerHttpRoute @ index.js:56](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L56)
+
+- 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: wecom: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
@@ -4483,11 +4472,11 @@ _none_
   - **package-dependency-install-required**: whatsapp: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@whiskeysockets/baileys @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/package.json)
-    - [https-proxy-agent @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/package.json)
-    - [jimp @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/package.json)
-    - [undici @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/package.json)
+    - [@whiskeysockets/baileys @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/package.json)
+    - [https-proxy-agent @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/package.json)
+    - [jimp @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/package.json)
+    - [undici @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/package.json)
 
 - 🟡 P2 **whatsapp** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: whatsapp: OpenClaw package install metadata is incomplete
@@ -4500,14 +4489,14 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟡 P2 **whatsapp** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: whatsapp: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/setup-entry.ts)
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: yuanbao: channel runtime needs envelope/config probes
@@ -4549,6 +4538,17 @@ _none_
   - evidence:
     - extension:plugins/yuanbao/.crabpot-package/index.ts
     - setupEntry:plugins/yuanbao/.crabpot-package/setup-entry.ts
+
+- 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: yuanbao: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:13
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:31
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:32
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:33
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: yuanbao: runtime tool schema needs registration capture
@@ -4652,317 +4652,6 @@ _none_
 
 ## Contract Probe Backlog
 
-- 🟠 P1 **a2a-gateway** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:a2a-gateway`
-  - evidence:
-    - [registerGatewayMethod @ index.ts:616](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L616)
-    - [registerGatewayMethod @ index.ts:622](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L622)
-    - [registerGatewayMethod @ index.ts:631](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L631)
-    - [registerGatewayMethod @ index.ts:657](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L657)
-    - [registerGatewayMethod @ index.ts:669](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L669)
-    - [registerService @ index.ts:857](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L857)
-
-- 🟠 P1 **clawmetry** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:clawmetry`
-  - evidence:
-    - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts#L9)
-
-- 🟠 P1 **clawrouter** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:clawrouter`
-  - evidence:
-    - [registerCommand @ index.ts:1636](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1636)
-    - [registerCommand @ index.ts:1682](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1682)
-    - [registerCommand @ index.ts:1736](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1736)
-    - [registerCommand @ index.ts:1790](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1790)
-    - [registerCommand @ index.ts:1795](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1795)
-    - [registerCommand @ index.ts:1799](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1799)
-    - [registerCommand @ index.ts:1800](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1800)
-    - [registerService @ index.ts:1809](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1809)
-
-- 🟠 P1 **codex** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:codex`
-  - evidence:
-    - [registerCommand @ index.ts:33](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/index.ts#L33)
-
-- 🟠 P1 **codex-app-server** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:codex-app-server`
-  - evidence:
-    - [registerCommand @ index.ts:48](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L48)
-    - [registerInteractiveHandler @ index.ts:29](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L29)
-    - [registerInteractiveHandler @ index.ts:38](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L38)
-    - [registerService @ index.ts:12](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L12)
-
-- 🟠 P1 **connectclaw** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:connectclaw`
-  - evidence:
-    - [registerCommand @ commands.ts:18](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L18)
-    - [registerCommand @ commands.ts:64](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L64)
-    - [registerService @ hooks.ts:91](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/hooks.ts#L91)
-
-- 🟠 P1 **diagnostics-otel** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:diagnostics-otel`
-  - evidence:
-    - [registerService @ index.ts:9](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diagnostics-otel/index.ts#L9)
-
-- 🟠 P1 **diagnostics-prometheus** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:diagnostics-prometheus`
-  - evidence:
-    - [registerHttpRoute @ index.ts:12](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diagnostics-prometheus/index.ts#L12)
-    - [registerService @ index.ts:11](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diagnostics-prometheus/index.ts#L11)
-
-- 🟠 P1 **diffs** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:diffs`
-  - evidence:
-    - [registerHttpRoute @ plugin.ts:57](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/src/plugin.ts#L57)
-
-- 🟠 P1 **dingtalk-connector** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:dingtalk-connector`
-  - evidence:
-    - [registerChannel @ index.ts:74](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L74)
-    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L130)
-    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L190)
-    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L258)
-    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L311)
-    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L351)
-    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L388)
-    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L425)
-    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L452)
-    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L506)
-    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L593)
-    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L60)
-    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L652)
-    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L719)
-
-- 🟠 P1 **google-meet** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:google-meet`
-  - evidence:
-    - [registerGatewayMethod @ index.ts:703](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L703)
-    - [registerGatewayMethod @ index.ts:724](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L724)
-    - [registerGatewayMethod @ index.ts:746](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L746)
-    - [registerGatewayMethod @ index.ts:758](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L758)
-    - [registerGatewayMethod @ index.ts:776](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L776)
-    - [registerGatewayMethod @ index.ts:795](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L795)
-    - [registerGatewayMethod @ index.ts:819](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L819)
-    - [registerGatewayMethod @ index.ts:841](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L841)
-    - [registerGatewayMethod @ index.ts:865](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L865)
-    - [registerGatewayMethod @ index.ts:890](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L890)
-    - [registerGatewayMethod @ index.ts:901](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L901)
-    - [registerGatewayMethod @ index.ts:918](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L918)
-    - [registerGatewayMethod @ index.ts:937](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L937)
-    - [registerGatewayMethod @ index.ts:954](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L954)
-    - [registerGatewayMethod @ index.ts:975](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L975)
-    - [registerNodeHostCommand @ index.ts:1143](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts#L1143)
-
-- 🟠 P1 **honcho** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:honcho`
-  - evidence:
-    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L97)
-    - [registerMemoryRuntime @ runtime.ts:274](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/runtime.ts#L274)
-
-- 🟠 P1 **hyperspell** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:hyperspell`
-  - evidence:
-    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L166)
-    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L43)
-    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:46](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L46)
-    - [registerCommand @ index.ts:57](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L57)
-    - [registerCommand @ index.ts:68](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L68)
-
-- 🟠 P1 **kitchen-sink** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:kitchen-sink`
-  - evidence:
-    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L7)
-    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L8)
-    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L55)
-    - [registerCommand @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L12)
-    - [registerCommand @ kitchen-runtime.js:50](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L50)
-    - [registerCommand @ kitchen-runtime.js:51](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L51)
-    - [registerCompactionProvider @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L13)
-    - [registerCompactionProvider @ kitchen-runtime.js:95](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L95)
-    - [registerConfigMigration @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L14)
-    - [registerContextEngine @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L15)
-    - [registerDetachedTaskRuntime @ sync-surface.mjs:113](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/scripts/sync-surface.mjs#L113)
-    - [registerDetachedTaskRuntime @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L17)
-    - [registerDetachedTaskRuntime @ kitchen-runtime.js:86](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L86)
-    - [registerGatewayDiscoveryService @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L18)
-    - [registerGatewayMethod @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L19)
-    - [registerGatewayMethod @ kitchen-runtime.js:107](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L107)
-    - [registerHook @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L20)
-    - [registerHttpRoute @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L21)
-    - [registerHttpRoute @ kitchen-runtime.js:105](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L105)
-    - [registerInteractiveHandler @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L23)
-    - [registerInteractiveHandler @ kitchen-runtime.js:53](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L53)
-    - [registerMemoryCapability @ generated-registrars.js:25](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L25)
-    - [registerMemoryCorpusSupplement @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L26)
-    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:92](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L92)
-    - [registerMemoryFlushPlan @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L28)
-    - [registerMemoryPromptSection @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L29)
-    - [registerMemoryPromptSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L30)
-    - [registerMemoryPromptSupplement @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L111)
-    - [registerMemoryRuntime @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L31)
-    - [registerNodeHostCommand @ generated-registrars.js:34](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L34)
-    - [registerNodeInvokePolicy @ generated-registrars.js:35](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L35)
-    - [registerReload @ generated-registrars.js:39](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L39)
-    - [registerSecurityAuditCollector @ generated-registrars.js:41](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L41)
-    - [registerService @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L42)
-    - [registerService @ kitchen-runtime.js:104](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L104)
-
-- 🟠 P1 **lightclawbot** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:lightclawbot`
-  - evidence:
-    - registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13
-
-- 🟠 P1 **lossless-claw** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:lossless-claw`
-  - evidence:
-    - [registerCommand @ index.ts:2055](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2055)
-    - [registerContextEngine @ index.ts:2035](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2035)
-
-- 🟠 P1 **matrix** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:matrix`
-  - evidence:
-    - [registerChannel @ index.ts:18](https://github.com/openclaw/openclaw/blob/2ce6b77205187c76ce7cde6cb0913de14d4452fa/extensions/matrix/index.ts#L18)
-
-- 🟠 P1 **mattermost** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:mattermost`
-  - evidence:
-    - [registerChannel @ index.ts:13](https://github.com/openclaw/openclaw/blob/35a57bc940833a6c1f594b2308e349e5ee0148db/extensions/mattermost/index.ts#L13)
-
-- 🟠 P1 **mcp-adapter** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:mcp-adapter`
-  - evidence:
-    - [registerService @ index.ts:15](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L15)
-
-- 🟠 P1 **memory-lancedb** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:memory-lancedb`
-  - evidence:
-    - [registerService @ index.ts:1085](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/index.ts#L1085)
-    - [registerService @ index.ts:586](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/index.ts#L586)
-
-- 🟠 P1 **memos-cloud** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:memos-cloud`
-  - evidence:
-    - [registerHook @ index.js:467](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/03fcc33c5fd285971d4b3dbaa8bbb31cb727db7c/index.js#L467)
-
-- 🟠 P1 **mocrane-wecom** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:mocrane-wecom`
-  - evidence:
-    - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
-    - [registerHttpRoute @ index.ts:34](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L34)
-
-- 🟠 P1 **nemoclaw** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:nemoclaw`
-  - evidence:
-    - [registerCommand @ index.ts:336](https://github.com/NVIDIA/NemoClaw/blob/f9d21afa193c2b67cb55e79eca03db40f0fbe836/nemoclaw/src/index.ts#L336)
-
-- 🟠 P1 **nostr** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:nostr`
-  - evidence:
-    - [registerHttpRoute @ index.ts:89](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/nostr/index.ts#L89)
-
-- 🟠 P1 **openclaw-qqbot** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:openclaw-qqbot`
-  - evidence:
-    - [registerCommand @ framework-registration.ts:23](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/src/bridge/commands/framework-registration.ts#L23)
-
-- 🟠 P1 **openclaw-telemetry** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:openclaw-telemetry`
-  - evidence:
-    - [registerService @ index.ts:10](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L10)
-
-- 🟠 P1 **openclaw-weixin** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:openclaw-weixin`
-  - evidence:
-    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
-
-- 🟠 P1 **opik-openclaw** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:opik-openclaw`
-  - evidence:
-    - [registerService @ index.ts:16](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts#L16)
-
-- 🟠 P1 **qqbot** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:qqbot`
-  - evidence:
-    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L16)
-
-- 🟠 P1 **secureclaw** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:secureclaw`
-  - evidence:
-    - [registerService @ index.ts:295](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L295)
-    - [registerService @ index.ts:301](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L301)
-    - [registerService @ index.ts:307](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L307)
-
-- 🟠 P1 **telnyx-sms** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:telnyx-sms`
-  - evidence:
-    - [registerHttpRoute @ index.ts:259](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/index.ts#L259)
-
-- 🟠 P1 **voice-call** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:voice-call`
-  - evidence:
-    - [registerConfigMigration @ setup-api.ts:45](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/setup-api.ts#L45)
-    - [registerGatewayMethod @ index.ts:390](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L390)
-    - [registerGatewayMethod @ index.ts:420](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L420)
-    - [registerGatewayMethod @ index.ts:437](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L437)
-    - [registerGatewayMethod @ index.ts:457](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L457)
-    - [registerGatewayMethod @ index.ts:478](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L478)
-    - [registerGatewayMethod @ index.ts:513](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L513)
-    - [registerGatewayMethod @ index.ts:536](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L536)
-    - [registerGatewayMethod @ index.ts:558](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L558)
-    - [registerGatewayMethod @ index.ts:581](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L581)
-    - [registerService @ index.ts:748](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L748)
-
-- 🟠 P1 **wecom** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:wecom`
-  - evidence:
-    - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L27)
-    - [registerHttpRoute @ index.js:56](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L56)
-
-- 🟠 P1 **yuanbao** `inspector-capture-api`
-  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
-  - id: `api.capture.runtime-registrars:yuanbao`
-  - evidence:
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:13
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15
-    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:31
-    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:32
-    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:33
-
 - 🟠 P1 **kitchen-sink** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
   - id: `hook.before_tool_call.terminal-block-approval:kitchen-sink`
@@ -5019,7 +4708,7 @@ _none_
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:memory-lancedb`
   - evidence:
-    - [agent_end @ index.ts:1005](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/index.ts#L1005)
+    - [agent_end @ index.ts:1005](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/index.ts#L1005)
 
 - 🟠 P1 **memory-tencentdb** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
@@ -5104,6 +4793,170 @@ _none_
     - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/log-upload/extractor.ts:2
     - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/env.ts:2
     - openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/utils.ts:2
+
+- 🟡 P2 **a2a-gateway** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:a2a-gateway`
+  - evidence:
+    - [registerGatewayMethod @ index.ts:616](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L616)
+    - [registerGatewayMethod @ index.ts:622](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L622)
+    - [registerGatewayMethod @ index.ts:631](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L631)
+    - [registerGatewayMethod @ index.ts:657](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L657)
+    - [registerGatewayMethod @ index.ts:669](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L669)
+    - [registerService @ index.ts:857](https://github.com/win4r/openclaw-a2a-gateway/blob/a335e59e926f7e1a8913e6cd7b1cbf2d44c33cb7/index.ts#L857)
+
+- 🟡 P2 **connectclaw** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:connectclaw`
+  - evidence:
+    - [registerCommand @ commands.ts:18](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L18)
+    - [registerCommand @ commands.ts:64](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/commands.ts#L64)
+    - [registerService @ hooks.ts:91](https://github.com/osipov-anton/connectclaw/blob/6cd516650168890e9b850064afaaa5fe24df5950/packages/plugin/src/hooks.ts#L91)
+
+- 🟡 P2 **dingtalk-connector** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:dingtalk-connector`
+  - evidence:
+    - [registerChannel @ index.ts:74](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/index.ts#L74)
+    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L130)
+    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L190)
+    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L258)
+    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L311)
+    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L351)
+    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L388)
+    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L425)
+    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L452)
+    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L506)
+    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L593)
+    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L60)
+    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L652)
+    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/3441bcffc4dee15936ede406ce001ffcf9e2efc3/src/gateway-methods.ts#L719)
+
+- 🟡 P2 **honcho** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:honcho`
+  - evidence:
+    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L97)
+    - [registerMemoryRuntime @ runtime.ts:274](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/runtime.ts#L274)
+
+- 🟡 P2 **hyperspell** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:hyperspell`
+  - evidence:
+    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L166)
+    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L43)
+    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/commands/slash.ts#L98)
+    - [registerCommand @ index.ts:46](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L46)
+    - [registerCommand @ index.ts:57](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L57)
+    - [registerCommand @ index.ts:68](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/index.ts#L68)
+
+- 🟡 P2 **kitchen-sink** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:kitchen-sink`
+  - evidence:
+    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L7)
+    - [registerChannel @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L8)
+    - [registerChannel @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L55)
+    - [registerCommand @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L12)
+    - [registerCommand @ kitchen-runtime.js:50](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L50)
+    - [registerCommand @ kitchen-runtime.js:51](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L51)
+    - [registerCompactionProvider @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L13)
+    - [registerCompactionProvider @ kitchen-runtime.js:95](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L95)
+    - [registerConfigMigration @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L14)
+    - [registerContextEngine @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L15)
+    - [registerDetachedTaskRuntime @ sync-surface.mjs:113](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/scripts/sync-surface.mjs#L113)
+    - [registerDetachedTaskRuntime @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L17)
+    - [registerDetachedTaskRuntime @ kitchen-runtime.js:86](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L86)
+    - [registerGatewayDiscoveryService @ generated-registrars.js:18](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L18)
+    - [registerGatewayMethod @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L19)
+    - [registerGatewayMethod @ kitchen-runtime.js:107](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L107)
+    - [registerHook @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L20)
+    - [registerHttpRoute @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L21)
+    - [registerHttpRoute @ kitchen-runtime.js:105](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L105)
+    - [registerInteractiveHandler @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L23)
+    - [registerInteractiveHandler @ kitchen-runtime.js:53](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L53)
+    - [registerMemoryCapability @ generated-registrars.js:25](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L25)
+    - [registerMemoryCorpusSupplement @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L26)
+    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:92](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L92)
+    - [registerMemoryFlushPlan @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L28)
+    - [registerMemoryPromptSection @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L29)
+    - [registerMemoryPromptSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L30)
+    - [registerMemoryPromptSupplement @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L111)
+    - [registerMemoryRuntime @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L31)
+    - [registerNodeHostCommand @ generated-registrars.js:34](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L34)
+    - [registerNodeInvokePolicy @ generated-registrars.js:35](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L35)
+    - [registerReload @ generated-registrars.js:39](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L39)
+    - [registerSecurityAuditCollector @ generated-registrars.js:41](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L41)
+    - [registerService @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/generated-registrars.js#L42)
+    - [registerService @ kitchen-runtime.js:104](https://github.com/openclaw/kitchen-sink/blob/6995e72caacdcab1aedc74f20d2118465eaf976e/src/kitchen-runtime.js#L104)
+
+- 🟡 P2 **lossless-claw** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:lossless-claw`
+  - evidence:
+    - [registerCommand @ index.ts:2055](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2055)
+    - [registerContextEngine @ index.ts:2035](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2035)
+
+- 🟡 P2 **mcp-adapter** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:mcp-adapter`
+  - evidence:
+    - [registerService @ index.ts:15](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L15)
+
+- 🟡 P2 **mocrane-wecom** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:mocrane-wecom`
+  - evidence:
+    - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
+    - [registerHttpRoute @ index.ts:34](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L34)
+
+- 🟡 P2 **nemoclaw** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:nemoclaw`
+  - evidence:
+    - [registerCommand @ index.ts:336](https://github.com/NVIDIA/NemoClaw/blob/f9d21afa193c2b67cb55e79eca03db40f0fbe836/nemoclaw/src/index.ts#L336)
+
+- 🟡 P2 **openclaw-telemetry** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:openclaw-telemetry`
+  - evidence:
+    - [registerService @ index.ts:10](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L10)
+
+- 🟡 P2 **openclaw-weixin** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:openclaw-weixin`
+  - evidence:
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22
+
+- 🟡 P2 **opik-openclaw** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:opik-openclaw`
+  - evidence:
+    - [registerService @ index.ts:16](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts#L16)
+
+- 🟡 P2 **qqbot** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:qqbot`
+  - evidence:
+    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L16)
+
+- 🟡 P2 **wecom** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:wecom`
+  - evidence:
+    - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L27)
+    - [registerHttpRoute @ index.js:56](https://github.com/sunnoy/openclaw-plugin-wecom/blob/503a1d5403bc3a57763b9ef17c60a9d5e31b53d9/index.js#L56)
+
+- 🟡 P2 **yuanbao** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:yuanbao`
+  - evidence:
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:13
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:31
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:32
+    - registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:33
 
 - 🟡 P2 **agentchat** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -5842,6 +5695,153 @@ _none_
     - registerTool @ plugins/yuanbao/.crabpot-package/src/business/tools/member.ts:198
     - registerTool @ plugins/yuanbao/.crabpot-package/src/business/tools/remind.ts:395
 
+- 🟢 P3 **clawmetry** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:clawmetry`
+  - evidence:
+    - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts#L9)
+
+- 🟢 P3 **clawrouter** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:clawrouter`
+  - evidence:
+    - [registerCommand @ index.ts:1636](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1636)
+    - [registerCommand @ index.ts:1682](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1682)
+    - [registerCommand @ index.ts:1736](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1736)
+    - [registerCommand @ index.ts:1790](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1790)
+    - [registerCommand @ index.ts:1795](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1795)
+    - [registerCommand @ index.ts:1799](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1799)
+    - [registerCommand @ index.ts:1800](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1800)
+    - [registerService @ index.ts:1809](https://github.com/BlockRunAI/ClawRouter/blob/44bc6beced9add67b009cb57d9f84136c5369985/src/index.ts#L1809)
+
+- 🟢 P3 **codex** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:codex`
+  - evidence:
+    - [registerCommand @ index.ts:33](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/index.ts#L33)
+
+- 🟢 P3 **codex-app-server** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:codex-app-server`
+  - evidence:
+    - [registerCommand @ index.ts:48](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L48)
+    - [registerInteractiveHandler @ index.ts:29](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L29)
+    - [registerInteractiveHandler @ index.ts:38](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L38)
+    - [registerService @ index.ts:12](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L12)
+
+- 🟢 P3 **diagnostics-otel** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:diagnostics-otel`
+  - evidence:
+    - [registerService @ index.ts:9](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diagnostics-otel/index.ts#L9)
+
+- 🟢 P3 **diagnostics-prometheus** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:diagnostics-prometheus`
+  - evidence:
+    - [registerHttpRoute @ index.ts:12](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diagnostics-prometheus/index.ts#L12)
+    - [registerService @ index.ts:11](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diagnostics-prometheus/index.ts#L11)
+
+- 🟢 P3 **diffs** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:diffs`
+  - evidence:
+    - [registerHttpRoute @ plugin.ts:57](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/src/plugin.ts#L57)
+
+- 🟢 P3 **google-meet** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:google-meet`
+  - evidence:
+    - [registerGatewayMethod @ index.ts:703](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L703)
+    - [registerGatewayMethod @ index.ts:724](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L724)
+    - [registerGatewayMethod @ index.ts:746](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L746)
+    - [registerGatewayMethod @ index.ts:758](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L758)
+    - [registerGatewayMethod @ index.ts:776](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L776)
+    - [registerGatewayMethod @ index.ts:795](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L795)
+    - [registerGatewayMethod @ index.ts:819](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L819)
+    - [registerGatewayMethod @ index.ts:841](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L841)
+    - [registerGatewayMethod @ index.ts:865](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L865)
+    - [registerGatewayMethod @ index.ts:890](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L890)
+    - [registerGatewayMethod @ index.ts:901](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L901)
+    - [registerGatewayMethod @ index.ts:918](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L918)
+    - [registerGatewayMethod @ index.ts:937](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L937)
+    - [registerGatewayMethod @ index.ts:954](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L954)
+    - [registerGatewayMethod @ index.ts:975](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L975)
+    - [registerNodeHostCommand @ index.ts:1143](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts#L1143)
+
+- 🟢 P3 **lightclawbot** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:lightclawbot`
+  - evidence:
+    - registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13
+
+- 🟢 P3 **matrix** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:matrix`
+  - evidence:
+    - [registerChannel @ index.ts:18](https://github.com/openclaw/openclaw/blob/2ce6b77205187c76ce7cde6cb0913de14d4452fa/extensions/matrix/index.ts#L18)
+
+- 🟢 P3 **mattermost** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:mattermost`
+  - evidence:
+    - [registerChannel @ index.ts:13](https://github.com/openclaw/openclaw/blob/35a57bc940833a6c1f594b2308e349e5ee0148db/extensions/mattermost/index.ts#L13)
+
+- 🟢 P3 **memory-lancedb** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:memory-lancedb`
+  - evidence:
+    - [registerService @ index.ts:1085](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/index.ts#L1085)
+    - [registerService @ index.ts:586](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/index.ts#L586)
+
+- 🟢 P3 **memos-cloud** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:memos-cloud`
+  - evidence:
+    - [registerHook @ index.js:467](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/03fcc33c5fd285971d4b3dbaa8bbb31cb727db7c/index.js#L467)
+
+- 🟢 P3 **nostr** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:nostr`
+  - evidence:
+    - [registerHttpRoute @ index.ts:89](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/nostr/index.ts#L89)
+
+- 🟢 P3 **openclaw-qqbot** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:openclaw-qqbot`
+  - evidence:
+    - [registerCommand @ framework-registration.ts:23](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/src/bridge/commands/framework-registration.ts#L23)
+
+- 🟢 P3 **secureclaw** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:secureclaw`
+  - evidence:
+    - [registerService @ index.ts:295](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L295)
+    - [registerService @ index.ts:301](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L301)
+    - [registerService @ index.ts:307](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L307)
+
+- 🟢 P3 **telnyx-sms** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:telnyx-sms`
+  - evidence:
+    - [registerHttpRoute @ index.ts:259](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/index.ts#L259)
+
+- 🟢 P3 **voice-call** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:voice-call`
+  - evidence:
+    - [registerConfigMigration @ setup-api.ts:45](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/setup-api.ts#L45)
+    - [registerGatewayMethod @ index.ts:390](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L390)
+    - [registerGatewayMethod @ index.ts:420](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L420)
+    - [registerGatewayMethod @ index.ts:437](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L437)
+    - [registerGatewayMethod @ index.ts:457](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L457)
+    - [registerGatewayMethod @ index.ts:478](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L478)
+    - [registerGatewayMethod @ index.ts:513](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L513)
+    - [registerGatewayMethod @ index.ts:536](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L536)
+    - [registerGatewayMethod @ index.ts:558](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L558)
+    - [registerGatewayMethod @ index.ts:581](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L581)
+    - [registerService @ index.ts:748](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/voice-call/index.ts#L748)
+
 - 🟢 P3 **feishu** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:feishu`
@@ -6113,11 +6113,11 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:codex`
   - evidence:
-    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/package.json)
-    - [@openai/codex @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/package.json)
-    - [ajv @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/package.json)
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/package.json)
+    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/package.json)
+    - [@openai/codex @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/package.json)
+    - [ajv @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/package.json)
+    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/package.json)
 
 - 🟢 P3 **codex-app-server** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -6145,10 +6145,10 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:diffs`
   - evidence:
-    - [@pierre/diffs @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/package.json)
-    - [@pierre/theme @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/package.json)
-    - [playwright-core @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/package.json)
+    - [@pierre/diffs @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/package.json)
+    - [@pierre/theme @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/package.json)
+    - [playwright-core @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/package.json)
 
 - 🟢 P3 **discord** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -6173,8 +6173,8 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:google-meet`
   - evidence:
-    - [commander @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/package.json)
+    - [commander @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/package.json)
 
 - 🟢 P3 **lightclawbot** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -6205,9 +6205,9 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:memory-lancedb`
   - evidence:
-    - [@lancedb/lancedb @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/package.json)
-    - [openai @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/package.json)
+    - [@lancedb/lancedb @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/package.json)
+    - [openai @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/package.json)
 
 - 🟢 P3 **msteams** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -6238,11 +6238,11 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:openclaw-qqbot`
   - evidence:
-    - [@tencent-connect/qqbot-connector @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/package.json)
-    - [mpg123-decoder @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/package.json)
-    - [silk-wasm @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/package.json)
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/package.json)
+    - [@tencent-connect/qqbot-connector @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/package.json)
+    - [mpg123-decoder @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/package.json)
+    - [silk-wasm @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/package.json)
+    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/package.json)
 
 - 🟢 P3 **secureclaw** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -6286,11 +6286,11 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:whatsapp`
   - evidence:
-    - [@whiskeysockets/baileys @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/package.json)
-    - [https-proxy-agent @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/package.json)
-    - [jimp @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/package.json)
-    - [undici @ package.json](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/package.json)
+    - [@whiskeysockets/baileys @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/package.json)
+    - [https-proxy-agent @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/package.json)
+    - [jimp @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/package.json)
+    - [undici @ package.json](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/package.json)
 
 - 🟢 P3 **zalo** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -6322,7 +6322,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:brave-plugin`
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/brave/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/brave/index.ts)
 
 - 🟢 P3 **clawmetry** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -6334,7 +6334,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:codex`
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/codex/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/codex/index.ts)
 
 - 🟢 P3 **codex-app-server** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -6352,13 +6352,13 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:diagnostics-prometheus`
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diagnostics-prometheus/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diagnostics-prometheus/index.ts)
 
 - 🟢 P3 **diffs** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:diffs`
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/diffs/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/diffs/index.ts)
 
 - 🟢 P3 **discord** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -6378,7 +6378,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:google-meet`
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/google-meet/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/google-meet/index.ts)
 
 - 🟢 P3 **inworld-tts** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -6408,7 +6408,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:memory-lancedb`
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/memory-lancedb/index.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/memory-lancedb/index.ts)
 
 - 🟢 P3 **memu-engine** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -6441,8 +6441,8 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:openclaw-qqbot`
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/qqbot/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/qqbot/setup-entry.ts)
 
 - 🟢 P3 **synology-chat** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -6481,8 +6481,8 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:whatsapp`
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/8842a5bd43a6874c86645d00dab80611a94d5850/extensions/whatsapp/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/347baa1e3955ca4722fe46d15b651f41ca6c91cb/extensions/whatsapp/setup-entry.ts)
 
 - 🟢 P3 **zalo** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -6637,14 +6637,14 @@ _none_
   - id: `package.metadata.min-host-version:brave-plugin`
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟢 P3 **codex** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
   - id: `package.metadata.min-host-version:codex`
   - evidence:
     - minHostVersion:>=2026.5.1-beta.1
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟢 P3 **diagnostics-otel** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
@@ -6658,14 +6658,14 @@ _none_
   - id: `package.metadata.min-host-version:diagnostics-prometheus`
   - evidence:
     - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟢 P3 **diffs** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
   - id: `package.metadata.min-host-version:diffs`
   - evidence:
     - minHostVersion:>=2026.4.30
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟢 P3 **discord** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
@@ -6686,7 +6686,7 @@ _none_
   - id: `package.metadata.min-host-version:google-meet`
   - evidence:
     - minHostVersion:>=2026.4.20
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟢 P3 **lobster** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
@@ -6700,7 +6700,7 @@ _none_
   - id: `package.metadata.min-host-version:memory-lancedb`
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟢 P3 **msteams** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
@@ -6728,7 +6728,7 @@ _none_
   - id: `package.metadata.min-host-version:openclaw-qqbot`
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟢 P3 **synology-chat** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
@@ -6763,7 +6763,7 @@ _none_
   - id: `package.metadata.min-host-version:whatsapp`
   - evidence:
     - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.5.2
+    - buildOpenClawVersion:2026.5.2-beta.2
 
 - 🟢 P3 **zalo** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.

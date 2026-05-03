@@ -2,7 +2,7 @@
   "generatedAt": "deterministic",
   "targetOpenClaw": {
     "status": "ok",
-    "configuredPath": "./openclaw",
+    "configuredPath": "../openclaw",
     "capturedRegistrarCount": 26,
     "sdkExportCount": 294
   },
@@ -38513,555 +38513,6 @@
   ],
   "issueProbes": [
     {
-      "id": "api.capture.runtime-registrars:a2a-gateway",
-      "fixture": "a2a-gateway",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:616",
-        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:622",
-        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:631",
-        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:657",
-        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:669",
-        "registerService @ plugins/a2a-gateway/index.ts:857"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:clawmetry",
-      "fixture": "clawmetry",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerService @ plugins/clawmetry/clawhub-plugin/index.ts:9"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:clawrouter",
-      "fixture": "clawrouter",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerCommand @ plugins/clawrouter/src/index.ts:1636",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1682",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1736",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1790",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1795",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1799",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1800",
-        "registerService @ plugins/clawrouter/src/index.ts:1809"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:codex",
-      "fixture": "codex",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerCommand @ plugins/codex/.crabpot-package/index.ts:33"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:codex-app-server",
-      "fixture": "codex-app-server",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerCommand @ plugins/codex-app-server/index.ts:48",
-        "registerInteractiveHandler @ plugins/codex-app-server/index.ts:29",
-        "registerInteractiveHandler @ plugins/codex-app-server/index.ts:38",
-        "registerService @ plugins/codex-app-server/index.ts:12"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:connectclaw",
-      "fixture": "connectclaw",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerCommand @ plugins/connectclaw/packages/plugin/src/commands.ts:18",
-        "registerCommand @ plugins/connectclaw/packages/plugin/src/commands.ts:64",
-        "registerService @ plugins/connectclaw/packages/plugin/src/hooks.ts:91"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:diagnostics-otel",
-      "fixture": "diagnostics-otel",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerService @ plugins/diagnostics-otel/.crabpot-package/index.ts:9"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:diagnostics-prometheus",
-      "fixture": "diagnostics-prometheus",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerHttpRoute @ plugins/diagnostics-prometheus/.crabpot-package/index.ts:12",
-        "registerService @ plugins/diagnostics-prometheus/.crabpot-package/index.ts:11"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:diffs",
-      "fixture": "diffs",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerHttpRoute @ plugins/diffs/.crabpot-package/src/plugin.ts:57"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:dingtalk-connector",
-      "fixture": "dingtalk-connector",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerChannel @ plugins/dingtalk-connector/index.ts:74",
-        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:130",
-        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:190",
-        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:258",
-        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:311",
-        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:351",
-        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:388",
-        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:425",
-        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:452",
-        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:506",
-        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:593",
-        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:60",
-        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:652",
-        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:google-meet",
-      "fixture": "google-meet",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:703",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:724",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:746",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:758",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:776",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:795",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:819",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:841",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:865",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:890",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:901",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:918",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:937",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:954",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:975",
-        "registerNodeHostCommand @ plugins/google-meet/.crabpot-package/index.ts:1143"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:honcho",
-      "fixture": "honcho",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
-        "registerMemoryRuntime @ plugins/honcho/runtime.ts:274"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:hyperspell",
-      "fixture": "hyperspell",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:43",
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:98",
-        "registerCommand @ plugins/hyperspell/index.ts:46",
-        "registerCommand @ plugins/hyperspell/index.ts:57",
-        "registerCommand @ plugins/hyperspell/index.ts:68"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:kitchen-sink",
-      "fixture": "kitchen-sink",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerAutoEnableProbe @ plugins/kitchen-sink/src/generated-registrars.js:7",
-        "registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:8",
-        "registerChannel @ plugins/kitchen-sink/src/kitchen-runtime.js:55",
-        "registerCommand @ plugins/kitchen-sink/src/generated-registrars.js:12",
-        "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:50",
-        "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:51",
-        "registerCompactionProvider @ plugins/kitchen-sink/src/generated-registrars.js:13",
-        "registerCompactionProvider @ plugins/kitchen-sink/src/kitchen-runtime.js:95",
-        "registerConfigMigration @ plugins/kitchen-sink/src/generated-registrars.js:14",
-        "registerContextEngine @ plugins/kitchen-sink/src/generated-registrars.js:15",
-        "registerDetachedTaskRuntime @ plugins/kitchen-sink/scripts/sync-surface.mjs:113",
-        "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/generated-registrars.js:17",
-        "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/kitchen-runtime.js:86",
-        "registerGatewayDiscoveryService @ plugins/kitchen-sink/src/generated-registrars.js:18",
-        "registerGatewayMethod @ plugins/kitchen-sink/src/generated-registrars.js:19",
-        "registerGatewayMethod @ plugins/kitchen-sink/src/kitchen-runtime.js:107",
-        "registerHook @ plugins/kitchen-sink/src/generated-registrars.js:20",
-        "registerHttpRoute @ plugins/kitchen-sink/src/generated-registrars.js:21",
-        "registerHttpRoute @ plugins/kitchen-sink/src/kitchen-runtime.js:105",
-        "registerInteractiveHandler @ plugins/kitchen-sink/src/generated-registrars.js:23",
-        "registerInteractiveHandler @ plugins/kitchen-sink/src/kitchen-runtime.js:53",
-        "registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:25",
-        "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:26",
-        "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:92",
-        "registerMemoryFlushPlan @ plugins/kitchen-sink/src/generated-registrars.js:28",
-        "registerMemoryPromptSection @ plugins/kitchen-sink/src/generated-registrars.js:29",
-        "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:30",
-        "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:111",
-        "registerMemoryRuntime @ plugins/kitchen-sink/src/generated-registrars.js:31",
-        "registerNodeHostCommand @ plugins/kitchen-sink/src/generated-registrars.js:34",
-        "registerNodeInvokePolicy @ plugins/kitchen-sink/src/generated-registrars.js:35",
-        "registerReload @ plugins/kitchen-sink/src/generated-registrars.js:39",
-        "registerSecurityAuditCollector @ plugins/kitchen-sink/src/generated-registrars.js:41",
-        "registerService @ plugins/kitchen-sink/src/generated-registrars.js:42",
-        "registerService @ plugins/kitchen-sink/src/kitchen-runtime.js:104"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:lightclawbot",
-      "fixture": "lightclawbot",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:lossless-claw",
-      "fixture": "lossless-claw",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2055",
-        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2035"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:matrix",
-      "fixture": "matrix",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerChannel @ plugins/matrix/.crabpot-package/index.ts:18"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:mattermost",
-      "fixture": "mattermost",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerChannel @ plugins/mattermost/.crabpot-package/index.ts:13"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:mcp-adapter",
-      "fixture": "mcp-adapter",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerService @ plugins/mcp-adapter/index.ts:15"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:memory-lancedb",
-      "fixture": "memory-lancedb",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerService @ plugins/memory-lancedb/.crabpot-package/index.ts:1085",
-        "registerService @ plugins/memory-lancedb/.crabpot-package/index.ts:586"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:memos-cloud",
-      "fixture": "memos-cloud",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerHook @ plugins/memos-cloud/index.js:467"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:mocrane-wecom",
-      "fixture": "mocrane-wecom",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerChannel @ plugins/mocrane-wecom/index.ts:31",
-        "registerHttpRoute @ plugins/mocrane-wecom/index.ts:34"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:nemoclaw",
-      "fixture": "nemoclaw",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:336"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:nostr",
-      "fixture": "nostr",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerHttpRoute @ plugins/nostr/.crabpot-package/index.ts:89"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:openclaw-qqbot",
-      "fixture": "openclaw-qqbot",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerCommand @ plugins/openclaw-qqbot/.crabpot-package/src/bridge/commands/framework-registration.ts:23"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:openclaw-telemetry",
-      "fixture": "openclaw-telemetry",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerService @ plugins/openclaw-telemetry/index.ts:10"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:openclaw-weixin",
-      "fixture": "openclaw-weixin",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:opik-openclaw",
-      "fixture": "opik-openclaw",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerService @ plugins/opik-openclaw/index.ts:16"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:qqbot",
-      "fixture": "qqbot",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerChannel @ plugins/qqbot/index.ts:16"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:secureclaw",
-      "fixture": "secureclaw",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:295",
-        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:301",
-        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:307"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:telnyx-sms",
-      "fixture": "telnyx-sms",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerHttpRoute @ plugins/telnyx-sms/index.ts:259"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:voice-call",
-      "fixture": "voice-call",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerConfigMigration @ plugins/voice-call/.crabpot-package/setup-api.ts:45",
-        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:390",
-        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:420",
-        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:437",
-        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:457",
-        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:478",
-        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:513",
-        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:536",
-        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:558",
-        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:581",
-        "registerService @ plugins/voice-call/.crabpot-package/index.ts:748"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:wecom",
-      "fixture": "wecom",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerChannel @ plugins/wecom/index.js:27",
-        "registerHttpRoute @ plugins/wecom/index.js:56"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
-      "id": "api.capture.runtime-registrars:yuanbao",
-      "fixture": "yuanbao",
-      "priority": "P1",
-      "target": "inspector-capture-api",
-      "evidence": [
-        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:13",
-        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14",
-        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15",
-        "registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:31",
-        "registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:32",
-        "registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:33"
-      ],
-      "assertions": [
-        "registration arguments are recorded",
-        "registered handler metadata is retained"
-      ]
-    },
-    {
       "id": "hook.before_tool_call.terminal-block-approval:kitchen-sink",
       "fixture": "kitchen-sink",
       "priority": "P1",
@@ -39320,6 +38771,282 @@
       "assertions": [
         "package export exists",
         "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P2",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:616",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:622",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:631",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:657",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:669",
+        "registerService @ plugins/a2a-gateway/index.ts:857"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P2",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerCommand @ plugins/connectclaw/packages/plugin/src/commands.ts:18",
+        "registerCommand @ plugins/connectclaw/packages/plugin/src/commands.ts:64",
+        "registerService @ plugins/connectclaw/packages/plugin/src/hooks.ts:91"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:dingtalk-connector",
+      "fixture": "dingtalk-connector",
+      "priority": "P2",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerChannel @ plugins/dingtalk-connector/index.ts:74",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:130",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:190",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:258",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:311",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:351",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:388",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:425",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:452",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:506",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:593",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:60",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:652",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:honcho",
+      "fixture": "honcho",
+      "priority": "P2",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
+        "registerMemoryRuntime @ plugins/honcho/runtime.ts:274"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:hyperspell",
+      "fixture": "hyperspell",
+      "priority": "P2",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:43",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:98",
+        "registerCommand @ plugins/hyperspell/index.ts:46",
+        "registerCommand @ plugins/hyperspell/index.ts:57",
+        "registerCommand @ plugins/hyperspell/index.ts:68"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:kitchen-sink",
+      "fixture": "kitchen-sink",
+      "priority": "P2",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerAutoEnableProbe @ plugins/kitchen-sink/src/generated-registrars.js:7",
+        "registerChannel @ plugins/kitchen-sink/src/generated-registrars.js:8",
+        "registerChannel @ plugins/kitchen-sink/src/kitchen-runtime.js:55",
+        "registerCommand @ plugins/kitchen-sink/src/generated-registrars.js:12",
+        "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:50",
+        "registerCommand @ plugins/kitchen-sink/src/kitchen-runtime.js:51",
+        "registerCompactionProvider @ plugins/kitchen-sink/src/generated-registrars.js:13",
+        "registerCompactionProvider @ plugins/kitchen-sink/src/kitchen-runtime.js:95",
+        "registerConfigMigration @ plugins/kitchen-sink/src/generated-registrars.js:14",
+        "registerContextEngine @ plugins/kitchen-sink/src/generated-registrars.js:15",
+        "registerDetachedTaskRuntime @ plugins/kitchen-sink/scripts/sync-surface.mjs:113",
+        "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/generated-registrars.js:17",
+        "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/kitchen-runtime.js:86",
+        "registerGatewayDiscoveryService @ plugins/kitchen-sink/src/generated-registrars.js:18",
+        "registerGatewayMethod @ plugins/kitchen-sink/src/generated-registrars.js:19",
+        "registerGatewayMethod @ plugins/kitchen-sink/src/kitchen-runtime.js:107",
+        "registerHook @ plugins/kitchen-sink/src/generated-registrars.js:20",
+        "registerHttpRoute @ plugins/kitchen-sink/src/generated-registrars.js:21",
+        "registerHttpRoute @ plugins/kitchen-sink/src/kitchen-runtime.js:105",
+        "registerInteractiveHandler @ plugins/kitchen-sink/src/generated-registrars.js:23",
+        "registerInteractiveHandler @ plugins/kitchen-sink/src/kitchen-runtime.js:53",
+        "registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:25",
+        "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:26",
+        "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:92",
+        "registerMemoryFlushPlan @ plugins/kitchen-sink/src/generated-registrars.js:28",
+        "registerMemoryPromptSection @ plugins/kitchen-sink/src/generated-registrars.js:29",
+        "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:30",
+        "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:111",
+        "registerMemoryRuntime @ plugins/kitchen-sink/src/generated-registrars.js:31",
+        "registerNodeHostCommand @ plugins/kitchen-sink/src/generated-registrars.js:34",
+        "registerNodeInvokePolicy @ plugins/kitchen-sink/src/generated-registrars.js:35",
+        "registerReload @ plugins/kitchen-sink/src/generated-registrars.js:39",
+        "registerSecurityAuditCollector @ plugins/kitchen-sink/src/generated-registrars.js:41",
+        "registerService @ plugins/kitchen-sink/src/generated-registrars.js:42",
+        "registerService @ plugins/kitchen-sink/src/kitchen-runtime.js:104"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:lossless-claw",
+      "fixture": "lossless-claw",
+      "priority": "P2",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2055",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2035"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:mcp-adapter",
+      "fixture": "mcp-adapter",
+      "priority": "P2",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerService @ plugins/mcp-adapter/index.ts:15"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:mocrane-wecom",
+      "fixture": "mocrane-wecom",
+      "priority": "P2",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerChannel @ plugins/mocrane-wecom/index.ts:31",
+        "registerHttpRoute @ plugins/mocrane-wecom/index.ts:34"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:nemoclaw",
+      "fixture": "nemoclaw",
+      "priority": "P2",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:336"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:openclaw-telemetry",
+      "fixture": "openclaw-telemetry",
+      "priority": "P2",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerService @ plugins/openclaw-telemetry/index.ts:10"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:openclaw-weixin",
+      "fixture": "openclaw-weixin",
+      "priority": "P2",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:opik-openclaw",
+      "fixture": "opik-openclaw",
+      "priority": "P2",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerService @ plugins/opik-openclaw/index.ts:16"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:qqbot",
+      "fixture": "qqbot",
+      "priority": "P2",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerChannel @ plugins/qqbot/index.ts:16"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:wecom",
+      "fixture": "wecom",
+      "priority": "P2",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerChannel @ plugins/wecom/index.js:27",
+        "registerHttpRoute @ plugins/wecom/index.js:56"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:yuanbao",
+      "fixture": "yuanbao",
+      "priority": "P2",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:13",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:31",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:32",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/index.ts:33"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
       ]
     },
     {
@@ -40743,6 +40470,279 @@
       "assertions": [
         "tool schema is captured",
         "tool result metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:clawmetry",
+      "fixture": "clawmetry",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerService @ plugins/clawmetry/clawhub-plugin/index.ts:9"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:clawrouter",
+      "fixture": "clawrouter",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerCommand @ plugins/clawrouter/src/index.ts:1636",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1682",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1736",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1790",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1795",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1799",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1800",
+        "registerService @ plugins/clawrouter/src/index.ts:1809"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:codex",
+      "fixture": "codex",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerCommand @ plugins/codex/.crabpot-package/index.ts:33"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:codex-app-server",
+      "fixture": "codex-app-server",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerCommand @ plugins/codex-app-server/index.ts:48",
+        "registerInteractiveHandler @ plugins/codex-app-server/index.ts:29",
+        "registerInteractiveHandler @ plugins/codex-app-server/index.ts:38",
+        "registerService @ plugins/codex-app-server/index.ts:12"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:diagnostics-otel",
+      "fixture": "diagnostics-otel",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerService @ plugins/diagnostics-otel/.crabpot-package/index.ts:9"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:diagnostics-prometheus",
+      "fixture": "diagnostics-prometheus",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerHttpRoute @ plugins/diagnostics-prometheus/.crabpot-package/index.ts:12",
+        "registerService @ plugins/diagnostics-prometheus/.crabpot-package/index.ts:11"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:diffs",
+      "fixture": "diffs",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerHttpRoute @ plugins/diffs/.crabpot-package/src/plugin.ts:57"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:google-meet",
+      "fixture": "google-meet",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:703",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:724",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:746",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:758",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:776",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:795",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:819",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:841",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:865",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:890",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:901",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:918",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:937",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:954",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/index.ts:975",
+        "registerNodeHostCommand @ plugins/google-meet/.crabpot-package/index.ts:1143"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:lightclawbot",
+      "fixture": "lightclawbot",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerChannel @ plugins/lightclawbot/.crabpot-package/dist/index.js:13"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:matrix",
+      "fixture": "matrix",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerChannel @ plugins/matrix/.crabpot-package/index.ts:18"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:mattermost",
+      "fixture": "mattermost",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerChannel @ plugins/mattermost/.crabpot-package/index.ts:13"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:memory-lancedb",
+      "fixture": "memory-lancedb",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerService @ plugins/memory-lancedb/.crabpot-package/index.ts:1085",
+        "registerService @ plugins/memory-lancedb/.crabpot-package/index.ts:586"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:memos-cloud",
+      "fixture": "memos-cloud",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerHook @ plugins/memos-cloud/index.js:467"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:nostr",
+      "fixture": "nostr",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerHttpRoute @ plugins/nostr/.crabpot-package/index.ts:89"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:openclaw-qqbot",
+      "fixture": "openclaw-qqbot",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerCommand @ plugins/openclaw-qqbot/.crabpot-package/src/bridge/commands/framework-registration.ts:23"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:secureclaw",
+      "fixture": "secureclaw",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:295",
+        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:301",
+        "registerService @ plugins/secureclaw/secureclaw/src/index.ts:307"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:telnyx-sms",
+      "fixture": "telnyx-sms",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerHttpRoute @ plugins/telnyx-sms/index.ts:259"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:voice-call",
+      "fixture": "voice-call",
+      "priority": "P3",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerConfigMigration @ plugins/voice-call/.crabpot-package/setup-api.ts:45",
+        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:390",
+        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:420",
+        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:437",
+        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:457",
+        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:478",
+        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:513",
+        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:536",
+        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:558",
+        "registerGatewayMethod @ plugins/voice-call/.crabpot-package/index.ts:581",
+        "registerService @ plugins/voice-call/.crabpot-package/index.ts:748"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
       ]
     },
     {
@@ -42368,7 +42368,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.2"
+        "buildOpenClawVersion:2026.5.2-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -42382,7 +42382,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.5.2"
+        "buildOpenClawVersion:2026.5.2-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -42410,7 +42410,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.2"
+        "buildOpenClawVersion:2026.5.2-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -42424,7 +42424,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.5.2"
+        "buildOpenClawVersion:2026.5.2-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -42466,7 +42466,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.5.2"
+        "buildOpenClawVersion:2026.5.2-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -42494,7 +42494,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.2"
+        "buildOpenClawVersion:2026.5.2-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -42550,7 +42550,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.2"
+        "buildOpenClawVersion:2026.5.2-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -42620,7 +42620,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.2"
+        "buildOpenClawVersion:2026.5.2-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
