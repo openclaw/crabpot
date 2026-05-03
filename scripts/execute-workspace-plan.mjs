@@ -8,6 +8,7 @@ import { pathToFileURL } from "node:url";
 import { buildWorkspacePlan } from "./workspace-plan.mjs";
 import { repoRoot } from "./manifest-lib.mjs";
 import { portableCommand } from "./portable-command.mjs";
+import { resolveFixtureSet } from "./resolve-fixture-set.mjs";
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   await main();
@@ -16,7 +17,8 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const plan = await buildWorkspacePlan({ openclawPath: args.openclawPath });
-  const selected = selectWorkspaceSteps(plan, args);
+  const selectedFixtureIds = await resolveSelectedFixtureIds(plan, args);
+  const selected = selectWorkspaceSteps(plan, { ...args, fixtureIds: selectedFixtureIds });
   const errors = validateExecutionRequest({
     args,
     selected,
@@ -33,15 +35,26 @@ async function main() {
   }
 
   if (selected.length === 0) {
-    await writeExecutionProfile(args.fixture, []);
-    console.log(`workspace execution: no entrypoints selected for ${args.fixture}`);
+    const profileId = args.fixture ?? args.fixtureSet;
+    await writeExecutionProfile(profileId, []);
+    console.log(`workspace execution: no entrypoints selected for ${profileId}`);
     return;
   }
 
   const profiles = [];
+  const failures = [];
+  const profileId = args.fixture ?? args.fixtureSet;
   for (const item of selected) {
     for (const step of item.steps) {
-      const result = await runStep(step);
+      let result;
+      try {
+        result = await runStep(step);
+      } catch (error) {
+        if (!args.continueOnError) {
+          throw error;
+        }
+        result = failedStepResult(step, error);
+      }
       profiles.push({
         fixture: item.fixture,
         entrypoint: item.entrypoint,
@@ -49,19 +62,43 @@ async function main() {
         status: item.status,
         ...result,
       });
-      await writeExecutionProfile(args.fixture, profiles);
+      await writeExecutionProfile(profileId, profiles);
       if (result.exitCode !== 0) {
-        throw new Error(`${step.kind} failed with exit code ${result.exitCode}: ${step.command}`);
+        const failure = `${step.kind} failed with exit code ${result.exitCode}: ${step.command}`;
+        if (!args.continueOnError) {
+          throw new Error(failure);
+        }
+        failures.push(failure);
       }
     }
   }
+  if (failures.length > 0) {
+    console.warn(`workspace execution completed with ${failures.length} failed step(s)`);
+  }
+}
+
+function failedStepResult(step, error) {
+  return {
+    kind: step.kind,
+    command: step.command,
+    cwd: step.cwd,
+    artifactPath: step.artifactPath ?? null,
+    exitCode: 1,
+    wallMs: 0,
+    peakRssMb: 0,
+    peakCpuPercent: 0,
+    cpuMsEstimate: 0,
+    error: error instanceof Error ? error.message : String(error),
+  };
 }
 
 function parseArgs(argv) {
   const args = {
     allowEmpty: false,
+    continueOnError: false,
     dryRun: false,
     fixture: null,
+    fixtureSet: null,
     entrypoint: null,
     openclawPath: undefined,
   };
@@ -76,8 +113,17 @@ function parseArgs(argv) {
       args.allowEmpty = true;
       continue;
     }
+    if (arg === "--continue-on-error") {
+      args.continueOnError = true;
+      continue;
+    }
     if (arg === "--fixture") {
       args.fixture = argv[index + 1];
+      index += 1;
+      continue;
+    }
+    if (arg === "--fixture-set") {
+      args.fixtureSet = argv[index + 1];
       index += 1;
       continue;
     }
@@ -101,8 +147,9 @@ function parseArgs(argv) {
 
 export function selectWorkspaceSteps(plan, args) {
   const selected = [];
+  const fixtureIds = args.fixtureIds ?? (args.fixture ? new Set([args.fixture]) : null);
   for (const fixture of plan.fixtures) {
-    if (args.fixture && fixture.id !== args.fixture) {
+    if (fixtureIds && !fixtureIds.has(fixture.id)) {
       continue;
     }
     for (const entrypoint of fixture.entrypoints) {
@@ -123,8 +170,11 @@ export function selectWorkspaceSteps(plan, args) {
 
 export function validateExecutionRequest({ args, selected, env = process.env, fixtureExists = true }) {
   const errors = [];
-  if (!args.fixture) {
-    errors.push("workspace execution requires --fixture to keep opt-in scope narrow");
+  if (!args.fixture && !args.fixtureSet) {
+    errors.push("workspace execution requires --fixture or --fixture-set to keep opt-in scope narrow");
+  }
+  if (args.fixture && args.fixtureSet) {
+    errors.push("workspace execution accepts only one of --fixture or --fixture-set");
   }
   if (args.fixture && !fixtureExists) {
     errors.push(`workspace execution selected unknown fixture: ${args.fixture}`);
@@ -136,6 +186,19 @@ export function validateExecutionRequest({ args, selected, env = process.env, fi
     errors.push("workspace execution requires CRABPOT_EXECUTE_ISOLATED=1 unless --dry-run is used");
   }
   return errors;
+}
+
+async function resolveSelectedFixtureIds(plan, args) {
+  if (args.fixtureSet) {
+    const resolved = await resolveFixtureSet({
+      allowEmpty: args.allowEmpty,
+      fixtureSet: args.fixtureSet,
+      openclawPath: args.openclawPath,
+      plan,
+    });
+    return new Set(resolved.fixtures.map((fixture) => fixture.id));
+  }
+  return args.fixture ? new Set([args.fixture]) : new Set();
 }
 
 export async function runStep(step) {

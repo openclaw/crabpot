@@ -120,7 +120,7 @@ jobs:
           export CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
           execution_results_arg=""
           if [ "${{ matrix.track }}" = "development" ]; then
-            CRABPOT_EXECUTE_ISOLATED=1 node scripts/execute-workspace-plan.mjs --fixture memory-lancedb --openclaw ./openclaw
+            CRABPOT_EXECUTE_ISOLATED=1 node scripts/execute-workspace-plan.mjs --fixture-set openclaw-beta --openclaw ./openclaw --continue-on-error
             node scripts/summarize-execution-results.mjs --write
             execution_results_arg="--execution-results reports/crabpot-execution-results.json"
           fi

@@ -48,6 +48,7 @@ test("synthetic probe CLI honors mock SDK for OpenClaw SDK imports", async () =>
     entrypoint,
     [
       "import { definePluginEntry } from 'openclaw/plugin-sdk';",
+      "process.exitCode = 1;",
       "export default definePluginEntry({",
       "  register(api) {",
       "    api.registerProvider({ id: 'fixture-provider' });",

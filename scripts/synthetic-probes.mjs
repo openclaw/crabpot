@@ -36,6 +36,7 @@ async function main() {
     if (result.summary.failCount > 0) {
       throw new Error(`${result.summary.failCount} synthetic probes failed`);
     }
+    process.exitCode = 0;
     return;
   }
 

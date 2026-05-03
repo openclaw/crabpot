@@ -79,6 +79,53 @@ test("workspace executor can narrow to one entrypoint inside a fixture", () => {
   );
 });
 
+test("workspace executor can select an explicit fixture set", () => {
+  const plan = {
+    fixtures: [
+      {
+        id: "wecom",
+        entrypoints: [
+          {
+            id: "cold-import.extension:wecom:index",
+            packagePath: "plugins/wecom/package.json",
+            status: "dependency-install-required",
+            steps: [{ kind: "capture", command: "node capture.js", cwd: ".", reason: "capture" }],
+          },
+        ],
+      },
+      {
+        id: "apify",
+        entrypoints: [
+          {
+            id: "cold-import.extension:apify:index",
+            packagePath: "plugins/apify/package.json",
+            status: "ts-loader-required",
+            steps: [{ kind: "capture", command: "node capture.js", cwd: ".", reason: "capture" }],
+          },
+        ],
+      },
+      {
+        id: "ignored",
+        entrypoints: [
+          {
+            id: "cold-import.extension:ignored:index",
+            packagePath: "plugins/ignored/package.json",
+            status: "ready",
+            steps: [{ kind: "capture", command: "node capture.js", cwd: ".", reason: "capture" }],
+          },
+        ],
+      },
+    ],
+  };
+
+  const selected = selectWorkspaceSteps(plan, { fixtureIds: new Set(["wecom", "apify"]) });
+
+  assert.deepEqual(
+    selected.map((item) => item.fixture),
+    ["wecom", "apify"],
+  );
+});
+
 test("workspace executor refuses unknown fixture selections", () => {
   const errors = validateExecutionRequest({
     args: { dryRun: true, fixture: "missing" },
@@ -113,8 +160,15 @@ test("workspace executor refuses broad or unguarded execution", () => {
 
   assert.ok(
     validateExecutionRequest({ args: { dryRun: false, fixture: null }, selected, env: {} }).some((error) =>
-      error.includes("--fixture"),
+      error.includes("--fixture or --fixture-set"),
     ),
+  );
+  assert.ok(
+    validateExecutionRequest({
+      args: { dryRun: false, fixture: "wecom", fixtureSet: "smoke" },
+      selected,
+      env: { CRABPOT_EXECUTE_ISOLATED: "1" },
+    }).some((error) => error.includes("only one")),
   );
   assert.ok(
     validateExecutionRequest({ args: { dryRun: false, fixture: "wecom" }, selected, env: {} }).some((error) =>
@@ -125,6 +179,14 @@ test("workspace executor refuses broad or unguarded execution", () => {
   assert.deepEqual(
     validateExecutionRequest({
       args: { dryRun: false, fixture: "wecom" },
+      selected,
+      env: { CRABPOT_EXECUTE_ISOLATED: "1" },
+    }),
+    [],
+  );
+  assert.deepEqual(
+    validateExecutionRequest({
+      args: { dryRun: false, fixtureSet: "smoke" },
       selected,
       env: { CRABPOT_EXECUTE_ISOLATED: "1" },
     }),

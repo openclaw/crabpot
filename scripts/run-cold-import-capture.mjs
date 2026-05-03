@@ -28,6 +28,7 @@ async function main() {
     pluginRoot: args.pluginRoot,
   });
   await writeJsonResult(result, args.output);
+  process.exitCode = 0;
 }
 
 function parseArgs(argv) {
