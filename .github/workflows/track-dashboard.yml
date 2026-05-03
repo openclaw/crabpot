@@ -44,7 +44,7 @@ jobs:
           - track: development
             branch: crab-development
             fixture_set: openclaw-beta
-            plugin_track: beta
+            plugin_track: source-pack
     steps:
       - name: Select requested track
         id: select

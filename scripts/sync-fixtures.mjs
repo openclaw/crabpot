@@ -6,6 +6,9 @@ import { spawnSync } from "node:child_process";
 import path from "node:path";
 import { fixtureSourceRoot, readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
 
+const openclawSourceRepo = "https://github.com/openclaw/openclaw.git";
+const sourcePackPluginTrack = "source-pack";
+
 const args = parseArgs(process.argv.slice(2));
 const materialize = args.materialize;
 const check = args.check || !materialize;
@@ -22,7 +25,11 @@ if (check) {
 for (const fixture of manifest.fixtures) {
   const target = path.join(repoRoot, fixture.path);
   if (fixture.package) {
-    await materializeNpmFixture(fixture, target);
+    if (shouldMaterializeSourcePack(fixture, args.pluginTrack)) {
+      await materializeSourcePackFixture(fixture, target);
+    } else {
+      await materializeNpmFixture(fixture, target);
+    }
     continue;
   }
 
@@ -85,6 +92,7 @@ async function materializeNpmFixture(fixture, target) {
       cwd: repoRoot,
       encoding: "utf8",
       env: process.env,
+      maxBuffer: 16 * 1024 * 1024,
       shell: process.platform === "win32",
     });
     if (pack.status !== 0) {
@@ -100,17 +108,71 @@ async function materializeNpmFixture(fixture, target) {
     await mkdir(target, { recursive: true });
     await rm(payloadDir, { recursive: true, force: true });
     await mkdir(payloadDir, { recursive: true });
-    const tarballPath = path.join(tempDir, packed.filename);
-    const tarArgs = ["-xzf", tarPath(tarballPath), "-C", tarPath(payloadDir), "--strip-components", "1"];
-    if (process.platform === "win32") {
-      tarArgs.unshift("--force-local");
-    }
-    run("tar", tarArgs);
+    extractPackageTarball(path.join(tempDir, packed.filename), payloadDir);
     await writePackageSourceMetadata(payloadDir, {
       gitHead: packed.gitHead || (await npmPackageGitHead(dependency.name, dependency.version)),
       name: dependency.name,
       tag: dependency.tag ?? "",
       version: dependency.version,
+    });
+  } finally {
+    await rm(tempDir, { recursive: true, force: true });
+  }
+}
+
+async function materializeSourcePackFixture(fixture, target) {
+  const openclawRoot = resolveOpenClawSourceRoot();
+  const sourceDir = path.resolve(openclawRoot, fixture.source.path);
+  if (!sourceDir.startsWith(`${openclawRoot}${path.sep}`)) {
+    throw new Error(`${fixture.id}: source path escapes OpenClaw checkout: ${fixture.source.path}`);
+  }
+
+  const packageJsonPath = path.join(sourceDir, "package.json");
+  if (!existsSync(packageJsonPath)) {
+    throw new Error(`${fixture.id}: missing source package.json at ${path.relative(repoRoot, packageJsonPath)}`);
+  }
+  const packageJson = JSON.parse(await readFile(packageJsonPath, "utf8"));
+  if (packageJson.name !== fixture.package.name) {
+    throw new Error(`${fixture.id}: source package name ${packageJson.name} does not match ${fixture.package.name}`);
+  }
+  if (typeof packageJson.version !== "string" || packageJson.version.length === 0) {
+    throw new Error(`${fixture.id}: source package ${fixture.package.name} has no version`);
+  }
+
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "crabpot-source-pack-fixture-"));
+  const payloadDir = fixtureSourceRoot(fixture);
+  const sourceHead = gitHead(openclawRoot);
+  try {
+    const pack = spawnSync("npm", ["pack", sourceDir, "--pack-destination", tempDir, "--json"], {
+      cwd: repoRoot,
+      encoding: "utf8",
+      env: process.env,
+      maxBuffer: 16 * 1024 * 1024,
+      shell: process.platform === "win32",
+    });
+    if (pack.status !== 0) {
+      process.stderr.write(pack.stderr ?? "");
+      const detail = pack.error ? `: ${pack.error.message}` : "";
+      throw new Error(`npm pack ${sourceDir} failed with ${pack.status}${detail}`);
+    }
+    const packed = JSON.parse(pack.stdout)[0];
+    if (!packed?.filename) {
+      throw new Error(`npm pack ${sourceDir} did not return a tarball filename`);
+    }
+
+    await mkdir(target, { recursive: true });
+    await rm(payloadDir, { recursive: true, force: true });
+    await mkdir(payloadDir, { recursive: true });
+    extractPackageTarball(path.join(tempDir, packed.filename), payloadDir);
+    await writePackageSourceMetadata(payloadDir, {
+      gitHead: sourceHead || fixture.source.ref,
+      name: fixture.package.name,
+      sourceMode: sourcePackPluginTrack,
+      sourcePath: fixture.source.path,
+      sourceRef: sourceHead || fixture.source.ref,
+      sourceRepo: fixture.source.repo,
+      tag: sourcePackPluginTrack,
+      version: packageJson.version,
     });
   } finally {
     await rm(tempDir, { recursive: true, force: true });
@@ -152,7 +214,23 @@ async function readNpmFixtureDependency(fixture) {
   };
 }
 
+function shouldMaterializeSourcePack(fixture, pluginTrack) {
+  if (pluginTrack !== sourcePackPluginTrack || !isOpenClawPackage(fixture.package.name)) {
+    return false;
+  }
+  if (!fixture.source) {
+    throw new Error(`${fixture.id}: source-pack requires source metadata`);
+  }
+  if (fixture.source.repo !== openclawSourceRepo) {
+    throw new Error(`${fixture.id}: source-pack only supports ${openclawSourceRepo}`);
+  }
+  return true;
+}
+
 function selectedPackageTag(fixture, pluginTrack) {
+  if (pluginTrack === sourcePackPluginTrack && isOpenClawPackage(fixture.package.name)) {
+    return "";
+  }
   if (pluginTrack && pluginTrack !== "manifest" && isOpenClawPackage(fixture.package.name)) {
     return pluginTrack;
   }
@@ -206,6 +284,10 @@ async function writePackageSourceMetadata(payloadDir, metadata) {
       {
         gitHead: metadata.gitHead || null,
         name: metadata.name,
+        sourceMode: metadata.sourceMode || "npm",
+        sourcePath: metadata.sourcePath || null,
+        sourceRef: metadata.sourceRef || metadata.gitHead || null,
+        sourceRepo: metadata.sourceRepo || null,
         tag: metadata.tag || null,
         version: metadata.version,
       },
@@ -221,6 +303,7 @@ function parseArgs(argv) {
     check: false,
     fixtureSet: undefined,
     materialize: false,
+    openclawPath: process.env.CRABPOT_TEST_OPENCLAW_PATH || "",
     pluginTrack: process.env.CRABPOT_PLUGIN_TRACK || "",
   };
 
@@ -241,6 +324,11 @@ function parseArgs(argv) {
     }
     if (arg === "--plugin-track") {
       parsed.pluginTrack = argv[index + 1];
+      index += 1;
+      continue;
+    }
+    if (arg === "--openclaw") {
+      parsed.openclawPath = argv[index + 1];
       index += 1;
     }
   }
@@ -267,6 +355,35 @@ function run(command, args) {
     const detail = result.error ? `: ${result.error.message}` : "";
     throw new Error(`${command} ${args.join(" ")} failed with ${result.status}${detail}`);
   }
+}
+
+function resolveOpenClawSourceRoot() {
+  if (!args.openclawPath) {
+    throw new Error("source-pack requires --openclaw or CRABPOT_TEST_OPENCLAW_PATH");
+  }
+
+  const root = path.resolve(repoRoot, args.openclawPath);
+  const packageJsonPath = path.join(root, "package.json");
+  if (!existsSync(packageJsonPath)) {
+    throw new Error(`source-pack OpenClaw checkout is missing package.json: ${path.relative(repoRoot, packageJsonPath)}`);
+  }
+  return root;
+}
+
+function extractPackageTarball(tarballPath, payloadDir) {
+  const tarArgs = ["-xzf", tarPath(tarballPath), "-C", tarPath(payloadDir), "--strip-components", "1"];
+  if (process.platform === "win32") {
+    tarArgs.unshift("--force-local");
+  }
+  run("tar", tarArgs);
+}
+
+function gitHead(cwd) {
+  const result = spawnSync("git", ["-C", cwd, "rev-parse", "HEAD"], {
+    encoding: "utf8",
+  });
+  const head = result.status === 0 ? result.stdout.trim() : "";
+  return /^[0-9a-f]{40}$/i.test(head) ? head : "";
 }
 
 function tarPath(filePath) {

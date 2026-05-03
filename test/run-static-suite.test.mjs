@@ -41,7 +41,7 @@ test("static suite can focus operational report steps without filtering unit tes
   const steps = buildStaticSuiteSteps({
     fixtureEnv: {
       CRABPOT_FIXTURE_SET: "openclaw-beta",
-      CRABPOT_PLUGIN_TRACK: "beta",
+      CRABPOT_PLUGIN_TRACK: "source-pack",
     },
   });
 
@@ -50,5 +50,5 @@ test("static suite can focus operational report steps without filtering unit tes
 
   assert.deepEqual(testStep[2], undefined);
   assert.equal(reportStep[2].CRABPOT_FIXTURE_SET, "openclaw-beta");
-  assert.equal(reportStep[2].CRABPOT_PLUGIN_TRACK, "beta");
+  assert.equal(reportStep[2].CRABPOT_PLUGIN_TRACK, "source-pack");
 });

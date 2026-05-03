@@ -17,9 +17,15 @@ const branchUrls = {
 };
 
 const trackTargets = {
-  beta: "openclaw@beta",
-  development: "openclaw/openclaw@main + @openclaw/*@beta",
-  latest: "openclaw@latest",
+  beta: "openclaw@beta + @openclaw/*@beta",
+  development: "openclaw/openclaw@main + source-packed @openclaw/*",
+  latest: "openclaw@latest + @openclaw/*@latest",
+};
+
+const pluginArtifacts = {
+  beta: "npm beta fixture set",
+  development: "source-packed from OpenClaw checkout",
+  latest: "npm latest fixture set",
 };
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
@@ -163,7 +169,7 @@ export function renderTrackMetadata(tracks, options = {}) {
     `- **OpenClaw version:** \`${selected.version}\``,
     `- **OpenClaw SHA:** \`${selected.sha.slice(0, 12)}\``,
     `- **Dashboard target:** \`${trackTargets[selected.track] ?? selected.label}\``,
-    `- **Plugin artifacts:** \`${selected.track === "development" ? "npm beta fixture set" : "manifest package pins"}\``,
+    `- **Plugin artifacts:** \`${pluginArtifacts[selected.track] ?? "manifest package pins"}\``,
     `- **GitHub report run:** ${formatRunLink(options.runUrl)}`,
   ].join("\n");
 }

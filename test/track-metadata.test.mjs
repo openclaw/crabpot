@@ -48,8 +48,8 @@ test("track metadata renders GitHub branch switches with resolved version and sh
   assert.match(markdown, /Source:\*\* `github-main`/);
   assert.match(markdown, /OpenClaw version:\*\* `2026\.4\.27`/);
   assert.match(markdown, /OpenClaw SHA:\*\* `212a32648fe7`/);
-  assert.match(markdown, /Dashboard target:\*\* `openclaw\/openclaw@main \+ @openclaw\/\*@beta`/);
-  assert.match(markdown, /Plugin artifacts:\*\* `npm beta fixture set`/);
+  assert.match(markdown, /Dashboard target:\*\* `openclaw\/openclaw@main \+ source-packed @openclaw\/\*`/);
+  assert.match(markdown, /Plugin artifacts:\*\* `source-packed from OpenClaw checkout`/);
   assert.match(markdown, /GitHub report run:\*\* \[12345\]\(https:\/\/github\.com\/openclaw\/crabpot\/actions\/runs\/12345\)/);
 });
 

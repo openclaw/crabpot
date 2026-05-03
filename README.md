@@ -15,8 +15,8 @@
 - **Source:** `npm-latest`
 - **OpenClaw version:** `2026.5.2`
 - **OpenClaw SHA:** `8b2a6e57fef6`
-- **Dashboard target:** `openclaw@latest`
-- **Plugin artifacts:** `manifest package pins`
+- **Dashboard target:** `openclaw@latest + @openclaw/*@latest`
+- **Plugin artifacts:** `npm latest fixture set`
 - **GitHub report run:** [25266752601](https://github.com/openclaw/crabpot/actions/runs/25266752601)
 <!-- crabpot-tracks:end -->
 

@@ -41,7 +41,7 @@ jobs:
         run: |
           extra_args=(--openclaw-track "${{ steps.openclaw-track.outputs.track }}")
           if [ "${{ steps.openclaw-track.outputs.track }}" = "development" ]; then
-            extra_args+=(--fixture-set openclaw-beta --plugin-track beta)
+            extra_args+=(--fixture-set openclaw-beta --plugin-track source-pack)
           fi
           node scripts/run-static-suite.mjs --openclaw ./openclaw --policy dashboard --profile-runs 3 --plugin-inspector-smoke "${extra_args[@]}"
       - name: Write CI summary artifacts
@@ -50,7 +50,7 @@ jobs:
         env:
           CRABPOT_FIXTURE_SET: ${{ steps.openclaw-track.outputs.track == 'development' && 'openclaw-beta' || '' }}
           CRABPOT_OPENCLAW_TRACK: ${{ steps.openclaw-track.outputs.track }}
-          CRABPOT_PLUGIN_TRACK: ${{ steps.openclaw-track.outputs.track == 'development' && 'beta' || '' }}
+          CRABPOT_PLUGIN_TRACK: ${{ steps.openclaw-track.outputs.track == 'development' && 'source-pack' || '' }}
         run: |
           node scripts/generate-report.mjs --openclaw ./openclaw
           node scripts/capture-contracts.mjs --openclaw ./openclaw
@@ -94,7 +94,7 @@ jobs:
         run: |
           extra_args=(--openclaw-track "${{ steps.openclaw-track.outputs.track }}")
           if [ "${{ steps.openclaw-track.outputs.track }}" = "development" ]; then
-            extra_args+=(--fixture-set openclaw-beta --plugin-track beta)
+            extra_args+=(--fixture-set openclaw-beta --plugin-track source-pack)
           fi
           node scripts/run-static-suite.mjs --openclaw ./openclaw --policy dashboard --profile-runs 3 --plugin-inspector-smoke "${extra_args[@]}"
 
