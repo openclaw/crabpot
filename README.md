@@ -9,7 +9,7 @@
 
 ## Reporting Data
 
-`main` follows the latest published npm package. `crab-beta` follows the beta npm dist-tag. `crab-development` checks `openclaw/openclaw` main against the focused npm beta plugin set.
+`main` follows the latest published npm package and npm `latest` plugin artifacts. `crab-beta` follows beta npm dist-tags. `crab-development` checks `openclaw/openclaw` main against source-packed official plugin artifacts from that same OpenClaw checkout.
 - **Last dashboard update:** May 03, 2026, 02:25 UTC
 <!-- crabpot-tracks:start -->
 - **Source:** `npm-latest`
