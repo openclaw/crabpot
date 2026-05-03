@@ -101,7 +101,7 @@ async function materializeNpmFixture(fixture, target) {
     await rm(payloadDir, { recursive: true, force: true });
     await mkdir(payloadDir, { recursive: true });
     const tarballPath = path.join(tempDir, packed.filename);
-    const tarArgs = ["-xzf", tarballPath, "-C", payloadDir, "--strip-components", "1"];
+    const tarArgs = ["-xzf", tarPath(tarballPath), "-C", tarPath(payloadDir), "--strip-components", "1"];
     if (process.platform === "win32") {
       tarArgs.unshift("--force-local");
     }
@@ -267,4 +267,11 @@ function run(command, args) {
     const detail = result.error ? `: ${result.error.message}` : "";
     throw new Error(`${command} ${args.join(" ")} failed with ${result.status}${detail}`);
   }
+}
+
+function tarPath(filePath) {
+  if (process.platform !== "win32") {
+    return filePath;
+  }
+  return filePath.replaceAll("\\", "/").replace(/^([A-Za-z]):\//, (_, drive) => `/${drive.toLowerCase()}/`);
 }

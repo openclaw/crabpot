@@ -86,6 +86,28 @@ test("default ci policy classifies opt-in kitchen-sink blockers", async () => {
   );
 });
 
+test("default ci policy classifies generated kitchen-sink callable stubs", async () => {
+  const report = await buildCiPolicyReport({
+    compatibilityReport: compatibilityReport(),
+    executionResults: executionResults([
+      {
+        seam: "before_tool_call",
+        reason: "captured hook has no callable handler",
+      },
+      {
+        seam: "registerCommand",
+        reason: "captured registration has no supported callable probe",
+      },
+    ]),
+  });
+
+  assert.equal(report.status, "pass");
+  assert.deepEqual(
+    report.checks.filter((check) => check.id.startsWith("execution-results.blocked.")).map((check) => check.action),
+    ["warn", "warn"],
+  );
+});
+
 test("ci policy fails ref diff hard regressions", async () => {
   const report = await buildCiPolicyReport({
     policy,
