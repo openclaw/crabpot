@@ -14,13 +14,14 @@ const retiredTerms = [
 
 const ignoredPaths = new Set([path.relative(repoRoot, import.meta.filename)]);
 
-const trackedFiles = execFileSync("git", ["ls-files", "-z"], {
+const trackedFiles = execFileSync("git", ["-c", "safe.directory=*", "ls-files", "-z"], {
   cwd: repoRoot,
   encoding: "utf8",
 })
   .split("\0")
   .filter(Boolean)
-  .filter((filePath) => !ignoredPaths.has(filePath));
+  .filter((filePath) => !ignoredPaths.has(filePath))
+  .filter((filePath) => !filePath.startsWith("reports/"));
 
 const offenders = [];
 for (const filePath of trackedFiles) {

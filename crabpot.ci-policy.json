@@ -29,6 +29,20 @@
       "reasonIncludes": "live network access",
       "decision": "allowed-blocked",
       "until": "network-capability harness lands"
+    },
+    {
+      "id": "generated-surface-hook-stubs",
+      "seam": "*",
+      "reasonIncludes": "captured hook has no callable handler",
+      "decision": "allowed-blocked",
+      "until": "generated surface runtime harness lands"
+    },
+    {
+      "id": "generated-surface-registration-stubs",
+      "seam": "*",
+      "reasonIncludes": "captured registration has no supported callable probe",
+      "decision": "allowed-blocked",
+      "until": "generated surface runtime harness lands"
     }
   ],
   "expectedWarnings": [

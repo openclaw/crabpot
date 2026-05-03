@@ -197,7 +197,7 @@ jobs:
       - name: Reconcile compatibility report with runtime evidence
         if: always()
         continue-on-error: true
-        run: node scripts/generate-report.mjs --openclaw ./openclaw --execution-results reports/crabpot-execution-results.json
+        run: node scripts/generate-report.mjs --openclaw ./openclaw --execution-results reports/crabpot-execution-results.json --fixture-set "${{ matrix.id }}"
       - name: Run execution policy
         id: policy
         if: always()

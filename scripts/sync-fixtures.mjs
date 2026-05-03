@@ -100,7 +100,12 @@ async function materializeNpmFixture(fixture, target) {
     await mkdir(target, { recursive: true });
     await rm(payloadDir, { recursive: true, force: true });
     await mkdir(payloadDir, { recursive: true });
-    run("tar", ["-xzf", path.join(tempDir, packed.filename), "-C", payloadDir, "--strip-components", "1"]);
+    const tarballPath = path.join(tempDir, packed.filename);
+    const tarArgs = ["-xzf", tarPath(tarballPath), "-C", tarPath(payloadDir), "--strip-components", "1"];
+    if (process.platform === "win32") {
+      tarArgs.unshift("--force-local");
+    }
+    run("tar", tarArgs);
     await writePackageSourceMetadata(payloadDir, {
       gitHead: packed.gitHead || (await npmPackageGitHead(dependency.name, dependency.version)),
       name: dependency.name,
@@ -262,4 +267,11 @@ function run(command, args) {
     const detail = result.error ? `: ${result.error.message}` : "";
     throw new Error(`${command} ${args.join(" ")} failed with ${result.status}${detail}`);
   }
+}
+
+function tarPath(filePath) {
+  if (process.platform !== "win32") {
+    return filePath;
+  }
+  return filePath.replaceAll("\\", "/").replace(/^([A-Za-z]):\//, (_, drive) => `/${drive.toLowerCase()}/`);
 }

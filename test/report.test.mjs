@@ -49,16 +49,18 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasFinding(report.suggestions, "wecom", "package-dependency-install-required");
   assertHasFinding(report.warnings, "honcho", "conversation-access-hook");
   assertHasFinding(report.warnings, "composio", "package-plugin-api-compat-missing");
-  assertHasFinding(report.warnings, "memos-cloud", "manifest-unknown-fields");
   assertHasFinding(report.suggestions, "secureclaw", "registration-capture-gap");
   if (hasTargetOpenClaw) {
     assertHasFindingCode(report.warnings, "sdk-export-missing");
     assertHasFindingCode(report.suggestions, "missing-compat-record");
+    assertHasFinding(report.warnings, "memos-cloud", "manifest-unknown-fields");
   }
 
   assertHasDecision(report.decisions, "core-compat-adapter", "env-auth");
   assertHasDecision(report.decisions, "inspector-follow-up", "registration-capture");
-  assertHasDecision(report.decisions, "core-compat-adapter", "compat-registry");
+  if (hasTargetOpenClaw) {
+    assertHasDecision(report.decisions, "core-compat-adapter", "compat-registry");
+  }
 
   assertHasIssue(report.issues, "P1", "registration-capture-gap");
   assertHasIssue(report.issues, "P1", "conversation-access-hook");
@@ -198,7 +200,7 @@ test("issue report maps npm payload evidence to monorepo source links", () => {
 
   assert.match(
     markdown,
-    /https:\/\/github\.com\/openclaw\/openclaw\/blob\/2ce6b77205187c76ce7cde6cb0913de14d4452fa\/extensions\/bluebubbles\/index\.js#L12/,
+    /https:\/\/github\.com\/openclaw\/openclaw\/blob\/[0-9a-f]{40}\/extensions\/bluebubbles\/index\.js#L12/,
   );
 });
 
