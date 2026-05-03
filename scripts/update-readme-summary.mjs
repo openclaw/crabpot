@@ -379,7 +379,7 @@ function renderReadmeFrame(summary) {
     "",
     "## Reporting Data",
     "",
-    "`main` follows the latest published npm package. `crab-beta` follows the beta npm dist-tag. `crab-development` checks `openclaw/openclaw` main against the focused npm beta plugin set.",
+    "`main` follows the latest published npm package and npm `latest` plugin artifacts. `crab-beta` follows beta npm dist-tags. `crab-development` checks `openclaw/openclaw` main against source-packed official plugin artifacts from that same OpenClaw checkout.",
     `- **Last dashboard update:** ${summary.generatedAtLabel ?? formatTimestamp(summary.generatedAt)}`,
   ].join("\n");
 }
