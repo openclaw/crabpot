@@ -61,7 +61,7 @@ Status: PASS
   - **sdk-export-missing**: clawmetry: plugin SDK import aliases are missing from target package exports
   - state: blocking · compat:untracked · live
   - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/src/service.ts#L2)
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/src/service.ts#L2)
 
 - 🔴 P0 **codex** `live-issue` `plugin-upstream-fix`
   - **package-entrypoint-missing**: codex: OpenClaw package entrypoint is missing
@@ -220,7 +220,7 @@ Status: PASS
   - **sdk-export-missing**: clawmetry: plugin SDK import aliases are missing from target package exports
   - state: blocking · compat:untracked · live
   - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/src/service.ts#L2)
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/src/service.ts#L2)
 
 - 🔴 P0 **codex** `live-issue` `plugin-upstream-fix`
   - **package-entrypoint-missing**: codex: OpenClaw package entrypoint is missing
@@ -884,25 +884,25 @@ Status: PASS
   - **package-build-artifact-entrypoint**: clawmetry: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [runtimeExtension:./dist/index.js @ index.js](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/dist/index.js)
+    - [runtimeExtension:./dist/index.js @ index.js](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/dist/index.js)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawmetry: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [node-fetch @ package.json](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/package.json)
+    - [node-fetch @ package.json](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/package.json)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: clawmetry: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/index.ts)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts#L9)
+    - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/index.ts#L9)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
@@ -1975,7 +1975,7 @@ _none_
   - **package-npm-pack-entrypoint-missing**: clawmetry: advertised npm artifact is missing OpenClaw entrypoints
   - state: open · compat:none
   - evidence:
-    - [extension:./index.ts @ index.ts](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts)
+    - [extension:./index.ts @ index.ts](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/index.ts)
 
 - 🟠 P1 **codex** `upstream-metadata` `plugin-upstream-fix`
   - **package-npm-pack-entrypoint-missing**: codex: advertised npm artifact is missing OpenClaw entrypoints
@@ -2607,7 +2607,7 @@ _none_
   - **sdk-export-missing**: clawmetry: plugin SDK import aliases are missing from target package exports
   - state: blocking · compat:untracked · live
   - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/src/service.ts#L2)
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/src/service.ts#L2)
 
 - 🔴 P0 **codex** `live-issue` `plugin-upstream-fix`
   - **package-entrypoint-missing**: codex: OpenClaw package entrypoint is missing
@@ -2770,7 +2770,7 @@ _none_
   - **package-npm-pack-entrypoint-missing**: clawmetry: advertised npm artifact is missing OpenClaw entrypoints
   - state: open · compat:none
   - evidence:
-    - [extension:./index.ts @ index.ts](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts)
+    - [extension:./index.ts @ index.ts](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/index.ts)
 
 - 🟠 P1 **codex** `upstream-metadata` `plugin-upstream-fix`
   - **package-npm-pack-entrypoint-missing**: codex: advertised npm artifact is missing OpenClaw entrypoints
@@ -3160,13 +3160,13 @@ _none_
   - **package-build-artifact-entrypoint**: clawmetry: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [runtimeExtension:./dist/index.js @ index.js](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/dist/index.js)
+    - [runtimeExtension:./dist/index.js @ index.js](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/dist/index.js)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawmetry: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [node-fetch @ package.json](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/package.json)
+    - [node-fetch @ package.json](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/package.json)
 
 - 🟡 P2 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: clawmetry: OpenClaw package install metadata is incomplete
@@ -3179,13 +3179,13 @@ _none_
   - **package-typescript-source-entrypoint**: clawmetry: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/index.ts)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts#L9)
+    - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/index.ts#L9)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
@@ -5053,7 +5053,7 @@ _none_
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
   - id: `sdk.import.package-export-cold-import:clawmetry`
   - evidence:
-    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/src/service.ts#L2)
+    - [openclaw/plugin-sdk/diagnostics-otel @ service.ts:2](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/src/service.ts#L2)
 
 - 🟠 P1 **honcho** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
@@ -5967,7 +5967,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:clawmetry`
   - evidence:
-    - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts#L9)
+    - [registerService @ index.ts:9](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/index.ts#L9)
 
 - 🟢 P3 **clawrouter** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -6354,7 +6354,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:clawmetry`
   - evidence:
-    - [runtimeExtension:./dist/index.js @ index.js](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/dist/index.js)
+    - [runtimeExtension:./dist/index.js @ index.js](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/dist/index.js)
 
 - 🟢 P3 **secureclaw** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -6525,7 +6525,7 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:clawmetry`
   - evidence:
-    - [node-fetch @ package.json](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/package.json)
+    - [node-fetch @ package.json](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/package.json)
 
 - 🟢 P3 **clawrouter** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -6747,7 +6747,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:clawmetry`
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/index.ts)
 
 - 🟢 P3 **codex-app-server** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -7090,7 +7090,7 @@ _none_
   - contract: Advertised npm artifacts include every declared OpenClaw package entrypoint.
   - id: `package.npm-pack.entrypoints:clawmetry`
   - evidence:
-    - [extension:./index.ts @ index.ts](https://github.com/vivekchand/clawmetry/blob/d747787e334cc39dd1192e4af03be8adf8260361/clawhub-plugin/index.ts)
+    - [extension:./index.ts @ index.ts](https://github.com/vivekchand/clawmetry/blob/7b03924c02a50ddb096407e823e48a6d369247a7/clawhub-plugin/index.ts)
 
 - 🟢 P3 **codex** `package-loader`
   - contract: Advertised npm artifacts include every declared OpenClaw package entrypoint.
