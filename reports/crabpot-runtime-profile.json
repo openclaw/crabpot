@@ -14,7 +14,7 @@
   },
   "fixtureInventory": {
     "fixtures": 57,
-    "sourceFiles": 1598,
+    "sourceFiles": 1596,
     "observedHooks": 93,
     "observedRegistrations": 188,
     "observedSdkImports": 1012,
@@ -31,23 +31,23 @@
   "summary": {
     "commandCount": 9,
     "sampleCount": 27,
-    "rssSampleCount": 1837,
-    "cpuSampleCount": 1837,
+    "rssSampleCount": 1433,
+    "cpuSampleCount": 1433,
     "wallTimeBasis": "command-median-p95",
-    "p50WallMs": 2164,
-    "p95WallMs": 2209,
-    "maxPeakRssMb": 448.1,
-    "maxRssDeltaMb": 417.1,
-    "maxCpuMsEstimate": 2441,
-    "maxHarnessHeapDeltaMb": 7.3
+    "p50WallMs": 1672,
+    "p95WallMs": 1726,
+    "maxPeakRssMb": 438.1,
+    "maxRssDeltaMb": 409.3,
+    "maxCpuMsEstimate": 1864,
+    "maxHarnessHeapDeltaMb": 5.8
   },
   "groups": [
     {
       "category": "baseline",
       "commandCount": 1,
-      "p50WallMs": 37,
-      "p95WallMs": 37,
-      "maxPeakRssMb": 32.7,
+      "p50WallMs": 29,
+      "p95WallMs": 33,
+      "maxPeakRssMb": 32.4,
       "maxCpuMsEstimate": 0,
       "rssSampleCount": 3,
       "cpuSampleCount": 3,
@@ -58,12 +58,12 @@
     {
       "category": "fixture-scan",
       "commandCount": 1,
-      "p50WallMs": 2037,
-      "p95WallMs": 2049,
+      "p50WallMs": 1603,
+      "p95WallMs": 1610,
       "maxPeakRssMb": 429.5,
-      "maxCpuMsEstimate": 2270,
-      "rssSampleCount": 241,
-      "cpuSampleCount": 241,
+      "maxCpuMsEstimate": 1765,
+      "rssSampleCount": 189,
+      "cpuSampleCount": 189,
       "commands": [
         "fixture-inspection"
       ]
@@ -71,12 +71,12 @@
     {
       "category": "target-registry",
       "commandCount": 1,
-      "p50WallMs": 2164,
-      "p95WallMs": 2195,
-      "maxPeakRssMb": 431.2,
-      "maxCpuMsEstimate": 2393,
-      "rssSampleCount": 255,
-      "cpuSampleCount": 255,
+      "p50WallMs": 1661,
+      "p95WallMs": 1689,
+      "maxPeakRssMb": 431.3,
+      "maxCpuMsEstimate": 1827,
+      "rssSampleCount": 198,
+      "cpuSampleCount": 198,
       "commands": [
         "compat-report-registry"
       ]
@@ -84,12 +84,12 @@
     {
       "category": "contract-capture",
       "commandCount": 1,
-      "p50WallMs": 2185,
-      "p95WallMs": 2188,
-      "maxPeakRssMb": 448.1,
-      "maxCpuMsEstimate": 2372,
-      "rssSampleCount": 257,
-      "cpuSampleCount": 257,
+      "p50WallMs": 1700,
+      "p95WallMs": 1716,
+      "maxPeakRssMb": 431.8,
+      "maxCpuMsEstimate": 1824,
+      "rssSampleCount": 198,
+      "cpuSampleCount": 198,
       "commands": [
         "contract-capture"
       ]
@@ -97,12 +97,12 @@
     {
       "category": "synthetic-probes",
       "commandCount": 1,
-      "p50WallMs": 2165,
-      "p95WallMs": 2172,
+      "p50WallMs": 1672,
+      "p95WallMs": 1676,
       "maxPeakRssMb": 431.3,
-      "maxCpuMsEstimate": 2372,
-      "rssSampleCount": 254,
-      "cpuSampleCount": 254,
+      "maxCpuMsEstimate": 1811,
+      "rssSampleCount": 199,
+      "cpuSampleCount": 199,
       "commands": [
         "synthetic-probe-plan"
       ]
@@ -110,12 +110,12 @@
     {
       "category": "cold-import",
       "commandCount": 1,
-      "p50WallMs": 2142,
-      "p95WallMs": 2155,
-      "maxPeakRssMb": 436,
-      "maxCpuMsEstimate": 2375,
-      "rssSampleCount": 255,
-      "cpuSampleCount": 255,
+      "p50WallMs": 1676,
+      "p95WallMs": 1679,
+      "maxPeakRssMb": 434.4,
+      "maxCpuMsEstimate": 1829,
+      "rssSampleCount": 199,
+      "cpuSampleCount": 199,
       "commands": [
         "cold-import-readiness"
       ]
@@ -123,12 +123,12 @@
     {
       "category": "workspace-plan",
       "commandCount": 1,
-      "p50WallMs": 2182,
-      "p95WallMs": 2238,
-      "maxPeakRssMb": 440.3,
-      "maxCpuMsEstimate": 2422,
-      "rssSampleCount": 262,
-      "cpuSampleCount": 262,
+      "p50WallMs": 1708,
+      "p95WallMs": 1721,
+      "maxPeakRssMb": 438.1,
+      "maxCpuMsEstimate": 1864,
+      "rssSampleCount": 203,
+      "cpuSampleCount": 203,
       "commands": [
         "workspace-plan"
       ]
@@ -136,12 +136,12 @@
     {
       "category": "platform-probes",
       "commandCount": 1,
-      "p50WallMs": 2209,
-      "p95WallMs": 2256,
-      "maxPeakRssMb": 440.3,
-      "maxCpuMsEstimate": 2441,
-      "rssSampleCount": 265,
-      "cpuSampleCount": 265,
+      "p50WallMs": 1726,
+      "p95WallMs": 1728,
+      "maxPeakRssMb": 438.1,
+      "maxCpuMsEstimate": 1854,
+      "rssSampleCount": 206,
+      "cpuSampleCount": 206,
       "commands": [
         "platform-probes"
       ]
@@ -149,12 +149,12 @@
     {
       "category": "import-loop",
       "commandCount": 1,
-      "p50WallMs": 380,
-      "p95WallMs": 383,
+      "p50WallMs": 329,
+      "p95WallMs": 329,
       "maxPeakRssMb": 60.5,
-      "maxCpuMsEstimate": 189,
-      "rssSampleCount": 45,
-      "cpuSampleCount": 45,
+      "maxCpuMsEstimate": 144,
+      "rssSampleCount": 38,
+      "cpuSampleCount": 38,
       "commands": [
         "import-loop-profile"
       ]
@@ -168,8 +168,8 @@
       "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node -e 0",
       "samples": [
         {
-          "wallMs": 37,
-          "peakRssMb": 32.7,
+          "wallMs": 29,
+          "peakRssMb": 32.4,
           "rssDeltaMb": 0,
           "peakCpuPercent": 0,
           "cpuMsEstimate": 0,
@@ -182,8 +182,8 @@
           "stderrPreview": ""
         },
         {
-          "wallMs": 37,
-          "peakRssMb": 30.8,
+          "wallMs": 33,
+          "peakRssMb": 28.7,
           "rssDeltaMb": 0,
           "peakCpuPercent": 0,
           "cpuMsEstimate": 0,
@@ -196,8 +196,8 @@
           "stderrPreview": ""
         },
         {
-          "wallMs": 37,
-          "peakRssMb": 30.2,
+          "wallMs": 29,
+          "peakRssMb": 30.6,
           "rssDeltaMb": 0,
           "peakCpuPercent": 0,
           "cpuMsEstimate": 0,
@@ -211,14 +211,14 @@
         }
       ],
       "wallMs": {
-        "min": 37,
-        "median": 37,
-        "max": 37
+        "min": 29,
+        "median": 29,
+        "max": 33
       },
       "peakRssMb": {
-        "min": 30.2,
-        "median": 30.8,
-        "max": 32.7
+        "min": 28.7,
+        "median": 30.6,
+        "max": 32.4
       },
       "rssDeltaMb": {
         "min": 0,
@@ -254,81 +254,81 @@
       "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node scripts/inspect-fixtures.mjs --check",
       "samples": [
         {
-          "wallMs": 2049,
+          "wallMs": 1580,
           "peakRssMb": 429.5,
-          "rssDeltaMb": 399,
-          "peakCpuPercent": 130,
-          "cpuMsEstimate": 2270,
-          "harnessHeapDeltaMb": -5.2,
-          "statSampleCount": 80,
-          "rssSampleCount": 80,
-          "cpuSampleCount": 80,
+          "rssDeltaMb": 398.9,
+          "peakCpuPercent": 119,
+          "cpuMsEstimate": 1725,
+          "harnessHeapDeltaMb": 5.8,
+          "statSampleCount": 62,
+          "rssSampleCount": 62,
+          "cpuSampleCount": 62,
           "exitCode": 0,
           "stdoutPreview": "│ 56      │ 'inworld-tts'            │ 'ok'   │ ''                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          │ 'definePluginEntry,registerSpeechProvider'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          │ 'speechProviders'                                                                                                                                                                                                                                                                                                                                                                        │\n└─────────┴──────────────────────────┴────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘",
           "stderrPreview": ""
         },
         {
-          "wallMs": 2036,
-          "peakRssMb": 429.3,
-          "rssDeltaMb": 398.8,
-          "peakCpuPercent": 138,
-          "cpuMsEstimate": 2270,
-          "harnessHeapDeltaMb": 7.3,
-          "statSampleCount": 81,
-          "rssSampleCount": 81,
-          "cpuSampleCount": 81,
+          "wallMs": 1603,
+          "peakRssMb": 429.4,
+          "rssDeltaMb": 400.7,
+          "peakCpuPercent": 125,
+          "cpuMsEstimate": 1730,
+          "harnessHeapDeltaMb": -6.9,
+          "statSampleCount": 63,
+          "rssSampleCount": 63,
+          "cpuSampleCount": 63,
           "exitCode": 0,
           "stdoutPreview": "│ 56      │ 'inworld-tts'            │ 'ok'   │ ''                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          │ 'definePluginEntry,registerSpeechProvider'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          │ 'speechProviders'                                                                                                                                                                                                                                                                                                                                                                        │\n└─────────┴──────────────────────────┴────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘",
           "stderrPreview": ""
         },
         {
-          "wallMs": 2037,
-          "peakRssMb": 429.3,
-          "rssDeltaMb": 398.7,
-          "peakCpuPercent": 121,
-          "cpuMsEstimate": 2220,
-          "harnessHeapDeltaMb": -5.5,
-          "statSampleCount": 80,
-          "rssSampleCount": 80,
-          "cpuSampleCount": 80,
+          "wallMs": 1610,
+          "peakRssMb": 429.2,
+          "rssDeltaMb": 398.5,
+          "peakCpuPercent": 125,
+          "cpuMsEstimate": 1765,
+          "harnessHeapDeltaMb": 5.8,
+          "statSampleCount": 64,
+          "rssSampleCount": 64,
+          "cpuSampleCount": 64,
           "exitCode": 0,
           "stdoutPreview": "│ 56      │ 'inworld-tts'            │ 'ok'   │ ''                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          │ 'definePluginEntry,registerSpeechProvider'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          │ 'speechProviders'                                                                                                                                                                                                                                                                                                                                                                        │\n└─────────┴──────────────────────────┴────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 2036,
-        "median": 2037,
-        "max": 2049
+        "min": 1580,
+        "median": 1603,
+        "max": 1610
       },
       "peakRssMb": {
-        "min": 429.3,
-        "median": 429.3,
+        "min": 429.2,
+        "median": 429.4,
         "max": 429.5
       },
       "rssDeltaMb": {
-        "min": 398.7,
-        "median": 398.8,
-        "max": 399
+        "min": 398.5,
+        "median": 398.9,
+        "max": 400.7
       },
       "peakCpuPercent": {
-        "min": 121,
-        "median": 130,
-        "max": 138
+        "min": 119,
+        "median": 125,
+        "max": 125
       },
       "cpuMsEstimate": {
-        "min": 2220,
-        "median": 2270,
-        "max": 2270
+        "min": 1725,
+        "median": 1730,
+        "max": 1765
       },
       "harnessHeapDeltaMb": {
-        "min": -5.5,
-        "median": -5.2,
-        "max": 7.3
+        "min": -6.9,
+        "median": 5.8,
+        "max": 5.8
       },
-      "statSampleCount": 241,
-      "rssSampleCount": 241,
-      "cpuSampleCount": 241,
+      "statSampleCount": 189,
+      "rssSampleCount": 189,
+      "cpuSampleCount": 189,
       "exitCodes": [
         0
       ]
@@ -340,81 +340,81 @@
       "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node scripts/generate-report.mjs --check",
       "samples": [
         {
-          "wallMs": 2195,
-          "peakRssMb": 431.2,
-          "rssDeltaMb": 399.6,
-          "peakCpuPercent": 121,
-          "cpuMsEstimate": 2379,
-          "harnessHeapDeltaMb": 7.2,
-          "statSampleCount": 86,
-          "rssSampleCount": 86,
-          "cpuSampleCount": 86,
+          "wallMs": 1661,
+          "peakRssMb": 429.4,
+          "rssDeltaMb": 399.3,
+          "peakCpuPercent": 133,
+          "cpuMsEstimate": 1812,
+          "harnessHeapDeltaMb": -7,
+          "statSampleCount": 66,
+          "rssSampleCount": 66,
+          "cpuSampleCount": 66,
           "exitCode": 0,
           "stdoutPreview": "crabpot report check: pass; 0 breakages, 170 warnings, 158 suggestions, 328 issues\nreport targets: /home/runner/work/crabpot/crabpot/reports/crabpot-report.md, /home/runner/work/crabpot/crabpot/reports/crabpot-report.json, /home/runner/work/crabpot/crabpot/reports/crabpot-issues.md",
           "stderrPreview": ""
         },
         {
-          "wallMs": 2164,
-          "peakRssMb": 430.8,
-          "rssDeltaMb": 400.6,
-          "peakCpuPercent": 130,
-          "cpuMsEstimate": 2393,
-          "harnessHeapDeltaMb": -5.4,
-          "statSampleCount": 84,
-          "rssSampleCount": 84,
-          "cpuSampleCount": 84,
+          "wallMs": 1689,
+          "peakRssMb": 431.1,
+          "rssDeltaMb": 400.7,
+          "peakCpuPercent": 125,
+          "cpuMsEstimate": 1827,
+          "harnessHeapDeltaMb": 5.6,
+          "statSampleCount": 67,
+          "rssSampleCount": 67,
+          "cpuSampleCount": 67,
           "exitCode": 0,
           "stdoutPreview": "crabpot report check: pass; 0 breakages, 170 warnings, 158 suggestions, 328 issues\nreport targets: /home/runner/work/crabpot/crabpot/reports/crabpot-report.md, /home/runner/work/crabpot/crabpot/reports/crabpot-report.json, /home/runner/work/crabpot/crabpot/reports/crabpot-issues.md",
           "stderrPreview": ""
         },
         {
-          "wallMs": 2143,
-          "peakRssMb": 430.8,
-          "rssDeltaMb": 400,
-          "peakCpuPercent": 127,
-          "cpuMsEstimate": 2332,
-          "harnessHeapDeltaMb": 7,
-          "statSampleCount": 85,
-          "rssSampleCount": 85,
-          "cpuSampleCount": 85,
+          "wallMs": 1654,
+          "peakRssMb": 431.3,
+          "rssDeltaMb": 401,
+          "peakCpuPercent": 126,
+          "cpuMsEstimate": 1811,
+          "harnessHeapDeltaMb": -6.7,
+          "statSampleCount": 65,
+          "rssSampleCount": 65,
+          "cpuSampleCount": 65,
           "exitCode": 0,
           "stdoutPreview": "crabpot report check: pass; 0 breakages, 170 warnings, 158 suggestions, 328 issues\nreport targets: /home/runner/work/crabpot/crabpot/reports/crabpot-report.md, /home/runner/work/crabpot/crabpot/reports/crabpot-report.json, /home/runner/work/crabpot/crabpot/reports/crabpot-issues.md",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 2143,
-        "median": 2164,
-        "max": 2195
+        "min": 1654,
+        "median": 1661,
+        "max": 1689
       },
       "peakRssMb": {
-        "min": 430.8,
-        "median": 430.8,
-        "max": 431.2
+        "min": 429.4,
+        "median": 431.1,
+        "max": 431.3
       },
       "rssDeltaMb": {
-        "min": 399.6,
-        "median": 400,
-        "max": 400.6
+        "min": 399.3,
+        "median": 400.7,
+        "max": 401
       },
       "peakCpuPercent": {
-        "min": 121,
-        "median": 127,
-        "max": 130
+        "min": 125,
+        "median": 126,
+        "max": 133
       },
       "cpuMsEstimate": {
-        "min": 2332,
-        "median": 2379,
-        "max": 2393
+        "min": 1811,
+        "median": 1812,
+        "max": 1827
       },
       "harnessHeapDeltaMb": {
-        "min": -5.4,
-        "median": 7,
-        "max": 7.2
+        "min": -7,
+        "median": -6.7,
+        "max": 5.6
       },
-      "statSampleCount": 255,
-      "rssSampleCount": 255,
-      "cpuSampleCount": 255,
+      "statSampleCount": 198,
+      "rssSampleCount": 198,
+      "cpuSampleCount": 198,
       "exitCodes": [
         0
       ]
@@ -426,81 +426,81 @@
       "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node scripts/capture-contracts.mjs --check",
       "samples": [
         {
-          "wallMs": 2188,
-          "peakRssMb": 448.1,
-          "rssDeltaMb": 417.1,
-          "peakCpuPercent": 121,
-          "cpuMsEstimate": 2372,
-          "harnessHeapDeltaMb": -4.9,
-          "statSampleCount": 86,
-          "rssSampleCount": 86,
-          "cpuSampleCount": 86,
+          "wallMs": 1700,
+          "peakRssMb": 431.2,
+          "rssDeltaMb": 402.5,
+          "peakCpuPercent": 118,
+          "cpuMsEstimate": 1824,
+          "harnessHeapDeltaMb": 5.4,
+          "statSampleCount": 67,
+          "rssSampleCount": 67,
+          "cpuSampleCount": 67,
           "exitCode": 0,
           "stdoutPreview": "contract capture: 316 registrations, 95 hooks, 1728 sdk imports, 322 issue probes",
           "stderrPreview": ""
         },
         {
-          "wallMs": 2185,
-          "peakRssMb": 431.6,
-          "rssDeltaMb": 402.9,
-          "peakCpuPercent": 117,
-          "cpuMsEstimate": 2364,
-          "harnessHeapDeltaMb": -4.9,
-          "statSampleCount": 86,
-          "rssSampleCount": 86,
-          "cpuSampleCount": 86,
-          "exitCode": 0,
-          "stdoutPreview": "contract capture: 316 registrations, 95 hooks, 1728 sdk imports, 322 issue probes",
-          "stderrPreview": ""
-        },
-        {
-          "wallMs": 2155,
-          "peakRssMb": 430.9,
-          "rssDeltaMb": 399.5,
+          "wallMs": 1670,
+          "peakRssMb": 431.5,
+          "rssDeltaMb": 401.9,
           "peakCpuPercent": 133,
-          "cpuMsEstimate": 2364,
-          "harnessHeapDeltaMb": 6.9,
-          "statSampleCount": 85,
-          "rssSampleCount": 85,
-          "cpuSampleCount": 85,
+          "cpuMsEstimate": 1814,
+          "harnessHeapDeltaMb": -6.6,
+          "statSampleCount": 66,
+          "rssSampleCount": 66,
+          "cpuSampleCount": 66,
+          "exitCode": 0,
+          "stdoutPreview": "contract capture: 316 registrations, 95 hooks, 1728 sdk imports, 322 issue probes",
+          "stderrPreview": ""
+        },
+        {
+          "wallMs": 1716,
+          "peakRssMb": 431.8,
+          "rssDeltaMb": 401.7,
+          "peakCpuPercent": 115,
+          "cpuMsEstimate": 1812,
+          "harnessHeapDeltaMb": -670.4,
+          "statSampleCount": 65,
+          "rssSampleCount": 65,
+          "cpuSampleCount": 65,
           "exitCode": 0,
           "stdoutPreview": "contract capture: 316 registrations, 95 hooks, 1728 sdk imports, 322 issue probes",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 2155,
-        "median": 2185,
-        "max": 2188
+        "min": 1670,
+        "median": 1700,
+        "max": 1716
       },
       "peakRssMb": {
-        "min": 430.9,
-        "median": 431.6,
-        "max": 448.1
+        "min": 431.2,
+        "median": 431.5,
+        "max": 431.8
       },
       "rssDeltaMb": {
-        "min": 399.5,
-        "median": 402.9,
-        "max": 417.1
+        "min": 401.7,
+        "median": 401.9,
+        "max": 402.5
       },
       "peakCpuPercent": {
-        "min": 117,
-        "median": 121,
+        "min": 115,
+        "median": 118,
         "max": 133
       },
       "cpuMsEstimate": {
-        "min": 2364,
-        "median": 2364,
-        "max": 2372
+        "min": 1812,
+        "median": 1814,
+        "max": 1824
       },
       "harnessHeapDeltaMb": {
-        "min": -4.9,
-        "median": -4.9,
-        "max": 6.9
+        "min": -670.4,
+        "median": -6.6,
+        "max": 5.4
       },
-      "statSampleCount": 257,
-      "rssSampleCount": 257,
-      "cpuSampleCount": 257,
+      "statSampleCount": 198,
+      "rssSampleCount": 198,
+      "cpuSampleCount": 198,
       "exitCodes": [
         0
       ]
@@ -512,81 +512,81 @@
       "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node scripts/synthetic-probes.mjs --check",
       "samples": [
         {
-          "wallMs": 2165,
+          "wallMs": 1672,
           "peakRssMb": 430.8,
-          "rssDeltaMb": 399.6,
-          "peakCpuPercent": 125,
-          "cpuMsEstimate": 2353,
-          "harnessHeapDeltaMb": -676.7,
-          "statSampleCount": 83,
-          "rssSampleCount": 83,
-          "cpuSampleCount": 83,
-          "exitCode": 0,
-          "stdoutPreview": "synthetic probes: 411 ready, 0 blocked, 411 total",
-          "stderrPreview": ""
-        },
-        {
-          "wallMs": 2172,
-          "peakRssMb": 431.3,
-          "rssDeltaMb": 402.6,
+          "rssDeltaMb": 402,
           "peakCpuPercent": 120,
-          "cpuMsEstimate": 2372,
-          "harnessHeapDeltaMb": -0.5,
-          "statSampleCount": 86,
-          "rssSampleCount": 86,
-          "cpuSampleCount": 86,
+          "cpuMsEstimate": 1811,
+          "harnessHeapDeltaMb": 0,
+          "statSampleCount": 67,
+          "rssSampleCount": 67,
+          "cpuSampleCount": 67,
           "exitCode": 0,
           "stdoutPreview": "synthetic probes: 411 ready, 0 blocked, 411 total",
           "stderrPreview": ""
         },
         {
-          "wallMs": 2151,
-          "peakRssMb": 430.5,
-          "rssDeltaMb": 401.4,
-          "peakCpuPercent": 125,
-          "cpuMsEstimate": 2357,
-          "harnessHeapDeltaMb": 0.1,
-          "statSampleCount": 85,
-          "rssSampleCount": 85,
-          "cpuSampleCount": 85,
+          "wallMs": 1672,
+          "peakRssMb": 431.3,
+          "rssDeltaMb": 402.5,
+          "peakCpuPercent": 130,
+          "cpuMsEstimate": 1809,
+          "harnessHeapDeltaMb": 0.8,
+          "statSampleCount": 66,
+          "rssSampleCount": 66,
+          "cpuSampleCount": 66,
+          "exitCode": 0,
+          "stdoutPreview": "synthetic probes: 411 ready, 0 blocked, 411 total",
+          "stderrPreview": ""
+        },
+        {
+          "wallMs": 1676,
+          "peakRssMb": 431.1,
+          "rssDeltaMb": 402.4,
+          "peakCpuPercent": 118,
+          "cpuMsEstimate": 1792,
+          "harnessHeapDeltaMb": 0,
+          "statSampleCount": 66,
+          "rssSampleCount": 66,
+          "cpuSampleCount": 66,
           "exitCode": 0,
           "stdoutPreview": "synthetic probes: 411 ready, 0 blocked, 411 total",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 2151,
-        "median": 2165,
-        "max": 2172
+        "min": 1672,
+        "median": 1672,
+        "max": 1676
       },
       "peakRssMb": {
-        "min": 430.5,
-        "median": 430.8,
+        "min": 430.8,
+        "median": 431.1,
         "max": 431.3
       },
       "rssDeltaMb": {
-        "min": 399.6,
-        "median": 401.4,
-        "max": 402.6
+        "min": 402,
+        "median": 402.4,
+        "max": 402.5
       },
       "peakCpuPercent": {
-        "min": 120,
-        "median": 125,
-        "max": 125
+        "min": 118,
+        "median": 120,
+        "max": 130
       },
       "cpuMsEstimate": {
-        "min": 2353,
-        "median": 2357,
-        "max": 2372
+        "min": 1792,
+        "median": 1809,
+        "max": 1811
       },
       "harnessHeapDeltaMb": {
-        "min": -676.7,
-        "median": -0.5,
-        "max": 0.1
+        "min": 0,
+        "median": 0,
+        "max": 0.8
       },
-      "statSampleCount": 254,
-      "rssSampleCount": 254,
-      "cpuSampleCount": 254,
+      "statSampleCount": 199,
+      "rssSampleCount": 199,
+      "cpuSampleCount": 199,
       "exitCodes": [
         0
       ]
@@ -598,81 +598,81 @@
       "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node scripts/cold-import-readiness.mjs --check",
       "samples": [
         {
-          "wallMs": 2155,
-          "peakRssMb": 436,
-          "rssDeltaMb": 407.3,
-          "peakCpuPercent": 130,
-          "cpuMsEstimate": 2375,
-          "harnessHeapDeltaMb": 0.9,
-          "statSampleCount": 85,
-          "rssSampleCount": 85,
-          "cpuSampleCount": 85,
-          "exitCode": 0,
-          "stdoutPreview": "cold import readiness: 101 entrypoints, 6 ready, 95 blocked",
-          "stderrPreview": ""
-        },
-        {
-          "wallMs": 2125,
-          "peakRssMb": 431.2,
-          "rssDeltaMb": 402.4,
+          "wallMs": 1676,
+          "peakRssMb": 431,
+          "rssDeltaMb": 402.3,
           "peakCpuPercent": 126,
-          "cpuMsEstimate": 2346,
-          "harnessHeapDeltaMb": 0.7,
-          "statSampleCount": 85,
-          "rssSampleCount": 85,
-          "cpuSampleCount": 85,
+          "cpuMsEstimate": 1829,
+          "harnessHeapDeltaMb": 1,
+          "statSampleCount": 66,
+          "rssSampleCount": 66,
+          "cpuSampleCount": 66,
           "exitCode": 0,
           "stdoutPreview": "cold import readiness: 101 entrypoints, 6 ready, 95 blocked",
           "stderrPreview": ""
         },
         {
-          "wallMs": 2142,
-          "peakRssMb": 430.2,
-          "rssDeltaMb": 401.5,
+          "wallMs": 1679,
+          "peakRssMb": 430.9,
+          "rssDeltaMb": 402.2,
           "peakCpuPercent": 125,
-          "cpuMsEstimate": 2352,
-          "harnessHeapDeltaMb": -0.6,
-          "statSampleCount": 85,
-          "rssSampleCount": 85,
-          "cpuSampleCount": 85,
+          "cpuMsEstimate": 1812,
+          "harnessHeapDeltaMb": -0.7,
+          "statSampleCount": 67,
+          "rssSampleCount": 67,
+          "cpuSampleCount": 67,
+          "exitCode": 0,
+          "stdoutPreview": "cold import readiness: 101 entrypoints, 6 ready, 95 blocked",
+          "stderrPreview": ""
+        },
+        {
+          "wallMs": 1670,
+          "peakRssMb": 434.4,
+          "rssDeltaMb": 405.6,
+          "peakCpuPercent": 125,
+          "cpuMsEstimate": 1810,
+          "harnessHeapDeltaMb": 0.9,
+          "statSampleCount": 66,
+          "rssSampleCount": 66,
+          "cpuSampleCount": 66,
           "exitCode": 0,
           "stdoutPreview": "cold import readiness: 101 entrypoints, 6 ready, 95 blocked",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 2125,
-        "median": 2142,
-        "max": 2155
+        "min": 1670,
+        "median": 1676,
+        "max": 1679
       },
       "peakRssMb": {
-        "min": 430.2,
-        "median": 431.2,
-        "max": 436
+        "min": 430.9,
+        "median": 431,
+        "max": 434.4
       },
       "rssDeltaMb": {
-        "min": 401.5,
-        "median": 402.4,
-        "max": 407.3
+        "min": 402.2,
+        "median": 402.3,
+        "max": 405.6
       },
       "peakCpuPercent": {
         "min": 125,
-        "median": 126,
-        "max": 130
+        "median": 125,
+        "max": 126
       },
       "cpuMsEstimate": {
-        "min": 2346,
-        "median": 2352,
-        "max": 2375
+        "min": 1810,
+        "median": 1812,
+        "max": 1829
       },
       "harnessHeapDeltaMb": {
-        "min": -0.6,
-        "median": 0.7,
-        "max": 0.9
+        "min": -0.7,
+        "median": 0.9,
+        "max": 1
       },
-      "statSampleCount": 255,
-      "rssSampleCount": 255,
-      "cpuSampleCount": 255,
+      "statSampleCount": 199,
+      "rssSampleCount": 199,
+      "cpuSampleCount": 199,
       "exitCodes": [
         0
       ]
@@ -684,81 +684,81 @@
       "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node scripts/workspace-plan.mjs --check",
       "samples": [
         {
-          "wallMs": 2175,
-          "peakRssMb": 438.2,
-          "rssDeltaMb": 409.6,
-          "peakCpuPercent": 123,
-          "cpuMsEstimate": 2373,
-          "harnessHeapDeltaMb": 1.1,
-          "statSampleCount": 86,
-          "rssSampleCount": 86,
-          "cpuSampleCount": 86,
-          "exitCode": 0,
-          "stdoutPreview": "workspace plan: 101 entrypoints, 40 installs, 40 audits, 11 builds, 101 captures, 101 synthetic probes, 101 artifact dirs",
-          "stderrPreview": ""
-        },
-        {
-          "wallMs": 2182,
-          "peakRssMb": 440.3,
-          "rssDeltaMb": 411.5,
+          "wallMs": 1708,
+          "peakRssMb": 438.1,
+          "rssDeltaMb": 409.3,
           "peakCpuPercent": 125,
-          "cpuMsEstimate": 2374,
+          "cpuMsEstimate": 1862,
           "harnessHeapDeltaMb": -0.6,
-          "statSampleCount": 87,
-          "rssSampleCount": 87,
-          "cpuSampleCount": 87,
+          "statSampleCount": 68,
+          "rssSampleCount": 68,
+          "cpuSampleCount": 68,
           "exitCode": 0,
           "stdoutPreview": "workspace plan: 101 entrypoints, 40 installs, 40 audits, 11 builds, 101 captures, 101 synthetic probes, 101 artifact dirs",
           "stderrPreview": ""
         },
         {
-          "wallMs": 2238,
-          "peakRssMb": 437.1,
-          "rssDeltaMb": 408.4,
-          "peakCpuPercent": 121,
-          "cpuMsEstimate": 2422,
-          "harnessHeapDeltaMb": 1.1,
-          "statSampleCount": 89,
-          "rssSampleCount": 89,
-          "cpuSampleCount": 89,
+          "wallMs": 1691,
+          "peakRssMb": 438,
+          "rssDeltaMb": 409.2,
+          "peakCpuPercent": 125,
+          "cpuMsEstimate": 1825,
+          "harnessHeapDeltaMb": 0.9,
+          "statSampleCount": 67,
+          "rssSampleCount": 67,
+          "cpuSampleCount": 67,
+          "exitCode": 0,
+          "stdoutPreview": "workspace plan: 101 entrypoints, 40 installs, 40 audits, 11 builds, 101 captures, 101 synthetic probes, 101 artifact dirs",
+          "stderrPreview": ""
+        },
+        {
+          "wallMs": 1721,
+          "peakRssMb": 433.8,
+          "rssDeltaMb": 404.3,
+          "peakCpuPercent": 118,
+          "cpuMsEstimate": 1864,
+          "harnessHeapDeltaMb": -0.5,
+          "statSampleCount": 68,
+          "rssSampleCount": 68,
+          "cpuSampleCount": 68,
           "exitCode": 0,
           "stdoutPreview": "workspace plan: 101 entrypoints, 40 installs, 40 audits, 11 builds, 101 captures, 101 synthetic probes, 101 artifact dirs",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 2175,
-        "median": 2182,
-        "max": 2238
+        "min": 1691,
+        "median": 1708,
+        "max": 1721
       },
       "peakRssMb": {
-        "min": 437.1,
-        "median": 438.2,
-        "max": 440.3
+        "min": 433.8,
+        "median": 438,
+        "max": 438.1
       },
       "rssDeltaMb": {
-        "min": 408.4,
-        "median": 409.6,
-        "max": 411.5
+        "min": 404.3,
+        "median": 409.2,
+        "max": 409.3
       },
       "peakCpuPercent": {
-        "min": 121,
-        "median": 123,
+        "min": 118,
+        "median": 125,
         "max": 125
       },
       "cpuMsEstimate": {
-        "min": 2373,
-        "median": 2374,
-        "max": 2422
+        "min": 1825,
+        "median": 1862,
+        "max": 1864
       },
       "harnessHeapDeltaMb": {
         "min": -0.6,
-        "median": 1.1,
-        "max": 1.1
+        "median": -0.5,
+        "max": 0.9
       },
-      "statSampleCount": 262,
-      "rssSampleCount": 262,
-      "cpuSampleCount": 262,
+      "statSampleCount": 203,
+      "rssSampleCount": 203,
+      "cpuSampleCount": 203,
       "exitCodes": [
         0
       ]
@@ -770,81 +770,81 @@
       "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node scripts/platform-probes.mjs --check",
       "samples": [
         {
-          "wallMs": 2256,
-          "peakRssMb": 438.3,
-          "rssDeltaMb": 409.6,
+          "wallMs": 1728,
+          "peakRssMb": 435.1,
+          "rssDeltaMb": 406.4,
           "peakCpuPercent": 117,
-          "cpuMsEstimate": 2441,
-          "harnessHeapDeltaMb": 1.3,
-          "statSampleCount": 90,
-          "rssSampleCount": 90,
-          "cpuSampleCount": 90,
+          "cpuMsEstimate": 1840,
+          "harnessHeapDeltaMb": -0.4,
+          "statSampleCount": 69,
+          "rssSampleCount": 69,
+          "cpuSampleCount": 69,
           "exitCode": 0,
           "stdoutPreview": "platform probes: 101 entrypoints, 23 TS loader, 14 Windows-risk steps, 14 container-risk steps",
           "stderrPreview": ""
         },
         {
-          "wallMs": 2209,
-          "peakRssMb": 438.4,
-          "rssDeltaMb": 409.7,
-          "peakCpuPercent": 120,
-          "cpuMsEstimate": 2399,
-          "harnessHeapDeltaMb": -1.9,
-          "statSampleCount": 88,
-          "rssSampleCount": 88,
-          "cpuSampleCount": 88,
+          "wallMs": 1720,
+          "peakRssMb": 438.1,
+          "rssDeltaMb": 409.3,
+          "peakCpuPercent": 117,
+          "cpuMsEstimate": 1854,
+          "harnessHeapDeltaMb": 2.7,
+          "statSampleCount": 68,
+          "rssSampleCount": 68,
+          "cpuSampleCount": 68,
           "exitCode": 0,
           "stdoutPreview": "platform probes: 101 entrypoints, 23 TS loader, 14 Windows-risk steps, 14 container-risk steps",
           "stderrPreview": ""
         },
         {
-          "wallMs": 2203,
-          "peakRssMb": 440.3,
-          "rssDeltaMb": 410.5,
-          "peakCpuPercent": 120,
-          "cpuMsEstimate": 2399,
-          "harnessHeapDeltaMb": 1,
-          "statSampleCount": 87,
-          "rssSampleCount": 87,
-          "cpuSampleCount": 87,
+          "wallMs": 1726,
+          "peakRssMb": 435.3,
+          "rssDeltaMb": 406.6,
+          "peakCpuPercent": 116,
+          "cpuMsEstimate": 1850,
+          "harnessHeapDeltaMb": -0.4,
+          "statSampleCount": 69,
+          "rssSampleCount": 69,
+          "cpuSampleCount": 69,
           "exitCode": 0,
           "stdoutPreview": "platform probes: 101 entrypoints, 23 TS loader, 14 Windows-risk steps, 14 container-risk steps",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 2203,
-        "median": 2209,
-        "max": 2256
+        "min": 1720,
+        "median": 1726,
+        "max": 1728
       },
       "peakRssMb": {
-        "min": 438.3,
-        "median": 438.4,
-        "max": 440.3
+        "min": 435.1,
+        "median": 435.3,
+        "max": 438.1
       },
       "rssDeltaMb": {
-        "min": 409.6,
-        "median": 409.7,
-        "max": 410.5
+        "min": 406.4,
+        "median": 406.6,
+        "max": 409.3
       },
       "peakCpuPercent": {
-        "min": 117,
-        "median": 120,
-        "max": 120
+        "min": 116,
+        "median": 117,
+        "max": 117
       },
       "cpuMsEstimate": {
-        "min": 2399,
-        "median": 2399,
-        "max": 2441
+        "min": 1840,
+        "median": 1850,
+        "max": 1854
       },
       "harnessHeapDeltaMb": {
-        "min": -1.9,
-        "median": 1,
-        "max": 1.3
+        "min": -0.4,
+        "median": -0.4,
+        "max": 2.7
       },
-      "statSampleCount": 265,
-      "rssSampleCount": 265,
-      "cpuSampleCount": 265,
+      "statSampleCount": 206,
+      "rssSampleCount": 206,
+      "cpuSampleCount": 206,
       "exitCodes": [
         0
       ]
@@ -856,81 +856,81 @@
       "command": "/opt/hostedtoolcache/node/22.22.2/x64/bin/node scripts/import-loop-profile.mjs --check --runs 2",
       "samples": [
         {
-          "wallMs": 377,
-          "peakRssMb": 60.4,
-          "rssDeltaMb": 30.8,
-          "peakCpuPercent": 100,
-          "cpuMsEstimate": 176,
-          "harnessHeapDeltaMb": 1.3,
-          "statSampleCount": 15,
-          "rssSampleCount": 15,
-          "cpuSampleCount": 15,
-          "exitCode": 0,
-          "stdoutPreview": "import loop profile: 2 runs, p50 74ms / p95 74ms / plugin delta RSS 0.1MB / plugin delta CPU 0ms",
-          "stderrPreview": ""
-        },
-        {
-          "wallMs": 380,
-          "peakRssMb": 60.4,
-          "rssDeltaMb": 31.8,
-          "peakCpuPercent": 120,
-          "cpuMsEstimate": 189,
-          "harnessHeapDeltaMb": -1.6,
-          "statSampleCount": 15,
-          "rssSampleCount": 15,
-          "cpuSampleCount": 15,
-          "exitCode": 0,
-          "stdoutPreview": "import loop profile: 2 runs, p50 75ms / p95 76ms / plugin delta RSS 0MB / plugin delta CPU 0ms",
-          "stderrPreview": ""
-        },
-        {
-          "wallMs": 383,
+          "wallMs": 329,
           "peakRssMb": 60.5,
-          "rssDeltaMb": 31.8,
-          "peakCpuPercent": 120,
-          "cpuMsEstimate": 185,
-          "harnessHeapDeltaMb": 1.3,
-          "statSampleCount": 15,
-          "rssSampleCount": 15,
-          "cpuSampleCount": 15,
+          "rssDeltaMb": 31.7,
+          "peakCpuPercent": 100,
+          "cpuMsEstimate": 137,
+          "harnessHeapDeltaMb": -1.8,
+          "statSampleCount": 13,
+          "rssSampleCount": 13,
+          "cpuSampleCount": 13,
           "exitCode": 0,
-          "stdoutPreview": "import loop profile: 2 runs, p50 75ms / p95 76ms / plugin delta RSS 0MB / plugin delta CPU 12ms",
+          "stdoutPreview": "import loop profile: 2 runs, p50 65ms / p95 66ms / plugin delta RSS 0MB / plugin delta CPU 11ms",
+          "stderrPreview": ""
+        },
+        {
+          "wallMs": 319,
+          "peakRssMb": 60.1,
+          "rssDeltaMb": 31.3,
+          "peakCpuPercent": 80,
+          "cpuMsEstimate": 128,
+          "harnessHeapDeltaMb": 1.2,
+          "statSampleCount": 12,
+          "rssSampleCount": 12,
+          "cpuSampleCount": 12,
+          "exitCode": 0,
+          "stdoutPreview": "import loop profile: 2 runs, p50 65ms / p95 65ms / plugin delta RSS 0.1MB / plugin delta CPU 4ms",
+          "stderrPreview": ""
+        },
+        {
+          "wallMs": 329,
+          "peakRssMb": 60.4,
+          "rssDeltaMb": 31.7,
+          "peakCpuPercent": 100,
+          "cpuMsEstimate": 144,
+          "harnessHeapDeltaMb": 1.2,
+          "statSampleCount": 13,
+          "rssSampleCount": 13,
+          "cpuSampleCount": 13,
+          "exitCode": 0,
+          "stdoutPreview": "import loop profile: 2 runs, p50 66ms / p95 66ms / plugin delta RSS 0MB / plugin delta CPU 0ms",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 377,
-        "median": 380,
-        "max": 383
+        "min": 319,
+        "median": 329,
+        "max": 329
       },
       "peakRssMb": {
-        "min": 60.4,
+        "min": 60.1,
         "median": 60.4,
         "max": 60.5
       },
       "rssDeltaMb": {
-        "min": 30.8,
-        "median": 31.8,
-        "max": 31.8
+        "min": 31.3,
+        "median": 31.7,
+        "max": 31.7
       },
       "peakCpuPercent": {
-        "min": 100,
-        "median": 120,
-        "max": 120
+        "min": 80,
+        "median": 100,
+        "max": 100
       },
       "cpuMsEstimate": {
-        "min": 176,
-        "median": 185,
-        "max": 189
+        "min": 128,
+        "median": 137,
+        "max": 144
       },
       "harnessHeapDeltaMb": {
-        "min": -1.6,
-        "median": 1.3,
-        "max": 1.3
+        "min": -1.8,
+        "median": 1.2,
+        "max": 1.2
       },
-      "statSampleCount": 45,
-      "rssSampleCount": 45,
-      "cpuSampleCount": 45,
+      "statSampleCount": 38,
+      "rssSampleCount": 38,
+      "cpuSampleCount": 38,
       "exitCodes": [
         0
       ]
