@@ -21571,8 +21571,6 @@
       ],
       "sourceFiles": [
         "plugins/nemoclaw/commitlint.config.js",
-        "plugins/nemoclaw/eslint.config.mjs",
-        "plugins/nemoclaw/nemoclaw/eslint.config.mjs",
         "plugins/nemoclaw/nemoclaw/src/blueprint/private-networks.ts",
         "plugins/nemoclaw/nemoclaw/src/blueprint/runner.ts",
         "plugins/nemoclaw/nemoclaw/src/blueprint/snapshot.ts",
