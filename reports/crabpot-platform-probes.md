@@ -9,12 +9,12 @@ Targets: linux, macos, windows, container
 | Metric                         | Value |
 | ------------------------------ | ----- |
 | fixtureCount                   | 57    |
-| entrypointCount                | 77    |
-| tsLoaderEntrypointCount        | 58    |
-| jitiAlternativeCount           | 58    |
-| lazyImportProbeCount           | 77    |
+| entrypointCount                | 101   |
+| tsLoaderEntrypointCount        | 23    |
+| jitiAlternativeCount           | 23    |
+| lazyImportProbeCount           | 101   |
 | portabilityFindingCount        | 14    |
-| coveredPortabilityFindingCount | 359   |
+| coveredPortabilityFindingCount | 444   |
 | windowsRiskStepCount           | 14    |
 | macosRiskStepCount             | 14    |
 | linuxRiskStepCount             | 14    |
@@ -43,51 +43,74 @@ Targets: linux, macos, windows, container
 | kitchen-sink           | ready                       | node    | -            | no          | no            | yes              | yes                | plugins/kitchen-sink/src/index.js                                   |
 | kitchen-sink           | ready                       | node    | -            | no          | no            | yes              | yes                | plugins/kitchen-sink/src/index.js                                   |
 | kitchen-sink           | ready                       | node    | -            | no          | no            | yes              | yes                | plugins/kitchen-sink/src/setup.js                                   |
-| bluebubbles            | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/bluebubbles/.crabpot-package/index.ts                       |
-| bluebubbles            | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/bluebubbles/.crabpot-package/setup-entry.ts                 |
-| diagnostics-otel       | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/diagnostics-otel/.crabpot-package/index.ts                  |
-| discord                | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/discord/.crabpot-package/index.ts                           |
-| discord                | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/discord/.crabpot-package/setup-entry.ts                     |
-| lobster                | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/lobster/.crabpot-package/index.ts                           |
-| matrix                 | sdk-alias-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/matrix/.crabpot-package/index.ts                            |
-| msteams                | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/msteams/.crabpot-package/index.ts                           |
-| msteams                | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/msteams/.crabpot-package/setup-entry.ts                     |
-| nextcloud-talk         | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/nextcloud-talk/.crabpot-package/index.ts                    |
-| nextcloud-talk         | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/nextcloud-talk/.crabpot-package/setup-entry.ts              |
-| nostr                  | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/nostr/.crabpot-package/index.ts                             |
-| nostr                  | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/nostr/.crabpot-package/setup-entry.ts                       |
-| voice-call             | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/voice-call/.crabpot-package/index.ts                        |
-| zalo                   | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/zalo/.crabpot-package/index.ts                              |
-| zalo                   | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/zalo/.crabpot-package/setup-entry.ts                        |
-| zalouser               | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/zalouser/.crabpot-package/index.ts                          |
-| zalouser               | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/zalouser/.crabpot-package/setup-entry.ts                    |
-| feishu                 | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/feishu/.crabpot-package/index.ts                            |
-| feishu                 | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/feishu/.crabpot-package/setup-entry.ts                      |
-| tlon                   | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/tlon/.crabpot-package/index.ts                              |
-| tlon                   | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/tlon/.crabpot-package/setup-entry.ts                        |
-| twitch                 | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/twitch/.crabpot-package/index.ts                            |
-| twitch                 | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/twitch/.crabpot-package/setup-entry.ts                      |
+| bluebubbles            | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/bluebubbles/.crabpot-package/index.ts                       |
+| bluebubbles            | ready                       | node    | -            | no          | no            | yes              | yes                | plugins/bluebubbles/.crabpot-package/dist/index.js                  |
+| bluebubbles            | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/bluebubbles/.crabpot-package/setup-entry.ts                 |
+| diagnostics-otel       | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/diagnostics-otel/.crabpot-package/index.ts                  |
+| diagnostics-otel       | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/diagnostics-otel/.crabpot-package/dist/index.js             |
+| discord                | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/discord/.crabpot-package/index.ts                           |
+| discord                | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/discord/.crabpot-package/dist/index.js                      |
+| discord                | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/discord/.crabpot-package/setup-entry.ts                     |
+| lobster                | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/lobster/.crabpot-package/index.ts                           |
+| lobster                | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/lobster/.crabpot-package/dist/index.js                      |
+| matrix                 | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/matrix/.crabpot-package/index.ts                            |
+| msteams                | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/msteams/.crabpot-package/index.ts                           |
+| msteams                | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/msteams/.crabpot-package/dist/index.js                      |
+| msteams                | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/msteams/.crabpot-package/setup-entry.ts                     |
+| nextcloud-talk         | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/nextcloud-talk/.crabpot-package/index.ts                    |
+| nextcloud-talk         | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/nextcloud-talk/.crabpot-package/dist/index.js               |
+| nextcloud-talk         | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/nextcloud-talk/.crabpot-package/setup-entry.ts              |
+| nostr                  | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/nostr/.crabpot-package/index.ts                             |
+| nostr                  | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/nostr/.crabpot-package/dist/index.js                        |
+| nostr                  | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/nostr/.crabpot-package/setup-entry.ts                       |
+| voice-call             | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/voice-call/.crabpot-package/index.ts                        |
+| voice-call             | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/voice-call/.crabpot-package/dist/index.js                   |
+| zalo                   | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/zalo/.crabpot-package/index.ts                              |
+| zalo                   | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/zalo/.crabpot-package/dist/index.js                         |
+| zalo                   | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/zalo/.crabpot-package/setup-entry.ts                        |
+| zalouser               | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/zalouser/.crabpot-package/index.ts                          |
+| zalouser               | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/zalouser/.crabpot-package/dist/index.js                     |
+| zalouser               | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/zalouser/.crabpot-package/setup-entry.ts                    |
+| feishu                 | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/feishu/.crabpot-package/index.ts                            |
+| feishu                 | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/feishu/.crabpot-package/dist/index.js                       |
+| feishu                 | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/feishu/.crabpot-package/setup-entry.ts                      |
+| tlon                   | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/tlon/.crabpot-package/index.ts                              |
+| tlon                   | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/tlon/.crabpot-package/dist/index.js                         |
+| tlon                   | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/tlon/.crabpot-package/setup-entry.ts                        |
+| twitch                 | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/twitch/.crabpot-package/index.ts                            |
+| twitch                 | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/twitch/.crabpot-package/dist/index.js                       |
+| twitch                 | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/twitch/.crabpot-package/setup-entry.ts                      |
 | mattermost             | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/mattermost/.crabpot-package/index.ts                        |
-| synology-chat          | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/synology-chat/.crabpot-package/index.ts                     |
-| synology-chat          | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/synology-chat/.crabpot-package/setup-entry.ts               |
-| brave-plugin           | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/brave-plugin/.crabpot-package/index.ts                      |
-| codex                  | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/codex/.crabpot-package/index.ts                             |
-| diagnostics-prometheus | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/diagnostics-prometheus/.crabpot-package/index.ts            |
-| google-meet            | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/google-meet/.crabpot-package/index.ts                       |
-| diffs                  | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/diffs/.crabpot-package/index.ts                             |
-| memory-lancedb         | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/memory-lancedb/.crabpot-package/index.ts                    |
-| openclaw-qqbot         | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/openclaw-qqbot/.crabpot-package/index.ts                    |
-| openclaw-qqbot         | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/openclaw-qqbot/.crabpot-package/setup-entry.ts              |
-| whatsapp               | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/whatsapp/.crabpot-package/index.ts                          |
-| whatsapp               | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/whatsapp/.crabpot-package/setup-entry.ts                    |
+| synology-chat          | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/synology-chat/.crabpot-package/index.ts                     |
+| synology-chat          | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/synology-chat/.crabpot-package/dist/index.js                |
+| synology-chat          | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/synology-chat/.crabpot-package/setup-entry.ts               |
+| brave-plugin           | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/brave-plugin/.crabpot-package/index.ts                      |
+| brave-plugin           | ready                       | node    | -            | no          | no            | yes              | yes                | plugins/brave-plugin/.crabpot-package/dist/index.js                 |
+| codex                  | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/codex/.crabpot-package/index.ts                             |
+| codex                  | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/codex/.crabpot-package/dist/index.js                        |
+| diagnostics-prometheus | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/diagnostics-prometheus/.crabpot-package/index.ts            |
+| diagnostics-prometheus | ready                       | node    | -            | no          | no            | yes              | yes                | plugins/diagnostics-prometheus/.crabpot-package/dist/index.js       |
+| google-meet            | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/google-meet/.crabpot-package/index.ts                       |
+| google-meet            | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/google-meet/.crabpot-package/dist/index.js                  |
+| diffs                  | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/diffs/.crabpot-package/index.ts                             |
+| diffs                  | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/diffs/.crabpot-package/dist/index.js                        |
+| memory-lancedb         | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/memory-lancedb/.crabpot-package/index.ts                    |
+| memory-lancedb         | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/memory-lancedb/.crabpot-package/dist/index.js               |
+| openclaw-qqbot         | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/openclaw-qqbot/.crabpot-package/index.ts                    |
+| openclaw-qqbot         | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/openclaw-qqbot/.crabpot-package/dist/index.js               |
+| openclaw-qqbot         | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/openclaw-qqbot/.crabpot-package/setup-entry.ts              |
+| whatsapp               | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/whatsapp/.crabpot-package/index.ts                          |
+| whatsapp               | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/whatsapp/.crabpot-package/dist/index.js                     |
+| whatsapp               | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/whatsapp/.crabpot-package/setup-entry.ts                    |
 | nemoclaw               | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/nemoclaw/nemoclaw/dist/index.js                             |
 | memory-tencentdb       | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/memory-tencentdb/.crabpot-package/index.ts                  |
 | ddingtalk              | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/ddingtalk/index.ts                                          |
 | dingtalk-connector     | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/dingtalk-connector/dist/index.mjs                           |
 | mocrane-wecom          | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/mocrane-wecom/index.ts                                      |
-| yuanbao                | sdk-alias-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/yuanbao/.crabpot-package/index.ts                           |
-| yuanbao                | sdk-alias-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/yuanbao/.crabpot-package/setup-entry.ts                     |
+| yuanbao                | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/yuanbao/.crabpot-package/index.ts                           |
+| yuanbao                | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/yuanbao/.crabpot-package/setup-entry.ts                     |
 | openclaw-weixin        | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/openclaw-weixin/.crabpot-package/index.ts                   |
+| openclaw-weixin        | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/openclaw-weixin/.crabpot-package/dist/index.js              |
 | lightclawbot           | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/lightclawbot/.crabpot-package/dist/index.js                 |
 | telnyx-sms             | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/telnyx-sms/dist/index.js                                    |
 | telnyx-sms             | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/telnyx-sms/dist/setup-entry.js                              |
@@ -99,6 +122,7 @@ Targets: linux, macos, windows, container
 | clawmetry              | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/clawmetry/clawhub-plugin/dist/index.js                      |
 | codex-app-server       | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/codex-app-server/index.ts                                   |
 | web-search-plus        | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/web-search-plus/index.ts                                    |
+| web-search-plus        | review-required             | node    | -            | no          | no            | yes              | yes                | plugins/web-search-plus/dist/index.js                               |
 | apify                  | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/apify/src/index.ts                                          |
 | inworld-tts            | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/inworld-tts/index.ts                                        |
 
@@ -217,6 +241,14 @@ Targets: linux, macos, windows, container
 | bluebubbles            | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | bluebubbles            | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | bluebubbles            | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| bluebubbles            | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| bluebubbles            | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| bluebubbles            | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| bluebubbles            | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| diagnostics-otel       | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| diagnostics-otel       | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| diagnostics-otel       | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| diagnostics-otel       | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | diagnostics-otel       | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | diagnostics-otel       | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | diagnostics-otel       | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
@@ -224,7 +256,6 @@ Targets: linux, macos, windows, container
 | diagnostics-otel       | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | discord                | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | discord                | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| discord                | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | discord                | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | discord                | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | discord                | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
@@ -232,6 +263,14 @@ Targets: linux, macos, windows, container
 | discord                | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | discord                | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | discord                | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| discord                | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| discord                | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| discord                | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| discord                | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| lobster                | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| lobster                | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| lobster                | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| lobster                | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | lobster                | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | lobster                | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | lobster                | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
@@ -244,7 +283,6 @@ Targets: linux, macos, windows, container
 | matrix                 | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | msteams                | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | msteams                | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| msteams                | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | msteams                | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | msteams                | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | msteams                | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
@@ -252,9 +290,12 @@ Targets: linux, macos, windows, container
 | msteams                | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | msteams                | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | msteams                | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| msteams                | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| msteams                | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| msteams                | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| msteams                | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | nextcloud-talk         | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | nextcloud-talk         | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| nextcloud-talk         | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | nextcloud-talk         | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | nextcloud-talk         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | nextcloud-talk         | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
@@ -262,9 +303,12 @@ Targets: linux, macos, windows, container
 | nextcloud-talk         | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | nextcloud-talk         | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | nextcloud-talk         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| nextcloud-talk         | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| nextcloud-talk         | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| nextcloud-talk         | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| nextcloud-talk         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | nostr                  | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | nostr                  | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| nostr                  | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | nostr                  | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | nostr                  | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | nostr                  | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
@@ -272,6 +316,14 @@ Targets: linux, macos, windows, container
 | nostr                  | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | nostr                  | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | nostr                  | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| nostr                  | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| nostr                  | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| nostr                  | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| nostr                  | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| voice-call             | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| voice-call             | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| voice-call             | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| voice-call             | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | voice-call             | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | voice-call             | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | voice-call             | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
@@ -279,7 +331,6 @@ Targets: linux, macos, windows, container
 | voice-call             | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | zalo                   | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | zalo                   | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| zalo                   | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | zalo                   | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | zalo                   | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | zalo                   | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
@@ -287,9 +338,12 @@ Targets: linux, macos, windows, container
 | zalo                   | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | zalo                   | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | zalo                   | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| zalo                   | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| zalo                   | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| zalo                   | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| zalo                   | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | zalouser               | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | zalouser               | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| zalouser               | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | zalouser               | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | zalouser               | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | zalouser               | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
@@ -297,9 +351,12 @@ Targets: linux, macos, windows, container
 | zalouser               | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | zalouser               | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | zalouser               | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| zalouser               | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| zalouser               | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| zalouser               | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| zalouser               | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | feishu                 | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | feishu                 | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| feishu                 | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | feishu                 | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | feishu                 | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | feishu                 | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
@@ -307,9 +364,12 @@ Targets: linux, macos, windows, container
 | feishu                 | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | feishu                 | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | feishu                 | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| feishu                 | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| feishu                 | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| feishu                 | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| feishu                 | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | tlon                   | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | tlon                   | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| tlon                   | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | tlon                   | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | tlon                   | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | tlon                   | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
@@ -317,6 +377,14 @@ Targets: linux, macos, windows, container
 | tlon                   | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | tlon                   | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | tlon                   | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| tlon                   | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| tlon                   | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| tlon                   | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| tlon                   | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| twitch                 | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| twitch                 | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| twitch                 | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| twitch                 | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | twitch                 | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | twitch                 | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | twitch                 | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
@@ -324,7 +392,6 @@ Targets: linux, macos, windows, container
 | twitch                 | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | twitch                 | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | twitch                 | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| twitch                 | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | twitch                 | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | twitch                 | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | mattermost             | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
@@ -333,7 +400,6 @@ Targets: linux, macos, windows, container
 | mattermost             | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | synology-chat          | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | synology-chat          | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| synology-chat          | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | synology-chat          | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | synology-chat          | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | synology-chat          | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
@@ -341,10 +407,22 @@ Targets: linux, macos, windows, container
 | synology-chat          | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | synology-chat          | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | synology-chat          | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| synology-chat          | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| synology-chat          | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| synology-chat          | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| synology-chat          | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | brave-plugin           | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | brave-plugin           | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | brave-plugin           | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | brave-plugin           | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| brave-plugin           | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| brave-plugin           | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| brave-plugin           | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| brave-plugin           | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| codex                  | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| codex                  | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| codex                  | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| codex                  | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | codex                  | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | codex                  | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | codex                  | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
@@ -354,6 +432,14 @@ Targets: linux, macos, windows, container
 | diagnostics-prometheus | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | diagnostics-prometheus | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | diagnostics-prometheus | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| diagnostics-prometheus | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| diagnostics-prometheus | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| diagnostics-prometheus | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| diagnostics-prometheus | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| google-meet            | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| google-meet            | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| google-meet            | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| google-meet            | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | google-meet            | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | google-meet            | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | google-meet            | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
@@ -361,9 +447,17 @@ Targets: linux, macos, windows, container
 | google-meet            | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | diffs                  | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | diffs                  | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| diffs                  | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| diffs                  | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| diffs                  | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| diffs                  | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | diffs                  | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | diffs                  | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | diffs                  | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| memory-lancedb         | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| memory-lancedb         | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| memory-lancedb         | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| memory-lancedb         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | memory-lancedb         | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | memory-lancedb         | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | memory-lancedb         | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
@@ -371,7 +465,6 @@ Targets: linux, macos, windows, container
 | memory-lancedb         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | openclaw-qqbot         | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | openclaw-qqbot         | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| openclaw-qqbot         | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | openclaw-qqbot         | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | openclaw-qqbot         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | openclaw-qqbot         | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
@@ -379,6 +472,14 @@ Targets: linux, macos, windows, container
 | openclaw-qqbot         | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | openclaw-qqbot         | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | openclaw-qqbot         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| openclaw-qqbot         | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| openclaw-qqbot         | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| openclaw-qqbot         | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| openclaw-qqbot         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| whatsapp               | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| whatsapp               | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| whatsapp               | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| whatsapp               | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | whatsapp               | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | whatsapp               | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | whatsapp               | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
@@ -386,7 +487,6 @@ Targets: linux, macos, windows, container
 | whatsapp               | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | whatsapp               | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | whatsapp               | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| whatsapp               | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | whatsapp               | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | whatsapp               | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | nemoclaw               | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
@@ -422,6 +522,11 @@ Targets: linux, macos, windows, container
 | yuanbao                | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | yuanbao                | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | yuanbao                | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| openclaw-weixin        | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| openclaw-weixin        | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| openclaw-weixin        | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
+| openclaw-weixin        | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| openclaw-weixin        | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | openclaw-weixin        | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | openclaw-weixin        | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | openclaw-weixin        | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
@@ -471,6 +576,10 @@ Targets: linux, macos, windows, container
 | codex-app-server       | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | codex-app-server       | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | codex-app-server       | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| web-search-plus        | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| web-search-plus        | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| web-search-plus        | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| web-search-plus        | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | web-search-plus        | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | web-search-plus        | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | web-search-plus        | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |

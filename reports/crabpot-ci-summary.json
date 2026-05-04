@@ -1,22 +1,22 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "check",
-  "openclawLabel": "openclaw@latest (2026.5.2, 8b2a6e57fef6)",
+  "mode": "dependabot",
+  "openclawLabel": "openclaw@latest (2026.5.3-1, 2eae30e779cb)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 129,
-    "suggestions": 178,
-    "issues": 307,
-    "p0Issues": 4,
-    "p1Issues": 18,
-    "liveIssues": 4,
-    "liveP0Issues": 4,
-    "compatGaps": 4,
+    "warnings": 170,
+    "suggestions": 158,
+    "issues": 328,
+    "p0Issues": 24,
+    "p1Issues": 38,
+    "liveIssues": 24,
+    "liveP0Issues": 24,
+    "compatGaps": 2,
     "deprecationWarnings": 40,
-    "inspectorGaps": 182,
-    "upstreamIssues": 77,
+    "inspectorGaps": 164,
+    "upstreamIssues": 98,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -28,19 +28,35 @@
     "executionBlocked": 18,
     "platformWindowsRisks": 14,
     "platformContainerRisks": 14,
-    "loaderJitiCandidates": 58,
-    "importLoopP50Ms": 2181,
-    "importLoopP95Ms": 2202,
+    "loaderJitiCandidates": 23,
+    "importLoopP50Ms": 2495,
+    "importLoopP95Ms": 2522,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 53.5,
+    "importLoopOpenClawImportP50Ms": 55.3,
     "importLoopOpenClawActivationP50Ms": 0.3,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 1.8,
-    "importLoopMaxCpuMs": 46,
-    "importLoopRssSampleCount": 257,
-    "importLoopCpuSampleCount": 257
+    "importLoopMaxRssMb": 3.6,
+    "importLoopMaxCpuMs": 0,
+    "importLoopRssSampleCount": 293,
+    "importLoopCpuSampleCount": 293
   },
   "topIssues": [
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "bluebubbles",
+      "code": "package-entrypoint-missing",
+      "title": "bluebubbles: OpenClaw package entrypoint is missing",
+      "decision": "plugin-upstream-fix"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "brave-plugin",
+      "code": "package-entrypoint-missing",
+      "title": "brave-plugin: OpenClaw package entrypoint is missing",
+      "decision": "plugin-upstream-fix"
+    },
     {
       "severity": "P0",
       "issueClass": "live-issue",
@@ -48,6 +64,62 @@
       "code": "sdk-export-missing",
       "title": "clawmetry: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "codex",
+      "code": "package-entrypoint-missing",
+      "title": "codex: OpenClaw package entrypoint is missing",
+      "decision": "plugin-upstream-fix"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "diagnostics-otel",
+      "code": "package-entrypoint-missing",
+      "title": "diagnostics-otel: OpenClaw package entrypoint is missing",
+      "decision": "plugin-upstream-fix"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "diagnostics-prometheus",
+      "code": "package-entrypoint-missing",
+      "title": "diagnostics-prometheus: OpenClaw package entrypoint is missing",
+      "decision": "plugin-upstream-fix"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "diffs",
+      "code": "package-entrypoint-missing",
+      "title": "diffs: OpenClaw package entrypoint is missing",
+      "decision": "plugin-upstream-fix"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "discord",
+      "code": "package-entrypoint-missing",
+      "title": "discord: OpenClaw package entrypoint is missing",
+      "decision": "plugin-upstream-fix"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "feishu",
+      "code": "package-entrypoint-missing",
+      "title": "feishu: OpenClaw package entrypoint is missing",
+      "decision": "plugin-upstream-fix"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "google-meet",
+      "code": "package-entrypoint-missing",
+      "title": "google-meet: OpenClaw package entrypoint is missing",
+      "decision": "plugin-upstream-fix"
     },
     {
       "severity": "P0",
@@ -60,146 +132,74 @@
     {
       "severity": "P0",
       "issueClass": "live-issue",
-      "fixture": "matrix",
-      "code": "sdk-export-missing",
-      "title": "matrix: plugin SDK import aliases are missing from target package exports",
-      "decision": "core-compat-adapter"
+      "fixture": "lobster",
+      "code": "package-entrypoint-missing",
+      "title": "lobster: OpenClaw package entrypoint is missing",
+      "decision": "plugin-upstream-fix"
     },
     {
       "severity": "P0",
       "issueClass": "live-issue",
-      "fixture": "yuanbao",
-      "code": "sdk-export-missing",
-      "title": "yuanbao: plugin SDK import aliases are missing from target package exports",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "clawmetry",
-      "code": "missing-compat-record",
-      "title": "clawmetry: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "clawmetry",
-      "code": "package-npm-pack-entrypoint-missing",
-      "title": "clawmetry: advertised npm artifact is missing OpenClaw entrypoints",
+      "fixture": "memory-lancedb",
+      "code": "package-entrypoint-missing",
+      "title": "memory-lancedb: OpenClaw package entrypoint is missing",
       "decision": "plugin-upstream-fix"
     },
     {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "honcho",
-      "code": "conversation-access-hook",
-      "title": "honcho: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "msteams",
+      "code": "package-entrypoint-missing",
+      "title": "msteams: OpenClaw package entrypoint is missing",
+      "decision": "plugin-upstream-fix"
     },
     {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "honcho",
-      "code": "missing-compat-record",
-      "title": "honcho: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "nextcloud-talk",
+      "code": "package-entrypoint-missing",
+      "title": "nextcloud-talk: OpenClaw package entrypoint is missing",
+      "decision": "plugin-upstream-fix"
     },
     {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "kitchen-sink",
-      "code": "before-tool-call-probe",
-      "title": "kitchen-sink: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "nostr",
+      "code": "package-entrypoint-missing",
+      "title": "nostr: OpenClaw package entrypoint is missing",
+      "decision": "plugin-upstream-fix"
     },
     {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "kitchen-sink",
-      "code": "conversation-access-hook",
-      "title": "kitchen-sink: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "openclaw-qqbot",
+      "code": "package-entrypoint-missing",
+      "title": "openclaw-qqbot: OpenClaw package entrypoint is missing",
+      "decision": "plugin-upstream-fix"
     },
     {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "llm-trace-phoenix",
-      "code": "conversation-access-hook",
-      "title": "llm-trace-phoenix: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "synology-chat",
+      "code": "package-entrypoint-missing",
+      "title": "synology-chat: OpenClaw package entrypoint is missing",
+      "decision": "plugin-upstream-fix"
     },
     {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "matrix",
-      "code": "missing-compat-record",
-      "title": "matrix: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "tlon",
+      "code": "package-entrypoint-missing",
+      "title": "tlon: OpenClaw package entrypoint is missing",
+      "decision": "plugin-upstream-fix"
     },
     {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "memory-lancedb",
-      "code": "conversation-access-hook",
-      "title": "memory-lancedb: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "memory-tencentdb",
-      "code": "conversation-access-hook",
-      "title": "memory-tencentdb: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "memos-cloud",
-      "code": "conversation-access-hook",
-      "title": "memos-cloud: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "nemoclaw",
-      "code": "before-tool-call-probe",
-      "title": "nemoclaw: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "openclaw-telemetry",
-      "code": "before-tool-call-probe",
-      "title": "openclaw-telemetry: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "openclaw-telemetry",
-      "code": "conversation-access-hook",
-      "title": "openclaw-telemetry: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "opik-openclaw",
-      "code": "before-tool-call-probe",
-      "title": "opik-openclaw: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "opik-openclaw",
-      "code": "conversation-access-hook",
-      "title": "opik-openclaw: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "twitch",
+      "code": "package-entrypoint-missing",
+      "title": "twitch: OpenClaw package entrypoint is missing",
+      "decision": "plugin-upstream-fix"
     }
   ],
   "refRegressions": [],
@@ -207,12 +207,32 @@
     {
       "id": "compatibility-report.live-p0-issues",
       "action": "warn",
-      "message": "4 live P0 issues tracked",
+      "message": "24 live P0 issues tracked",
       "evidence": [
+        "bluebubbles:package-entrypoint-missing:none",
+        "brave-plugin:package-entrypoint-missing:none",
         "clawmetry:sdk-export-missing:untracked",
+        "codex:package-entrypoint-missing:none",
+        "diagnostics-otel:package-entrypoint-missing:none",
+        "diagnostics-prometheus:package-entrypoint-missing:none",
+        "diffs:package-entrypoint-missing:none",
+        "discord:package-entrypoint-missing:none",
+        "feishu:package-entrypoint-missing:none",
+        "google-meet:package-entrypoint-missing:none",
         "honcho:sdk-export-missing:untracked",
-        "matrix:sdk-export-missing:untracked",
-        "yuanbao:sdk-export-missing:untracked"
+        "lobster:package-entrypoint-missing:none",
+        "memory-lancedb:package-entrypoint-missing:none",
+        "msteams:package-entrypoint-missing:none",
+        "nextcloud-talk:package-entrypoint-missing:none",
+        "nostr:package-entrypoint-missing:none",
+        "openclaw-qqbot:package-entrypoint-missing:none",
+        "synology-chat:package-entrypoint-missing:none",
+        "tlon:package-entrypoint-missing:none",
+        "twitch:package-entrypoint-missing:none",
+        "voice-call:package-entrypoint-missing:none",
+        "whatsapp:package-entrypoint-missing:none",
+        "zalo:package-entrypoint-missing:none",
+        "zalouser:package-entrypoint-missing:none"
       ]
     },
     {
@@ -427,20 +447,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 85.9% over baseline",
+      "message": "p95WallMs regressed 72.9% over baseline",
       "baseline": 1273,
-      "current": 2366,
-      "delta": 1093,
-      "percent": 85.9
+      "current": 2201,
+      "delta": 928,
+      "percent": 72.9
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 385.79999999999995 over baseline",
+      "message": "maxPeakRssMb regressed 374.29999999999995 over baseline",
       "baseline": 65.1,
-      "current": 450.9,
-      "delta": 385.79999999999995
+      "current": 439.4,
+      "delta": 374.29999999999995
     }
   ],
   "artifacts": {

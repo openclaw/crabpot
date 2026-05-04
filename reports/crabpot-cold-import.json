@@ -3,17 +3,17 @@
   "targetOpenClaw": {
     "status": "ok",
     "configuredPath": "./openclaw",
-    "sdkExportCount": 294
+    "sdkExportCount": 296
   },
   "summary": {
     "fixtureCount": 57,
-    "entrypointCount": 77,
-    "readyCount": 3,
-    "blockedCount": 74,
-    "tsLoaderRequiredCount": 54,
+    "entrypointCount": 101,
+    "readyCount": 6,
+    "blockedCount": 95,
+    "tsLoaderRequiredCount": 22,
     "buildRequiredCount": 9,
-    "dependencyInstallRequiredCount": 51,
-    "sdkAliasRequiredCount": 6
+    "dependencyInstallRequiredCount": 40,
+    "sdkAliasRequiredCount": 3
   },
   "fixtures": [
     {
@@ -523,16 +523,30 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/bluebubbles/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/bluebubbles/.crabpot-package/index.ts"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:bluebubbles:plugins-bluebubbles-crabpot-package-dist-index-js",
+          "fixture": "bluebubbles",
+          "packagePath": "plugins/bluebubbles/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/bluebubbles/.crabpot-package/dist/index.js",
+          "status": "ready",
+          "blockers": [],
+          "assertions": [
+            "entrypoint can be imported by Node without fixture credentials",
+            "registration capture shim receives plugin registrations"
           ]
         },
         {
@@ -542,16 +556,16 @@
           "kind": "setupEntry",
           "specifier": "./setup-entry.ts",
           "path": "plugins/bluebubbles/.crabpot-package/setup-entry.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/bluebubbles/.crabpot-package/setup-entry.ts"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
           ]
         }
       ]
@@ -567,12 +581,31 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/diagnostics-otel/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/diagnostics-otel/.crabpot-package/index.ts"
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:diagnostics-otel:plugins-diagnostics-otel-crabpot-package-dist-index-js",
+          "fixture": "diagnostics-otel",
+          "packagePath": "plugins/diagnostics-otel/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/diagnostics-otel/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/diagnostics-otel/.crabpot-package/dist/index.js"
             },
             {
               "code": "dependency-install-required",
@@ -581,7 +614,7 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "cold import sandbox blocks network/process side effects before register capture",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
@@ -598,13 +631,27 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/discord/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/discord/.crabpot-package/index.ts"
-            },
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:discord:plugins-discord-crabpot-package-dist-index-js",
+          "fixture": "discord",
+          "packagePath": "plugins/discord/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/discord/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -612,7 +659,6 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         },
@@ -623,22 +669,16 @@
           "kind": "setupEntry",
           "specifier": "./setup-entry.ts",
           "path": "plugins/discord/.crabpot-package/setup-entry.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/discord/.crabpot-package/setup-entry.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@discordjs/voice, discord-api-types, https-proxy-agent, opusscript, typebox, undici, ws"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
           ]
         }
       ]
@@ -654,12 +694,31 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/lobster/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/lobster/.crabpot-package/index.ts"
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:lobster:plugins-lobster-crabpot-package-dist-index-js",
+          "fixture": "lobster",
+          "packagePath": "plugins/lobster/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/lobster/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/lobster/.crabpot-package/dist/index.js"
             },
             {
               "code": "dependency-install-required",
@@ -668,7 +727,7 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "cold import sandbox blocks network/process side effects before register capture",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
@@ -685,7 +744,7 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/matrix/.crabpot-package/index.ts",
-          "status": "sdk-alias-required",
+          "status": "ts-loader-required",
           "blockers": [
             {
               "code": "ts-loader-required",
@@ -696,191 +755,11 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@mariozechner/pi-agent-core, @matrix-org/matrix-sdk-crypto-nodejs, @vector-im/matrix-bot-sdk, markdown-it, music-metadata, zod"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/index.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/index.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/actions.ts:9"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/channel.ts:17"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/config-schema.ts:7"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/directory-live.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/group-mentions.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/matrix/accounts.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/matrix/client/config.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/matrix/deps.ts:5"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/matrix/monitor/access-policy.ts:7"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/matrix/monitor/allowlist.ts:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/matrix/monitor/auto-join.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/matrix/monitor/events.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:17"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/matrix/monitor/index.ts:10"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/matrix/monitor/location.ts:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/matrix/monitor/replies.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/matrix/monitor/rooms.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/matrix/poll-types.ts:10"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/matrix/probe.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/matrix/send.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/onboarding.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/onboarding.ts:16"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/outbound.ts:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/resolve-targets.ts:7"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/runtime.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/secret-input.ts:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/tool-actions.ts:8"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/matrix/.crabpot-package/src/types.ts:1"
             }
           ],
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim"
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
       ]
@@ -896,13 +775,27 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/msteams/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/msteams/.crabpot-package/index.ts"
-            },
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:msteams:plugins-msteams-crabpot-package-dist-index-js",
+          "fixture": "msteams",
+          "packagePath": "plugins/msteams/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/msteams/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -910,7 +803,6 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         },
@@ -921,22 +813,16 @@
           "kind": "setupEntry",
           "specifier": "./setup-entry.ts",
           "path": "plugins/msteams/.crabpot-package/setup-entry.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/msteams/.crabpot-package/setup-entry.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, jsonwebtoken, jwks-rsa, typebox"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
           ]
         }
       ]
@@ -952,13 +838,27 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/nextcloud-talk/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/nextcloud-talk/.crabpot-package/index.ts"
-            },
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-dist-index-js",
+          "fixture": "nextcloud-talk",
+          "packagePath": "plugins/nextcloud-talk/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/nextcloud-talk/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -966,7 +866,6 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         },
@@ -977,22 +876,16 @@
           "kind": "setupEntry",
           "specifier": "./setup-entry.ts",
           "path": "plugins/nextcloud-talk/.crabpot-package/setup-entry.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/nextcloud-talk/.crabpot-package/setup-entry.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "zod"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
           ]
         }
       ]
@@ -1008,13 +901,27 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/nostr/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/nostr/.crabpot-package/index.ts"
-            },
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:nostr:plugins-nostr-crabpot-package-dist-index-js",
+          "fixture": "nostr",
+          "packagePath": "plugins/nostr/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/nostr/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -1022,7 +929,6 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         },
@@ -1033,22 +939,16 @@
           "kind": "setupEntry",
           "specifier": "./setup-entry.ts",
           "path": "plugins/nostr/.crabpot-package/setup-entry.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/nostr/.crabpot-package/setup-entry.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "nostr-tools, zod"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
           ]
         }
       ]
@@ -1064,18 +964,27 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/voice-call/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/voice-call/.crabpot-package/index.ts"
-            },
-            {
-              "code": "top-level-side-effect-review",
-              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
-              "evidence": "plugins/voice-call/.crabpot-package/index.ts"
-            },
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:voice-call:plugins-voice-call-crabpot-package-dist-index-js",
+          "fixture": "voice-call",
+          "packagePath": "plugins/voice-call/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/voice-call/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -1083,8 +992,6 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "cold import sandbox blocks network/process side effects before register capture",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
@@ -1101,13 +1008,27 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/zalo/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/zalo/.crabpot-package/index.ts"
-            },
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:zalo:plugins-zalo-crabpot-package-dist-index-js",
+          "fixture": "zalo",
+          "packagePath": "plugins/zalo/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/zalo/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -1115,7 +1036,6 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         },
@@ -1126,22 +1046,16 @@
           "kind": "setupEntry",
           "specifier": "./setup-entry.ts",
           "path": "plugins/zalo/.crabpot-package/setup-entry.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/zalo/.crabpot-package/setup-entry.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "undici"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
           ]
         }
       ]
@@ -1157,13 +1071,27 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/zalouser/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/zalouser/.crabpot-package/index.ts"
-            },
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:zalouser:plugins-zalouser-crabpot-package-dist-index-js",
+          "fixture": "zalouser",
+          "packagePath": "plugins/zalouser/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/zalouser/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -1171,7 +1099,6 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         },
@@ -1182,22 +1109,16 @@
           "kind": "setupEntry",
           "specifier": "./setup-entry.ts",
           "path": "plugins/zalouser/.crabpot-package/setup-entry.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/zalouser/.crabpot-package/setup-entry.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "typebox, zca-js"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
           ]
         }
       ]
@@ -1213,13 +1134,27 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/feishu/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/feishu/.crabpot-package/index.ts"
-            },
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:feishu:plugins-feishu-crabpot-package-dist-index-js",
+          "fixture": "feishu",
+          "packagePath": "plugins/feishu/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/feishu/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -1227,7 +1162,6 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         },
@@ -1238,22 +1172,16 @@
           "kind": "setupEntry",
           "specifier": "./setup-entry.ts",
           "path": "plugins/feishu/.crabpot-package/setup-entry.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/feishu/.crabpot-package/setup-entry.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@larksuiteoapi/node-sdk, typebox"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
           ]
         }
       ]
@@ -1269,18 +1197,27 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/tlon/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/tlon/.crabpot-package/index.ts"
-            },
-            {
-              "code": "top-level-side-effect-review",
-              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
-              "evidence": "plugins/tlon/.crabpot-package/index.ts"
-            },
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:tlon:plugins-tlon-crabpot-package-dist-index-js",
+          "fixture": "tlon",
+          "packagePath": "plugins/tlon/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/tlon/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -1288,8 +1225,6 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "cold import sandbox blocks network/process side effects before register capture",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         },
@@ -1300,22 +1235,16 @@
           "kind": "setupEntry",
           "specifier": "./setup-entry.ts",
           "path": "plugins/tlon/.crabpot-package/setup-entry.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/tlon/.crabpot-package/setup-entry.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@aws-sdk/client-s3, @aws-sdk/s3-request-presigner, @tloncorp/tlon-skill, @urbit/aura"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
           ]
         }
       ]
@@ -1331,13 +1260,27 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/twitch/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/twitch/.crabpot-package/index.ts"
-            },
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:twitch:plugins-twitch-crabpot-package-dist-index-js",
+          "fixture": "twitch",
+          "packagePath": "plugins/twitch/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/twitch/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -1345,7 +1288,6 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         },
@@ -1356,22 +1298,16 @@
           "kind": "setupEntry",
           "specifier": "./setup-entry.ts",
           "path": "plugins/twitch/.crabpot-package/setup-entry.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/twitch/.crabpot-package/setup-entry.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@twurple/api, @twurple/auth, @twurple/chat"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
           ]
         }
       ]
@@ -1412,13 +1348,27 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/synology-chat/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/synology-chat/.crabpot-package/index.ts"
-            },
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:synology-chat:plugins-synology-chat-crabpot-package-dist-index-js",
+          "fixture": "synology-chat",
+          "packagePath": "plugins/synology-chat/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/synology-chat/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -1426,7 +1376,6 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         },
@@ -1437,22 +1386,16 @@
           "kind": "setupEntry",
           "specifier": "./setup-entry.ts",
           "path": "plugins/synology-chat/.crabpot-package/setup-entry.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/synology-chat/.crabpot-package/setup-entry.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "zod"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
           ]
         }
       ]
@@ -1468,16 +1411,30 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/brave-plugin/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/brave-plugin/.crabpot-package/index.ts"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:brave-plugin:plugins-brave-plugin-crabpot-package-dist-index-js",
+          "fixture": "brave-plugin",
+          "packagePath": "plugins/brave-plugin/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/brave-plugin/.crabpot-package/dist/index.js",
+          "status": "ready",
+          "blockers": [],
+          "assertions": [
+            "entrypoint can be imported by Node without fixture credentials",
+            "registration capture shim receives plugin registrations"
           ]
         }
       ]
@@ -1493,12 +1450,31 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/codex/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/codex/.crabpot-package/index.ts"
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:codex:plugins-codex-crabpot-package-dist-index-js",
+          "fixture": "codex",
+          "packagePath": "plugins/codex/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/codex/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/codex/.crabpot-package/dist/index.js"
             },
             {
               "code": "dependency-install-required",
@@ -1507,7 +1483,7 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "cold import sandbox blocks network/process side effects before register capture",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
@@ -1524,16 +1500,30 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/diagnostics-prometheus/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/diagnostics-prometheus/.crabpot-package/index.ts"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-dist-index-js",
+          "fixture": "diagnostics-prometheus",
+          "packagePath": "plugins/diagnostics-prometheus/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/diagnostics-prometheus/.crabpot-package/dist/index.js",
+          "status": "ready",
+          "blockers": [],
+          "assertions": [
+            "entrypoint can be imported by Node without fixture credentials",
+            "registration capture shim receives plugin registrations"
           ]
         }
       ]
@@ -1549,12 +1539,31 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/google-meet/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/google-meet/.crabpot-package/index.ts"
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:google-meet:plugins-google-meet-crabpot-package-dist-index-js",
+          "fixture": "google-meet",
+          "packagePath": "plugins/google-meet/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/google-meet/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/google-meet/.crabpot-package/dist/index.js"
             },
             {
               "code": "dependency-install-required",
@@ -1563,7 +1572,7 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "cold import sandbox blocks network/process side effects before register capture",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
@@ -1580,13 +1589,27 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/diffs/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/diffs/.crabpot-package/index.ts"
-            },
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:diffs:plugins-diffs-crabpot-package-dist-index-js",
+          "fixture": "diffs",
+          "packagePath": "plugins/diffs/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/diffs/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -1594,7 +1617,6 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
@@ -1611,21 +1633,34 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/memory-lancedb/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/memory-lancedb/.crabpot-package/index.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@lancedb/lancedb, openai, typebox"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js",
+          "fixture": "memory-lancedb",
+          "packagePath": "plugins/memory-lancedb/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/memory-lancedb/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@lancedb/lancedb, apache-arrow, openai, typebox"
+            }
+          ],
+          "assertions": [
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
@@ -1642,13 +1677,27 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/openclaw-qqbot/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/openclaw-qqbot/.crabpot-package/index.ts"
-            },
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-index-js",
+          "fixture": "openclaw-qqbot",
+          "packagePath": "plugins/openclaw-qqbot/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/openclaw-qqbot/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -1656,7 +1705,6 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         },
@@ -1667,22 +1715,16 @@
           "kind": "setupEntry",
           "specifier": "./setup-entry.ts",
           "path": "plugins/openclaw-qqbot/.crabpot-package/setup-entry.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/openclaw-qqbot/.crabpot-package/setup-entry.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@tencent-connect/qqbot-connector, mpg123-decoder, silk-wasm, ws, zod"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
           ]
         }
       ]
@@ -1698,13 +1740,27 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/whatsapp/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/whatsapp/.crabpot-package/index.ts"
-            },
+            }
+          ],
+          "assertions": [
+            "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:whatsapp:plugins-whatsapp-crabpot-package-dist-index-js",
+          "fixture": "whatsapp",
+          "packagePath": "plugins/whatsapp/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/whatsapp/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -1712,7 +1768,6 @@
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         },
@@ -1723,22 +1778,16 @@
           "kind": "setupEntry",
           "specifier": "./setup-entry.ts",
           "path": "plugins/whatsapp/.crabpot-package/setup-entry.ts",
-          "status": "ts-loader-required",
+          "status": "missing",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "code": "missing-entrypoint",
+              "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/whatsapp/.crabpot-package/setup-entry.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@whiskeysockets/baileys, https-proxy-agent, jimp, typebox, undici"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
           ]
         }
       ]
@@ -1897,7 +1946,7 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/yuanbao/.crabpot-package/index.ts",
-          "status": "sdk-alias-required",
+          "status": "ts-loader-required",
           "blockers": [
             {
               "code": "ts-loader-required",
@@ -1907,48 +1956,12 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "cos-nodejs-sdk-v5, protobufjs, uuid, ws"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/log-upload/extractor.js:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/env.js:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/utils.js:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/log-upload/extractor.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/env.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/utils.ts:2"
+              "evidence": "cos-nodejs-sdk-v5, protobufjs, ws"
             }
           ],
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim"
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         },
         {
@@ -1958,7 +1971,7 @@
           "kind": "setupEntry",
           "specifier": "./setup-entry.ts",
           "path": "plugins/yuanbao/.crabpot-package/setup-entry.ts",
-          "status": "sdk-alias-required",
+          "status": "ts-loader-required",
           "blockers": [
             {
               "code": "ts-loader-required",
@@ -1968,48 +1981,12 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "cos-nodejs-sdk-v5, protobufjs, uuid, ws"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/log-upload/extractor.js:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/env.js:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/upgrade/utils.js:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/log-upload/extractor.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/env.ts:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/matrix @ plugins/yuanbao/.crabpot-package/src/business/commands/upgrade/utils.ts:2"
+              "evidence": "cos-nodejs-sdk-v5, protobufjs, ws"
             }
           ],
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim"
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
       ]
@@ -2040,6 +2017,25 @@
           ],
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-index-js",
+          "fixture": "openclaw-weixin",
+          "packagePath": "plugins/openclaw-weixin/.crabpot-package/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/openclaw-weixin/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "qrcode-terminal, zod"
+            }
+          ],
+          "assertions": [
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
@@ -2345,6 +2341,25 @@
           ],
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
+            "cold import sandbox blocks network/process side effects before register capture"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeExtension:web-search-plus:plugins-web-search-plus-dist-index-js",
+          "fixture": "web-search-plus",
+          "packagePath": "plugins/web-search-plus/package.json",
+          "kind": "runtimeExtension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/web-search-plus/dist/index.js",
+          "status": "review-required",
+          "blockers": [
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/web-search-plus/dist/index.js"
+            }
+          ],
+          "assertions": [
             "cold import sandbox blocks network/process side effects before register capture"
           ]
         }
