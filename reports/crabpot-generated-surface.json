@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-03T05:24:20.117Z",
+  "generatedAt": "2026-05-05T02:45:13.951Z",
   "status": "pass",
   "pluginRoot": ".crabpot/generated-surface-plugin",
   "targetOpenClaw": {
@@ -7,7 +7,7 @@
     "configuredPath": "./openclaw",
     "hookNameCount": 35,
     "apiRegistrarCount": 49,
-    "sdkExportCount": 294,
+    "sdkExportCount": 296,
     "manifestContractFieldCount": 17,
     "directCallbackCount": 1
   },
@@ -15,11 +15,11 @@
     "expectedHookCount": 35,
     "expectedRegistrarCount": 49,
     "expectedDirectCallbackCount": 1,
-    "expectedSdkExportCount": 294,
+    "expectedSdkExportCount": 296,
     "expectedManifestContractCount": 17,
     "staticHookCount": 35,
     "staticRegistrarCount": 49,
-    "staticSdkImportCount": 294,
+    "staticSdkImportCount": 296,
     "staticManifestContractCount": 17,
     "runtimeHookCount": 35,
     "runtimeRegistrarCount": 49,
@@ -250,6 +250,8 @@
       "openclaw/plugin-sdk/lmstudio-runtime",
       "openclaw/plugin-sdk/logging-core",
       "openclaw/plugin-sdk/markdown-table-runtime",
+      "openclaw/plugin-sdk/matrix",
+      "openclaw/plugin-sdk/mattermost",
       "openclaw/plugin-sdk/media-generation-runtime",
       "openclaw/plugin-sdk/media-generation-runtime-shared",
       "openclaw/plugin-sdk/media-mime",
@@ -656,6 +658,8 @@
         "openclaw/plugin-sdk/lmstudio-runtime",
         "openclaw/plugin-sdk/logging-core",
         "openclaw/plugin-sdk/markdown-table-runtime",
+        "openclaw/plugin-sdk/matrix",
+        "openclaw/plugin-sdk/mattermost",
         "openclaw/plugin-sdk/media-generation-runtime",
         "openclaw/plugin-sdk/media-generation-runtime-shared",
         "openclaw/plugin-sdk/media-mime",
@@ -952,6 +956,8 @@
         "openclaw/plugin-sdk/lmstudio-runtime",
         "openclaw/plugin-sdk/logging-core",
         "openclaw/plugin-sdk/markdown-table-runtime",
+        "openclaw/plugin-sdk/matrix",
+        "openclaw/plugin-sdk/mattermost",
         "openclaw/plugin-sdk/media-generation-runtime",
         "openclaw/plugin-sdk/media-generation-runtime-shared",
         "openclaw/plugin-sdk/media-mime",
@@ -1246,14 +1252,14 @@
   },
   "inspector": {
     "static": {
-      "command": "npm exec --yes --package @openclaw/plugin-inspector@0.3.6 -- plugin-inspector check --config plugin-inspector.config.json --no-openclaw --out reports --no-runtime",
+      "command": "npm exec --yes --package @openclaw/plugin-inspector@0.3.10 -- plugin-inspector check --config plugin-inspector.config.json --no-openclaw --out reports --no-runtime",
       "status": 0,
       "stdout": "Status: PASS\nFixtures: 1\nBreakages: 0\nIssues: 6\nLogs: 4\n\nReports:\n- json: ./.crabpot/generated-surface-plugin/reports/plugin-inspector-report.json\n- markdown: ./.crabpot/generated-surface-plugin/reports/plugin-inspector-report.md\n- issues: ./.crabpot/generated-surface-plugin/reports/plugin-inspector-issues.md\n",
       "stderr": "",
       "failures": []
     },
     "runtime": {
-      "command": "npm exec --yes --package @openclaw/plugin-inspector@0.3.6 -- plugin-inspector check --config plugin-inspector.config.json --no-openclaw --out reports --runtime --mock-sdk",
+      "command": "npm exec --yes --package @openclaw/plugin-inspector@0.3.10 -- plugin-inspector check --config plugin-inspector.config.json --no-openclaw --out reports --runtime --mock-sdk",
       "status": 0,
       "stdout": "Status: PASS\nFixtures: 1\nBreakages: 0\nIssues: 6\nLogs: 4\n\nReports:\n- json: ./.crabpot/generated-surface-plugin/reports/plugin-inspector-report.json\n- markdown: ./.crabpot/generated-surface-plugin/reports/plugin-inspector-report.md\n- issues: ./.crabpot/generated-surface-plugin/reports/plugin-inspector-issues.md\n",
       "stderr": "",
