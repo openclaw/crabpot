@@ -5,6 +5,7 @@ import os from "node:os";
 import { spawnSync } from "node:child_process";
 import path from "node:path";
 import { fixtureSourceRoot, readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
+import { writePackageAvailabilityReport } from "./package-availability.mjs";
 
 const openclawSourceRepo = "https://github.com/openclaw/openclaw.git";
 const sourcePackPluginTrack = "source-pack";
@@ -14,6 +15,7 @@ const materialize = args.materialize;
 const check = args.check || !materialize;
 
 const manifest = await readConfiguredManifest({ fixtureSet: args.fixtureSet });
+const packageAvailabilityFailures = [];
 
 if (check) {
   await checkGitmodules(manifest);
@@ -43,6 +45,13 @@ for (const fixture of manifest.fixtures) {
 
   run("git", ["-c", "safe.directory=*", "submodule", "add", "--depth", "1", fixture.repo, fixture.path]);
 }
+
+await writePackageAvailabilityReport({
+  generatedAt: new Date().toISOString(),
+  fixtureSet: args.fixtureSet || "all",
+  pluginTrack: args.pluginTrack || "manifest",
+  failures: packageAvailabilityFailures,
+});
 
 console.log("crabpot: fixtures materialized. review .gitmodules and commit pinned revisions.");
 
@@ -83,7 +92,9 @@ async function checkNpmFixtureShims(manifest) {
 }
 
 async function materializeNpmFixture(fixture, target) {
-  const dependency = await resolveNpmFixtureDependency(fixture, { pluginTrack: args.pluginTrack });
+  const dependency = await resolveNpmFixtureDependencyWithFallback(fixture, {
+    pluginTrack: args.pluginTrack,
+  });
   const spec = `${dependency.name}@${dependency.version}`;
   const tempDir = await mkdtemp(path.join(os.tmpdir(), "crabpot-npm-fixture-"));
   const payloadDir = fixtureSourceRoot(fixture);
@@ -98,7 +109,17 @@ async function materializeNpmFixture(fixture, target) {
     if (pack.status !== 0) {
       process.stderr.write(pack.stderr ?? "");
       const detail = pack.error ? `: ${pack.error.message}` : "";
-      throw new Error(`npm pack ${spec} failed with ${pack.status}${detail}`);
+      recordPackageAvailabilityFailure(fixture, {
+        fallbackVersion: dependency.fallbackVersion,
+        message: `npm pack ${spec} failed with ${pack.status}${detail}`,
+        requestedTag: dependency.requestedTag,
+        requestedVersion: dependency.version,
+        reason: "npm-pack-failed",
+      });
+      if (!existsSync(payloadDir)) {
+        await mkdir(payloadDir, { recursive: true });
+      }
+      return;
     }
     const packed = JSON.parse(pack.stdout)[0];
     if (!packed?.filename) {
@@ -192,6 +213,31 @@ async function resolveNpmFixtureDependency(fixture, options = {}) {
   };
 }
 
+async function resolveNpmFixtureDependencyWithFallback(fixture, options = {}) {
+  try {
+    return await resolveNpmFixtureDependency(fixture, options);
+  } catch (error) {
+    const declared = await readNpmFixtureDependency(fixture);
+    const requestedTag = selectedPackageTag(fixture, options.pluginTrack);
+    recordPackageAvailabilityFailure(fixture, {
+      fallbackVersion: declared.version,
+      message: error.message,
+      requestedTag,
+      requestedVersion: declared.version,
+      reason: "npm-dist-tag-missing",
+    });
+    console.warn(
+      `crabpot: ${fixture.id} ${fixture.package.name}@${requestedTag} unavailable; falling back to pinned ${declared.version}`,
+    );
+    return {
+      ...declared,
+      fallbackVersion: declared.version,
+      requestedTag,
+      tag: "",
+    };
+  }
+}
+
 async function readNpmFixtureDependency(fixture) {
   const shimPath = path.join(repoRoot, fixture.path, "package.json");
   if (!existsSync(shimPath)) {
@@ -261,6 +307,20 @@ async function npmDistTag(name, tag) {
     throw new Error(`${name}: npm dist-tag ${tag} resolved to invalid version ${JSON.stringify(version)}`);
   }
   return version;
+}
+
+function recordPackageAvailabilityFailure(fixture, failure) {
+  packageAvailabilityFailures.push({
+    fixture: fixture.id,
+    packageName: fixture.package.name,
+    requestedTag: failure.requestedTag || null,
+    requestedVersion: failure.requestedVersion || null,
+    fallbackVersion: failure.fallbackVersion || null,
+    openclawPackage: isOpenClawPackage(fixture.package.name),
+    reason: failure.reason,
+    message: failure.message,
+    path: fixture.path,
+  });
 }
 
 async function npmPackageGitHead(name, version) {
