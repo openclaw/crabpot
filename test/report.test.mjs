@@ -143,9 +143,9 @@ test("OpenClaw npm artifact availability failures become P0 live issues", async 
       fixtureSet: "openclaw-beta",
       pluginTrack: "beta",
       summary: {
-        failureCount: 2,
-        openclawFailureCount: 1,
-        fallbackCount: 1,
+        failureCount: 3,
+        openclawFailureCount: 2,
+        fallbackCount: 2,
       },
       failures: [
         {
@@ -158,6 +158,17 @@ test("OpenClaw npm artifact availability failures become P0 live issues", async 
           reason: "npm-dist-tag-missing",
           message: "@openclaw/mattermost: npm dist-tag beta resolved to invalid version undefined",
           path: "plugins/mattermost",
+        },
+        {
+          fixture: "whatsapp",
+          packageName: "@openclaw/whatsapp",
+          requestedTag: "beta",
+          requestedVersion: "2026.2.21",
+          fallbackVersion: "2026.2.21",
+          openclawPackage: true,
+          reason: "npm-dist-tag-missing",
+          message: "@openclaw/whatsapp: npm dist-tag beta resolved to invalid version undefined",
+          path: "plugins/whatsapp",
         },
         {
           fixture: "external",
@@ -173,7 +184,7 @@ test("OpenClaw npm artifact availability failures become P0 live issues", async 
   });
   const issue = report.issues.find(
     (candidate) =>
-      candidate.fixture === "mattermost" &&
+      candidate.fixture === "whatsapp" &&
       candidate.code === "package-npm-pack-unavailable",
   );
   const markdown = renderMarkdownReport(report);
@@ -186,7 +197,8 @@ test("OpenClaw npm artifact availability failures become P0 live issues", async 
   assert.equal(report.summary.liveP0IssueCount, 1);
   assert.equal(report.crabpotContext.packageAvailability.openclawFailures, 1);
   assert.match(markdown, /Package availability/);
-  assert.match(markdown, /@openclaw\/mattermost@beta/);
+  assert.match(markdown, /@openclaw\/whatsapp@beta/);
+  assert.doesNotMatch(markdown, /@openclaw\/mattermost@beta/);
   assert.doesNotMatch(markdown, /external-plugin/);
 });
 

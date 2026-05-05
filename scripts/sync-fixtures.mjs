@@ -80,6 +80,9 @@ async function checkGitmodules(manifest) {
 async function checkNpmFixtureShims(manifest) {
   const errors = [];
   for (const fixture of manifest.fixtures.filter((item) => item.package)) {
+    if (packageArtifactSource(fixture) === sourcePackPluginTrack) {
+      continue;
+    }
     try {
       await readNpmFixtureDependency(fixture);
     } catch (error) {
@@ -261,7 +264,11 @@ async function readNpmFixtureDependency(fixture) {
 }
 
 function shouldMaterializeSourcePack(fixture, pluginTrack) {
-  if (pluginTrack !== sourcePackPluginTrack || !isOpenClawPackage(fixture.package.name)) {
+  const artifactSource = packageArtifactSource(fixture);
+  if (
+    artifactSource !== sourcePackPluginTrack &&
+    (pluginTrack !== sourcePackPluginTrack || !isOpenClawPackage(fixture.package.name))
+  ) {
     return false;
   }
   if (!fixture.source) {
@@ -274,7 +281,10 @@ function shouldMaterializeSourcePack(fixture, pluginTrack) {
 }
 
 function selectedPackageTag(fixture, pluginTrack) {
-  if (pluginTrack === sourcePackPluginTrack && isOpenClawPackage(fixture.package.name)) {
+  if (
+    packageArtifactSource(fixture) === sourcePackPluginTrack ||
+    (pluginTrack === sourcePackPluginTrack && isOpenClawPackage(fixture.package.name))
+  ) {
     return "";
   }
   if (pluginTrack && pluginTrack !== "manifest" && isOpenClawPackage(fixture.package.name)) {
@@ -288,6 +298,10 @@ function selectedPackageTag(fixture, pluginTrack) {
 
 function isOpenClawPackage(name) {
   return /^@openclaw\//.test(name);
+}
+
+function packageArtifactSource(fixture) {
+  return fixture.package?.artifactSource ?? "npm";
 }
 
 async function npmDistTag(name, tag) {
@@ -317,6 +331,7 @@ function recordPackageAvailabilityFailure(fixture, failure) {
     requestedVersion: failure.requestedVersion || null,
     fallbackVersion: failure.fallbackVersion || null,
     openclawPackage: isOpenClawPackage(fixture.package.name),
+    artifactSource: packageArtifactSource(fixture),
     reason: failure.reason,
     message: failure.message,
     path: fixture.path,
@@ -418,11 +433,12 @@ function run(command, args) {
 }
 
 function resolveOpenClawSourceRoot() {
-  if (!args.openclawPath) {
-    throw new Error("source-pack requires --openclaw or CRABPOT_TEST_OPENCLAW_PATH");
+  const configuredPath = args.openclawPath || manifest.openclaw?.defaultCheckoutPath || "";
+  if (!configuredPath) {
+    throw new Error("source-pack requires --openclaw, CRABPOT_TEST_OPENCLAW_PATH, or openclaw.defaultCheckoutPath");
   }
 
-  const root = path.resolve(repoRoot, args.openclawPath);
+  const root = path.resolve(repoRoot, configuredPath);
   const packageJsonPath = path.join(root, "package.json");
   if (!existsSync(packageJsonPath)) {
     throw new Error(`source-pack OpenClaw checkout is missing package.json: ${path.relative(repoRoot, packageJsonPath)}`);

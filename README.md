@@ -9,14 +9,14 @@
 
 ## Reporting Data
 
-`main` follows the latest published npm package and npm `latest` plugin artifacts. `crab-beta` follows beta npm dist-tags. `crab-development` checks `openclaw/openclaw` main against source-packed official plugin artifacts from that same OpenClaw checkout.
+`main` follows the latest published npm package and npm `latest` plugin artifacts, with bundled OpenClaw fixtures source-packed from the matching checkout. `crab-beta` follows beta npm dist-tags for externalized packages and source-packs bundled fixtures. `crab-development` checks `openclaw/openclaw` main against source-packed official plugin artifacts from that same OpenClaw checkout.
 - **Last dashboard update:** May 05, 2026, 02:45 UTC
 <!-- crabpot-tracks:start -->
 - **Source:** `npm-latest`
 - **OpenClaw version:** `2026.5.3-1`
 - **OpenClaw SHA:** `2eae30e779cb`
-- **Dashboard target:** `openclaw@latest + @openclaw/*@latest`
-- **Plugin artifacts:** `npm latest fixture set`
+- **Dashboard target:** `openclaw@latest + @openclaw/*@latest + bundled source fixtures`
+- **Plugin artifacts:** `npm latest fixture set plus bundled source-packed fixtures`
 - **GitHub report run:** [25354973898](https://github.com/openclaw/crabpot/actions/runs/25354973898)
 <!-- crabpot-tracks:end -->
 

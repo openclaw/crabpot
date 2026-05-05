@@ -39,9 +39,16 @@ export function normalizePackageAvailabilityReport(report = {}) {
   };
 }
 
-export function packageAvailabilityIssues(report) {
+export function packageAvailabilityActionableFailures(report, options = {}) {
+  const sourcePackFixtures = sourcePackFixtureIds(options.manifest);
   return (report?.failures ?? [])
     .filter((failure) => failure.openclawPackage)
+    .filter((failure) => failure.artifactSource !== "source-pack")
+    .filter((failure) => !sourcePackFixtures.has(failure.fixture));
+}
+
+export function packageAvailabilityIssues(report, options = {}) {
+  return packageAvailabilityActionableFailures(report, options)
     .map((failure) => ({
       id: issueIdForPackageFailure(failure),
       fixture: failure.fixture,
@@ -67,9 +74,8 @@ export function packageAvailabilityIssues(report) {
     }));
 }
 
-export function packageAvailabilityDecisions(report) {
-  return (report?.failures ?? [])
-    .filter((failure) => failure.openclawPackage)
+export function packageAvailabilityDecisions(report, options = {}) {
+  return packageAvailabilityActionableFailures(report, options)
     .map((failure) => ({
       fixture: failure.fixture,
       decision: "plugin-release-fix",
@@ -77,6 +83,14 @@ export function packageAvailabilityDecisions(report) {
       action: `Restore the OpenClaw npm artifact for ${failure.packageName}@${failure.requestedTag ?? failure.requestedVersion ?? "requested track"} before trusting this track as release-complete.`,
       evidence: failure.message,
     }));
+}
+
+function sourcePackFixtureIds(manifest) {
+  return new Set(
+    (manifest?.fixtures ?? [])
+      .filter((fixture) => fixture.package?.artifactSource === "source-pack")
+      .map((fixture) => fixture.id),
+  );
 }
 
 export function mergePackageAvailabilityIntoSummary(summary, issues) {

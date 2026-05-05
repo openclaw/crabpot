@@ -34,7 +34,8 @@
             "properties": {
               "name": { "type": "string", "minLength": 1 },
               "version": { "type": "string", "minLength": 1 },
-              "tag": { "type": "string", "minLength": 1 }
+              "tag": { "type": "string", "minLength": 1 },
+              "artifactSource": { "enum": ["npm", "source-pack"] }
             }
           },
           "source": {

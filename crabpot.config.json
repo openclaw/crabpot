@@ -459,7 +459,8 @@
       "name": "OpenClaw Matrix channel plugin",
       "package": {
         "name": "@openclaw/matrix",
-        "tag": "latest"
+        "tag": "latest",
+        "artifactSource": "source-pack"
       },
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
@@ -472,15 +473,14 @@
         "channel",
         "gateway-method",
         "subagent-routing",
-        "cli",
-        "npm-artifact"
+        "cli"
       ],
       "expect": {
         "registrations": [
           "registerChannel"
         ]
       },
-      "why": "Official OpenClaw Matrix channel package covering CLI setup, gateway methods, subagent routing hooks, and monorepo-backed npm packaging."
+      "why": "Official bundled OpenClaw Matrix channel package covering CLI setup, gateway methods, and subagent routing hooks; Crabpot source-packs it from the OpenClaw monorepo instead of requiring a separate npm dist-tag."
     },
     {
       "id": "msteams",
@@ -745,7 +745,8 @@
       "name": "OpenClaw Mattermost channel plugin",
       "package": {
         "name": "@openclaw/mattermost",
-        "tag": "latest"
+        "tag": "latest",
+        "artifactSource": "source-pack"
       },
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
@@ -758,15 +759,14 @@
         "channel",
         "http-routes",
         "self-hosted-chat",
-        "account-auth",
-        "npm-artifact"
+        "account-auth"
       ],
       "expect": {
         "registrations": [
           "registerChannel"
         ]
       },
-      "why": "Official Mattermost channel package covering self-hosted chat auth, HTTP route registration, channel factory metadata, and npm artifact packaging."
+      "why": "Official bundled Mattermost channel package covering self-hosted chat auth, HTTP route registration, and channel factory metadata; Crabpot source-packs it from the OpenClaw monorepo instead of requiring a separate npm dist-tag."
     },
     {
       "id": "synology-chat",

@@ -5,6 +5,7 @@ import path from "node:path";
 import { readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
 import {
   defaultPackageAvailabilityPath,
+  packageAvailabilityActionableFailures,
   mergePackageAvailabilityIntoSummary,
   packageAvailabilityDecisions,
   packageAvailabilityIssues,
@@ -42,8 +43,8 @@ export async function buildReport(options = {}) {
     executionResults,
     openclawPath: options.openclawPath,
   });
-  const packageIssues = packageAvailabilityIssues(packageAvailability);
-  const packageDecisions = packageAvailabilityDecisions(packageAvailability);
+  const packageIssues = packageAvailabilityIssues(packageAvailability, { manifest });
+  const packageDecisions = packageAvailabilityDecisions(packageAvailability, { manifest });
   const issues = [...packageIssues, ...(report.issues ?? [])];
   return {
     ...report,
@@ -56,6 +57,7 @@ export async function buildReport(options = {}) {
       manifest,
       openclawPath: options.openclawPath,
       packageAvailability,
+      packageAvailabilityActionableFailures: packageAvailabilityActionableFailures(packageAvailability, { manifest }),
       packageAvailabilityPath: options.packageAvailabilityPath,
     }),
   };
@@ -84,6 +86,7 @@ function buildReportContext({
   manifest,
   openclawPath,
   packageAvailability,
+  packageAvailabilityActionableFailures,
   packageAvailabilityPath,
 }) {
   return {
@@ -103,7 +106,7 @@ function buildReportContext({
       ? {
           path: packageAvailabilityPath ?? defaultPackageAvailabilityPath,
           failures: packageAvailability.summary?.failureCount ?? packageAvailability.failures?.length ?? 0,
-          openclawFailures: packageAvailability.summary?.openclawFailureCount ?? 0,
+          openclawFailures: packageAvailabilityActionableFailures?.length ?? 0,
           fallbacks: packageAvailability.summary?.fallbackCount ?? 0,
         }
       : null,
