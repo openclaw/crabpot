@@ -9,12 +9,12 @@ Targets: linux, macos, windows, container
 | Metric                         | Value |
 | ------------------------------ | ----- |
 | fixtureCount                   | 57    |
-| entrypointCount                | 101   |
-| tsLoaderEntrypointCount        | 23    |
-| jitiAlternativeCount           | 23    |
-| lazyImportProbeCount           | 101   |
+| entrypointCount                | 103   |
+| tsLoaderEntrypointCount        | 25    |
+| jitiAlternativeCount           | 25    |
+| lazyImportProbeCount           | 103   |
 | portabilityFindingCount        | 14    |
-| coveredPortabilityFindingCount | 444   |
+| coveredPortabilityFindingCount | 455   |
 | windowsRiskStepCount           | 14    |
 | macosRiskStepCount             | 14    |
 | linuxRiskStepCount             | 14    |
@@ -54,6 +54,7 @@ Targets: linux, macos, windows, container
 | lobster                | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/lobster/.crabpot-package/index.ts                           |
 | lobster                | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/lobster/.crabpot-package/dist/index.js                      |
 | matrix                 | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/matrix/.crabpot-package/index.ts                            |
+| matrix                 | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/matrix/.crabpot-package/setup-entry.ts                      |
 | msteams                | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/msteams/.crabpot-package/index.ts                           |
 | msteams                | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/msteams/.crabpot-package/dist/index.js                      |
 | msteams                | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/msteams/.crabpot-package/setup-entry.ts                     |
@@ -81,6 +82,7 @@ Targets: linux, macos, windows, container
 | twitch                 | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/twitch/.crabpot-package/dist/index.js                       |
 | twitch                 | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/twitch/.crabpot-package/setup-entry.ts                      |
 | mattermost             | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/mattermost/.crabpot-package/index.ts                        |
+| mattermost             | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/mattermost/.crabpot-package/setup-entry.ts                  |
 | synology-chat          | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/synology-chat/.crabpot-package/index.ts                     |
 | synology-chat          | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/synology-chat/.crabpot-package/dist/index.js                |
 | synology-chat          | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/synology-chat/.crabpot-package/setup-entry.ts               |
@@ -281,6 +283,11 @@ Targets: linux, macos, windows, container
 | matrix                 | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | matrix                 | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | matrix                 | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| matrix                 | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| matrix                 | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| matrix                 | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
+| matrix                 | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| matrix                 | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | msteams                | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | msteams                | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | msteams                | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
@@ -396,6 +403,12 @@ Targets: linux, macos, windows, container
 | twitch                 | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | mattermost             | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | mattermost             | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| mattermost             | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
+| mattermost             | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| mattermost             | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| mattermost             | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| mattermost             | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| mattermost             | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | mattermost             | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | mattermost             | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | synology-chat          | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |

@@ -11,17 +11,17 @@
   },
   "summary": {
     "fixtureCount": 57,
-    "entrypointCount": 101,
-    "installStepCount": 40,
-    "auditStepCount": 40,
+    "entrypointCount": 103,
+    "installStepCount": 43,
+    "auditStepCount": 43,
     "buildStepCount": 11,
-    "pruneDevWorkspaceDependencyStepCount": 19,
-    "artifactStepCount": 101,
-    "captureStepCount": 101,
-    "syntheticProbeStepCount": 101,
-    "targetOpenClawLinkStepCount": 87,
-    "tsLoaderEntrypointCount": 23,
-    "jitiAlternativeCount": 23,
+    "pruneDevWorkspaceDependencyStepCount": 23,
+    "artifactStepCount": 103,
+    "captureStepCount": 103,
+    "syntheticProbeStepCount": 103,
+    "targetOpenClawLinkStepCount": 91,
+    "tsLoaderEntrypointCount": 25,
+    "jitiAlternativeCount": 25,
     "missingBuildScriptCount": 0,
     "sdkAliasRequiredCount": 3
   },
@@ -2184,6 +2184,7 @@
             "capture-shim",
             "dependency-install",
             "synthetic-probes",
+            "target-openclaw-link",
             "ts-loader"
           ],
           "blockers": [
@@ -2195,7 +2196,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@mariozechner/pi-agent-core, @matrix-org/matrix-sdk-crypto-nodejs, @vector-im/matrix-bot-sdk, markdown-it, music-metadata, zod"
+              "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox"
             }
           ],
           "steps": [
@@ -2210,6 +2211,18 @@
               "command": "mkdir -p .crabpot/results/matrix",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/matrix",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/68e10e0aaae20d30e90637af33620250e28964e0/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/matrix",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -2236,6 +2249,96 @@
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/matrix",
               "artifactPath": ".crabpot/results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        },
+        {
+          "id": "cold-import.setupEntry:matrix:plugins-matrix-crabpot-package-setup-entry-ts",
+          "fixture": "matrix",
+          "packagePath": "plugins/matrix/.crabpot-package/package.json",
+          "packageName": "@openclaw/matrix",
+          "entrypoint": "plugins/matrix/.crabpot-package/setup-entry.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/matrix/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/matrix/.crabpot-package/setup-entry.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/matrix && rsync -a --delete plugins/matrix/.crabpot-package/ .crabpot/workspaces/matrix/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/matrix",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/matrix",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/68e10e0aaae20d30e90637af33620250e28964e0/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/matrix",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/matrix",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/matrix/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/matrix",
+              "artifactPath": ".crabpot/results/matrix/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/matrix/cold-import-setupEntry-matrix-plugins-matrix-crabpot-package-setup-entry-ts.capture.json",
+              "cwd": ".crabpot/workspaces/matrix",
+              "artifactPath": ".crabpot/results/matrix/cold-import-setupEntry-matrix-plugins-matrix-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/matrix/cold-import-setupEntry-matrix-plugins-matrix-crabpot-package-setup-entry-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/matrix",
+              "artifactPath": ".crabpot/results/matrix/cold-import-setupEntry-matrix-plugins-matrix-crabpot-package-setup-entry-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -4101,7 +4204,9 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
+            "target-openclaw-link",
             "ts-loader"
           ],
           "blockers": [
@@ -4109,6 +4214,11 @@
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
               "evidence": "plugins/mattermost/.crabpot-package/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "ws"
             }
           ],
           "steps": [
@@ -4125,6 +4235,31 @@
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
             },
             {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/mattermost",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/68e10e0aaae20d30e90637af33620250e28964e0/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/mattermost",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/mattermost",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/mattermost/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/mattermost",
+              "artifactPath": ".crabpot/results/mattermost/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
               "kind": "capture",
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.capture.json",
               "cwd": ".crabpot/workspaces/mattermost",
@@ -4136,6 +4271,96 @@
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.synthetic.json",
               "cwd": ".crabpot/workspaces/mattermost",
               "artifactPath": ".crabpot/results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        },
+        {
+          "id": "cold-import.setupEntry:mattermost:plugins-mattermost-crabpot-package-setup-entry-ts",
+          "fixture": "mattermost",
+          "packagePath": "plugins/mattermost/.crabpot-package/package.json",
+          "packageName": "@openclaw/mattermost",
+          "entrypoint": "plugins/mattermost/.crabpot-package/setup-entry.ts",
+          "status": "ts-loader-required",
+          "packageManager": "npm",
+          "lockfile": "plugins/mattermost/package-lock.json",
+          "loaderStrategy": {
+            "source": "typescript-source",
+            "primary": "tsx",
+            "alternatives": [
+              "jiti"
+            ],
+            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+          },
+          "requiredCapabilities": [
+            "capture-shim",
+            "dependency-install",
+            "synthetic-probes",
+            "target-openclaw-link",
+            "ts-loader"
+          ],
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/mattermost/.crabpot-package/setup-entry.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "ws"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/mattermost && rsync -a --delete plugins/mattermost/.crabpot-package/ .crabpot/workspaces/mattermost/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/mattermost",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/mattermost",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/68e10e0aaae20d30e90637af33620250e28964e0/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/mattermost",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/mattermost",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/mattermost/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/mattermost",
+              "artifactPath": ".crabpot/results/mattermost/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/mattermost/cold-import-setupEntry-mattermost-plugins-mattermost-crabpot-package-setup-entry-ts.capture.json",
+              "cwd": ".crabpot/workspaces/mattermost",
+              "artifactPath": ".crabpot/results/mattermost/cold-import-setupEntry-mattermost-plugins-mattermost-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/mattermost/cold-import-setupEntry-mattermost-plugins-mattermost-crabpot-package-setup-entry-ts.synthetic.json",
+              "cwd": ".crabpot/workspaces/mattermost",
+              "artifactPath": ".crabpot/results/mattermost/cold-import-setupEntry-mattermost-plugins-mattermost-crabpot-package-setup-entry-ts.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]

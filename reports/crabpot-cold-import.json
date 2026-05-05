@@ -7,12 +7,12 @@
   },
   "summary": {
     "fixtureCount": 57,
-    "entrypointCount": 101,
+    "entrypointCount": 103,
     "readyCount": 6,
-    "blockedCount": 95,
-    "tsLoaderRequiredCount": 22,
+    "blockedCount": 97,
+    "tsLoaderRequiredCount": 24,
     "buildRequiredCount": 9,
-    "dependencyInstallRequiredCount": 40,
+    "dependencyInstallRequiredCount": 43,
     "sdkAliasRequiredCount": 3
   },
   "fixtures": [
@@ -754,7 +754,32 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@mariozechner/pi-agent-core, @matrix-org/matrix-sdk-crypto-nodejs, @vector-im/matrix-bot-sdk, markdown-it, music-metadata, zod"
+              "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
+        },
+        {
+          "id": "cold-import.setupEntry:matrix:plugins-matrix-crabpot-package-setup-entry-ts",
+          "fixture": "matrix",
+          "packagePath": "plugins/matrix/.crabpot-package/package.json",
+          "kind": "setupEntry",
+          "specifier": "./setup-entry.ts",
+          "path": "plugins/matrix/.crabpot-package/setup-entry.ts",
+          "status": "ts-loader-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/matrix/.crabpot-package/setup-entry.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox"
             }
           ],
           "assertions": [
@@ -1329,10 +1354,41 @@
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
               "evidence": "plugins/mattermost/.crabpot-package/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "ws"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import"
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
+        },
+        {
+          "id": "cold-import.setupEntry:mattermost:plugins-mattermost-crabpot-package-setup-entry-ts",
+          "fixture": "mattermost",
+          "packagePath": "plugins/mattermost/.crabpot-package/package.json",
+          "kind": "setupEntry",
+          "specifier": "./setup-entry.ts",
+          "path": "plugins/mattermost/.crabpot-package/setup-entry.ts",
+          "status": "ts-loader-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/mattermost/.crabpot-package/setup-entry.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "ws"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
       ]

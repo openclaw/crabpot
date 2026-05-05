@@ -2,14 +2,14 @@
   "generatedAt": "deterministic",
   "summary": {
     "fixtureCount": 57,
-    "probeCount": 411,
-    "hookProbeCount": 95,
-    "registrationProbeCount": 316,
-    "readyCount": 411,
+    "probeCount": 421,
+    "hookProbeCount": 98,
+    "registrationProbeCount": 323,
+    "readyCount": 421,
     "blockedCount": 0,
-    "directExecutionCount": 161,
-    "optInExecutionCount": 32,
-    "metadataOnlyCount": 123
+    "directExecutionCount": 166,
+    "optInExecutionCount": 30,
+    "metadataOnlyCount": 127
   },
   "probes": [
     {
@@ -1789,6 +1789,75 @@
         "fixture": "discord"
       },
       "source": "plugins/discord/.crabpot-package/dist/subagent-hooks-api.js:8"
+    },
+    {
+      "id": "hook.subagent_delivery_target:matrix:plugins-matrix-crabpot-package-subagent-hooks-api-ts-21",
+      "fixture": "matrix",
+      "kind": "hook",
+      "seam": "subagent_delivery_target",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "target routing result is preserved",
+        "parent/subagent metadata are present"
+      ],
+      "syntheticEvent": {
+        "childSessionKey": "child-session",
+        "agentId": "agent-child",
+        "label": "fixture child",
+        "mode": "run",
+        "requester": {
+          "channel": "fixture-channel",
+          "accountId": "fixture-account"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "parentAgentId": "agent-parent"
+      },
+      "source": "plugins/matrix/.crabpot-package/subagent-hooks-api.ts:21"
+    },
+    {
+      "id": "hook.subagent_ended:matrix:plugins-matrix-crabpot-package-subagent-hooks-api-ts-17",
+      "fixture": "matrix",
+      "kind": "hook",
+      "seam": "subagent_ended",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "subagent completion payload is preserved",
+        "status metadata is present"
+      ],
+      "syntheticEvent": {
+        "childSessionKey": "child-session",
+        "agentId": "agent-child",
+        "status": "completed"
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "parentAgentId": "agent-parent"
+      },
+      "source": "plugins/matrix/.crabpot-package/subagent-hooks-api.ts:17"
+    },
+    {
+      "id": "hook.subagent_spawning:matrix:plugins-matrix-crabpot-package-subagent-hooks-api-ts-13",
+      "fixture": "matrix",
+      "kind": "hook",
+      "seam": "subagent_spawning",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "subagent_spawning",
+        "fixture": "matrix"
+      },
+      "syntheticContext": {
+        "hook": "subagent_spawning",
+        "fixture": "matrix"
+      },
+      "source": "plugins/matrix/.crabpot-package/subagent-hooks-api.ts:13"
     },
     {
       "id": "hook.subagent_delivery_target:feishu:plugins-feishu-crabpot-package-dist-subagent-hooks-api-js-13",
@@ -5907,35 +5976,173 @@
       "source": "plugins/lobster/.crabpot-package/dist/index.js:647"
     },
     {
-      "id": "registration.registerChannel:matrix:plugins-matrix-crabpot-package-index-ts-18",
+      "id": "registration.defineBundledChannelEntry:matrix:plugins-matrix-crabpot-package-index-ts-36",
       "fixture": "matrix",
       "kind": "registration",
-      "seam": "registerChannel",
+      "seam": "defineBundledChannelEntry",
       "status": "ready",
       "blocker": null,
       "assertions": [
-        "channel id is stable",
-        "inbound/outbound envelope shape is captured",
-        "sender metadata is preserved"
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "bundled channel entry metadata is captured before channel runtime execution"
+      },
+      "source": "plugins/matrix/.crabpot-package/index.ts:36"
+    },
+    {
+      "id": "registration.definePluginEntry:matrix:plugins-matrix-crabpot-package-cli-metadata-ts-6",
+      "fixture": "matrix",
+      "kind": "registration",
+      "seam": "definePluginEntry",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "entrypoint register function is callable",
+        "entrypoint metadata is preserved"
       ],
       "syntheticArguments": [
         {
-          "id": "fixture-channel",
-          "send": "function",
-          "receive": "function"
+          "id": "fixture-plugin",
+          "register": "function"
         }
       ],
       "execution": {
-        "mode": "channel-opt-in",
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "entry wrapper metadata is captured before plugin runtime execution"
+      },
+      "source": "plugins/matrix/.crabpot-package/cli-metadata.ts:6"
+    },
+    {
+      "id": "registration.registerCli:matrix:plugins-matrix-crabpot-package-src-cli-metadata-ts-4",
+      "fixture": "matrix",
+      "kind": "registration",
+      "seam": "registerCli",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command name is stable",
+        "argument schema is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "args": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "execution": {
+        "mode": "direct",
         "callableProperties": [
-          "send",
-          "sendMessage",
-          "receive",
-          "handleMessage"
-        ],
-        "option": "includeChannelRuntime"
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/matrix/.crabpot-package/src/cli-metadata.ts:4"
+    },
+    {
+      "id": "registration.registerGatewayMethod:matrix:plugins-matrix-crabpot-package-index-ts-18",
+      "fixture": "matrix",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
       },
       "source": "plugins/matrix/.crabpot-package/index.ts:18"
+    },
+    {
+      "id": "registration.registerGatewayMethod:matrix:plugins-matrix-crabpot-package-index-ts-23",
+      "fixture": "matrix",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/matrix/.crabpot-package/index.ts:23"
+    },
+    {
+      "id": "registration.registerGatewayMethod:matrix:plugins-matrix-crabpot-package-index-ts-28",
+      "fixture": "matrix",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/matrix/.crabpot-package/index.ts:28"
     },
     {
       "id": "registration.createChatChannelPlugin:msteams:plugins-msteams-crabpot-package-dist-channel-BNxPm8L-js-379",
@@ -7122,35 +7329,80 @@
       "source": "plugins/twitch/.crabpot-package/dist/index.js:3"
     },
     {
-      "id": "registration.registerChannel:mattermost:plugins-mattermost-crabpot-package-index-ts-13",
+      "id": "registration.createChatChannelPlugin:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-263",
       "fixture": "mattermost",
       "kind": "registration",
-      "seam": "registerChannel",
+      "seam": "createChatChannelPlugin",
       "status": "ready",
       "blocker": null,
       "assertions": [
-        "channel id is stable",
-        "inbound/outbound envelope shape is captured",
-        "sender metadata is preserved"
+        "channel plugin id is stable",
+        "channel factory metadata is captured"
       ],
       "syntheticArguments": [
         {
-          "id": "fixture-channel",
-          "send": "function",
-          "receive": "function"
+          "base": {
+            "id": "fixture-channel"
+          },
+          "outbound": {
+            "sendText": "function"
+          }
         }
       ],
       "execution": {
-        "mode": "channel-opt-in",
-        "callableProperties": [
-          "send",
-          "sendMessage",
-          "receive",
-          "handleMessage"
-        ],
-        "option": "includeChannelRuntime"
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/mattermost/.crabpot-package/index.ts:13"
+      "source": "plugins/mattermost/.crabpot-package/src/channel.ts:263"
+    },
+    {
+      "id": "registration.defineBundledChannelEntry:mattermost:plugins-mattermost-crabpot-package-index-ts-15",
+      "fixture": "mattermost",
+      "kind": "registration",
+      "seam": "defineBundledChannelEntry",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "bundled channel entry metadata is captured before channel runtime execution"
+      },
+      "source": "plugins/mattermost/.crabpot-package/index.ts:15"
+    },
+    {
+      "id": "registration.registerHttpRoute:mattermost:plugins-mattermost-crabpot-package-src-mattermost-slash-state-ts-396",
+      "fixture": "mattermost",
+      "kind": "registration",
+      "seam": "registerHttpRoute",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "route method and path are captured",
+        "auth policy metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "method": "POST",
+          "path": "/fixture/probe",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/mattermost/.crabpot-package/src/mattermost/slash-state.ts:396"
     },
     {
       "id": "registration.createChatChannelPlugin:synology-chat:plugins-synology-chat-crabpot-package-dist-channel-BYl2GyR-js-1065",

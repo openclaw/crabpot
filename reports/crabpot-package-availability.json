@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-05-05T03:25:31.524Z",
+  "fixtureSet": "all",
+  "pluginTrack": "latest",
+  "summary": {
+    "failureCount": 0,
+    "openclawFailureCount": 0,
+    "fallbackCount": 0
+  },
+  "failures": []
+}

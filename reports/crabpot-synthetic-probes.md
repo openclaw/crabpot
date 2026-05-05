@@ -7,14 +7,14 @@ Generated: deterministic
 | Metric              | Value |
 | ------------------- | ----- |
 | Fixtures            | 57    |
-| Probes              | 411   |
-| Hook probes         | 95    |
-| Registration probes | 316   |
-| Ready               | 411   |
+| Probes              | 421   |
+| Hook probes         | 98    |
+| Registration probes | 323   |
+| Ready               | 421   |
 | Blocked             | 0     |
-| Direct execution    | 161   |
-| Opt-in execution    | 32    |
-| Metadata-only       | 123   |
+| Direct execution    | 166   |
+| Opt-in execution    | 30    |
+| Metadata-only       | 127   |
 
 ## Probe Inventory
 
@@ -96,6 +96,9 @@ Generated: deterministic
 | discord                | hook         | subagent_delivery_target               | ready  | hook-direct      | plugins/discord/.crabpot-package/dist/subagent-hooks-api.js:16         | target routing result is preserved; parent/subagent metadata are present                        |
 | discord                | hook         | subagent_ended                         | ready  | hook-direct      | plugins/discord/.crabpot-package/dist/subagent-hooks-api.js:12         | subagent completion payload is preserved; status metadata is present                            |
 | discord                | hook         | subagent_spawning                      | ready  | hook-direct      | plugins/discord/.crabpot-package/dist/subagent-hooks-api.js:8          | hook payload and return value are captured                                                      |
+| matrix                 | hook         | subagent_delivery_target               | ready  | hook-direct      | plugins/matrix/.crabpot-package/subagent-hooks-api.ts:21               | target routing result is preserved; parent/subagent metadata are present                        |
+| matrix                 | hook         | subagent_ended                         | ready  | hook-direct      | plugins/matrix/.crabpot-package/subagent-hooks-api.ts:17               | subagent completion payload is preserved; status metadata is present                            |
+| matrix                 | hook         | subagent_spawning                      | ready  | hook-direct      | plugins/matrix/.crabpot-package/subagent-hooks-api.ts:13               | hook payload and return value are captured                                                      |
 | feishu                 | hook         | subagent_delivery_target               | ready  | hook-direct      | plugins/feishu/.crabpot-package/dist/subagent-hooks-api.js:13          | target routing result is preserved; parent/subagent metadata are present                        |
 | feishu                 | hook         | subagent_ended                         | ready  | hook-direct      | plugins/feishu/.crabpot-package/dist/subagent-hooks-api.js:17          | subagent completion payload is preserved; status metadata is present                            |
 | feishu                 | hook         | subagent_spawning                      | ready  | hook-direct      | plugins/feishu/.crabpot-package/dist/subagent-hooks-api.js:9           | hook payload and return value are captured                                                      |
@@ -255,7 +258,12 @@ Generated: deterministic
 | discord                | registration | defineBundledChannelEntry              | ready  | metadata-only    | plugins/discord/.crabpot-package/dist/index.js:4                       | registration arguments are captured                                                             |
 | lobster                | registration | definePluginEntry                      | ready  | metadata-only    | plugins/lobster/.crabpot-package/dist/index.js:642                     | entrypoint register function is callable; entrypoint metadata is preserved                      |
 | lobster                | registration | registerTool                           | ready  | direct           | plugins/lobster/.crabpot-package/dist/index.js:647                     | tool name is stable; input schema is captured; result shape metadata is captured                |
-| matrix                 | registration | registerChannel                        | ready  | channel-opt-in   | plugins/matrix/.crabpot-package/index.ts:18                            | channel id is stable; inbound/outbound envelope shape is captured; sender metadata is preserved |
+| matrix                 | registration | defineBundledChannelEntry              | ready  | metadata-only    | plugins/matrix/.crabpot-package/index.ts:36                            | registration arguments are captured                                                             |
+| matrix                 | registration | definePluginEntry                      | ready  | metadata-only    | plugins/matrix/.crabpot-package/cli-metadata.ts:6                      | entrypoint register function is callable; entrypoint metadata is preserved                      |
+| matrix                 | registration | registerCli                            | ready  | direct           | plugins/matrix/.crabpot-package/src/cli-metadata.ts:4                  | command name is stable; argument schema is captured                                             |
+| matrix                 | registration | registerGatewayMethod                  | ready  | direct           | plugins/matrix/.crabpot-package/index.ts:18                            | method name is stable; request and response schema are captured                                 |
+| matrix                 | registration | registerGatewayMethod                  | ready  | direct           | plugins/matrix/.crabpot-package/index.ts:23                            | method name is stable; request and response schema are captured                                 |
+| matrix                 | registration | registerGatewayMethod                  | ready  | direct           | plugins/matrix/.crabpot-package/index.ts:28                            | method name is stable; request and response schema are captured                                 |
 | msteams                | registration | createChatChannelPlugin                | ready  | metadata-only    | plugins/msteams/.crabpot-package/dist/channel-_BNxPm8L.js:379          | channel plugin id is stable; channel factory metadata is captured                               |
 | msteams                | registration | defineBundledChannelEntry              | ready  | metadata-only    | plugins/msteams/.crabpot-package/dist/index.js:3                       | registration arguments are captured                                                             |
 | nextcloud-talk         | registration | createChatChannelPlugin                | ready  | metadata-only    | plugins/nextcloud-talk/.crabpot-package/dist/channel-BVVRsVr5.js:1678  | channel plugin id is stable; channel factory metadata is captured                               |
@@ -299,7 +307,9 @@ Generated: deterministic
 | tlon                   | registration | defineBundledChannelEntry              | ready  | metadata-only    | plugins/tlon/.crabpot-package/dist/index.js:3                          | registration arguments are captured                                                             |
 | twitch                 | registration | createChatChannelPlugin                | ready  | metadata-only    | plugins/twitch/.crabpot-package/dist/plugin-BQX9GiIn.js:762            | channel plugin id is stable; channel factory metadata is captured                               |
 | twitch                 | registration | defineBundledChannelEntry              | ready  | metadata-only    | plugins/twitch/.crabpot-package/dist/index.js:3                        | registration arguments are captured                                                             |
-| mattermost             | registration | registerChannel                        | ready  | channel-opt-in   | plugins/mattermost/.crabpot-package/index.ts:13                        | channel id is stable; inbound/outbound envelope shape is captured; sender metadata is preserved |
+| mattermost             | registration | createChatChannelPlugin                | ready  | metadata-only    | plugins/mattermost/.crabpot-package/src/channel.ts:263                 | channel plugin id is stable; channel factory metadata is captured                               |
+| mattermost             | registration | defineBundledChannelEntry              | ready  | metadata-only    | plugins/mattermost/.crabpot-package/index.ts:15                        | registration arguments are captured                                                             |
+| mattermost             | registration | registerHttpRoute                      | ready  | direct           | plugins/mattermost/.crabpot-package/src/mattermost/slash-state.ts:396  | route method and path are captured; auth policy metadata is captured                            |
 | synology-chat          | registration | createChatChannelPlugin                | ready  | metadata-only    | plugins/synology-chat/.crabpot-package/dist/channel-BYl2GyR_.js:1065   | channel plugin id is stable; channel factory metadata is captured                               |
 | synology-chat          | registration | defineBundledChannelEntry              | ready  | metadata-only    | plugins/synology-chat/.crabpot-package/dist/index.js:3                 | registration arguments are captured                                                             |
 | brave-plugin           | registration | definePluginEntry                      | ready  | metadata-only    | plugins/brave-plugin/.crabpot-package/dist/index.js:4                  | entrypoint register function is callable; entrypoint metadata is preserved                      |
