@@ -134,6 +134,74 @@ test("report can focus on the OpenClaw beta npm fixture set", async () => {
   assert.ok(report.fixtures.every((fixture) => report.crabpotContext.fixtureIds.includes(fixture.id)));
 });
 
+test("OpenClaw npm artifact availability failures become P0 live issues", async () => {
+  const report = await buildReport({
+    generatedAt: "test",
+    openclawPath: false,
+    packageAvailability: {
+      generatedAt: "test",
+      fixtureSet: "openclaw-beta",
+      pluginTrack: "beta",
+      summary: {
+        failureCount: 3,
+        openclawFailureCount: 2,
+        fallbackCount: 2,
+      },
+      failures: [
+        {
+          fixture: "mattermost",
+          packageName: "@openclaw/mattermost",
+          requestedTag: "beta",
+          requestedVersion: "2026.2.21",
+          fallbackVersion: "2026.2.21",
+          openclawPackage: true,
+          reason: "npm-dist-tag-missing",
+          message: "@openclaw/mattermost: npm dist-tag beta resolved to invalid version undefined",
+          path: "plugins/mattermost",
+        },
+        {
+          fixture: "whatsapp",
+          packageName: "@openclaw/whatsapp",
+          requestedTag: "beta",
+          requestedVersion: "2026.2.21",
+          fallbackVersion: "2026.2.21",
+          openclawPackage: true,
+          reason: "npm-dist-tag-missing",
+          message: "@openclaw/whatsapp: npm dist-tag beta resolved to invalid version undefined",
+          path: "plugins/whatsapp",
+        },
+        {
+          fixture: "external",
+          packageName: "external-plugin",
+          requestedTag: "beta",
+          openclawPackage: false,
+          reason: "npm-dist-tag-missing",
+          message: "external-plugin: npm dist-tag beta resolved to invalid version undefined",
+          path: "plugins/external",
+        },
+      ],
+    },
+  });
+  const issue = report.issues.find(
+    (candidate) =>
+      candidate.fixture === "whatsapp" &&
+      candidate.code === "package-npm-pack-unavailable",
+  );
+  const markdown = renderMarkdownReport(report);
+
+  assert.equal(issue.severity, "P0");
+  assert.equal(issue.issueClass, "live-issue");
+  assert.equal(issue.status, "blocking");
+  assert.equal(issue.decision, "plugin-release-fix");
+  assert.ok(report.summary.p0IssueCount >= 1);
+  assert.equal(report.issues.filter((candidate) => candidate.code === "package-npm-pack-unavailable").length, 1);
+  assert.equal(report.crabpotContext.packageAvailability.openclawFailures, 1);
+  assert.match(markdown, /Package availability/);
+  assert.match(markdown, /@openclaw\/whatsapp@beta/);
+  assert.doesNotMatch(markdown, /@openclaw\/mattermost@beta/);
+  assert.doesNotMatch(markdown, /external-plugin/);
+});
+
 test("report can reconcile runtime execution evidence", async () => {
   const report = await buildReport({
     executionResults: {

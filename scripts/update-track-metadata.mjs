@@ -17,15 +17,15 @@ const branchUrls = {
 };
 
 const trackTargets = {
-  beta: "openclaw@beta + @openclaw/*@beta",
+  beta: "openclaw@beta + @openclaw/*@beta + bundled source fixtures",
   development: "openclaw/openclaw@main + source-packed @openclaw/*",
-  latest: "openclaw@latest + @openclaw/*@latest",
+  latest: "openclaw@latest + @openclaw/*@latest + bundled source fixtures",
 };
 
 const pluginArtifacts = {
-  beta: "npm beta fixture set",
+  beta: "npm beta fixture set plus bundled source-packed fixtures",
   development: "source-packed from OpenClaw checkout",
-  latest: "npm latest fixture set",
+  latest: "npm latest fixture set plus bundled source-packed fixtures",
 };
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

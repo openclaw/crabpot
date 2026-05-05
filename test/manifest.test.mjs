@@ -51,6 +51,19 @@ test("openclaw beta fixture set narrows to beta npm packages", async () => {
   assert.ok(manifest.fixtures.every((fixture) => fixture.package?.tag === "beta"));
 });
 
+test("bundled OpenClaw channels source-pack from the monorepo", async () => {
+  const manifest = await readManifest();
+  const bundled = manifest.fixtures.filter((fixture) => ["matrix", "mattermost"].includes(fixture.id));
+
+  assert.deepEqual(bundled.map((fixture) => fixture.id), ["matrix", "mattermost"]);
+  for (const fixture of bundled) {
+    assert.equal(fixture.package.artifactSource, "source-pack");
+    assert.ok(fixture.source.path.startsWith("extensions/"));
+    assert.equal(fixture.seams.includes("npm-artifact"), false);
+    assert.match(fixture.why, /source-packs it from the OpenClaw monorepo/);
+  }
+});
+
 test("explicit fixture set narrows to named fixtures", async () => {
   const manifest = await readConfiguredManifest({ fixtureSet: "kitchen-sink,wecom" });
 
@@ -81,6 +94,7 @@ test("manifest validation rejects invalid fixture contracts before CI materializ
       "fixture must declare exactly one of repo or package",
       "repo must be a GitHub HTTPS .git URL",
       "package.name must be set",
+      "package.artifactSource must be npm or source-pack when present",
       "source.repo must be a GitHub HTTPS .git URL",
       "source.path must be a repo-relative path",
       "source.ref must be set",
@@ -104,7 +118,7 @@ function invalidManifest() {
         id: "Bad_ID",
         path: "../outside",
         repo: "git@github.com:owner/repo",
-        package: {},
+        package: { artifactSource: "registry" },
         source: {
           repo: "git@github.com:owner/repo",
           path: "../outside",

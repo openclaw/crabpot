@@ -13,7 +13,7 @@ test("static suite keeps the dashboard gate broad and target-explicit", () => {
   const rendered = steps.map(([command, args]) => [command, args.join(" ")]);
 
   assert.deepEqual(rendered[0], ["node", "scripts/check-openclaw-plugin-contracts.mjs"]);
-  assert.deepEqual(rendered[1], ["node", "scripts/sync-fixtures.mjs --materialize"]);
+  assert.deepEqual(rendered[1], ["node", "scripts/sync-fixtures.mjs --materialize --openclaw ./openclaw"]);
   assert.ok(rendered.some(([command, args]) => command === "node" && args === "--test test/*.test.mjs"));
   assert.ok(
     rendered.some(([command, args]) => command === "node" && args === "scripts/run-plugin-inspector-smoke.mjs --check"),

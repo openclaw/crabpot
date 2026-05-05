@@ -42,10 +42,10 @@ export function buildStaticSuiteSteps({
 } = {}) {
   return [
     ["node", ["scripts/check-openclaw-plugin-contracts.mjs"]],
-    ["node", ["scripts/sync-fixtures.mjs", "--materialize"]],
+    ["node", ["scripts/sync-fixtures.mjs", "--materialize", ...openclawArgs]],
     ["node", ["--test", "test/*.test.mjs"]],
     ...(Object.keys(fixtureEnv).length > 0
-      ? [["node", ["scripts/sync-fixtures.mjs", "--materialize"], fixtureEnv]]
+      ? [["node", ["scripts/sync-fixtures.mjs", "--materialize", ...openclawArgs], fixtureEnv]]
       : []),
     ["node", ["scripts/sync-fixtures.mjs", "--check"], fixtureEnv],
     ["node", ["scripts/run-contract-smoke.mjs", "--strict", ...openclawArgs], fixtureEnv],

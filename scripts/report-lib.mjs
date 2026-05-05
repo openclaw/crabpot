@@ -3,6 +3,14 @@ import { existsSync, readFileSync } from "node:fs";
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
+import {
+  defaultPackageAvailabilityPath,
+  packageAvailabilityActionableFailures,
+  mergePackageAvailabilityIntoSummary,
+  packageAvailabilityDecisions,
+  packageAvailabilityIssues,
+  readPackageAvailabilityReport,
+} from "./package-availability.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 import { defaultExecutionResultsJsonPath } from "./summarize-execution-results.mjs";
 
@@ -24,6 +32,8 @@ export async function buildReport(options = {}) {
   const manifest = await readConfiguredManifest({ fixtureSet: options.fixtureSet });
   const executionResults =
     options.executionResults ?? readOptionalExecutionResults(options.executionResultsPath);
+  const packageAvailability =
+    options.packageAvailability ?? readDefaultPackageAvailability(options.packageAvailabilityPath);
   const report = await pluginInspector.inspectCompatibilityFixtureSetConfig({
     config: {
       ...manifest,
@@ -33,13 +43,22 @@ export async function buildReport(options = {}) {
     executionResults,
     openclawPath: options.openclawPath,
   });
+  const packageIssues = packageAvailabilityIssues(packageAvailability, { manifest });
+  const packageDecisions = packageAvailabilityDecisions(packageAvailability, { manifest });
+  const issues = [...packageIssues, ...(report.issues ?? [])];
   return {
     ...report,
+    summary: mergePackageAvailabilityIntoSummary(report.summary, issues),
+    issues,
+    decisions: [...packageDecisions, ...(report.decisions ?? [])],
     crabpotContext: buildReportContext({
       executionResults,
       executionResultsPath: options.executionResultsPath,
       manifest,
       openclawPath: options.openclawPath,
+      packageAvailability,
+      packageAvailabilityActionableFailures: packageAvailabilityActionableFailures(packageAvailability, { manifest }),
+      packageAvailabilityPath: options.packageAvailabilityPath,
     }),
   };
 }
@@ -61,7 +80,15 @@ export async function writeReport(report, options = {}) {
   return { markdownPath, jsonPath, issuesPath };
 }
 
-function buildReportContext({ executionResults, executionResultsPath, manifest, openclawPath }) {
+function buildReportContext({
+  executionResults,
+  executionResultsPath,
+  manifest,
+  openclawPath,
+  packageAvailability,
+  packageAvailabilityActionableFailures,
+  packageAvailabilityPath,
+}) {
   return {
     fixtureSet: manifest.fixtureSelection?.fixtureSet ?? "all",
     fixtureIds: manifest.fixtureSelection?.ids ?? manifest.fixtures.map((fixture) => fixture.id),
@@ -73,6 +100,14 @@ function buildReportContext({ executionResults, executionResultsPath, manifest, 
           artifacts: executionResults.summary?.artifactCount ?? 0,
           captureArtifacts: executionResults.summary?.captureArtifactCount ?? 0,
           capturedRegistrations: executionResults.summary?.capturedRegistrationCount ?? 0,
+        }
+      : null,
+    packageAvailability: packageAvailability
+      ? {
+          path: packageAvailabilityPath ?? defaultPackageAvailabilityPath,
+          failures: packageAvailability.summary?.failureCount ?? packageAvailability.failures?.length ?? 0,
+          openclawFailures: packageAvailabilityActionableFailures?.length ?? 0,
+          fallbacks: packageAvailability.summary?.fallbackCount ?? 0,
         }
       : null,
   };
@@ -118,6 +153,11 @@ function withReportContext(report, markdown) {
           `- **Runtime evidence:** \`${relativePathLabel(context.runtimeEvidence.path)}\` (${context.runtimeEvidence.captureArtifacts} capture artifacts, ${context.runtimeEvidence.capturedRegistrations} captured registrations/hooks)`,
         ]
       : []),
+    ...(context.packageAvailability
+      ? [
+          `- **Package availability:** \`${relativePathLabel(context.packageAvailability.path)}\` (${context.packageAvailability.openclawFailures} OpenClaw failures, ${context.packageAvailability.fallbacks} fallbacks)`,
+        ]
+      : []),
     "",
   ].join("\n");
   const firstSection = markdown.indexOf("\n## ");
@@ -136,6 +176,16 @@ function readOptionalExecutionResults(executionResultsPath) {
     return null;
   }
   return JSON.parse(readFileSync(resolvedPath, "utf8"));
+}
+
+function readDefaultPackageAvailability(packageAvailabilityPath) {
+  if (packageAvailabilityPath) {
+    return readPackageAvailabilityReport(packageAvailabilityPath);
+  }
+  if (!process.env.CRABPOT_PLUGIN_TRACK && !process.env.CRABPOT_PACKAGE_AVAILABILITY_PATH) {
+    return null;
+  }
+  return readPackageAvailabilityReport(process.env.CRABPOT_PACKAGE_AVAILABILITY_PATH);
 }
 
 function relativePathLabel(filePath) {

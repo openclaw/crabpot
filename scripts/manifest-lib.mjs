@@ -101,6 +101,15 @@ export function validateManifest(manifest) {
       if (fixture.package.version !== undefined && (typeof fixture.package.version !== "string" || fixture.package.version.length === 0)) {
         errors.push(`${fixture.id}: package.version must be a non-empty string when present`);
       }
+      if (
+        fixture.package.artifactSource !== undefined &&
+        !["npm", "source-pack"].includes(fixture.package.artifactSource)
+      ) {
+        errors.push(`${fixture.id}: package.artifactSource must be npm or source-pack when present`);
+      }
+      if (fixture.package.artifactSource === "source-pack" && fixture.source === undefined) {
+        errors.push(`${fixture.id}: package.artifactSource source-pack requires source metadata`);
+      }
     }
     if (fixture.source !== undefined) {
       if (!fixture.source || typeof fixture.source !== "object" || Array.isArray(fixture.source)) {
