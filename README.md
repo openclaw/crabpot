@@ -27,19 +27,19 @@
 | ---------------------- | --------------------------------------------------------------------------------------------------------------- |
 | Fixtures               | 57                                                                                                              |
 | Hard breakages         | 0                                                                                                               |
-| Warnings               | 171                                                                                                             |
-| Suggestions            | 158                                                                                                             |
-| Issues                 | 329                                                                                                             |
-| P0 issues              | [🔴 P0 24](reports/crabpot-issues.md#p0-live-issues)                                                            |
+| Warnings               | 149                                                                                                             |
+| Suggestions            | 156                                                                                                             |
+| Issues                 | 305                                                                                                             |
+| P0 issues              | [🔴 P0 0](reports/crabpot-issues.md#p0-live-issues)                                                             |
 | P1 issues              | [🟠 P1 38](reports/crabpot-issues.md#triage-summary)                                                            |
-| Live issues            | 24 total / 24 P0                                                                                                |
+| Live issues            | 0 total / 0 P0                                                                                                  |
 | Compat gaps            | 2                                                                                                               |
 | Deprecation warnings   | 41                                                                                                              |
 | Inspector gaps         | 164                                                                                                             |
 | Upstream metadata      | 98                                                                                                              |
-| Contract probes        | 323                                                                                                             |
+| Contract probes        | 301                                                                                                             |
 | Policy failures        | 0                                                                                                               |
-| Policy warnings        | 20                                                                                                              |
+| Policy warnings        | 19                                                                                                              |
 | Ref diff failures      | 0                                                                                                               |
 | Profile failures       | 0                                                                                                               |
 | Execution probes       | 12 pass / 0 fail / 18 blocked                                                                                   |
@@ -60,18 +60,18 @@
 
 ### Top Discovered Issues
 
-| Severity | Class      | Fixture                | Code                       | Decision            | Title                                                                                                                    |
-| -------- | ---------- | ---------------------- | -------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| 🔴 P0    | live-issue | bluebubbles            | package-entrypoint-missing | plugin-upstream-fix | [bluebubbles: OpenClaw package entrypoint is missing](reports/crabpot-issues.md#p0-live-issues)                          |
-| 🔴 P0    | live-issue | brave-plugin           | package-entrypoint-missing | plugin-upstream-fix | [brave-plugin: OpenClaw package entrypoint is missing](reports/crabpot-issues.md#p0-live-issues)                         |
-| 🔴 P0    | live-issue | clawmetry              | sdk-export-missing         | core-compat-adapter | [clawmetry: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#p0-live-issues) |
-| 🔴 P0    | live-issue | codex                  | package-entrypoint-missing | plugin-upstream-fix | [codex: OpenClaw package entrypoint is missing](reports/crabpot-issues.md#p0-live-issues)                                |
-| 🔴 P0    | live-issue | diagnostics-otel       | package-entrypoint-missing | plugin-upstream-fix | [diagnostics-otel: OpenClaw package entrypoint is missing](reports/crabpot-issues.md#p0-live-issues)                     |
-| 🔴 P0    | live-issue | diagnostics-prometheus | package-entrypoint-missing | plugin-upstream-fix | [diagnostics-prometheus: OpenClaw package entrypoint is missing](reports/crabpot-issues.md#p0-live-issues)               |
-| 🔴 P0    | live-issue | diffs                  | package-entrypoint-missing | plugin-upstream-fix | [diffs: OpenClaw package entrypoint is missing](reports/crabpot-issues.md#p0-live-issues)                                |
-| 🔴 P0    | live-issue | discord                | package-entrypoint-missing | plugin-upstream-fix | [discord: OpenClaw package entrypoint is missing](reports/crabpot-issues.md#p0-live-issues)                              |
-| 🔴 P0    | live-issue | feishu                 | package-entrypoint-missing | plugin-upstream-fix | [feishu: OpenClaw package entrypoint is missing](reports/crabpot-issues.md#p0-live-issues)                               |
-| 🔴 P0    | live-issue | google-meet            | package-entrypoint-missing | plugin-upstream-fix | [google-meet: OpenClaw package entrypoint is missing](reports/crabpot-issues.md#p0-live-issues)                          |
+| Severity | Class             | Fixture                | Code                                | Decision            | Title                                                                                                                                 |
+| -------- | ----------------- | ---------------------- | ----------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| 🟠 P1    | upstream-metadata | bluebubbles            | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [bluebubbles: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues)            |
+| 🟠 P1    | upstream-metadata | brave-plugin           | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [brave-plugin: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues)           |
+| 🟠 P1    | upstream-metadata | clawmetry              | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [clawmetry: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues)              |
+| 🟠 P1    | compat-gap        | clawmetry              | sdk-export-missing                  | core-compat-adapter | [clawmetry: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#compat-gaps)                 |
+| 🟠 P1    | upstream-metadata | codex                  | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [codex: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues)                  |
+| 🟠 P1    | upstream-metadata | diagnostics-otel       | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [diagnostics-otel: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues)       |
+| 🟠 P1    | upstream-metadata | diagnostics-prometheus | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [diagnostics-prometheus: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues) |
+| 🟠 P1    | upstream-metadata | diffs                  | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [diffs: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues)                  |
+| 🟠 P1    | upstream-metadata | discord                | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [discord: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues)                |
+| 🟠 P1    | upstream-metadata | feishu                 | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [feishu: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues)                 |
 <!-- crabpot-summary:end -->
 ## What this tests
 
