@@ -22,9 +22,9 @@ test("compatibility report classifies current fixture seams", async () => {
   assert.ok(report.summary.upstreamIssueCount > 0);
   assert.ok(report.summary.contractProbeCount > 0);
   if (hasTargetOpenClaw) {
-    assert.ok(report.summary.p0IssueCount > 0);
-    assert.ok(report.summary.liveIssueCount > 0);
-    assert.ok(report.summary.liveP0IssueCount > 0);
+    assert.equal(report.summary.p0IssueCount, 0);
+    assert.equal(report.summary.liveIssueCount, 0);
+    assert.equal(report.summary.liveP0IssueCount, 0);
     assert.ok(report.summary.compatGapCount > 0);
   }
   assert.ok(report.issues.every((issue) => /^CRABPOT-[A-F0-9]{8}$/.test(issue.id)));
@@ -52,15 +52,11 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasFinding(report.suggestions, "secureclaw", "registration-capture-gap");
   if (hasTargetOpenClaw) {
     assertHasFindingCode(report.warnings, "sdk-export-missing");
-    assertHasFindingCode(report.suggestions, "missing-compat-record");
     assertHasFinding(report.warnings, "memos-cloud", "manifest-unknown-fields");
   }
 
   assertHasDecision(report.decisions, "core-compat-adapter", "env-auth");
   assertHasDecision(report.decisions, "inspector-follow-up", "registration-capture");
-  if (hasTargetOpenClaw) {
-    assertHasDecision(report.decisions, "core-compat-adapter", "compat-registry");
-  }
 
   assertHasIssue(report.issues, "P2", "registration-capture-gap");
   assertHasIssue(report.issues, "P1", "conversation-access-hook");
@@ -73,11 +69,9 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasIssueClass(report.issues, "upstream-metadata", "package-plugin-api-compat-missing");
   if (hasTargetOpenClaw) {
     assertHasFinding(report.warnings, "agentchat", "manifest-unknown-fields");
-    assertHasIssue(report.issues, "P1", "missing-compat-record");
-    assertHasIssue(report.issues, "P0", "sdk-export-missing");
+    assertHasIssue(report.issues, "P1", "sdk-export-missing");
     assertHasIssue(report.issues, "P2", "manifest-unknown-fields");
-    assertHasIssueClass(report.issues, "live-issue", "sdk-export-missing");
-    assertHasIssueClass(report.issues, "compat-gap", "missing-compat-record");
+    assertHasIssueClass(report.issues, "compat-gap", "sdk-export-missing");
     assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:agentchat");
     assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:memos-cloud");
   }
@@ -105,7 +99,8 @@ test("markdown report includes review sections", async () => {
   assert.match(markdown, /## Hard Breakages/);
   assert.match(markdown, /## Target OpenClaw Compat Records/);
   assert.match(markdown, /## Triage Overview/);
-  assert.match(markdown, /## Live Issues/);
+  assert.match(markdown, /## P0 Live Issues/);
+  assert.match(markdown, /## Other Live Issues/);
   assert.match(markdown, /## Deprecation Warnings/);
   assert.match(markdown, /## Inspector Proof Gaps/);
   assert.match(markdown, /## Warnings/);
@@ -301,18 +296,19 @@ test("issue report preserves decision metadata for compat-layer work", async () 
   }
   assert.equal(sdkIssue.owner, "core");
   assert.equal(sdkIssue.decision, "core-compat-adapter");
-  assert.equal(sdkIssue.status, "blocking");
-  assert.equal(sdkIssue.severity, "P0");
+  assert.equal(sdkIssue.status, "open");
+  assert.equal(sdkIssue.severity, "P1");
   assert.equal(sdkIssue.compatStatus, "untracked");
+  assert.equal(sdkIssue.issueClass, "compat-gap");
   assert.equal(manifestIssue.owner, "plugin");
   assert.equal(manifestIssue.decision, "plugin-upstream-fix");
   assert.match(markdown, /## Triage Summary/);
   assert.match(markdown, /sdk-export-missing/);
   assert.match(markdown, /core-compat-adapter/);
-  assert.match(markdown, /live-issue/);
+  assert.match(markdown, /compat-gap/);
   assert.match(markdown, /deprecation-warning/);
-  assert.match(markdown, new RegExp(`🔴 P0 \\*\\*${escapeRegExp(sdkIssue.fixture)}\\*\\*`));
-  assert.match(markdown, /`live-issue` `core-compat-adapter`/);
+  assert.match(markdown, new RegExp(`🟠 P1 \\*\\*${escapeRegExp(sdkIssue.fixture)}\\*\\*`));
+  assert.match(markdown, /`compat-gap` `core-compat-adapter`/);
   assert.match(markdown, /🟠 P1/);
   assert.match(markdown, /🟡 P2/);
   assert.doesNotMatch(markdown, /\| ID\s+\| Severity\s+\| Class\s+\| Fixture\s+\| Owner\s+\|/);

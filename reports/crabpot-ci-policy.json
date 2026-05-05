@@ -22,41 +22,10 @@
   "summary": {
     "checkCount": 25,
     "failCount": 0,
-    "warnCount": 20,
-    "passCount": 5
+    "warnCount": 19,
+    "passCount": 6
   },
   "checks": [
-    {
-      "id": "compatibility-report.live-p0-issues",
-      "action": "warn",
-      "message": "24 live P0 issues tracked",
-      "evidence": [
-        "bluebubbles:package-entrypoint-missing:none",
-        "brave-plugin:package-entrypoint-missing:none",
-        "clawmetry:sdk-export-missing:untracked",
-        "codex:package-entrypoint-missing:none",
-        "diagnostics-otel:package-entrypoint-missing:none",
-        "diagnostics-prometheus:package-entrypoint-missing:none",
-        "diffs:package-entrypoint-missing:none",
-        "discord:package-entrypoint-missing:none",
-        "feishu:package-entrypoint-missing:none",
-        "google-meet:package-entrypoint-missing:none",
-        "honcho:sdk-export-missing:untracked",
-        "lobster:package-entrypoint-missing:none",
-        "memory-lancedb:package-entrypoint-missing:none",
-        "msteams:package-entrypoint-missing:none",
-        "nextcloud-talk:package-entrypoint-missing:none",
-        "nostr:package-entrypoint-missing:none",
-        "openclaw-qqbot:package-entrypoint-missing:none",
-        "synology-chat:package-entrypoint-missing:none",
-        "tlon:package-entrypoint-missing:none",
-        "twitch:package-entrypoint-missing:none",
-        "voice-call:package-entrypoint-missing:none",
-        "whatsapp:package-entrypoint-missing:none",
-        "zalo:package-entrypoint-missing:none",
-        "zalouser:package-entrypoint-missing:none"
-      ]
-    },
     {
       "id": "execution-results.audit-findings",
       "action": "warn",
@@ -489,14 +458,20 @@
       ]
     },
     {
+      "id": "compatibility-report.live-p0-issues",
+      "action": "pass",
+      "message": "0 live P0 issues tracked",
+      "evidence": []
+    },
+    {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
       "message": "38 P1 issues tracked",
       "evidence": [
         "bluebubbles:package-npm-pack-entrypoint-missing",
         "brave-plugin:package-npm-pack-entrypoint-missing",
-        "clawmetry:missing-compat-record",
         "clawmetry:package-npm-pack-entrypoint-missing",
+        "clawmetry:sdk-export-missing",
         "codex:package-npm-pack-entrypoint-missing",
         "diagnostics-otel:package-npm-pack-entrypoint-missing",
         "diagnostics-prometheus:package-npm-pack-entrypoint-missing",
@@ -505,7 +480,7 @@
         "feishu:package-npm-pack-entrypoint-missing",
         "google-meet:package-npm-pack-entrypoint-missing",
         "honcho:conversation-access-hook",
-        "honcho:missing-compat-record",
+        "honcho:sdk-export-missing",
         "kitchen-sink:before-tool-call-probe",
         "kitchen-sink:conversation-access-hook",
         "llm-trace-phoenix:conversation-access-hook",

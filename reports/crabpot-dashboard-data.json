@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-05T03:26:42Z",
-  "runUrl": "https://github.com/openclaw/crabpot/actions/runs/25356113660",
-  "mode": "track:latest",
-  "openclawLabel": "openclaw@latest (2026.5.3-1, 2eae30e779cb)",
+  "generatedAt": "deterministic",
+  "runUrl": "",
+  "mode": "local",
+  "openclawLabel": "",
   "status": "pass",
   "metrics": {
     "fixtures": 57,
     "hardBreakages": 0,
-    "warnings": 171,
-    "suggestions": 158,
-    "issues": 329,
-    "p0Issues": 24,
+    "warnings": 149,
+    "suggestions": 156,
+    "issues": 305,
+    "p0Issues": 0,
     "p1Issues": 38,
-    "liveIssues": 24,
-    "liveP0Issues": 24,
+    "liveIssues": 0,
+    "liveP0Issues": 0,
     "compatGaps": 2,
     "deprecationWarnings": 41,
     "inspectorGaps": 164,
     "upstreamIssues": 98,
-    "contractProbes": 323,
+    "contractProbes": 301,
     "policyFailures": 0,
-    "policyWarnings": 20,
+    "policyWarnings": 19,
     "refDiffFailures": 0,
     "profileFailures": 0,
     "executionPass": 12,
@@ -62,94 +62,94 @@
   "baseline": null,
   "topIssues": [
     {
-      "id": "CRABPOT-267C53E1",
-      "severity": "P0",
-      "issueClass": "live-issue",
+      "id": "CRABPOT-F2345540",
+      "severity": "P1",
+      "issueClass": "upstream-metadata",
       "fixture": "bluebubbles",
-      "code": "package-entrypoint-missing",
+      "code": "package-npm-pack-entrypoint-missing",
       "decision": "plugin-upstream-fix",
-      "title": "bluebubbles: OpenClaw package entrypoint is missing"
+      "title": "bluebubbles: advertised npm artifact is missing OpenClaw entrypoints"
     },
     {
-      "id": "CRABPOT-6FB91CFD",
-      "severity": "P0",
-      "issueClass": "live-issue",
+      "id": "CRABPOT-F51EE9A1",
+      "severity": "P1",
+      "issueClass": "upstream-metadata",
       "fixture": "brave-plugin",
-      "code": "package-entrypoint-missing",
+      "code": "package-npm-pack-entrypoint-missing",
       "decision": "plugin-upstream-fix",
-      "title": "brave-plugin: OpenClaw package entrypoint is missing"
+      "title": "brave-plugin: advertised npm artifact is missing OpenClaw entrypoints"
     },
     {
-      "id": "CRABPOT-C3F02198",
-      "severity": "P0",
-      "issueClass": "live-issue",
+      "id": "CRABPOT-FC01CA77",
+      "severity": "P1",
+      "issueClass": "upstream-metadata",
+      "fixture": "clawmetry",
+      "code": "package-npm-pack-entrypoint-missing",
+      "decision": "plugin-upstream-fix",
+      "title": "clawmetry: advertised npm artifact is missing OpenClaw entrypoints"
+    },
+    {
+      "id": "CRABPOT-54E8B3D1",
+      "severity": "P1",
+      "issueClass": "compat-gap",
       "fixture": "clawmetry",
       "code": "sdk-export-missing",
       "decision": "core-compat-adapter",
       "title": "clawmetry: plugin SDK import aliases are missing from target package exports"
     },
     {
-      "id": "CRABPOT-F2969AAA",
-      "severity": "P0",
-      "issueClass": "live-issue",
+      "id": "CRABPOT-F2C66772",
+      "severity": "P1",
+      "issueClass": "upstream-metadata",
       "fixture": "codex",
-      "code": "package-entrypoint-missing",
+      "code": "package-npm-pack-entrypoint-missing",
       "decision": "plugin-upstream-fix",
-      "title": "codex: OpenClaw package entrypoint is missing"
+      "title": "codex: advertised npm artifact is missing OpenClaw entrypoints"
     },
     {
-      "id": "CRABPOT-0236D1D3",
-      "severity": "P0",
-      "issueClass": "live-issue",
+      "id": "CRABPOT-3E80BE62",
+      "severity": "P1",
+      "issueClass": "upstream-metadata",
       "fixture": "diagnostics-otel",
-      "code": "package-entrypoint-missing",
+      "code": "package-npm-pack-entrypoint-missing",
       "decision": "plugin-upstream-fix",
-      "title": "diagnostics-otel: OpenClaw package entrypoint is missing"
+      "title": "diagnostics-otel: advertised npm artifact is missing OpenClaw entrypoints"
     },
     {
-      "id": "CRABPOT-16A290B9",
-      "severity": "P0",
-      "issueClass": "live-issue",
+      "id": "CRABPOT-38283296",
+      "severity": "P1",
+      "issueClass": "upstream-metadata",
       "fixture": "diagnostics-prometheus",
-      "code": "package-entrypoint-missing",
+      "code": "package-npm-pack-entrypoint-missing",
       "decision": "plugin-upstream-fix",
-      "title": "diagnostics-prometheus: OpenClaw package entrypoint is missing"
+      "title": "diagnostics-prometheus: advertised npm artifact is missing OpenClaw entrypoints"
     },
     {
-      "id": "CRABPOT-955C4001",
-      "severity": "P0",
-      "issueClass": "live-issue",
+      "id": "CRABPOT-CB317A4E",
+      "severity": "P1",
+      "issueClass": "upstream-metadata",
       "fixture": "diffs",
-      "code": "package-entrypoint-missing",
+      "code": "package-npm-pack-entrypoint-missing",
       "decision": "plugin-upstream-fix",
-      "title": "diffs: OpenClaw package entrypoint is missing"
+      "title": "diffs: advertised npm artifact is missing OpenClaw entrypoints"
     },
     {
-      "id": "CRABPOT-ECCCD7EB",
-      "severity": "P0",
-      "issueClass": "live-issue",
+      "id": "CRABPOT-035E2729",
+      "severity": "P1",
+      "issueClass": "upstream-metadata",
       "fixture": "discord",
-      "code": "package-entrypoint-missing",
+      "code": "package-npm-pack-entrypoint-missing",
       "decision": "plugin-upstream-fix",
-      "title": "discord: OpenClaw package entrypoint is missing"
+      "title": "discord: advertised npm artifact is missing OpenClaw entrypoints"
     },
     {
-      "id": "CRABPOT-5B60882D",
-      "severity": "P0",
-      "issueClass": "live-issue",
+      "id": "CRABPOT-04138697",
+      "severity": "P1",
+      "issueClass": "upstream-metadata",
       "fixture": "feishu",
-      "code": "package-entrypoint-missing",
+      "code": "package-npm-pack-entrypoint-missing",
       "decision": "plugin-upstream-fix",
-      "title": "feishu: OpenClaw package entrypoint is missing"
-    },
-    {
-      "id": "CRABPOT-304EB1F5",
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "google-meet",
-      "code": "package-entrypoint-missing",
-      "decision": "plugin-upstream-fix",
-      "title": "google-meet: OpenClaw package entrypoint is missing"
+      "title": "feishu: advertised npm artifact is missing OpenClaw entrypoints"
     }
   ],
   "artifactPaths": {
