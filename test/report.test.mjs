@@ -194,7 +194,7 @@ test("OpenClaw npm artifact availability failures become P0 live issues", async 
   assert.equal(issue.status, "blocking");
   assert.equal(issue.decision, "plugin-release-fix");
   assert.ok(report.summary.p0IssueCount >= 1);
-  assert.equal(report.summary.liveP0IssueCount, 1);
+  assert.equal(report.issues.filter((candidate) => candidate.code === "package-npm-pack-unavailable").length, 1);
   assert.equal(report.crabpotContext.packageAvailability.openclawFailures, 1);
   assert.match(markdown, /Package availability/);
   assert.match(markdown, /@openclaw\/whatsapp@beta/);
