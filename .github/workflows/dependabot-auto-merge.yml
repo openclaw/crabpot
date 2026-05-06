@@ -136,13 +136,31 @@ jobs:
         run: |
           set -euo pipefail
           for attempt in {1..18}; do
-            state="$(gh pr view "${PR_NUMBER}" --json mergeable,mergeStateStatus --jq '[.mergeable, .mergeStateStatus] | @tsv')"
-            read -r mergeable merge_state <<< "${state}"
-            if [ "${mergeable}" = "MERGEABLE" ]; then
+            state="$(gh pr view "${PR_NUMBER}" --json mergeable,mergeStateStatus,statusCheckRollup --jq '
+              [
+                .mergeable,
+                .mergeStateStatus,
+                ([.statusCheckRollup[]?
+                  | select((.workflowName // "") != "Dependabot Auto Merge")
+                  | select((.status // .state // "") == "IN_PROGRESS" or (.status // .state // "") == "QUEUED" or (.status // .state // "") == "PENDING" or (.status // .state // "") == "EXPECTED")
+                ] | length),
+                ([.statusCheckRollup[]?
+                  | select((.workflowName // "") != "Dependabot Auto Merge")
+                  | select((.conclusion // .state // "") == "FAILURE" or (.conclusion // .state // "") == "ERROR" or (.conclusion // .state // "") == "TIMED_OUT" or (.conclusion // .state // "") == "ACTION_REQUIRED" or (.conclusion // .state // "") == "CANCELLED")
+                ] | length)
+              ] | @tsv
+            ')"
+            read -r mergeable merge_state pending_checks failed_checks <<< "${state}"
+            if [ "${failed_checks}" != "0" ]; then
+              echo "::error::PR ${PR_NUMBER} has ${failed_checks} failed status check(s); refusing auto-merge"
+              gh pr view "${PR_NUMBER}" --json url,mergeable,mergeStateStatus,statusCheckRollup
+              exit 1
+            fi
+            if [ "${mergeable}" = "MERGEABLE" ] && [ "${pending_checks}" = "0" ]; then
               gh pr merge "${PR_NUMBER}" --squash --delete-branch
               exit 0
             fi
-            echo "PR ${PR_NUMBER} mergeable=${mergeable} mergeStateStatus=${merge_state}; waiting for GitHub mergeability (${attempt}/18)"
+            echo "PR ${PR_NUMBER} mergeable=${mergeable} mergeStateStatus=${merge_state} pendingChecks=${pending_checks}; waiting for mergeability and green checks (${attempt}/18)"
             sleep 10
           done
           gh pr view "${PR_NUMBER}" --json url,mergeable,mergeStateStatus,statusCheckRollup

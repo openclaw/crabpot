@@ -3991,7 +3991,7 @@
       "package": {
         "path": "plugins/honcho/package.json",
         "name": "@honcho-ai/openclaw-honcho",
-        "version": "1.4.0",
+        "version": "1.4.1",
         "type": "module",
         "main": "dist/index.js",
         "npmPack": {
@@ -4041,7 +4041,7 @@
         {
           "path": "plugins/honcho/package.json",
           "name": "@honcho-ai/openclaw-honcho",
-          "version": "1.4.0",
+          "version": "1.4.1",
           "type": "module",
           "main": "dist/index.js",
           "npmPack": {
@@ -43795,7 +43795,7 @@
       "evidence": [
         "plugins/honcho/package.json",
         "@honcho-ai/openclaw-honcho",
-        "version:1.4.0"
+        "version:1.4.1"
       ]
     },
     {
