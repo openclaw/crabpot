@@ -121,15 +121,20 @@ jobs:
           node scripts/update-readme-summary.mjs "${baseline_args[@]}"
 
       - name: Commit refreshed reports
+        id: refreshed-reports
         run: |
           if ! git diff --quiet README.md reports/; then
             git add README.md reports/
             git commit -m "chore(reports): refresh dependabot compatibility reports"
             git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Enable Dependabot PR auto-merge
+      - name: Merge Dependabot PR
+        if: ${{ steps.refreshed-reports.outputs.pushed != 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: gh pr merge "${PR_NUMBER}" --squash --auto --delete-branch
+        run: gh pr merge "${PR_NUMBER}" --squash --delete-branch
