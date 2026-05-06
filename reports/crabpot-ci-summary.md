@@ -1,8 +1,8 @@
 # Crabpot CI Summary
 
 Generated: deterministic
-Mode: local
-OpenClaw: -
+Mode: check
+OpenClaw: openclaw@latest (2026.5.4, 325df3efefe9)
 Status: PASS
 
 ## Counts
@@ -26,14 +26,14 @@ Status: PASS
 | Policy failures             | 0                                                                                                                     |
 | Policy warnings             | 19                                                                                                                    |
 | Profile failures            | 0                                                                                                                     |
-| Profile warnings            | 1                                                                                                                     |
+| Profile warnings            | 2                                                                                                                     |
 | Execution pass              | 12                                                                                                                    |
 | Execution fail              | 0                                                                                                                     |
 | Execution blocked           | 18                                                                                                                    |
 | Windows portability risks   | 14                                                                                                                    |
 | Container portability risks | 14                                                                                                                    |
 | Jiti loader candidates      | 25                                                                                                                    |
-| Import loop                 | p50 1770 ms / p95 1772 ms / plugin delta RSS 0 MB / plugin delta CPU 0 ms / OpenClaw import 43.2 ms / activate 0.2 ms |
+| Import loop                 | p50 2393 ms / p95 2396 ms / plugin delta RSS 6.3 MB / plugin delta CPU 0 ms / OpenClaw import 81 ms / activate 0.3 ms |
 
 ## Top Issues
 
@@ -90,9 +90,10 @@ _none_
 
 ## Profile Findings
 
-| Action | ID               | Metric       | Baseline | Current | Message                                                 |
-| ------ | ---------------- | ------------ | -------- | ------- | ------------------------------------------------------- |
-| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 441.3   | maxPeakRssMb regressed 376.20000000000005 over baseline |
+| Action | ID               | Metric       | Baseline | Current | Message                                    |
+| ------ | ---------------- | ------------ | -------- | ------- | ------------------------------------------ |
+| warn   | profile.wall-p95 | p95WallMs    | 1273     | 2252    | p95WallMs regressed 76.9% over baseline    |
+| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 457.6   | maxPeakRssMb regressed 392.5 over baseline |
 
 ## Artifacts
 
