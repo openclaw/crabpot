@@ -665,11 +665,11 @@
     "highPriorityFixtures": 22,
     "breakageCount": 0,
     "warningCount": 148,
-    "suggestionCount": 156,
+    "suggestionCount": 155,
     "decisionCount": 318,
-    "logCount": 458,
-    "issueCount": 304,
-    "openIssueCount": 304,
+    "logCount": 459,
+    "issueCount": 303,
+    "openIssueCount": 303,
     "p0IssueCount": 0,
     "p1IssueCount": 38,
     "openP0IssueCount": 0,
@@ -678,14 +678,14 @@
     "liveP0IssueCount": 0,
     "compatGapCount": 2,
     "deprecationWarningCount": 41,
-    "inspectorGapCount": 164,
+    "inspectorGapCount": 163,
     "upstreamIssueCount": 97,
     "fixtureRegressionCount": 0,
-    "openInspectorGapCount": 164,
+    "openInspectorGapCount": 163,
     "runtimeCoveredIssueCount": 0,
     "runtimePartiallyCoveredIssueCount": 0,
     "runtimeCoverageArtifactCount": 0,
-    "contractProbeCount": 300
+    "contractProbeCount": 299
   },
   "fixtures": [
     {
@@ -3011,32 +3011,32 @@
         {
           "name": "before_prompt_build",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2021,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2021"
+          "line": 2351,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2351"
         },
         {
           "name": "before_reset",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2014,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2014"
+          "line": 2344,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2344"
         },
         {
           "name": "gateway_start",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2217,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2217"
+          "line": 2557,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2557"
         },
         {
           "name": "gateway_stop",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2241,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2241"
+          "line": 2581,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2581"
         },
         {
           "name": "session_end",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2024,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2024"
+          "line": 2354,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2354"
         }
       ],
       "registrations": [
@@ -3048,41 +3048,43 @@
         {
           "name": "registerCommand",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2055,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2055"
+          "line": 2385,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2385"
         },
         {
           "name": "registerContextEngine",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2035,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2035"
+          "line": 2365,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2365"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2037,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2037"
+          "line": 2367,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2367"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2040,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2040"
+          "line": 2370,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2370"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2043,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2043"
+          "line": 2373,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2373"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2046,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2046"
+          "line": 2376,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2376"
         }
       ],
-      "manifestContracts": [],
+      "manifestContracts": [
+        "tools"
+      ],
       "manifestFiles": [
         "plugins/lossless-claw/openclaw.plugin.json"
       ],
@@ -3145,23 +3147,29 @@
           "name": null,
           "version": null,
           "keys": [
+            "activation",
             "configSchema",
+            "contracts",
             "id",
             "kind",
             "skills",
             "uiHints"
           ],
-          "contracts": [],
+          "contracts": [
+            "tools"
+          ],
           "providerAuthEnvVars": {},
           "channelEnvVars": {},
-          "activation": null
+          "activation": {
+            "onStartup": true
+          }
         }
       ],
       "securityManifests": [],
       "package": {
         "path": "plugins/lossless-claw/package.json",
         "name": "@martian-engineering/lossless-claw",
-        "version": "0.9.2",
+        "version": "0.9.4",
         "type": "module",
         "main": "dist/index.js",
         "npmPack": {
@@ -3194,7 +3202,7 @@
           ],
           "runtimeExtensions": [],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.2.17",
+          "compatPluginApi": ">=2026.2.17 <2026.6.0",
           "buildOpenClawVersion": "2026.2.17",
           "buildPluginSdkVersion": null,
           "install": null,
@@ -3215,7 +3223,7 @@
         {
           "path": "plugins/lossless-claw/package.json",
           "name": "@martian-engineering/lossless-claw",
-          "version": "0.9.2",
+          "version": "0.9.4",
           "type": "module",
           "main": "dist/index.js",
           "npmPack": {
@@ -3248,7 +3256,7 @@
             ],
             "runtimeExtensions": [],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.2.17",
+            "compatPluginApi": ">=2026.2.17 <2026.6.0",
             "buildOpenClawVersion": "2026.2.17",
             "buildPluginSdkVersion": null,
             "install": null,
@@ -32082,22 +32090,10 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2055",
-        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2035"
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2385",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2365"
       ],
       "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "lossless-claw",
-      "code": "runtime-tool-capture",
-      "level": "suggestion",
-      "message": "tool shape is only visible after runtime registration capture",
-      "evidence": [
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2037",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2040",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2043",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2046"
-      ]
     },
     {
       "fixture": "connectclaw",
@@ -36669,7 +36665,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-23F3163D",
+      "id": "CRABPOT-21AF4BC0",
       "fixture": "lossless-claw",
       "severity": "P2",
       "owner": "inspector",
@@ -36682,32 +36678,10 @@
       "compatStatus": "active",
       "title": "lossless-claw: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2055",
-        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2035"
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2385",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2365"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": null
-    },
-    {
-      "id": "CRABPOT-8C83090A",
-      "fixture": "lossless-claw",
-      "severity": "P2",
-      "owner": "inspector",
-      "code": "runtime-tool-capture",
-      "decision": "inspector-follow-up",
-      "status": "open",
-      "issueClass": "inspector-gap",
-      "live": false,
-      "deprecated": false,
-      "compatStatus": "none",
-      "title": "lossless-claw: runtime tool schema needs registration capture",
-      "evidence": [
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2037",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2040",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2043",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2046"
-      ],
-      "compatRecord": null,
       "runtimeCoverage": null
     },
     {
@@ -39901,8 +39875,8 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2055",
-        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2035"
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2385",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2365"
       ]
     },
     {
@@ -41038,19 +41012,6 @@
         "registerTool @ plugins/hyperspell/graph/tools.ts:21",
         "registerTool @ plugins/hyperspell/graph/tools.ts:52",
         "registerTool @ plugins/hyperspell/graph/tools.ts:95"
-      ]
-    },
-    {
-      "id": "tool.registration.schema-capture:lossless-claw",
-      "fixture": "lossless-claw",
-      "priority": "P2",
-      "target": "tool-runtime",
-      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
-      "evidence": [
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2037",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2040",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2043",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2046"
       ]
     },
     {
@@ -43547,7 +43508,7 @@
       "fixture": "lossless-claw",
       "code": "seam-inventory",
       "level": "log",
-      "message": "observed 5 hooks, 3 registrations, and 0 manifest contracts",
+      "message": "observed 5 hooks, 3 registrations, and 1 manifest contracts",
       "evidence": [
         "hook:before_prompt_build",
         "hook:before_reset",
@@ -43556,7 +43517,8 @@
         "hook:session_end",
         "registration:registerCommand",
         "registration:registerContextEngine",
-        "registration:registerTool"
+        "registration:registerTool",
+        "manifestContract:tools"
       ]
     },
     {
@@ -43609,7 +43571,16 @@
       "evidence": [
         "plugins/lossless-claw/package.json",
         "@martian-engineering/lossless-claw",
-        "version:0.9.2"
+        "version:0.9.4"
+      ]
+    },
+    {
+      "fixture": "lossless-claw",
+      "code": "declarative-contracts",
+      "level": "log",
+      "message": "fixture declares manifest contracts that can be checked without executing plugin code",
+      "evidence": [
+        "tools"
       ]
     },
     {
@@ -49322,10 +49293,10 @@
     },
     {
       "fixture": "lossless-claw",
-      "decision": "inspector-follow-up",
-      "seam": "tool-schema",
-      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
-      "evidence": "registerTool without manifest contracts.tools"
+      "decision": "no-action",
+      "seam": "manifest-contract",
+      "action": "Keep checking this declarative contract in default offline CI.",
+      "evidence": "tools"
     },
     {
       "fixture": "connectclaw",
