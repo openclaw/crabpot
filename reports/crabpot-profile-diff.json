@@ -36,15 +36,15 @@
     "summary": {
       "commandCount": 9,
       "sampleCount": 27,
-      "rssSampleCount": 1881,
-      "cpuSampleCount": 1881,
+      "rssSampleCount": 1485,
+      "cpuSampleCount": 1485,
       "wallTimeBasis": "command-median-p95",
-      "p50WallMs": 2207,
-      "p95WallMs": 2252,
-      "maxPeakRssMb": 457.6,
-      "maxRssDeltaMb": 429,
-      "maxCpuMsEstimate": 2476,
-      "maxHarnessHeapDeltaMb": 7.7
+      "p50WallMs": 1740,
+      "p95WallMs": 1776,
+      "maxPeakRssMb": 442.1,
+      "maxRssDeltaMb": 412.4,
+      "maxCpuMsEstimate": 1957,
+      "maxHarnessHeapDeltaMb": 5.9
     },
     "targetOpenClaw": {
       "status": "ok",
@@ -63,8 +63,8 @@
       "observedHooks": 96,
       "observedRegistrations": 193,
       "observedSdkImports": 1159,
-      "contractProbes": 301,
-      "issueFindings": 305
+      "contractProbes": 300,
+      "issueFindings": 304
     }
   },
   "thresholds": {
@@ -76,28 +76,28 @@
   "summary": {
     "checkCount": 10,
     "failCount": 0,
-    "warnCount": 2,
-    "passCount": 8
+    "warnCount": 1,
+    "passCount": 9
   },
   "checks": [
     {
       "id": "profile.wall-p95",
-      "action": "warn",
+      "action": "pass",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 76.9% over baseline",
+      "message": "p95WallMs stayed within 50% regression threshold",
       "baseline": 1273,
-      "current": 2252,
-      "delta": 979,
-      "percent": 76.9
+      "current": 1776,
+      "delta": 503,
+      "percent": 39.5
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 392.5 over baseline",
+      "message": "maxPeakRssMb regressed 377 over baseline",
       "baseline": 65.1,
-      "current": 457.6,
-      "delta": 392.5
+      "current": 442.1,
+      "delta": 377
     },
     {
       "id": "profile.node-boot",
@@ -105,8 +105,8 @@
       "metric": "nodeBootWallMs",
       "message": "nodeBootWallMs stayed within 500 absolute regression threshold",
       "baseline": 917,
-      "current": 36,
-      "delta": -881
+      "current": 30,
+      "delta": -887
     },
     {
       "id": "registry.compatRecords",
