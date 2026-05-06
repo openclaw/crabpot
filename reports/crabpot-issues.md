@@ -62,7 +62,7 @@ _none_
   - **sdk-export-missing**: honcho: plugin SDK import aliases are missing from target package exports
   - state: open · compat:untracked
   - evidence:
-    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L11)
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/index.ts#L11)
 
 ## Deprecation Warnings
 
@@ -163,24 +163,24 @@ _none_
   - **legacy-before-agent-start**: honcho: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/subagent.ts#L18)
+    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L18)
 
 - 🟡 P2 **honcho** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: honcho: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/commands/cli.ts#L8)
-    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/capture.ts#L2)
-    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/context.ts#L2)
-    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/gateway.ts#L2)
-    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/subagent.ts#L2)
-    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/state.ts#L9)
-    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/ask.ts#L3)
-    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/context.ts#L3)
-    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/memory-passthrough.ts#L3)
-    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/message-search.ts#L3)
-    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/search.ts#L3)
-    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/session.ts#L3)
+    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/commands/cli.ts#L8)
+    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/capture.ts#L2)
+    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/context.ts#L2)
+    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/gateway.ts#L2)
+    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L2)
+    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/state.ts#L9)
+    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/ask.ts#L3)
+    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/context.ts#L3)
+    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L3)
+    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/message-search.ts#L3)
+    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/search.ts#L3)
+    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/session.ts#L3)
 
 - 🟡 P2 **hyperspell** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: hyperspell: root plugin SDK barrel is still used by fixtures
@@ -396,8 +396,8 @@ _none_
   - **conversation-access-hook**: honcho: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ capture.ts:151](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/capture.ts#L151)
-    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/subagent.ts#L34)
+    - [agent_end @ capture.ts:151](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/capture.ts#L151)
+    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L34)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
@@ -871,33 +871,33 @@ _none_
   - **package-build-artifact-entrypoint**: honcho: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/dist/index.js)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: honcho: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/package.json)
+    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/package.json)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: honcho: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L97)
-    - [registerMemoryRuntime @ runtime.ts:274](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/runtime.ts#L274)
+    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/index.ts#L97)
+    - [registerMemoryRuntime @ runtime.ts:274](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/runtime.ts#L274)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: honcho: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - [registerTool @ ask.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/ask.ts#L8)
-    - [registerTool @ context.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/context.ts#L8)
-    - [registerTool @ memory-passthrough.ts:130](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/memory-passthrough.ts#L130)
-    - [registerTool @ memory-passthrough.ts:89](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/memory-passthrough.ts#L89)
-    - [registerTool @ message-search.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/message-search.ts#L9)
-    - [registerTool @ search.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/search.ts#L8)
-    - [registerTool @ session.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/session.ts#L8)
+    - [registerTool @ ask.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/ask.ts#L8)
+    - [registerTool @ context.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/context.ts#L8)
+    - [registerTool @ memory-passthrough.ts:130](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L130)
+    - [registerTool @ memory-passthrough.ts:89](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L89)
+    - [registerTool @ message-search.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/message-search.ts#L9)
+    - [registerTool @ search.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/search.ts#L8)
+    - [registerTool @ session.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/session.ts#L8)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hyperspell: cold import requires dependency installation in an isolated workspace
@@ -2341,14 +2341,14 @@ _none_
   - **conversation-access-hook**: honcho: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ capture.ts:151](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/capture.ts#L151)
-    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/subagent.ts#L34)
+    - [agent_end @ capture.ts:151](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/capture.ts#L151)
+    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L34)
 
 - 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
   - **sdk-export-missing**: honcho: plugin SDK import aliases are missing from target package exports
   - state: open · compat:untracked
   - evidence:
-    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L11)
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/index.ts#L11)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
@@ -3173,56 +3173,56 @@ _none_
   - **legacy-before-agent-start**: honcho: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/subagent.ts#L18)
+    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L18)
 
 - 🟡 P2 **honcho** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: honcho: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/commands/cli.ts#L8)
-    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/capture.ts#L2)
-    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/context.ts#L2)
-    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/gateway.ts#L2)
-    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/subagent.ts#L2)
-    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/state.ts#L9)
-    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/ask.ts#L3)
-    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/context.ts#L3)
-    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/memory-passthrough.ts#L3)
-    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/message-search.ts#L3)
-    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/search.ts#L3)
-    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/session.ts#L3)
+    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/commands/cli.ts#L8)
+    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/capture.ts#L2)
+    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/context.ts#L2)
+    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/gateway.ts#L2)
+    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L2)
+    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/state.ts#L9)
+    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/ask.ts#L3)
+    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/context.ts#L3)
+    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L3)
+    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/message-search.ts#L3)
+    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/search.ts#L3)
+    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/session.ts#L3)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: honcho: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/dist/index.js)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: honcho: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/package.json)
+    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/package.json)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: honcho: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L97)
-    - [registerMemoryRuntime @ runtime.ts:274](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/runtime.ts#L274)
+    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/index.ts#L97)
+    - [registerMemoryRuntime @ runtime.ts:274](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/runtime.ts#L274)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: honcho: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - [registerTool @ ask.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/ask.ts#L8)
-    - [registerTool @ context.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/context.ts#L8)
-    - [registerTool @ memory-passthrough.ts:130](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/memory-passthrough.ts#L130)
-    - [registerTool @ memory-passthrough.ts:89](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/memory-passthrough.ts#L89)
-    - [registerTool @ message-search.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/message-search.ts#L9)
-    - [registerTool @ search.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/search.ts#L8)
-    - [registerTool @ session.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/session.ts#L8)
+    - [registerTool @ ask.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/ask.ts#L8)
+    - [registerTool @ context.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/context.ts#L8)
+    - [registerTool @ memory-passthrough.ts:130](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L130)
+    - [registerTool @ memory-passthrough.ts:89](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L89)
+    - [registerTool @ message-search.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/message-search.ts#L9)
+    - [registerTool @ search.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/search.ts#L8)
+    - [registerTool @ session.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/session.ts#L8)
 
 - 🟡 P2 **hyperspell** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: hyperspell: root plugin SDK barrel is still used by fixtures
@@ -4508,8 +4508,8 @@ _none_
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:honcho`
   - evidence:
-    - [agent_end @ capture.ts:151](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/capture.ts#L151)
-    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/subagent.ts#L34)
+    - [agent_end @ capture.ts:151](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/capture.ts#L151)
+    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L34)
 
 - 🟠 P1 **kitchen-sink** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
@@ -4568,7 +4568,7 @@ _none_
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
   - id: `sdk.import.package-export-cold-import:honcho`
   - evidence:
-    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L11)
+    - [openclaw/plugin-sdk/memory-core @ index.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/index.ts#L11)
 
 - 🟡 P2 **a2a-gateway** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -4612,8 +4612,8 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:honcho`
   - evidence:
-    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/index.ts#L97)
-    - [registerMemoryRuntime @ runtime.ts:274](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/runtime.ts#L274)
+    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/index.ts#L97)
+    - [registerMemoryRuntime @ runtime.ts:274](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/runtime.ts#L274)
 
 - 🟡 P2 **hyperspell** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -4802,7 +4802,7 @@ _none_
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
   - id: `hook.compat.before-agent-start-migration:honcho`
   - evidence:
-    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/subagent.ts#L18)
+    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L18)
 
 - 🟡 P2 **kitchen-sink** `hook-runner`
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
@@ -4957,7 +4957,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:honcho`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/dist/index.js)
 
 - 🟡 P2 **lossless-claw** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -5034,8 +5034,8 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:honcho`
   - evidence:
-    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/package.json)
+    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/package.json)
 
 - 🟡 P2 **hyperspell** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -5267,18 +5267,18 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:honcho`
   - evidence:
-    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/commands/cli.ts#L8)
-    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/capture.ts#L2)
-    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/context.ts#L2)
-    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/gateway.ts#L2)
-    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/hooks/subagent.ts#L2)
-    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/state.ts#L9)
-    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/ask.ts#L3)
-    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/context.ts#L3)
-    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/memory-passthrough.ts#L3)
-    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/message-search.ts#L3)
-    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/search.ts#L3)
-    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/session.ts#L3)
+    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/commands/cli.ts#L8)
+    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/capture.ts#L2)
+    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/context.ts#L2)
+    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/gateway.ts#L2)
+    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L2)
+    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/state.ts#L9)
+    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/ask.ts#L3)
+    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/context.ts#L3)
+    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L3)
+    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/message-search.ts#L3)
+    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/search.ts#L3)
+    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/session.ts#L3)
 
 - 🟡 P2 **hyperspell** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
@@ -5396,13 +5396,13 @@ _none_
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
   - id: `tool.registration.schema-capture:honcho`
   - evidence:
-    - [registerTool @ ask.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/ask.ts#L8)
-    - [registerTool @ context.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/context.ts#L8)
-    - [registerTool @ memory-passthrough.ts:130](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/memory-passthrough.ts#L130)
-    - [registerTool @ memory-passthrough.ts:89](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/memory-passthrough.ts#L89)
-    - [registerTool @ message-search.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/message-search.ts#L9)
-    - [registerTool @ search.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/search.ts#L8)
-    - [registerTool @ session.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/9580d37d95ef63b0e8b64578fbfc8abfcfc745e4/tools/session.ts#L8)
+    - [registerTool @ ask.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/ask.ts#L8)
+    - [registerTool @ context.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/context.ts#L8)
+    - [registerTool @ memory-passthrough.ts:130](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L130)
+    - [registerTool @ memory-passthrough.ts:89](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L89)
+    - [registerTool @ message-search.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/message-search.ts#L9)
+    - [registerTool @ search.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/search.ts#L8)
+    - [registerTool @ session.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/session.ts#L8)
 
 - 🟡 P2 **hyperspell** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
