@@ -174,9 +174,8 @@ test("dependabot auto-merge refreshes reports after fixture pin updates", async 
   assert.match(workflow, /--baseline-data \.crabpot\/baseline\/main-dashboard-data\.json/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs "\$\{baseline_args\[@\]\}"/);
   assert.match(workflow, /git add README\.md reports\//);
-  assert.match(workflow, /id: refreshed-reports/);
-  assert.match(workflow, /echo "pushed=true" >> "\$GITHUB_OUTPUT"/);
-  assert.match(workflow, /steps\.refreshed-reports\.outputs\.pushed != 'true'/);
+  assert.match(workflow, /gh pr view "\$\{PR_NUMBER\}" --json mergeable,mergeStateStatus/);
+  assert.match(workflow, /waiting for GitHub mergeability/);
   assert.match(workflow, /gh pr merge "\$\{PR_NUMBER\}" --squash --delete-branch/);
   assert.doesNotMatch(workflow, /gh pr merge "\$\{PR_NUMBER\}" --squash --auto/);
 });
