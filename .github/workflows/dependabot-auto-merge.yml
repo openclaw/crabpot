@@ -66,7 +66,7 @@ jobs:
           git fetch --no-tags --depth=1 origin main
           git show origin/main:reports/crabpot-dashboard-data.json > .crabpot/baseline/main-dashboard-data.json || true
 
-      - name: Verify Dependabot changed only fixture pins
+      - name: Verify Dependabot changed only fixture pins and generated reports
         env:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -79,10 +79,10 @@ jobs:
             exit 1
           fi
           while IFS= read -r file; do
-            if [[ "$file" == ".gitmodules" || "$file" =~ ^plugins/[^/]+$ || "$file" =~ ^plugins/[^/]+/package(-lock)?\.json$ ]]; then
+            if [[ "$file" == ".gitmodules" || "$file" == "README.md" || "$file" =~ ^reports/ || "$file" =~ ^plugins/[^/]+$ || "$file" =~ ^plugins/[^/]+/package(-lock)?\.json$ ]]; then
               continue
             fi
-            echo "::error file=${file}::Dependabot auto-merge only accepts fixture pin changes"
+            echo "::error file=${file}::Dependabot auto-merge only accepts fixture pin changes and generated report updates"
             exit 1
           done < /tmp/crabpot-dependabot-files.txt
 
