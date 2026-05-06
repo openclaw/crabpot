@@ -237,7 +237,7 @@ _none_
   - **legacy-before-agent-start**: memos-cloud: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ index.js:531](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L531)
+    - [before_agent_start @ index.js:481](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L481)
 
 - 🟡 P2 **memu-engine** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: memu-engine: root plugin SDK barrel is still used by fixtures
@@ -286,7 +286,7 @@ _none_
   - **legacy-before-agent-start**: nemoclaw: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ runtime-context.ts:474](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/src/runtime-context.ts#L474)
+    - [before_agent_start @ runtime-context.ts:474](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/src/runtime-context.ts#L474)
 
 - 🟡 P2 **nextcloud-talk** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: nextcloud-talk: channelEnvVars legacy manifest metadata must stay covered
@@ -436,13 +436,13 @@ _none_
   - **conversation-access-hook**: memos-cloud: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ index.js:565](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L565)
+    - [agent_end @ index.js:515](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L515)
 
 - 🟠 P1 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ index.ts:384](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/src/index.ts#L384)
+    - [before_tool_call @ index.ts:384](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/src/index.ts#L384)
 
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
@@ -1166,7 +1166,7 @@ _none_
   - **registration-capture-gap**: memos-cloud: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerHook @ index.js:517](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L517)
+    - [registerHook @ index.js:467](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L467)
 
 - 🟡 P2 **memu-engine** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: memu-engine: cold import needs TypeScript source entrypoint support
@@ -1237,23 +1237,23 @@ _none_
   - **package-build-artifact-entrypoint**: nemoclaw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/dist/index.js)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nemoclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [commander @ package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
+    - [commander @ package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:336](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/src/index.ts#L336)
+    - [registerCommand @ index.ts:336](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/src/index.ts#L336)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
@@ -2065,7 +2065,7 @@ _none_
   - **package-plugin-api-compat-missing**: nemoclaw: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
+    - [package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
 
 - 🟡 P2 **nextcloud-talk** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: nextcloud-talk: OpenClaw package install metadata is incomplete
@@ -2391,7 +2391,7 @@ _none_
   - **conversation-access-hook**: memos-cloud: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ index.js:565](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L565)
+    - [agent_end @ index.js:515](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L515)
 
 - 🟠 P1 **msteams** `upstream-metadata` `plugin-upstream-fix`
   - **package-npm-pack-entrypoint-missing**: msteams: advertised npm artifact is missing OpenClaw entrypoints
@@ -2404,7 +2404,7 @@ _none_
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ index.ts:384](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/src/index.ts#L384)
+    - [before_tool_call @ index.ts:384](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/src/index.ts#L384)
 
 - 🟠 P1 **nextcloud-talk** `upstream-metadata` `plugin-upstream-fix`
   - **package-npm-pack-entrypoint-missing**: nextcloud-talk: advertised npm artifact is missing OpenClaw entrypoints
@@ -3603,7 +3603,7 @@ _none_
   - **legacy-before-agent-start**: memos-cloud: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ index.js:531](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L531)
+    - [before_agent_start @ index.js:481](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L481)
 
 - 🟡 P2 **memos-cloud** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: memos-cloud: manifest uses unsupported top-level fields
@@ -3621,7 +3621,7 @@ _none_
   - **registration-capture-gap**: memos-cloud: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerHook @ index.js:517](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L517)
+    - [registerHook @ index.js:467](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L467)
 
 - 🟡 P2 **memu-engine** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: memu-engine: root plugin SDK barrel is still used by fixtures
@@ -3760,35 +3760,35 @@ _none_
   - **legacy-before-agent-start**: nemoclaw: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ runtime-context.ts:474](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/src/runtime-context.ts#L474)
+    - [before_agent_start @ runtime-context.ts:474](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/src/runtime-context.ts#L474)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: nemoclaw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/dist/index.js)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nemoclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [commander @ package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
+    - [commander @ package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
 
 - 🟡 P2 **nemoclaw** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: nemoclaw: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
+    - [package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:336](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/src/index.ts#L336)
+    - [registerCommand @ index.ts:336](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/src/index.ts#L336)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
@@ -4468,7 +4468,7 @@ _none_
   - contract: Hook returns preserve terminal, block, and approval semantics.
   - id: `hook.before_tool_call.terminal-block-approval:nemoclaw`
   - evidence:
-    - [before_tool_call @ index.ts:384](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/src/index.ts#L384)
+    - [before_tool_call @ index.ts:384](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/src/index.ts#L384)
 
 - 🟠 P1 **openclaw-telemetry** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
@@ -4526,7 +4526,7 @@ _none_
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:memos-cloud`
   - evidence:
-    - [agent_end @ index.js:565](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L565)
+    - [agent_end @ index.js:515](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L515)
 
 - 🟠 P1 **openclaw-telemetry** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
@@ -4674,7 +4674,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:nemoclaw`
   - evidence:
-    - [registerCommand @ index.ts:336](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/src/index.ts#L336)
+    - [registerCommand @ index.ts:336](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/src/index.ts#L336)
 
 - 🟡 P2 **openclaw-telemetry** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -4798,7 +4798,7 @@ _none_
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
   - id: `hook.compat.before-agent-start-migration:nemoclaw`
   - evidence:
-    - [before_agent_start @ runtime-context.ts:474](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/src/runtime-context.ts#L474)
+    - [before_agent_start @ runtime-context.ts:474](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/src/runtime-context.ts#L474)
 
 - 🟡 P2 **openclaw-telemetry** `hook-runner`
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
@@ -4892,7 +4892,7 @@ _none_
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:nemoclaw`
   - evidence:
-    - [package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
+    - [package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
 
 - 🟡 P2 **openclaw-telemetry** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -4953,7 +4953,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:nemoclaw`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/dist/index.js)
 
 - 🟡 P2 **opik-openclaw** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -5069,11 +5069,11 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:nemoclaw`
   - evidence:
-    - [commander @ package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/0f13026c895ce56f667022b372b1cc967d118765/nemoclaw/package.json)
+    - [commander @ package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/2d6dd4dbd80edad6b552c4c891b033784470bddb/nemoclaw/package.json)
 
 - 🟡 P2 **openclaw-weixin** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -5547,7 +5547,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:memos-cloud`
   - evidence:
-    - [registerHook @ index.js:517](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L517)
+    - [registerHook @ index.js:467](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L467)
 
 - 🟢 P3 **nostr** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -5685,7 +5685,7 @@ _none_
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
   - id: `hook.compat.before-agent-start-migration:memos-cloud`
   - evidence:
-    - [before_agent_start @ index.js:531](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L531)
+    - [before_agent_start @ index.js:481](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L481)
 
 - 🟢 P3 **discord** `manifest-loader`
   - contract: Legacy channel env metadata continues to map into channel setup/help surfaces.

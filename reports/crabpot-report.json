@@ -29091,14 +29091,14 @@
         {
           "name": "agent_end",
           "file": "plugins/memos-cloud/index.js",
-          "line": 565,
-          "ref": "plugins/memos-cloud/index.js:565"
+          "line": 515,
+          "ref": "plugins/memos-cloud/index.js:515"
         },
         {
           "name": "before_agent_start",
           "file": "plugins/memos-cloud/index.js",
-          "line": 531,
-          "ref": "plugins/memos-cloud/index.js:531"
+          "line": 481,
+          "ref": "plugins/memos-cloud/index.js:481"
         }
       ],
       "registrations": [
@@ -29108,8 +29108,8 @@
         {
           "name": "registerHook",
           "file": "plugins/memos-cloud/index.js",
-          "line": 517,
-          "ref": "plugins/memos-cloud/index.js:517"
+          "line": 467,
+          "ref": "plugins/memos-cloud/index.js:467"
         }
       ],
       "manifestContracts": [],
@@ -29131,7 +29131,7 @@
           "path": "plugins/memos-cloud/openclaw.plugin.json",
           "id": "memos-cloud-openclaw-plugin",
           "name": "MemOS Cloud OpenClaw Plugin",
-          "version": "0.1.14",
+          "version": "0.1.13",
           "keys": [
             "configSchema",
             "description",
@@ -29151,7 +29151,7 @@
       "package": {
         "path": "plugins/memos-cloud/package.json",
         "name": "@memtensor/memos-cloud-openclaw-plugin",
-        "version": "0.1.14",
+        "version": "0.1.13",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -29191,7 +29191,7 @@
         {
           "path": "plugins/memos-cloud/package.json",
           "name": "@memtensor/memos-cloud-openclaw-plugin",
-          "version": "0.1.14",
+          "version": "0.1.13",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -31719,7 +31719,7 @@
       "level": "warning",
       "message": "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
       "evidence": [
-        "agent_end @ plugins/memos-cloud/index.js:565"
+        "agent_end @ plugins/memos-cloud/index.js:515"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload"
     },
@@ -31729,7 +31729,7 @@
       "level": "warning",
       "message": "fixture uses deprecated before_agent_start hook compatibility",
       "evidence": [
-        "before_agent_start @ plugins/memos-cloud/index.js:531"
+        "before_agent_start @ plugins/memos-cloud/index.js:481"
       ],
       "compatRecord": "legacy-before-agent-start"
     },
@@ -33381,7 +33381,7 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerHook @ plugins/memos-cloud/index.js:517"
+        "registerHook @ plugins/memos-cloud/index.js:467"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -33899,7 +33899,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-A1A9B1D2",
+      "id": "CRABPOT-B1B58880",
       "fixture": "memos-cloud",
       "severity": "P1",
       "owner": "core",
@@ -33912,7 +33912,7 @@
       "compatStatus": "active",
       "title": "memos-cloud: conversation-access hooks need privacy-boundary probes",
       "evidence": [
-        "agent_end @ plugins/memos-cloud/index.js:565"
+        "agent_end @ plugins/memos-cloud/index.js:515"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload",
       "runtimeCoverage": null
@@ -37217,7 +37217,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-CD8A6617",
+      "id": "CRABPOT-C13A3115",
       "fixture": "memos-cloud",
       "severity": "P2",
       "owner": "core",
@@ -37230,7 +37230,7 @@
       "compatStatus": "deprecated",
       "title": "memos-cloud: legacy before_agent_start hook compatibility is still used",
       "evidence": [
-        "before_agent_start @ plugins/memos-cloud/index.js:531"
+        "before_agent_start @ plugins/memos-cloud/index.js:481"
       ],
       "compatRecord": "legacy-before-agent-start",
       "runtimeCoverage": null
@@ -37274,7 +37274,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-54DA9458",
+      "id": "CRABPOT-7817AAF4",
       "fixture": "memos-cloud",
       "severity": "P2",
       "owner": "inspector",
@@ -37287,7 +37287,7 @@
       "compatStatus": "active",
       "title": "memos-cloud: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerHook @ plugins/memos-cloud/index.js:517"
+        "registerHook @ plugins/memos-cloud/index.js:467"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -39759,7 +39759,7 @@
       "target": "hook-runner",
       "contract": "LLM observer hooks receive documented prompt/output fields with expected redaction behavior.",
       "evidence": [
-        "agent_end @ plugins/memos-cloud/index.js:565"
+        "agent_end @ plugins/memos-cloud/index.js:515"
       ]
     },
     {
@@ -41296,7 +41296,7 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerHook @ plugins/memos-cloud/index.js:517"
+        "registerHook @ plugins/memos-cloud/index.js:467"
       ]
     },
     {
@@ -41518,7 +41518,7 @@
       "target": "hook-runner",
       "contract": "Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.",
       "evidence": [
-        "before_agent_start @ plugins/memos-cloud/index.js:531"
+        "before_agent_start @ plugins/memos-cloud/index.js:481"
       ]
     },
     {
@@ -47450,7 +47450,7 @@
       "evidence": [
         "plugins/memos-cloud/package.json",
         "@memtensor/memos-cloud-openclaw-plugin",
-        "version:0.1.14"
+        "version:0.1.13"
       ]
     },
     {
@@ -51033,7 +51033,7 @@
       "decision": "core-compat-adapter",
       "seam": "hook-compat",
       "action": "Keep before_agent_start wired while plugin authors migrate to before_model_resolve and before_prompt_build.",
-      "evidence": "before_agent_start @ plugins/memos-cloud/index.js:531"
+      "evidence": "before_agent_start @ plugins/memos-cloud/index.js:481"
     },
     {
       "fixture": "memos-cloud",

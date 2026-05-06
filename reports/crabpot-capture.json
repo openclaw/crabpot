@@ -32611,10 +32611,10 @@
       "priority": "medium",
       "registrations": [
         {
-          "id": "registration.registerHook:memos-cloud:plugins-memos-cloud-index-js-517",
+          "id": "registration.registerHook:memos-cloud:plugins-memos-cloud-index-js-467",
           "fixture": "memos-cloud",
           "registrar": "registerHook",
-          "ref": "plugins/memos-cloud/index.js:517",
+          "ref": "plugins/memos-cloud/index.js:467",
           "support": "inspector-shim-required",
           "assertions": [
             "legacy hook name is stable",
@@ -32628,10 +32628,10 @@
       ],
       "hooks": [
         {
-          "id": "hook.agent_end:memos-cloud:plugins-memos-cloud-index-js-565",
+          "id": "hook.agent_end:memos-cloud:plugins-memos-cloud-index-js-515",
           "fixture": "memos-cloud",
           "hook": "agent_end",
-          "ref": "plugins/memos-cloud/index.js:565",
+          "ref": "plugins/memos-cloud/index.js:515",
           "support": "synthetic-event-required",
           "assertions": [
             "final conversation payload is redacted as expected",
@@ -32657,10 +32657,10 @@
           }
         },
         {
-          "id": "hook.before_agent_start:memos-cloud:plugins-memos-cloud-index-js-531",
+          "id": "hook.before_agent_start:memos-cloud:plugins-memos-cloud-index-js-481",
           "fixture": "memos-cloud",
           "hook": "before_agent_start",
-          "ref": "plugins/memos-cloud/index.js:531",
+          "ref": "plugins/memos-cloud/index.js:481",
           "support": "synthetic-event-required",
           "assertions": [
             "legacy startup hook payload is accepted",
@@ -33438,7 +33438,7 @@
       "priority": "P1",
       "target": "hook-runner",
       "evidence": [
-        "agent_end @ plugins/memos-cloud/index.js:565"
+        "agent_end @ plugins/memos-cloud/index.js:515"
       ],
       "assertions": [
         "synthetic event payload is accepted",
@@ -35362,7 +35362,7 @@
       "priority": "P3",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerHook @ plugins/memos-cloud/index.js:517"
+        "registerHook @ plugins/memos-cloud/index.js:467"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -35647,7 +35647,7 @@
       "priority": "P3",
       "target": "hook-runner",
       "evidence": [
-        "before_agent_start @ plugins/memos-cloud/index.js:531"
+        "before_agent_start @ plugins/memos-cloud/index.js:481"
       ],
       "assertions": [
         "synthetic event payload is accepted",
