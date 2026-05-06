@@ -121,20 +121,29 @@ jobs:
           node scripts/update-readme-summary.mjs "${baseline_args[@]}"
 
       - name: Commit refreshed reports
-        id: refreshed-reports
         run: |
           if ! git diff --quiet README.md reports/; then
             git add README.md reports/
             git commit -m "chore(reports): refresh dependabot compatibility reports"
             git push
-            echo "pushed=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "pushed=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Merge Dependabot PR
-        if: ${{ steps.refreshed-reports.outputs.pushed != 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: gh pr merge "${PR_NUMBER}" --squash --delete-branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in {1..18}; do
+            state="$(gh pr view "${PR_NUMBER}" --json mergeable,mergeStateStatus --jq '[.mergeable, .mergeStateStatus] | @tsv')"
+            read -r mergeable merge_state <<< "${state}"
+            if [ "${mergeable}" = "MERGEABLE" ]; then
+              gh pr merge "${PR_NUMBER}" --squash --delete-branch
+              exit 0
+            fi
+            echo "PR ${PR_NUMBER} mergeable=${mergeable} mergeStateStatus=${merge_state}; waiting for GitHub mergeability (${attempt}/18)"
+            sleep 10
+          done
+          gh pr view "${PR_NUMBER}" --json url,mergeable,mergeStateStatus,statusCheckRollup
+          exit 1
