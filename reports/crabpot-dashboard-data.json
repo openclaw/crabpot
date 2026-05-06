@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-06T09:31:01Z",
-  "runUrl": "https://github.com/openclaw/crabpot/actions/runs/25427113745",
+  "generatedAt": "deterministic",
+  "runUrl": "",
   "mode": "dependabot",
   "openclawLabel": "openclaw@latest (2026.5.5, b1abf9d8ae44)",
   "status": "pass",
@@ -16,10 +16,10 @@
     "liveIssues": 0,
     "liveP0Issues": 0,
     "compatGaps": 2,
-    "deprecationWarnings": 41,
-    "inspectorGaps": 163,
-    "upstreamIssues": 97,
-    "contractProbes": 299,
+    "deprecationWarnings": 40,
+    "inspectorGaps": 181,
+    "upstreamIssues": 74,
+    "contractProbes": 293,
     "policyFailures": 0,
     "policyWarnings": 19,
     "refDiffFailures": 0,
@@ -62,33 +62,6 @@
   "baseline": null,
   "topIssues": [
     {
-      "id": "CRABPOT-F2345540",
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "bluebubbles",
-      "code": "package-npm-pack-entrypoint-missing",
-      "decision": "plugin-upstream-fix",
-      "title": "bluebubbles: advertised npm artifact is missing OpenClaw entrypoints"
-    },
-    {
-      "id": "CRABPOT-F51EE9A1",
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "brave-plugin",
-      "code": "package-npm-pack-entrypoint-missing",
-      "decision": "plugin-upstream-fix",
-      "title": "brave-plugin: advertised npm artifact is missing OpenClaw entrypoints"
-    },
-    {
-      "id": "CRABPOT-FC01CA77",
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "clawmetry",
-      "code": "package-npm-pack-entrypoint-missing",
-      "decision": "plugin-upstream-fix",
-      "title": "clawmetry: advertised npm artifact is missing OpenClaw entrypoints"
-    },
-    {
       "id": "CRABPOT-54E8B3D1",
       "severity": "P1",
       "issueClass": "compat-gap",
@@ -98,58 +71,85 @@
       "title": "clawmetry: plugin SDK import aliases are missing from target package exports"
     },
     {
-      "id": "CRABPOT-F2C66772",
+      "id": "CRABPOT-2D165A73",
       "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "codex",
-      "code": "package-npm-pack-entrypoint-missing",
-      "decision": "plugin-upstream-fix",
-      "title": "codex: advertised npm artifact is missing OpenClaw entrypoints"
+      "issueClass": "inspector-gap",
+      "fixture": "honcho",
+      "code": "conversation-access-hook",
+      "decision": "inspector-follow-up",
+      "title": "honcho: conversation-access hooks need privacy-boundary probes"
     },
     {
-      "id": "CRABPOT-3E80BE62",
+      "id": "CRABPOT-85AD745B",
       "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "diagnostics-otel",
-      "code": "package-npm-pack-entrypoint-missing",
-      "decision": "plugin-upstream-fix",
-      "title": "diagnostics-otel: advertised npm artifact is missing OpenClaw entrypoints"
+      "issueClass": "compat-gap",
+      "fixture": "honcho",
+      "code": "sdk-export-missing",
+      "decision": "core-compat-adapter",
+      "title": "honcho: plugin SDK import aliases are missing from target package exports"
     },
     {
-      "id": "CRABPOT-38283296",
+      "id": "CRABPOT-66F07BB5",
       "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "diagnostics-prometheus",
-      "code": "package-npm-pack-entrypoint-missing",
-      "decision": "plugin-upstream-fix",
-      "title": "diagnostics-prometheus: advertised npm artifact is missing OpenClaw entrypoints"
+      "issueClass": "inspector-gap",
+      "fixture": "kitchen-sink",
+      "code": "before-tool-call-probe",
+      "decision": "inspector-follow-up",
+      "title": "kitchen-sink: before_tool_call needs terminal/block/approval probes"
     },
     {
-      "id": "CRABPOT-CB317A4E",
+      "id": "CRABPOT-ADFE9067",
       "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "diffs",
-      "code": "package-npm-pack-entrypoint-missing",
-      "decision": "plugin-upstream-fix",
-      "title": "diffs: advertised npm artifact is missing OpenClaw entrypoints"
+      "issueClass": "inspector-gap",
+      "fixture": "kitchen-sink",
+      "code": "conversation-access-hook",
+      "decision": "inspector-follow-up",
+      "title": "kitchen-sink: conversation-access hooks need privacy-boundary probes"
     },
     {
-      "id": "CRABPOT-035E2729",
+      "id": "CRABPOT-5D9C0F25",
       "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "discord",
-      "code": "package-npm-pack-entrypoint-missing",
-      "decision": "plugin-upstream-fix",
-      "title": "discord: advertised npm artifact is missing OpenClaw entrypoints"
+      "issueClass": "inspector-gap",
+      "fixture": "llm-trace-phoenix",
+      "code": "conversation-access-hook",
+      "decision": "inspector-follow-up",
+      "title": "llm-trace-phoenix: conversation-access hooks need privacy-boundary probes"
     },
     {
-      "id": "CRABPOT-04138697",
+      "id": "CRABPOT-01AB7464",
       "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "feishu",
-      "code": "package-npm-pack-entrypoint-missing",
-      "decision": "plugin-upstream-fix",
-      "title": "feishu: advertised npm artifact is missing OpenClaw entrypoints"
+      "issueClass": "inspector-gap",
+      "fixture": "memory-lancedb",
+      "code": "conversation-access-hook",
+      "decision": "inspector-follow-up",
+      "title": "memory-lancedb: conversation-access hooks need privacy-boundary probes"
+    },
+    {
+      "id": "CRABPOT-8D2DD018",
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "memory-tencentdb",
+      "code": "conversation-access-hook",
+      "decision": "inspector-follow-up",
+      "title": "memory-tencentdb: conversation-access hooks need privacy-boundary probes"
+    },
+    {
+      "id": "CRABPOT-A1A9B1D2",
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "memos-cloud",
+      "code": "conversation-access-hook",
+      "decision": "inspector-follow-up",
+      "title": "memos-cloud: conversation-access hooks need privacy-boundary probes"
+    },
+    {
+      "id": "CRABPOT-120FF1E0",
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "nemoclaw",
+      "code": "before-tool-call-probe",
+      "decision": "inspector-follow-up",
+      "title": "nemoclaw: before_tool_call needs terminal/block/approval probes"
     }
   ],
   "artifactPaths": {

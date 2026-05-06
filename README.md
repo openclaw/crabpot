@@ -34,10 +34,10 @@
 | P1 issues              | [🟠 P1 38](reports/crabpot-issues.md#triage-summary)                                                                |
 | Live issues            | 0 total / 0 P0                                                                                                      |
 | Compat gaps            | 2                                                                                                                   |
-| Deprecation warnings   | 41                                                                                                                  |
-| Inspector gaps         | 163                                                                                                                 |
-| Upstream metadata      | 97                                                                                                                  |
-| Contract probes        | 299                                                                                                                 |
+| Deprecation warnings   | 40                                                                                                                  |
+| Inspector gaps         | 181                                                                                                                 |
+| Upstream metadata      | 74                                                                                                                  |
+| Contract probes        | 293                                                                                                                 |
 | Policy failures        | 0                                                                                                                   |
 | Policy warnings        | 19                                                                                                                  |
 | Ref diff failures      | 0                                                                                                                   |
@@ -60,18 +60,18 @@
 
 ### Top Discovered Issues
 
-| Severity | Class             | Fixture                | Code                                | Decision            | Title                                                                                                                                 |
-| -------- | ----------------- | ---------------------- | ----------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| 🟠 P1    | upstream-metadata | bluebubbles            | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [bluebubbles: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues)            |
-| 🟠 P1    | upstream-metadata | brave-plugin           | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [brave-plugin: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues)           |
-| 🟠 P1    | upstream-metadata | clawmetry              | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [clawmetry: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues)              |
-| 🟠 P1    | compat-gap        | clawmetry              | sdk-export-missing                  | core-compat-adapter | [clawmetry: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#compat-gaps)                 |
-| 🟠 P1    | upstream-metadata | codex                  | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [codex: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues)                  |
-| 🟠 P1    | upstream-metadata | diagnostics-otel       | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [diagnostics-otel: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues)       |
-| 🟠 P1    | upstream-metadata | diagnostics-prometheus | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [diagnostics-prometheus: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues) |
-| 🟠 P1    | upstream-metadata | diffs                  | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [diffs: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues)                  |
-| 🟠 P1    | upstream-metadata | discord                | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [discord: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues)                |
-| 🟠 P1    | upstream-metadata | feishu                 | package-npm-pack-entrypoint-missing | plugin-upstream-fix | [feishu: advertised npm artifact is missing OpenClaw entrypoints](reports/crabpot-issues.md#upstream-metadata-issues)                 |
+| Severity | Class         | Fixture           | Code                     | Decision            | Title                                                                                                                       |
+| -------- | ------------- | ----------------- | ------------------------ | ------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| 🟠 P1    | compat-gap    | clawmetry         | sdk-export-missing       | core-compat-adapter | [clawmetry: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#compat-gaps)       |
+| 🟠 P1    | inspector-gap | honcho            | conversation-access-hook | inspector-follow-up | [honcho: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)            |
+| 🟠 P1    | compat-gap    | honcho            | sdk-export-missing       | core-compat-adapter | [honcho: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#compat-gaps)          |
+| 🟠 P1    | inspector-gap | kitchen-sink      | before-tool-call-probe   | inspector-follow-up | [kitchen-sink: before_tool_call needs terminal/block/approval probes](reports/crabpot-issues.md#inspector-proof-gaps)       |
+| 🟠 P1    | inspector-gap | kitchen-sink      | conversation-access-hook | inspector-follow-up | [kitchen-sink: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)      |
+| 🟠 P1    | inspector-gap | llm-trace-phoenix | conversation-access-hook | inspector-follow-up | [llm-trace-phoenix: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps) |
+| 🟠 P1    | inspector-gap | memory-lancedb    | conversation-access-hook | inspector-follow-up | [memory-lancedb: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)    |
+| 🟠 P1    | inspector-gap | memory-tencentdb  | conversation-access-hook | inspector-follow-up | [memory-tencentdb: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)  |
+| 🟠 P1    | inspector-gap | memos-cloud       | conversation-access-hook | inspector-follow-up | [memos-cloud: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)       |
+| 🟠 P1    | inspector-gap | nemoclaw          | before-tool-call-probe   | inspector-follow-up | [nemoclaw: before_tool_call needs terminal/block/approval probes](reports/crabpot-issues.md#inspector-proof-gaps)           |
 <!-- crabpot-summary:end -->
 ## What this tests
 
