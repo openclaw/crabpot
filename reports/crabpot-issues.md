@@ -13,8 +13,8 @@ Status: PASS
 
 | Metric                     | Value |
 | -------------------------- | ----- |
-| Issue findings             | 305   |
-| Open issue findings        | 305   |
+| Issue findings             | 304   |
+| Open issue findings        | 304   |
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
 | 🔴 P0                      | 0     |
@@ -28,8 +28,8 @@ Status: PASS
 | Inspector gaps             | 164   |
 | Open inspector gaps        | 164   |
 | Runtime coverage artifacts | 0     |
-| Upstream metadata          | 98    |
-| Contract probes            | 301   |
+| Upstream metadata          | 97    |
+| Contract probes            | 300   |
 
 ## Triage Overview
 
@@ -39,7 +39,7 @@ Status: PASS
 | compat-gap          | 2     | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
 | deprecation-warning | 41    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
 | inspector-gap       | 164   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
-| upstream-metadata   | 98    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
+| upstream-metadata   | 97    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                                                                    |
 
 ## P0 Live Issues
@@ -1878,12 +1878,6 @@ _none_
   - evidence:
     - [package.json](https://github.com/ComposioHQ/openclaw-composio-plugin/blob/992d9576ba1b301e37dc900f3177a608936b8fbb/package.json)
 
-- 🟡 P2 **connectclaw** `upstream-metadata` `plugin-upstream-fix`
-  - **package-plugin-api-compat-missing**: connectclaw: plugin API compatibility range is missing
-  - state: open · compat:none
-  - evidence:
-    - [package.json](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/package.json)
-
 - 🟡 P2 **ddingtalk** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: ddingtalk: plugin API compatibility range is missing
   - state: open · compat:none
@@ -2860,12 +2854,6 @@ _none_
     - [openclaw/plugin-sdk @ hooks.ts:1](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/hooks.ts#L1)
     - [openclaw/plugin-sdk @ tools.ts:1](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/tools.ts#L1)
     - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/tools.ts#L2)
-
-- 🟡 P2 **connectclaw** `upstream-metadata` `plugin-upstream-fix`
-  - **package-plugin-api-compat-missing**: connectclaw: plugin API compatibility range is missing
-  - state: open · compat:none
-  - evidence:
-    - [package.json](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/package.json)
 
 - 🟡 P2 **connectclaw** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: connectclaw: cold import needs TypeScript source entrypoint support
@@ -4891,12 +4879,6 @@ _none_
   - id: `package.compat.plugin-api-range:composio`
   - evidence:
     - [package.json](https://github.com/ComposioHQ/openclaw-composio-plugin/blob/992d9576ba1b301e37dc900f3177a608936b8fbb/package.json)
-
-- 🟡 P2 **connectclaw** `package-loader`
-  - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
-  - id: `package.compat.plugin-api-range:connectclaw`
-  - evidence:
-    - [package.json](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/package.json)
 
 - 🟡 P2 **ddingtalk** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
