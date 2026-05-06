@@ -162,7 +162,9 @@ test("dependabot auto-merge refreshes reports after fixture pin updates", async 
   assert.match(workflow, /github\.event\.pull_request\.head\.repo\.full_name == github\.repository/);
   assert.match(workflow, /Update Dependabot branch with base/);
   assert.match(workflow, /git merge --no-edit "origin\/\$\{\{ github\.event\.pull_request\.base\.ref \}\}"/);
-  assert.match(workflow, /Verify Dependabot changed only fixture pins/);
+  assert.match(workflow, /Verify Dependabot changed only fixture pins and generated reports/);
+  assert.ok(workflow.includes('"$file" == "README.md"'));
+  assert.ok(workflow.includes('^reports/'));
   assert.ok(workflow.includes("^plugins/[^/]+$"));
   assert.ok(workflow.includes("^plugins/[^/]+/package(-lock)?\\.json$"));
   assert.match(workflow, /node scripts\/sync-fixtures\.mjs --materialize/);
