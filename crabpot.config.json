@@ -1149,11 +1149,11 @@
       },
       "path": "plugins/openclaw-weixin",
       "priority": "high",
-      "seams": ["channel", "media", "account-auth", "pairing", "sdk-subpaths"],
+      "seams": ["channel", "media", "account-auth", "pairing", "sdk-subpaths", "catalog-discovery"],
       "expect": {
         "registrations": ["registerChannel"]
       },
-      "why": "NPM-pinned Weixin channel fixture covering scan-login pairing, account isolation, media upload/download, and narrow SDK subpath usage."
+      "why": "NPM-pinned Weixin channel fixture covering scan-login pairing, account isolation, media upload/download, narrow SDK subpath usage, and npm-installed channel catalog discovery."
     },
     {
       "id": "lightclawbot",
