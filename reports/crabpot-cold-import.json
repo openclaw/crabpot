@@ -1894,7 +1894,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@node-rs/jieba, @tencentdb-agent-memory/tcvdb-text, json5, sqlite-vec, undici, node-llama-cpp"
+              "evidence": "@ai-sdk/openai, @node-rs/jieba, @tencentdb-agent-memory/tcvdb-text, ai, js-tiktoken, json5, sqlite-vec, tsx, undici, yaml, node-llama-cpp, opik"
             }
           ],
           "assertions": [

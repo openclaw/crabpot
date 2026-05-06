@@ -1,22 +1,22 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "dependabot",
+  "mode": "check",
   "openclawLabel": "openclaw@latest (2026.5.5, b1abf9d8ae44)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 148,
-    "suggestions": 155,
-    "issues": 303,
+    "warnings": 126,
+    "suggestions": 156,
+    "issues": 282,
     "p0Issues": 0,
-    "p1Issues": 38,
+    "p1Issues": 15,
     "liveIssues": 0,
     "liveP0Issues": 0,
     "compatGaps": 2,
-    "deprecationWarnings": 41,
-    "inspectorGaps": 163,
-    "upstreamIssues": 97,
+    "deprecationWarnings": 42,
+    "inspectorGaps": 164,
+    "upstreamIssues": 74,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -29,42 +29,18 @@
     "platformWindowsRisks": 14,
     "platformContainerRisks": 14,
     "loaderJitiCandidates": 25,
-    "importLoopP50Ms": 2378,
-    "importLoopP95Ms": 2434,
+    "importLoopP50Ms": 2290,
+    "importLoopP95Ms": 2296,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 75.5,
+    "importLoopOpenClawImportP50Ms": 89.9,
     "importLoopOpenClawActivationP50Ms": 0.3,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 24.2,
-    "importLoopMaxCpuMs": 96,
-    "importLoopRssSampleCount": 279,
-    "importLoopCpuSampleCount": 279
+    "importLoopMaxRssMb": 10.3,
+    "importLoopMaxCpuMs": 0,
+    "importLoopRssSampleCount": 268,
+    "importLoopCpuSampleCount": 268
   },
   "topIssues": [
-    {
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "bluebubbles",
-      "code": "package-npm-pack-entrypoint-missing",
-      "title": "bluebubbles: advertised npm artifact is missing OpenClaw entrypoints",
-      "decision": "plugin-upstream-fix"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "brave-plugin",
-      "code": "package-npm-pack-entrypoint-missing",
-      "title": "brave-plugin: advertised npm artifact is missing OpenClaw entrypoints",
-      "decision": "plugin-upstream-fix"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "clawmetry",
-      "code": "package-npm-pack-entrypoint-missing",
-      "title": "clawmetry: advertised npm artifact is missing OpenClaw entrypoints",
-      "decision": "plugin-upstream-fix"
-    },
     {
       "severity": "P1",
       "issueClass": "compat-gap",
@@ -72,62 +48,6 @@
       "code": "sdk-export-missing",
       "title": "clawmetry: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "codex",
-      "code": "package-npm-pack-entrypoint-missing",
-      "title": "codex: advertised npm artifact is missing OpenClaw entrypoints",
-      "decision": "plugin-upstream-fix"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "diagnostics-otel",
-      "code": "package-npm-pack-entrypoint-missing",
-      "title": "diagnostics-otel: advertised npm artifact is missing OpenClaw entrypoints",
-      "decision": "plugin-upstream-fix"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "diagnostics-prometheus",
-      "code": "package-npm-pack-entrypoint-missing",
-      "title": "diagnostics-prometheus: advertised npm artifact is missing OpenClaw entrypoints",
-      "decision": "plugin-upstream-fix"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "diffs",
-      "code": "package-npm-pack-entrypoint-missing",
-      "title": "diffs: advertised npm artifact is missing OpenClaw entrypoints",
-      "decision": "plugin-upstream-fix"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "discord",
-      "code": "package-npm-pack-entrypoint-missing",
-      "title": "discord: advertised npm artifact is missing OpenClaw entrypoints",
-      "decision": "plugin-upstream-fix"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "feishu",
-      "code": "package-npm-pack-entrypoint-missing",
-      "title": "feishu: advertised npm artifact is missing OpenClaw entrypoints",
-      "decision": "plugin-upstream-fix"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "google-meet",
-      "code": "package-npm-pack-entrypoint-missing",
-      "title": "google-meet: advertised npm artifact is missing OpenClaw entrypoints",
-      "decision": "plugin-upstream-fix"
     },
     {
       "severity": "P1",
@@ -171,14 +91,6 @@
     },
     {
       "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "lobster",
-      "code": "package-npm-pack-entrypoint-missing",
-      "title": "lobster: advertised npm artifact is missing OpenClaw entrypoints",
-      "decision": "plugin-upstream-fix"
-    },
-    {
-      "severity": "P1",
       "issueClass": "inspector-gap",
       "fixture": "memory-lancedb",
       "code": "conversation-access-hook",
@@ -187,18 +99,66 @@
     },
     {
       "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "memory-lancedb",
-      "code": "package-npm-pack-entrypoint-missing",
-      "title": "memory-lancedb: advertised npm artifact is missing OpenClaw entrypoints",
-      "decision": "plugin-upstream-fix"
-    },
-    {
-      "severity": "P1",
       "issueClass": "inspector-gap",
       "fixture": "memory-tencentdb",
       "code": "conversation-access-hook",
       "title": "memory-tencentdb: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "memos-cloud",
+      "code": "conversation-access-hook",
+      "title": "memos-cloud: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "nemoclaw",
+      "code": "before-tool-call-probe",
+      "title": "nemoclaw: before_tool_call needs terminal/block/approval probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "openclaw-telemetry",
+      "code": "before-tool-call-probe",
+      "title": "openclaw-telemetry: before_tool_call needs terminal/block/approval probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "openclaw-telemetry",
+      "code": "conversation-access-hook",
+      "title": "openclaw-telemetry: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "opik-openclaw",
+      "code": "before-tool-call-probe",
+      "title": "opik-openclaw: before_tool_call needs terminal/block/approval probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "opik-openclaw",
+      "code": "conversation-access-hook",
+      "title": "opik-openclaw: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "wecom",
+      "code": "before-tool-call-probe",
+      "title": "wecom: before_tool_call needs terminal/block/approval probes",
       "decision": "inspector-follow-up"
     }
   ],
@@ -416,20 +376,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 77.5% over baseline",
+      "message": "p95WallMs regressed 83.3% over baseline",
       "baseline": 1273,
-      "current": 2260,
-      "delta": 987,
-      "percent": 77.5
+      "current": 2334,
+      "delta": 1061,
+      "percent": 83.3
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 392.4 over baseline",
+      "message": "maxPeakRssMb regressed 382 over baseline",
       "baseline": 65.1,
-      "current": 457.5,
-      "delta": 392.4
+      "current": 447.1,
+      "delta": 382
     }
   ],
   "artifacts": {

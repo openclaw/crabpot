@@ -8,12 +8,12 @@
   },
   "summary": {
     "fixtureCount": 57,
-    "registrationCount": 323,
-    "hookCount": 98,
-    "sdkImportCount": 2133,
+    "registrationCount": 325,
+    "hookCount": 99,
+    "sdkImportCount": 2136,
     "packageEntrypointCount": 103,
-    "issueProbeCount": 299,
-    "inspectorShimRequiredCount": 197,
+    "issueProbeCount": 278,
+    "inspectorShimRequiredCount": 199,
     "compatAliasRequiredCount": 2
   },
   "fixtures": [
@@ -24866,10 +24866,10 @@
       ],
       "sdkImports": [
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness:codex:plugins-codex-crabpot-package-dist-run-attempt-CFL1BFBl-js-18",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness:codex:plugins-codex-crabpot-package-dist-run-attempt-iMdlA1m8-js-19",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CFL1BFBl.js:18",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-iMdlA1m8.js:19",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -24877,10 +24877,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness:codex:plugins-codex-crabpot-package-dist-run-attempt-CFL1BFBl-js-3474",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness:codex:plugins-codex-crabpot-package-dist-run-attempt-iMdlA1m8-js-3614",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CFL1BFBl.js:3474",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-iMdlA1m8.js:3614",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -24921,10 +24921,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-CFL1BFBl-js-12",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-iMdlA1m8-js-12",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CFL1BFBl.js:12",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-iMdlA1m8.js:12",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -24998,10 +24998,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/diagnostic-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-CFL1BFBl-js-16",
+          "id": "sdk.openclaw/plugin-sdk/diagnostic-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-iMdlA1m8-js-16",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/diagnostic-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CFL1BFBl.js:16",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-iMdlA1m8.js:16",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -25090,6 +25090,17 @@
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/provider-model-shared",
           "ref": "plugins/codex/.crabpot-package/dist/provider.js:6",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/text-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-iMdlA1m8-js-18",
+          "fixture": "codex",
+          "specifier": "openclaw/plugin-sdk/text-runtime",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-iMdlA1m8.js:18",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -28578,10 +28589,10 @@
       "priority": "high",
       "registrations": [
         {
-          "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-957",
+          "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-768",
           "fixture": "memory-tencentdb",
           "registrar": "registerCli",
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:957",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:768",
           "support": "target-captured",
           "assertions": [
             "command name is stable",
@@ -28600,10 +28611,44 @@
           ]
         },
         {
-          "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-268",
+          "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-src-offload-index-ts-1115",
+          "fixture": "memory-tencentdb",
+          "registrar": "registerContextEngine",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1115",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "context engine id is stable",
+            "factory metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-context-engine",
+              "factory": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-src-offload-index-ts-1126",
+          "fixture": "memory-tencentdb",
+          "registrar": "registerContextEngine",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1126",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "context engine id is stable",
+            "factory metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-context-engine",
+              "factory": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-274",
           "fixture": "memory-tencentdb",
           "registrar": "registerTool",
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:268",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:274",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -28622,10 +28667,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-365",
+          "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-361",
           "fixture": "memory-tencentdb",
           "registrar": "registerTool",
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:365",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:361",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -28646,10 +28691,10 @@
       ],
       "hooks": [
         {
-          "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-820",
+          "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-578",
           "fixture": "memory-tencentdb",
           "hook": "agent_end",
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:820",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:578",
           "support": "synthetic-event-required",
           "assertions": [
             "final conversation payload is redacted as expected",
@@ -28675,10 +28720,28 @@
           }
         },
         {
-          "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-464",
+          "id": "hook.before_message_write:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-542",
+          "fixture": "memory-tencentdb",
+          "hook": "before_message_write",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:542",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "before_message_write",
+            "fixture": "memory-tencentdb"
+          },
+          "syntheticContext": {
+            "hook": "before_message_write",
+            "fixture": "memory-tencentdb"
+          }
+        },
+        {
+          "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-451",
           "fixture": "memory-tencentdb",
           "hook": "before_prompt_build",
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:464",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:451",
           "support": "synthetic-event-required",
           "assertions": [
             "prompt mutation result is preserved",
@@ -28706,10 +28769,10 @@
           }
         },
         {
-          "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-745",
+          "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-682",
           "fixture": "memory-tencentdb",
           "hook": "gateway_stop",
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:745",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:682",
           "support": "synthetic-event-required",
           "assertions": [
             "hook payload and return value are captured"
@@ -28724,10 +28787,10 @@
           }
         },
         {
-          "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-939",
+          "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-735",
           "fixture": "memory-tencentdb",
           "hook": "gateway_stop",
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:939",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:735",
           "support": "synthetic-event-required",
           "assertions": [
             "hook payload and return value are captured"
@@ -28744,10 +28807,32 @@
       ],
       "sdkImports": [
         {
-          "id": "sdk.openclaw/plugin-sdk/core:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-15",
+          "id": "sdk.openclaw/plugin-sdk:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-src-offload-index-ts-1795",
+          "fixture": "memory-tencentdb",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1795",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-23",
           "fixture": "memory-tencentdb",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:15",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:23",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/core:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-src-adapters-openclaw-host-adapter-ts-14",
+          "fixture": "memory-tencentdb",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/memory-tencentdb/.crabpot-package/src/adapters/openclaw/host-adapter.ts:14",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -32611,10 +32696,10 @@
       "priority": "medium",
       "registrations": [
         {
-          "id": "registration.registerHook:memos-cloud:plugins-memos-cloud-index-js-467",
+          "id": "registration.registerHook:memos-cloud:plugins-memos-cloud-index-js-517",
           "fixture": "memos-cloud",
           "registrar": "registerHook",
-          "ref": "plugins/memos-cloud/index.js:467",
+          "ref": "plugins/memos-cloud/index.js:517",
           "support": "inspector-shim-required",
           "assertions": [
             "legacy hook name is stable",
@@ -32628,10 +32713,10 @@
       ],
       "hooks": [
         {
-          "id": "hook.agent_end:memos-cloud:plugins-memos-cloud-index-js-515",
+          "id": "hook.agent_end:memos-cloud:plugins-memos-cloud-index-js-565",
           "fixture": "memos-cloud",
           "hook": "agent_end",
-          "ref": "plugins/memos-cloud/index.js:515",
+          "ref": "plugins/memos-cloud/index.js:565",
           "support": "synthetic-event-required",
           "assertions": [
             "final conversation payload is redacted as expected",
@@ -32657,10 +32742,10 @@
           }
         },
         {
-          "id": "hook.before_agent_start:memos-cloud:plugins-memos-cloud-index-js-481",
+          "id": "hook.before_agent_start:memos-cloud:plugins-memos-cloud-index-js-531",
           "fixture": "memos-cloud",
           "hook": "before_agent_start",
-          "ref": "plugins/memos-cloud/index.js:481",
+          "ref": "plugins/memos-cloud/index.js:531",
           "support": "synthetic-event-required",
           "assertions": [
             "legacy startup hook payload is accepted",
@@ -33425,7 +33510,7 @@
       "priority": "P1",
       "target": "hook-runner",
       "evidence": [
-        "agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:820"
+        "agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:578"
       ],
       "assertions": [
         "synthetic event payload is accepted",
@@ -33438,7 +33523,7 @@
       "priority": "P1",
       "target": "hook-runner",
       "evidence": [
-        "agent_end @ plugins/memos-cloud/index.js:515"
+        "agent_end @ plugins/memos-cloud/index.js:565"
       ],
       "assertions": [
         "synthetic event payload is accepted",
@@ -33658,6 +33743,20 @@
       "target": "inspector-capture-api",
       "evidence": [
         "registerService @ plugins/mcp-adapter/index.ts:15"
+      ],
+      "assertions": [
+        "registration arguments are recorded",
+        "registered handler metadata is retained"
+      ]
+    },
+    {
+      "id": "api.capture.runtime-registrars:memory-tencentdb",
+      "fixture": "memory-tencentdb",
+      "priority": "P2",
+      "target": "inspector-capture-api",
+      "evidence": [
+        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1115",
+        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1126"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -34450,12 +34549,18 @@
       "priority": "P2",
       "target": "package-loader",
       "evidence": [
+        "@ai-sdk/openai @ plugins/memory-tencentdb/.crabpot-package/package.json",
         "@node-rs/jieba @ plugins/memory-tencentdb/.crabpot-package/package.json",
         "@tencentdb-agent-memory/tcvdb-text @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "ai @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "js-tiktoken @ plugins/memory-tencentdb/.crabpot-package/package.json",
         "json5 @ plugins/memory-tencentdb/.crabpot-package/package.json",
         "sqlite-vec @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "tsx @ plugins/memory-tencentdb/.crabpot-package/package.json",
         "undici @ plugins/memory-tencentdb/.crabpot-package/package.json",
-        "node-llama-cpp @ plugins/memory-tencentdb/.crabpot-package/package.json"
+        "yaml @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "node-llama-cpp @ plugins/memory-tencentdb/.crabpot-package/package.json",
+        "opik @ plugins/memory-tencentdb/.crabpot-package/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -34917,6 +35022,19 @@
       ]
     },
     {
+      "id": "sdk.import.root-barrel-cold-import:memory-tencentdb",
+      "fixture": "memory-tencentdb",
+      "priority": "P2",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1795"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
       "id": "sdk.import.root-barrel-cold-import:mocrane-wecom",
       "fixture": "mocrane-wecom",
       "priority": "P2",
@@ -35103,8 +35221,8 @@
       "priority": "P2",
       "target": "tool-runtime",
       "evidence": [
-        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:268",
-        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:365"
+        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:274",
+        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:361"
       ],
       "assertions": [
         "tool schema is captured",
@@ -35362,7 +35480,7 @@
       "priority": "P3",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerHook @ plugins/memos-cloud/index.js:467"
+        "registerHook @ plugins/memos-cloud/index.js:517"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -35647,7 +35765,7 @@
       "priority": "P3",
       "target": "hook-runner",
       "evidence": [
-        "before_agent_start @ plugins/memos-cloud/index.js:481"
+        "before_agent_start @ plugins/memos-cloud/index.js:531"
       ],
       "assertions": [
         "synthetic event payload is accepted",
@@ -36839,7 +36957,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5-beta.2"
+        "buildOpenClawVersion:2026.5.5"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -36853,7 +36971,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.5.5-beta.2"
+        "buildOpenClawVersion:2026.5.5"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -36881,7 +36999,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.5-beta.2"
+        "buildOpenClawVersion:2026.5.5"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -36895,7 +37013,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.5.5-beta.2"
+        "buildOpenClawVersion:2026.5.5"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -36937,7 +37055,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.5.5-beta.2"
+        "buildOpenClawVersion:2026.5.5"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -36965,7 +37083,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5-beta.2"
+        "buildOpenClawVersion:2026.5.5"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -37021,7 +37139,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5-beta.2"
+        "buildOpenClawVersion:2026.5.5"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -37091,7 +37209,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.5-beta.2"
+        "buildOpenClawVersion:2026.5.5"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -37134,318 +37252,6 @@
       "evidence": [
         "package:1.1.2",
         "manifest:1.0.0"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:bluebubbles",
-      "fixture": "bluebubbles",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/bluebubbles/.crabpot-package/index.ts",
-        "setupEntry:./setup-entry.ts -> plugins/bluebubbles/.crabpot-package/setup-entry.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:brave-plugin",
-      "fixture": "brave-plugin",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/brave-plugin/.crabpot-package/index.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:clawmetry",
-      "fixture": "clawmetry",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/clawmetry/clawhub-plugin/index.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:codex",
-      "fixture": "codex",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/codex/.crabpot-package/index.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:diagnostics-otel",
-      "fixture": "diagnostics-otel",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/diagnostics-otel/.crabpot-package/index.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:diagnostics-prometheus",
-      "fixture": "diagnostics-prometheus",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/diagnostics-prometheus/.crabpot-package/index.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:diffs",
-      "fixture": "diffs",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/diffs/.crabpot-package/index.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:discord",
-      "fixture": "discord",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/discord/.crabpot-package/index.ts",
-        "setupEntry:./setup-entry.ts -> plugins/discord/.crabpot-package/setup-entry.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:feishu",
-      "fixture": "feishu",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/feishu/.crabpot-package/index.ts",
-        "setupEntry:./setup-entry.ts -> plugins/feishu/.crabpot-package/setup-entry.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:google-meet",
-      "fixture": "google-meet",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/google-meet/.crabpot-package/index.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:lobster",
-      "fixture": "lobster",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/lobster/.crabpot-package/index.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:memory-lancedb",
-      "fixture": "memory-lancedb",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/memory-lancedb/.crabpot-package/index.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:msteams",
-      "fixture": "msteams",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/msteams/.crabpot-package/index.ts",
-        "setupEntry:./setup-entry.ts -> plugins/msteams/.crabpot-package/setup-entry.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:nextcloud-talk",
-      "fixture": "nextcloud-talk",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/nextcloud-talk/.crabpot-package/index.ts",
-        "setupEntry:./setup-entry.ts -> plugins/nextcloud-talk/.crabpot-package/setup-entry.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:nostr",
-      "fixture": "nostr",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/nostr/.crabpot-package/index.ts",
-        "setupEntry:./setup-entry.ts -> plugins/nostr/.crabpot-package/setup-entry.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:openclaw-qqbot",
-      "fixture": "openclaw-qqbot",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/openclaw-qqbot/.crabpot-package/index.ts",
-        "setupEntry:./setup-entry.ts -> plugins/openclaw-qqbot/.crabpot-package/setup-entry.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:synology-chat",
-      "fixture": "synology-chat",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/synology-chat/.crabpot-package/index.ts",
-        "setupEntry:./setup-entry.ts -> plugins/synology-chat/.crabpot-package/setup-entry.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:tlon",
-      "fixture": "tlon",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/tlon/.crabpot-package/index.ts",
-        "setupEntry:./setup-entry.ts -> plugins/tlon/.crabpot-package/setup-entry.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:twitch",
-      "fixture": "twitch",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/twitch/.crabpot-package/index.ts",
-        "setupEntry:./setup-entry.ts -> plugins/twitch/.crabpot-package/setup-entry.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:voice-call",
-      "fixture": "voice-call",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/voice-call/.crabpot-package/index.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:whatsapp",
-      "fixture": "whatsapp",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/whatsapp/.crabpot-package/index.ts",
-        "setupEntry:./setup-entry.ts -> plugins/whatsapp/.crabpot-package/setup-entry.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:zalo",
-      "fixture": "zalo",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/zalo/.crabpot-package/index.ts",
-        "setupEntry:./setup-entry.ts -> plugins/zalo/.crabpot-package/setup-entry.ts"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "package.npm-pack.entrypoints:zalouser",
-      "fixture": "zalouser",
-      "priority": "P3",
-      "target": "package-loader",
-      "evidence": [
-        "extension:./index.ts -> plugins/zalouser/.crabpot-package/index.ts",
-        "setupEntry:./setup-entry.ts -> plugins/zalouser/.crabpot-package/setup-entry.ts"
       ],
       "assertions": [
         "entrypoint metadata resolves",

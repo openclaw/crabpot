@@ -7,14 +7,14 @@ Generated: deterministic
 | Metric              | Value |
 | ------------------- | ----- |
 | Fixtures            | 57    |
-| Probes              | 421   |
-| Hook probes         | 98    |
-| Registration probes | 323   |
-| Ready               | 421   |
+| Probes              | 424   |
+| Hook probes         | 99    |
+| Registration probes | 325   |
+| Ready               | 424   |
 | Blocked             | 0     |
 | Direct execution    | 166   |
 | Opt-in execution    | 30    |
-| Metadata-only       | 127   |
+| Metadata-only       | 129   |
 
 ## Probe Inventory
 
@@ -109,14 +109,15 @@ Generated: deterministic
 | memory-lancedb         | hook         | session_end                            | ready  | hook-direct      | plugins/memory-lancedb/.crabpot-package/dist/index.js:684              | hook payload and return value are captured                                                      |
 | nemoclaw               | hook         | before_agent_start                     | ready  | hook-direct      | plugins/nemoclaw/nemoclaw/src/runtime-context.ts:474                   | legacy startup hook payload is accepted; migration metadata can map to prompt/model hooks       |
 | nemoclaw               | hook         | before_tool_call                       | ready  | hook-direct      | plugins/nemoclaw/nemoclaw/src/index.ts:384                             | block/allow return shapes are preserved; terminal and approval metadata are present             |
-| memory-tencentdb       | hook         | agent_end                              | ready  | hook-direct      | plugins/memory-tencentdb/.crabpot-package/index.ts:820                 | final conversation payload is redacted as expected; agent id and run metadata are present       |
-| memory-tencentdb       | hook         | before_prompt_build                    | ready  | hook-direct      | plugins/memory-tencentdb/.crabpot-package/index.ts:464                 | prompt mutation result is preserved; agent and conversation metadata are present                |
-| memory-tencentdb       | hook         | gateway_stop                           | ready  | hook-direct      | plugins/memory-tencentdb/.crabpot-package/index.ts:745                 | hook payload and return value are captured                                                      |
-| memory-tencentdb       | hook         | gateway_stop                           | ready  | hook-direct      | plugins/memory-tencentdb/.crabpot-package/index.ts:939                 | hook payload and return value are captured                                                      |
+| memory-tencentdb       | hook         | agent_end                              | ready  | hook-direct      | plugins/memory-tencentdb/.crabpot-package/index.ts:578                 | final conversation payload is redacted as expected; agent id and run metadata are present       |
+| memory-tencentdb       | hook         | before_message_write                   | ready  | hook-direct      | plugins/memory-tencentdb/.crabpot-package/index.ts:542                 | hook payload and return value are captured                                                      |
+| memory-tencentdb       | hook         | before_prompt_build                    | ready  | hook-direct      | plugins/memory-tencentdb/.crabpot-package/index.ts:451                 | prompt mutation result is preserved; agent and conversation metadata are present                |
+| memory-tencentdb       | hook         | gateway_stop                           | ready  | hook-direct      | plugins/memory-tencentdb/.crabpot-package/index.ts:682                 | hook payload and return value are captured                                                      |
+| memory-tencentdb       | hook         | gateway_stop                           | ready  | hook-direct      | plugins/memory-tencentdb/.crabpot-package/index.ts:735                 | hook payload and return value are captured                                                      |
 | mocrane-wecom          | hook         | before_prompt_build                    | ready  | hook-direct      | plugins/mocrane-wecom/index.ts:48                                      | prompt mutation result is preserved; agent and conversation metadata are present                |
 | secureclaw             | hook         | gateway_start                          | ready  | hook-direct      | plugins/secureclaw/secureclaw/src/index.ts:314                         | hook payload and return value are captured                                                      |
-| memos-cloud            | hook         | agent_end                              | ready  | hook-direct      | plugins/memos-cloud/index.js:515                                       | final conversation payload is redacted as expected; agent id and run metadata are present       |
-| memos-cloud            | hook         | before_agent_start                     | ready  | hook-direct      | plugins/memos-cloud/index.js:481                                       | legacy startup hook payload is accepted; migration metadata can map to prompt/model hooks       |
+| memos-cloud            | hook         | agent_end                              | ready  | hook-direct      | plugins/memos-cloud/index.js:565                                       | final conversation payload is redacted as expected; agent id and run metadata are present       |
+| memos-cloud            | hook         | before_agent_start                     | ready  | hook-direct      | plugins/memos-cloud/index.js:531                                       | legacy startup hook payload is accepted; migration metadata can map to prompt/model hooks       |
 | codex-app-server       | hook         | inbound_claim                          | ready  | hook-direct      | plugins/codex-app-server/index.ts:25                                   | claim payload preserves channel/source identity; routing metadata is present                    |
 | agentchat              | registration | defineChannelPluginEntry               | ready  | metadata-only    | plugins/agentchat/integrations/openclaw-channel/src/channel.ts:333     | channel id is stable; setup/config schema can be read; message envelope metadata is preserved   |
 | wecom                  | registration | registerChannel                        | ready  | channel-opt-in   | plugins/wecom/index.js:27                                              | channel id is stable; inbound/outbound envelope shape is captured; sender metadata is preserved |
@@ -362,9 +363,11 @@ Generated: deterministic
 | whatsapp               | registration | defineBundledChannelEntry              | ready  | metadata-only    | plugins/whatsapp/.crabpot-package/dist/index.js:3                      | registration arguments are captured                                                             |
 | nemoclaw               | registration | registerCommand                        | ready  | direct           | plugins/nemoclaw/nemoclaw/src/index.ts:336                             | command id is stable; interactive command payload is captured                                   |
 | nemoclaw               | registration | registerProvider                       | ready  | metadata-only    | plugins/nemoclaw/nemoclaw/src/index.ts:372                             | registration arguments are captured                                                             |
-| memory-tencentdb       | registration | registerCli                            | ready  | direct           | plugins/memory-tencentdb/.crabpot-package/index.ts:957                 | command name is stable; argument schema is captured                                             |
-| memory-tencentdb       | registration | registerTool                           | ready  | direct           | plugins/memory-tencentdb/.crabpot-package/index.ts:268                 | tool name is stable; input schema is captured; result shape metadata is captured                |
-| memory-tencentdb       | registration | registerTool                           | ready  | direct           | plugins/memory-tencentdb/.crabpot-package/index.ts:365                 | tool name is stable; input schema is captured; result shape metadata is captured                |
+| memory-tencentdb       | registration | registerCli                            | ready  | direct           | plugins/memory-tencentdb/.crabpot-package/index.ts:768                 | command name is stable; argument schema is captured                                             |
+| memory-tencentdb       | registration | registerContextEngine                  | ready  | metadata-only    | plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1115    | context engine id is stable; factory metadata is captured                                       |
+| memory-tencentdb       | registration | registerContextEngine                  | ready  | metadata-only    | plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1126    | context engine id is stable; factory metadata is captured                                       |
+| memory-tencentdb       | registration | registerTool                           | ready  | direct           | plugins/memory-tencentdb/.crabpot-package/index.ts:274                 | tool name is stable; input schema is captured; result shape metadata is captured                |
+| memory-tencentdb       | registration | registerTool                           | ready  | direct           | plugins/memory-tencentdb/.crabpot-package/index.ts:361                 | tool name is stable; input schema is captured; result shape metadata is captured                |
 | ddingtalk              | registration | defineChannelPluginEntry               | ready  | metadata-only    | plugins/ddingtalk/index.ts:8                                           | channel id is stable; setup/config schema can be read; message envelope metadata is preserved   |
 | dingtalk-connector     | registration | defineBundledChannelEntry              | ready  | metadata-only    | plugins/dingtalk-connector/entry-bundled.ts:13                         | registration arguments are captured                                                             |
 | dingtalk-connector     | registration | registerChannel                        | ready  | channel-opt-in   | plugins/dingtalk-connector/index.ts:74                                 | channel id is stable; inbound/outbound envelope shape is captured; sender metadata is preserved |
@@ -428,7 +431,7 @@ Generated: deterministic
 | secureclaw             | registration | registerService                        | ready  | lifecycle-opt-in | plugins/secureclaw/secureclaw/src/index.ts:295                         | service id is stable; start/stop lifecycle handlers are captured                                |
 | secureclaw             | registration | registerService                        | ready  | lifecycle-opt-in | plugins/secureclaw/secureclaw/src/index.ts:301                         | service id is stable; start/stop lifecycle handlers are captured                                |
 | secureclaw             | registration | registerService                        | ready  | lifecycle-opt-in | plugins/secureclaw/secureclaw/src/index.ts:307                         | service id is stable; start/stop lifecycle handlers are captured                                |
-| memos-cloud            | registration | registerHook                           | ready  | metadata-only    | plugins/memos-cloud/index.js:467                                       | legacy hook name is stable; handler metadata is captured                                        |
+| memos-cloud            | registration | registerHook                           | ready  | metadata-only    | plugins/memos-cloud/index.js:517                                       | legacy hook name is stable; handler metadata is captured                                        |
 | clawmetry              | registration | definePluginEntry                      | ready  | metadata-only    | plugins/clawmetry/clawhub-plugin/index.ts:4                            | entrypoint register function is callable; entrypoint metadata is preserved                      |
 | clawmetry              | registration | registerService                        | ready  | lifecycle-opt-in | plugins/clawmetry/clawhub-plugin/index.ts:9                            | service id is stable; start/stop lifecycle handlers are captured                                |
 | codex-app-server       | registration | registerCommand                        | ready  | direct           | plugins/codex-app-server/index.ts:48                                   | command id is stable; interactive command payload is captured                                   |
