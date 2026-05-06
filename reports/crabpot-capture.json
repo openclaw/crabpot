@@ -12,7 +12,7 @@
     "hookCount": 98,
     "sdkImportCount": 2126,
     "packageEntrypointCount": 103,
-    "issueProbeCount": 300,
+    "issueProbeCount": 301,
     "inspectorShimRequiredCount": 197,
     "compatAliasRequiredCount": 2
   },
@@ -33999,6 +33999,19 @@
       "target": "package-loader",
       "evidence": [
         "plugins/composio/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P2",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/connectclaw/packages/plugin/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",

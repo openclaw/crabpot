@@ -664,12 +664,12 @@
     "fixtureCount": 57,
     "highPriorityFixtures": 22,
     "breakageCount": 0,
-    "warningCount": 148,
+    "warningCount": 149,
     "suggestionCount": 156,
-    "decisionCount": 318,
+    "decisionCount": 319,
     "logCount": 458,
-    "issueCount": 304,
-    "openIssueCount": 304,
+    "issueCount": 305,
+    "openIssueCount": 305,
     "p0IssueCount": 0,
     "p1IssueCount": 38,
     "openP0IssueCount": 0,
@@ -679,13 +679,13 @@
     "compatGapCount": 2,
     "deprecationWarningCount": 41,
     "inspectorGapCount": 164,
-    "upstreamIssueCount": 97,
+    "upstreamIssueCount": 98,
     "fixtureRegressionCount": 0,
     "openInspectorGapCount": 164,
     "runtimeCoveredIssueCount": 0,
     "runtimePartiallyCoveredIssueCount": 0,
     "runtimeCoverageArtifactCount": 0,
-    "contractProbeCount": 300
+    "contractProbeCount": 301
   },
   "fixtures": [
     {
@@ -3394,8 +3394,8 @@
           ],
           "runtimeExtensions": [],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.1.26",
-          "buildOpenClawVersion": "2026.1.26",
+          "compatPluginApi": null,
+          "buildOpenClawVersion": null,
           "buildPluginSdkVersion": null,
           "install": null,
           "release": null,
@@ -3436,8 +3436,8 @@
             ],
             "runtimeExtensions": [],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.1.26",
-            "buildOpenClawVersion": "2026.1.26",
+            "compatPluginApi": null,
+            "buildOpenClawVersion": null,
             "buildPluginSdkVersion": null,
             "install": null,
             "release": null,
@@ -30455,6 +30455,15 @@
     },
     {
       "fixture": "connectclaw",
+      "code": "package-plugin-api-compat-missing",
+      "level": "warning",
+      "message": "package openclaw metadata does not declare compat.pluginApi",
+      "evidence": [
+        "plugins/connectclaw/packages/plugin/package.json"
+      ]
+    },
+    {
+      "fixture": "connectclaw",
       "code": "legacy-root-sdk-import",
       "level": "warning",
       "message": "fixture imports the root plugin SDK barrel",
@@ -35150,6 +35159,25 @@
         "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:2"
       ],
       "compatRecord": "legacy-root-sdk-import",
+      "runtimeCoverage": null
+    },
+    {
+      "id": "CRABPOT-8DC3A4AE",
+      "fixture": "connectclaw",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-plugin-api-compat-missing",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "connectclaw: plugin API compatibility range is missing",
+      "evidence": [
+        "plugins/connectclaw/packages/plugin/package.json"
+      ],
+      "compatRecord": null,
       "runtimeCoverage": null
     },
     {
@@ -40238,6 +40266,16 @@
       "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
       "evidence": [
         "plugins/composio/package.json"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P2",
+      "target": "package-loader",
+      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      "evidence": [
+        "plugins/connectclaw/packages/plugin/package.json"
       ]
     },
     {
@@ -49326,6 +49364,13 @@
       "seam": "tool-schema",
       "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
       "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
+      "fixture": "connectclaw",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to declare the plugin API range it was built against.",
+      "evidence": "plugins/connectclaw/packages/plugin/package.json"
     },
     {
       "fixture": "connectclaw",
