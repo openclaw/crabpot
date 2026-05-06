@@ -13,8 +13,8 @@ Status: PASS
 
 | Metric                     | Value |
 | -------------------------- | ----- |
-| Issue findings             | 304   |
-| Open issue findings        | 304   |
+| Issue findings             | 303   |
+| Open issue findings        | 303   |
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
 | 🔴 P0                      | 0     |
@@ -25,11 +25,11 @@ Status: PASS
 | Live P0 issues             | 0     |
 | Compat gaps                | 2     |
 | Deprecation warnings       | 41    |
-| Inspector gaps             | 164   |
-| Open inspector gaps        | 164   |
+| Inspector gaps             | 163   |
+| Open inspector gaps        | 163   |
 | Runtime coverage artifacts | 0     |
 | Upstream metadata          | 97    |
-| Contract probes            | 300   |
+| Contract probes            | 299   |
 
 ## Triage Overview
 
@@ -38,7 +38,7 @@ Status: PASS
 | live-issue          | 0     | 0  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.                                          |
 | compat-gap          | 2     | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
 | deprecation-warning | 41    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
-| inspector-gap       | 164   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
+| inspector-gap       | 163   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
 | upstream-metadata   | 97    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                                                                    |
 
@@ -218,8 +218,8 @@ _none_
   - **legacy-root-sdk-import**: lossless-claw: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:21](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/openclaw-bridge.ts#L21)
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:26](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/openclaw-bridge.ts#L26)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:21](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/src/openclaw-bridge.ts#L21)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:26](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/src/openclaw-bridge.ts#L26)
 
 - 🟡 P2 **matrix** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: matrix: channelEnvVars legacy manifest metadata must stay covered
@@ -1028,32 +1028,23 @@ _none_
   - **package-build-artifact-entrypoint**: lossless-claw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/dist/index.js)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: lossless-claw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
-    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
-    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
-    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/package.json)
+    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/package.json)
+    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/package.json)
+    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/package.json)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:2055](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2055)
-    - [registerContextEngine @ index.ts:2035](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2035)
-
-- 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
-  - **runtime-tool-capture**: lossless-claw: runtime tool schema needs registration capture
-  - state: open · compat:none
-  - evidence:
-    - [registerTool @ index.ts:2037](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2037)
-    - [registerTool @ index.ts:2040](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2040)
-    - [registerTool @ index.ts:2043](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2043)
-    - [registerTool @ index.ts:2046](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2046)
+    - [registerCommand @ index.ts:2385](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/src/plugin/index.ts#L2385)
+    - [registerContextEngine @ index.ts:2365](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/src/plugin/index.ts#L2365)
 
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: matrix: cold import requires dependency installation in an isolated workspace
@@ -3417,39 +3408,30 @@ _none_
   - **legacy-root-sdk-import**: lossless-claw: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:21](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/openclaw-bridge.ts#L21)
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:26](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/openclaw-bridge.ts#L26)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:21](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/src/openclaw-bridge.ts#L21)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:26](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/src/openclaw-bridge.ts#L26)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: lossless-claw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/dist/index.js)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: lossless-claw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
-    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
-    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
-    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/package.json)
+    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/package.json)
+    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/package.json)
+    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/package.json)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:2055](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2055)
-    - [registerContextEngine @ index.ts:2035](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2035)
-
-- 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
-  - **runtime-tool-capture**: lossless-claw: runtime tool schema needs registration capture
-  - state: open · compat:none
-  - evidence:
-    - [registerTool @ index.ts:2037](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2037)
-    - [registerTool @ index.ts:2040](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2040)
-    - [registerTool @ index.ts:2043](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2043)
-    - [registerTool @ index.ts:2046](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2046)
+    - [registerCommand @ index.ts:2385](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/src/plugin/index.ts#L2385)
+    - [registerContextEngine @ index.ts:2365](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/src/plugin/index.ts#L2365)
 
 - 🟡 P2 **matrix** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: matrix: channelEnvVars legacy manifest metadata must stay covered
@@ -4670,8 +4652,8 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:lossless-claw`
   - evidence:
-    - [registerCommand @ index.ts:2055](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2055)
-    - [registerContextEngine @ index.ts:2035](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2035)
+    - [registerCommand @ index.ts:2385](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/src/plugin/index.ts#L2385)
+    - [registerContextEngine @ index.ts:2365](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/src/plugin/index.ts#L2365)
 
 - 🟡 P2 **mcp-adapter** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -4963,7 +4945,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:lossless-claw`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/dist/index.js)
 
 - 🟡 P2 **nemoclaw** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -5049,10 +5031,10 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:lossless-claw`
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
-    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
-    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
-    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/package.json)
+    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/package.json)
+    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/package.json)
+    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/package.json)
 
 - 🟡 P2 **mcp-adapter** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -5304,8 +5286,8 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:lossless-claw`
   - evidence:
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:21](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/openclaw-bridge.ts#L21)
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:26](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/openclaw-bridge.ts#L26)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:21](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/src/openclaw-bridge.ts#L21)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:26](https://github.com/Martian-Engineering/lossless-claw/blob/4fc60c925c1eed730a73c6bb62144f7af905687f/src/openclaw-bridge.ts#L26)
 
 - 🟡 P2 **mocrane-wecom** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
@@ -5411,15 +5393,6 @@ _none_
     - [registerTool @ tools.ts:21](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/graph/tools.ts#L21)
     - [registerTool @ tools.ts:52](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/graph/tools.ts#L52)
     - [registerTool @ tools.ts:95](https://github.com/hyperspell/hyperspell-openclaw/blob/a04d35176c4ffbe99d906f7d8075fc8671e7968d/graph/tools.ts#L95)
-
-- 🟡 P2 **lossless-claw** `tool-runtime`
-  - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
-  - id: `tool.registration.schema-capture:lossless-claw`
-  - evidence:
-    - [registerTool @ index.ts:2037](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2037)
-    - [registerTool @ index.ts:2040](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2040)
-    - [registerTool @ index.ts:2043](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2043)
-    - [registerTool @ index.ts:2046](https://github.com/Martian-Engineering/lossless-claw/blob/4724d3fe6ccfd85f275aad732f3b01551d909e5a/src/plugin/index.ts#L2046)
 
 - 🟡 P2 **mcp-adapter** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.

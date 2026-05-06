@@ -12,7 +12,7 @@
     "hookCount": 98,
     "sdkImportCount": 2126,
     "packageEntrypointCount": 103,
-    "issueProbeCount": 300,
+    "issueProbeCount": 299,
     "inspectorShimRequiredCount": 197,
     "compatAliasRequiredCount": 2
   },
@@ -1605,10 +1605,10 @@
       "priority": "high",
       "registrations": [
         {
-          "id": "registration.registerCommand:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2055",
+          "id": "registration.registerCommand:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2385",
           "fixture": "lossless-claw",
           "registrar": "registerCommand",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2055",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2385",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -1622,10 +1622,10 @@
           ]
         },
         {
-          "id": "registration.registerContextEngine:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2035",
+          "id": "registration.registerContextEngine:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2365",
           "fixture": "lossless-claw",
           "registrar": "registerContextEngine",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2035",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2365",
           "support": "inspector-shim-required",
           "assertions": [
             "context engine id is stable",
@@ -1639,10 +1639,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2037",
+          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2367",
           "fixture": "lossless-claw",
           "registrar": "registerTool",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2037",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2367",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -1661,10 +1661,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2040",
+          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2370",
           "fixture": "lossless-claw",
           "registrar": "registerTool",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2040",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2370",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -1683,10 +1683,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2043",
+          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2373",
           "fixture": "lossless-claw",
           "registrar": "registerTool",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2043",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2373",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -1705,10 +1705,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2046",
+          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2376",
           "fixture": "lossless-claw",
           "registrar": "registerTool",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2046",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2376",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -1729,10 +1729,10 @@
       ],
       "hooks": [
         {
-          "id": "hook.before_prompt_build:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2021",
+          "id": "hook.before_prompt_build:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2351",
           "fixture": "lossless-claw",
           "hook": "before_prompt_build",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2021",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2351",
           "support": "synthetic-event-required",
           "assertions": [
             "prompt mutation result is preserved",
@@ -1760,10 +1760,10 @@
           }
         },
         {
-          "id": "hook.before_reset:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2014",
+          "id": "hook.before_reset:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2344",
           "fixture": "lossless-claw",
           "hook": "before_reset",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2014",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2344",
           "support": "synthetic-event-required",
           "assertions": [
             "hook payload and return value are captured"
@@ -1778,10 +1778,10 @@
           }
         },
         {
-          "id": "hook.gateway_start:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2217",
+          "id": "hook.gateway_start:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2557",
           "fixture": "lossless-claw",
           "hook": "gateway_start",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2217",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2557",
           "support": "synthetic-event-required",
           "assertions": [
             "hook payload and return value are captured"
@@ -1796,10 +1796,10 @@
           }
         },
         {
-          "id": "hook.gateway_stop:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2241",
+          "id": "hook.gateway_stop:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2581",
           "fixture": "lossless-claw",
           "hook": "gateway_stop",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2241",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2581",
           "support": "synthetic-event-required",
           "assertions": [
             "hook payload and return value are captured"
@@ -1814,10 +1814,10 @@
           }
         },
         {
-          "id": "hook.session_end:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2024",
+          "id": "hook.session_end:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2354",
           "fixture": "lossless-claw",
           "hook": "session_end",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2024",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2354",
           "support": "synthetic-event-required",
           "assertions": [
             "hook payload and return value are captured"
@@ -33566,8 +33566,8 @@
       "priority": "P2",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2055",
-        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2035"
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2385",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2365"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -35000,22 +35000,6 @@
         "registerTool @ plugins/hyperspell/graph/tools.ts:21",
         "registerTool @ plugins/hyperspell/graph/tools.ts:52",
         "registerTool @ plugins/hyperspell/graph/tools.ts:95"
-      ],
-      "assertions": [
-        "tool schema is captured",
-        "tool result metadata is retained"
-      ]
-    },
-    {
-      "id": "tool.registration.schema-capture:lossless-claw",
-      "fixture": "lossless-claw",
-      "priority": "P2",
-      "target": "tool-runtime",
-      "evidence": [
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2037",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2040",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2043",
-        "registerTool @ plugins/lossless-claw/src/plugin/index.ts:2046"
       ],
       "assertions": [
         "tool schema is captured",
