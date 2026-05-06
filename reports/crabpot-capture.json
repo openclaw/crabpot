@@ -12,7 +12,7 @@
     "hookCount": 98,
     "sdkImportCount": 2126,
     "packageEntrypointCount": 103,
-    "issueProbeCount": 301,
+    "issueProbeCount": 300,
     "inspectorShimRequiredCount": 197,
     "compatAliasRequiredCount": 2
   },
@@ -34006,19 +34006,6 @@
       ]
     },
     {
-      "id": "package.compat.plugin-api-range:connectclaw",
-      "fixture": "connectclaw",
-      "priority": "P2",
-      "target": "package-loader",
-      "evidence": [
-        "plugins/connectclaw/packages/plugin/package.json"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
       "id": "package.compat.plugin-api-range:ddingtalk",
       "fixture": "ddingtalk",
       "priority": "P2",
@@ -36790,7 +36777,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.4"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -36804,7 +36791,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.5.4"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -36832,7 +36819,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.4"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -36846,7 +36833,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.5.4"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -36888,7 +36875,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.5.4"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -36916,7 +36903,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.4"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -36972,7 +36959,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.4"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -37042,7 +37029,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.4"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
