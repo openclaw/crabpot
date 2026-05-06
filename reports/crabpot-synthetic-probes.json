@@ -2281,7 +2281,7 @@
       "source": "plugins/secureclaw/secureclaw/src/index.ts:314"
     },
     {
-      "id": "hook.agent_end:memos-cloud:plugins-memos-cloud-index-js-565",
+      "id": "hook.agent_end:memos-cloud:plugins-memos-cloud-index-js-515",
       "fixture": "memos-cloud",
       "kind": "hook",
       "seam": "agent_end",
@@ -2309,10 +2309,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memos-cloud/index.js:565"
+      "source": "plugins/memos-cloud/index.js:515"
     },
     {
-      "id": "hook.before_agent_start:memos-cloud:plugins-memos-cloud-index-js-531",
+      "id": "hook.before_agent_start:memos-cloud:plugins-memos-cloud-index-js-481",
       "fixture": "memos-cloud",
       "kind": "hook",
       "seam": "before_agent_start",
@@ -2334,7 +2334,7 @@
         "agentId": "agent-fixture",
         "sessionId": "session-fixture"
       },
-      "source": "plugins/memos-cloud/index.js:531"
+      "source": "plugins/memos-cloud/index.js:481"
     },
     {
       "id": "hook.inbound_claim:codex-app-server:plugins-codex-app-server-index-ts-25",
@@ -10719,7 +10719,7 @@
       "source": "plugins/secureclaw/secureclaw/src/index.ts:307"
     },
     {
-      "id": "registration.registerHook:memos-cloud:plugins-memos-cloud-index-js-517",
+      "id": "registration.registerHook:memos-cloud:plugins-memos-cloud-index-js-467",
       "fixture": "memos-cloud",
       "kind": "registration",
       "seam": "registerHook",
@@ -10738,7 +10738,7 @@
         "callableProperties": [],
         "reason": "legacy hook registrar is captured as metadata; hook handlers are probed through hook events"
       },
-      "source": "plugins/memos-cloud/index.js:517"
+      "source": "plugins/memos-cloud/index.js:467"
     },
     {
       "id": "registration.definePluginEntry:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts-4",
