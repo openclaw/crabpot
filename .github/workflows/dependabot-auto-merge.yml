@@ -95,8 +95,9 @@ jobs:
         env:
           CRABPOT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          export CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-          node scripts/sync-fixtures.mjs --materialize
+          CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          export CRABPOT_SUMMARY_GENERATED_AT
+          node scripts/sync-fixtures.mjs --materialize --openclaw ./openclaw
           npm test
           node scripts/sync-fixtures.mjs --check
           node scripts/run-contract-smoke.mjs --strict --openclaw ./openclaw
@@ -113,11 +114,11 @@ jobs:
           node scripts/check-ci-policy.mjs
           node scripts/write-ci-summary.mjs --mode dependabot --openclaw-label "${{ steps.openclaw-track.outputs.label }}"
           node scripts/update-track-metadata.mjs
-          baseline_arg=""
+          baseline_args=()
           if [ -f .crabpot/baseline/main-dashboard-data.json ]; then
-            baseline_arg="--baseline-data .crabpot/baseline/main-dashboard-data.json"
+            baseline_args=(--baseline-data .crabpot/baseline/main-dashboard-data.json)
           fi
-          node scripts/update-readme-summary.mjs ${baseline_arg}
+          node scripts/update-readme-summary.mjs "${baseline_args[@]}"
 
       - name: Commit refreshed reports
         run: |
@@ -127,8 +128,8 @@ jobs:
             git push
           fi
 
-      - name: Merge Dependabot PR
+      - name: Enable Dependabot PR auto-merge
         env:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: gh pr merge "${PR_NUMBER}" --squash --delete-branch
+        run: gh pr merge "${PR_NUMBER}" --squash --auto --delete-branch

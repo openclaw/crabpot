@@ -175,7 +175,7 @@ jobs:
         with:
           node-version: 22
 
-      - run: node scripts/sync-fixtures.mjs --materialize
+      - run: node scripts/sync-fixtures.mjs --materialize --openclaw ./openclaw
       - run: npm test
       - name: Compare OpenClaw refs
         run: |
