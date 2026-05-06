@@ -17,15 +17,15 @@ Strict: false
 
 ## Checks
 
-| Action | ID                              | Metric                 | Baseline | Current | Delta | Percent | Message                                                        |
-| ------ | ------------------------------- | ---------------------- | -------- | ------- | ----- | ------- | -------------------------------------------------------------- |
-| warn   | profile.wall-p95                | p95WallMs              | 1273     | 2225    | 952   | 74.8%   | p95WallMs regressed 74.8% over baseline                        |
-| warn   | profile.peak-rss                | maxPeakRssMb           | 65.1     | 450.1   | 385   | -       | maxPeakRssMb regressed 385 over baseline                       |
-| pass   | profile.node-boot               | nodeBootWallMs         | 917      | 33      | -884  | -       | nodeBootWallMs stayed within 500 absolute regression threshold |
-| pass   | registry.compatRecords          | compatRecords          | 19       | 60      | 41    | -       | registry surface delta is tracked as context                   |
-| pass   | registry.hookNames              | hookNames              | 31       | 35      | 4     | -       | registry surface delta is tracked as context                   |
-| pass   | registry.apiRegistrars          | apiRegistrars          | 40       | 49      | 9     | -       | registry surface delta is tracked as context                   |
-| pass   | registry.capturedRegistrars     | capturedRegistrars     | 18       | 26      | 8     | -       | registry surface delta is tracked as context                   |
-| pass   | registry.sdkExports             | sdkExports             | 307      | 296     | -11   | -       | registry surface delta is tracked as context                   |
-| pass   | registry.manifestFields         | manifestFields         | 32       | 40      | 8     | -       | registry surface delta is tracked as context                   |
-| pass   | registry.manifestContractFields | manifestContractFields | 16       | 17      | 1     | -       | registry surface delta is tracked as context                   |
+| Action | ID                              | Metric                 | Baseline | Current | Delta              | Percent | Message                                                        |
+| ------ | ------------------------------- | ---------------------- | -------- | ------- | ------------------ | ------- | -------------------------------------------------------------- |
+| warn   | profile.wall-p95                | p95WallMs              | 1273     | 2304    | 1031               | 81%     | p95WallMs regressed 81% over baseline                          |
+| warn   | profile.peak-rss                | maxPeakRssMb           | 65.1     | 440.3   | 375.20000000000005 | -       | maxPeakRssMb regressed 375.20000000000005 over baseline        |
+| pass   | profile.node-boot               | nodeBootWallMs         | 917      | 35      | -882               | -       | nodeBootWallMs stayed within 500 absolute regression threshold |
+| pass   | registry.compatRecords          | compatRecords          | 19       | 60      | 41                 | -       | registry surface delta is tracked as context                   |
+| pass   | registry.hookNames              | hookNames              | 31       | 35      | 4                  | -       | registry surface delta is tracked as context                   |
+| pass   | registry.apiRegistrars          | apiRegistrars          | 40       | 49      | 9                  | -       | registry surface delta is tracked as context                   |
+| pass   | registry.capturedRegistrars     | capturedRegistrars     | 18       | 26      | 8                  | -       | registry surface delta is tracked as context                   |
+| pass   | registry.sdkExports             | sdkExports             | 307      | 296     | -11                | -       | registry surface delta is tracked as context                   |
+| pass   | registry.manifestFields         | manifestFields         | 32       | 40      | 8                  | -       | registry surface delta is tracked as context                   |
+| pass   | registry.manifestContractFields | manifestContractFields | 16       | 17      | 1                  | -       | registry surface delta is tracked as context                   |
