@@ -289,7 +289,7 @@
     {
       "id": "compatibility-report.inspector-gaps",
       "action": "pass",
-      "message": "164 inspector proof gaps tracked",
+      "message": "163 inspector proof gaps tracked",
       "evidence": [
         "honcho:conversation-access-hook",
         "kitchen-sink:before-tool-call-probe",
@@ -373,7 +373,6 @@
         "lossless-claw:package-build-artifact-entrypoint",
         "lossless-claw:package-dependency-install-required",
         "lossless-claw:registration-capture-gap",
-        "lossless-claw:runtime-tool-capture",
         "matrix:package-dependency-install-required",
         "matrix:package-typescript-source-entrypoint",
         "matrix:registration-capture-gap",
