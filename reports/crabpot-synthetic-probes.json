@@ -217,7 +217,7 @@
       "source": "plugins/opik-openclaw/src/service/hooks/tool.ts:100"
     },
     {
-      "id": "hook.agent_end:opik-openclaw:plugins-opik-openclaw-src-service-ts-560",
+      "id": "hook.agent_end:opik-openclaw:plugins-opik-openclaw-src-service-ts-581",
       "fixture": "opik-openclaw",
       "kind": "hook",
       "seam": "agent_end",
@@ -245,7 +245,7 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/opik-openclaw/src/service.ts:560"
+      "source": "plugins/opik-openclaw/src/service.ts:581"
     },
     {
       "id": "hook.before_tool_call:opik-openclaw:plugins-opik-openclaw-src-service-hooks-tool-ts-34",
@@ -419,7 +419,7 @@
       "source": "plugins/opik-openclaw/src/service/hooks/subagent.ts:38"
     },
     {
-      "id": "hook.tool_result_persist:opik-openclaw:plugins-opik-openclaw-src-service-ts-541",
+      "id": "hook.tool_result_persist:opik-openclaw:plugins-opik-openclaw-src-service-ts-562",
       "fixture": "opik-openclaw",
       "kind": "hook",
       "seam": "tool_result_persist",
@@ -436,7 +436,7 @@
         "hook": "tool_result_persist",
         "fixture": "opik-openclaw"
       },
-      "source": "plugins/opik-openclaw/src/service.ts:541"
+      "source": "plugins/opik-openclaw/src/service.ts:562"
     },
     {
       "id": "hook.after_tool_call:openclaw-telemetry:plugins-openclaw-telemetry-index-ts-22",
