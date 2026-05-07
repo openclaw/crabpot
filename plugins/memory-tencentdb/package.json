@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for TencentDB Agent Memory.",
   "dependencies": {
-    "@tencentdb-agent-memory/memory-tencentdb": "0.2.3"
+    "@tencentdb-agent-memory/memory-tencentdb": "0.3.1"
   },
   "crabpot": {
     "fixture": "memory-tencentdb",
