@@ -290,7 +290,7 @@
     {
       "id": "compatibility-report.inspector-gaps",
       "action": "pass",
-      "message": "164 inspector proof gaps tracked",
+      "message": "163 inspector proof gaps tracked",
       "evidence": [
         "honcho:conversation-access-hook",
         "kitchen-sink:before-tool-call-probe",
@@ -390,7 +390,6 @@
         "memory-tencentdb:package-dependency-install-required",
         "memory-tencentdb:package-typescript-source-entrypoint",
         "memory-tencentdb:registration-capture-gap",
-        "memory-tencentdb:runtime-tool-capture",
         "memos-cloud:registration-capture-gap",
         "memu-engine:package-typescript-source-entrypoint",
         "memu-engine:runtime-tool-capture",
