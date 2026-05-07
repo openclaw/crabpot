@@ -331,15 +331,15 @@ _none_
   - **legacy-root-sdk-import**: opik-openclaw: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts#L1)
-    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts#L2)
-    - [openclaw/plugin-sdk @ cli.ts:1](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/cli.ts#L1)
-    - [openclaw/plugin-sdk @ configure.ts:2](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/configure.ts#L2)
-    - [openclaw/plugin-sdk @ service.ts:5](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service.ts#L5)
-    - [openclaw/plugin-sdk @ service.ts:6](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service.ts#L6)
-    - [openclaw/plugin-sdk @ llm.ts:1](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L1)
-    - [openclaw/plugin-sdk @ subagent.ts:1](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/subagent.ts#L1)
-    - [openclaw/plugin-sdk @ tool.ts:1](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/tool.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/index.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/index.ts#L2)
+    - [openclaw/plugin-sdk @ cli.ts:1](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/cli.ts#L1)
+    - [openclaw/plugin-sdk @ configure.ts:2](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/configure.ts#L2)
+    - [openclaw/plugin-sdk @ service.ts:5](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service.ts#L5)
+    - [openclaw/plugin-sdk @ service.ts:6](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service.ts#L6)
+    - [openclaw/plugin-sdk @ llm.ts:1](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/llm.ts#L1)
+    - [openclaw/plugin-sdk @ subagent.ts:1](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/subagent.ts#L1)
+    - [openclaw/plugin-sdk @ tool.ts:1](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/tool.ts#L1)
 
 - 🟡 P2 **qqbot** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: qqbot: root plugin SDK barrel is still used by fixtures
@@ -468,15 +468,15 @@ _none_
   - **before-tool-call-probe**: opik-openclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ tool.ts:34](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/tool.ts#L34)
+    - [before_tool_call @ tool.ts:34](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/tool.ts#L34)
 
 - 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: opik-openclaw: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ service.ts:560](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service.ts#L560)
-    - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L39)
-    - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L150)
+    - [agent_end @ service.ts:581](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service.ts#L581)
+    - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/llm.ts#L39)
+    - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/llm.ts#L150)
 
 - 🟠 P1 **wecom** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: wecom: before_tool_call needs terminal/block/approval probes
@@ -1361,27 +1361,27 @@ _none_
   - **package-build-artifact-entrypoint**: opik-openclaw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [runtimeExtension:./dist/index.js @ index.js](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/dist/index.js)
+    - [runtimeExtension:./dist/index.js @ index.js](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/dist/index.js)
 
 - 🟡 P2 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: opik-openclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@clack/prompts @ package.json](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/package.json)
-    - [opik @ package.json](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/package.json)
-    - [zod @ package.json](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/package.json)
+    - [@clack/prompts @ package.json](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/package.json)
+    - [opik @ package.json](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/package.json)
+    - [zod @ package.json](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/package.json)
 
 - 🟡 P2 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: opik-openclaw: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts)
+    - [extension @ index.ts](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/index.ts)
 
 - 🟡 P2 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: opik-openclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:16](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts#L16)
+    - [registerService @ index.ts:16](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/index.ts#L16)
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: qqbot: channel runtime needs envelope/config probes
@@ -2206,15 +2206,15 @@ _none_
   - **before-tool-call-probe**: opik-openclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ tool.ts:34](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/tool.ts#L34)
+    - [before_tool_call @ tool.ts:34](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/tool.ts#L34)
 
 - 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: opik-openclaw: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ service.ts:560](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service.ts#L560)
-    - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L39)
-    - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L150)
+    - [agent_end @ service.ts:581](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service.ts#L581)
+    - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/llm.ts#L39)
+    - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/llm.ts#L150)
 
 - 🟠 P1 **wecom** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: wecom: before_tool_call needs terminal/block/approval probes
@@ -3693,41 +3693,41 @@ _none_
   - **legacy-root-sdk-import**: opik-openclaw: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts#L1)
-    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts#L2)
-    - [openclaw/plugin-sdk @ cli.ts:1](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/cli.ts#L1)
-    - [openclaw/plugin-sdk @ configure.ts:2](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/configure.ts#L2)
-    - [openclaw/plugin-sdk @ service.ts:5](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service.ts#L5)
-    - [openclaw/plugin-sdk @ service.ts:6](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service.ts#L6)
-    - [openclaw/plugin-sdk @ llm.ts:1](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L1)
-    - [openclaw/plugin-sdk @ subagent.ts:1](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/subagent.ts#L1)
-    - [openclaw/plugin-sdk @ tool.ts:1](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/tool.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/index.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/index.ts#L2)
+    - [openclaw/plugin-sdk @ cli.ts:1](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/cli.ts#L1)
+    - [openclaw/plugin-sdk @ configure.ts:2](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/configure.ts#L2)
+    - [openclaw/plugin-sdk @ service.ts:5](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service.ts#L5)
+    - [openclaw/plugin-sdk @ service.ts:6](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service.ts#L6)
+    - [openclaw/plugin-sdk @ llm.ts:1](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/llm.ts#L1)
+    - [openclaw/plugin-sdk @ subagent.ts:1](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/subagent.ts#L1)
+    - [openclaw/plugin-sdk @ tool.ts:1](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/tool.ts#L1)
 
 - 🟡 P2 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: opik-openclaw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [runtimeExtension:./dist/index.js @ index.js](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/dist/index.js)
+    - [runtimeExtension:./dist/index.js @ index.js](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/dist/index.js)
 
 - 🟡 P2 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: opik-openclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@clack/prompts @ package.json](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/package.json)
-    - [opik @ package.json](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/package.json)
-    - [zod @ package.json](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/package.json)
+    - [@clack/prompts @ package.json](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/package.json)
+    - [opik @ package.json](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/package.json)
+    - [zod @ package.json](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/package.json)
 
 - 🟡 P2 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: opik-openclaw: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts)
+    - [extension @ index.ts](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/index.ts)
 
 - 🟡 P2 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: opik-openclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:16](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts#L16)
+    - [registerService @ index.ts:16](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/index.ts#L16)
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: qqbot: channel runtime needs envelope/config probes
@@ -4210,7 +4210,7 @@ _none_
   - contract: Hook returns preserve terminal, block, and approval semantics.
   - id: `hook.before_tool_call.terminal-block-approval:opik-openclaw`
   - evidence:
-    - [before_tool_call @ tool.ts:34](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/tool.ts#L34)
+    - [before_tool_call @ tool.ts:34](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/tool.ts#L34)
 
 - 🟠 P1 **wecom** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
@@ -4269,9 +4269,9 @@ _none_
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:opik-openclaw`
   - evidence:
-    - [agent_end @ service.ts:560](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service.ts#L560)
-    - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L39)
-    - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L150)
+    - [agent_end @ service.ts:581](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service.ts#L581)
+    - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/llm.ts#L39)
+    - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/llm.ts#L150)
 
 - 🟠 P1 **clawmetry** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
@@ -4433,7 +4433,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:opik-openclaw`
   - evidence:
-    - [registerService @ index.ts:16](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts#L16)
+    - [registerService @ index.ts:16](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/index.ts#L16)
 
 - 🟡 P2 **qqbot** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -4699,7 +4699,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:opik-openclaw`
   - evidence:
-    - [runtimeExtension:./dist/index.js @ index.js](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/dist/index.js)
+    - [runtimeExtension:./dist/index.js @ index.js](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/dist/index.js)
 
 - 🟡 P2 **a2a-gateway** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -4832,9 +4832,9 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:opik-openclaw`
   - evidence:
-    - [@clack/prompts @ package.json](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/package.json)
-    - [opik @ package.json](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/package.json)
-    - [zod @ package.json](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/package.json)
+    - [@clack/prompts @ package.json](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/package.json)
+    - [opik @ package.json](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/package.json)
+    - [zod @ package.json](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/package.json)
 
 - 🟡 P2 **qqbot** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -4938,7 +4938,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:opik-openclaw`
   - evidence:
-    - [extension @ index.ts](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts)
+    - [extension @ index.ts](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/index.ts)
 
 - 🟡 P2 **yuanbao** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -5088,15 +5088,15 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:opik-openclaw`
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts#L1)
-    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/index.ts#L2)
-    - [openclaw/plugin-sdk @ cli.ts:1](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/cli.ts#L1)
-    - [openclaw/plugin-sdk @ configure.ts:2](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/configure.ts#L2)
-    - [openclaw/plugin-sdk @ service.ts:5](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service.ts#L5)
-    - [openclaw/plugin-sdk @ service.ts:6](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service.ts#L6)
-    - [openclaw/plugin-sdk @ llm.ts:1](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/llm.ts#L1)
-    - [openclaw/plugin-sdk @ subagent.ts:1](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/subagent.ts#L1)
-    - [openclaw/plugin-sdk @ tool.ts:1](https://github.com/comet-ml/opik-openclaw/blob/f8987269d3f2121f52ace4f60c80629266c0dfd7/src/service/hooks/tool.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/index.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/index.ts#L2)
+    - [openclaw/plugin-sdk @ cli.ts:1](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/cli.ts#L1)
+    - [openclaw/plugin-sdk @ configure.ts:2](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/configure.ts#L2)
+    - [openclaw/plugin-sdk @ service.ts:5](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service.ts#L5)
+    - [openclaw/plugin-sdk @ service.ts:6](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service.ts#L6)
+    - [openclaw/plugin-sdk @ llm.ts:1](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/llm.ts#L1)
+    - [openclaw/plugin-sdk @ subagent.ts:1](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/subagent.ts#L1)
+    - [openclaw/plugin-sdk @ tool.ts:1](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/tool.ts#L1)
 
 - 🟡 P2 **qqbot** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
