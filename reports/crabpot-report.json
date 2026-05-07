@@ -665,11 +665,11 @@
     "highPriorityFixtures": 22,
     "breakageCount": 0,
     "warningCount": 126,
-    "suggestionCount": 156,
+    "suggestionCount": 155,
     "decisionCount": 297,
-    "logCount": 461,
-    "issueCount": 282,
-    "openIssueCount": 282,
+    "logCount": 462,
+    "issueCount": 281,
+    "openIssueCount": 281,
     "p0IssueCount": 0,
     "p1IssueCount": 15,
     "openP0IssueCount": 0,
@@ -678,14 +678,14 @@
     "liveP0IssueCount": 0,
     "compatGapCount": 2,
     "deprecationWarningCount": 42,
-    "inspectorGapCount": 164,
+    "inspectorGapCount": 163,
     "upstreamIssueCount": 74,
     "fixtureRegressionCount": 0,
-    "openInspectorGapCount": 164,
+    "openInspectorGapCount": 163,
     "runtimeCoveredIssueCount": 0,
     "runtimePartiallyCoveredIssueCount": 0,
     "runtimeCoverageArtifactCount": 0,
-    "contractProbeCount": 278
+    "contractProbeCount": 277
   },
   "fixtures": [
     {
@@ -7576,7 +7576,7 @@
       "package": {
         "path": "plugins/bluebubbles/.crabpot-package/package.json",
         "name": "@openclaw/bluebubbles",
-        "version": "2026.5.5",
+        "version": "2026.5.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -7603,8 +7603,8 @@
             "./dist/index.js"
           ],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.6",
+          "buildOpenClawVersion": "2026.5.6",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -7646,7 +7646,7 @@
         {
           "path": "plugins/bluebubbles/.crabpot-package/package.json",
           "name": "@openclaw/bluebubbles",
-          "version": "2026.5.5",
+          "version": "2026.5.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -7673,8 +7673,8 @@
               "./dist/index.js"
             ],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.6",
+            "buildOpenClawVersion": "2026.5.6",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -8273,7 +8273,7 @@
       "package": {
         "path": "plugins/diagnostics-otel/.crabpot-package/package.json",
         "name": "@openclaw/diagnostics-otel",
-        "version": "2026.5.5",
+        "version": "2026.5.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -8311,8 +8311,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.6",
+          "buildOpenClawVersion": "2026.5.6",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": "clawhub:@openclaw/diagnostics-otel",
@@ -8347,7 +8347,7 @@
         {
           "path": "plugins/diagnostics-otel/.crabpot-package/package.json",
           "name": "@openclaw/diagnostics-otel",
-          "version": "2026.5.5",
+          "version": "2026.5.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -8385,8 +8385,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.6",
+            "buildOpenClawVersion": "2026.5.6",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": "clawhub:@openclaw/diagnostics-otel",
@@ -8673,7 +8673,7 @@
       "package": {
         "path": "plugins/discord/.crabpot-package/package.json",
         "name": "@openclaw/discord",
-        "version": "2026.5.5",
+        "version": "2026.5.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -8707,8 +8707,8 @@
             "./dist/index.js"
           ],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.6",
+          "buildOpenClawVersion": "2026.5.6",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -8750,7 +8750,7 @@
         {
           "path": "plugins/discord/.crabpot-package/package.json",
           "name": "@openclaw/discord",
-          "version": "2026.5.5",
+          "version": "2026.5.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -8784,8 +8784,8 @@
               "./dist/index.js"
             ],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.6",
+            "buildOpenClawVersion": "2026.5.6",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -10745,7 +10745,7 @@
       "package": {
         "path": "plugins/lobster/.crabpot-package/package.json",
         "name": "@openclaw/lobster",
-        "version": "2026.5.5",
+        "version": "2026.5.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -10777,8 +10777,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.6",
+          "buildOpenClawVersion": "2026.5.6",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -10813,7 +10813,7 @@
         {
           "path": "plugins/lobster/.crabpot-package/package.json",
           "name": "@openclaw/lobster",
-          "version": "2026.5.5",
+          "version": "2026.5.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -10845,8 +10845,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.6",
+            "buildOpenClawVersion": "2026.5.6",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -11249,7 +11249,7 @@
       "package": {
         "path": "plugins/matrix/.crabpot-package/package.json",
         "name": "@openclaw/matrix",
-        "version": "2026.5.5",
+        "version": "2026.5.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -11311,7 +11311,7 @@
         {
           "path": "plugins/matrix/.crabpot-package/package.json",
           "name": "@openclaw/matrix",
-          "version": "2026.5.5",
+          "version": "2026.5.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -13425,7 +13425,7 @@
       "package": {
         "path": "plugins/msteams/.crabpot-package/package.json",
         "name": "@openclaw/msteams",
-        "version": "2026.5.5",
+        "version": "2026.5.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -13459,8 +13459,8 @@
             "./dist/index.js"
           ],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.6",
+          "buildOpenClawVersion": "2026.5.6",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -13502,7 +13502,7 @@
         {
           "path": "plugins/msteams/.crabpot-package/package.json",
           "name": "@openclaw/msteams",
-          "version": "2026.5.5",
+          "version": "2026.5.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -13536,8 +13536,8 @@
               "./dist/index.js"
             ],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.6",
+            "buildOpenClawVersion": "2026.5.6",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -14193,7 +14193,7 @@
       "package": {
         "path": "plugins/nextcloud-talk/.crabpot-package/package.json",
         "name": "@openclaw/nextcloud-talk",
-        "version": "2026.5.5",
+        "version": "2026.5.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -14221,8 +14221,8 @@
             "./dist/index.js"
           ],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.6",
+          "buildOpenClawVersion": "2026.5.6",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -14264,7 +14264,7 @@
         {
           "path": "plugins/nextcloud-talk/.crabpot-package/package.json",
           "name": "@openclaw/nextcloud-talk",
-          "version": "2026.5.5",
+          "version": "2026.5.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -14292,8 +14292,8 @@
               "./dist/index.js"
             ],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.6",
+            "buildOpenClawVersion": "2026.5.6",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -14735,7 +14735,7 @@
       "package": {
         "path": "plugins/nostr/.crabpot-package/package.json",
         "name": "@openclaw/nostr",
-        "version": "2026.5.5",
+        "version": "2026.5.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -14765,8 +14765,8 @@
             "./dist/index.js"
           ],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.6",
+          "buildOpenClawVersion": "2026.5.6",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -14808,7 +14808,7 @@
         {
           "path": "plugins/nostr/.crabpot-package/package.json",
           "name": "@openclaw/nostr",
-          "version": "2026.5.5",
+          "version": "2026.5.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -14838,8 +14838,8 @@
               "./dist/index.js"
             ],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.6",
+            "buildOpenClawVersion": "2026.5.6",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -15338,7 +15338,7 @@
       "package": {
         "path": "plugins/voice-call/.crabpot-package/package.json",
         "name": "@openclaw/voice-call",
-        "version": "2026.5.5",
+        "version": "2026.5.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -15369,8 +15369,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.6",
+          "buildOpenClawVersion": "2026.5.6",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -15405,7 +15405,7 @@
         {
           "path": "plugins/voice-call/.crabpot-package/package.json",
           "name": "@openclaw/voice-call",
-          "version": "2026.5.5",
+          "version": "2026.5.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -15436,8 +15436,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.6",
+            "buildOpenClawVersion": "2026.5.6",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -15845,7 +15845,7 @@
       "package": {
         "path": "plugins/zalo/.crabpot-package/package.json",
         "name": "@openclaw/zalo",
-        "version": "2026.5.5",
+        "version": "2026.5.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -15874,8 +15874,8 @@
             "./dist/index.js"
           ],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.6",
+          "buildOpenClawVersion": "2026.5.6",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -15917,7 +15917,7 @@
         {
           "path": "plugins/zalo/.crabpot-package/package.json",
           "name": "@openclaw/zalo",
-          "version": "2026.5.5",
+          "version": "2026.5.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -15946,8 +15946,8 @@
               "./dist/index.js"
             ],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.6",
+            "buildOpenClawVersion": "2026.5.6",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -16584,7 +16584,7 @@
       "package": {
         "path": "plugins/zalouser/.crabpot-package/package.json",
         "name": "@openclaw/zalouser",
-        "version": "2026.5.5",
+        "version": "2026.5.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -16614,8 +16614,8 @@
             "./dist/index.js"
           ],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.6",
+          "buildOpenClawVersion": "2026.5.6",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -16657,7 +16657,7 @@
         {
           "path": "plugins/zalouser/.crabpot-package/package.json",
           "name": "@openclaw/zalouser",
-          "version": "2026.5.5",
+          "version": "2026.5.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -16687,8 +16687,8 @@
               "./dist/index.js"
             ],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.6",
+            "buildOpenClawVersion": "2026.5.6",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -17364,7 +17364,7 @@
       "package": {
         "path": "plugins/feishu/.crabpot-package/package.json",
         "name": "@openclaw/feishu",
-        "version": "2026.5.5",
+        "version": "2026.5.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -17394,8 +17394,8 @@
             "./dist/index.js"
           ],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.6",
+          "buildOpenClawVersion": "2026.5.6",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -17437,7 +17437,7 @@
         {
           "path": "plugins/feishu/.crabpot-package/package.json",
           "name": "@openclaw/feishu",
-          "version": "2026.5.5",
+          "version": "2026.5.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -17467,8 +17467,8 @@
               "./dist/index.js"
             ],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.6",
+            "buildOpenClawVersion": "2026.5.6",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -18236,7 +18236,7 @@
       "package": {
         "path": "plugins/tlon/.crabpot-package/package.json",
         "name": "@openclaw/tlon",
-        "version": "2026.5.5",
+        "version": "2026.5.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -18268,8 +18268,8 @@
             "./dist/index.js"
           ],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.6",
+          "buildOpenClawVersion": "2026.5.6",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -18311,7 +18311,7 @@
         {
           "path": "plugins/tlon/.crabpot-package/package.json",
           "name": "@openclaw/tlon",
-          "version": "2026.5.5",
+          "version": "2026.5.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -18343,8 +18343,8 @@
               "./dist/index.js"
             ],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.6",
+            "buildOpenClawVersion": "2026.5.6",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -18658,7 +18658,7 @@
       "package": {
         "path": "plugins/twitch/.crabpot-package/package.json",
         "name": "@openclaw/twitch",
-        "version": "2026.5.5",
+        "version": "2026.5.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -18689,8 +18689,8 @@
             "./dist/index.js"
           ],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.6",
+          "buildOpenClawVersion": "2026.5.6",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -18732,7 +18732,7 @@
         {
           "path": "plugins/twitch/.crabpot-package/package.json",
           "name": "@openclaw/twitch",
-          "version": "2026.5.5",
+          "version": "2026.5.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -18763,8 +18763,8 @@
               "./dist/index.js"
             ],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.6",
+            "buildOpenClawVersion": "2026.5.6",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -19114,7 +19114,7 @@
       "package": {
         "path": "plugins/mattermost/.crabpot-package/package.json",
         "name": "@openclaw/mattermost",
-        "version": "2026.5.5",
+        "version": "2026.5.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -19170,7 +19170,7 @@
         {
           "path": "plugins/mattermost/.crabpot-package/package.json",
           "name": "@openclaw/mattermost",
-          "version": "2026.5.5",
+          "version": "2026.5.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -20288,7 +20288,7 @@
       "package": {
         "path": "plugins/synology-chat/.crabpot-package/package.json",
         "name": "@openclaw/synology-chat",
-        "version": "2026.5.5",
+        "version": "2026.5.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -20316,8 +20316,8 @@
             "./dist/index.js"
           ],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.6",
+          "buildOpenClawVersion": "2026.5.6",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -20359,7 +20359,7 @@
         {
           "path": "plugins/synology-chat/.crabpot-package/package.json",
           "name": "@openclaw/synology-chat",
-          "version": "2026.5.5",
+          "version": "2026.5.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -20387,8 +20387,8 @@
               "./dist/index.js"
             ],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.6",
+            "buildOpenClawVersion": "2026.5.6",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -20686,7 +20686,7 @@
       "package": {
         "path": "plugins/brave-plugin/.crabpot-package/package.json",
         "name": "@openclaw/brave-plugin",
-        "version": "2026.5.5",
+        "version": "2026.5.5-beta.2",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -20712,8 +20712,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.5-beta.2",
+          "buildOpenClawVersion": "2026.5.5-beta.2",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -20748,7 +20748,7 @@
         {
           "path": "plugins/brave-plugin/.crabpot-package/package.json",
           "name": "@openclaw/brave-plugin",
-          "version": "2026.5.5",
+          "version": "2026.5.5-beta.2",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -20774,8 +20774,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.5-beta.2",
+            "buildOpenClawVersion": "2026.5.5-beta.2",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -20985,7 +20985,7 @@
         "plugins/codex/.crabpot-package/dist/provider.js",
         "plugins/codex/.crabpot-package/dist/rate-limit-cache-t6ebYmfS.js",
         "plugins/codex/.crabpot-package/dist/rolldown-runtime-DUslC3ob.js",
-        "plugins/codex/.crabpot-package/dist/run-attempt-iMdlA1m8.js",
+        "plugins/codex/.crabpot-package/dist/run-attempt-CFL1BFBl.js",
         "plugins/codex/.crabpot-package/dist/session-binding-DuJYTJQy.js",
         "plugins/codex/.crabpot-package/dist/shared-client-Dfk3Enm-.js",
         "plugins/codex/.crabpot-package/dist/test-api.js",
@@ -21030,7 +21030,7 @@
       "package": {
         "path": "plugins/codex/.crabpot-package/package.json",
         "name": "@openclaw/codex",
-        "version": "2026.5.5",
+        "version": "2026.5.5-beta.2",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -21062,8 +21062,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.5-beta.2",
+          "buildOpenClawVersion": "2026.5.5-beta.2",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -21098,7 +21098,7 @@
         {
           "path": "plugins/codex/.crabpot-package/package.json",
           "name": "@openclaw/codex",
-          "version": "2026.5.5",
+          "version": "2026.5.5-beta.2",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -21130,8 +21130,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.5-beta.2",
+            "buildOpenClawVersion": "2026.5.5-beta.2",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -21195,21 +21195,20 @@
         "openclaw/plugin-sdk/plugin-entry",
         "openclaw/plugin-sdk/provider-auth",
         "openclaw/plugin-sdk/provider-model-shared",
-        "openclaw/plugin-sdk/text-runtime",
         "openclaw/plugin-sdk/windows-spawn"
       ],
       "sdkImportDetails": [
         {
           "specifier": "openclaw/plugin-sdk/agent-harness",
-          "file": "plugins/codex/.crabpot-package/dist/run-attempt-iMdlA1m8.js",
-          "line": 19,
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-iMdlA1m8.js:19"
+          "file": "plugins/codex/.crabpot-package/dist/run-attempt-CFL1BFBl.js",
+          "line": 18,
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CFL1BFBl.js:18"
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-harness",
-          "file": "plugins/codex/.crabpot-package/dist/run-attempt-iMdlA1m8.js",
-          "line": 3614,
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-iMdlA1m8.js:3614"
+          "file": "plugins/codex/.crabpot-package/dist/run-attempt-CFL1BFBl.js",
+          "line": 3474,
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CFL1BFBl.js:3474"
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
@@ -21231,9 +21230,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "file": "plugins/codex/.crabpot-package/dist/run-attempt-iMdlA1m8.js",
+          "file": "plugins/codex/.crabpot-package/dist/run-attempt-CFL1BFBl.js",
           "line": 12,
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-iMdlA1m8.js:12"
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CFL1BFBl.js:12"
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
@@ -21273,9 +21272,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/diagnostic-runtime",
-          "file": "plugins/codex/.crabpot-package/dist/run-attempt-iMdlA1m8.js",
+          "file": "plugins/codex/.crabpot-package/dist/run-attempt-CFL1BFBl.js",
           "line": 16,
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-iMdlA1m8.js:16"
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CFL1BFBl.js:16"
         },
         {
           "specifier": "openclaw/plugin-sdk/migration",
@@ -21324,12 +21323,6 @@
           "file": "plugins/codex/.crabpot-package/dist/provider.js",
           "line": 6,
           "ref": "plugins/codex/.crabpot-package/dist/provider.js:6"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/text-runtime",
-          "file": "plugins/codex/.crabpot-package/dist/run-attempt-iMdlA1m8.js",
-          "line": 18,
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-iMdlA1m8.js:18"
         },
         {
           "specifier": "openclaw/plugin-sdk/windows-spawn",
@@ -21410,7 +21403,7 @@
       "package": {
         "path": "plugins/diagnostics-prometheus/.crabpot-package/package.json",
         "name": "@openclaw/diagnostics-prometheus",
-        "version": "2026.5.5",
+        "version": "2026.5.5-beta.2",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -21436,8 +21429,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.5-beta.2",
+          "buildOpenClawVersion": "2026.5.5-beta.2",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": "clawhub:@openclaw/diagnostics-prometheus",
@@ -21472,7 +21465,7 @@
         {
           "path": "plugins/diagnostics-prometheus/.crabpot-package/package.json",
           "name": "@openclaw/diagnostics-prometheus",
-          "version": "2026.5.5",
+          "version": "2026.5.5-beta.2",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -21498,8 +21491,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.5-beta.2",
+            "buildOpenClawVersion": "2026.5.5-beta.2",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": "clawhub:@openclaw/diagnostics-prometheus",
@@ -21767,7 +21760,7 @@
       "package": {
         "path": "plugins/google-meet/.crabpot-package/package.json",
         "name": "@openclaw/google-meet",
-        "version": "2026.5.5",
+        "version": "2026.5.5-beta.2",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -21796,8 +21789,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.5-beta.2",
+          "buildOpenClawVersion": "2026.5.5-beta.2",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -21832,7 +21825,7 @@
         {
           "path": "plugins/google-meet/.crabpot-package/package.json",
           "name": "@openclaw/google-meet",
-          "version": "2026.5.5",
+          "version": "2026.5.5-beta.2",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -21861,8 +21854,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.5-beta.2",
+            "buildOpenClawVersion": "2026.5.5-beta.2",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -22117,7 +22110,7 @@
       "package": {
         "path": "plugins/diffs/.crabpot-package/package.json",
         "name": "@openclaw/diffs",
-        "version": "2026.5.5",
+        "version": "2026.5.5-beta.2",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -22150,8 +22143,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.5-beta.2",
+          "buildOpenClawVersion": "2026.5.5-beta.2",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -22186,7 +22179,7 @@
         {
           "path": "plugins/diffs/.crabpot-package/package.json",
           "name": "@openclaw/diffs",
-          "version": "2026.5.5",
+          "version": "2026.5.5-beta.2",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -22219,8 +22212,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.5-beta.2",
+            "buildOpenClawVersion": "2026.5.5-beta.2",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -22481,7 +22474,7 @@
       "package": {
         "path": "plugins/memory-lancedb/.crabpot-package/package.json",
         "name": "@openclaw/memory-lancedb",
-        "version": "2026.5.5",
+        "version": "2026.5.5-beta.2",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -22512,8 +22505,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.5-beta.2",
+          "buildOpenClawVersion": "2026.5.5-beta.2",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -22548,7 +22541,7 @@
         {
           "path": "plugins/memory-lancedb/.crabpot-package/package.json",
           "name": "@openclaw/memory-lancedb",
-          "version": "2026.5.5",
+          "version": "2026.5.5-beta.2",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -22579,8 +22572,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.5-beta.2",
+            "buildOpenClawVersion": "2026.5.5-beta.2",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -22813,7 +22806,7 @@
       "package": {
         "path": "plugins/openclaw-qqbot/.crabpot-package/package.json",
         "name": "@openclaw/qqbot",
-        "version": "2026.5.5",
+        "version": "2026.5.5-beta.2",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -22846,8 +22839,8 @@
             "./dist/index.js"
           ],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.5-beta.2",
+          "buildOpenClawVersion": "2026.5.5-beta.2",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -22889,7 +22882,7 @@
         {
           "path": "plugins/openclaw-qqbot/.crabpot-package/package.json",
           "name": "@openclaw/qqbot",
-          "version": "2026.5.5",
+          "version": "2026.5.5-beta.2",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -22922,8 +22915,8 @@
               "./dist/index.js"
             ],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.5-beta.2",
+            "buildOpenClawVersion": "2026.5.5-beta.2",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -23347,7 +23340,7 @@
       "package": {
         "path": "plugins/whatsapp/.crabpot-package/package.json",
         "name": "@openclaw/whatsapp",
-        "version": "2026.5.5",
+        "version": "2026.5.5-beta.2",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -23379,8 +23372,8 @@
             "./dist/index.js"
           ],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.5.5",
-          "buildOpenClawVersion": "2026.5.5",
+          "compatPluginApi": ">=2026.5.5-beta.2",
+          "buildOpenClawVersion": "2026.5.5-beta.2",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -23422,7 +23415,7 @@
         {
           "path": "plugins/whatsapp/.crabpot-package/package.json",
           "name": "@openclaw/whatsapp",
-          "version": "2026.5.5",
+          "version": "2026.5.5-beta.2",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -23454,8 +23447,8 @@
               "./dist/index.js"
             ],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.5.5",
-            "buildOpenClawVersion": "2026.5.5",
+            "compatPluginApi": ">=2026.5.5-beta.2",
+            "buildOpenClawVersion": "2026.5.5-beta.2",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -24648,33 +24641,63 @@
       "hookDetails": [
         {
           "name": "agent_end",
+          "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
+          "line": 16579,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16579"
+        },
+        {
+          "name": "agent_end",
           "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
-          "line": 578,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:578"
+          "line": 594,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:594"
+        },
+        {
+          "name": "before_message_write",
+          "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
+          "line": 16541,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16541"
         },
         {
           "name": "before_message_write",
           "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
-          "line": 542,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:542"
+          "line": 558,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:558"
+        },
+        {
+          "name": "before_prompt_build",
+          "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
+          "line": 16477,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16477"
         },
         {
           "name": "before_prompt_build",
           "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
-          "line": 451,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:451"
+          "line": 467,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:467"
+        },
+        {
+          "name": "gateway_stop",
+          "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
+          "line": 16651,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16651"
+        },
+        {
+          "name": "gateway_stop",
+          "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
+          "line": 16678,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16678"
         },
         {
           "name": "gateway_stop",
           "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
-          "line": 682,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:682"
+          "line": 698,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:698"
         },
         {
           "name": "gateway_stop",
           "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
-          "line": 735,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:735"
+          "line": 751,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:751"
         }
       ],
       "registrations": [
@@ -24685,9 +24708,27 @@
       "registrationDetails": [
         {
           "name": "registerCli",
+          "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
+          "line": 16697,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16697"
+        },
+        {
+          "name": "registerCli",
           "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
-          "line": 768,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:768"
+          "line": 784,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:784"
+        },
+        {
+          "name": "registerContextEngine",
+          "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
+          "line": 5066,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5066"
+        },
+        {
+          "name": "registerContextEngine",
+          "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
+          "line": 5077,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5077"
         },
         {
           "name": "registerContextEngine",
@@ -24703,18 +24744,32 @@
         },
         {
           "name": "registerTool",
-          "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
-          "line": 274,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:274"
+          "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
+          "line": 16307,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16307"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
+          "line": 16399,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16399"
         },
         {
           "name": "registerTool",
           "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
-          "line": 361,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:361"
+          "line": 290,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:290"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
+          "line": 377,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:377"
         }
       ],
-      "manifestContracts": [],
+      "manifestContracts": [
+        "tools"
+      ],
       "manifestFiles": [
         "plugins/memory-tencentdb/.crabpot-package/openclaw.plugin.json"
       ],
@@ -24722,6 +24777,8 @@
         "plugins/memory-tencentdb/.crabpot-package/bin/export-tencent-vdb.mjs",
         "plugins/memory-tencentdb/.crabpot-package/bin/migrate-sqlite-to-tcvdb.mjs",
         "plugins/memory-tencentdb/.crabpot-package/bin/read-local-memory.mjs",
+        "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
+        "plugins/memory-tencentdb/.crabpot-package/dist/l1-reader-B6GBuxTv.mjs",
         "plugins/memory-tencentdb/.crabpot-package/index.ts",
         "plugins/memory-tencentdb/.crabpot-package/scripts/export-tencent-vdb/dist/export-tencent-vdb.js",
         "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/scripts/migrate-sqlite-to-tcvdb/cli-entry.js",
@@ -24827,6 +24884,7 @@
         "plugins/memory-tencentdb/.crabpot-package/src/utils/backup.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/utils/checkpoint.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/utils/clean-context-runner.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/utils/ensure-hook-policy.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/utils/managed-timer.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/utils/manifest.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/utils/memory-cleaner.ts",
@@ -24844,29 +24902,36 @@
           "name": "Memory (TencentDB)",
           "version": null,
           "keys": [
+            "activation",
             "configSchema",
+            "contracts",
             "description",
             "id",
             "name"
           ],
-          "contracts": [],
+          "contracts": [
+            "tools"
+          ],
           "providerAuthEnvVars": {},
           "channelEnvVars": {},
-          "activation": null
+          "activation": {
+            "onStartup": true
+          }
         }
       ],
       "securityManifests": [],
       "package": {
         "path": "plugins/memory-tencentdb/.crabpot-package/package.json",
         "name": "@tencentdb-agent-memory/memory-tencentdb",
-        "version": "0.3.0",
+        "version": "0.3.1",
         "type": "module",
-        "main": "index.ts",
+        "main": "./dist/index.mjs",
         "npmPack": {
           "advertised": false,
           "private": false,
           "filesMode": "allowlist",
           "files": [
+            "dist",
             "bin",
             "index.ts",
             "scripts/migrate-sqlite-to-tcvdb/dist",
@@ -24937,14 +25002,15 @@
         {
           "path": "plugins/memory-tencentdb/.crabpot-package/package.json",
           "name": "@tencentdb-agent-memory/memory-tencentdb",
-          "version": "0.3.0",
+          "version": "0.3.1",
           "type": "module",
-          "main": "index.ts",
+          "main": "./dist/index.mjs",
           "npmPack": {
             "advertised": false,
             "private": false,
             "filesMode": "allowlist",
             "files": [
+              "dist",
               "bin",
               "index.ts",
               "scripts/migrate-sqlite-to-tcvdb/dist",
@@ -25037,6 +25103,12 @@
         "openclaw/plugin-sdk/core"
       ],
       "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
+          "line": 5640,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5640"
+        },
         {
           "specifier": "openclaw/plugin-sdk",
           "file": "plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts",
@@ -27433,14 +27505,14 @@
         {
           "name": "registerChannel",
           "file": "plugins/openclaw-weixin/.crabpot-package/dist/index.js",
-          "line": 17,
-          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/index.js:17"
+          "line": 13,
+          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/index.js:13"
         },
         {
           "name": "registerChannel",
           "file": "plugins/openclaw-weixin/.crabpot-package/index.ts",
-          "line": 22,
-          "ref": "plugins/openclaw-weixin/.crabpot-package/index.ts:22"
+          "line": 17,
+          "ref": "plugins/openclaw-weixin/.crabpot-package/index.ts:17"
         }
       ],
       "manifestContracts": [],
@@ -27467,20 +27539,32 @@
         "plugins/openclaw-weixin/.crabpot-package/dist/src/media/media-download.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/media/mime.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/media/silk-transcode.js",
+        "plugins/openclaw-weixin/.crabpot-package/dist/src/media/voice-outbound.js",
+        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/abort-fence.js",
+        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/buttons.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/debug-mode.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/error-notice.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/inbound.js",
+        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/lane-key.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/markdown-filter.js",
+        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/merged-record.js",
+        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-buttons.js",
+        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-callback-handler.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/outbound-hooks.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/process-message.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/send-media.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/send.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/slash-commands.js",
+        "plugins/openclaw-weixin/.crabpot-package/dist/src/monitor/lane-scheduler.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/monitor/monitor.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/runtime.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/storage/state-dir.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/storage/sync-buf.js",
+        "plugins/openclaw-weixin/.crabpot-package/dist/src/streaming/stream-pipeline.js",
+        "plugins/openclaw-weixin/.crabpot-package/dist/src/streaming/stream-session.js",
+        "plugins/openclaw-weixin/.crabpot-package/dist/src/streaming/stream.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/util/logger.js",
+        "plugins/openclaw-weixin/.crabpot-package/dist/src/util/markdown-fences.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/util/random.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/util/redact.js",
         "plugins/openclaw-weixin/.crabpot-package/index.ts",
@@ -27512,7 +27596,6 @@
         "plugins/openclaw-weixin/.crabpot-package/src/messaging/send.ts",
         "plugins/openclaw-weixin/.crabpot-package/src/messaging/slash-commands.ts",
         "plugins/openclaw-weixin/.crabpot-package/src/monitor/monitor.ts",
-        "plugins/openclaw-weixin/.crabpot-package/src/runtime.ts",
         "plugins/openclaw-weixin/.crabpot-package/src/storage/state-dir.ts",
         "plugins/openclaw-weixin/.crabpot-package/src/storage/sync-buf.ts",
         "plugins/openclaw-weixin/.crabpot-package/src/util/logger.ts",
@@ -27524,7 +27607,7 @@
           "path": "plugins/openclaw-weixin/.crabpot-package/openclaw.plugin.json",
           "id": "openclaw-weixin",
           "name": null,
-          "version": "2.4.1",
+          "version": "2.4.2",
           "keys": [
             "channelConfigs",
             "channels",
@@ -27542,7 +27625,7 @@
       "package": {
         "path": "plugins/openclaw-weixin/.crabpot-package/package.json",
         "name": "@tencent-weixin/openclaw-weixin",
-        "version": "2.4.1",
+        "version": "2.4.2",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -27612,7 +27695,7 @@
         {
           "path": "plugins/openclaw-weixin/.crabpot-package/package.json",
           "name": "@tencent-weixin/openclaw-weixin",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -27701,6 +27784,7 @@
       ],
       "sdkImports": [
         "openclaw/plugin-sdk/account-id",
+        "openclaw/plugin-sdk/agent-runtime",
         "openclaw/plugin-sdk/channel-config-schema",
         "openclaw/plugin-sdk/channel-contract",
         "openclaw/plugin-sdk/channel-runtime",
@@ -27709,6 +27793,7 @@
         "openclaw/plugin-sdk/core",
         "openclaw/plugin-sdk/hook-runtime",
         "openclaw/plugin-sdk/infra-runtime",
+        "openclaw/plugin-sdk/models-provider-runtime",
         "openclaw/plugin-sdk/plugin-entry",
         "openclaw/plugin-sdk/plugin-runtime",
         "openclaw/plugin-sdk/reply-runtime"
@@ -27737,6 +27822,12 @@
           "file": "plugins/openclaw-weixin/.crabpot-package/src/channel.ts",
           "line": 4,
           "ref": "plugins/openclaw-weixin/.crabpot-package/src/channel.ts:4"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/agent-runtime",
+          "file": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-callback-handler.js",
+          "line": 10,
+          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-callback-handler.js:10"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-config-schema",
@@ -27788,9 +27879,15 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-callback-handler.js",
+          "line": 11,
+          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-callback-handler.js:11"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
           "file": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts",
-          "line": 311,
-          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:311"
+          "line": 310,
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:310"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
@@ -27825,14 +27922,8 @@
         {
           "specifier": "openclaw/plugin-sdk/core",
           "file": "plugins/openclaw-weixin/.crabpot-package/src/monitor/monitor.ts",
-          "line": 26,
-          "ref": "plugins/openclaw-weixin/.crabpot-package/src/monitor/monitor.ts:26"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/openclaw-weixin/.crabpot-package/src/runtime.ts",
-          "line": 1,
-          "ref": "plugins/openclaw-weixin/.crabpot-package/src/runtime.ts:1"
+          "line": 25,
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/monitor/monitor.ts:25"
         },
         {
           "specifier": "openclaw/plugin-sdk/hook-runtime",
@@ -27895,6 +27986,12 @@
           "ref": "plugins/openclaw-weixin/.crabpot-package/src/util/logger.ts:5"
         },
         {
+          "specifier": "openclaw/plugin-sdk/models-provider-runtime",
+          "file": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-callback-handler.js",
+          "line": 9,
+          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-callback-handler.js:9"
+        },
+        {
           "specifier": "openclaw/plugin-sdk/plugin-entry",
           "file": "plugins/openclaw-weixin/.crabpot-package/index.ts",
           "line": 1,
@@ -27911,6 +28008,12 @@
           "file": "plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts",
           "line": 7,
           "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts:7"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/reply-runtime",
+          "file": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/lane-key.js",
+          "line": 1,
+          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/lane-key.js:1"
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-runtime",
@@ -30775,7 +30878,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -30785,7 +30888,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -30804,7 +30907,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -30833,7 +30936,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -30871,7 +30974,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -30900,7 +31003,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -30929,7 +31032,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -30958,7 +31061,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -30987,7 +31090,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -31016,7 +31119,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -31045,7 +31148,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -31074,7 +31177,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -31093,7 +31196,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -31141,7 +31244,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -31170,7 +31273,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ]
     },
     {
@@ -31199,7 +31302,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ]
     },
     {
@@ -31209,7 +31312,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ]
     },
     {
@@ -31228,7 +31331,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ]
     },
     {
@@ -31247,7 +31350,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ]
     },
     {
@@ -31266,7 +31369,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ]
     },
     {
@@ -31295,7 +31398,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ]
     },
     {
@@ -31324,7 +31427,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ]
     },
     {
@@ -31361,7 +31464,8 @@
       "level": "warning",
       "message": "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
       "evidence": [
-        "agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:578"
+        "agent_end @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16579",
+        "agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:594"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload"
     },
@@ -31371,6 +31475,7 @@
       "level": "warning",
       "message": "fixture imports the root plugin SDK barrel",
       "evidence": [
+        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5640",
         "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1795"
       ],
       "compatRecord": "legacy-root-sdk-import"
@@ -32869,20 +32974,12 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
+        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5066",
+        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5077",
         "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1115",
         "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1126"
       ],
       "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "memory-tencentdb",
-      "code": "runtime-tool-capture",
-      "level": "suggestion",
-      "message": "tool shape is only visible after runtime registration capture",
-      "evidence": [
-        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:274",
-        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:361"
-      ]
     },
     {
       "fixture": "ddingtalk",
@@ -33108,8 +33205,8 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:17",
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13",
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -33119,8 +33216,8 @@
       "level": "suggestion",
       "message": "add channel envelope, config-schema, and runtime metadata probes",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:17",
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13",
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata"
     },
@@ -33558,7 +33655,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-DFDE44A4",
+      "id": "CRABPOT-5072796E",
       "fixture": "memory-tencentdb",
       "severity": "P1",
       "owner": "core",
@@ -33571,7 +33668,8 @@
       "compatStatus": "active",
       "title": "memory-tencentdb: conversation-access hooks need privacy-boundary probes",
       "evidence": [
-        "agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:578"
+        "agent_end @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16579",
+        "agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:594"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload",
       "runtimeCoverage": null
@@ -34095,7 +34193,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-1B144A14",
+      "id": "CRABPOT-2CF60F6E",
       "fixture": "bluebubbles",
       "severity": "P2",
       "owner": "plugin",
@@ -34109,7 +34207,7 @@
       "title": "bluebubbles: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -34134,7 +34232,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-8CC876D7",
+      "id": "CRABPOT-08533788",
       "fixture": "brave-plugin",
       "severity": "P2",
       "owner": "plugin",
@@ -34148,7 +34246,7 @@
       "title": "brave-plugin: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -34401,7 +34499,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-DCCE41A0",
+      "id": "CRABPOT-B9F9D5A7",
       "fixture": "codex",
       "severity": "P2",
       "owner": "plugin",
@@ -34415,7 +34513,7 @@
       "title": "codex: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -34828,7 +34926,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-F72C2742",
+      "id": "CRABPOT-CDE32FBF",
       "fixture": "diagnostics-otel",
       "severity": "P2",
       "owner": "plugin",
@@ -34842,7 +34940,7 @@
       "title": "diagnostics-otel: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -34867,7 +34965,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-712D59CC",
+      "id": "CRABPOT-42F1283E",
       "fixture": "diagnostics-prometheus",
       "severity": "P2",
       "owner": "plugin",
@@ -34881,7 +34979,7 @@
       "title": "diagnostics-prometheus: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -34948,7 +35046,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-333437E7",
+      "id": "CRABPOT-C39980BA",
       "fixture": "diffs",
       "severity": "P2",
       "owner": "plugin",
@@ -34962,7 +35060,7 @@
       "title": "diffs: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -35230,7 +35328,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-66E89451",
+      "id": "CRABPOT-187CD0C9",
       "fixture": "discord",
       "severity": "P2",
       "owner": "plugin",
@@ -35244,7 +35342,7 @@
       "title": "discord: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -35327,7 +35425,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-9CFA8EDE",
+      "id": "CRABPOT-1FB0C6C7",
       "fixture": "feishu",
       "severity": "P2",
       "owner": "plugin",
@@ -35341,7 +35439,7 @@
       "title": "feishu: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -35386,7 +35484,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-2F635983",
+      "id": "CRABPOT-9983FB7E",
       "fixture": "google-meet",
       "severity": "P2",
       "owner": "plugin",
@@ -35400,7 +35498,7 @@
       "title": "google-meet: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -36098,7 +36196,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-BE5B81C6",
+      "id": "CRABPOT-9403140C",
       "fixture": "lobster",
       "severity": "P2",
       "owner": "plugin",
@@ -36112,7 +36210,7 @@
       "title": "lobster: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -36554,7 +36652,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-3B2B95C3",
+      "id": "CRABPOT-5147B244",
       "fixture": "memory-lancedb",
       "severity": "P2",
       "owner": "plugin",
@@ -36568,7 +36666,7 @@
       "title": "memory-lancedb: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -36594,7 +36692,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-1BB44AA0",
+      "id": "CRABPOT-8758B299",
       "fixture": "memory-tencentdb",
       "severity": "P2",
       "owner": "core",
@@ -36607,6 +36705,7 @@
       "compatStatus": "deprecated",
       "title": "memory-tencentdb: root plugin SDK barrel is still used by fixtures",
       "evidence": [
+        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5640",
         "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1795"
       ],
       "compatRecord": "legacy-root-sdk-import",
@@ -36681,7 +36780,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-ADA06641",
+      "id": "CRABPOT-F82EE14A",
       "fixture": "memory-tencentdb",
       "severity": "P2",
       "owner": "inspector",
@@ -36694,30 +36793,12 @@
       "compatStatus": "active",
       "title": "memory-tencentdb: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
+        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5066",
+        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5077",
         "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1115",
         "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1126"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": null
-    },
-    {
-      "id": "CRABPOT-710011CF",
-      "fixture": "memory-tencentdb",
-      "severity": "P2",
-      "owner": "inspector",
-      "code": "runtime-tool-capture",
-      "decision": "inspector-follow-up",
-      "status": "open",
-      "issueClass": "inspector-gap",
-      "live": false,
-      "deprecated": false,
-      "compatStatus": "none",
-      "title": "memory-tencentdb: runtime tool schema needs registration capture",
-      "evidence": [
-        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:274",
-        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:361"
-      ],
-      "compatRecord": null,
       "runtimeCoverage": null
     },
     {
@@ -37118,7 +37199,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-6C033860",
+      "id": "CRABPOT-57B233A8",
       "fixture": "msteams",
       "severity": "P2",
       "owner": "plugin",
@@ -37132,7 +37213,7 @@
       "title": "msteams: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -37313,7 +37394,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-DAB57C13",
+      "id": "CRABPOT-A81E4926",
       "fixture": "nextcloud-talk",
       "severity": "P2",
       "owner": "plugin",
@@ -37327,7 +37408,7 @@
       "title": "nextcloud-talk: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -37410,7 +37491,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-83EA29CA",
+      "id": "CRABPOT-6726C440",
       "fixture": "nostr",
       "severity": "P2",
       "owner": "plugin",
@@ -37424,7 +37505,7 @@
       "title": "nostr: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -37510,7 +37591,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-71D66EF9",
+      "id": "CRABPOT-51F5B064",
       "fixture": "openclaw-qqbot",
       "severity": "P2",
       "owner": "plugin",
@@ -37524,7 +37605,7 @@
       "title": "openclaw-qqbot: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -37646,7 +37727,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-ED670775",
+      "id": "CRABPOT-F9D3F966",
       "fixture": "openclaw-weixin",
       "severity": "P2",
       "owner": "inspector",
@@ -37659,8 +37740,8 @@
       "compatStatus": "active",
       "title": "openclaw-weixin: channel runtime needs envelope/config probes",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:17",
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13",
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata",
       "runtimeCoverage": null
@@ -37724,7 +37805,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-0B86E391",
+      "id": "CRABPOT-5BFFC8CC",
       "fixture": "openclaw-weixin",
       "severity": "P2",
       "owner": "inspector",
@@ -37737,8 +37818,8 @@
       "compatStatus": "active",
       "title": "openclaw-weixin: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:17",
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13",
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -38149,7 +38230,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-351BF60A",
+      "id": "CRABPOT-3C3E2459",
       "fixture": "synology-chat",
       "severity": "P2",
       "owner": "plugin",
@@ -38163,7 +38244,7 @@
       "title": "synology-chat: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -38306,7 +38387,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-E8CEE5C0",
+      "id": "CRABPOT-8F3C7C2A",
       "fixture": "tlon",
       "severity": "P2",
       "owner": "plugin",
@@ -38320,7 +38401,7 @@
       "title": "tlon: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -38404,7 +38485,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-C5E526DF",
+      "id": "CRABPOT-CFC9C083",
       "fixture": "twitch",
       "severity": "P2",
       "owner": "plugin",
@@ -38418,7 +38499,7 @@
       "title": "twitch: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -38483,7 +38564,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-65115303",
+      "id": "CRABPOT-790119E4",
       "fixture": "voice-call",
       "severity": "P2",
       "owner": "plugin",
@@ -38497,7 +38578,7 @@
       "title": "voice-call: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -38733,7 +38814,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-83E2439E",
+      "id": "CRABPOT-6C645BB1",
       "fixture": "whatsapp",
       "severity": "P2",
       "owner": "plugin",
@@ -38747,7 +38828,7 @@
       "title": "whatsapp: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -38996,7 +39077,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-21890511",
+      "id": "CRABPOT-D1984152",
       "fixture": "zalo",
       "severity": "P2",
       "owner": "plugin",
@@ -39010,7 +39091,7 @@
       "title": "zalo: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -39093,7 +39174,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-4905FE82",
+      "id": "CRABPOT-A32903F7",
       "fixture": "zalouser",
       "severity": "P2",
       "owner": "plugin",
@@ -39107,7 +39188,7 @@
       "title": "zalouser: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -39253,7 +39334,8 @@
       "target": "hook-runner",
       "contract": "LLM observer hooks receive documented prompt/output fields with expected redaction behavior.",
       "evidence": [
-        "agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:578"
+        "agent_end @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16579",
+        "agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:594"
       ]
     },
     {
@@ -39456,6 +39538,8 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
+        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5066",
+        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5077",
         "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1115",
         "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1126"
       ]
@@ -39498,8 +39582,8 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:17",
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13",
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17"
       ]
     },
     {
@@ -39606,8 +39690,8 @@
       "target": "channel-runtime",
       "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:17",
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:22"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13",
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17"
       ]
     },
     {
@@ -40458,6 +40542,7 @@
       "target": "sdk-alias",
       "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
       "evidence": [
+        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5640",
         "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1795"
       ]
     },
@@ -40610,17 +40695,6 @@
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
         "registerTool @ plugins/mcp-adapter/index.ts:30"
-      ]
-    },
-    {
-      "id": "tool.registration.schema-capture:memory-tencentdb",
-      "fixture": "memory-tencentdb",
-      "priority": "P2",
-      "target": "tool-runtime",
-      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
-      "evidence": [
-        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:274",
-        "registerTool @ plugins/memory-tencentdb/.crabpot-package/index.ts:361"
       ]
     },
     {
@@ -41972,7 +42046,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -41983,7 +42057,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ]
     },
     {
@@ -41994,7 +42068,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ]
     },
     {
@@ -42005,7 +42079,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -42016,7 +42090,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ]
     },
     {
@@ -42027,7 +42101,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ]
     },
     {
@@ -42038,7 +42112,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -42049,7 +42123,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -42060,7 +42134,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ]
     },
     {
@@ -42071,7 +42145,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -42082,7 +42156,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ]
     },
     {
@@ -42093,7 +42167,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -42104,7 +42178,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -42115,7 +42189,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -42126,7 +42200,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ]
     },
     {
@@ -42137,7 +42211,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -42148,7 +42222,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -42159,7 +42233,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -42170,7 +42244,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -42181,7 +42255,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.5-beta.2"
       ]
     },
     {
@@ -42192,7 +42266,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -42203,7 +42277,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.5"
+        "buildOpenClawVersion:2026.5.6"
       ]
     },
     {
@@ -43828,7 +43902,7 @@
       "evidence": [
         "plugins/bluebubbles/.crabpot-package/package.json",
         "@openclaw/bluebubbles",
-        "version:2026.5.5"
+        "version:2026.5.6"
       ]
     },
     {
@@ -43885,7 +43959,7 @@
       "evidence": [
         "plugins/diagnostics-otel/.crabpot-package/package.json",
         "@openclaw/diagnostics-otel",
-        "version:2026.5.5"
+        "version:2026.5.6"
       ]
     },
     {
@@ -44046,7 +44120,7 @@
       "evidence": [
         "plugins/discord/.crabpot-package/package.json",
         "@openclaw/discord",
-        "version:2026.5.5"
+        "version:2026.5.6"
       ]
     },
     {
@@ -44104,7 +44178,7 @@
       "evidence": [
         "plugins/lobster/.crabpot-package/package.json",
         "@openclaw/lobster",
-        "version:2026.5.5"
+        "version:2026.5.6"
       ]
     },
     {
@@ -44271,7 +44345,7 @@
       "evidence": [
         "plugins/matrix/.crabpot-package/package.json",
         "@openclaw/matrix",
-        "version:2026.5.5"
+        "version:2026.5.6"
       ]
     },
     {
@@ -44377,7 +44451,7 @@
       "evidence": [
         "plugins/msteams/.crabpot-package/package.json",
         "@openclaw/msteams",
-        "version:2026.5.5"
+        "version:2026.5.6"
       ]
     },
     {
@@ -44466,7 +44540,7 @@
       "evidence": [
         "plugins/nextcloud-talk/.crabpot-package/package.json",
         "@openclaw/nextcloud-talk",
-        "version:2026.5.5"
+        "version:2026.5.6"
       ]
     },
     {
@@ -44549,7 +44623,7 @@
       "evidence": [
         "plugins/nostr/.crabpot-package/package.json",
         "@openclaw/nostr",
-        "version:2026.5.5"
+        "version:2026.5.6"
       ]
     },
     {
@@ -44630,7 +44704,7 @@
       "evidence": [
         "plugins/voice-call/.crabpot-package/package.json",
         "@openclaw/voice-call",
-        "version:2026.5.5"
+        "version:2026.5.6"
       ]
     },
     {
@@ -44736,7 +44810,7 @@
       "evidence": [
         "plugins/zalo/.crabpot-package/package.json",
         "@openclaw/zalo",
-        "version:2026.5.5"
+        "version:2026.5.6"
       ]
     },
     {
@@ -44826,7 +44900,7 @@
       "evidence": [
         "plugins/zalouser/.crabpot-package/package.json",
         "@openclaw/zalouser",
-        "version:2026.5.5"
+        "version:2026.5.6"
       ]
     },
     {
@@ -44953,7 +45027,7 @@
       "evidence": [
         "plugins/feishu/.crabpot-package/package.json",
         "@openclaw/feishu",
-        "version:2026.5.5"
+        "version:2026.5.6"
       ]
     },
     {
@@ -45034,7 +45108,7 @@
       "evidence": [
         "plugins/tlon/.crabpot-package/package.json",
         "@openclaw/tlon",
-        "version:2026.5.5"
+        "version:2026.5.6"
       ]
     },
     {
@@ -45112,7 +45186,7 @@
       "evidence": [
         "plugins/twitch/.crabpot-package/package.json",
         "@openclaw/twitch",
-        "version:2026.5.5"
+        "version:2026.5.6"
       ]
     },
     {
@@ -45224,7 +45298,7 @@
       "evidence": [
         "plugins/mattermost/.crabpot-package/package.json",
         "@openclaw/mattermost",
-        "version:2026.5.5"
+        "version:2026.5.6"
       ]
     },
     {
@@ -45296,7 +45370,7 @@
       "evidence": [
         "plugins/synology-chat/.crabpot-package/package.json",
         "@openclaw/synology-chat",
-        "version:2026.5.5"
+        "version:2026.5.6"
       ]
     },
     {
@@ -45358,7 +45432,7 @@
       "evidence": [
         "plugins/brave-plugin/.crabpot-package/package.json",
         "@openclaw/brave-plugin",
-        "version:2026.5.5"
+        "version:2026.5.5-beta.2"
       ]
     },
     {
@@ -45426,7 +45500,6 @@
         "openclaw/plugin-sdk/plugin-entry",
         "openclaw/plugin-sdk/provider-auth",
         "openclaw/plugin-sdk/provider-model-shared",
-        "openclaw/plugin-sdk/text-runtime",
         "openclaw/plugin-sdk/windows-spawn"
       ]
     },
@@ -45447,7 +45520,7 @@
       "evidence": [
         "plugins/codex/.crabpot-package/package.json",
         "@openclaw/codex",
-        "version:2026.5.5"
+        "version:2026.5.5-beta.2"
       ]
     },
     {
@@ -45515,7 +45588,7 @@
       "evidence": [
         "plugins/diagnostics-prometheus/.crabpot-package/package.json",
         "@openclaw/diagnostics-prometheus",
-        "version:2026.5.5"
+        "version:2026.5.5-beta.2"
       ]
     },
     {
@@ -45586,7 +45659,7 @@
       "evidence": [
         "plugins/google-meet/.crabpot-package/package.json",
         "@openclaw/google-meet",
-        "version:2026.5.5"
+        "version:2026.5.5-beta.2"
       ]
     },
     {
@@ -45663,7 +45736,7 @@
       "evidence": [
         "plugins/diffs/.crabpot-package/package.json",
         "@openclaw/diffs",
-        "version:2026.5.5"
+        "version:2026.5.5-beta.2"
       ]
     },
     {
@@ -45747,7 +45820,7 @@
       "evidence": [
         "plugins/memory-lancedb/.crabpot-package/package.json",
         "@openclaw/memory-lancedb",
-        "version:2026.5.5"
+        "version:2026.5.5-beta.2"
       ]
     },
     {
@@ -45839,7 +45912,7 @@
       "evidence": [
         "plugins/openclaw-qqbot/.crabpot-package/package.json",
         "@openclaw/qqbot",
-        "version:2026.5.5"
+        "version:2026.5.5-beta.2"
       ]
     },
     {
@@ -45969,7 +46042,7 @@
       "evidence": [
         "plugins/whatsapp/.crabpot-package/package.json",
         "@openclaw/whatsapp",
-        "version:2026.5.5"
+        "version:2026.5.5-beta.2"
       ]
     },
     {
@@ -46028,7 +46101,7 @@
       "fixture": "memory-tencentdb",
       "code": "seam-inventory",
       "level": "log",
-      "message": "observed 4 hooks, 3 registrations, and 0 manifest contracts",
+      "message": "observed 4 hooks, 3 registrations, and 1 manifest contracts",
       "evidence": [
         "hook:agent_end",
         "hook:before_message_write",
@@ -46036,7 +46109,8 @@
         "hook:gateway_stop",
         "registration:registerCli",
         "registration:registerContextEngine",
-        "registration:registerTool"
+        "registration:registerTool",
+        "manifestContract:tools"
       ]
     },
     {
@@ -46089,7 +46163,16 @@
       "evidence": [
         "plugins/memory-tencentdb/.crabpot-package/package.json",
         "@tencentdb-agent-memory/memory-tencentdb",
-        "version:0.3.0"
+        "version:0.3.1"
+      ]
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "code": "declarative-contracts",
+      "level": "log",
+      "message": "fixture declares manifest contracts that can be checked without executing plugin code",
+      "evidence": [
+        "tools"
       ]
     },
     {
@@ -46384,6 +46467,7 @@
       "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
       "evidence": [
         "openclaw/plugin-sdk/account-id",
+        "openclaw/plugin-sdk/agent-runtime",
         "openclaw/plugin-sdk/channel-config-schema",
         "openclaw/plugin-sdk/channel-contract",
         "openclaw/plugin-sdk/channel-runtime",
@@ -46392,6 +46476,7 @@
         "openclaw/plugin-sdk/core",
         "openclaw/plugin-sdk/hook-runtime",
         "openclaw/plugin-sdk/infra-runtime",
+        "openclaw/plugin-sdk/models-provider-runtime",
         "openclaw/plugin-sdk/plugin-entry",
         "openclaw/plugin-sdk/plugin-runtime",
         "openclaw/plugin-sdk/reply-runtime"
@@ -46414,7 +46499,7 @@
       "evidence": [
         "plugins/openclaw-weixin/.crabpot-package/package.json",
         "@tencent-weixin/openclaw-weixin",
-        "version:2.4.1"
+        "version:2.4.2"
       ]
     },
     {
@@ -49786,10 +49871,10 @@
     },
     {
       "fixture": "memory-tencentdb",
-      "decision": "inspector-follow-up",
-      "seam": "tool-schema",
-      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
-      "evidence": "registerTool without manifest contracts.tools"
+      "decision": "no-action",
+      "seam": "manifest-contract",
+      "action": "Keep checking this declarative contract in default offline CI.",
+      "evidence": "tools"
     },
     {
       "fixture": "ddingtalk",
@@ -50413,14 +50498,9 @@
       "apify",
       "inworld-tts"
     ],
-    "openclawTarget": "latest",
-    "pluginTrack": "latest",
+    "openclawTarget": "explicit",
+    "pluginTrack": "manifest",
     "runtimeEvidence": null,
-    "packageAvailability": {
-      "path": "/home/runner/work/crabpot/crabpot/reports/crabpot-package-availability.json",
-      "failures": 0,
-      "openclawFailures": 0,
-      "fallbacks": 0
-    }
+    "packageAvailability": null
   }
 }

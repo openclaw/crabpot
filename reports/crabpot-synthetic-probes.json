@@ -2,14 +2,14 @@
   "generatedAt": "deterministic",
   "summary": {
     "fixtureCount": 57,
-    "probeCount": 424,
-    "hookProbeCount": 99,
-    "registrationProbeCount": 325,
-    "readyCount": 424,
+    "probeCount": 434,
+    "hookProbeCount": 104,
+    "registrationProbeCount": 330,
+    "readyCount": 434,
     "blockedCount": 0,
-    "directExecutionCount": 166,
+    "directExecutionCount": 169,
     "optInExecutionCount": 30,
-    "metadataOnlyCount": 129
+    "metadataOnlyCount": 131
   },
   "probes": [
     {
@@ -2124,7 +2124,7 @@
       "source": "plugins/nemoclaw/nemoclaw/src/index.ts:384"
     },
     {
-      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-578",
+      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-16579",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "agent_end",
@@ -2152,10 +2152,41 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:578"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16579"
     },
     {
-      "id": "hook.before_message_write:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-542",
+      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-594",
+      "fixture": "memory-tencentdb",
+      "kind": "hook",
+      "seam": "agent_end",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "final conversation payload is redacted as expected",
+        "agent id and run metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "status": "completed",
+        "transcript": [
+          {
+            "role": "assistant",
+            "content": "[redacted fixture output]"
+          }
+        ]
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:594"
+    },
+    {
+      "id": "hook.before_message_write:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-16541",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "before_message_write",
@@ -2172,10 +2203,30 @@
         "hook": "before_message_write",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:542"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16541"
     },
     {
-      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-451",
+      "id": "hook.before_message_write:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-558",
+      "fixture": "memory-tencentdb",
+      "kind": "hook",
+      "seam": "before_message_write",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "before_message_write",
+        "fixture": "memory-tencentdb"
+      },
+      "syntheticContext": {
+        "hook": "before_message_write",
+        "fixture": "memory-tencentdb"
+      },
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:558"
+    },
+    {
+      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-16477",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -2205,10 +2256,43 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:451"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16477"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-682",
+      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-467",
+      "fixture": "memory-tencentdb",
+      "kind": "hook",
+      "seam": "before_prompt_build",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "prompt mutation result is preserved",
+        "agent and conversation metadata are present"
+      ],
+      "syntheticEvent": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "messages": [
+          {
+            "role": "user",
+            "content": "fixture prompt"
+          }
+        ],
+        "metadata": {
+          "source": "plugin-inspector"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
+      },
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:467"
+    },
+    {
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-16651",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -2225,10 +2309,10 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:682"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16651"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-735",
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-16678",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -2245,7 +2329,47 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:735"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16678"
+    },
+    {
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-698",
+      "fixture": "memory-tencentdb",
+      "kind": "hook",
+      "seam": "gateway_stop",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "gateway_stop",
+        "fixture": "memory-tencentdb"
+      },
+      "syntheticContext": {
+        "hook": "gateway_stop",
+        "fixture": "memory-tencentdb"
+      },
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:698"
+    },
+    {
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-751",
+      "fixture": "memory-tencentdb",
+      "kind": "hook",
+      "seam": "gateway_stop",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "gateway_stop",
+        "fixture": "memory-tencentdb"
+      },
+      "syntheticContext": {
+        "hook": "gateway_stop",
+        "fixture": "memory-tencentdb"
+      },
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:751"
     },
     {
       "id": "hook.before_prompt_build:mocrane-wecom:plugins-mocrane-wecom-index-ts-48",
@@ -8858,7 +8982,7 @@
       "source": "plugins/nemoclaw/nemoclaw/src/index.ts:372"
     },
     {
-      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-768",
+      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-16697",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerCli",
@@ -8887,7 +9011,87 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:768"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16697"
+    },
+    {
+      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-784",
+      "fixture": "memory-tencentdb",
+      "kind": "registration",
+      "seam": "registerCli",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command name is stable",
+        "argument schema is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "args": [
+            {
+              "name": "input",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:784"
+    },
+    {
+      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-5066",
+      "fixture": "memory-tencentdb",
+      "kind": "registration",
+      "seam": "registerContextEngine",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "context engine id is stable",
+        "factory metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-context-engine",
+          "factory": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "context engine factories are captured as registration metadata; engine startup remains isolated opt-in"
+      },
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5066"
+    },
+    {
+      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-5077",
+      "fixture": "memory-tencentdb",
+      "kind": "registration",
+      "seam": "registerContextEngine",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "context engine id is stable",
+        "factory metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-context-engine",
+          "factory": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "context engine factories are captured as registration metadata; engine startup remains isolated opt-in"
+      },
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5077"
     },
     {
       "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-src-offload-index-ts-1115",
@@ -8938,7 +9142,7 @@
       "source": "plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1126"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-274",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-16307",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -8967,10 +9171,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:274"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16307"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-361",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-16399",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -8999,7 +9203,71 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:361"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16399"
+    },
+    {
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-290",
+      "fixture": "memory-tencentdb",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:290"
+    },
+    {
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-377",
+      "fixture": "memory-tencentdb",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:377"
     },
     {
       "id": "registration.defineChannelPluginEntry:ddingtalk:plugins-ddingtalk-index-ts-8",
@@ -10023,7 +10291,7 @@
       "source": "plugins/yuanbao/.crabpot-package/src/business/tools/remind.ts:395"
     },
     {
-      "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-index-js-17",
+      "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-index-js-13",
       "fixture": "openclaw-weixin",
       "kind": "registration",
       "seam": "registerChannel",
@@ -10051,10 +10319,10 @@
         ],
         "option": "includeChannelRuntime"
       },
-      "source": "plugins/openclaw-weixin/.crabpot-package/dist/index.js:17"
+      "source": "plugins/openclaw-weixin/.crabpot-package/dist/index.js:13"
     },
     {
-      "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts-22",
+      "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts-17",
       "fixture": "openclaw-weixin",
       "kind": "registration",
       "seam": "registerChannel",
@@ -10082,7 +10350,7 @@
         ],
         "option": "includeChannelRuntime"
       },
-      "source": "plugins/openclaw-weixin/.crabpot-package/index.ts:22"
+      "source": "plugins/openclaw-weixin/.crabpot-package/index.ts:17"
     },
     {
       "id": "registration.registerChannel:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js-13",
