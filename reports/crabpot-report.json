@@ -2459,8 +2459,8 @@
         {
           "name": "agent_end",
           "file": "plugins/opik-openclaw/src/service.ts",
-          "line": 581,
-          "ref": "plugins/opik-openclaw/src/service.ts:581"
+          "line": 560,
+          "ref": "plugins/opik-openclaw/src/service.ts:560"
         },
         {
           "name": "before_tool_call",
@@ -2507,8 +2507,8 @@
         {
           "name": "tool_result_persist",
           "file": "plugins/opik-openclaw/src/service.ts",
-          "line": 562,
-          "ref": "plugins/opik-openclaw/src/service.ts:562"
+          "line": 541,
+          "ref": "plugins/opik-openclaw/src/service.ts:541"
         }
       ],
       "registrations": [
@@ -2562,7 +2562,6 @@
           "name": "Opik",
           "version": null,
           "keys": [
-            "activation",
             "configSchema",
             "description",
             "id",
@@ -2572,16 +2571,14 @@
           "contracts": [],
           "providerAuthEnvVars": {},
           "channelEnvVars": {},
-          "activation": {
-            "onStartup": true
-          }
+          "activation": null
         }
       ],
       "securityManifests": [],
       "package": {
         "path": "plugins/opik-openclaw/package.json",
         "name": "@opik/opik-openclaw",
-        "version": "0.2.15",
+        "version": "0.2.14",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -2654,7 +2651,7 @@
         {
           "path": "plugins/opik-openclaw/package.json",
           "name": "@opik/opik-openclaw",
-          "version": "0.2.15",
+          "version": "0.2.14",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -30647,7 +30644,7 @@
       "level": "warning",
       "message": "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
       "evidence": [
-        "agent_end @ plugins/opik-openclaw/src/service.ts:581",
+        "agent_end @ plugins/opik-openclaw/src/service.ts:560",
         "llm_input @ plugins/opik-openclaw/src/service/hooks/llm.ts:39",
         "llm_output @ plugins/opik-openclaw/src/service/hooks/llm.ts:150"
       ],
@@ -33773,7 +33770,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-ACB5ED2D",
+      "id": "CRABPOT-3B4F36FA",
       "fixture": "opik-openclaw",
       "severity": "P1",
       "owner": "core",
@@ -33786,7 +33783,7 @@
       "compatStatus": "active",
       "title": "opik-openclaw: conversation-access hooks need privacy-boundary probes",
       "evidence": [
-        "agent_end @ plugins/opik-openclaw/src/service.ts:581",
+        "agent_end @ plugins/opik-openclaw/src/service.ts:560",
         "llm_input @ plugins/opik-openclaw/src/service/hooks/llm.ts:39",
         "llm_output @ plugins/opik-openclaw/src/service/hooks/llm.ts:150"
       ],
@@ -39368,7 +39365,7 @@
       "target": "hook-runner",
       "contract": "LLM observer hooks receive documented prompt/output fields with expected redaction behavior.",
       "evidence": [
-        "agent_end @ plugins/opik-openclaw/src/service.ts:581",
+        "agent_end @ plugins/opik-openclaw/src/service.ts:560",
         "llm_input @ plugins/opik-openclaw/src/service/hooks/llm.ts:39",
         "llm_output @ plugins/opik-openclaw/src/service/hooks/llm.ts:150"
       ]
@@ -42856,7 +42853,7 @@
       "evidence": [
         "plugins/opik-openclaw/package.json",
         "@opik/opik-openclaw",
-        "version:0.2.15"
+        "version:0.2.14"
       ]
     },
     {

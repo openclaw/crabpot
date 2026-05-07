@@ -1064,10 +1064,10 @@
           }
         },
         {
-          "id": "hook.agent_end:opik-openclaw:plugins-opik-openclaw-src-service-ts-581",
+          "id": "hook.agent_end:opik-openclaw:plugins-opik-openclaw-src-service-ts-560",
           "fixture": "opik-openclaw",
           "hook": "agent_end",
-          "ref": "plugins/opik-openclaw/src/service.ts:581",
+          "ref": "plugins/opik-openclaw/src/service.ts:560",
           "support": "synthetic-event-required",
           "assertions": [
             "final conversation payload is redacted as expected",
@@ -1250,10 +1250,10 @@
           }
         },
         {
-          "id": "hook.tool_result_persist:opik-openclaw:plugins-opik-openclaw-src-service-ts-562",
+          "id": "hook.tool_result_persist:opik-openclaw:plugins-opik-openclaw-src-service-ts-541",
           "fixture": "opik-openclaw",
           "hook": "tool_result_persist",
-          "ref": "plugins/opik-openclaw/src/service.ts:562",
+          "ref": "plugins/opik-openclaw/src/service.ts:541",
           "support": "synthetic-event-required",
           "assertions": [
             "hook payload and return value are captured"
@@ -33797,7 +33797,7 @@
       "priority": "P1",
       "target": "hook-runner",
       "evidence": [
-        "agent_end @ plugins/opik-openclaw/src/service.ts:581",
+        "agent_end @ plugins/opik-openclaw/src/service.ts:560",
         "llm_input @ plugins/opik-openclaw/src/service/hooks/llm.ts:39",
         "llm_output @ plugins/opik-openclaw/src/service/hooks/llm.ts:150"
       ],

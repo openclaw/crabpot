@@ -474,7 +474,7 @@ _none_
   - **conversation-access-hook**: opik-openclaw: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ service.ts:581](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service.ts#L581)
+    - [agent_end @ service.ts:560](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service.ts#L560)
     - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/llm.ts#L39)
     - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/llm.ts#L150)
 
@@ -2212,7 +2212,7 @@ _none_
   - **conversation-access-hook**: opik-openclaw: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ service.ts:581](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service.ts#L581)
+    - [agent_end @ service.ts:560](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service.ts#L560)
     - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/llm.ts#L39)
     - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/llm.ts#L150)
 
@@ -4269,7 +4269,7 @@ _none_
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:opik-openclaw`
   - evidence:
-    - [agent_end @ service.ts:581](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service.ts#L581)
+    - [agent_end @ service.ts:560](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service.ts#L560)
     - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/llm.ts#L39)
     - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/0f62b10688428f288eaff9b99e0ee7a9334137e7/src/service/hooks/llm.ts#L150)
 
