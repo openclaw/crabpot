@@ -16,7 +16,7 @@ test("contract capture turns observed seams into executable probe assertions", a
 
   assertHasRegistrationCapture(capture, "wecom", "registerHttpRoute", "inspector-shim-required");
   assertHasRegistrationCapture(capture, "agentchat", "defineChannelPluginEntry", "inspector-shim-required");
-  assertHasRegistrationCapture(capture, "clawmetry", "definePluginEntry", "inspector-shim-required");
+  assertHasRegistrationCapture(capture, "clawmetry", "registerService", "inspector-shim-required");
   assertHasHookProbe(capture, "wecom", "before_tool_call");
   assertHasLegacyStartupHookProbe(capture, "connectclaw");
   if (report.issues.some((issue) => issue.code === "sdk-export-missing")) {
