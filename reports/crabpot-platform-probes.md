@@ -9,12 +9,12 @@ Targets: linux, macos, windows, container
 | Metric                         | Value |
 | ------------------------------ | ----- |
 | fixtureCount                   | 57    |
-| entrypointCount                | 103   |
-| tsLoaderEntrypointCount        | 25    |
-| jitiAlternativeCount           | 25    |
-| lazyImportProbeCount           | 103   |
+| entrypointCount                | 104   |
+| tsLoaderEntrypointCount        | 22    |
+| jitiAlternativeCount           | 22    |
+| lazyImportProbeCount           | 104   |
 | portabilityFindingCount        | 14    |
-| coveredPortabilityFindingCount | 455   |
+| coveredPortabilityFindingCount | 457   |
 | windowsRiskStepCount           | 14    |
 | macosRiskStepCount             | 14    |
 | linuxRiskStepCount             | 14    |
@@ -37,7 +37,7 @@ Targets: linux, macos, windows, container
 | openclaw-telemetry     | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/openclaw-telemetry/index.ts                                 |
 | lossless-claw          | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/lossless-claw/dist/index.js                                 |
 | connectclaw            | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/connectclaw/packages/plugin/index.ts                        |
-| hyperspell             | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/hyperspell/index.ts                                         |
+| hyperspell             | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/hyperspell/dist/index.js                                    |
 | honcho                 | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/honcho/dist/index.js                                        |
 | composio               | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/composio/index.ts                                           |
 | kitchen-sink           | ready                       | node    | -            | no          | no            | yes              | yes                | plugins/kitchen-sink/src/index.js                                   |
@@ -109,19 +109,20 @@ Targets: linux, macos, windows, container
 | ddingtalk              | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/ddingtalk/index.ts                                          |
 | dingtalk-connector     | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/dingtalk-connector/dist/index.mjs                           |
 | mocrane-wecom          | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/mocrane-wecom/index.ts                                      |
-| yuanbao                | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/yuanbao/.crabpot-package/index.ts                           |
-| yuanbao                | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/yuanbao/.crabpot-package/setup-entry.ts                     |
+| yuanbao                | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/yuanbao/.crabpot-package/dist/index.js                      |
+| yuanbao                | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/yuanbao/.crabpot-package/dist/setup-entry.js                |
 | openclaw-weixin        | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/openclaw-weixin/.crabpot-package/index.ts                   |
 | openclaw-weixin        | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/openclaw-weixin/.crabpot-package/dist/index.js              |
 | lightclawbot           | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/lightclawbot/.crabpot-package/dist/index.js                 |
+| lightclawbot           | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/lightclawbot/.crabpot-package/dist/setup-entry.js           |
 | telnyx-sms             | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/telnyx-sms/dist/index.js                                    |
 | telnyx-sms             | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/telnyx-sms/dist/setup-entry.js                              |
 | clawrouter             | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/clawrouter/dist/index.js                                    |
 | memu-engine            | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/memu-engine/index.ts                                        |
 | secureclaw             | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/secureclaw/secureclaw/dist/index.js                         |
 | memos-cloud            | review-required             | node    | -            | no          | no            | yes              | yes                | plugins/memos-cloud/index.js                                        |
-| clawmetry              | sdk-alias-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/clawmetry/clawhub-plugin/index.ts                           |
-| clawmetry              | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/clawmetry/clawhub-plugin/dist/index.js                      |
+| clawmetry              | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/clawmetry/clawhub-plugin/index.ts                           |
+| clawmetry              | ready                       | node    | -            | no          | no            | yes              | yes                | plugins/clawmetry/clawhub-plugin/dist/index.js                      |
 | codex-app-server       | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/codex-app-server/index.ts                                   |
 | web-search-plus        | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/web-search-plus/index.ts                                    |
 | web-search-plus        | review-required             | node    | -            | no          | no            | yes              | yes                | plugins/web-search-plus/dist/index.js                               |
@@ -211,7 +212,6 @@ Targets: linux, macos, windows, container
 | connectclaw            | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | hyperspell             | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | hyperspell             | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| hyperspell             | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | hyperspell             | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | hyperspell             | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | honcho                 | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
@@ -220,7 +220,6 @@ Targets: linux, macos, windows, container
 | honcho                 | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | composio               | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | composio               | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| composio               | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | composio               | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | composio               | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | kitchen-sink           | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
@@ -550,6 +549,11 @@ Targets: linux, macos, windows, container
 | lightclawbot           | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | lightclawbot           | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | lightclawbot           | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| lightclawbot           | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| lightclawbot           | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| lightclawbot           | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
+| lightclawbot           | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| lightclawbot           | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | telnyx-sms             | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | telnyx-sms             | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | telnyx-sms             | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
@@ -577,7 +581,6 @@ Targets: linux, macos, windows, container
 | memos-cloud            | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | clawmetry              | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | clawmetry              | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| clawmetry              | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | clawmetry              | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | clawmetry              | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | clawmetry              | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |

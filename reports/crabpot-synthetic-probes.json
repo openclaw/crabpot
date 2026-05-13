@@ -2,14 +2,14 @@
   "generatedAt": "deterministic",
   "summary": {
     "fixtureCount": 57,
-    "probeCount": 434,
-    "hookProbeCount": 104,
-    "registrationProbeCount": 330,
-    "readyCount": 434,
+    "probeCount": 431,
+    "hookProbeCount": 110,
+    "registrationProbeCount": 321,
+    "readyCount": 431,
     "blockedCount": 0,
-    "directExecutionCount": 169,
-    "optInExecutionCount": 30,
-    "metadataOnlyCount": 131
+    "directExecutionCount": 162,
+    "optInExecutionCount": 29,
+    "metadataOnlyCount": 130
   },
   "probes": [
     {
@@ -921,7 +921,7 @@
       "source": "plugins/honcho/hooks/subagent.ts:24"
     },
     {
-      "id": "hook.before_prompt_build:composio:plugins-composio-index-ts-33",
+      "id": "hook.before_prompt_build:composio:plugins-composio-index-ts-21",
       "fixture": "composio",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -951,7 +951,7 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/composio/index.ts:33"
+      "source": "plugins/composio/index.ts:21"
     },
     {
       "id": "hook.after_compaction:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-5",
@@ -2074,32 +2074,40 @@
       "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:684"
     },
     {
-      "id": "hook.before_agent_start:nemoclaw:plugins-nemoclaw-nemoclaw-src-runtime-context-ts-474",
+      "id": "hook.before_prompt_build:nemoclaw:plugins-nemoclaw-nemoclaw-src-runtime-context-ts-474",
       "fixture": "nemoclaw",
       "kind": "hook",
-      "seam": "before_agent_start",
+      "seam": "before_prompt_build",
       "status": "ready",
       "blocker": null,
       "assertions": [
-        "legacy startup hook payload is accepted",
-        "migration metadata can map to prompt/model hooks"
+        "prompt mutation result is preserved",
+        "agent and conversation metadata are present"
       ],
       "syntheticEvent": {
-        "agentId": "agent-fixture",
         "runId": "run-fixture",
-        "config": {
+        "agentId": "agent-fixture",
+        "conversationId": "conversation-fixture",
+        "messages": [
+          {
+            "role": "user",
+            "content": "fixture prompt"
+          }
+        ],
+        "metadata": {
           "source": "plugin-inspector"
         }
       },
       "syntheticContext": {
         "runId": "run-fixture",
         "agentId": "agent-fixture",
-        "sessionId": "session-fixture"
+        "sessionId": "session-fixture",
+        "channelId": "fixture-channel"
       },
       "source": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:474"
     },
     {
-      "id": "hook.before_tool_call:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-384",
+      "id": "hook.before_tool_call:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-389",
       "fixture": "nemoclaw",
       "kind": "hook",
       "seam": "before_tool_call",
@@ -2121,10 +2129,10 @@
         "sessionId": "session-fixture",
         "toolName": "fixture_tool"
       },
-      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:384"
+      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:389"
     },
     {
-      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-16579",
+      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-17317",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "agent_end",
@@ -2152,10 +2160,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16579"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:17317"
     },
     {
-      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-594",
+      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-627",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "agent_end",
@@ -2183,10 +2191,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:594"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:627"
     },
     {
-      "id": "hook.before_message_write:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-16541",
+      "id": "hook.before_message_write:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-17279",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "before_message_write",
@@ -2203,10 +2211,10 @@
         "hook": "before_message_write",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16541"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:17279"
     },
     {
-      "id": "hook.before_message_write:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-558",
+      "id": "hook.before_message_write:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-591",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "before_message_write",
@@ -2223,10 +2231,10 @@
         "hook": "before_message_write",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:558"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:591"
     },
     {
-      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-16477",
+      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-17215",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -2256,10 +2264,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16477"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:17215"
     },
     {
-      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-467",
+      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-500",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -2289,10 +2297,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:467"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:500"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-16651",
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-17389",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -2309,10 +2317,10 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16651"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:17389"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-16678",
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-17416",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -2329,10 +2337,10 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16678"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:17416"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-698",
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-731",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -2349,10 +2357,10 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:698"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:731"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-751",
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-784",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -2369,7 +2377,7 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:751"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:784"
     },
     {
       "id": "hook.before_prompt_build:mocrane-wecom:plugins-mocrane-wecom-index-ts-48",
@@ -2479,6 +2487,132 @@
         "sessionId": "session-fixture"
       },
       "source": "plugins/memos-cloud/index.js:531"
+    },
+    {
+      "id": "hook.after_tool_call:clawmetry:plugins-clawmetry-clawhub-plugin-src-service-ts-106",
+      "fixture": "clawmetry",
+      "kind": "hook",
+      "seam": "after_tool_call",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "after_tool_call",
+        "fixture": "clawmetry"
+      },
+      "syntheticContext": {
+        "hook": "after_tool_call",
+        "fixture": "clawmetry"
+      },
+      "source": "plugins/clawmetry/clawhub-plugin/src/service.ts:106"
+    },
+    {
+      "id": "hook.llm_output:clawmetry:plugins-clawmetry-clawhub-plugin-src-service-ts-117",
+      "fixture": "clawmetry",
+      "kind": "hook",
+      "seam": "llm_output",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "model output payload is redacted as expected",
+        "model and agent metadata are present"
+      ],
+      "syntheticEvent": {
+        "agentId": "agent-fixture",
+        "model": "gpt-5.4",
+        "output": {
+          "role": "assistant",
+          "content": "[redacted fixture output]"
+        }
+      },
+      "syntheticContext": {
+        "runId": "run-fixture",
+        "agentId": "agent-fixture",
+        "sessionId": "session-fixture"
+      },
+      "source": "plugins/clawmetry/clawhub-plugin/src/service.ts:117"
+    },
+    {
+      "id": "hook.message_received:clawmetry:plugins-clawmetry-clawhub-plugin-src-service-ts-152",
+      "fixture": "clawmetry",
+      "kind": "hook",
+      "seam": "message_received",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "message_received",
+        "fixture": "clawmetry"
+      },
+      "syntheticContext": {
+        "hook": "message_received",
+        "fixture": "clawmetry"
+      },
+      "source": "plugins/clawmetry/clawhub-plugin/src/service.ts:152"
+    },
+    {
+      "id": "hook.message_sent:clawmetry:plugins-clawmetry-clawhub-plugin-src-service-ts-160",
+      "fixture": "clawmetry",
+      "kind": "hook",
+      "seam": "message_sent",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "message_sent",
+        "fixture": "clawmetry"
+      },
+      "syntheticContext": {
+        "hook": "message_sent",
+        "fixture": "clawmetry"
+      },
+      "source": "plugins/clawmetry/clawhub-plugin/src/service.ts:160"
+    },
+    {
+      "id": "hook.session_end:clawmetry:plugins-clawmetry-clawhub-plugin-src-service-ts-143",
+      "fixture": "clawmetry",
+      "kind": "hook",
+      "seam": "session_end",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "session_end",
+        "fixture": "clawmetry"
+      },
+      "syntheticContext": {
+        "hook": "session_end",
+        "fixture": "clawmetry"
+      },
+      "source": "plugins/clawmetry/clawhub-plugin/src/service.ts:143"
+    },
+    {
+      "id": "hook.session_start:clawmetry:plugins-clawmetry-clawhub-plugin-src-service-ts-134",
+      "fixture": "clawmetry",
+      "kind": "hook",
+      "seam": "session_start",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "session_start",
+        "fixture": "clawmetry"
+      },
+      "syntheticContext": {
+        "hook": "session_start",
+        "fixture": "clawmetry"
+      },
+      "source": "plugins/clawmetry/clawhub-plugin/src/service.ts:134"
     },
     {
       "id": "hook.inbound_claim:codex-app-server:plugins-codex-app-server-index-ts-25",
@@ -3478,7 +3612,7 @@
       "source": "plugins/connectclaw/packages/plugin/src/tools.ts:6"
     },
     {
-      "id": "registration.registerCli:hyperspell:plugins-hyperspell-index-ts-30",
+      "id": "registration.registerCli:hyperspell:plugins-hyperspell-index-ts-35",
       "fixture": "hyperspell",
       "kind": "registration",
       "seam": "registerCli",
@@ -3507,7 +3641,7 @@
           "execute"
         ]
       },
-      "source": "plugins/hyperspell/index.ts:30"
+      "source": "plugins/hyperspell/index.ts:35"
     },
     {
       "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-166",
@@ -3591,7 +3725,7 @@
       "source": "plugins/hyperspell/commands/slash.ts:98"
     },
     {
-      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-46",
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-51",
       "fixture": "hyperspell",
       "kind": "registration",
       "seam": "registerCommand",
@@ -3615,10 +3749,10 @@
           "execute"
         ]
       },
-      "source": "plugins/hyperspell/index.ts:46"
+      "source": "plugins/hyperspell/index.ts:51"
     },
     {
-      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-57",
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-62",
       "fixture": "hyperspell",
       "kind": "registration",
       "seam": "registerCommand",
@@ -3642,10 +3776,10 @@
           "execute"
         ]
       },
-      "source": "plugins/hyperspell/index.ts:57"
+      "source": "plugins/hyperspell/index.ts:62"
     },
     {
-      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-68",
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-73",
       "fixture": "hyperspell",
       "kind": "registration",
       "seam": "registerCommand",
@@ -3669,7 +3803,7 @@
           "execute"
         ]
       },
-      "source": "plugins/hyperspell/index.ts:68"
+      "source": "plugins/hyperspell/index.ts:73"
     },
     {
       "id": "registration.registerTool:hyperspell:plugins-hyperspell-graph-tools-ts-21",
@@ -4096,7 +4230,7 @@
       "source": "plugins/honcho/tools/session.ts:8"
     },
     {
-      "id": "registration.registerCli:composio:plugins-composio-src-cli-ts-46",
+      "id": "registration.registerCli:composio:plugins-composio-index-ts-32",
       "fixture": "composio",
       "kind": "registration",
       "seam": "registerCli",
@@ -4125,39 +4259,7 @@
           "execute"
         ]
       },
-      "source": "plugins/composio/src/cli.ts:46"
-    },
-    {
-      "id": "registration.registerTool:composio:plugins-composio-src-tools-ts-89",
-      "fixture": "composio",
-      "kind": "registration",
-      "seam": "registerTool",
-      "status": "ready",
-      "blocker": null,
-      "assertions": [
-        "tool name is stable",
-        "input schema is captured",
-        "result shape metadata is captured"
-      ],
-      "syntheticArguments": [
-        {
-          "name": "fixture_tool",
-          "inputSchema": {
-            "type": "object",
-            "properties": {}
-          },
-          "run": "function"
-        }
-      ],
-      "execution": {
-        "mode": "direct",
-        "callableProperties": [
-          "run",
-          "handler",
-          "execute"
-        ]
-      },
-      "source": "plugins/composio/src/tools.ts:89"
+      "source": "plugins/composio/index.ts:32"
     },
     {
       "id": "registration.registerAgentEventSubscription:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-4",
@@ -6016,7 +6118,7 @@
       "source": "plugins/diagnostics-otel/.crabpot-package/dist/index.js:1468"
     },
     {
-      "id": "registration.createChatChannelPlugin:discord:plugins-discord-crabpot-package-dist-channel-D8E-S2xn-js-406",
+      "id": "registration.createChatChannelPlugin:discord:plugins-discord-crabpot-package-dist-channel-UXGa9PGc-js-406",
       "fixture": "discord",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -6041,7 +6143,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/discord/.crabpot-package/dist/channel-D8E-S2xn.js:406"
+      "source": "plugins/discord/.crabpot-package/dist/channel-UXGa9PGc.js:406"
     },
     {
       "id": "registration.defineBundledChannelEntry:discord:plugins-discord-crabpot-package-dist-index-js-4",
@@ -8887,7 +8989,7 @@
       "source": "plugins/openclaw-qqbot/.crabpot-package/dist/api.js:511"
     },
     {
-      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-B17Hy8-W-js-309",
+      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CTr3YjO8-js-309",
       "fixture": "whatsapp",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -8912,7 +9014,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/whatsapp/.crabpot-package/dist/channel-B17Hy8-W.js:309"
+      "source": "plugins/whatsapp/.crabpot-package/dist/channel-CTr3YjO8.js:309"
     },
     {
       "id": "registration.defineBundledChannelEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-index-js-3",
@@ -8935,7 +9037,7 @@
       "source": "plugins/whatsapp/.crabpot-package/dist/index.js:3"
     },
     {
-      "id": "registration.registerCommand:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-336",
+      "id": "registration.registerCommand:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-341",
       "fixture": "nemoclaw",
       "kind": "registration",
       "seam": "registerCommand",
@@ -8959,10 +9061,10 @@
           "execute"
         ]
       },
-      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:336"
+      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:341"
     },
     {
-      "id": "registration.registerProvider:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-372",
+      "id": "registration.registerProvider:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-377",
       "fixture": "nemoclaw",
       "kind": "registration",
       "seam": "registerProvider",
@@ -8979,10 +9081,10 @@
         "callableProperties": [],
         "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:372"
+      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:377"
     },
     {
-      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-16697",
+      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-17435",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerCli",
@@ -9011,10 +9113,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16697"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:17435"
     },
     {
-      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-784",
+      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-817",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerCli",
@@ -9043,10 +9145,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:784"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:817"
     },
     {
-      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-5066",
+      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-5664",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerContextEngine",
@@ -9067,10 +9169,10 @@
         "callableProperties": [],
         "reason": "context engine factories are captured as registration metadata; engine startup remains isolated opt-in"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5066"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5664"
     },
     {
-      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-5077",
+      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-5675",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerContextEngine",
@@ -9091,10 +9193,10 @@
         "callableProperties": [],
         "reason": "context engine factories are captured as registration metadata; engine startup remains isolated opt-in"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5077"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5675"
     },
     {
-      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-src-offload-index-ts-1115",
+      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-src-offload-index-ts-1172",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerContextEngine",
@@ -9115,10 +9217,10 @@
         "callableProperties": [],
         "reason": "context engine factories are captured as registration metadata; engine startup remains isolated opt-in"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1115"
+      "source": "plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1172"
     },
     {
-      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-src-offload-index-ts-1126",
+      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-src-offload-index-ts-1183",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerContextEngine",
@@ -9139,10 +9241,10 @@
         "callableProperties": [],
         "reason": "context engine factories are captured as registration metadata; engine startup remains isolated opt-in"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1126"
+      "source": "plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1183"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-16307",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-17045",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -9171,10 +9273,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16307"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:17045"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-16399",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-17137",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -9203,10 +9305,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:16399"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:17137"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-290",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-323",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -9235,10 +9337,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:290"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:323"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-377",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-410",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -9267,7 +9369,7 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:377"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:410"
     },
     {
       "id": "registration.defineChannelPluginEntry:ddingtalk:plugins-ddingtalk-index-ts-8",
@@ -9869,35 +9971,7 @@
       "source": "plugins/yuanbao/.crabpot-package/dist/src/channel.js:11"
     },
     {
-      "id": "registration.createChatChannelPlugin:yuanbao:plugins-yuanbao-crabpot-package-src-channel-ts-32",
-      "fixture": "yuanbao",
-      "kind": "registration",
-      "seam": "createChatChannelPlugin",
-      "status": "ready",
-      "blocker": null,
-      "assertions": [
-        "channel plugin id is stable",
-        "channel factory metadata is captured"
-      ],
-      "syntheticArguments": [
-        {
-          "base": {
-            "id": "fixture-channel"
-          },
-          "outbound": {
-            "sendText": "function"
-          }
-        }
-      ],
-      "execution": {
-        "mode": "metadata-only",
-        "callableProperties": [],
-        "reason": "channel plugin factory metadata is captured before channel runtime execution"
-      },
-      "source": "plugins/yuanbao/.crabpot-package/src/channel.ts:32"
-    },
-    {
-      "id": "registration.defineBundledChannelEntry:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-38",
+      "id": "registration.defineBundledChannelEntry:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-39",
       "fixture": "yuanbao",
       "kind": "registration",
       "seam": "defineBundledChannelEntry",
@@ -9914,54 +9988,7 @@
         "callableProperties": [],
         "reason": "bundled channel entry metadata is captured before channel runtime execution"
       },
-      "source": "plugins/yuanbao/.crabpot-package/dist/index.js:38"
-    },
-    {
-      "id": "registration.defineBundledChannelEntry:yuanbao:plugins-yuanbao-crabpot-package-index-ts-63",
-      "fixture": "yuanbao",
-      "kind": "registration",
-      "seam": "defineBundledChannelEntry",
-      "status": "ready",
-      "blocker": null,
-      "assertions": [
-        "registration arguments are captured"
-      ],
-      "syntheticArguments": [
-        {}
-      ],
-      "execution": {
-        "mode": "metadata-only",
-        "callableProperties": [],
-        "reason": "bundled channel entry metadata is captured before channel runtime execution"
-      },
-      "source": "plugins/yuanbao/.crabpot-package/index.ts:63"
-    },
-    {
-      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-13",
-      "fixture": "yuanbao",
-      "kind": "registration",
-      "seam": "registerCommand",
-      "status": "ready",
-      "blocker": null,
-      "assertions": [
-        "command id is stable",
-        "interactive command payload is captured"
-      ],
-      "syntheticArguments": [
-        {
-          "name": "fixture-command",
-          "handler": "function"
-        }
-      ],
-      "execution": {
-        "mode": "direct",
-        "callableProperties": [
-          "handler",
-          "run",
-          "execute"
-        ]
-      },
-      "source": "plugins/yuanbao/.crabpot-package/dist/index.js:13"
+      "source": "plugins/yuanbao/.crabpot-package/dist/index.js:39"
     },
     {
       "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-14",
@@ -10018,7 +10045,7 @@
       "source": "plugins/yuanbao/.crabpot-package/dist/index.js:15"
     },
     {
-      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-index-ts-31",
+      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-16",
       "fixture": "yuanbao",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10042,61 +10069,7 @@
           "execute"
         ]
       },
-      "source": "plugins/yuanbao/.crabpot-package/index.ts:31"
-    },
-    {
-      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-index-ts-32",
-      "fixture": "yuanbao",
-      "kind": "registration",
-      "seam": "registerCommand",
-      "status": "ready",
-      "blocker": null,
-      "assertions": [
-        "command id is stable",
-        "interactive command payload is captured"
-      ],
-      "syntheticArguments": [
-        {
-          "name": "fixture-command",
-          "handler": "function"
-        }
-      ],
-      "execution": {
-        "mode": "direct",
-        "callableProperties": [
-          "handler",
-          "run",
-          "execute"
-        ]
-      },
-      "source": "plugins/yuanbao/.crabpot-package/index.ts:32"
-    },
-    {
-      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-index-ts-33",
-      "fixture": "yuanbao",
-      "kind": "registration",
-      "seam": "registerCommand",
-      "status": "ready",
-      "blocker": null,
-      "assertions": [
-        "command id is stable",
-        "interactive command payload is captured"
-      ],
-      "syntheticArguments": [
-        {
-          "name": "fixture-command",
-          "handler": "function"
-        }
-      ],
-      "execution": {
-        "mode": "direct",
-        "callableProperties": [
-          "handler",
-          "run",
-          "execute"
-        ]
-      },
-      "source": "plugins/yuanbao/.crabpot-package/index.ts:33"
+      "source": "plugins/yuanbao/.crabpot-package/dist/index.js:16"
     },
     {
       "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-tools-group-js-49",
@@ -10195,102 +10168,6 @@
       "source": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:281"
     },
     {
-      "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-src-business-tools-group-ts-88",
-      "fixture": "yuanbao",
-      "kind": "registration",
-      "seam": "registerTool",
-      "status": "ready",
-      "blocker": null,
-      "assertions": [
-        "tool name is stable",
-        "input schema is captured",
-        "result shape metadata is captured"
-      ],
-      "syntheticArguments": [
-        {
-          "name": "fixture_tool",
-          "inputSchema": {
-            "type": "object",
-            "properties": {}
-          },
-          "run": "function"
-        }
-      ],
-      "execution": {
-        "mode": "direct",
-        "callableProperties": [
-          "run",
-          "handler",
-          "execute"
-        ]
-      },
-      "source": "plugins/yuanbao/.crabpot-package/src/business/tools/group.ts:88"
-    },
-    {
-      "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-src-business-tools-member-ts-198",
-      "fixture": "yuanbao",
-      "kind": "registration",
-      "seam": "registerTool",
-      "status": "ready",
-      "blocker": null,
-      "assertions": [
-        "tool name is stable",
-        "input schema is captured",
-        "result shape metadata is captured"
-      ],
-      "syntheticArguments": [
-        {
-          "name": "fixture_tool",
-          "inputSchema": {
-            "type": "object",
-            "properties": {}
-          },
-          "run": "function"
-        }
-      ],
-      "execution": {
-        "mode": "direct",
-        "callableProperties": [
-          "run",
-          "handler",
-          "execute"
-        ]
-      },
-      "source": "plugins/yuanbao/.crabpot-package/src/business/tools/member.ts:198"
-    },
-    {
-      "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-src-business-tools-remind-ts-395",
-      "fixture": "yuanbao",
-      "kind": "registration",
-      "seam": "registerTool",
-      "status": "ready",
-      "blocker": null,
-      "assertions": [
-        "tool name is stable",
-        "input schema is captured",
-        "result shape metadata is captured"
-      ],
-      "syntheticArguments": [
-        {
-          "name": "fixture_tool",
-          "inputSchema": {
-            "type": "object",
-            "properties": {}
-          },
-          "run": "function"
-        }
-      ],
-      "execution": {
-        "mode": "direct",
-        "callableProperties": [
-          "run",
-          "handler",
-          "execute"
-        ]
-      },
-      "source": "plugins/yuanbao/.crabpot-package/src/business/tools/remind.ts:395"
-    },
-    {
       "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-index-js-13",
       "fixture": "openclaw-weixin",
       "kind": "registration",
@@ -10353,35 +10230,58 @@
       "source": "plugins/openclaw-weixin/.crabpot-package/index.ts:17"
     },
     {
-      "id": "registration.registerChannel:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js-13",
+      "id": "registration.createChatChannelPlugin:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-channel-js-23",
       "fixture": "lightclawbot",
       "kind": "registration",
-      "seam": "registerChannel",
+      "seam": "createChatChannelPlugin",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "channel plugin id is stable",
+        "channel factory metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "base": {
+            "id": "fixture-channel"
+          },
+          "outbound": {
+            "sendText": "function"
+          }
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "channel plugin factory metadata is captured before channel runtime execution"
+      },
+      "source": "plugins/lightclawbot/.crabpot-package/dist/src/channel.js:23"
+    },
+    {
+      "id": "registration.defineChannelPluginEntry:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js-25",
+      "fixture": "lightclawbot",
+      "kind": "registration",
+      "seam": "defineChannelPluginEntry",
       "status": "ready",
       "blocker": null,
       "assertions": [
         "channel id is stable",
-        "inbound/outbound envelope shape is captured",
-        "sender metadata is preserved"
+        "setup/config schema can be read",
+        "message envelope metadata is preserved"
       ],
       "syntheticArguments": [
         {
           "id": "fixture-channel",
-          "send": "function",
+          "setup": "function",
           "receive": "function"
         }
       ],
       "execution": {
-        "mode": "channel-opt-in",
-        "callableProperties": [
-          "send",
-          "sendMessage",
-          "receive",
-          "handleMessage"
-        ],
-        "option": "includeChannelRuntime"
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "entry wrapper metadata is captured before channel runtime execution"
       },
-      "source": "plugins/lightclawbot/.crabpot-package/dist/index.js:13"
+      "source": "plugins/lightclawbot/.crabpot-package/dist/index.js:25"
     },
     {
       "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-download-tool-js-49",
@@ -10416,7 +10316,7 @@
       "source": "plugins/lightclawbot/.crabpot-package/dist/src/download-tool.js:49"
     },
     {
-      "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-upload-tool-js-37",
+      "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-upload-tool-js-41",
       "fixture": "lightclawbot",
       "kind": "registration",
       "seam": "registerTool",
@@ -10445,7 +10345,7 @@
           "execute"
         ]
       },
-      "source": "plugins/lightclawbot/.crabpot-package/dist/src/upload-tool.js:37"
+      "source": "plugins/lightclawbot/.crabpot-package/dist/src/upload-tool.js:41"
     },
     {
       "id": "registration.defineChannelPluginEntry:telnyx-sms:plugins-telnyx-sms-index-ts-207",
@@ -10534,33 +10434,6 @@
       "source": "plugins/telnyx-sms/index.ts:259"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1675",
-      "fixture": "clawrouter",
-      "kind": "registration",
-      "seam": "registerCommand",
-      "status": "ready",
-      "blocker": null,
-      "assertions": [
-        "command id is stable",
-        "interactive command payload is captured"
-      ],
-      "syntheticArguments": [
-        {
-          "name": "fixture-command",
-          "handler": "function"
-        }
-      ],
-      "execution": {
-        "mode": "direct",
-        "callableProperties": [
-          "handler",
-          "run",
-          "execute"
-        ]
-      },
-      "source": "plugins/clawrouter/src/index.ts:1675"
-    },
-    {
       "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1721",
       "fixture": "clawrouter",
       "kind": "registration",
@@ -10588,7 +10461,7 @@
       "source": "plugins/clawrouter/src/index.ts:1721"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1775",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1773",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10612,10 +10485,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1775"
+      "source": "plugins/clawrouter/src/index.ts:1773"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1829",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1827",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10639,10 +10512,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1829"
+      "source": "plugins/clawrouter/src/index.ts:1827"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1834",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1881",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10666,10 +10539,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1834"
+      "source": "plugins/clawrouter/src/index.ts:1881"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1838",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1886",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10693,10 +10566,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1838"
+      "source": "plugins/clawrouter/src/index.ts:1886"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1839",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1890",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10720,10 +10593,37 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1839"
+      "source": "plugins/clawrouter/src/index.ts:1890"
     },
     {
-      "id": "registration.registerImageGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1583",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1891",
+      "fixture": "clawrouter",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/clawrouter/src/index.ts:1891"
+    },
+    {
+      "id": "registration.registerImageGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1622",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerImageGenerationProvider",
@@ -10740,10 +10640,10 @@
         "callableProperties": [],
         "reason": "image generation providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1583"
+      "source": "plugins/clawrouter/src/index.ts:1622"
     },
     {
-      "id": "registration.registerMusicGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1584",
+      "id": "registration.registerMusicGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1623",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerMusicGenerationProvider",
@@ -10760,10 +10660,10 @@
         "callableProperties": [],
         "reason": "music generation providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1584"
+      "source": "plugins/clawrouter/src/index.ts:1623"
     },
     {
-      "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1574",
+      "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1613",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerProvider",
@@ -10780,10 +10680,10 @@
         "callableProperties": [],
         "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1574"
+      "source": "plugins/clawrouter/src/index.ts:1613"
     },
     {
-      "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1579",
+      "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1618",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerProvider",
@@ -10800,10 +10700,10 @@
         "callableProperties": [],
         "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1579"
+      "source": "plugins/clawrouter/src/index.ts:1618"
     },
     {
-      "id": "registration.registerService:clawrouter:plugins-clawrouter-src-index-ts-1848",
+      "id": "registration.registerService:clawrouter:plugins-clawrouter-src-index-ts-1900",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerService",
@@ -10829,10 +10729,10 @@
         ],
         "option": "includeLifecycle"
       },
-      "source": "plugins/clawrouter/src/index.ts:1848"
+      "source": "plugins/clawrouter/src/index.ts:1900"
     },
     {
-      "id": "registration.registerTool:clawrouter:plugins-clawrouter-src-index-ts-1661",
+      "id": "registration.registerTool:clawrouter:plugins-clawrouter-src-index-ts-1707",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerTool",
@@ -10861,10 +10761,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1661"
+      "source": "plugins/clawrouter/src/index.ts:1707"
     },
     {
-      "id": "registration.registerVideoGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1586",
+      "id": "registration.registerVideoGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1625",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerVideoGenerationProvider",
@@ -10881,10 +10781,10 @@
         "callableProperties": [],
         "reason": "video generation providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1586"
+      "source": "plugins/clawrouter/src/index.ts:1625"
     },
     {
-      "id": "registration.registerWebSearchProvider:clawrouter:plugins-clawrouter-src-index-ts-1593",
+      "id": "registration.registerWebSearchProvider:clawrouter:plugins-clawrouter-src-index-ts-1634",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerWebSearchProvider",
@@ -10901,7 +10801,7 @@
         "callableProperties": [],
         "reason": "web search providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1593"
+      "source": "plugins/clawrouter/src/index.ts:1634"
     },
     {
       "id": "registration.registerTool:memu-engine:plugins-memu-engine-index-ts-1252",
@@ -11077,31 +10977,7 @@
       "source": "plugins/memos-cloud/index.js:517"
     },
     {
-      "id": "registration.definePluginEntry:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts-4",
-      "fixture": "clawmetry",
-      "kind": "registration",
-      "seam": "definePluginEntry",
-      "status": "ready",
-      "blocker": null,
-      "assertions": [
-        "entrypoint register function is callable",
-        "entrypoint metadata is preserved"
-      ],
-      "syntheticArguments": [
-        {
-          "id": "fixture-plugin",
-          "register": "function"
-        }
-      ],
-      "execution": {
-        "mode": "metadata-only",
-        "callableProperties": [],
-        "reason": "entry wrapper metadata is captured before plugin runtime execution"
-      },
-      "source": "plugins/clawmetry/clawhub-plugin/index.ts:4"
-    },
-    {
-      "id": "registration.registerService:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts-9",
+      "id": "registration.registerService:clawmetry:plugins-clawmetry-clawhub-plugin-index-ts-20",
       "fixture": "clawmetry",
       "kind": "registration",
       "seam": "registerService",
@@ -11127,7 +11003,7 @@
         ],
         "option": "includeLifecycle"
       },
-      "source": "plugins/clawmetry/clawhub-plugin/index.ts:9"
+      "source": "plugins/clawmetry/clawhub-plugin/index.ts:20"
     },
     {
       "id": "registration.registerCommand:codex-app-server:plugins-codex-app-server-index-ts-48",
