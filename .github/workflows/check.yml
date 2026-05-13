@@ -184,6 +184,11 @@ jobs:
           repository: openclaw/openclaw
           ref: ${{ steps.openclaw-track.outputs.ref }}
           path: openclaw
+      - name: Materialize fixture payload
+        env:
+          CRABPOT_FIXTURE_SET: ${{ matrix.id }}
+          CRABPOT_PLUGIN_TRACK: ${{ steps.openclaw-track.outputs.track == 'development' && 'source-pack' || steps.openclaw-track.outputs.track }}
+        run: node scripts/sync-fixtures.mjs --materialize --openclaw ./openclaw
       - name: Validate workspace plan
         run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
       - name: Execute fixture lane

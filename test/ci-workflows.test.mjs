@@ -123,6 +123,10 @@ test("default check workflow resolves changed submodules into an isolated fixtur
   assert.match(workflow, /--base-ref "\$\{\{ steps\.refs\.outputs\.base \}\}"/);
   assert.match(workflow, /changed-isolated-fixture:/);
   assert.match(workflow, /matrix: \$\{\{ fromJson\(needs\.changed-fixture-plan\.outputs\.matrix\) \}\}/);
+  assert.match(
+    workflow,
+    /Materialize fixture payload[\s\S]*CRABPOT_FIXTURE_SET: \$\{\{ matrix\.id \}\}[\s\S]*CRABPOT_PLUGIN_TRACK: \$\{\{ steps\.openclaw-track\.outputs\.track == 'development' && 'source-pack' \|\| steps\.openclaw-track\.outputs\.track \}\}[\s\S]*node scripts\/sync-fixtures\.mjs --materialize --openclaw \.\/openclaw/,
+  );
   assert.match(workflow, /npm run workspace:execute -- --fixture "\$\{\{ matrix\.id \}\}" --allow-empty/);
   assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw --execution-results reports\/crabpot-execution-results\.json --fixture-set "\$\{\{ matrix\.id \}\}"/);
   assert.match(workflow, /Fail if isolated policy failed/);

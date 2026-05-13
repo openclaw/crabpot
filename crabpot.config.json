@@ -219,9 +219,9 @@
       "seams": ["dynamic-tool", "mcp", "external-api", "prompt-mutation", "cli"],
       "expect": {
         "hooks": ["before_prompt_build"],
-        "registrations": ["registerCli", "registerTool"]
+        "registrations": ["registerCli"]
       },
-      "why": "NPM-installed dynamic tool fixture for Composio/MCP integration, prompt context injection, CLI setup, external API auth, and large remote tool catalogs."
+      "why": "NPM-installed Composio/MCP fixture covering prompt context injection, CLI setup, external API auth, and dynamic remote tool catalogs."
     },
     {
       "id": "kitchen-sink",
@@ -1067,10 +1067,10 @@
         "config-schema"
       ],
       "expect": {
-        "hooks": ["before_agent_start", "before_tool_call"],
+        "hooks": ["before_prompt_build", "before_tool_call"],
         "registrations": ["registerCommand", "registerProvider"]
       },
-      "why": "NVIDIA OpenShell fixture covering sandbox-aware runtime context injection, managed inference provider registration, slash-command migration/status flows, OpenShell CLI probing, and secret-blocking tool-call policy."
+      "why": "NVIDIA OpenShell fixture covering prompt-time runtime context injection, managed inference provider registration, slash-command migration/status flows, OpenShell CLI probing, and secret-blocking tool-call policy."
     },
     {
       "id": "memory-tencentdb",
