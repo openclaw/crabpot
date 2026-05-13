@@ -9943,7 +9943,7 @@
       "source": "plugins/mocrane-wecom/index.ts:43"
     },
     {
-      "id": "registration.createChatChannelPlugin:yuanbao:plugins-yuanbao-crabpot-package-dist-src-channel-js-11",
+      "id": "registration.createChatChannelPlugin:yuanbao:plugins-yuanbao-crabpot-package-dist-src-channel-js-18",
       "fixture": "yuanbao",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -9968,10 +9968,10 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/yuanbao/.crabpot-package/dist/src/channel.js:11"
+      "source": "plugins/yuanbao/.crabpot-package/dist/src/channel.js:18"
     },
     {
-      "id": "registration.defineBundledChannelEntry:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-39",
+      "id": "registration.defineBundledChannelEntry:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-44",
       "fixture": "yuanbao",
       "kind": "registration",
       "seam": "defineBundledChannelEntry",
@@ -9988,61 +9988,7 @@
         "callableProperties": [],
         "reason": "bundled channel entry metadata is captured before channel runtime execution"
       },
-      "source": "plugins/yuanbao/.crabpot-package/dist/index.js:39"
-    },
-    {
-      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-14",
-      "fixture": "yuanbao",
-      "kind": "registration",
-      "seam": "registerCommand",
-      "status": "ready",
-      "blocker": null,
-      "assertions": [
-        "command id is stable",
-        "interactive command payload is captured"
-      ],
-      "syntheticArguments": [
-        {
-          "name": "fixture-command",
-          "handler": "function"
-        }
-      ],
-      "execution": {
-        "mode": "direct",
-        "callableProperties": [
-          "handler",
-          "run",
-          "execute"
-        ]
-      },
-      "source": "plugins/yuanbao/.crabpot-package/dist/index.js:14"
-    },
-    {
-      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-15",
-      "fixture": "yuanbao",
-      "kind": "registration",
-      "seam": "registerCommand",
-      "status": "ready",
-      "blocker": null,
-      "assertions": [
-        "command id is stable",
-        "interactive command payload is captured"
-      ],
-      "syntheticArguments": [
-        {
-          "name": "fixture-command",
-          "handler": "function"
-        }
-      ],
-      "execution": {
-        "mode": "direct",
-        "callableProperties": [
-          "handler",
-          "run",
-          "execute"
-        ]
-      },
-      "source": "plugins/yuanbao/.crabpot-package/dist/index.js:15"
+      "source": "plugins/yuanbao/.crabpot-package/dist/index.js:44"
     },
     {
       "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-16",
@@ -10072,71 +10018,61 @@
       "source": "plugins/yuanbao/.crabpot-package/dist/index.js:16"
     },
     {
-      "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-tools-group-js-49",
+      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-17",
       "fixture": "yuanbao",
       "kind": "registration",
-      "seam": "registerTool",
+      "seam": "registerCommand",
       "status": "ready",
       "blocker": null,
       "assertions": [
-        "tool name is stable",
-        "input schema is captured",
-        "result shape metadata is captured"
+        "command id is stable",
+        "interactive command payload is captured"
       ],
       "syntheticArguments": [
         {
-          "name": "fixture_tool",
-          "inputSchema": {
-            "type": "object",
-            "properties": {}
-          },
-          "run": "function"
+          "name": "fixture-command",
+          "handler": "function"
         }
       ],
       "execution": {
         "mode": "direct",
         "callableProperties": [
-          "run",
           "handler",
+          "run",
           "execute"
         ]
       },
-      "source": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:49"
+      "source": "plugins/yuanbao/.crabpot-package/dist/index.js:17"
     },
     {
-      "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-tools-member-js-129",
+      "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-18",
       "fixture": "yuanbao",
       "kind": "registration",
-      "seam": "registerTool",
+      "seam": "registerCommand",
       "status": "ready",
       "blocker": null,
       "assertions": [
-        "tool name is stable",
-        "input schema is captured",
-        "result shape metadata is captured"
+        "command id is stable",
+        "interactive command payload is captured"
       ],
       "syntheticArguments": [
         {
-          "name": "fixture_tool",
-          "inputSchema": {
-            "type": "object",
-            "properties": {}
-          },
-          "run": "function"
+          "name": "fixture-command",
+          "handler": "function"
         }
       ],
       "execution": {
         "mode": "direct",
         "callableProperties": [
-          "run",
           "handler",
+          "run",
           "execute"
         ]
       },
-      "source": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:129"
+      "source": "plugins/yuanbao/.crabpot-package/dist/index.js:18"
     },
     {
-      "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-tools-remind-js-281",
+      "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-tools-group-js-78",
       "fixture": "yuanbao",
       "kind": "registration",
       "seam": "registerTool",
@@ -10165,7 +10101,71 @@
           "execute"
         ]
       },
-      "source": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:281"
+      "source": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:78"
+    },
+    {
+      "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-tools-member-js-172",
+      "fixture": "yuanbao",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:172"
+    },
+    {
+      "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-tools-remind-js-325",
+      "fixture": "yuanbao",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:325"
     },
     {
       "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-index-js-13",

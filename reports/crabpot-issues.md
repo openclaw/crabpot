@@ -1524,7 +1524,7 @@ _none_
   - **channel-contract-probe**: yuanbao: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:11
+    - createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:18
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: yuanbao: cold import requires dependency installation in an isolated workspace
@@ -1533,24 +1533,23 @@ _none_
     - cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json
     - protobufjs @ plugins/yuanbao/.crabpot-package/package.json
     - semver @ plugins/yuanbao/.crabpot-package/package.json
-    - uuid @ plugins/yuanbao/.crabpot-package/package.json
     - ws @ plugins/yuanbao/.crabpot-package/package.json
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: yuanbao: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:16
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:17
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:18
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: yuanbao: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:49
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:129
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:281
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:78
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:172
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:325
 
 - 🟡 P2 **zalo** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: zalo: channel runtime needs envelope/config probes
@@ -3906,7 +3905,7 @@ _none_
   - **channel-contract-probe**: yuanbao: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:11
+    - createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:18
 
 - 🟡 P2 **yuanbao** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: yuanbao: channelEnvVars legacy manifest metadata must stay covered
@@ -3921,7 +3920,6 @@ _none_
     - cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json
     - protobufjs @ plugins/yuanbao/.crabpot-package/package.json
     - semver @ plugins/yuanbao/.crabpot-package/package.json
-    - uuid @ plugins/yuanbao/.crabpot-package/package.json
     - ws @ plugins/yuanbao/.crabpot-package/package.json
 
 - 🟡 P2 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
@@ -3940,17 +3938,17 @@ _none_
   - **registration-capture-gap**: yuanbao: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:16
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:17
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:18
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: yuanbao: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:49
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:129
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:281
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:78
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:172
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:325
 
 - 🟡 P2 **zalo** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: zalo: channel runtime needs envelope/config probes
@@ -4293,9 +4291,9 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:yuanbao`
   - evidence:
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14
-    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:16
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:17
+    - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:18
 
 - 🟡 P2 **agentchat** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -4351,7 +4349,7 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:yuanbao`
   - evidence:
-    - createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:11
+    - createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:18
 
 - 🟡 P2 **connectclaw** `hook-runner`
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
@@ -4684,7 +4682,6 @@ _none_
     - cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json
     - protobufjs @ plugins/yuanbao/.crabpot-package/package.json
     - semver @ plugins/yuanbao/.crabpot-package/package.json
-    - uuid @ plugins/yuanbao/.crabpot-package/package.json
     - ws @ plugins/yuanbao/.crabpot-package/package.json
 
 - 🟡 P2 **a2a-gateway** `package-loader`
@@ -4983,9 +4980,9 @@ _none_
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
   - id: `tool.registration.schema-capture:yuanbao`
   - evidence:
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:49
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:129
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:281
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:78
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:172
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:325
 
 - 🟢 P3 **clawmetry** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.

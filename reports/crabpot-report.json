@@ -26346,26 +26346,14 @@
         {
           "name": "createChatChannelPlugin",
           "file": "plugins/yuanbao/.crabpot-package/dist/src/channel.js",
-          "line": 11,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/channel.js:11"
+          "line": 18,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/channel.js:18"
         },
         {
           "name": "defineBundledChannelEntry",
           "file": "plugins/yuanbao/.crabpot-package/dist/index.js",
-          "line": 39,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:39"
-        },
-        {
-          "name": "registerCommand",
-          "file": "plugins/yuanbao/.crabpot-package/dist/index.js",
-          "line": 14,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:14"
-        },
-        {
-          "name": "registerCommand",
-          "file": "plugins/yuanbao/.crabpot-package/dist/index.js",
-          "line": 15,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:15"
+          "line": 44,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:44"
         },
         {
           "name": "registerCommand",
@@ -26374,22 +26362,34 @@
           "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:16"
         },
         {
+          "name": "registerCommand",
+          "file": "plugins/yuanbao/.crabpot-package/dist/index.js",
+          "line": 17,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:17"
+        },
+        {
+          "name": "registerCommand",
+          "file": "plugins/yuanbao/.crabpot-package/dist/index.js",
+          "line": 18,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:18"
+        },
+        {
           "name": "registerTool",
           "file": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js",
-          "line": 49,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:49"
+          "line": 78,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:78"
         },
         {
           "name": "registerTool",
           "file": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js",
-          "line": 129,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:129"
+          "line": 172,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:172"
         },
         {
           "name": "registerTool",
           "file": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js",
-          "line": 281,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:281"
+          "line": 325,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:325"
         }
       ],
       "manifestContracts": [],
@@ -26513,7 +26513,7 @@
           "path": "plugins/yuanbao/.crabpot-package/openclaw.plugin.json",
           "id": "openclaw-plugin-yuanbao",
           "name": "YuanBao",
-          "version": "2.13.1",
+          "version": "2.13.2",
           "keys": [
             "channelConfigs",
             "channelEnvVars",
@@ -26539,7 +26539,7 @@
       "package": {
         "path": "plugins/yuanbao/.crabpot-package/package.json",
         "name": "openclaw-plugin-yuanbao",
-        "version": "2.13.1",
+        "version": "2.13.2",
         "type": "module",
         "main": "./dist/index.js",
         "npmPack": {
@@ -26557,12 +26557,9 @@
           "cos-nodejs-sdk-v5",
           "protobufjs",
           "semver",
-          "uuid",
           "ws"
         ],
-        "peerDependencies": [
-          "openclaw"
-        ],
+        "peerDependencies": [],
         "optionalDependencies": [],
         "openclaw": {
           "extensions": [
@@ -26605,7 +26602,7 @@
         {
           "path": "plugins/yuanbao/.crabpot-package/package.json",
           "name": "openclaw-plugin-yuanbao",
-          "version": "2.13.1",
+          "version": "2.13.2",
           "type": "module",
           "main": "./dist/index.js",
           "npmPack": {
@@ -26623,12 +26620,9 @@
             "cos-nodejs-sdk-v5",
             "protobufjs",
             "semver",
-            "uuid",
             "ws"
           ],
-          "peerDependencies": [
-            "openclaw"
-          ],
+          "peerDependencies": [],
           "optionalDependencies": [],
           "openclaw": {
             "extensions": [
@@ -26747,26 +26741,26 @@
         {
           "specifier": "openclaw/plugin-sdk/channel-inbound",
           "file": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/resolve-mention.js",
-          "line": 1,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/resolve-mention.js:1"
+          "line": 7,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/resolve-mention.js:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-inbound",
           "file": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/resolve-route.js",
-          "line": 1,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/resolve-route.js:1"
+          "line": 4,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/resolve-route.js:4"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-inbound",
           "file": "plugins/yuanbao/.crabpot-package/dist/src/dispatcher/debouncer/index.js",
-          "line": 1,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/dispatcher/debouncer/index.js:1"
+          "line": 2,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/dispatcher/debouncer/index.js:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-plugin-common",
           "file": "plugins/yuanbao/.crabpot-package/dist/src/channel-shared.js",
-          "line": 1,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/channel-shared.js:1"
+          "line": 10,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/channel-shared.js:10"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-plugin-common",
@@ -26777,50 +26771,50 @@
         {
           "specifier": "openclaw/plugin-sdk/channel-reply-pipeline",
           "file": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/dispatch-reply.js",
-          "line": 1,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/dispatch-reply.js:1"
+          "line": 8,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/dispatch-reply.js:8"
         },
         {
           "specifier": "openclaw/plugin-sdk/command-auth",
           "file": "plugins/yuanbao/.crabpot-package/dist/src/business/commands/command-sync/index.js",
-          "line": 1,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/commands/command-sync/index.js:1"
+          "line": 2,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/commands/command-sync/index.js:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/command-auth",
           "file": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/guard-command.js",
-          "line": 1,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/guard-command.js:1"
+          "line": 5,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/guard-command.js:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-history",
           "file": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/build-context.js",
-          "line": 1,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/build-context.js:1"
+          "line": 5,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/build-context.js:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-history",
           "file": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/resolve-mention.js",
-          "line": 2,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/resolve-mention.js:2"
+          "line": 8,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/resolve-mention.js:8"
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-payload",
           "file": "plugins/yuanbao/.crabpot-package/dist/src/business/outbound/create-sender.js",
-          "line": 1,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/outbound/create-sender.js:1"
+          "line": 2,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/outbound/create-sender.js:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-payload",
           "file": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/dispatch-reply.js",
-          "line": 2,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/dispatch-reply.js:2"
+          "line": 9,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/dispatch-reply.js:9"
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-runtime",
           "file": "plugins/yuanbao/.crabpot-package/dist/src/dispatcher/debouncer/index.js",
-          "line": 2,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/dispatcher/debouncer/index.js:2"
+          "line": 3,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/dispatcher/debouncer/index.js:3"
         },
         {
           "specifier": "openclaw/plugin-sdk/run-command",
@@ -26867,8 +26861,8 @@
         {
           "specifier": "openclaw/plugin-sdk/temp-path",
           "file": "plugins/yuanbao/.crabpot-package/dist/src/business/utils/media.js",
-          "line": 6,
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/utils/media.js:6"
+          "line": 7,
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/utils/media.js:7"
         }
       ]
     },
@@ -32565,7 +32559,6 @@
         "cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json",
         "protobufjs @ plugins/yuanbao/.crabpot-package/package.json",
         "semver @ plugins/yuanbao/.crabpot-package/package.json",
-        "uuid @ plugins/yuanbao/.crabpot-package/package.json",
         "ws @ plugins/yuanbao/.crabpot-package/package.json"
       ]
     },
@@ -32575,9 +32568,9 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14",
-        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15",
-        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:16"
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:16",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:17",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:18"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -32587,7 +32580,7 @@
       "level": "suggestion",
       "message": "add channel envelope, config-schema, and runtime metadata probes",
       "evidence": [
-        "createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:11"
+        "createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:18"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata"
     },
@@ -32597,9 +32590,9 @@
       "level": "suggestion",
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
-        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:49",
-        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:129",
-        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:281"
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:78",
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:172",
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:325"
       ]
     },
     {
@@ -38022,7 +38015,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-A75CEFD0",
+      "id": "CRABPOT-6D5BE418",
       "fixture": "yuanbao",
       "severity": "P2",
       "owner": "inspector",
@@ -38035,7 +38028,7 @@
       "compatStatus": "active",
       "title": "yuanbao: channel runtime needs envelope/config probes",
       "evidence": [
-        "createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:11"
+        "createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:18"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata",
       "runtimeCoverage": null
@@ -38060,7 +38053,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-78B9FF83",
+      "id": "CRABPOT-08054293",
       "fixture": "yuanbao",
       "severity": "P2",
       "owner": "inspector",
@@ -38076,7 +38069,6 @@
         "cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json",
         "protobufjs @ plugins/yuanbao/.crabpot-package/package.json",
         "semver @ plugins/yuanbao/.crabpot-package/package.json",
-        "uuid @ plugins/yuanbao/.crabpot-package/package.json",
         "ws @ plugins/yuanbao/.crabpot-package/package.json"
       ],
       "compatRecord": null,
@@ -38121,7 +38113,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-226D1022",
+      "id": "CRABPOT-4E731C80",
       "fixture": "yuanbao",
       "severity": "P2",
       "owner": "inspector",
@@ -38134,15 +38126,15 @@
       "compatStatus": "active",
       "title": "yuanbao: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14",
-        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15",
-        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:16"
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:16",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:17",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:18"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-166940A1",
+      "id": "CRABPOT-2AF5816C",
       "fixture": "yuanbao",
       "severity": "P2",
       "owner": "inspector",
@@ -38155,9 +38147,9 @@
       "compatStatus": "none",
       "title": "yuanbao: runtime tool schema needs registration capture",
       "evidence": [
-        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:49",
-        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:129",
-        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:281"
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:78",
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:172",
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:325"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -38786,9 +38778,9 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14",
-        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15",
-        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:16"
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:16",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:17",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:18"
       ]
     },
     {
@@ -38880,7 +38872,7 @@
       "target": "channel-runtime",
       "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
       "evidence": [
-        "createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:11"
+        "createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:18"
       ]
     },
     {
@@ -39397,7 +39389,6 @@
         "cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json",
         "protobufjs @ plugins/yuanbao/.crabpot-package/package.json",
         "semver @ plugins/yuanbao/.crabpot-package/package.json",
-        "uuid @ plugins/yuanbao/.crabpot-package/package.json",
         "ws @ plugins/yuanbao/.crabpot-package/package.json"
       ]
     },
@@ -39840,9 +39831,9 @@
       "target": "tool-runtime",
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
-        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:49",
-        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:129",
-        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:281"
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:78",
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:172",
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:325"
       ]
     },
     {
@@ -45475,7 +45466,7 @@
       "evidence": [
         "plugins/yuanbao/.crabpot-package/package.json",
         "openclaw-plugin-yuanbao",
-        "version:2.13.1"
+        "version:2.13.2"
       ]
     },
     {
@@ -49063,7 +49054,7 @@
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
-      "evidence": "cos-nodejs-sdk-v5, protobufjs, semver, uuid, ws"
+      "evidence": "cos-nodejs-sdk-v5, protobufjs, semver, ws"
     },
     {
       "fixture": "yuanbao",

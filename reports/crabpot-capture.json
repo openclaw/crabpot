@@ -30279,10 +30279,10 @@
       "priority": "high",
       "registrations": [
         {
-          "id": "registration.createChatChannelPlugin:yuanbao:plugins-yuanbao-crabpot-package-dist-src-channel-js-11",
+          "id": "registration.createChatChannelPlugin:yuanbao:plugins-yuanbao-crabpot-package-dist-src-channel-js-18",
           "fixture": "yuanbao",
           "registrar": "createChatChannelPlugin",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/channel.js:11",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/channel.js:18",
           "support": "inspector-shim-required",
           "assertions": [
             "channel plugin id is stable",
@@ -30300,50 +30300,16 @@
           ]
         },
         {
-          "id": "registration.defineBundledChannelEntry:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-39",
+          "id": "registration.defineBundledChannelEntry:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-44",
           "fixture": "yuanbao",
           "registrar": "defineBundledChannelEntry",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:39",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:44",
           "support": "inspector-shim-required",
           "assertions": [
             "registration arguments are captured"
           ],
           "syntheticArguments": [
             {}
-          ]
-        },
-        {
-          "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-14",
-          "fixture": "yuanbao",
-          "registrar": "registerCommand",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:14",
-          "support": "inspector-shim-required",
-          "assertions": [
-            "command id is stable",
-            "interactive command payload is captured"
-          ],
-          "syntheticArguments": [
-            {
-              "name": "fixture-command",
-              "handler": "function"
-            }
-          ]
-        },
-        {
-          "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-15",
-          "fixture": "yuanbao",
-          "registrar": "registerCommand",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:15",
-          "support": "inspector-shim-required",
-          "assertions": [
-            "command id is stable",
-            "interactive command payload is captured"
-          ],
-          "syntheticArguments": [
-            {
-              "name": "fixture-command",
-              "handler": "function"
-            }
           ]
         },
         {
@@ -30364,10 +30330,44 @@
           ]
         },
         {
-          "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-tools-group-js-49",
+          "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-17",
+          "fixture": "yuanbao",
+          "registrar": "registerCommand",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:17",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerCommand:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-18",
+          "fixture": "yuanbao",
+          "registrar": "registerCommand",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/index.js:18",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-tools-group-js-78",
           "fixture": "yuanbao",
           "registrar": "registerTool",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:49",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:78",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -30386,10 +30386,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-tools-member-js-129",
+          "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-tools-member-js-172",
           "fixture": "yuanbao",
           "registrar": "registerTool",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:129",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:172",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -30408,10 +30408,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-tools-remind-js-281",
+          "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-tools-remind-js-325",
           "fixture": "yuanbao",
           "registrar": "registerTool",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:281",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:325",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -30499,10 +30499,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-inbound:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-pipeline-middlewares-resolve-mention-js-1",
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-pipeline-middlewares-resolve-mention-js-7",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/channel-inbound",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/resolve-mention.js:1",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/resolve-mention.js:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30510,10 +30510,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-inbound:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-pipeline-middlewares-resolve-route-js-1",
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-pipeline-middlewares-resolve-route-js-4",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/channel-inbound",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/resolve-route.js:1",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/resolve-route.js:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30521,10 +30521,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-inbound:yuanbao:plugins-yuanbao-crabpot-package-dist-src-dispatcher-debouncer-index-js-1",
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:yuanbao:plugins-yuanbao-crabpot-package-dist-src-dispatcher-debouncer-index-js-2",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/channel-inbound",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/dispatcher/debouncer/index.js:1",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/dispatcher/debouncer/index.js:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30532,10 +30532,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-plugin-common:yuanbao:plugins-yuanbao-crabpot-package-dist-src-channel-shared-js-1",
+          "id": "sdk.openclaw/plugin-sdk/channel-plugin-common:yuanbao:plugins-yuanbao-crabpot-package-dist-src-channel-shared-js-10",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/channel-plugin-common",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/channel-shared.js:1",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/channel-shared.js:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30554,10 +30554,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-reply-pipeline:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-pipeline-middlewares-dispatch-reply-js-1",
+          "id": "sdk.openclaw/plugin-sdk/channel-reply-pipeline:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-pipeline-middlewares-dispatch-reply-js-8",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/channel-reply-pipeline",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/dispatch-reply.js:1",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/dispatch-reply.js:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30565,10 +30565,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/command-auth:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-commands-command-sync-index-js-1",
+          "id": "sdk.openclaw/plugin-sdk/command-auth:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-commands-command-sync-index-js-2",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/command-auth",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/commands/command-sync/index.js:1",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/commands/command-sync/index.js:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30576,10 +30576,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/command-auth:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-pipeline-middlewares-guard-command-js-1",
+          "id": "sdk.openclaw/plugin-sdk/command-auth:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-pipeline-middlewares-guard-command-js-5",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/command-auth",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/guard-command.js:1",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/guard-command.js:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30587,10 +30587,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-history:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-pipeline-middlewares-build-context-js-1",
+          "id": "sdk.openclaw/plugin-sdk/reply-history:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-pipeline-middlewares-build-context-js-5",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/reply-history",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/build-context.js:1",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/build-context.js:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30598,10 +30598,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-history:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-pipeline-middlewares-resolve-mention-js-2",
+          "id": "sdk.openclaw/plugin-sdk/reply-history:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-pipeline-middlewares-resolve-mention-js-8",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/reply-history",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/resolve-mention.js:2",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/resolve-mention.js:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30609,10 +30609,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-payload:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-outbound-create-sender-js-1",
+          "id": "sdk.openclaw/plugin-sdk/reply-payload:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-outbound-create-sender-js-2",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/reply-payload",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/outbound/create-sender.js:1",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/outbound/create-sender.js:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30620,10 +30620,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-payload:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-pipeline-middlewares-dispatch-reply-js-2",
+          "id": "sdk.openclaw/plugin-sdk/reply-payload:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-pipeline-middlewares-dispatch-reply-js-9",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/reply-payload",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/dispatch-reply.js:2",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/dispatch-reply.js:9",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30631,10 +30631,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-runtime:yuanbao:plugins-yuanbao-crabpot-package-dist-src-dispatcher-debouncer-index-js-2",
+          "id": "sdk.openclaw/plugin-sdk/reply-runtime:yuanbao:plugins-yuanbao-crabpot-package-dist-src-dispatcher-debouncer-index-js-3",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/reply-runtime",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/dispatcher/debouncer/index.js:2",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/dispatcher/debouncer/index.js:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30719,10 +30719,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/temp-path:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-utils-media-js-6",
+          "id": "sdk.openclaw/plugin-sdk/temp-path:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-utils-media-js-7",
           "fixture": "yuanbao",
           "specifier": "openclaw/plugin-sdk/temp-path",
-          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/utils/media.js:6",
+          "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/utils/media.js:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -33331,9 +33331,9 @@
       "priority": "P2",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:14",
-        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:15",
-        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:16"
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:16",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:17",
+        "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:18"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -33452,7 +33452,7 @@
       "priority": "P2",
       "target": "channel-runtime",
       "evidence": [
-        "createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:11"
+        "createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:18"
       ],
       "assertions": [
         "message envelope is stable",
@@ -34107,7 +34107,6 @@
         "cos-nodejs-sdk-v5 @ plugins/yuanbao/.crabpot-package/package.json",
         "protobufjs @ plugins/yuanbao/.crabpot-package/package.json",
         "semver @ plugins/yuanbao/.crabpot-package/package.json",
-        "uuid @ plugins/yuanbao/.crabpot-package/package.json",
         "ws @ plugins/yuanbao/.crabpot-package/package.json"
       ],
       "assertions": [
@@ -34658,9 +34657,9 @@
       "priority": "P2",
       "target": "tool-runtime",
       "evidence": [
-        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:49",
-        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:129",
-        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:281"
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:78",
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:172",
+        "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:325"
       ],
       "assertions": [
         "tool schema is captured",

@@ -19,7 +19,7 @@
     "artifactStepCount": 104,
     "captureStepCount": 104,
     "syntheticProbeStepCount": 104,
-    "targetOpenClawLinkStepCount": 94,
+    "targetOpenClawLinkStepCount": 92,
     "tsLoaderEntrypointCount": 22,
     "jitiAlternativeCount": 22,
     "missingBuildScriptCount": 0,
@@ -6243,14 +6243,13 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "synthetic-probes",
-            "target-openclaw-link"
+            "synthetic-probes"
           ],
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "cos-nodejs-sdk-v5, protobufjs, semver, uuid, ws"
+              "evidence": "cos-nodejs-sdk-v5, protobufjs, semver, ws"
             }
           ],
           "steps": [
@@ -6265,12 +6264,6 @@
               "command": "mkdir -p .crabpot/results/yuanbao",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
-            },
-            {
-              "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
-              "cwd": ".crabpot/workspaces/yuanbao",
-              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "install",
@@ -6319,14 +6312,13 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "synthetic-probes",
-            "target-openclaw-link"
+            "synthetic-probes"
           ],
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "cos-nodejs-sdk-v5, protobufjs, semver, uuid, ws"
+              "evidence": "cos-nodejs-sdk-v5, protobufjs, semver, ws"
             }
           ],
           "steps": [
@@ -6341,12 +6333,6 @@
               "command": "mkdir -p .crabpot/results/yuanbao",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
-            },
-            {
-              "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
-              "cwd": ".crabpot/workspaces/yuanbao",
-              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "install",

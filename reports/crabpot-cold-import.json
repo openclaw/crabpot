@@ -1989,7 +1989,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "cos-nodejs-sdk-v5, protobufjs, semver, uuid, ws"
+              "evidence": "cos-nodejs-sdk-v5, protobufjs, semver, ws"
             }
           ],
           "assertions": [
@@ -2008,7 +2008,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "cos-nodejs-sdk-v5, protobufjs, semver, uuid, ws"
+              "evidence": "cos-nodejs-sdk-v5, protobufjs, semver, ws"
             }
           ],
           "assertions": [
