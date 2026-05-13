@@ -53,6 +53,7 @@ directory: "/plugins/<id>"
 | `qqbot` | `plugins/qqbot` | git | high | channel, media, proactive messaging | QQ Bot channel fixture covering rich media, proactive messaging, cron/reminder tools, and preload-based SDK/runtime compatibility. |
 | `a2a-gateway` | `plugins/a2a-gateway` | git | high | gateway service, HTTP routes, async jobs | Agent-to-agent server fixture with discovery, JSON-RPC/REST/gRPC transports, metrics, peer auth, and async task modes. |
 | `hasdata` | `plugins/hasdata` | git | high | tool, schema, external API | Single native tool backed by a large OpenAPI-derived action catalog and strict per-action schemas. |
+| `tweetclaw` | `plugins/tweetclaw` | npm | high | tool, approval, service, external API | X/Twitter automation fixture covering optional tool registration, approval-gated write actions, command handlers, polling service lifecycle, config schema, and external API catalog execution. |
 | `mcp-adapter` | `plugins/mcp-adapter` | git | high | dynamic tool, MCP transport, schema passthrough | Dynamic tool discovery from MCP servers with stdio/http transports and schema passthrough. |
 | `llm-trace-phoenix` | `plugins/llm-trace-phoenix` | git | high | LLM observer, telemetry | Small sharp fixture for `llm_input`/`llm_output` access and raw prompt/output privacy boundaries. |
 | `opik-openclaw` | `plugins/opik-openclaw` | git | high | LLM observer, tools, subagents | Trace exporter covering LLM spans, tool spans, subagent spans, cleanup, CLI setup, and persisted tool-result sanitization. |

@@ -1,0 +1,14 @@
+{
+  "name": "@crabpot/fixture-tweetclaw",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Crabpot npm fixture shim for TweetClaw.",
+  "dependencies": {
+    "@xquik/tweetclaw": "1.6.29"
+  },
+  "crabpot": {
+    "fixture": "tweetclaw",
+    "source": "npm",
+    "package": "@xquik/tweetclaw"
+  }
+}

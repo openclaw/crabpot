@@ -77,6 +77,22 @@
       "why": "Single native tool backed by a large OpenAPI-derived action catalog and strict per-action schemas."
     },
     {
+      "id": "tweetclaw",
+      "name": "TweetClaw",
+      "package": {
+        "name": "@xquik/tweetclaw",
+        "tag": "latest"
+      },
+      "path": "plugins/tweetclaw",
+      "priority": "high",
+      "seams": ["tool", "tool-schema", "approval", "command", "service", "external-api", "config-schema", "npm-artifact"],
+      "expect": {
+        "registrations": ["definePluginEntry", "registerTool", "registerCommand", "registerService"],
+        "manifestContracts": ["tools"]
+      },
+      "why": "NPM-pinned X/Twitter automation fixture covering optional tool registration, approval-gated write actions, command handlers, polling service lifecycle, config schema, and external API catalog execution."
+    },
+    {
       "id": "mcp-adapter",
       "name": "MCP Adapter",
       "repo": "https://github.com/androidStern-personal/openclaw-mcp-adapter.git",
