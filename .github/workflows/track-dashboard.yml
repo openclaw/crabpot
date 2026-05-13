@@ -100,6 +100,7 @@ jobs:
         if: ${{ steps.select.outputs.run == 'true' }}
         run: |
           corepack enable
+          corepack prepare "$(node -p "require('./openclaw/package.json').packageManager.split('+')[0]")" --activate
           pnpm --dir openclaw install --frozen-lockfile --ignore-scripts
 
       - name: Fetch main dashboard baseline

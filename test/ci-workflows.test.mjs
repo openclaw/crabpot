@@ -93,6 +93,7 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.match(workflow, /node scripts\/run-static-suite\.mjs[\s\S]*--openclaw \.\/openclaw[\s\S]*--plugin-inspector-smoke/);
   assert.match(workflow, /CRABPOT_FIXTURE_SET: \$\{\{ matrix\.fixture_set \}\}/);
   assert.match(workflow, /CRABPOT_PLUGIN_TRACK: \$\{\{ matrix\.plugin_track \}\}/);
+  assert.match(workflow, /corepack prepare "\$\(node -p "require\('\.\/openclaw\/package\.json'\)\.packageManager\.split\('\+'\)\[0\]"\)" --activate/);
   assert.match(workflow, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
   assert.match(workflow, /node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
   assert.match(workflow, /node scripts\/update-track-metadata\.mjs --track "\$\{\{ matrix\.track \}\}"/);
