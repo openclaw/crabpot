@@ -143,6 +143,7 @@ For deeper review, open the reports in this order:
 | Isolated install/build/capture commands Crabpot would run | `npm run workspace:plan` | `reports/crabpot-workspace-plan.md` |
 | Results from opt-in isolated fixture execution | `npm run execution:report` | `reports/crabpot-execution-results.md` |
 | Boot time and RSS against the target OpenClaw registry surface | `npm run profile` | `reports/crabpot-runtime-profile.md` |
+| China and adjacent external plugin monitor candidates | manual live discovery pass | `reports/crabpot-external-plugin-monitor.md` |
 | README dashboard refresh from all generated JSON reports | `npm run readme:summary` | `README.md`, `reports/crabpot-dashboard-data.json` |
 
 Each Markdown report has a matching JSON file beside it for CI, dashboards, and
