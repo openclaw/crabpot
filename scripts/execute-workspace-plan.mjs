@@ -156,6 +156,9 @@ export function selectWorkspaceSteps(plan, args) {
       if (args.entrypoint && entrypoint.id !== args.entrypoint) {
         continue;
       }
+      if (!args.dryRun && !args.entrypoint && entrypoint.status === "missing") {
+        continue;
+      }
       selected.push({
         fixture: fixture.id,
         entrypoint: entrypoint.id,
