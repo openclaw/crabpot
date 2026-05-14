@@ -125,6 +125,9 @@ function selectFixtureIds({ requested, policy, plan, fixtureIds, manifest, chang
   if (requested === "none") {
     return new Set();
   }
+  if (requested === "all") {
+    return new Set(fixtureIds);
+  }
   if (requested === "changed-submodules") {
     return fixturesChangedByPaths(manifest.fixtures, changedPaths);
   }
