@@ -1719,7 +1719,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/diagnostics-otel",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -1868,7 +1868,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/discord",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -2085,7 +2085,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/lobster",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -2180,7 +2180,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/matrix",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -2270,7 +2270,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/matrix",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -2419,7 +2419,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/msteams",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -2630,7 +2630,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/nextcloud-talk",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -2841,7 +2841,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/nostr",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -3052,7 +3052,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/voice-call",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -3201,7 +3201,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/zalo",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -3412,7 +3412,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/zalouser",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -3623,7 +3623,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/feishu",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -3834,7 +3834,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/tlon",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4045,7 +4045,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/twitch",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4202,7 +4202,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/mattermost",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4292,7 +4292,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/mattermost",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4441,7 +4441,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/synology-chat",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4781,7 +4781,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/codex",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5059,7 +5059,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/google-meet",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5208,7 +5208,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/diffs",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5357,7 +5357,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/memory-lancedb",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5506,7 +5506,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5717,7 +5717,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8899fc796c64655bdef3583286215ca0aeeef388/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/whatsapp",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },

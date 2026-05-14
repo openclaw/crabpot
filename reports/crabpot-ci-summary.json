@@ -29,16 +29,16 @@
     "platformWindowsRisks": 14,
     "platformContainerRisks": 14,
     "loaderJitiCandidates": 22,
-    "importLoopP50Ms": 2480,
-    "importLoopP95Ms": 2511,
+    "importLoopP50Ms": 2457,
+    "importLoopP95Ms": 2487,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 77.4,
+    "importLoopOpenClawImportP50Ms": 77.2,
     "importLoopOpenClawActivationP50Ms": 0.3,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 0,
-    "importLoopMaxCpuMs": 4,
-    "importLoopRssSampleCount": 290,
-    "importLoopCpuSampleCount": 290
+    "importLoopMaxRssMb": 1.8,
+    "importLoopMaxCpuMs": 133,
+    "importLoopRssSampleCount": 291,
+    "importLoopCpuSampleCount": 291
   },
   "topIssues": [
     {
@@ -376,20 +376,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 92.4% over baseline",
+      "message": "p95WallMs regressed 87.4% over baseline",
       "baseline": 1273,
-      "current": 2449,
-      "delta": 1176,
-      "percent": 92.4
+      "current": 2385,
+      "delta": 1112,
+      "percent": 87.4
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 407.5 over baseline",
+      "message": "maxPeakRssMb regressed 400.79999999999995 over baseline",
       "baseline": 65.1,
-      "current": 472.6,
-      "delta": 407.5
+      "current": 465.9,
+      "delta": 400.79999999999995
     }
   ],
   "artifacts": {
