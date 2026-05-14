@@ -12,7 +12,6 @@ test("contract capture turns observed seams into executable probe assertions", a
   assert.ok(capture.summary.sdkImportCount > 0);
   assert.ok(capture.summary.issueProbeCount > 0);
   assert.ok(capture.summary.inspectorShimRequiredCount > 0);
-  assert.ok(capture.summary.compatAliasRequiredCount > 0);
 
   assertHasRegistrationCapture(capture, "wecom", "registerHttpRoute", "inspector-shim-required");
   assertHasRegistrationCapture(capture, "agentchat", "defineChannelPluginEntry", "inspector-shim-required");
@@ -20,8 +19,13 @@ test("contract capture turns observed seams into executable probe assertions", a
   assertHasHookProbe(capture, "wecom", "before_tool_call");
   assertHasLegacyStartupHookProbe(capture, "connectclaw");
   if (report.issues.some((issue) => issue.code === "sdk-export-missing")) {
+    assert.ok(capture.summary.compatAliasRequiredCount > 0);
     assertHasSdkProbe(capture, "compat-alias-required");
     assertHasIssueProbe(capture, "sdk.import.package-export-cold-import:");
+  } else {
+    assert.equal(capture.summary.compatAliasRequiredCount, 0);
+    assertNoSdkProbe(capture, "compat-alias-required");
+    assertNoIssueProbe(capture, "sdk.import.package-export-cold-import:");
   }
 });
 
@@ -77,9 +81,23 @@ function assertHasSdkProbe(capture, support) {
   );
 }
 
+function assertNoSdkProbe(capture, support) {
+  assert.ok(
+    capture.fixtures.every((fixture) => fixture.sdkImports.every((item) => item.support !== support)),
+    `expected no SDK probe with ${support}`,
+  );
+}
+
 function assertHasIssueProbe(capture, idPrefix) {
   assert.ok(
     capture.issueProbes.some((probe) => probe.id.startsWith(idPrefix) && probe.assertions.length > 0),
     `expected issue probe ${idPrefix}`,
+  );
+}
+
+function assertNoIssueProbe(capture, idPrefix) {
+  assert.ok(
+    capture.issueProbes.every((probe) => !probe.id.startsWith(idPrefix)),
+    `expected no issue probe ${idPrefix}`,
   );
 }

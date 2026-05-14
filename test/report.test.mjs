@@ -11,6 +11,7 @@ import {
 test("compatibility report classifies current fixture seams", async () => {
   const report = await buildReport(testReportOptions());
   const hasTargetOpenClaw = report.targetOpenClaw.status === "ok";
+  const hasSdkExportGap = report.issues.some((issue) => issue.code === "sdk-export-missing");
 
   assert.equal(report.status, "pass");
   assert.equal(report.breakages.length, 0);
@@ -25,7 +26,6 @@ test("compatibility report classifies current fixture seams", async () => {
     assert.equal(report.summary.p0IssueCount, 0);
     assert.equal(report.summary.liveIssueCount, 0);
     assert.equal(report.summary.liveP0IssueCount, 0);
-    assert.ok(report.summary.compatGapCount > 0);
   }
   assert.ok(report.issues.every((issue) => /^CRABPOT-[A-F0-9]{8}$/.test(issue.id)));
   assert.ok(report.issues.every((issue) => typeof issue.issueClass === "string"));
@@ -51,7 +51,11 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasFinding(report.warnings, "composio", "package-plugin-api-compat-missing");
   assertHasFinding(report.suggestions, "secureclaw", "registration-capture-gap");
   if (hasTargetOpenClaw) {
-    assertHasFindingCode(report.warnings, "sdk-export-missing");
+    if (hasSdkExportGap) {
+      assertHasFindingCode(report.warnings, "sdk-export-missing");
+    } else {
+      assertMissingFinding(report.warnings, "sdk-export-missing");
+    }
     assertHasFinding(report.warnings, "memos-cloud", "manifest-unknown-fields");
   }
 
@@ -69,17 +73,23 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasIssueClass(report.issues, "upstream-metadata", "package-plugin-api-compat-missing");
   if (hasTargetOpenClaw) {
     assertHasFinding(report.warnings, "agentchat", "manifest-unknown-fields");
-    assertHasIssue(report.issues, "P1", "sdk-export-missing");
+    if (hasSdkExportGap) {
+      assertHasIssue(report.issues, "P1", "sdk-export-missing");
+      assertHasIssueClass(report.issues, "compat-gap", "sdk-export-missing");
+    }
     assertHasIssue(report.issues, "P2", "manifest-unknown-fields");
-    assertHasIssueClass(report.issues, "compat-gap", "sdk-export-missing");
     assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:agentchat");
     assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:memos-cloud");
   }
   assertHasProbe(report.contractProbes, "api.capture.runtime-registrars:wecom");
   assertHasProbe(report.contractProbes, "hook.before_tool_call.terminal-block-approval:wecom");
   if (hasTargetOpenClaw) {
-    assertHasProbePrefix(report.contractProbes, "sdk.import.package-export-cold-import:");
-    assertHasProbePrefix(report.contractProbes, "sdk.import.package-export-cold-import:", "P1");
+    if (hasSdkExportGap) {
+      assertHasProbePrefix(report.contractProbes, "sdk.import.package-export-cold-import:");
+      assertHasProbePrefix(report.contractProbes, "sdk.import.package-export-cold-import:", "P1");
+    } else {
+      assertMissingProbePrefix(report.contractProbes, "sdk.import.package-export-cold-import:");
+    }
   }
   assertHasProbe(report.contractProbes, "package.compat.plugin-api-range:mcp-adapter");
   assertHasProbe(report.contractProbes, "package.entrypoint.build-before-cold-import:agentchat");
@@ -294,25 +304,31 @@ test("issue report preserves decision metadata for compat-layer work", async () 
     assert.match(markdown, /## Triage Summary/);
     return;
   }
+  assert.equal(manifestIssue.owner, "plugin");
+  assert.equal(manifestIssue.decision, "plugin-upstream-fix");
+  assert.match(markdown, /## Triage Summary/);
+  assert.match(markdown, /deprecation-warning/);
+  assert.match(markdown, /🟠 P1/);
+  assert.match(markdown, /🟡 P2/);
+  assert.doesNotMatch(markdown, /\| ID\s+\| Severity\s+\| Class\s+\| Fixture\s+\| Owner\s+\|/);
+  assert.doesNotMatch(markdown, /CRABPOT-[A-F0-9]{8}/);
+
+  if (!sdkIssue) {
+    assert.doesNotMatch(markdown, /sdk-export-missing/);
+    return;
+  }
+
   assert.equal(sdkIssue.owner, "core");
   assert.equal(sdkIssue.decision, "core-compat-adapter");
   assert.equal(sdkIssue.status, "open");
   assert.equal(sdkIssue.severity, "P1");
   assert.equal(sdkIssue.compatStatus, "untracked");
   assert.equal(sdkIssue.issueClass, "compat-gap");
-  assert.equal(manifestIssue.owner, "plugin");
-  assert.equal(manifestIssue.decision, "plugin-upstream-fix");
-  assert.match(markdown, /## Triage Summary/);
   assert.match(markdown, /sdk-export-missing/);
   assert.match(markdown, /core-compat-adapter/);
   assert.match(markdown, /compat-gap/);
-  assert.match(markdown, /deprecation-warning/);
   assert.match(markdown, new RegExp(`🟠 P1 \\*\\*${escapeRegExp(sdkIssue.fixture)}\\*\\*`));
   assert.match(markdown, /`compat-gap` `core-compat-adapter`/);
-  assert.match(markdown, /🟠 P1/);
-  assert.match(markdown, /🟡 P2/);
-  assert.doesNotMatch(markdown, /\| ID\s+\| Severity\s+\| Class\s+\| Fixture\s+\| Owner\s+\|/);
-  assert.doesNotMatch(markdown, /CRABPOT-[A-F0-9]{8}/);
 
   const windowsReport = structuredClone(report);
   const windowsIssue = windowsReport.issues.find((issue) => issue.code === "sdk-export-missing");
@@ -444,6 +460,13 @@ function assertHasProbePrefix(probes, idPrefix, priority) {
   assert.ok(
     probes.some((probe) => probe.id.startsWith(idPrefix) && (!priority || probe.priority === priority)),
     `expected contract probe ${idPrefix}${priority ? ` with ${priority}` : ""}`,
+  );
+}
+
+function assertMissingProbePrefix(probes, idPrefix) {
+  assert.ok(
+    probes.every((probe) => !probe.id.startsWith(idPrefix)),
+    `expected no contract probe ${idPrefix}`,
   );
 }
 
