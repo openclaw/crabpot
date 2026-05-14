@@ -997,6 +997,22 @@
           "registerTool"
         ]
       },
+      "execution": {
+        "blockedFailures": [
+          {
+            "id": "memory-lancedb-tool-query-input",
+            "seam": "registerTool",
+            "errorIncludes": "reading 'replace'",
+            "reason": "captured memory tool requires realistic query/text input"
+          },
+          {
+            "id": "memory-lancedb-host-embedding-runtime",
+            "seam": "registerTool",
+            "errorIncludes": "memory-core-host-engine-embeddings",
+            "reason": "captured memory tool requires the host embedding provider runtime"
+          }
+        ]
+      },
       "why": "Official LanceDB memory package covering automatic recall/capture hooks, vector-store lifecycle, service/CLI setup, tool contracts, and npm artifact packaging."
     },
     {

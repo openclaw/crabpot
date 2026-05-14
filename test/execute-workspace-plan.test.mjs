@@ -79,6 +79,46 @@ test("workspace executor can narrow to one entrypoint inside a fixture", () => {
   );
 });
 
+test("workspace executor skips missing entrypoints unless explicitly selected", () => {
+  const plan = {
+    fixtures: [
+      {
+        id: "memory-lancedb",
+        entrypoints: [
+          {
+            id: "cold-import.extension:memory-lancedb:index",
+            packagePath: "plugins/memory-lancedb/.crabpot-package/package.json",
+            status: "missing",
+            steps: [{ kind: "capture", command: "node missing.js", cwd: ".", reason: "capture" }],
+          },
+          {
+            id: "cold-import.runtimeExtension:memory-lancedb:dist-index",
+            packagePath: "plugins/memory-lancedb/.crabpot-package/package.json",
+            status: "dependency-install-required",
+            steps: [{ kind: "capture", command: "node dist.js", cwd: ".", reason: "capture" }],
+          },
+        ],
+      },
+    ],
+  };
+
+  assert.deepEqual(
+    selectWorkspaceSteps(plan, { fixture: "memory-lancedb" }).map((item) => item.entrypoint),
+    ["cold-import.runtimeExtension:memory-lancedb:dist-index"],
+  );
+  assert.deepEqual(
+    selectWorkspaceSteps(plan, { dryRun: true, fixture: "memory-lancedb" }).map((item) => item.entrypoint),
+    ["cold-import.extension:memory-lancedb:index", "cold-import.runtimeExtension:memory-lancedb:dist-index"],
+  );
+  assert.deepEqual(
+    selectWorkspaceSteps(plan, {
+      fixture: "memory-lancedb",
+      entrypoint: "cold-import.extension:memory-lancedb:index",
+    }).map((item) => item.entrypoint),
+    ["cold-import.extension:memory-lancedb:index"],
+  );
+});
+
 test("workspace executor can select an explicit fixture set", () => {
   const plan = {
     fixtures: [

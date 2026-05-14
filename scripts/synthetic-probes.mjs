@@ -5,7 +5,6 @@ import { pathToFileURL } from "node:url";
 import { readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
 import { buildReport } from "./report-lib.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
-import { captureEntrypoint } from "./run-cold-import-capture.mjs";
 
 export const defaultSyntheticProbeJsonPath = path.join(repoRoot, "reports/crabpot-synthetic-probes.json");
 export const defaultSyntheticProbeMarkdownPath = path.join(repoRoot, "reports/crabpot-synthetic-probes.md");
@@ -25,13 +24,11 @@ async function main() {
     if (process.env.CRABPOT_EXECUTE_ISOLATED !== "1") {
       throw new Error("synthetic probe execution requires CRABPOT_EXECUTE_ISOLATED=1");
     }
-    const capture = await captureEntrypoint(args.entrypoint, {
-      apiOptions: { retainHandlers: true },
+    const result = await runEntrypointSyntheticProbes(args.entrypoint, {
       cwd: args.cwd,
       mockSdk: args.mockSdk,
       pluginRoot: args.pluginRoot,
     });
-    const result = await runCapturedSyntheticProbes(capture);
     await writeJsonResult(result, args.output);
     if (result.summary.failCount > 0) {
       throw new Error(`${result.summary.failCount} synthetic probes failed`);
@@ -144,6 +141,31 @@ export async function writeSyntheticProbePlan(plan, options = {}) {
 export async function runCapturedSyntheticProbes(capture, options = {}) {
   const result = await pluginInspector.runCapturedSyntheticProbes(capture, {
     ...options,
+    syntheticSource: "crabpot.synthetic",
+  });
+  const manifest = options.manifest ?? (await readConfiguredManifest());
+  return applyFixtureSyntheticFailurePolicy(result, manifest);
+}
+
+export async function runEntrypointSyntheticProbes(entrypoint, options = {}) {
+  if (typeof pluginInspector.runEntrypointSyntheticProbes !== "function") {
+    const { captureEntrypoint } = await import("./run-cold-import-capture.mjs");
+    const capture = await captureEntrypoint(entrypoint, {
+      ...options,
+      apiOptions: {
+        ...(options.apiOptions ?? {}),
+        retainHandlers: true,
+      },
+    });
+    return runCapturedSyntheticProbes(capture, options);
+  }
+
+  const result = await pluginInspector.runEntrypointSyntheticProbes(entrypoint, {
+    ...options,
+    apiOptions: {
+      ...(options.apiOptions ?? {}),
+      retainHandlers: true,
+    },
     syntheticSource: "crabpot.synthetic",
   });
   const manifest = options.manifest ?? (await readConfiguredManifest());
