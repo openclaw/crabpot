@@ -27,7 +27,7 @@ jobs:
     name: Refresh ${{ matrix.track }} dashboard
     runs-on: ubuntu-latest
     concurrency:
-      group: crabpot-track-dashboard-${{ matrix.track }}
+      group: crabpot-track-dashboard-${{ github.event_name == 'workflow_dispatch' && 'manual' || 'schedule' }}-${{ github.event_name == 'workflow_dispatch' && inputs.track == 'all' && matrix.track || inputs.track || matrix.track }}
       cancel-in-progress: true
     strategy:
       fail-fast: false
@@ -118,15 +118,18 @@ jobs:
           CRABPOT_PLUGIN_TRACK: ${{ matrix.plugin_track }}
           CRABPOT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          export CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          export CRABPOT_SUMMARY_GENERATED_AT
+          rm -rf reports
+          mkdir -p reports
           execution_fixture_set="${{ matrix.fixture_set }}"
           if [ -z "${execution_fixture_set}" ]; then
             execution_fixture_set="all"
           fi
           CRABPOT_EXECUTE_ISOLATED=1 node scripts/execute-workspace-plan.mjs --fixture-set "${execution_fixture_set}" --openclaw ./openclaw --continue-on-error
           node scripts/summarize-execution-results.mjs --write
-          execution_results_arg="--execution-results reports/crabpot-execution-results.json"
-          node scripts/generate-report.mjs --openclaw ./openclaw ${execution_results_arg}
+          execution_results_args=(--execution-results reports/crabpot-execution-results.json)
+          node scripts/generate-report.mjs --openclaw ./openclaw "${execution_results_args[@]}"
           node scripts/capture-contracts.mjs --openclaw ./openclaw
           node scripts/synthetic-probes.mjs --openclaw ./openclaw
           node scripts/cold-import-readiness.mjs --openclaw ./openclaw
@@ -139,11 +142,11 @@ jobs:
           node scripts/check-ci-policy.mjs
           node scripts/write-ci-summary.mjs --mode "track:${{ matrix.track }}" --openclaw-label "${{ steps.openclaw-track.outputs.label }}"
           node scripts/update-track-metadata.mjs --track "${{ matrix.track }}"
-          baseline_arg=""
+          baseline_args=()
           if [ -f .crabpot/baseline/main-dashboard-data.json ]; then
-            baseline_arg="--baseline-data .crabpot/baseline/main-dashboard-data.json"
+            baseline_args=(--baseline-data .crabpot/baseline/main-dashboard-data.json)
           fi
-          node scripts/update-readme-summary.mjs ${baseline_arg}
+          node scripts/update-readme-summary.mjs "${baseline_args[@]}"
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -159,7 +162,7 @@ jobs:
           fi
 
       - name: Upload track reports
-        if: ${{ always() && steps.select.outputs.run == 'true' }}
+        if: ${{ always() && !cancelled() && steps.select.outputs.run == 'true' }}
         uses: actions/upload-artifact@v7
         with:
           name: crabpot-track-${{ matrix.track }}-reports
