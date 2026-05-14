@@ -39,7 +39,7 @@ These are active, distinct, and not currently listed in Crabpot reporting.
 | P1 | WeCom Customer Service | `@openclaw-china/wecom-kf` | npm `2026.4.24` | Native OpenClaw channel for WeCom customer-service conversations. Distinct from bot/app WeCom channels. |
 | P1 | WeCom self-built app | `@openclaw-china/wecom-app` | npm `2026.4.24` | Native OpenClaw channel for self-built enterprise apps and proactive sending. Distinct from intelligent-bot WeCom channels. |
 | P1 | DingTalk document MCP tools | `suchasplus/openclaw-dingtalk-doc`, `openclaw-dingtalk-doc` | npm `0.2.5`, repo-backed | DingTalk document/MCP tool surface, not another chat-channel clone. Adds a document-tool seam under the DingTalk platform. |
-| P2 | Xiaopaitek channel | `xiaopaitek/openclaw-xiaopai`, `@xiaopaitek/openclaw-xiaopai` | npm `1.0.2`, published 2026-05-07 | Native channel catalog metadata for Xiaopaitek enterprise messaging. Monitor if we want broader China enterprise messaging coverage. |
+| P2 | Xiaopaitek channel | `@xiaopaitek/openclaw-xiaopai` (npm-only; repo metadata currently 404s) | npm `1.0.2`, published 2026-05-07 | Native channel catalog metadata for Xiaopaitek enterprise messaging. Monitor if we want broader China enterprise messaging coverage, but recheck source before promoting to a repo-backed fixture. |
 | P2 | Tagword group chat | `tagword/tagword-group-chat`, `@tagword/tagword-group-chat` | npm `0.1.0`, published 2026-04-12 | Feishu-first multi-agent group-chat sync with native extension metadata. Good later fixture for multi-agent/session persistence. |
 
 ## Defer

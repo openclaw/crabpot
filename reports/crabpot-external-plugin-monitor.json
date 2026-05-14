@@ -130,11 +130,11 @@
       "rank": "P2",
       "id": "xiaopai",
       "name": "Xiaopaitek channel",
-      "repo": "https://github.com/xiaopaitek/openclaw-xiaopai",
       "package": "@xiaopaitek/openclaw-xiaopai",
       "latestObserved": "1.0.2",
+      "sourceStatus": "npm-only; package repository metadata currently resolves to a non-public or missing GitHub repo",
       "coverageStatus": "missing",
-      "why": "Native enterprise messaging channel metadata for Xiaopaitek."
+      "why": "Native enterprise messaging channel metadata for Xiaopaitek; recheck source before promoting to a repo-backed fixture."
     },
     {
       "rank": "P2",
