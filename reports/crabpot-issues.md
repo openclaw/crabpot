@@ -10,7 +10,6 @@ Status: PASS
 - **Plugin artifact track:** `latest`
 - **Fixture set:** `all (57 fixtures)`
 - **Runtime evidence:** `reports/crabpot-execution-results.json` (55 capture artifacts, 426 captured registrations/hooks)
-- **Package availability:** `reports/crabpot-package-availability.json` (0 OpenClaw failures, 0 fallbacks)
 ## Triage Summary
 
 | Metric                     | Value |

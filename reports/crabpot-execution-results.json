@@ -9,9 +9,9 @@
     "profileArtifactCount": 1,
     "capturedRegistrationCount": 426,
     "auditFindingCount": 578,
-    "executionWallMs": 1051555,
-    "maxPeakRssMb": 1067.1,
-    "maxCpuMsEstimate": 79715,
+    "executionWallMs": 1079831,
+    "maxPeakRssMb": 1071.8,
+    "maxCpuMsEstimate": 81295,
     "passCount": 120,
     "failCount": 0,
     "blockedCount": 306
@@ -133,9 +133,9 @@
       "summary": {
         "stepCount": 449,
         "failCount": 46,
-        "totalWallMs": 1051555,
-        "maxPeakRssMb": 1067.1,
-        "maxCpuMsEstimate": 79715
+        "totalWallMs": 1079831,
+        "maxPeakRssMb": 1071.8,
+        "maxCpuMsEstimate": 81295
       },
       "slowestSteps": [
         {
@@ -148,40 +148,10 @@
           "cwd": ".crabpot/workspaces/mocrane-wecom",
           "artifactPath": null,
           "exitCode": 1,
-          "wallMs": 71784,
-          "peakRssMb": 829.3,
-          "peakCpuPercent": 170,
-          "cpuMsEstimate": 79715
-        },
-        {
-          "fixture": "memory-tencentdb",
-          "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
-          "packagePath": "plugins/memory-tencentdb/.crabpot-package/package.json",
-          "status": "ts-loader-required",
-          "kind": "install",
-          "command": "npm install --ignore-scripts",
-          "cwd": ".crabpot/workspaces/memory-tencentdb",
-          "artifactPath": null,
-          "exitCode": 0,
-          "wallMs": 37848,
-          "peakRssMb": 642.8,
-          "peakCpuPercent": 123,
-          "cpuMsEstimate": 28838
-        },
-        {
-          "fixture": "openclaw-weixin",
-          "entrypoint": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts",
-          "packagePath": "plugins/openclaw-weixin/.crabpot-package/package.json",
-          "status": "ts-loader-required",
-          "kind": "install",
-          "command": "npm install --ignore-scripts",
-          "cwd": ".crabpot/workspaces/openclaw-weixin",
-          "artifactPath": null,
-          "exitCode": 0,
-          "wallMs": 32707,
-          "peakRssMb": 527.8,
-          "peakCpuPercent": 125,
-          "cpuMsEstimate": 30877
+          "wallMs": 72372,
+          "peakRssMb": 859.1,
+          "peakCpuPercent": 172,
+          "cpuMsEstimate": 81295
         },
         {
           "fixture": "qqbot",
@@ -193,25 +163,55 @@
           "cwd": ".crabpot/workspaces/qqbot",
           "artifactPath": null,
           "exitCode": 0,
-          "wallMs": 32104,
-          "peakRssMb": 460.8,
-          "peakCpuPercent": 170,
-          "cpuMsEstimate": 49644
+          "wallMs": 39076,
+          "peakRssMb": 471.8,
+          "peakCpuPercent": 171,
+          "cpuMsEstimate": 58034
         },
         {
-          "fixture": "yuanbao",
-          "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
-          "packagePath": "plugins/yuanbao/.crabpot-package/package.json",
+          "fixture": "memory-tencentdb",
+          "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
+          "packagePath": "plugins/memory-tencentdb/.crabpot-package/package.json",
+          "status": "ts-loader-required",
+          "kind": "install",
+          "command": "npm install --ignore-scripts",
+          "cwd": ".crabpot/workspaces/memory-tencentdb",
+          "artifactPath": null,
+          "exitCode": 0,
+          "wallMs": 36980,
+          "peakRssMb": 628.1,
+          "peakCpuPercent": 125,
+          "cpuMsEstimate": 31219
+        },
+        {
+          "fixture": "openclaw-weixin",
+          "entrypoint": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts",
+          "packagePath": "plugins/openclaw-weixin/.crabpot-package/package.json",
+          "status": "ts-loader-required",
+          "kind": "install",
+          "command": "npm install --ignore-scripts",
+          "cwd": ".crabpot/workspaces/openclaw-weixin",
+          "artifactPath": null,
+          "exitCode": 0,
+          "wallMs": 33685,
+          "peakRssMb": 464.8,
+          "peakCpuPercent": 119,
+          "cpuMsEstimate": 32104
+        },
+        {
+          "fixture": "wecom",
+          "entrypoint": "cold-import.extension:wecom:plugins-wecom-index-js",
+          "packagePath": "plugins/wecom/package.json",
           "status": "dependency-install-required",
           "kind": "install",
           "command": "npm install --ignore-scripts",
-          "cwd": ".crabpot/workspaces/yuanbao",
+          "cwd": ".crabpot/workspaces/wecom",
           "artifactPath": null,
           "exitCode": 0,
-          "wallMs": 28319,
-          "peakRssMb": 541,
-          "peakCpuPercent": 128,
-          "cpuMsEstimate": 27652
+          "wallMs": 28436,
+          "peakRssMb": 796.4,
+          "peakCpuPercent": 171,
+          "cpuMsEstimate": 45946
         }
       ]
     },

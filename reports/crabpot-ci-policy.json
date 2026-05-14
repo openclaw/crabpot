@@ -20,10 +20,10 @@
     }
   },
   "summary": {
-    "checkCount": 313,
+    "checkCount": 314,
     "failCount": 0,
     "warnCount": 307,
-    "passCount": 6
+    "passCount": 7
   },
   "checks": [
     {
@@ -3661,6 +3661,12 @@
       "id": "execution-results.failures",
       "action": "pass",
       "message": "0 failed synthetic probes",
+      "evidence": []
+    },
+    {
+      "id": "ref-diff.not-run",
+      "action": "pass",
+      "message": "ref diff artifact was not present for this CI mode",
       "evidence": []
     }
   ]

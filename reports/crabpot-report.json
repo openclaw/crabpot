@@ -50567,11 +50567,6 @@
       "captureArtifacts": 55,
       "capturedRegistrations": 426
     },
-    "packageAvailability": {
-      "path": "/home/runner/work/crabpot/crabpot/reports/crabpot-package-availability.json",
-      "failures": 0,
-      "openclawFailures": 0,
-      "fallbacks": 0
-    }
+    "packageAvailability": null
   }
 }
