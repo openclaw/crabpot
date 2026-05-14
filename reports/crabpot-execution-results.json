@@ -9,9 +9,9 @@
     "profileArtifactCount": 1,
     "capturedRegistrationCount": 426,
     "auditFindingCount": 578,
-    "executionWallMs": 1224320,
-    "maxPeakRssMb": 1076.7,
-    "maxCpuMsEstimate": 80180,
+    "executionWallMs": 1051555,
+    "maxPeakRssMb": 1067.1,
+    "maxCpuMsEstimate": 79715,
     "passCount": 120,
     "failCount": 0,
     "blockedCount": 306
@@ -131,11 +131,11 @@
       "entrypoint": "-",
       "status": "fail",
       "summary": {
-        "stepCount": 624,
-        "failCount": 116,
-        "totalWallMs": 1224320,
-        "maxPeakRssMb": 1076.7,
-        "maxCpuMsEstimate": 80180
+        "stepCount": 449,
+        "failCount": 46,
+        "totalWallMs": 1051555,
+        "maxPeakRssMb": 1067.1,
+        "maxCpuMsEstimate": 79715
       },
       "slowestSteps": [
         {
@@ -148,10 +148,10 @@
           "cwd": ".crabpot/workspaces/mocrane-wecom",
           "artifactPath": null,
           "exitCode": 1,
-          "wallMs": 72251,
-          "peakRssMb": 819.5,
-          "peakCpuPercent": 171,
-          "cpuMsEstimate": 80180
+          "wallMs": 71784,
+          "peakRssMb": 829.3,
+          "peakCpuPercent": 170,
+          "cpuMsEstimate": 79715
         },
         {
           "fixture": "memory-tencentdb",
@@ -163,25 +163,10 @@
           "cwd": ".crabpot/workspaces/memory-tencentdb",
           "artifactPath": null,
           "exitCode": 0,
-          "wallMs": 42210,
-          "peakRssMb": 626.9,
-          "peakCpuPercent": 114,
-          "cpuMsEstimate": 26469
-        },
-        {
-          "fixture": "yuanbao",
-          "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
-          "packagePath": "plugins/yuanbao/.crabpot-package/package.json",
-          "status": "dependency-install-required",
-          "kind": "install",
-          "command": "npm install --ignore-scripts",
-          "cwd": ".crabpot/workspaces/yuanbao",
-          "artifactPath": null,
-          "exitCode": 0,
-          "wallMs": 41599,
-          "peakRssMb": 503.9,
-          "peakCpuPercent": 120,
-          "cpuMsEstimate": 23769
+          "wallMs": 37848,
+          "peakRssMb": 642.8,
+          "peakCpuPercent": 123,
+          "cpuMsEstimate": 28838
         },
         {
           "fixture": "openclaw-weixin",
@@ -193,25 +178,40 @@
           "cwd": ".crabpot/workspaces/openclaw-weixin",
           "artifactPath": null,
           "exitCode": 0,
-          "wallMs": 38505,
-          "peakRssMb": 484.2,
-          "peakCpuPercent": 120,
-          "cpuMsEstimate": 27936
+          "wallMs": 32707,
+          "peakRssMb": 527.8,
+          "peakCpuPercent": 125,
+          "cpuMsEstimate": 30877
         },
         {
-          "fixture": "diagnostics-otel",
-          "entrypoint": "cold-import.runtimeExtension:diagnostics-otel:plugins-diagnostics-otel-crabpot-package-dist-index-js",
-          "packagePath": "plugins/diagnostics-otel/.crabpot-package/package.json",
+          "fixture": "qqbot",
+          "entrypoint": "cold-import.extension:qqbot:plugins-qqbot-preload-cjs",
+          "packagePath": "plugins/qqbot/package.json",
           "status": "dependency-install-required",
           "kind": "install",
           "command": "npm install --ignore-scripts",
-          "cwd": ".crabpot/workspaces/diagnostics-otel",
+          "cwd": ".crabpot/workspaces/qqbot",
           "artifactPath": null,
           "exitCode": 0,
-          "wallMs": 36570,
-          "peakRssMb": 511.2,
-          "peakCpuPercent": 119,
-          "cpuMsEstimate": 19562
+          "wallMs": 32104,
+          "peakRssMb": 460.8,
+          "peakCpuPercent": 170,
+          "cpuMsEstimate": 49644
+        },
+        {
+          "fixture": "yuanbao",
+          "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
+          "packagePath": "plugins/yuanbao/.crabpot-package/package.json",
+          "status": "dependency-install-required",
+          "kind": "install",
+          "command": "npm install --ignore-scripts",
+          "cwd": ".crabpot/workspaces/yuanbao",
+          "artifactPath": null,
+          "exitCode": 0,
+          "wallMs": 28319,
+          "peakRssMb": 541,
+          "peakCpuPercent": 128,
+          "cpuMsEstimate": 27652
         }
       ]
     },

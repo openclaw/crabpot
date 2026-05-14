@@ -14,9 +14,9 @@ Results dir: .crabpot/results
 | Profile artifacts            | 1          |
 | Captured registrations/hooks | 426        |
 | Audit findings               | 578        |
-| Execution wall               | 1224320 ms |
-| Max peak RSS                 | 1076.7 MB  |
-| Max CPU estimate             | 80180 ms   |
+| Execution wall               | 1051555 ms |
+| Max peak RSS                 | 1067.1 MB  |
+| Max CPU estimate             | 79715 ms   |
 | Pass                         | 120        |
 | Fail                         | 0          |
 | Blocked                      | 306        |
@@ -28,7 +28,7 @@ Results dir: .crabpot/results
 | a2a-gateway            | capture   | captured           | index.ts            | 7 captured                         | .crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.capture.json                                                                |
 | a2a-gateway            | synthetic | captured           | index.ts            | 0 pass / 0 fail / 7 blocked        | .crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json                                                              |
 | a2a-gateway            | audit     | warning            | -                   | 26 audit findings                  | .crabpot/results/a2a-gateway/package-audit.json                                                                                                                         |
-| all                    | profile   | fail               | -                   | 624 steps / 1224320 ms / 1076.7 MB | .crabpot/results/all/execution-profile.json                                                                                                                             |
+| all                    | profile   | fail               | -                   | 449 steps / 1051555 ms / 1067.1 MB | .crabpot/results/all/execution-profile.json                                                                                                                             |
 | apify                  | capture   | captured           | src/index.ts        | 1 captured                         | .crabpot/results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.capture.json                                                                              |
 | apify                  | synthetic | captured           | src/index.ts        | 0 pass / 0 fail / 1 blocked        | .crabpot/results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.synthetic.json                                                                            |
 | apify                  | audit     | warning            | -                   | 28 audit findings                  | .crabpot/results/apify/package-audit.json                                                                                                                               |
@@ -533,8 +533,8 @@ _none_
 
 | Fixture | Step    | Wall     | Peak RSS | CPU Estimate | Command                      |
 | ------- | ------- | -------- | -------- | ------------ | ---------------------------- |
-| all     | install | 72251 ms | 819.5 MB | 80180 ms     | npm install --ignore-scripts |
-| all     | install | 42210 ms | 626.9 MB | 26469 ms     | npm install --ignore-scripts |
-| all     | install | 41599 ms | 503.9 MB | 23769 ms     | npm install --ignore-scripts |
-| all     | install | 38505 ms | 484.2 MB | 27936 ms     | npm install --ignore-scripts |
-| all     | install | 36570 ms | 511.2 MB | 19562 ms     | npm install --ignore-scripts |
+| all     | install | 71784 ms | 829.3 MB | 79715 ms     | npm install --ignore-scripts |
+| all     | install | 37848 ms | 642.8 MB | 28838 ms     | npm install --ignore-scripts |
+| all     | install | 32707 ms | 527.8 MB | 30877 ms     | npm install --ignore-scripts |
+| all     | install | 32104 ms | 460.8 MB | 49644 ms     | npm install --ignore-scripts |
+| all     | install | 28319 ms | 541 MB   | 27652 ms     | npm install --ignore-scripts |
