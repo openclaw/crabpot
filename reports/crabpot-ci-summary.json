@@ -20,25 +20,25 @@
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
-    "policyWarnings": 19,
+    "policyWarnings": 307,
     "profileFailures": 0,
     "profileWarnings": 2,
-    "executionPass": 12,
+    "executionPass": 120,
     "executionFail": 0,
-    "executionBlocked": 18,
+    "executionBlocked": 306,
     "platformWindowsRisks": 14,
     "platformContainerRisks": 14,
     "loaderJitiCandidates": 22,
-    "importLoopP50Ms": 2457,
-    "importLoopP95Ms": 2487,
+    "importLoopP50Ms": 2391,
+    "importLoopP95Ms": 2417,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 77.2,
+    "importLoopOpenClawImportP50Ms": 85.1,
     "importLoopOpenClawActivationP50Ms": 0.3,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 1.8,
-    "importLoopMaxCpuMs": 133,
-    "importLoopRssSampleCount": 291,
-    "importLoopCpuSampleCount": 291
+    "importLoopMaxRssMb": 2,
+    "importLoopMaxCpuMs": 68,
+    "importLoopRssSampleCount": 281,
+    "importLoopCpuSampleCount": 281
   },
   "topIssues": [
     {
@@ -167,207 +167,230 @@
     {
       "id": "execution-results.audit-findings",
       "action": "warn",
-      "message": "12 package audit findings",
+      "message": "578 package audit findings",
       "evidence": [
-        "clawrouter:12"
+        "a2a-gateway:26",
+        "apify:28",
+        "codex-app-server:153",
+        "ddingtalk:254",
+        "diagnostics-otel:15",
+        "feishu:2",
+        "hasdata:5",
+        "mocrane-wecom:32",
+        "openclaw-weixin:2",
+        "opik-openclaw:5",
+        "qqbot:28",
+        "wecom:19",
+        "yuanbao:9"
       ]
     },
     {
-      "id": "execution-results.blocked.clawrouter.registerService.29",
+      "id": "execution-results.blocked.a2a-gateway.registerGatewayMethod.0",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "evidence": [
+        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.a2a-gateway.registerGatewayMethod.1",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "evidence": [
+        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.a2a-gateway.registerGatewayMethod.2",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "evidence": [
+        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.a2a-gateway.registerGatewayMethod.3",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "evidence": [
+        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.a2a-gateway.registerGatewayMethod.4",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "evidence": [
+        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.a2a-gateway.registerService.6",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeLifecycle=true",
       "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
         "registerService",
         "captured registration requires includeLifecycle=true",
         "service-lifecycle-harness"
       ]
     },
     {
-      "id": "execution-results.blocked.clawrouter.registerTool.10",
+      "id": "execution-results.blocked.a2a-gateway.registerTool.5",
       "action": "warn",
-      "message": "allowed-blocked: captured tool requires live network access",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
         "registerTool",
-        "captured tool requires live network access",
-        "live-network-tool-probes"
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawrouter.registerTool.11",
+      "id": "execution-results.blocked.apify.registerCli.0",
       "action": "warn",
-      "message": "allowed-blocked: captured tool requires live network access",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured tool requires live network access",
-        "live-network-tool-probes"
+        ".crabpot/results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.synthetic.json",
+        "registerCli",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawrouter.registerTool.12",
+      "id": "execution-results.blocked.bluebubbles.registerChannel.0",
       "action": "warn",
-      "message": "allowed-blocked: captured tool requires live network access",
+      "message": "allowed-blocked: captured registration requires includeChannelRuntime=true",
       "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured tool requires live network access",
-        "live-network-tool-probes"
+        ".crabpot/results/bluebubbles/cold-import-runtimeExtension-bluebubbles-plugins-bluebubbles-crabpot-package-dist-index-js.synthetic.json",
+        "registerChannel",
+        "captured registration requires includeChannelRuntime=true",
+        "channel-runtime-harness"
       ]
     },
     {
-      "id": "execution-results.blocked.clawrouter.registerTool.13",
+      "id": "execution-results.blocked.clawmetry.after_tool_call.0",
       "action": "warn",
-      "message": "allowed-blocked: captured tool requires live network access",
+      "message": "allowed-blocked: captured hook has no callable handler",
       "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured tool requires live network access",
-        "live-network-tool-probes"
+        ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
+        "after_tool_call",
+        "captured hook has no callable handler",
+        "generated-surface-hook-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawrouter.registerTool.14",
+      "id": "execution-results.blocked.clawmetry.after_tool_call.0",
       "action": "warn",
-      "message": "allowed-blocked: captured tool requires live network access",
+      "message": "allowed-blocked: captured hook has no callable handler",
       "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured tool requires live network access",
-        "live-network-tool-probes"
+        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
+        "after_tool_call",
+        "captured hook has no callable handler",
+        "generated-surface-hook-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawrouter.registerTool.15",
+      "id": "execution-results.blocked.clawmetry.llm_output.1",
       "action": "warn",
-      "message": "allowed-blocked: captured tool requires live network access",
+      "message": "allowed-blocked: captured hook has no callable handler",
       "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured tool requires live network access",
-        "live-network-tool-probes"
+        ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
+        "llm_output",
+        "captured hook has no callable handler",
+        "generated-surface-hook-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawrouter.registerTool.16",
+      "id": "execution-results.blocked.clawmetry.llm_output.1",
       "action": "warn",
-      "message": "allowed-blocked: captured tool requires live network access",
+      "message": "allowed-blocked: captured hook has no callable handler",
       "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured tool requires live network access",
-        "live-network-tool-probes"
+        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
+        "llm_output",
+        "captured hook has no callable handler",
+        "generated-surface-hook-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawrouter.registerTool.17",
+      "id": "execution-results.blocked.clawmetry.message_received.4",
       "action": "warn",
-      "message": "allowed-blocked: captured tool requires live network access",
+      "message": "allowed-blocked: captured hook has no callable handler",
       "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured tool requires live network access",
-        "live-network-tool-probes"
+        ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
+        "message_received",
+        "captured hook has no callable handler",
+        "generated-surface-hook-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawrouter.registerTool.18",
+      "id": "execution-results.blocked.clawmetry.message_received.4",
       "action": "warn",
-      "message": "allowed-blocked: captured tool requires live network access",
+      "message": "allowed-blocked: captured hook has no callable handler",
       "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured tool requires live network access",
-        "live-network-tool-probes"
+        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
+        "message_received",
+        "captured hook has no callable handler",
+        "generated-surface-hook-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawrouter.registerTool.19",
+      "id": "execution-results.blocked.clawmetry.message_sent.5",
       "action": "warn",
-      "message": "allowed-blocked: captured tool requires live network access",
+      "message": "allowed-blocked: captured hook has no callable handler",
       "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured tool requires live network access",
-        "live-network-tool-probes"
+        ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
+        "message_sent",
+        "captured hook has no callable handler",
+        "generated-surface-hook-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawrouter.registerTool.20",
+      "id": "execution-results.blocked.clawmetry.message_sent.5",
       "action": "warn",
-      "message": "allowed-blocked: captured tool requires live network access",
+      "message": "allowed-blocked: captured hook has no callable handler",
       "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured tool requires live network access",
-        "live-network-tool-probes"
+        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
+        "message_sent",
+        "captured hook has no callable handler",
+        "generated-surface-hook-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawrouter.registerTool.21",
+      "id": "execution-results.blocked.clawmetry.registerService.6",
       "action": "warn",
-      "message": "allowed-blocked: captured tool requires live network access",
+      "message": "allowed-blocked: captured registration requires includeLifecycle=true",
       "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured tool requires live network access",
-        "live-network-tool-probes"
+        ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
+        "registerService",
+        "captured registration requires includeLifecycle=true",
+        "service-lifecycle-harness"
       ]
     },
     {
-      "id": "execution-results.blocked.clawrouter.registerTool.5",
+      "id": "execution-results.blocked.clawmetry.registerService.6",
       "action": "warn",
-      "message": "allowed-blocked: captured tool requires live network access",
+      "message": "allowed-blocked: captured registration requires includeLifecycle=true",
       "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured tool requires live network access",
-        "live-network-tool-probes"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawrouter.registerTool.6",
-      "action": "warn",
-      "message": "allowed-blocked: captured tool requires live network access",
-      "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured tool requires live network access",
-        "live-network-tool-probes"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawrouter.registerTool.7",
-      "action": "warn",
-      "message": "allowed-blocked: captured tool requires live network access",
-      "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured tool requires live network access",
-        "live-network-tool-probes"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawrouter.registerTool.8",
-      "action": "warn",
-      "message": "allowed-blocked: captured tool requires live network access",
-      "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured tool requires live network access",
-        "live-network-tool-probes"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawrouter.registerTool.9",
-      "action": "warn",
-      "message": "allowed-blocked: captured tool requires live network access",
-      "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured tool requires live network access",
-        "live-network-tool-probes"
+        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
+        "registerService",
+        "captured registration requires includeLifecycle=true",
+        "service-lifecycle-harness"
       ]
     }
   ],
@@ -376,11 +399,11 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 87.4% over baseline",
+      "message": "p95WallMs regressed 83.7% over baseline",
       "baseline": 1273,
-      "current": 2385,
-      "delta": 1112,
-      "percent": 87.4
+      "current": 2338,
+      "delta": 1065,
+      "percent": 83.7
     },
     {
       "id": "profile.peak-rss",
