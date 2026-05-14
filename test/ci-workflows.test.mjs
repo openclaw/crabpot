@@ -78,6 +78,8 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
 
   assert.match(workflow, /schedule:/);
   assert.match(workflow, /cron: "7,22,37,52 \* \* \* \*"/);
+  assert.match(workflow, /crabpot-track-dashboard-\$\{\{ github\.event_name == 'workflow_dispatch' && 'manual' \|\| 'schedule' \}\}-/);
+  assert.match(workflow, /github\.event_name == 'workflow_dispatch' && inputs\.track == 'all' && matrix\.track \|\| inputs\.track \|\| matrix\.track/);
   assert.match(workflow, /cancel-in-progress: true/);
   assert.match(workflow, /workflow_dispatch:/);
   assert.match(workflow, /track:/);
@@ -96,15 +98,19 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.match(workflow, /corepack prepare "\$\(node -p "require\('\.\/openclaw\/package\.json'\)\.packageManager\.split\('\+'\)\[0\]"\)" --activate/);
   assert.match(workflow, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
   assert.match(workflow, /execution_fixture_set="all"/);
+  assert.match(workflow, /rm -rf reports[\s\S]*mkdir -p reports[\s\S]*execution_fixture_set/);
   assert.match(workflow, /node scripts\/execute-workspace-plan\.mjs --fixture-set "\$\{execution_fixture_set\}" --openclaw \.\/openclaw --continue-on-error/);
   assert.match(workflow, /node scripts\/summarize-execution-results\.mjs --write/);
-  assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw \$\{execution_results_arg\}/);
+  assert.match(workflow, /execution_results_args=\(--execution-results reports\/crabpot-execution-results\.json\)/);
+  assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw "\$\{execution_results_args\[@\]\}"/);
   assert.match(workflow, /node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
   assert.match(workflow, /node scripts\/update-track-metadata\.mjs --track "\$\{\{ matrix\.track \}\}"/);
   assert.match(workflow, /origin\/main:reports\/crabpot-dashboard-data\.json/);
-  assert.match(workflow, /node scripts\/update-readme-summary\.mjs \$\{baseline_arg\}/);
+  assert.match(workflow, /baseline_args=\(\)/);
+  assert.match(workflow, /node scripts\/update-readme-summary\.mjs "\$\{baseline_args\[@\]\}"/);
   assert.match(workflow, /git push origin HEAD:\$\{\{ matrix\.branch \}\}/);
   assert.match(workflow, /git push --force-with-lease="refs\/heads\/\$\{\{ matrix\.branch \}\}" origin HEAD:\$\{\{ matrix\.branch \}\}/);
+  assert.match(workflow, /always\(\) && !cancelled\(\) && steps\.select\.outputs\.run == 'true'/);
 });
 
 test("default check workflow runs OS and container static lanes", async () => {
