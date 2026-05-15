@@ -114,3 +114,7 @@
 	path = plugins/nemoclaw
 	url = https://github.com/NVIDIA/NemoClaw.git
 	shallow = true
+[submodule "plugins/dingtalk-doc"]
+	path = plugins/dingtalk-doc
+	url = https://github.com/suchasplus/openclaw-dingtalk-doc.git
+	shallow = true

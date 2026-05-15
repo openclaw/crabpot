@@ -8,17 +8,17 @@
     "container"
   ],
   "summary": {
-    "fixtureCount": 57,
-    "entrypointCount": 104,
+    "fixtureCount": 58,
+    "entrypointCount": 105,
     "tsLoaderEntrypointCount": 22,
     "jitiAlternativeCount": 22,
-    "lazyImportProbeCount": 104,
-    "portabilityFindingCount": 14,
-    "coveredPortabilityFindingCount": 457,
-    "windowsRiskStepCount": 14,
-    "macosRiskStepCount": 14,
-    "linuxRiskStepCount": 14,
-    "containerRiskStepCount": 14
+    "lazyImportProbeCount": 105,
+    "portabilityFindingCount": 16,
+    "coveredPortabilityFindingCount": 461,
+    "windowsRiskStepCount": 16,
+    "macosRiskStepCount": 16,
+    "linuxRiskStepCount": 16,
+    "containerRiskStepCount": 16
   },
   "entrypoints": [
     {
@@ -290,7 +290,7 @@
     {
       "fixture": "honcho",
       "id": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "build-required",
       "entrypoint": "plugins/honcho/dist/index.js",
       "packageManager": "pnpm",
       "loaderSource": "native-node",
@@ -1562,6 +1562,24 @@
       "syntheticUsesTypeScriptLoader": true
     },
     {
+      "fixture": "dingtalk-doc",
+      "id": "cold-import.extension:dingtalk-doc:plugins-dingtalk-doc-dist-index-mjs",
+      "status": "build-required",
+      "entrypoint": "plugins/dingtalk-doc/dist/index.mjs",
+      "packageManager": "pnpm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
+    },
+    {
       "fixture": "mocrane-wecom",
       "id": "cold-import.extension:mocrane-wecom:plugins-mocrane-wecom-index-ts",
       "status": "ts-loader-required",
@@ -2101,6 +2119,40 @@
         "posix-null-failure",
         "shell-redirection"
       ],
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "dingtalk-doc",
+      "entrypoint": "cold-import.extension:dingtalk-doc:plugins-dingtalk-doc-dist-index-mjs",
+      "kind": "link-openclaw",
+      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+      "coveredRiskCodes": [],
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "dingtalk-doc",
+      "entrypoint": "cold-import.extension:dingtalk-doc:plugins-dingtalk-doc-dist-index-mjs",
+      "kind": "build",
+      "command": "pnpm run build",
+      "coveredRiskCodes": [],
       "platforms": [
         "container",
         "linux",
@@ -7147,6 +7199,60 @@
       "entrypoint": "cold-import.extension:dingtalk-connector:plugins-dingtalk-connector-dist-index-mjs",
       "kind": "synthetic-probe",
       "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.mjs --mock-sdk --output ../../results/dingtalk-connector/cold-import-extension-dingtalk-connector-plugins-dingtalk-connector-dist-index-mjs.synthetic.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "dingtalk-doc",
+      "entrypoint": "cold-import.extension:dingtalk-doc:plugins-dingtalk-doc-dist-index-mjs",
+      "kind": "prepare",
+      "command": "mkdir -p .crabpot/workspaces/dingtalk-doc && rsync -a --delete plugins/dingtalk-doc/ .crabpot/workspaces/dingtalk-doc/",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ]
+    },
+    {
+      "fixture": "dingtalk-doc",
+      "entrypoint": "cold-import.extension:dingtalk-doc:plugins-dingtalk-doc-dist-index-mjs",
+      "kind": "prepare-artifacts",
+      "command": "mkdir -p .crabpot/results/dingtalk-doc",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "dingtalk-doc",
+      "entrypoint": "cold-import.extension:dingtalk-doc:plugins-dingtalk-doc-dist-index-mjs",
+      "kind": "capture",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.mjs --mock-sdk --output ../../results/dingtalk-doc/cold-import-extension-dingtalk-doc-plugins-dingtalk-doc-dist-index-mjs.capture.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "dingtalk-doc",
+      "entrypoint": "cold-import.extension:dingtalk-doc:plugins-dingtalk-doc-dist-index-mjs",
+      "kind": "synthetic-probe",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.mjs --mock-sdk --output ../../results/dingtalk-doc/cold-import-extension-dingtalk-doc-plugins-dingtalk-doc-dist-index-mjs.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"

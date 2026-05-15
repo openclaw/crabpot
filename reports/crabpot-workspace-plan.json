@@ -10,20 +10,20 @@
     "configuredPath": "./openclaw"
   },
   "summary": {
-    "fixtureCount": 57,
-    "entrypointCount": 104,
+    "fixtureCount": 58,
+    "entrypointCount": 105,
     "installStepCount": 41,
     "auditStepCount": 41,
-    "buildStepCount": 11,
+    "buildStepCount": 12,
     "pruneDevWorkspaceDependencyStepCount": 23,
-    "artifactStepCount": 104,
-    "captureStepCount": 104,
-    "syntheticProbeStepCount": 104,
-    "targetOpenClawLinkStepCount": 92,
+    "artifactStepCount": 105,
+    "captureStepCount": 105,
+    "syntheticProbeStepCount": 105,
+    "targetOpenClawLinkStepCount": 93,
     "tsLoaderEntrypointCount": 22,
     "jitiAlternativeCount": 22,
     "missingBuildScriptCount": 0,
-    "sdkAliasRequiredCount": 1
+    "sdkAliasRequiredCount": 0
   },
   "fixtures": [
     {
@@ -1107,7 +1107,7 @@
           "packagePath": "plugins/honcho/package.json",
           "packageName": "@honcho-ai/openclaw-honcho",
           "entrypoint": "plugins/honcho/dist/index.js",
-          "status": "sdk-alias-required",
+          "status": "build-required",
           "packageManager": "pnpm",
           "lockfile": "plugins/honcho/pnpm-lock.yaml",
           "loaderStrategy": {
@@ -1119,7 +1119,6 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -1128,11 +1127,6 @@
               "code": "build-required",
               "message": "entrypoint points at build output that is absent in the fixture checkout",
               "evidence": "plugins/honcho/dist/index.js"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/memory-core @ plugins/honcho/index.ts:11"
             }
           ],
           "steps": [
@@ -2156,7 +2150,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox"
+              "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox, zod"
             }
           ],
           "steps": [
@@ -2246,7 +2240,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox"
+              "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox, zod"
             }
           ],
           "steps": [
@@ -3028,7 +3022,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "commander, typebox, ws"
+              "evidence": "commander, typebox, ws, zod"
             }
           ],
           "steps": [
@@ -3177,7 +3171,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "undici"
+              "evidence": "zod"
             }
           ],
           "steps": [
@@ -3388,7 +3382,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "typebox, zca-js"
+              "evidence": "typebox, zca-js, zod"
             }
           ],
           "steps": [
@@ -3599,7 +3593,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@larksuiteoapi/node-sdk, typebox"
+              "evidence": "@larksuiteoapi/node-sdk, typebox, zod"
             }
           ],
           "steps": [
@@ -3810,7 +3804,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@aws-sdk/client-s3, @aws-sdk/s3-request-presigner, @tloncorp/tlon-skill, @urbit/aura"
+              "evidence": "@aws-sdk/client-s3, @aws-sdk/s3-request-presigner, @tloncorp/tlon-skill, @urbit/aura, zod"
             }
           ],
           "steps": [
@@ -4021,7 +4015,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@twurple/api, @twurple/auth, @twurple/chat"
+              "evidence": "@twurple/api, @twurple/auth, @twurple/chat, zod"
             }
           ],
           "steps": [
@@ -4178,7 +4172,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "ws"
+              "evidence": "ws, zod"
             }
           ],
           "steps": [
@@ -4268,7 +4262,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "ws"
+              "evidence": "ws, zod"
             }
           ],
           "steps": [
@@ -4757,7 +4751,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@mariozechner/pi-coding-agent, @openai/codex, ajv, ws, zod"
+              "evidence": "@earendil-works/pi-coding-agent, @openai/codex, ajv, ws, zod"
             }
           ],
           "steps": [
@@ -5184,7 +5178,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@pierre/diffs, @pierre/theme, playwright-core, typebox"
+              "evidence": "@pierre/diffs, @pierre/theme, playwright-core, typebox, zod"
             }
           ],
           "steps": [
@@ -5693,7 +5687,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@whiskeysockets/baileys, https-proxy-agent, jimp, typebox, undici"
+              "evidence": "audio-decode, baileys, https-proxy-agent, jimp, typebox, undici"
             }
           ],
           "steps": [
@@ -5917,7 +5911,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@ai-sdk/openai, @node-rs/jieba, @tencentdb-agent-memory/tcvdb-text, ai, js-tiktoken, json5, sqlite-vec, tsx, undici, yaml, node-llama-cpp, opik"
+              "evidence": "@ai-sdk/openai, @node-rs/jieba, @tencentdb-agent-memory/tcvdb-text, ai, js-tiktoken, json5, sqlite-vec, tsx, undici, yaml, zod, node-llama-cpp, opik"
             }
           ],
           "steps": [
@@ -6127,6 +6121,80 @@
               "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.mjs --mock-sdk --output ../../results/dingtalk-connector/cold-import-extension-dingtalk-connector-plugins-dingtalk-connector-dist-index-mjs.synthetic.json",
               "cwd": ".crabpot/workspaces/dingtalk-connector",
               "artifactPath": ".crabpot/results/dingtalk-connector/cold-import-extension-dingtalk-connector-plugins-dingtalk-connector-dist-index-mjs.synthetic.json",
+              "reason": "invoke retained hook and registration handlers with synthetic payloads"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dingtalk-doc",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:dingtalk-doc:plugins-dingtalk-doc-dist-index-mjs",
+          "fixture": "dingtalk-doc",
+          "packagePath": "plugins/dingtalk-doc/package.json",
+          "packageName": "openclaw-dingtalk-doc",
+          "entrypoint": "plugins/dingtalk-doc/dist/index.mjs",
+          "status": "build-required",
+          "packageManager": "pnpm",
+          "lockfile": "plugins/dingtalk-doc/pnpm-lock.yaml",
+          "loaderStrategy": {
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
+          },
+          "requiredCapabilities": [
+            "build",
+            "capture-shim",
+            "synthetic-probes",
+            "target-openclaw-link"
+          ],
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/dingtalk-doc/dist/index.mjs"
+            }
+          ],
+          "steps": [
+            {
+              "kind": "prepare",
+              "command": "mkdir -p .crabpot/workspaces/dingtalk-doc && rsync -a --delete plugins/dingtalk-doc/ .crabpot/workspaces/dingtalk-doc/",
+              "cwd": ".",
+              "reason": "copy fixture package into an isolated mutable workspace"
+            },
+            {
+              "kind": "prepare-artifacts",
+              "command": "mkdir -p .crabpot/results/dingtalk-doc",
+              "cwd": ".",
+              "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "link-openclaw",
+              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "cwd": ".crabpot/workspaces/dingtalk-doc",
+              "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "build",
+              "command": "pnpm run build",
+              "cwd": ".crabpot/workspaces/dingtalk-doc",
+              "reason": "produce missing OpenClaw build entrypoint"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.mjs --mock-sdk --output ../../results/dingtalk-doc/cold-import-extension-dingtalk-doc-plugins-dingtalk-doc-dist-index-mjs.capture.json",
+              "cwd": ".crabpot/workspaces/dingtalk-doc",
+              "artifactPath": ".crabpot/results/dingtalk-doc/cold-import-extension-dingtalk-doc-plugins-dingtalk-doc-dist-index-mjs.capture.json",
+              "reason": "cold import the entrypoint against the capture shim"
+            },
+            {
+              "kind": "synthetic-probe",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.mjs --mock-sdk --output ../../results/dingtalk-doc/cold-import-extension-dingtalk-doc-plugins-dingtalk-doc-dist-index-mjs.synthetic.json",
+              "cwd": ".crabpot/workspaces/dingtalk-doc",
+              "artifactPath": ".crabpot/results/dingtalk-doc/cold-import-extension-dingtalk-doc-plugins-dingtalk-doc-dist-index-mjs.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]

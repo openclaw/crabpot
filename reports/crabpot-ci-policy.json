@@ -3421,7 +3421,7 @@
     {
       "id": "compatibility-report.deprecation-warnings",
       "action": "pass",
-      "message": "41 deprecated compat seams tracked",
+      "message": "42 deprecated compat seams tracked",
       "evidence": [
         "a2a-gateway:legacy-root-sdk-import",
         "agentchat:channel-env-vars",
@@ -3432,6 +3432,7 @@
         "connectclaw:legacy-before-agent-start",
         "connectclaw:legacy-root-sdk-import",
         "dingtalk-connector:legacy-root-sdk-import",
+        "dingtalk-doc:legacy-root-sdk-import",
         "discord:channel-env-vars",
         "feishu:channel-env-vars",
         "hasdata:provider-auth-env-vars",
@@ -3469,9 +3470,10 @@
     {
       "id": "compatibility-report.inspector-gaps",
       "action": "pass",
-      "message": "156 inspector proof gaps tracked",
+      "message": "160 inspector proof gaps tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
+        "dingtalk-doc:before-tool-call-probe",
         "honcho:conversation-access-hook",
         "kitchen-sink:before-tool-call-probe",
         "kitchen-sink:conversation-access-hook",
@@ -3522,6 +3524,9 @@
         "dingtalk-connector:package-build-artifact-entrypoint",
         "dingtalk-connector:package-dependency-install-required",
         "dingtalk-connector:registration-capture-gap",
+        "dingtalk-doc:package-build-artifact-entrypoint",
+        "dingtalk-doc:package-dependency-install-required",
+        "dingtalk-doc:runtime-tool-capture",
         "discord:channel-contract-probe",
         "discord:package-dependency-install-required",
         "feishu:channel-contract-probe",
@@ -3638,11 +3643,12 @@
     {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "15 P1 issues tracked",
+      "message": "16 P1 issues tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
+        "codex:reserved-sdk-import",
+        "dingtalk-doc:before-tool-call-probe",
         "honcho:conversation-access-hook",
-        "honcho:sdk-export-missing",
         "kitchen-sink:before-tool-call-probe",
         "kitchen-sink:conversation-access-hook",
         "llm-trace-phoenix:conversation-access-hook",

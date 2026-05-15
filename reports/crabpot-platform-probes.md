@@ -8,17 +8,17 @@ Targets: linux, macos, windows, container
 
 | Metric                         | Value |
 | ------------------------------ | ----- |
-| fixtureCount                   | 57    |
-| entrypointCount                | 104   |
+| fixtureCount                   | 58    |
+| entrypointCount                | 105   |
 | tsLoaderEntrypointCount        | 22    |
 | jitiAlternativeCount           | 22    |
-| lazyImportProbeCount           | 104   |
-| portabilityFindingCount        | 14    |
-| coveredPortabilityFindingCount | 457   |
-| windowsRiskStepCount           | 14    |
-| macosRiskStepCount             | 14    |
-| linuxRiskStepCount             | 14    |
-| containerRiskStepCount         | 14    |
+| lazyImportProbeCount           | 105   |
+| portabilityFindingCount        | 16    |
+| coveredPortabilityFindingCount | 461   |
+| windowsRiskStepCount           | 16    |
+| macosRiskStepCount             | 16    |
+| linuxRiskStepCount             | 16    |
+| containerRiskStepCount         | 16    |
 
 ## Loader Probes
 
@@ -38,7 +38,7 @@ Targets: linux, macos, windows, container
 | lossless-claw          | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/lossless-claw/dist/index.js                                 |
 | connectclaw            | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/connectclaw/packages/plugin/index.ts                        |
 | hyperspell             | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/hyperspell/dist/index.js                                    |
-| honcho                 | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/honcho/dist/index.js                                        |
+| honcho                 | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/honcho/dist/index.js                                        |
 | composio               | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/composio/index.ts                                           |
 | kitchen-sink           | ready                       | node    | -            | no          | no            | yes              | yes                | plugins/kitchen-sink/src/index.js                                   |
 | kitchen-sink           | ready                       | node    | -            | no          | no            | yes              | yes                | plugins/kitchen-sink/src/index.js                                   |
@@ -108,6 +108,7 @@ Targets: linux, macos, windows, container
 | memory-tencentdb       | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/memory-tencentdb/.crabpot-package/index.ts                  |
 | ddingtalk              | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/ddingtalk/index.ts                                          |
 | dingtalk-connector     | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/dingtalk-connector/dist/index.mjs                           |
+| dingtalk-doc           | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/dingtalk-doc/dist/index.mjs                                 |
 | mocrane-wecom          | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/mocrane-wecom/index.ts                                      |
 | yuanbao                | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/yuanbao/.crabpot-package/dist/index.js                      |
 | yuanbao                | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/yuanbao/.crabpot-package/dist/setup-entry.js                |
@@ -143,6 +144,8 @@ Targets: linux, macos, windows, container
 | ddingtalk        | link-openclaw | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
 | ddingtalk        | install       | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
 | ddingtalk        | audit         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| dingtalk-doc     | link-openclaw | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| dingtalk-doc     | build         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
 | codex-app-server | link-openclaw | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
 | codex-app-server | install       | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
 | codex-app-server | audit         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
@@ -519,6 +522,10 @@ Targets: linux, macos, windows, container
 | dingtalk-connector     | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | dingtalk-connector     | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | dingtalk-connector     | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| dingtalk-doc           | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| dingtalk-doc           | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| dingtalk-doc           | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| dingtalk-doc           | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | mocrane-wecom          | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | mocrane-wecom          | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | mocrane-wecom          | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |

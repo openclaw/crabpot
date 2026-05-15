@@ -1129,6 +1129,19 @@
       "why": "Official DingTalk connector fixture covering Stream-mode channel ingress, AI Card replies, multi-account access policy, gateway RPC methods, and packaged channel skills."
     },
     {
+      "id": "dingtalk-doc",
+      "name": "DingTalk Doc MCP Tools",
+      "repo": "https://github.com/suchasplus/openclaw-dingtalk-doc.git",
+      "path": "plugins/dingtalk-doc",
+      "priority": "medium",
+      "seams": ["dynamic-tool", "mcp", "document-tool", "tool-runtime", "config-schema"],
+      "expect": {
+        "hooks": ["before_tool_call", "after_tool_call"],
+        "registrations": ["registerTool"]
+      },
+      "why": "DingTalk document-tool fixture wrapping MCP doc, block, and file operations into OpenClaw tool registrations with tool-call logging hooks; this covers AliDocs automation rather than another chat channel."
+    },
+    {
       "id": "mocrane-wecom",
       "name": "Mocrane WeCom",
       "repo": "https://github.com/TencentCloud-Lighthouse/openclaw-wecom.git",

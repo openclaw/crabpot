@@ -3,17 +3,17 @@
   "targetOpenClaw": {
     "status": "ok",
     "configuredPath": "./openclaw",
-    "sdkExportCount": 296
+    "sdkExportCount": 307
   },
   "summary": {
-    "fixtureCount": 57,
-    "entrypointCount": 104,
+    "fixtureCount": 58,
+    "entrypointCount": 105,
     "readyCount": 7,
-    "blockedCount": 97,
+    "blockedCount": 98,
     "tsLoaderRequiredCount": 22,
-    "buildRequiredCount": 10,
+    "buildRequiredCount": 12,
     "dependencyInstallRequiredCount": 41,
-    "sdkAliasRequiredCount": 1
+    "sdkAliasRequiredCount": 0
   },
   "fixtures": [
     {
@@ -401,22 +401,16 @@
           "kind": "extension",
           "specifier": "./dist/index.js",
           "path": "plugins/honcho/dist/index.js",
-          "status": "sdk-alias-required",
+          "status": "build-required",
           "blockers": [
             {
               "code": "build-required",
               "message": "entrypoint points at build output that is absent in the fixture checkout",
               "evidence": "plugins/honcho/dist/index.js"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/memory-core @ plugins/honcho/index.ts:11"
             }
           ],
           "assertions": [
-            "plugin build or source alias resolution runs before cold import",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim"
+            "plugin build or source alias resolution runs before cold import"
           ]
         }
       ]
@@ -736,7 +730,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox"
+              "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox, zod"
             }
           ],
           "assertions": [
@@ -761,7 +755,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox"
+              "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox, zod"
             }
           ],
           "assertions": [
@@ -995,7 +989,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "commander, typebox, ws"
+              "evidence": "commander, typebox, ws, zod"
             }
           ],
           "assertions": [
@@ -1039,7 +1033,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "undici"
+              "evidence": "zod"
             }
           ],
           "assertions": [
@@ -1102,7 +1096,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "typebox, zca-js"
+              "evidence": "typebox, zca-js, zod"
             }
           ],
           "assertions": [
@@ -1165,7 +1159,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@larksuiteoapi/node-sdk, typebox"
+              "evidence": "@larksuiteoapi/node-sdk, typebox, zod"
             }
           ],
           "assertions": [
@@ -1228,7 +1222,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@aws-sdk/client-s3, @aws-sdk/s3-request-presigner, @tloncorp/tlon-skill, @urbit/aura"
+              "evidence": "@aws-sdk/client-s3, @aws-sdk/s3-request-presigner, @tloncorp/tlon-skill, @urbit/aura, zod"
             }
           ],
           "assertions": [
@@ -1291,7 +1285,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@twurple/api, @twurple/auth, @twurple/chat"
+              "evidence": "@twurple/api, @twurple/auth, @twurple/chat, zod"
             }
           ],
           "assertions": [
@@ -1340,7 +1334,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "ws"
+              "evidence": "ws, zod"
             }
           ],
           "assertions": [
@@ -1365,7 +1359,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "ws"
+              "evidence": "ws, zod"
             }
           ],
           "assertions": [
@@ -1517,7 +1511,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@mariozechner/pi-coding-agent, @openai/codex, ajv, ws, zod"
+              "evidence": "@earendil-works/pi-coding-agent, @openai/codex, ajv, ws, zod"
             }
           ],
           "assertions": [
@@ -1651,7 +1645,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@pierre/diffs, @pierre/theme, playwright-core, typebox"
+              "evidence": "@pierre/diffs, @pierre/theme, playwright-core, typebox, zod"
             }
           ],
           "assertions": [
@@ -1802,7 +1796,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@whiskeysockets/baileys, https-proxy-agent, jimp, typebox, undici"
+              "evidence": "audio-decode, baileys, https-proxy-agent, jimp, typebox, undici"
             }
           ],
           "assertions": [
@@ -1876,7 +1870,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@ai-sdk/openai, @node-rs/jieba, @tencentdb-agent-memory/tcvdb-text, ai, js-tiktoken, json5, sqlite-vec, tsx, undici, yaml, node-llama-cpp, opik"
+              "evidence": "@ai-sdk/openai, @node-rs/jieba, @tencentdb-agent-memory/tcvdb-text, ai, js-tiktoken, json5, sqlite-vec, tsx, undici, yaml, zod, node-llama-cpp, opik"
             }
           ],
           "assertions": [
@@ -1934,6 +1928,31 @@
               "code": "build-required",
               "message": "entrypoint points at build output that is absent in the fixture checkout",
               "evidence": "plugins/dingtalk-connector/dist/index.mjs"
+            }
+          ],
+          "assertions": [
+            "plugin build or source alias resolution runs before cold import"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dingtalk-doc",
+      "priority": "medium",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:dingtalk-doc:plugins-dingtalk-doc-dist-index-mjs",
+          "fixture": "dingtalk-doc",
+          "packagePath": "plugins/dingtalk-doc/package.json",
+          "kind": "extension",
+          "specifier": "./dist/index.mjs",
+          "path": "plugins/dingtalk-doc/dist/index.mjs",
+          "status": "build-required",
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/dingtalk-doc/dist/index.mjs"
             }
           ],
           "assertions": [
