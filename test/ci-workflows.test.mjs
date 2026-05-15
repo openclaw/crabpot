@@ -55,7 +55,7 @@ test("default check workflow uploads policy and summary reports", async () => {
   assert.match(dashboardBlock, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
   assert.match(dashboardBlock, /node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
   assert.match(workflow, /--baseline-data \.crabpot\/baseline\/main-dashboard-data\.json/);
-  assert.match(workflow, /node scripts\/update-readme-summary\.mjs \$\{baseline_arg\}/);
+  assert.match(workflow, /node scripts\/update-readme-summary\.mjs "\$\{baseline_arg\[@\]\}"/);
   assert.match(workflow, /chore\(readme\): update crabpot dashboard \[skip ci\]/);
   assert.match(workflow, /Skipped stale dashboard push/);
   assert.match(workflow, /actions\/upload-artifact@v7/);
