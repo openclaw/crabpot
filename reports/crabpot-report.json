@@ -20991,8 +20991,8 @@
         "plugins/brave-plugin/.crabpot-package/openclaw.plugin.json"
       ],
       "sourceFiles": [
-        "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-DlBesQRV.js",
-        "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-Dd_WB4kT.js",
+        "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-D4rkKZuh.js",
+        "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-rJWyMAze.js",
         "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.shared-B1wyGWiH.js",
         "plugins/brave-plugin/.crabpot-package/dist/index.js",
         "plugins/brave-plugin/.crabpot-package/dist/test-api.js",
@@ -21033,7 +21033,7 @@
       "package": {
         "path": "plugins/brave-plugin/.crabpot-package/package.json",
         "name": "@openclaw/brave-plugin",
-        "version": "2026.5.14-beta.2",
+        "version": "2026.5.12",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -21059,8 +21059,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.14-beta.2",
-          "buildOpenClawVersion": "2026.5.14-beta.2",
+          "compatPluginApi": ">=2026.5.12",
+          "buildOpenClawVersion": "2026.5.12",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -21095,7 +21095,7 @@
         {
           "path": "plugins/brave-plugin/.crabpot-package/package.json",
           "name": "@openclaw/brave-plugin",
-          "version": "2026.5.14-beta.2",
+          "version": "2026.5.12",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -21121,8 +21121,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.14-beta.2",
-            "buildOpenClawVersion": "2026.5.14-beta.2",
+            "compatPluginApi": ">=2026.5.12",
+            "buildOpenClawVersion": "2026.5.12",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -21177,7 +21177,6 @@
       "sdkImports": [
         "openclaw/plugin-sdk/diagnostic-runtime",
         "openclaw/plugin-sdk/plugin-entry",
-        "openclaw/plugin-sdk/provider-http",
         "openclaw/plugin-sdk/provider-web-search",
         "openclaw/plugin-sdk/provider-web-search-config-contract",
         "openclaw/plugin-sdk/runtime-env",
@@ -21187,9 +21186,9 @@
       "sdkImportDetails": [
         {
           "specifier": "openclaw/plugin-sdk/diagnostic-runtime",
-          "file": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-DlBesQRV.js",
+          "file": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-D4rkKZuh.js",
           "line": 1,
-          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-DlBesQRV.js:1"
+          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-D4rkKZuh.js:1"
         },
         {
           "specifier": "openclaw/plugin-sdk/plugin-entry",
@@ -21198,22 +21197,16 @@
           "ref": "plugins/brave-plugin/.crabpot-package/dist/index.js:2"
         },
         {
-          "specifier": "openclaw/plugin-sdk/provider-http",
-          "file": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-Dd_WB4kT.js",
-          "line": 2,
-          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-Dd_WB4kT.js:2"
-        },
-        {
           "specifier": "openclaw/plugin-sdk/provider-web-search",
-          "file": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-Dd_WB4kT.js",
-          "line": 3,
-          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-Dd_WB4kT.js:3"
+          "file": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-rJWyMAze.js",
+          "line": 2,
+          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-rJWyMAze.js:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/provider-web-search-config-contract",
-          "file": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-DlBesQRV.js",
+          "file": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-D4rkKZuh.js",
           "line": 2,
-          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-DlBesQRV.js:2"
+          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-D4rkKZuh.js:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/provider-web-search-config-contract",
@@ -21223,15 +21216,15 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "file": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-Dd_WB4kT.js",
-          "line": 4,
-          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-Dd_WB4kT.js:4"
+          "file": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-rJWyMAze.js",
+          "line": 3,
+          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-rJWyMAze.js:3"
         },
         {
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "file": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-Dd_WB4kT.js",
-          "line": 5,
-          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-Dd_WB4kT.js:5"
+          "file": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-rJWyMAze.js",
+          "line": 4,
+          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-rJWyMAze.js:4"
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
@@ -21261,8 +21254,8 @@
         {
           "name": "inbound_claim",
           "file": "plugins/codex/.crabpot-package/dist/index.js",
-          "line": 1113,
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:1113"
+          "line": 1004,
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:1004"
         }
       ],
       "registrations": [
@@ -21271,58 +21264,44 @@
         "registerCommand",
         "registerMediaUnderstandingProvider",
         "registerMigrationProvider",
-        "registerNodeHostCommand",
-        "registerNodeInvokePolicy",
         "registerProvider"
       ],
       "registrationDetails": [
         {
           "name": "definePluginEntry",
           "file": "plugins/codex/.crabpot-package/dist/index.js",
-          "line": 1088,
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:1088"
+          "line": 993,
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:993"
         },
         {
           "name": "registerAgentHarness",
           "file": "plugins/codex/.crabpot-package/dist/index.js",
-          "line": 1094,
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:1094"
+          "line": 999,
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:999"
         },
         {
           "name": "registerCommand",
           "file": "plugins/codex/.crabpot-package/dist/index.js",
-          "line": 1100,
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:1100"
+          "line": 1003,
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:1003"
         },
         {
           "name": "registerMediaUnderstandingProvider",
           "file": "plugins/codex/.crabpot-package/dist/index.js",
-          "line": 1096,
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:1096"
+          "line": 1001,
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:1001"
         },
         {
           "name": "registerMigrationProvider",
           "file": "plugins/codex/.crabpot-package/dist/index.js",
-          "line": 1097,
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:1097"
-        },
-        {
-          "name": "registerNodeHostCommand",
-          "file": "plugins/codex/.crabpot-package/dist/index.js",
-          "line": 1098,
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:1098"
-        },
-        {
-          "name": "registerNodeInvokePolicy",
-          "file": "plugins/codex/.crabpot-package/dist/index.js",
-          "line": 1099,
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:1099"
+          "line": 1002,
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:1002"
         },
         {
           "name": "registerProvider",
           "file": "plugins/codex/.crabpot-package/dist/index.js",
-          "line": 1095,
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:1095"
+          "line": 1000,
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:1000"
         }
       ],
       "manifestContracts": [
@@ -21333,36 +21312,37 @@
         "plugins/codex/.crabpot-package/openclaw.plugin.json"
       ],
       "sourceFiles": [
-        "plugins/codex/.crabpot-package/dist/client-CoctX13d.js",
-        "plugins/codex/.crabpot-package/dist/client-factory-Be6RD28K.js",
-        "plugins/codex/.crabpot-package/dist/command-formatters-DRJaVHhN.js",
-        "plugins/codex/.crabpot-package/dist/command-handlers-CXxykxjq.js",
-        "plugins/codex/.crabpot-package/dist/compact-DWa8cylR.js",
-        "plugins/codex/.crabpot-package/dist/computer-use-DsJxRRtm.js",
+        "plugins/codex/.crabpot-package/dist/client-factory-DfnbdQv7.js",
+        "plugins/codex/.crabpot-package/dist/client-iRf11BEu.js",
+        "plugins/codex/.crabpot-package/dist/command-formatters-Ttwc_kgX.js",
+        "plugins/codex/.crabpot-package/dist/command-handlers-BYf_veEb.js",
+        "plugins/codex/.crabpot-package/dist/compact-Bl8jRPk4.js",
+        "plugins/codex/.crabpot-package/dist/computer-use-Ct3ngNBt.js",
         "plugins/codex/.crabpot-package/dist/config-0rd3LnKg.js",
+        "plugins/codex/.crabpot-package/dist/conversation-binding-CKofEetY.js",
         "plugins/codex/.crabpot-package/dist/doctor-contract-api.js",
         "plugins/codex/.crabpot-package/dist/harness.js",
         "plugins/codex/.crabpot-package/dist/index.js",
         "plugins/codex/.crabpot-package/dist/media-understanding-provider.js",
-        "plugins/codex/.crabpot-package/dist/models-GCYf5s8J.js",
-        "plugins/codex/.crabpot-package/dist/node-cli-sessions-CiexDHeV.js",
-        "plugins/codex/.crabpot-package/dist/plugin-activation-aQOmRQwA.js",
+        "plugins/codex/.crabpot-package/dist/models-BmLfrDci.js",
+        "plugins/codex/.crabpot-package/dist/plugin-activation-PXGqUjwY.js",
+        "plugins/codex/.crabpot-package/dist/plugin-app-cache-key-B7eU8fNZ.js",
         "plugins/codex/.crabpot-package/dist/prompt-overlay.js",
         "plugins/codex/.crabpot-package/dist/protocol-C9UWI98H.js",
         "plugins/codex/.crabpot-package/dist/protocol-validators-CSY0BFBo.js",
         "plugins/codex/.crabpot-package/dist/provider-catalog.js",
         "plugins/codex/.crabpot-package/dist/provider-discovery.js",
         "plugins/codex/.crabpot-package/dist/provider.js",
-        "plugins/codex/.crabpot-package/dist/rate-limit-cache-dvhq-4pi.js",
-        "plugins/codex/.crabpot-package/dist/request-CKYiRqsN.js",
+        "plugins/codex/.crabpot-package/dist/rate-limit-cache-BFi-50LG.js",
+        "plugins/codex/.crabpot-package/dist/request-ohCy5ASa.js",
         "plugins/codex/.crabpot-package/dist/rolldown-runtime-DUslC3ob.js",
-        "plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js",
+        "plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js",
         "plugins/codex/.crabpot-package/dist/session-binding-CMTXuyoz.js",
-        "plugins/codex/.crabpot-package/dist/shared-client-BwUqd3lh.js",
-        "plugins/codex/.crabpot-package/dist/side-question-CVWPOkY-.js",
+        "plugins/codex/.crabpot-package/dist/shared-client-Cr6W-a2G.js",
+        "plugins/codex/.crabpot-package/dist/side-question-DV7KYIB8.js",
         "plugins/codex/.crabpot-package/dist/test-api.js",
-        "plugins/codex/.crabpot-package/dist/thread-lifecycle-DrbViNpf.js",
-        "plugins/codex/.crabpot-package/dist/vision-tools-CzTdigBu.js"
+        "plugins/codex/.crabpot-package/dist/thread-lifecycle-CJppEyYT.js",
+        "plugins/codex/.crabpot-package/dist/vision-tools-DHyuabWn.js"
       ],
       "pluginManifests": [
         {
@@ -21403,7 +21383,7 @@
       "package": {
         "path": "plugins/codex/.crabpot-package/package.json",
         "name": "@openclaw/codex",
-        "version": "2026.5.14-beta.2",
+        "version": "2026.5.12",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -21435,8 +21415,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.14-beta.2",
-          "buildOpenClawVersion": "2026.5.14-beta.2",
+          "compatPluginApi": ">=2026.5.12",
+          "buildOpenClawVersion": "2026.5.12",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -21471,7 +21451,7 @@
         {
           "path": "plugins/codex/.crabpot-package/package.json",
           "name": "@openclaw/codex",
-          "version": "2026.5.14-beta.2",
+          "version": "2026.5.12",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -21503,8 +21483,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.14-beta.2",
-            "buildOpenClawVersion": "2026.5.14-beta.2",
+            "compatPluginApi": ">=2026.5.12",
+            "buildOpenClawVersion": "2026.5.12",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -21573,45 +21553,44 @@
         "openclaw/plugin-sdk/plugin-entry",
         "openclaw/plugin-sdk/provider-model-shared",
         "openclaw/plugin-sdk/security-runtime",
-        "openclaw/plugin-sdk/temp-path",
         "openclaw/plugin-sdk/windows-spawn"
       ],
       "sdkImportDetails": [
         {
           "specifier": "openclaw/plugin-sdk/agent-harness",
-          "file": "plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js",
-          "line": 3658,
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js:3658"
+          "file": "plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js",
+          "line": 3608,
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js:3608"
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-harness",
-          "file": "plugins/codex/.crabpot-package/dist/side-question-CVWPOkY-.js",
+          "file": "plugins/codex/.crabpot-package/dist/side-question-DV7KYIB8.js",
           "line": 238,
-          "ref": "plugins/codex/.crabpot-package/dist/side-question-CVWPOkY-.js:238"
+          "ref": "plugins/codex/.crabpot-package/dist/side-question-DV7KYIB8.js:238"
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "file": "plugins/codex/.crabpot-package/dist/client-CoctX13d.js",
+          "file": "plugins/codex/.crabpot-package/dist/client-iRf11BEu.js",
           "line": 4,
-          "ref": "plugins/codex/.crabpot-package/dist/client-CoctX13d.js:4"
+          "ref": "plugins/codex/.crabpot-package/dist/client-iRf11BEu.js:4"
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "file": "plugins/codex/.crabpot-package/dist/compact-DWa8cylR.js",
+          "file": "plugins/codex/.crabpot-package/dist/compact-Bl8jRPk4.js",
           "line": 5,
-          "ref": "plugins/codex/.crabpot-package/dist/compact-DWa8cylR.js:5"
+          "ref": "plugins/codex/.crabpot-package/dist/compact-Bl8jRPk4.js:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "file": "plugins/codex/.crabpot-package/dist/node-cli-sessions-CiexDHeV.js",
-          "line": 8,
-          "ref": "plugins/codex/.crabpot-package/dist/node-cli-sessions-CiexDHeV.js:8"
+          "file": "plugins/codex/.crabpot-package/dist/conversation-binding-CKofEetY.js",
+          "line": 7,
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CKofEetY.js:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "file": "plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js",
-          "line": 17,
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js:17"
+          "file": "plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js",
+          "line": 18,
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js:18"
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
@@ -21621,39 +21600,39 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "file": "plugins/codex/.crabpot-package/dist/side-question-CVWPOkY-.js",
+          "file": "plugins/codex/.crabpot-package/dist/side-question-DV7KYIB8.js",
           "line": 11,
-          "ref": "plugins/codex/.crabpot-package/dist/side-question-CVWPOkY-.js:11"
+          "ref": "plugins/codex/.crabpot-package/dist/side-question-DV7KYIB8.js:11"
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "file": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DrbViNpf.js",
+          "file": "plugins/codex/.crabpot-package/dist/thread-lifecycle-CJppEyYT.js",
           "line": 10,
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DrbViNpf.js:10"
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-CJppEyYT.js:10"
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "file": "plugins/codex/.crabpot-package/dist/vision-tools-CzTdigBu.js",
+          "file": "plugins/codex/.crabpot-package/dist/vision-tools-DHyuabWn.js",
           "line": 3,
-          "ref": "plugins/codex/.crabpot-package/dist/vision-tools-CzTdigBu.js:3"
+          "ref": "plugins/codex/.crabpot-package/dist/vision-tools-DHyuabWn.js:3"
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "file": "plugins/codex/.crabpot-package/dist/command-handlers-CXxykxjq.js",
+          "file": "plugins/codex/.crabpot-package/dist/command-handlers-BYf_veEb.js",
           "line": 11,
-          "ref": "plugins/codex/.crabpot-package/dist/command-handlers-CXxykxjq.js:11"
+          "ref": "plugins/codex/.crabpot-package/dist/command-handlers-BYf_veEb.js:11"
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-runtime",
           "file": "plugins/codex/.crabpot-package/dist/index.js",
-          "line": 15,
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:15"
+          "line": 16,
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:16"
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "file": "plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js",
-          "line": 20,
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js:20"
+          "file": "plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js",
+          "line": 21,
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js:21"
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-runtime",
@@ -21663,21 +21642,21 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "file": "plugins/codex/.crabpot-package/dist/shared-client-BwUqd3lh.js",
+          "file": "plugins/codex/.crabpot-package/dist/shared-client-Cr6W-a2G.js",
           "line": 9,
-          "ref": "plugins/codex/.crabpot-package/dist/shared-client-BwUqd3lh.js:9"
+          "ref": "plugins/codex/.crabpot-package/dist/shared-client-Cr6W-a2G.js:9"
         },
         {
           "specifier": "openclaw/plugin-sdk/codex-mcp-projection",
-          "file": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DrbViNpf.js",
+          "file": "plugins/codex/.crabpot-package/dist/thread-lifecycle-CJppEyYT.js",
           "line": 11,
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DrbViNpf.js:11"
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-CJppEyYT.js:11"
         },
         {
           "specifier": "openclaw/plugin-sdk/codex-native-task-runtime",
-          "file": "plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js",
-          "line": 23,
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js:23"
+          "file": "plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js",
+          "line": 25,
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js:25"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
@@ -21687,9 +21666,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/diagnostic-runtime",
-          "file": "plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js",
-          "line": 22,
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js:22"
+          "file": "plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js",
+          "line": 24,
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js:24"
         },
         {
           "specifier": "openclaw/plugin-sdk/json-schema-runtime",
@@ -21700,32 +21679,32 @@
         {
           "specifier": "openclaw/plugin-sdk/json-store",
           "file": "plugins/codex/.crabpot-package/dist/index.js",
-          "line": 19,
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:19"
+          "line": 20,
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:20"
         },
         {
           "specifier": "openclaw/plugin-sdk/logging-core",
-          "file": "plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js",
-          "line": 25,
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js:25"
+          "file": "plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js",
+          "line": 27,
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js:27"
         },
         {
           "specifier": "openclaw/plugin-sdk/migration",
-          "file": "plugins/codex/.crabpot-package/dist/index.js",
-          "line": 17,
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:17"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/migration-runtime",
           "file": "plugins/codex/.crabpot-package/dist/index.js",
           "line": 18,
           "ref": "plugins/codex/.crabpot-package/dist/index.js:18"
         },
         {
+          "specifier": "openclaw/plugin-sdk/migration-runtime",
+          "file": "plugins/codex/.crabpot-package/dist/index.js",
+          "line": 19,
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:19"
+        },
+        {
           "specifier": "openclaw/plugin-sdk/plugin-config-runtime",
           "file": "plugins/codex/.crabpot-package/dist/index.js",
-          "line": 10,
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:10"
+          "line": 11,
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:11"
         },
         {
           "specifier": "openclaw/plugin-sdk/plugin-config-runtime",
@@ -21736,8 +21715,8 @@
         {
           "specifier": "openclaw/plugin-sdk/plugin-entry",
           "file": "plugins/codex/.crabpot-package/dist/index.js",
-          "line": 11,
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:11"
+          "line": 12,
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:12"
         },
         {
           "specifier": "openclaw/plugin-sdk/provider-model-shared",
@@ -21754,38 +21733,26 @@
         {
           "specifier": "openclaw/plugin-sdk/security-runtime",
           "file": "plugins/codex/.crabpot-package/dist/index.js",
-          "line": 16,
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:16"
+          "line": 17,
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:17"
         },
         {
           "specifier": "openclaw/plugin-sdk/security-runtime",
-          "file": "plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js",
-          "line": 21,
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js:21"
+          "file": "plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js",
+          "line": 22,
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js:22"
         },
         {
           "specifier": "openclaw/plugin-sdk/security-runtime",
-          "file": "plugins/codex/.crabpot-package/dist/shared-client-BwUqd3lh.js",
+          "file": "plugins/codex/.crabpot-package/dist/shared-client-Cr6W-a2G.js",
           "line": 11,
-          "ref": "plugins/codex/.crabpot-package/dist/shared-client-BwUqd3lh.js:11"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/temp-path",
-          "file": "plugins/codex/.crabpot-package/dist/node-cli-sessions-CiexDHeV.js",
-          "line": 15,
-          "ref": "plugins/codex/.crabpot-package/dist/node-cli-sessions-CiexDHeV.js:15"
+          "ref": "plugins/codex/.crabpot-package/dist/shared-client-Cr6W-a2G.js:11"
         },
         {
           "specifier": "openclaw/plugin-sdk/windows-spawn",
-          "file": "plugins/codex/.crabpot-package/dist/client-CoctX13d.js",
+          "file": "plugins/codex/.crabpot-package/dist/client-iRf11BEu.js",
           "line": 6,
-          "ref": "plugins/codex/.crabpot-package/dist/client-CoctX13d.js:6"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/windows-spawn",
-          "file": "plugins/codex/.crabpot-package/dist/node-cli-sessions-CiexDHeV.js",
-          "line": 10,
-          "ref": "plugins/codex/.crabpot-package/dist/node-cli-sessions-CiexDHeV.js:10"
+          "ref": "plugins/codex/.crabpot-package/dist/client-iRf11BEu.js:6"
         }
       ]
     },
@@ -21860,7 +21827,7 @@
       "package": {
         "path": "plugins/diagnostics-prometheus/.crabpot-package/package.json",
         "name": "@openclaw/diagnostics-prometheus",
-        "version": "2026.5.14-beta.2",
+        "version": "2026.5.12",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -21886,8 +21853,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.14-beta.2",
-          "buildOpenClawVersion": "2026.5.14-beta.2",
+          "compatPluginApi": ">=2026.5.12",
+          "buildOpenClawVersion": "2026.5.12",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": "clawhub:@openclaw/diagnostics-prometheus",
@@ -21922,7 +21889,7 @@
         {
           "path": "plugins/diagnostics-prometheus/.crabpot-package/package.json",
           "name": "@openclaw/diagnostics-prometheus",
-          "version": "2026.5.14-beta.2",
+          "version": "2026.5.12",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -21948,8 +21915,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.14-beta.2",
-            "buildOpenClawVersion": "2026.5.14-beta.2",
+            "compatPluginApi": ">=2026.5.12",
+            "buildOpenClawVersion": "2026.5.12",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": "clawhub:@openclaw/diagnostics-prometheus",
@@ -22052,38 +22019,44 @@
         {
           "name": "definePluginEntry",
           "file": "plugins/google-meet/.crabpot-package/dist/index.js",
-          "line": 4591,
-          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4591"
+          "line": 4580,
+          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4580"
         },
         {
           "name": "registerCli",
           "file": "plugins/google-meet/.crabpot-package/dist/index.js",
-          "line": 4961,
-          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4961"
+          "line": 4950,
+          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4950"
         },
         {
           "name": "registerGatewayMethod",
           "file": "plugins/google-meet/.crabpot-package/dist/index.js",
-          "line": 4614,
-          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4614"
+          "line": 4603,
+          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4603"
         },
         {
           "name": "registerGatewayMethod",
           "file": "plugins/google-meet/.crabpot-package/dist/index.js",
-          "line": 4630,
-          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4630"
+          "line": 4619,
+          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4619"
         },
         {
           "name": "registerGatewayMethod",
           "file": "plugins/google-meet/.crabpot-package/dist/index.js",
-          "line": 4647,
-          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4647"
+          "line": 4636,
+          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4636"
         },
         {
           "name": "registerGatewayMethod",
           "file": "plugins/google-meet/.crabpot-package/dist/index.js",
-          "line": 4654,
-          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4654"
+          "line": 4643,
+          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4643"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/google-meet/.crabpot-package/dist/index.js",
+          "line": 4653,
+          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4653"
         },
         {
           "name": "registerGatewayMethod",
@@ -22094,38 +22067,38 @@
         {
           "name": "registerGatewayMethod",
           "file": "plugins/google-meet/.crabpot-package/dist/index.js",
-          "line": 4675,
-          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4675"
+          "line": 4684,
+          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4684"
         },
         {
           "name": "registerGatewayMethod",
           "file": "plugins/google-meet/.crabpot-package/dist/index.js",
-          "line": 4695,
-          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4695"
+          "line": 4699,
+          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4699"
         },
         {
           "name": "registerGatewayMethod",
           "file": "plugins/google-meet/.crabpot-package/dist/index.js",
-          "line": 4710,
-          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4710"
+          "line": 4715,
+          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4715"
         },
         {
           "name": "registerGatewayMethod",
           "file": "plugins/google-meet/.crabpot-package/dist/index.js",
-          "line": 4726,
-          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4726"
+          "line": 4732,
+          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4732"
         },
         {
           "name": "registerGatewayMethod",
           "file": "plugins/google-meet/.crabpot-package/dist/index.js",
-          "line": 4743,
-          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4743"
+          "line": 4739,
+          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4739"
         },
         {
           "name": "registerGatewayMethod",
           "file": "plugins/google-meet/.crabpot-package/dist/index.js",
-          "line": 4750,
-          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4750"
+          "line": 4751,
+          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4751"
         },
         {
           "name": "registerGatewayMethod",
@@ -22136,32 +22109,26 @@
         {
           "name": "registerGatewayMethod",
           "file": "plugins/google-meet/.crabpot-package/dist/index.js",
-          "line": 4773,
-          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4773"
+          "line": 4774,
+          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4774"
         },
         {
           "name": "registerGatewayMethod",
           "file": "plugins/google-meet/.crabpot-package/dist/index.js",
-          "line": 4785,
-          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4785"
-        },
-        {
-          "name": "registerGatewayMethod",
-          "file": "plugins/google-meet/.crabpot-package/dist/index.js",
-          "line": 4801,
-          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4801"
+          "line": 4790,
+          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4790"
         },
         {
           "name": "registerNodeHostCommand",
           "file": "plugins/google-meet/.crabpot-package/dist/index.js",
-          "line": 4956,
-          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4956"
+          "line": 4945,
+          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4945"
         },
         {
           "name": "registerTool",
           "file": "plugins/google-meet/.crabpot-package/dist/index.js",
-          "line": 4813,
-          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4813"
+          "line": 4802,
+          "ref": "plugins/google-meet/.crabpot-package/dist/index.js:4802"
         }
       ],
       "manifestContracts": [
@@ -22171,10 +22138,10 @@
         "plugins/google-meet/.crabpot-package/openclaw.plugin.json"
       ],
       "sourceFiles": [
-        "plugins/google-meet/.crabpot-package/dist/calendar-BMtsguNV.js",
-        "plugins/google-meet/.crabpot-package/dist/chrome-create-Bd4beDZU.js",
-        "plugins/google-meet/.crabpot-package/dist/cli-hjf5xNts.js",
-        "plugins/google-meet/.crabpot-package/dist/create-CJGiIpwq.js",
+        "plugins/google-meet/.crabpot-package/dist/calendar-DXHh6IyF.js",
+        "plugins/google-meet/.crabpot-package/dist/chrome-create-D0XLX4Ed.js",
+        "plugins/google-meet/.crabpot-package/dist/cli-CGPKAXd7.js",
+        "plugins/google-meet/.crabpot-package/dist/create-DTXzAV4a.js",
         "plugins/google-meet/.crabpot-package/dist/doctor-contract-api.js",
         "plugins/google-meet/.crabpot-package/dist/index.js",
         "plugins/google-meet/.crabpot-package/dist/oauth-BJwzuzT-.js"
@@ -22217,7 +22184,7 @@
       "package": {
         "path": "plugins/google-meet/.crabpot-package/package.json",
         "name": "@openclaw/google-meet",
-        "version": "2026.5.14-beta.2",
+        "version": "2026.5.12",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -22246,8 +22213,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.14-beta.2",
-          "buildOpenClawVersion": "2026.5.14-beta.2",
+          "compatPluginApi": ">=2026.5.12",
+          "buildOpenClawVersion": "2026.5.12",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -22282,7 +22249,7 @@
         {
           "path": "plugins/google-meet/.crabpot-package/package.json",
           "name": "@openclaw/google-meet",
-          "version": "2026.5.14-beta.2",
+          "version": "2026.5.12",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -22311,8 +22278,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.14-beta.2",
-            "buildOpenClawVersion": "2026.5.14-beta.2",
+            "compatPluginApi": ">=2026.5.12",
+            "buildOpenClawVersion": "2026.5.12",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -22380,9 +22347,9 @@
       "sdkImportDetails": [
         {
           "specifier": "openclaw/plugin-sdk/error-runtime",
-          "file": "plugins/google-meet/.crabpot-package/dist/cli-hjf5xNts.js",
+          "file": "plugins/google-meet/.crabpot-package/dist/cli-CGPKAXd7.js",
           "line": 5,
-          "ref": "plugins/google-meet/.crabpot-package/dist/cli-hjf5xNts.js:5"
+          "ref": "plugins/google-meet/.crabpot-package/dist/cli-CGPKAXd7.js:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/error-runtime",
@@ -22392,9 +22359,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/gateway-runtime",
-          "file": "plugins/google-meet/.crabpot-package/dist/cli-hjf5xNts.js",
+          "file": "plugins/google-meet/.crabpot-package/dist/cli-CGPKAXd7.js",
           "line": 6,
-          "ref": "plugins/google-meet/.crabpot-package/dist/cli-hjf5xNts.js:6"
+          "ref": "plugins/google-meet/.crabpot-package/dist/cli-CGPKAXd7.js:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/gateway-runtime",
@@ -22440,9 +22407,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "file": "plugins/google-meet/.crabpot-package/dist/chrome-create-Bd4beDZU.js",
+          "file": "plugins/google-meet/.crabpot-package/dist/chrome-create-D0XLX4Ed.js",
           "line": 2,
-          "ref": "plugins/google-meet/.crabpot-package/dist/chrome-create-Bd4beDZU.js:2"
+          "ref": "plugins/google-meet/.crabpot-package/dist/chrome-create-D0XLX4Ed.js:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-env",
@@ -22452,15 +22419,15 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "file": "plugins/google-meet/.crabpot-package/dist/calendar-BMtsguNV.js",
+          "file": "plugins/google-meet/.crabpot-package/dist/calendar-DXHh6IyF.js",
           "line": 2,
-          "ref": "plugins/google-meet/.crabpot-package/dist/calendar-BMtsguNV.js:2"
+          "ref": "plugins/google-meet/.crabpot-package/dist/calendar-DXHh6IyF.js:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "file": "plugins/google-meet/.crabpot-package/dist/chrome-create-Bd4beDZU.js",
+          "file": "plugins/google-meet/.crabpot-package/dist/chrome-create-D0XLX4Ed.js",
           "line": 1,
-          "ref": "plugins/google-meet/.crabpot-package/dist/chrome-create-Bd4beDZU.js:1"
+          "ref": "plugins/google-meet/.crabpot-package/dist/chrome-create-D0XLX4Ed.js:1"
         },
         {
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
@@ -22476,9 +22443,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "file": "plugins/google-meet/.crabpot-package/dist/create-CJGiIpwq.js",
+          "file": "plugins/google-meet/.crabpot-package/dist/create-DTXzAV4a.js",
           "line": 3,
-          "ref": "plugins/google-meet/.crabpot-package/dist/create-CJGiIpwq.js:3"
+          "ref": "plugins/google-meet/.crabpot-package/dist/create-DTXzAV4a.js:3"
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
@@ -22580,7 +22547,7 @@
       "package": {
         "path": "plugins/diffs/.crabpot-package/package.json",
         "name": "@openclaw/diffs",
-        "version": "2026.5.14-beta.2",
+        "version": "2026.5.12",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -22614,8 +22581,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.14-beta.2",
-          "buildOpenClawVersion": "2026.5.14-beta.2",
+          "compatPluginApi": ">=2026.5.12",
+          "buildOpenClawVersion": "2026.5.12",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -22650,7 +22617,7 @@
         {
           "path": "plugins/diffs/.crabpot-package/package.json",
           "name": "@openclaw/diffs",
-          "version": "2026.5.14-beta.2",
+          "version": "2026.5.12",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -22684,8 +22651,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.14-beta.2",
-            "buildOpenClawVersion": "2026.5.14-beta.2",
+            "compatPluginApi": ">=2026.5.12",
+            "buildOpenClawVersion": "2026.5.12",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -22840,20 +22807,20 @@
         {
           "name": "agent_end",
           "file": "plugins/memory-lancedb/.crabpot-package/dist/index.js",
-          "line": 668,
-          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:668"
+          "line": 658,
+          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:658"
         },
         {
           "name": "before_prompt_build",
           "file": "plugins/memory-lancedb/.crabpot-package/dist/index.js",
-          "line": 640,
-          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:640"
+          "line": 630,
+          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:630"
         },
         {
           "name": "session_end",
           "file": "plugins/memory-lancedb/.crabpot-package/dist/index.js",
-          "line": 712,
-          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:712"
+          "line": 699,
+          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:699"
         }
       ],
       "registrations": [
@@ -22872,8 +22839,8 @@
         {
           "name": "definePluginEntry",
           "file": "plugins/memory-lancedb/.crabpot-package/dist/index.js",
-          "line": 359,
-          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:359"
+          "line": 349,
+          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:349"
         },
         {
           "name": "registerCli",
@@ -22884,38 +22851,38 @@
         {
           "name": "registerCli",
           "file": "plugins/memory-lancedb/.crabpot-package/dist/index.js",
-          "line": 572,
-          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:572"
+          "line": 562,
+          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:562"
         },
         {
           "name": "registerService",
           "file": "plugins/memory-lancedb/.crabpot-package/dist/index.js",
-          "line": 370,
-          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:370"
+          "line": 360,
+          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:360"
         },
         {
           "name": "registerService",
           "file": "plugins/memory-lancedb/.crabpot-package/dist/index.js",
-          "line": 718,
-          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:718"
+          "line": 705,
+          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:705"
         },
         {
           "name": "registerTool",
           "file": "plugins/memory-lancedb/.crabpot-package/dist/index.js",
-          "line": 413,
-          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:413"
+          "line": 403,
+          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:403"
         },
         {
           "name": "registerTool",
           "file": "plugins/memory-lancedb/.crabpot-package/dist/index.js",
-          "line": 453,
-          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:453"
+          "line": 443,
+          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:443"
         },
         {
           "name": "registerTool",
           "file": "plugins/memory-lancedb/.crabpot-package/dist/index.js",
-          "line": 498,
-          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:498"
+          "line": 488,
+          "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:488"
         }
       ],
       "manifestContracts": [
@@ -22964,7 +22931,7 @@
       "package": {
         "path": "plugins/memory-lancedb/.crabpot-package/package.json",
         "name": "@openclaw/memory-lancedb",
-        "version": "2026.5.14-beta.2",
+        "version": "2026.5.12",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -22995,8 +22962,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.14-beta.2",
-          "buildOpenClawVersion": "2026.5.14-beta.2",
+          "compatPluginApi": ">=2026.5.12",
+          "buildOpenClawVersion": "2026.5.12",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -23031,7 +22998,7 @@
         {
           "path": "plugins/memory-lancedb/.crabpot-package/package.json",
           "name": "@openclaw/memory-lancedb",
-          "version": "2026.5.14-beta.2",
+          "version": "2026.5.12",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -23062,8 +23029,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.14-beta.2",
-            "buildOpenClawVersion": "2026.5.14-beta.2",
+            "compatPluginApi": ">=2026.5.12",
+            "buildOpenClawVersion": "2026.5.12",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -23244,21 +23211,28 @@
       ],
       "sourceFiles": [
         "plugins/openclaw-qqbot/.crabpot-package/dist/api.js",
-        "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js",
+        "plugins/openclaw-qqbot/.crabpot-package/dist/approval-cg0SVahb.js",
+        "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CmK-n3Oz.js",
         "plugins/openclaw-qqbot/.crabpot-package/dist/channel-plugin-api.js",
-        "plugins/openclaw-qqbot/.crabpot-package/dist/channel.setup-D_8Ryfln.js",
-        "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js",
-        "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js",
-        "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-DMMHU4NC.js",
+        "plugins/openclaw-qqbot/.crabpot-package/dist/channel.setup-D_GS95Pk.js",
+        "plugins/openclaw-qqbot/.crabpot-package/dist/config-BT8KP_H1.js",
+        "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BCxobX3l.js",
+        "plugins/openclaw-qqbot/.crabpot-package/dist/exec-approvals-W4oL9R6C.js",
+        "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js",
+        "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-ZgvjnyoH.js",
         "plugins/openclaw-qqbot/.crabpot-package/dist/index.js",
-        "plugins/openclaw-qqbot/.crabpot-package/dist/outbound-DTQUASKu.js",
-        "plugins/openclaw-qqbot/.crabpot-package/dist/request-context-DiWgzdpn.js",
-        "plugins/openclaw-qqbot/.crabpot-package/dist/runtime-BFcYWYuk.js",
+        "plugins/openclaw-qqbot/.crabpot-package/dist/narrowing-BoieBTIU.js",
+        "plugins/openclaw-qqbot/.crabpot-package/dist/outbound-BLWish89.js",
+        "plugins/openclaw-qqbot/.crabpot-package/dist/request-context-BwSBFANU.js",
+        "plugins/openclaw-qqbot/.crabpot-package/dist/resolve-D3lCbUze.js",
+        "plugins/openclaw-qqbot/.crabpot-package/dist/runtime-CZyFkpnB.js",
         "plugins/openclaw-qqbot/.crabpot-package/dist/runtime-api.js",
         "plugins/openclaw-qqbot/.crabpot-package/dist/secret-contract-api.js",
+        "plugins/openclaw-qqbot/.crabpot-package/dist/sender-BrpzCcXA.js",
         "plugins/openclaw-qqbot/.crabpot-package/dist/setup-entry.js",
         "plugins/openclaw-qqbot/.crabpot-package/dist/setup-plugin-api.js",
-        "plugins/openclaw-qqbot/.crabpot-package/dist/string-normalize-C46CS-F1.js"
+        "plugins/openclaw-qqbot/.crabpot-package/dist/string-normalize-C46CS-F1.js",
+        "plugins/openclaw-qqbot/.crabpot-package/dist/target-parser-C8HaD-ik.js"
       ],
       "pluginManifests": [
         {
@@ -23296,7 +23270,7 @@
       "package": {
         "path": "plugins/openclaw-qqbot/.crabpot-package/package.json",
         "name": "@openclaw/qqbot",
-        "version": "2026.5.14-beta.2",
+        "version": "2026.5.12",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -23329,8 +23303,8 @@
             "./dist/index.js"
           ],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.5.14-beta.2",
-          "buildOpenClawVersion": "2026.5.14-beta.2",
+          "compatPluginApi": ">=2026.5.12",
+          "buildOpenClawVersion": "2026.5.12",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -23372,7 +23346,7 @@
         {
           "path": "plugins/openclaw-qqbot/.crabpot-package/package.json",
           "name": "@openclaw/qqbot",
-          "version": "2026.5.14-beta.2",
+          "version": "2026.5.12",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -23405,8 +23379,8 @@
               "./dist/index.js"
             ],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.5.14-beta.2",
-            "buildOpenClawVersion": "2026.5.14-beta.2",
+            "compatPluginApi": ">=2026.5.12",
+            "buildOpenClawVersion": "2026.5.12",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -23509,63 +23483,69 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/approval-auth-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js",
-          "line": 10,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js:10"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/exec-approvals-W4oL9R6C.js",
+          "line": 4,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/exec-approvals-W4oL9R6C.js:4"
         },
         {
           "specifier": "openclaw/plugin-sdk/approval-client-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js",
-          "line": 11,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js:11"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/exec-approvals-W4oL9R6C.js",
+          "line": 5,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/exec-approvals-W4oL9R6C.js:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/approval-delivery-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js",
-          "line": 6,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js:6"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CmK-n3Oz.js",
+          "line": 12,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CmK-n3Oz.js:12"
         },
         {
           "specifier": "openclaw/plugin-sdk/approval-gateway-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js",
-          "line": 100,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js:100"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/resolve-D3lCbUze.js",
+          "line": 93,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/resolve-D3lCbUze.js:93"
         },
         {
           "specifier": "openclaw/plugin-sdk/approval-handler-adapter-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js",
-          "line": 7,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js:7"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CmK-n3Oz.js",
+          "line": 13,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CmK-n3Oz.js:13"
         },
         {
           "specifier": "openclaw/plugin-sdk/approval-handler-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-DMMHU4NC.js",
-          "line": 5,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-DMMHU4NC.js:5"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-ZgvjnyoH.js",
+          "line": 7,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-ZgvjnyoH.js:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/approval-native-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js",
-          "line": 8,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js:8"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CmK-n3Oz.js",
+          "line": 14,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CmK-n3Oz.js:14"
         },
         {
           "specifier": "openclaw/plugin-sdk/approval-native-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-DMMHU4NC.js",
-          "line": 4,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-DMMHU4NC.js:4"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/exec-approvals-W4oL9R6C.js",
+          "line": 2,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/exec-approvals-W4oL9R6C.js:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/approval-native-runtime",
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-ZgvjnyoH.js",
+          "line": 6,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-ZgvjnyoH.js:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/approval-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js",
-          "line": 4,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js:4"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CmK-n3Oz.js",
+          "line": 10,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CmK-n3Oz.js:10"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-config-schema",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js",
-          "line": 9,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js:9"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BCxobX3l.js",
+          "line": 8,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BCxobX3l.js:8"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-entry-contract",
@@ -23581,21 +23561,21 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-ingress-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js",
-          "line": 22,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js:22"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js",
+          "line": 25,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js:25"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-mention-gating",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js",
-          "line": 23,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js:23"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js",
+          "line": 26,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js:26"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-message",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js",
-          "line": 5,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js:5"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CmK-n3Oz.js",
+          "line": 11,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CmK-n3Oz.js:11"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-secret-basic-runtime",
@@ -23605,165 +23585,183 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/cli-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js",
-          "line": 16,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js:16"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js",
+          "line": 19,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js:19"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js",
-          "line": 6,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js:6"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BCxobX3l.js",
+          "line": 5,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BCxobX3l.js:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/extension-shared",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js",
-          "line": 19,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js:19"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js",
+          "line": 22,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js:22"
         },
         {
           "specifier": "openclaw/plugin-sdk/json-store",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js",
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CmK-n3Oz.js",
           "line": 19,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js:19"
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CmK-n3Oz.js:19"
         },
         {
           "specifier": "openclaw/plugin-sdk/json-store",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/request-context-DiWgzdpn.js",
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/request-context-BwSBFANU.js",
           "line": 5,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/request-context-DiWgzdpn.js:5"
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/request-context-BwSBFANU.js:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/media-mime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js",
-          "line": 15,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js:15"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js",
+          "line": 18,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js:18"
         },
         {
           "specifier": "openclaw/plugin-sdk/media-mime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/outbound-DTQUASKu.js",
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/outbound-BLWish89.js",
           "line": 6,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/outbound-DTQUASKu.js:6"
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/outbound-BLWish89.js:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/media-mime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/runtime-BFcYWYuk.js",
-          "line": 10,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/runtime-BFcYWYuk.js:10"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/sender-BrpzCcXA.js",
+          "line": 9,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/sender-BrpzCcXA.js:9"
         },
         {
           "specifier": "openclaw/plugin-sdk/media-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js",
-          "line": 58,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js:58"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/resolve-D3lCbUze.js",
+          "line": 51,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/resolve-D3lCbUze.js:51"
         },
         {
           "specifier": "openclaw/plugin-sdk/media-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js",
-          "line": 71,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js:71"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/resolve-D3lCbUze.js",
+          "line": 64,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/resolve-D3lCbUze.js:64"
         },
         {
           "specifier": "openclaw/plugin-sdk/provider-auth",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js",
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-BT8KP_H1.js",
           "line": 5,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js:5"
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-BT8KP_H1.js:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-history",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js",
-          "line": 24,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js:24"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js",
+          "line": 27,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js:27"
         },
         {
           "specifier": "openclaw/plugin-sdk/routing",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js",
-          "line": 12,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js:12"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/exec-approvals-W4oL9R6C.js",
+          "line": 6,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/exec-approvals-W4oL9R6C.js:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-config-snapshot",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js",
-          "line": 99,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js:99"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js",
+          "line": 20,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js:20"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-config-snapshot",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js",
-          "line": 17,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js:17"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/resolve-D3lCbUze.js",
+          "line": 92,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/resolve-D3lCbUze.js:92"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-store",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/runtime-BFcYWYuk.js",
-          "line": 3,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/runtime-BFcYWYuk.js:3"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/runtime-CZyFkpnB.js",
+          "line": 2,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/runtime-CZyFkpnB.js:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/secret-input",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js",
-          "line": 2,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js:2"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-BT8KP_H1.js",
+          "line": 3,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-BT8KP_H1.js:3"
         },
         {
-          "specifier": "openclaw/plugin-sdk/security-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js",
-          "line": 16,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js:16"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/security-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js",
-          "line": 12,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js:12"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/security-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/outbound-DTQUASKu.js",
+          "specifier": "openclaw/plugin-sdk/secret-input",
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BCxobX3l.js",
           "line": 4,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/outbound-DTQUASKu.js:4"
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BCxobX3l.js:4"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/secret-input",
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/resolve-D3lCbUze.js",
+          "line": 2,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/resolve-D3lCbUze.js:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/security-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/runtime-BFcYWYuk.js",
-          "line": 8,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/runtime-BFcYWYuk.js:8"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CmK-n3Oz.js",
+          "line": 17,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CmK-n3Oz.js:17"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/security-runtime",
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js",
+          "line": 15,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js:15"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/security-runtime",
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/outbound-BLWish89.js",
+          "line": 4,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/outbound-BLWish89.js:4"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/security-runtime",
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/sender-BrpzCcXA.js",
+          "line": 7,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/sender-BrpzCcXA.js:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/setup",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js",
-          "line": 7,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js:7"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BCxobX3l.js",
+          "line": 6,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BCxobX3l.js:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/setup-tools",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js",
-          "line": 8,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js:8"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js",
-          "line": 11,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bz_nu9BP.js:11"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/runtime-BFcYWYuk.js",
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BCxobX3l.js",
           "line": 7,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/runtime-BFcYWYuk.js:7"
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BCxobX3l.js:7"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/ssrf-runtime",
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js",
+          "line": 14,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-Bbsd8-ne.js:14"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/ssrf-runtime",
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/sender-BrpzCcXA.js",
+          "line": 6,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/sender-BrpzCcXA.js:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js",
-          "line": 9,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-nG7HntSR.js:9"
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CmK-n3Oz.js",
+          "line": 15,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CmK-n3Oz.js:15"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/exec-approvals-W4oL9R6C.js",
+          "line": 3,
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/exec-approvals-W4oL9R6C.js:3"
         },
         {
           "specifier": "openclaw/plugin-sdk/temp-path",
-          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js",
+          "file": "plugins/openclaw-qqbot/.crabpot-package/dist/resolve-D3lCbUze.js",
           "line": 3,
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BE5YP0NG.js:3"
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/resolve-D3lCbUze.js:3"
         }
       ]
     },
@@ -23789,9 +23787,9 @@
       "registrationDetails": [
         {
           "name": "createChatChannelPlugin",
-          "file": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js",
-          "line": 334,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js:334"
+          "file": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js",
+          "line": 335,
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js:335"
         },
         {
           "name": "defineBundledChannelEntry",
@@ -23805,34 +23803,34 @@
         "plugins/whatsapp/.crabpot-package/openclaw.plugin.json"
       ],
       "sourceFiles": [
-        "plugins/whatsapp/.crabpot-package/dist/access-control-Di_o41dj.js",
+        "plugins/whatsapp/.crabpot-package/dist/access-control-BEpPB-Jx.js",
         "plugins/whatsapp/.crabpot-package/dist/account-config-CNQ33oav.js",
         "plugins/whatsapp/.crabpot-package/dist/account-ids-DG18xddX.js",
         "plugins/whatsapp/.crabpot-package/dist/accounts-B4oR6Dhx.js",
         "plugins/whatsapp/.crabpot-package/dist/action-runtime-api.js",
         "plugins/whatsapp/.crabpot-package/dist/action-runtime-lppOTCTN.js",
         "plugins/whatsapp/.crabpot-package/dist/action-runtime.runtime.js",
-        "plugins/whatsapp/.crabpot-package/dist/active-listener-D2NHQ5Og.js",
+        "plugins/whatsapp/.crabpot-package/dist/active-listener-DTbKS-j-.js",
         "plugins/whatsapp/.crabpot-package/dist/agent-tools-login-DpRxLNRB.js",
         "plugins/whatsapp/.crabpot-package/dist/api.js",
-        "plugins/whatsapp/.crabpot-package/dist/audio-preflight.runtime-CIFjeaEN.js",
+        "plugins/whatsapp/.crabpot-package/dist/audio-preflight.runtime-MmkB-pgX.js",
         "plugins/whatsapp/.crabpot-package/dist/auth-presence.js",
-        "plugins/whatsapp/.crabpot-package/dist/auth-store-DpwdTmoO.js",
-        "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js",
+        "plugins/whatsapp/.crabpot-package/dist/auth-store-_ScMvp7r.js",
+        "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js",
         "plugins/whatsapp/.crabpot-package/dist/channel-config-api.js",
         "plugins/whatsapp/.crabpot-package/dist/channel-plugin-api.js",
-        "plugins/whatsapp/.crabpot-package/dist/channel-react-action-DakXTHIg.js",
-        "plugins/whatsapp/.crabpot-package/dist/channel.runtime-DfdgaaVG.js",
-        "plugins/whatsapp/.crabpot-package/dist/channel.setup-D6lbUvfP.js",
+        "plugins/whatsapp/.crabpot-package/dist/channel-react-action-C1wufQtL.js",
+        "plugins/whatsapp/.crabpot-package/dist/channel.runtime-C4Ywu0dZ.js",
+        "plugins/whatsapp/.crabpot-package/dist/channel.setup-DKp_w5Ru.js",
         "plugins/whatsapp/.crabpot-package/dist/command-policy-O8sRnqUV.js",
         "plugins/whatsapp/.crabpot-package/dist/config-schema-Dmo66Ubb.js",
-        "plugins/whatsapp/.crabpot-package/dist/connection-controller-DVOzuzJk.js",
+        "plugins/whatsapp/.crabpot-package/dist/connection-controller-CT8NA6Zf.js",
         "plugins/whatsapp/.crabpot-package/dist/connection-controller-registry-D_iIGz5m.js",
-        "plugins/whatsapp/.crabpot-package/dist/constants-yKXGCGU9.js",
+        "plugins/whatsapp/.crabpot-package/dist/constants-DLGCIbfl.js",
         "plugins/whatsapp/.crabpot-package/dist/constants.js",
         "plugins/whatsapp/.crabpot-package/dist/contract-api.js",
         "plugins/whatsapp/.crabpot-package/dist/creds-files-_2V8jzQa.js",
-        "plugins/whatsapp/.crabpot-package/dist/directory-config-ClsMAYen.js",
+        "plugins/whatsapp/.crabpot-package/dist/directory-config-CE74HYlw.js",
         "plugins/whatsapp/.crabpot-package/dist/directory-contract-api.js",
         "plugins/whatsapp/.crabpot-package/dist/doctor-A9tXm9Om.js",
         "plugins/whatsapp/.crabpot-package/dist/doctor-contract-api.js",
@@ -23842,40 +23840,41 @@
         "plugins/whatsapp/.crabpot-package/dist/legacy-session-surface-api.js",
         "plugins/whatsapp/.crabpot-package/dist/legacy-state-migrations-api.js",
         "plugins/whatsapp/.crabpot-package/dist/light-runtime-api.js",
-        "plugins/whatsapp/.crabpot-package/dist/login-Du1MplXB.js",
-        "plugins/whatsapp/.crabpot-package/dist/login-qr-Bfsxe1bh.js",
+        "plugins/whatsapp/.crabpot-package/dist/login-B_pa3YAU.js",
+        "plugins/whatsapp/.crabpot-package/dist/login-qr-C33im-qS.js",
         "plugins/whatsapp/.crabpot-package/dist/login-qr-api.js",
         "plugins/whatsapp/.crabpot-package/dist/login-qr-runtime.js",
-        "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+        "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
         "plugins/whatsapp/.crabpot-package/dist/normalize-f31evwm8.js",
         "plugins/whatsapp/.crabpot-package/dist/normalize-target-ePanEpfY.js",
-        "plugins/whatsapp/.crabpot-package/dist/outbound-adapter-B8fD5esZ.js",
+        "plugins/whatsapp/.crabpot-package/dist/outbound-adapter-Bs0e4qVd.js",
         "plugins/whatsapp/.crabpot-package/dist/outbound-base-BgtywpNm.js",
         "plugins/whatsapp/.crabpot-package/dist/outbound-media-contract-zq9aNgT8.js",
         "plugins/whatsapp/.crabpot-package/dist/outbound-payload-test-api.js",
         "plugins/whatsapp/.crabpot-package/dist/quoted-message-BQsRXnac.js",
         "plugins/whatsapp/.crabpot-package/dist/reaction-level-2m9sWGCw.js",
-        "plugins/whatsapp/.crabpot-package/dist/reply-resolver.runtime-CROyXXQh.js",
+        "plugins/whatsapp/.crabpot-package/dist/reply-resolver.runtime-rIVWohXr.js",
         "plugins/whatsapp/.crabpot-package/dist/resolve-outbound-target-BKcv4ofn.js",
         "plugins/whatsapp/.crabpot-package/dist/rolldown-runtime-CiIaOW0V.js",
         "plugins/whatsapp/.crabpot-package/dist/runtime-6fZ67abR.js",
         "plugins/whatsapp/.crabpot-package/dist/runtime-api.js",
-        "plugins/whatsapp/.crabpot-package/dist/runtime-group-policy-BH_U23qp.js",
+        "plugins/whatsapp/.crabpot-package/dist/runtime-group-policy-Gp1lQ0at.js",
         "plugins/whatsapp/.crabpot-package/dist/secret-contract-api.js",
         "plugins/whatsapp/.crabpot-package/dist/security-contract-CvfWex9e.js",
         "plugins/whatsapp/.crabpot-package/dist/security-contract-api.js",
         "plugins/whatsapp/.crabpot-package/dist/send-DBfXQDd4.js",
-        "plugins/whatsapp/.crabpot-package/dist/send-api-DYiQpIng.js",
+        "plugins/whatsapp/.crabpot-package/dist/send-api-DD93aPIQ.js",
+        "plugins/whatsapp/.crabpot-package/dist/session-ZZQKkOTz.js",
         "plugins/whatsapp/.crabpot-package/dist/session-contract-B0efQf9P.js",
         "plugins/whatsapp/.crabpot-package/dist/session-errors-CSuKZPub.js",
-        "plugins/whatsapp/.crabpot-package/dist/session-lrTa-USS.js",
-        "plugins/whatsapp/.crabpot-package/dist/session.runtime-BxyATGX0.js",
-        "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js",
+        "plugins/whatsapp/.crabpot-package/dist/session.runtime-CZQ0ycCg.js",
+        "plugins/whatsapp/.crabpot-package/dist/setup-core-DZKvpzbH.js",
         "plugins/whatsapp/.crabpot-package/dist/setup-entry.js",
-        "plugins/whatsapp/.crabpot-package/dist/setup-finalize-DTWoYzBv.js",
+        "plugins/whatsapp/.crabpot-package/dist/setup-finalize-C1S1U-hY.js",
         "plugins/whatsapp/.crabpot-package/dist/setup-plugin-api.js",
-        "plugins/whatsapp/.crabpot-package/dist/setup-surface-BW2z_2Oc.js",
-        "plugins/whatsapp/.crabpot-package/dist/state-migrations-CtdIArlK.js",
+        "plugins/whatsapp/.crabpot-package/dist/setup-surface-BbwSSEsy.js",
+        "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js",
+        "plugins/whatsapp/.crabpot-package/dist/state-migrations-Bm0S67yH.js",
         "plugins/whatsapp/.crabpot-package/dist/targets.js",
         "plugins/whatsapp/.crabpot-package/dist/test-api.js",
         "plugins/whatsapp/.crabpot-package/dist/text-runtime-CMxQczvs.js"
@@ -23905,7 +23904,7 @@
       "package": {
         "path": "plugins/whatsapp/.crabpot-package/package.json",
         "name": "@openclaw/whatsapp",
-        "version": "2026.5.14-beta.2",
+        "version": "2026.5.12",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -23938,8 +23937,8 @@
             "./dist/index.js"
           ],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.5.14-beta.2",
-          "buildOpenClawVersion": "2026.5.14-beta.2",
+          "compatPluginApi": ">=2026.5.12",
+          "buildOpenClawVersion": "2026.5.12",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": "clawhub:@openclaw/whatsapp",
@@ -23981,7 +23980,7 @@
         {
           "path": "plugins/whatsapp/.crabpot-package/package.json",
           "name": "@openclaw/whatsapp",
-          "version": "2026.5.14-beta.2",
+          "version": "2026.5.12",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -24014,8 +24013,8 @@
               "./dist/index.js"
             ],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.5.14-beta.2",
-            "buildOpenClawVersion": "2026.5.14-beta.2",
+            "compatPluginApi": ">=2026.5.12",
+            "buildOpenClawVersion": "2026.5.12",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": "clawhub:@openclaw/whatsapp",
@@ -24168,9 +24167,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/account-core",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 15,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:15"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:15"
         },
         {
           "specifier": "openclaw/plugin-sdk/account-core",
@@ -24180,15 +24179,15 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/account-core",
-          "file": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js",
           "line": 9,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js:9"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js:9"
         },
         {
           "specifier": "openclaw/plugin-sdk/account-helpers",
-          "file": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js",
           "line": 14,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js:14"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js:14"
         },
         {
           "specifier": "openclaw/plugin-sdk/account-id",
@@ -24198,21 +24197,21 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/account-id",
-          "file": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js",
-          "line": 20,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js:20"
+          "file": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js",
+          "line": 21,
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js:21"
         },
         {
           "specifier": "openclaw/plugin-sdk/account-id",
-          "file": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js",
           "line": 12,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js:12"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js:12"
         },
         {
           "specifier": "openclaw/plugin-sdk/account-id",
-          "file": "plugins/whatsapp/.crabpot-package/dist/state-migrations-CtdIArlK.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/state-migrations-Bm0S67yH.js",
           "line": 4,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/state-migrations-CtdIArlK.js:4"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/state-migrations-Bm0S67yH.js:4"
         },
         {
           "specifier": "openclaw/plugin-sdk/account-resolution",
@@ -24228,9 +24227,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/account-resolution",
-          "file": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js",
           "line": 10,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js:10"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js:10"
         },
         {
           "specifier": "openclaw/plugin-sdk/account-resolution",
@@ -24240,21 +24239,21 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 51,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:51"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:51"
         },
         {
           "specifier": "openclaw/plugin-sdk/allowlist-config-edit",
-          "file": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js",
-          "line": 21,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js:21"
+          "file": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js",
+          "line": 22,
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js:22"
         },
         {
           "specifier": "openclaw/plugin-sdk/approval-auth-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js",
-          "line": 24,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js:24"
+          "file": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js",
+          "line": 25,
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js:25"
         },
         {
           "specifier": "openclaw/plugin-sdk/bundled-channel-config-schema",
@@ -24270,39 +24269,39 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-actions",
-          "file": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js",
-          "line": 16,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js:16"
+          "file": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js",
+          "line": 17,
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js:17"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-actions",
-          "file": "plugins/whatsapp/.crabpot-package/dist/channel-react-action-DakXTHIg.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/channel-react-action-C1wufQtL.js",
           "line": 4,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-react-action-DakXTHIg.js:4"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-react-action-C1wufQtL.js:4"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-activity-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 33,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:33"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:33"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-activity-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/send-api-DYiQpIng.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/send-api-DD93aPIQ.js",
           "line": 11,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/send-api-DYiQpIng.js:11"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/send-api-DD93aPIQ.js:11"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-config-helpers",
-          "file": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js",
           "line": 15,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js:15"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js:15"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-core",
-          "file": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js",
-          "line": 22,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js:22"
+          "file": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js",
+          "line": 23,
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js:23"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-entry-contract",
@@ -24318,15 +24317,15 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-envelope",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 52,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:52"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:52"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-feedback",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 17,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:17"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:17"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-feedback",
@@ -24336,81 +24335,81 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-inbound",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 32,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:32"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:32"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-inbound",
-          "file": "plugins/whatsapp/.crabpot-package/dist/send-api-DYiQpIng.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/send-api-DD93aPIQ.js",
           "line": 10,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/send-api-DYiQpIng.js:10"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/send-api-DD93aPIQ.js:10"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-inbound-debounce",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 35,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:35"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:35"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-ingress-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/access-control-Di_o41dj.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/access-control-BEpPB-Jx.js",
           "line": 10,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/access-control-Di_o41dj.js:10"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/access-control-BEpPB-Jx.js:10"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-location",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 53,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:53"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:53"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-mention-gating",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 44,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:44"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:44"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-message",
-          "file": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js",
+          "line": 26,
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js:26"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/channel-message",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 25,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js:25"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:25"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-message",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
-          "line": 25,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:25"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/channel-message",
-          "file": "plugins/whatsapp/.crabpot-package/dist/send-api-DYiQpIng.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/send-api-DD93aPIQ.js",
           "line": 8,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/send-api-DYiQpIng.js:8"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/send-api-DD93aPIQ.js:8"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-pairing",
-          "file": "plugins/whatsapp/.crabpot-package/dist/access-control-Di_o41dj.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/access-control-BEpPB-Jx.js",
           "line": 7,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/access-control-Di_o41dj.js:7"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/access-control-BEpPB-Jx.js:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-pairing",
-          "file": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js",
           "line": 17,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js:17"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js:17"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-policy",
-          "file": "plugins/whatsapp/.crabpot-package/dist/access-control-Di_o41dj.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/access-control-BEpPB-Jx.js",
           "line": 6,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/access-control-Di_o41dj.js:6"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/access-control-BEpPB-Jx.js:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-policy",
-          "file": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js",
           "line": 13,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js:13"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js:13"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-send-result",
@@ -24426,27 +24425,27 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/cli-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/auth-store-DpwdTmoO.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/auth-store-_ScMvp7r.js",
           "line": 7,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-DpwdTmoO.js:7"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-_ScMvp7r.js:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/cli-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js",
-          "line": 18,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js:18"
+          "file": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js",
+          "line": 19,
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js:19"
         },
         {
           "specifier": "openclaw/plugin-sdk/cli-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/login-Du1MplXB.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/login-B_pa3YAU.js",
           "line": 6,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/login-Du1MplXB.js:6"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/login-B_pa3YAU.js:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/cli-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 18,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:18"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:18"
         },
         {
           "specifier": "openclaw/plugin-sdk/cli-runtime",
@@ -24456,39 +24455,39 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/cli-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/session-lrTa-USS.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/session-ZZQKkOTz.js",
           "line": 6,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/session-lrTa-USS.js:6"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/session-ZZQKkOTz.js:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/command-detection",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 36,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:36"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:36"
         },
         {
           "specifier": "openclaw/plugin-sdk/context-visibility-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 43,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:43"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:43"
         },
         {
           "specifier": "openclaw/plugin-sdk/conversation-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/access-control-Di_o41dj.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/access-control-BEpPB-Jx.js",
           "line": 8,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/access-control-Di_o41dj.js:8"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/access-control-BEpPB-Jx.js:8"
         },
         {
           "specifier": "openclaw/plugin-sdk/conversation-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 29,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:29"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:29"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js",
-          "line": 19,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js:19"
+          "file": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js",
+          "line": 20,
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js:20"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
@@ -24498,75 +24497,75 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js",
           "line": 11,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js:11"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js:11"
         },
         {
           "specifier": "openclaw/plugin-sdk/delivery-queue-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 37,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:37"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:37"
         },
         {
           "specifier": "openclaw/plugin-sdk/directory-config-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/directory-config-ClsMAYen.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/directory-config-CE74HYlw.js",
           "line": 5,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/directory-config-ClsMAYen.js:5"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/directory-config-CE74HYlw.js:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/fetch-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/session-lrTa-USS.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/session-ZZQKkOTz.js",
           "line": 12,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/session-lrTa-USS.js:12"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/session-ZZQKkOTz.js:12"
         },
         {
           "specifier": "openclaw/plugin-sdk/gateway-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 45,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:45"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:45"
         },
         {
           "specifier": "openclaw/plugin-sdk/group-activation",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 46,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:46"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:46"
         },
         {
           "specifier": "openclaw/plugin-sdk/hook-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 47,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:47"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:47"
         },
         {
           "specifier": "openclaw/plugin-sdk/inbound-reply-dispatch",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 48,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:48"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:48"
         },
         {
           "specifier": "openclaw/plugin-sdk/lazy-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js",
-          "line": 23,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js:23"
+          "file": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js",
+          "line": 24,
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js:24"
         },
         {
           "specifier": "openclaw/plugin-sdk/logging-core",
-          "file": "plugins/whatsapp/.crabpot-package/dist/login-Du1MplXB.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/login-B_pa3YAU.js",
           "line": 7,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/login-Du1MplXB.js:7"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/login-B_pa3YAU.js:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/logging-core",
-          "file": "plugins/whatsapp/.crabpot-package/dist/login-qr-Bfsxe1bh.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/login-qr-C33im-qS.js",
           "line": 5,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-Bfsxe1bh.js:5"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-C33im-qS.js:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/logging-core",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 19,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:19"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:19"
         },
         {
           "specifier": "openclaw/plugin-sdk/logging-core",
@@ -24576,9 +24575,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/markdown-table-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 20,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:20"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:20"
         },
         {
           "specifier": "openclaw/plugin-sdk/markdown-table-runtime",
@@ -24588,21 +24587,21 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/media-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/audio-preflight.runtime-CIFjeaEN.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/audio-preflight.runtime-MmkB-pgX.js",
           "line": 1,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/audio-preflight.runtime-CIFjeaEN.js:1"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/audio-preflight.runtime-MmkB-pgX.js:1"
         },
         {
           "specifier": "openclaw/plugin-sdk/media-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/login-qr-Bfsxe1bh.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/login-qr-C33im-qS.js",
           "line": 7,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-Bfsxe1bh.js:7"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-C33im-qS.js:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/media-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 22,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:22"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:22"
         },
         {
           "specifier": "openclaw/plugin-sdk/media-runtime",
@@ -24612,15 +24611,15 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/media-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/session-lrTa-USS.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/session-ZZQKkOTz.js",
           "line": 8,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/session-lrTa-USS.js:8"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/session-ZZQKkOTz.js:8"
         },
         {
           "specifier": "openclaw/plugin-sdk/media-store",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 41,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:41"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:41"
         },
         {
           "specifier": "openclaw/plugin-sdk/outbound-runtime",
@@ -24636,9 +24635,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/persistent-dedupe",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 40,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:40"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:40"
         },
         {
           "specifier": "openclaw/plugin-sdk/plugin-config-runtime",
@@ -24648,9 +24647,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/plugin-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 49,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:49"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:49"
         },
         {
           "specifier": "openclaw/plugin-sdk/poll-runtime",
@@ -24660,33 +24659,33 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-chunking",
-          "file": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js",
-          "line": 26,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js:26"
+          "file": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js",
+          "line": 27,
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js:27"
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-chunking",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 26,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:26"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:26"
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-chunking",
-          "file": "plugins/whatsapp/.crabpot-package/dist/outbound-adapter-B8fD5esZ.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/outbound-adapter-Bs0e4qVd.js",
           "line": 5,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/outbound-adapter-B8fD5esZ.js:5"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/outbound-adapter-Bs0e4qVd.js:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-history",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 38,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:38"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:38"
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-payload",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 27,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:27"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:27"
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-payload",
@@ -24696,21 +24695,21 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-reference",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 50,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:50"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:50"
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 34,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:34"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:34"
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/reply-resolver.runtime-CROyXXQh.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/reply-resolver.runtime-rIVWohXr.js",
           "line": 1,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/reply-resolver.runtime-CROyXXQh.js:1"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/reply-resolver.runtime-rIVWohXr.js:1"
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-runtime",
@@ -24720,81 +24719,81 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/routing",
-          "file": "plugins/whatsapp/.crabpot-package/dist/auth-store-DpwdTmoO.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/auth-store-_ScMvp7r.js",
           "line": 11,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-DpwdTmoO.js:11"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-_ScMvp7r.js:11"
         },
         {
           "specifier": "openclaw/plugin-sdk/routing",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 28,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:28"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:28"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-config-snapshot",
-          "file": "plugins/whatsapp/.crabpot-package/dist/login-Du1MplXB.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/login-B_pa3YAU.js",
           "line": 9,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/login-Du1MplXB.js:9"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/login-B_pa3YAU.js:9"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-config-snapshot",
-          "file": "plugins/whatsapp/.crabpot-package/dist/login-qr-Bfsxe1bh.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/login-qr-C33im-qS.js",
           "line": 9,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-Bfsxe1bh.js:9"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-C33im-qS.js:9"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-config-snapshot",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 42,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:42"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:42"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "file": "plugins/whatsapp/.crabpot-package/dist/access-control-Di_o41dj.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/access-control-BEpPB-Jx.js",
           "line": 5,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/access-control-Di_o41dj.js:5"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/access-control-BEpPB-Jx.js:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "file": "plugins/whatsapp/.crabpot-package/dist/auth-store-DpwdTmoO.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/auth-store-_ScMvp7r.js",
           "line": 8,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-DpwdTmoO.js:8"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-_ScMvp7r.js:8"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "file": "plugins/whatsapp/.crabpot-package/dist/connection-controller-DVOzuzJk.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/connection-controller-CT8NA6Zf.js",
           "line": 5,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/connection-controller-DVOzuzJk.js:5"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/connection-controller-CT8NA6Zf.js:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "file": "plugins/whatsapp/.crabpot-package/dist/login-Du1MplXB.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/login-B_pa3YAU.js",
           "line": 8,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/login-Du1MplXB.js:8"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/login-B_pa3YAU.js:8"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "file": "plugins/whatsapp/.crabpot-package/dist/login-qr-Bfsxe1bh.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/login-qr-C33im-qS.js",
           "line": 6,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-Bfsxe1bh.js:6"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-C33im-qS.js:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 21,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:21"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:21"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "file": "plugins/whatsapp/.crabpot-package/dist/outbound-adapter-B8fD5esZ.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/outbound-adapter-Bs0e4qVd.js",
           "line": 4,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/outbound-adapter-B8fD5esZ.js:4"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/outbound-adapter-Bs0e4qVd.js:4"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "file": "plugins/whatsapp/.crabpot-package/dist/send-api-DYiQpIng.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/send-api-DD93aPIQ.js",
           "line": 7,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/send-api-DYiQpIng.js:7"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/send-api-DD93aPIQ.js:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-env",
@@ -24804,9 +24803,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "file": "plugins/whatsapp/.crabpot-package/dist/session-lrTa-USS.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/session-ZZQKkOTz.js",
           "line": 7,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/session-lrTa-USS.js:7"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/session-ZZQKkOTz.js:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-env",
@@ -24816,15 +24815,15 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-group-policy",
-          "file": "plugins/whatsapp/.crabpot-package/dist/access-control-Di_o41dj.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/access-control-BEpPB-Jx.js",
           "line": 9,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/access-control-Di_o41dj.js:9"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/access-control-BEpPB-Jx.js:9"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-group-policy",
-          "file": "plugins/whatsapp/.crabpot-package/dist/runtime-group-policy-BH_U23qp.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/runtime-group-policy-Gp1lQ0at.js",
           "line": 1,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/runtime-group-policy-BH_U23qp.js:1"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/runtime-group-policy-Gp1lQ0at.js:1"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-store",
@@ -24834,15 +24833,15 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/security-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/auth-store-DpwdTmoO.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/auth-store-_ScMvp7r.js",
           "line": 9,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-DpwdTmoO.js:9"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-_ScMvp7r.js:9"
         },
         {
           "specifier": "openclaw/plugin-sdk/security-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 23,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:23"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:23"
         },
         {
           "specifier": "openclaw/plugin-sdk/security-runtime",
@@ -24852,51 +24851,51 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/security-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/state-migrations-CtdIArlK.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/state-migrations-Bm0S67yH.js",
           "line": 3,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/state-migrations-CtdIArlK.js:3"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/state-migrations-Bm0S67yH.js:3"
         },
         {
           "specifier": "openclaw/plugin-sdk/session-store-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/access-control-Di_o41dj.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/access-control-BEpPB-Jx.js",
           "line": 11,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/access-control-Di_o41dj.js:11"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/access-control-BEpPB-Jx.js:11"
         },
         {
           "specifier": "openclaw/plugin-sdk/session-store-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 30,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:30"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:30"
         },
         {
           "specifier": "openclaw/plugin-sdk/setup",
-          "file": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js",
-          "line": 18,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js:18"
+          "file": "plugins/whatsapp/.crabpot-package/dist/setup-core-DZKvpzbH.js",
+          "line": 1,
+          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-DZKvpzbH.js:1"
         },
         {
           "specifier": "openclaw/plugin-sdk/setup",
-          "file": "plugins/whatsapp/.crabpot-package/dist/setup-finalize-DTWoYzBv.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/setup-finalize-C1S1U-hY.js",
           "line": 6,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-finalize-DTWoYzBv.js:6"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-finalize-C1S1U-hY.js:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/setup",
-          "file": "plugins/whatsapp/.crabpot-package/dist/setup-surface-BW2z_2Oc.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/setup-surface-BbwSSEsy.js",
           "line": 4,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-surface-BW2z_2Oc.js:4"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-surface-BbwSSEsy.js:4"
         },
         {
           "specifier": "openclaw/plugin-sdk/setup-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js",
           "line": 16,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-CraEyjEG.js:16"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/shared-DW9W6SXy.js:16"
         },
         {
           "specifier": "openclaw/plugin-sdk/setup-tools",
-          "file": "plugins/whatsapp/.crabpot-package/dist/setup-finalize-DTWoYzBv.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/setup-finalize-C1S1U-hY.js",
           "line": 7,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-finalize-DTWoYzBv.js:7"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-finalize-C1S1U-hY.js:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/state-paths",
@@ -24912,15 +24911,15 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/state-paths",
-          "file": "plugins/whatsapp/.crabpot-package/dist/auth-store-DpwdTmoO.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/auth-store-_ScMvp7r.js",
           "line": 6,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-DpwdTmoO.js:6"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-_ScMvp7r.js:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/status-helpers",
-          "file": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js",
-          "line": 17,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js:17"
+          "file": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js",
+          "line": 18,
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js:18"
         },
         {
           "specifier": "openclaw/plugin-sdk/status-helpers",
@@ -24942,9 +24941,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 16,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:16"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:16"
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
@@ -24960,9 +24959,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/send-api-DYiQpIng.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/send-api-DD93aPIQ.js",
           "line": 6,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/send-api-DYiQpIng.js:6"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/send-api-DD93aPIQ.js:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
@@ -24972,9 +24971,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/system-event-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 39,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:39"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:39"
         },
         {
           "specifier": "openclaw/plugin-sdk/temp-path",
@@ -24990,15 +24989,15 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/text-utility-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/connection-controller-DVOzuzJk.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/connection-controller-CT8NA6Zf.js",
           "line": 6,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/connection-controller-DVOzuzJk.js:6"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/connection-controller-CT8NA6Zf.js:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/text-utility-runtime",
-          "file": "plugins/whatsapp/.crabpot-package/dist/session-lrTa-USS.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/session-ZZQKkOTz.js",
           "line": 9,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/session-lrTa-USS.js:9"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/session-ZZQKkOTz.js:9"
         },
         {
           "specifier": "openclaw/plugin-sdk/text-utility-runtime",
@@ -25008,9 +25007,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/web-media",
-          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js",
+          "file": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js",
           "line": 24,
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-Cd30Pnkz.js:24"
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CmK0ER1u.js:24"
         },
         {
           "specifier": "openclaw/plugin-sdk/web-media",
@@ -31795,7 +31794,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ]
     },
     {
@@ -31814,8 +31813,8 @@
       "level": "warning",
       "message": "fixture imports reserved bundled-plugin SDK compatibility subpaths",
       "evidence": [
-        "openclaw/plugin-sdk/codex-mcp-projection @ plugins/codex/.crabpot-package/dist/thread-lifecycle-DrbViNpf.js:11",
-        "openclaw/plugin-sdk/codex-native-task-runtime @ plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js:23"
+        "openclaw/plugin-sdk/codex-mcp-projection @ plugins/codex/.crabpot-package/dist/thread-lifecycle-CJppEyYT.js:11",
+        "openclaw/plugin-sdk/codex-native-task-runtime @ plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js:25"
       ]
     },
     {
@@ -31834,7 +31833,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ]
     },
     {
@@ -31844,7 +31843,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ]
     },
     {
@@ -31863,7 +31862,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ]
     },
     {
@@ -31882,7 +31881,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ]
     },
     {
@@ -31901,7 +31900,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ]
     },
     {
@@ -31910,7 +31909,7 @@
       "level": "warning",
       "message": "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
       "evidence": [
-        "agent_end @ plugins/memory-lancedb/.crabpot-package/dist/index.js:668"
+        "agent_end @ plugins/memory-lancedb/.crabpot-package/dist/index.js:658"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload"
     },
@@ -31930,7 +31929,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ]
     },
     {
@@ -31950,7 +31949,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ]
     },
     {
@@ -33256,9 +33255,7 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerCommand @ plugins/codex/.crabpot-package/dist/index.js:1100",
-        "registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:1098",
-        "registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:1099"
+        "registerCommand @ plugins/codex/.crabpot-package/dist/index.js:1003"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -33289,22 +33286,22 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4614",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4630",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4647",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4654",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4603",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4619",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4636",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4643",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4653",
         "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4664",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4675",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4695",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4710",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4726",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4743",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4750",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4684",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4699",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4715",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4732",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4739",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4751",
         "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4762",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4773",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4785",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4801",
-        "registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:4956"
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4774",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4790",
+        "registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:4945"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -33349,8 +33346,8 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:370",
-        "registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:718"
+        "registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:360",
+        "registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:705"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -33397,7 +33394,7 @@
       "level": "suggestion",
       "message": "add channel envelope, config-schema, and runtime metadata probes",
       "evidence": [
-        "createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js:334"
+        "createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js:335"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata"
     },
@@ -34025,7 +34022,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-DE84319C",
+      "id": "CRABPOT-FCFC9C8A",
       "fixture": "codex",
       "severity": "P1",
       "owner": "plugin",
@@ -34038,8 +34035,8 @@
       "compatStatus": "none",
       "title": "codex: plugin imports reserved bundled-plugin SDK compatibility subpaths",
       "evidence": [
-        "openclaw/plugin-sdk/codex-mcp-projection @ plugins/codex/.crabpot-package/dist/thread-lifecycle-DrbViNpf.js:11",
-        "openclaw/plugin-sdk/codex-native-task-runtime @ plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js:23"
+        "openclaw/plugin-sdk/codex-mcp-projection @ plugins/codex/.crabpot-package/dist/thread-lifecycle-CJppEyYT.js:11",
+        "openclaw/plugin-sdk/codex-native-task-runtime @ plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js:25"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -34144,7 +34141,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-B8059552",
+      "id": "CRABPOT-C9FC8584",
       "fixture": "memory-lancedb",
       "severity": "P1",
       "owner": "core",
@@ -34157,7 +34154,7 @@
       "compatStatus": "active",
       "title": "memory-lancedb: conversation-access hooks need privacy-boundary probes",
       "evidence": [
-        "agent_end @ plugins/memory-lancedb/.crabpot-package/dist/index.js:668"
+        "agent_end @ plugins/memory-lancedb/.crabpot-package/dist/index.js:658"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload",
       "runtimeCoverage": null
@@ -34719,7 +34716,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-355E8786",
+      "id": "CRABPOT-10B788E6",
       "fixture": "brave-plugin",
       "severity": "P2",
       "owner": "plugin",
@@ -34733,7 +34730,7 @@
       "title": "brave-plugin: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -34968,7 +34965,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-04A733D8",
+      "id": "CRABPOT-34C71994",
       "fixture": "codex",
       "severity": "P2",
       "owner": "plugin",
@@ -34982,13 +34979,13 @@
       "title": "codex: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-A58BBE13",
+      "id": "CRABPOT-7D21EF2C",
       "fixture": "codex",
       "severity": "P2",
       "owner": "inspector",
@@ -35001,9 +34998,7 @@
       "compatStatus": "active",
       "title": "codex: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerCommand @ plugins/codex/.crabpot-package/dist/index.js:1100",
-        "registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:1098",
-        "registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:1099"
+        "registerCommand @ plugins/codex/.crabpot-package/dist/index.js:1003"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -35394,7 +35389,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-BAE56121",
+      "id": "CRABPOT-CA7EA209",
       "fixture": "diagnostics-prometheus",
       "severity": "P2",
       "owner": "plugin",
@@ -35408,7 +35403,7 @@
       "title": "diagnostics-prometheus: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -35476,7 +35471,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-816990F7",
+      "id": "CRABPOT-BD1EA0DB",
       "fixture": "diffs",
       "severity": "P2",
       "owner": "plugin",
@@ -35490,7 +35485,7 @@
       "title": "diffs: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -36030,7 +36025,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-1DBB76EF",
+      "id": "CRABPOT-069B53DD",
       "fixture": "google-meet",
       "severity": "P2",
       "owner": "plugin",
@@ -36044,13 +36039,13 @@
       "title": "google-meet: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-22EC0D08",
+      "id": "CRABPOT-C1BE17DD",
       "fixture": "google-meet",
       "severity": "P2",
       "owner": "inspector",
@@ -36063,22 +36058,22 @@
       "compatStatus": "active",
       "title": "google-meet: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4614",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4630",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4647",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4654",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4603",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4619",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4636",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4643",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4653",
         "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4664",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4675",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4695",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4710",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4726",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4743",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4750",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4684",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4699",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4715",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4732",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4739",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4751",
         "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4762",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4773",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4785",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4801",
-        "registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:4956"
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4774",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4790",
+        "registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:4945"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -37123,7 +37118,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-CC84A065",
+      "id": "CRABPOT-D6D0C04C",
       "fixture": "memory-lancedb",
       "severity": "P2",
       "owner": "plugin",
@@ -37137,13 +37132,13 @@
       "title": "memory-lancedb: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-A7164D1E",
+      "id": "CRABPOT-BEB2256A",
       "fixture": "memory-lancedb",
       "severity": "P2",
       "owner": "inspector",
@@ -37156,8 +37151,8 @@
       "compatStatus": "active",
       "title": "memory-lancedb: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:370",
-        "registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:718"
+        "registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:360",
+        "registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:705"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -38025,7 +38020,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-CD1CA47B",
+      "id": "CRABPOT-74F1A659",
       "fixture": "openclaw-qqbot",
       "severity": "P2",
       "owner": "plugin",
@@ -38039,7 +38034,7 @@
       "title": "openclaw-qqbot: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -39190,7 +39185,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-EEC34BF7",
+      "id": "CRABPOT-D359347D",
       "fixture": "whatsapp",
       "severity": "P2",
       "owner": "inspector",
@@ -39203,7 +39198,7 @@
       "compatStatus": "active",
       "title": "whatsapp: channel runtime needs envelope/config probes",
       "evidence": [
-        "createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js:334"
+        "createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js:335"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata",
       "runtimeCoverage": null
@@ -39233,7 +39228,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-FA43586F",
+      "id": "CRABPOT-3E0F5ED6",
       "fixture": "whatsapp",
       "severity": "P2",
       "owner": "plugin",
@@ -39247,7 +39242,7 @@
       "title": "whatsapp: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -39737,7 +39732,7 @@
       "target": "hook-runner",
       "contract": "LLM observer hooks receive documented prompt/output fields with expected redaction behavior.",
       "evidence": [
-        "agent_end @ plugins/memory-lancedb/.crabpot-package/dist/index.js:668"
+        "agent_end @ plugins/memory-lancedb/.crabpot-package/dist/index.js:658"
       ]
     },
     {
@@ -41110,9 +41105,7 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerCommand @ plugins/codex/.crabpot-package/dist/index.js:1100",
-        "registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:1098",
-        "registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:1099"
+        "registerCommand @ plugins/codex/.crabpot-package/dist/index.js:1003"
       ]
     },
     {
@@ -41166,22 +41159,22 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4614",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4630",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4647",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4654",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4603",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4619",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4636",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4643",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4653",
         "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4664",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4675",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4695",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4710",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4726",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4743",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4750",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4684",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4699",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4715",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4732",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4739",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4751",
         "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4762",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4773",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4785",
-        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4801",
-        "registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:4956"
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4774",
+        "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4790",
+        "registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:4945"
       ]
     },
     {
@@ -41213,8 +41206,8 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:370",
-        "registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:718"
+        "registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:360",
+        "registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:705"
       ]
     },
     {
@@ -41417,7 +41410,7 @@
       "target": "channel-runtime",
       "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
       "evidence": [
-        "createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/channel-By9xwZ6O.js:334"
+        "createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/channel-DgVXntVm.js:335"
       ]
     },
     {
@@ -42370,7 +42363,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ]
     },
     {
@@ -42381,7 +42374,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ]
     },
     {
@@ -42403,7 +42396,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ]
     },
     {
@@ -42414,7 +42407,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ]
     },
     {
@@ -42447,7 +42440,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ]
     },
     {
@@ -42480,7 +42473,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ]
     },
     {
@@ -42524,7 +42517,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ]
     },
     {
@@ -42579,7 +42572,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.14-beta.2"
+        "buildOpenClawVersion:2026.5.12"
       ]
     },
     {
@@ -42611,8 +42604,8 @@
       "target": "sdk-import",
       "contract": "External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.",
       "evidence": [
-        "openclaw/plugin-sdk/codex-mcp-projection @ plugins/codex/.crabpot-package/dist/thread-lifecycle-DrbViNpf.js:11",
-        "openclaw/plugin-sdk/codex-native-task-runtime @ plugins/codex/.crabpot-package/dist/run-attempt-DG9NQab2.js:23"
+        "openclaw/plugin-sdk/codex-mcp-projection @ plugins/codex/.crabpot-package/dist/thread-lifecycle-CJppEyYT.js:11",
+        "openclaw/plugin-sdk/codex-native-task-runtime @ plugins/codex/.crabpot-package/dist/run-attempt-4t06MuNr.js:25"
       ]
     },
     {
@@ -45796,7 +45789,6 @@
       "evidence": [
         "openclaw/plugin-sdk/diagnostic-runtime",
         "openclaw/plugin-sdk/plugin-entry",
-        "openclaw/plugin-sdk/provider-http",
         "openclaw/plugin-sdk/provider-web-search",
         "openclaw/plugin-sdk/provider-web-search-config-contract",
         "openclaw/plugin-sdk/runtime-env",
@@ -45821,7 +45813,7 @@
       "evidence": [
         "plugins/brave-plugin/.crabpot-package/package.json",
         "@openclaw/brave-plugin",
-        "version:2026.5.14-beta.2"
+        "version:2026.5.12"
       ]
     },
     {
@@ -45837,7 +45829,7 @@
       "fixture": "codex",
       "code": "seam-inventory",
       "level": "log",
-      "message": "observed 1 hooks, 8 registrations, and 2 manifest contracts",
+      "message": "observed 1 hooks, 6 registrations, and 2 manifest contracts",
       "evidence": [
         "hook:inbound_claim",
         "registration:definePluginEntry",
@@ -45845,8 +45837,6 @@
         "registration:registerCommand",
         "registration:registerMediaUnderstandingProvider",
         "registration:registerMigrationProvider",
-        "registration:registerNodeHostCommand",
-        "registration:registerNodeInvokePolicy",
         "registration:registerProvider",
         "manifestContract:mediaUnderstandingProviders",
         "manifestContract:migrationProviders"
@@ -45871,8 +45861,6 @@
         "registerCommand",
         "registerMediaUnderstandingProvider",
         "registerMigrationProvider",
-        "registerNodeHostCommand",
-        "registerNodeInvokePolicy",
         "registerProvider"
       ]
     },
@@ -45893,7 +45881,7 @@
       "evidence": [
         "plugins/codex/.crabpot-package/package.json",
         "@openclaw/codex",
-        "version:2026.5.14-beta.2"
+        "version:2026.5.12"
       ]
     },
     {
@@ -45961,7 +45949,7 @@
       "evidence": [
         "plugins/diagnostics-prometheus/.crabpot-package/package.json",
         "@openclaw/diagnostics-prometheus",
-        "version:2026.5.14-beta.2"
+        "version:2026.5.12"
       ]
     },
     {
@@ -46033,7 +46021,7 @@
       "evidence": [
         "plugins/google-meet/.crabpot-package/package.json",
         "@openclaw/google-meet",
-        "version:2026.5.14-beta.2"
+        "version:2026.5.12"
       ]
     },
     {
@@ -46112,7 +46100,7 @@
       "evidence": [
         "plugins/diffs/.crabpot-package/package.json",
         "@openclaw/diffs",
-        "version:2026.5.14-beta.2"
+        "version:2026.5.12"
       ]
     },
     {
@@ -46197,7 +46185,7 @@
       "evidence": [
         "plugins/memory-lancedb/.crabpot-package/package.json",
         "@openclaw/memory-lancedb",
-        "version:2026.5.14-beta.2"
+        "version:2026.5.12"
       ]
     },
     {
@@ -46296,7 +46284,7 @@
       "evidence": [
         "plugins/openclaw-qqbot/.crabpot-package/package.json",
         "@openclaw/qqbot",
-        "version:2026.5.14-beta.2"
+        "version:2026.5.12"
       ]
     },
     {
@@ -46428,7 +46416,7 @@
       "evidence": [
         "plugins/whatsapp/.crabpot-package/package.json",
         "@openclaw/whatsapp",
-        "version:2026.5.14-beta.2"
+        "version:2026.5.12"
       ]
     },
     {
@@ -50056,7 +50044,7 @@
       "decision": "inspector-follow-up",
       "seam": "registration-capture",
       "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
-      "evidence": "registerCommand, registerNodeHostCommand, registerNodeInvokePolicy"
+      "evidence": "registerCommand"
     },
     {
       "fixture": "codex",
@@ -50954,9 +50942,14 @@
       "apify",
       "inworld-tts"
     ],
-    "openclawTarget": "explicit",
-    "pluginTrack": "manifest",
+    "openclawTarget": "latest",
+    "pluginTrack": "latest",
     "runtimeEvidence": null,
-    "packageAvailability": null
+    "packageAvailability": {
+      "path": "/home/runner/work/crabpot/crabpot/reports/crabpot-package-availability.json",
+      "failures": 0,
+      "openclawFailures": 0,
+      "fallbacks": 0
+    }
   }
 }
