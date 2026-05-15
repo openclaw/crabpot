@@ -262,6 +262,7 @@ jobs:
       - name: Install OpenClaw lifecycle dependencies
         run: |
           corepack enable
+          corepack prepare "$(node -p "require('./openclaw/package.json').packageManager.split('+')[0]")" --activate
           pnpm --dir openclaw install --frozen-lockfile --ignore-scripts
       - name: Fetch main dashboard baseline
         if: ${{ steps.openclaw-track.outputs.track != 'latest' }}
@@ -276,7 +277,8 @@ jobs:
           CRABPOT_PLUGIN_TRACK: ${{ steps.openclaw-track.outputs.track == 'development' && 'source-pack' || steps.openclaw-track.outputs.track }}
           CRABPOT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          export CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          export CRABPOT_SUMMARY_GENERATED_AT
           node scripts/generate-report.mjs --openclaw ./openclaw
           node scripts/capture-contracts.mjs --openclaw ./openclaw
           node scripts/synthetic-probes.mjs --openclaw ./openclaw
@@ -289,11 +291,11 @@ jobs:
           node scripts/check-ci-policy.mjs
           node scripts/write-ci-summary.mjs --mode check --openclaw-label "${{ steps.openclaw-track.outputs.label }}"
           node scripts/update-track-metadata.mjs
-          baseline_arg=""
+          baseline_arg=()
           if [ -f .crabpot/baseline/main-dashboard-data.json ]; then
-            baseline_arg="--baseline-data .crabpot/baseline/main-dashboard-data.json"
+            baseline_arg=(--baseline-data .crabpot/baseline/main-dashboard-data.json)
           fi
-          node scripts/update-readme-summary.mjs ${baseline_arg}
+          node scripts/update-readme-summary.mjs "${baseline_arg[@]}"
           git add README.md reports/
           if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"

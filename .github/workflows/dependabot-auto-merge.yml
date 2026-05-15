@@ -89,6 +89,7 @@ jobs:
       - name: Install OpenClaw lifecycle dependencies
         run: |
           corepack enable
+          corepack prepare "$(node -p "require('./openclaw/package.json').packageManager.split('+')[0]")" --activate
           pnpm --dir openclaw install --frozen-lockfile --ignore-scripts
 
       - name: Refresh compatibility reports
