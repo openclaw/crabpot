@@ -37,13 +37,13 @@
     {
       "id": "execution-results.audit-findings",
       "action": "warn",
-      "message": "578 package audit findings",
+      "message": "577 package audit findings",
       "evidence": [
         "a2a-gateway:26",
         "apify:28",
         "codex-app-server:153",
         "ddingtalk:254",
-        "diagnostics-otel:15",
+        "diagnostics-otel:14",
         "feishu:2",
         "hasdata:5",
         "mocrane-wecom:32",

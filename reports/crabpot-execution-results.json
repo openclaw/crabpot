@@ -2,16 +2,16 @@
   "generatedAt": "deterministic",
   "resultsDir": ".crabpot/results",
   "summary": {
-    "artifactCount": 147,
-    "captureArtifactCount": 55,
-    "syntheticArtifactCount": 55,
-    "auditArtifactCount": 36,
+    "artifactCount": 151,
+    "captureArtifactCount": 56,
+    "syntheticArtifactCount": 56,
+    "auditArtifactCount": 38,
     "profileArtifactCount": 1,
     "capturedRegistrationCount": 426,
-    "auditFindingCount": 578,
-    "executionWallMs": 1079831,
-    "maxPeakRssMb": 1071.8,
-    "maxCpuMsEstimate": 81295,
+    "auditFindingCount": 577,
+    "executionWallMs": 925065,
+    "maxPeakRssMb": 1094,
+    "maxCpuMsEstimate": 68913,
     "passCount": 120,
     "failCount": 0,
     "blockedCount": 306
@@ -118,10 +118,52 @@
       "vulnerabilities": {
         "info": 0,
         "low": 0,
-        "moderate": 11,
-        "high": 13,
+        "moderate": 9,
+        "high": 15,
         "critical": 2,
         "total": 26
+      }
+    },
+    {
+      "artifactPath": ".crabpot/results/aiwerk-mcp-bridge/cold-import-extension-aiwerk-mcp-bridge-plugins-aiwerk-mcp-bridge-crabpot-package-index-ts.capture.json",
+      "fixture": "aiwerk-mcp-bridge",
+      "kind": "capture",
+      "entrypoint": "index.ts",
+      "status": "captured",
+      "capturedCount": 0,
+      "captured": []
+    },
+    {
+      "artifactPath": ".crabpot/results/aiwerk-mcp-bridge/cold-import-extension-aiwerk-mcp-bridge-plugins-aiwerk-mcp-bridge-crabpot-package-index-ts.synthetic.json",
+      "fixture": "aiwerk-mcp-bridge",
+      "kind": "synthetic",
+      "entrypoint": "index.ts",
+      "status": "captured",
+      "summary": {
+        "probeCount": 0,
+        "passCount": 0,
+        "failCount": 0,
+        "blockedCount": 0
+      },
+      "captured": [],
+      "passed": [],
+      "failures": [],
+      "blocked": []
+    },
+    {
+      "artifactPath": ".crabpot/results/aiwerk-mcp-bridge/package-audit.json",
+      "fixture": "aiwerk-mcp-bridge",
+      "kind": "audit",
+      "entrypoint": "-",
+      "status": "warning",
+      "findingCount": 0,
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
       }
     },
     {
@@ -131,11 +173,11 @@
       "entrypoint": "-",
       "status": "fail",
       "summary": {
-        "stepCount": 449,
-        "failCount": 46,
-        "totalWallMs": 1079831,
-        "maxPeakRssMb": 1071.8,
-        "maxCpuMsEstimate": 81295
+        "stepCount": 468,
+        "failCount": 51,
+        "totalWallMs": 925065,
+        "maxPeakRssMb": 1094,
+        "maxCpuMsEstimate": 68913
       },
       "slowestSteps": [
         {
@@ -148,10 +190,10 @@
           "cwd": ".crabpot/workspaces/mocrane-wecom",
           "artifactPath": null,
           "exitCode": 1,
-          "wallMs": 72372,
-          "peakRssMb": 859.1,
-          "peakCpuPercent": 172,
-          "cpuMsEstimate": 81295
+          "wallMs": 71415,
+          "peakRssMb": 832.9,
+          "peakCpuPercent": 168,
+          "cpuMsEstimate": 68913
         },
         {
           "fixture": "qqbot",
@@ -163,10 +205,10 @@
           "cwd": ".crabpot/workspaces/qqbot",
           "artifactPath": null,
           "exitCode": 0,
-          "wallMs": 39076,
-          "peakRssMb": 471.8,
-          "peakCpuPercent": 171,
-          "cpuMsEstimate": 58034
+          "wallMs": 38167,
+          "peakRssMb": 479.6,
+          "peakCpuPercent": 168,
+          "cpuMsEstimate": 49871
         },
         {
           "fixture": "memory-tencentdb",
@@ -178,10 +220,10 @@
           "cwd": ".crabpot/workspaces/memory-tencentdb",
           "artifactPath": null,
           "exitCode": 0,
-          "wallMs": 36980,
-          "peakRssMb": 628.1,
-          "peakCpuPercent": 125,
-          "cpuMsEstimate": 31219
+          "wallMs": 34297,
+          "peakRssMb": 605.7,
+          "peakCpuPercent": 119,
+          "cpuMsEstimate": 21104
         },
         {
           "fixture": "openclaw-weixin",
@@ -193,25 +235,25 @@
           "cwd": ".crabpot/workspaces/openclaw-weixin",
           "artifactPath": null,
           "exitCode": 0,
-          "wallMs": 33685,
-          "peakRssMb": 464.8,
-          "peakCpuPercent": 119,
-          "cpuMsEstimate": 32104
+          "wallMs": 29999,
+          "peakRssMb": 500.1,
+          "peakCpuPercent": 130,
+          "cpuMsEstimate": 23460
         },
         {
-          "fixture": "wecom",
-          "entrypoint": "cold-import.extension:wecom:plugins-wecom-index-js",
-          "packagePath": "plugins/wecom/package.json",
+          "fixture": "yuanbao",
+          "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
+          "packagePath": "plugins/yuanbao/.crabpot-package/package.json",
           "status": "dependency-install-required",
           "kind": "install",
           "command": "npm install --ignore-scripts",
-          "cwd": ".crabpot/workspaces/wecom",
+          "cwd": ".crabpot/workspaces/yuanbao",
           "artifactPath": null,
           "exitCode": 0,
-          "wallMs": 28436,
-          "peakRssMb": 796.4,
-          "peakCpuPercent": 171,
-          "cpuMsEstimate": 45946
+          "wallMs": 26228,
+          "peakRssMb": 506,
+          "peakCpuPercent": 130,
+          "cpuMsEstimate": 18219
         }
       ]
     },
@@ -262,8 +304,8 @@
       "vulnerabilities": {
         "info": 0,
         "low": 0,
-        "moderate": 12,
-        "high": 15,
+        "moderate": 10,
+        "high": 17,
         "critical": 1,
         "total": 28
       }
@@ -1381,14 +1423,14 @@
       "kind": "audit",
       "entrypoint": "-",
       "status": "warning",
-      "findingCount": 15,
+      "findingCount": 14,
       "vulnerabilities": {
         "info": 0,
         "low": 0,
-        "moderate": 12,
-        "high": 3,
+        "moderate": 0,
+        "high": 14,
         "critical": 0,
-        "total": 15
+        "total": 14
       }
     },
     {
@@ -1803,6 +1845,22 @@
     {
       "artifactPath": ".crabpot/results/google-meet/package-audit.json",
       "fixture": "google-meet",
+      "kind": "audit",
+      "entrypoint": "-",
+      "status": "warning",
+      "findingCount": 0,
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      }
+    },
+    {
+      "artifactPath": ".crabpot/results/hapi-openclaw/package-audit.json",
+      "fixture": "hapi-openclaw",
       "kind": "audit",
       "entrypoint": "-",
       "status": "warning",
@@ -5152,8 +5210,8 @@
       "vulnerabilities": {
         "info": 0,
         "low": 0,
-        "moderate": 11,
-        "high": 18,
+        "moderate": 9,
+        "high": 20,
         "critical": 3,
         "total": 32
       }
@@ -5564,8 +5622,8 @@
       "vulnerabilities": {
         "info": 0,
         "low": 1,
-        "moderate": 10,
-        "high": 13,
+        "moderate": 8,
+        "high": 15,
         "critical": 4,
         "total": 28
       }
