@@ -7,18 +7,18 @@
     "runs": 3,
     "entrypoint": ".crabpot/import-loop/baseline-plugin.mjs",
     "reference": {
-      "wallMs": 1950,
-      "peakRssMb": 244.3,
-      "cpuMsEstimate": 2090
+      "wallMs": 1513,
+      "peakRssMb": 261,
+      "cpuMsEstimate": 2750
     },
     "max": {
-      "wallMs": 3186,
-      "peakRssMb": 252.8,
-      "cpuMsEstimate": 2617
+      "wallMs": 1962,
+      "peakRssMb": 277.1,
+      "cpuMsEstimate": 3436
     },
-    "statSampleCount": 19,
-    "rssSampleCount": 19,
-    "cpuSampleCount": 19,
+    "statSampleCount": 195,
+    "rssSampleCount": 195,
+    "cpuSampleCount": 195,
     "failCount": 0,
     "samples": [
       {
@@ -31,32 +31,32 @@
           "pluginId": "crabpot-lifecycle-probe",
           "importPhase": "full",
           "activationPhase": "full:register",
-          "importMs": 421.4,
-          "activationMs": 0.2,
+          "importMs": 94.4,
+          "activationMs": 0.4,
           "openclawPath": "./openclaw",
           "phases": [
             {
               "phase": "full",
               "pluginId": "crabpot-lifecycle-probe",
-              "elapsedMs": 421.4,
-              "source": "/tmp/crabpot-openclaw-plugin-Xa4kLj/index.mjs"
+              "elapsedMs": 94.4,
+              "source": "/tmp/crabpot-openclaw-plugin-BS2SAo/index.mjs"
             },
             {
               "phase": "full:register",
               "pluginId": "crabpot-lifecycle-probe",
-              "elapsedMs": 0.2,
-              "source": "/tmp/crabpot-openclaw-plugin-Xa4kLj/index.mjs"
+              "elapsedMs": 0.4,
+              "source": "/tmp/crabpot-openclaw-plugin-BS2SAo/index.mjs"
             }
           ]
         },
-        "wallMs": 3186,
-        "peakRssMb": 252.8,
-        "peakCpuPercent": 129.9,
-        "cpuMsEstimate": 2617,
-        "statSampleCount": 9,
-        "rssSampleCount": 9,
-        "cpuSampleCount": 9,
-        "stderrPreview": "(node:58622) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)"
+        "wallMs": 1962,
+        "peakRssMb": 277.1,
+        "peakCpuPercent": 192,
+        "cpuMsEstimate": 3436,
+        "statSampleCount": 77,
+        "rssSampleCount": 77,
+        "cpuSampleCount": 77,
+        "stderrPreview": ""
       },
       {
         "index": 1,
@@ -68,32 +68,32 @@
           "pluginId": "crabpot-lifecycle-probe",
           "importPhase": "full",
           "activationPhase": "full:register",
-          "importMs": 372.7,
-          "activationMs": 0.2,
+          "importMs": 86.1,
+          "activationMs": 0.3,
           "openclawPath": "./openclaw",
           "phases": [
             {
               "phase": "full",
               "pluginId": "crabpot-lifecycle-probe",
-              "elapsedMs": 372.7,
-              "source": "/tmp/crabpot-openclaw-plugin-V2JfAT/index.mjs"
+              "elapsedMs": 86.1,
+              "source": "/tmp/crabpot-openclaw-plugin-QQUNGz/index.mjs"
             },
             {
               "phase": "full:register",
               "pluginId": "crabpot-lifecycle-probe",
-              "elapsedMs": 0.2,
-              "source": "/tmp/crabpot-openclaw-plugin-V2JfAT/index.mjs"
+              "elapsedMs": 0.3,
+              "source": "/tmp/crabpot-openclaw-plugin-QQUNGz/index.mjs"
             }
           ]
         },
-        "wallMs": 1928,
-        "peakRssMb": 244.3,
-        "peakCpuPercent": 160.4,
-        "cpuMsEstimate": 2090,
-        "statSampleCount": 5,
-        "rssSampleCount": 5,
-        "cpuSampleCount": 5,
-        "stderrPreview": "(node:58943) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)"
+        "wallMs": 1457,
+        "peakRssMb": 261,
+        "peakCpuPercent": 209,
+        "cpuMsEstimate": 2683,
+        "statSampleCount": 58,
+        "rssSampleCount": 58,
+        "cpuSampleCount": 58,
+        "stderrPreview": ""
       },
       {
         "index": 2,
@@ -105,32 +105,32 @@
           "pluginId": "crabpot-lifecycle-probe",
           "importPhase": "full",
           "activationPhase": "full:register",
-          "importMs": 346.9,
-          "activationMs": 0.2,
+          "importMs": 95,
+          "activationMs": 0.4,
           "openclawPath": "./openclaw",
           "phases": [
             {
               "phase": "full",
               "pluginId": "crabpot-lifecycle-probe",
-              "elapsedMs": 346.9,
-              "source": "/tmp/crabpot-openclaw-plugin-zG54TP/index.mjs"
+              "elapsedMs": 95,
+              "source": "/tmp/crabpot-openclaw-plugin-AM0crO/index.mjs"
             },
             {
               "phase": "full:register",
               "pluginId": "crabpot-lifecycle-probe",
-              "elapsedMs": 0.2,
-              "source": "/tmp/crabpot-openclaw-plugin-zG54TP/index.mjs"
+              "elapsedMs": 0.4,
+              "source": "/tmp/crabpot-openclaw-plugin-AM0crO/index.mjs"
             }
           ]
         },
-        "wallMs": 1950,
-        "peakRssMb": 229,
-        "peakCpuPercent": 160.1,
-        "cpuMsEstimate": 1890,
-        "statSampleCount": 5,
-        "rssSampleCount": 5,
-        "cpuSampleCount": 5,
-        "stderrPreview": "(node:59134) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)"
+        "wallMs": 1513,
+        "peakRssMb": 257.2,
+        "peakCpuPercent": 209,
+        "cpuMsEstimate": 2750,
+        "statSampleCount": 60,
+        "rssSampleCount": 60,
+        "cpuSampleCount": 60,
+        "stderrPreview": ""
       }
     ]
   },
@@ -138,25 +138,25 @@
     "runs": 3,
     "baselineRuns": 3,
     "baselineFailCount": 0,
-    "p50WallMs": 2230,
-    "p95WallMs": 3571,
-    "p50PluginWallDeltaMs": 280,
-    "p95PluginWallDeltaMs": 1621,
+    "p50WallMs": 1494,
+    "p95WallMs": 1510,
+    "p50PluginWallDeltaMs": 0,
+    "p95PluginWallDeltaMs": 0,
     "openClawLifecycleCount": 3,
-    "p50OpenClawImportMs": 347.7,
-    "p95OpenClawImportMs": 573.9,
-    "p50OpenClawActivationMs": 0.2,
-    "p95OpenClawActivationMs": 0.3,
-    "maxPeakRssMb": 231.5,
-    "maxCpuMsEstimate": 2043,
-    "maxPluginPeakRssDeltaMb": 0,
+    "p50OpenClawImportMs": 92.5,
+    "p95OpenClawImportMs": 95.3,
+    "p50OpenClawActivationMs": 0.4,
+    "p95OpenClawActivationMs": 0.4,
+    "maxPeakRssMb": 268.7,
+    "maxCpuMsEstimate": 2749,
+    "maxPluginPeakRssDeltaMb": 7.7,
     "maxPluginCpuDeltaMsEstimate": 0,
-    "baselineReferenceWallMs": 1950,
-    "baselineReferencePeakRssMb": 244.3,
-    "baselineReferenceCpuMsEstimate": 2090,
-    "statSampleCount": 19,
-    "rssSampleCount": 19,
-    "cpuSampleCount": 19,
+    "baselineReferenceWallMs": 1513,
+    "baselineReferencePeakRssMb": 261,
+    "baselineReferenceCpuMsEstimate": 2750,
+    "statSampleCount": 177,
+    "rssSampleCount": 177,
+    "cpuSampleCount": 177,
     "capturedCount": 6,
     "failCount": 0
   },
@@ -171,33 +171,33 @@
         "pluginId": "crabpot-lifecycle-probe",
         "importPhase": "full",
         "activationPhase": "full:register",
-        "importMs": 347.7,
-        "activationMs": 0.3,
+        "importMs": 95.3,
+        "activationMs": 0.4,
         "openclawPath": "./openclaw",
         "phases": [
           {
             "phase": "full",
             "pluginId": "crabpot-lifecycle-probe",
-            "elapsedMs": 347.7,
-            "source": "/tmp/crabpot-openclaw-plugin-xBnZgg/index.mjs"
+            "elapsedMs": 95.3,
+            "source": "/tmp/crabpot-openclaw-plugin-mOB1nt/index.mjs"
           },
           {
             "phase": "full:register",
             "pluginId": "crabpot-lifecycle-probe",
-            "elapsedMs": 0.3,
-            "source": "/tmp/crabpot-openclaw-plugin-xBnZgg/index.mjs"
+            "elapsedMs": 0.4,
+            "source": "/tmp/crabpot-openclaw-plugin-mOB1nt/index.mjs"
           }
         ]
       },
-      "wallMs": 2230,
-      "peakRssMb": 225.5,
-      "peakCpuPercent": 128.7,
-      "cpuMsEstimate": 2043,
-      "statSampleCount": 6,
-      "rssSampleCount": 6,
-      "cpuSampleCount": 6,
-      "stderrPreview": "(node:59311) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)",
-      "pluginWallDeltaMs": 280,
+      "wallMs": 1494,
+      "peakRssMb": 258.4,
+      "peakCpuPercent": 209,
+      "cpuMsEstimate": 2749,
+      "statSampleCount": 59,
+      "rssSampleCount": 59,
+      "cpuSampleCount": 59,
+      "stderrPreview": "",
+      "pluginWallDeltaMs": 0,
       "pluginPeakRssDeltaMb": 0,
       "pluginCpuDeltaMsEstimate": 0
     },
@@ -211,34 +211,34 @@
         "pluginId": "crabpot-lifecycle-probe",
         "importPhase": "full",
         "activationPhase": "full:register",
-        "importMs": 345.4,
-        "activationMs": 0.2,
+        "importMs": 91.1,
+        "activationMs": 0.4,
         "openclawPath": "./openclaw",
         "phases": [
           {
             "phase": "full",
             "pluginId": "crabpot-lifecycle-probe",
-            "elapsedMs": 345.4,
-            "source": "/tmp/crabpot-openclaw-plugin-aC2wlH/index.mjs"
+            "elapsedMs": 91.1,
+            "source": "/tmp/crabpot-openclaw-plugin-QJ9EXp/index.mjs"
           },
           {
             "phase": "full:register",
             "pluginId": "crabpot-lifecycle-probe",
-            "elapsedMs": 0.2,
-            "source": "/tmp/crabpot-openclaw-plugin-aC2wlH/index.mjs"
+            "elapsedMs": 0.4,
+            "source": "/tmp/crabpot-openclaw-plugin-QJ9EXp/index.mjs"
           }
         ]
       },
-      "wallMs": 1963,
-      "peakRssMb": 231.5,
-      "peakCpuPercent": 133.9,
-      "cpuMsEstimate": 1708,
-      "statSampleCount": 5,
-      "rssSampleCount": 5,
-      "cpuSampleCount": 5,
-      "stderrPreview": "(node:59515) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)",
-      "pluginWallDeltaMs": 13,
-      "pluginPeakRssDeltaMb": 0,
+      "wallMs": 1479,
+      "peakRssMb": 268.7,
+      "peakCpuPercent": 208,
+      "cpuMsEstimate": 2696,
+      "statSampleCount": 58,
+      "rssSampleCount": 58,
+      "cpuSampleCount": 58,
+      "stderrPreview": "",
+      "pluginWallDeltaMs": 0,
+      "pluginPeakRssDeltaMb": 7.7,
       "pluginCpuDeltaMsEstimate": 0
     },
     {
@@ -251,34 +251,34 @@
         "pluginId": "crabpot-lifecycle-probe",
         "importPhase": "full",
         "activationPhase": "full:register",
-        "importMs": 573.9,
-        "activationMs": 0.2,
+        "importMs": 92.5,
+        "activationMs": 0.4,
         "openclawPath": "./openclaw",
         "phases": [
           {
             "phase": "full",
             "pluginId": "crabpot-lifecycle-probe",
-            "elapsedMs": 573.9,
-            "source": "/tmp/crabpot-openclaw-plugin-t2Rba9/index.mjs"
+            "elapsedMs": 92.5,
+            "source": "/tmp/crabpot-openclaw-plugin-kCZBKB/index.mjs"
           },
           {
             "phase": "full:register",
             "pluginId": "crabpot-lifecycle-probe",
-            "elapsedMs": 0.2,
-            "source": "/tmp/crabpot-openclaw-plugin-t2Rba9/index.mjs"
+            "elapsedMs": 0.4,
+            "source": "/tmp/crabpot-openclaw-plugin-kCZBKB/index.mjs"
           }
         ]
       },
-      "wallMs": 3571,
-      "peakRssMb": 217.9,
-      "peakCpuPercent": 129,
-      "cpuMsEstimate": 1962,
-      "statSampleCount": 8,
-      "rssSampleCount": 8,
-      "cpuSampleCount": 8,
-      "stderrPreview": "(node:59720) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)",
-      "pluginWallDeltaMs": 1621,
-      "pluginPeakRssDeltaMb": 0,
+      "wallMs": 1510,
+      "peakRssMb": 265.3,
+      "peakCpuPercent": 208,
+      "cpuMsEstimate": 2744,
+      "statSampleCount": 60,
+      "rssSampleCount": 60,
+      "cpuSampleCount": 60,
+      "stderrPreview": "",
+      "pluginWallDeltaMs": 0,
+      "pluginPeakRssDeltaMb": 4.3,
       "pluginCpuDeltaMsEstimate": 0
     }
   ]
