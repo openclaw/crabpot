@@ -1,15 +1,15 @@
 {
   "generatedAt": "deterministic",
   "summary": {
-    "fixtureCount": 58,
-    "probeCount": 434,
+    "fixtureCount": 59,
+    "probeCount": 435,
     "hookProbeCount": 112,
-    "registrationProbeCount": 322,
-    "readyCount": 434,
+    "registrationProbeCount": 323,
+    "readyCount": 435,
     "blockedCount": 0,
     "directExecutionCount": 163,
     "optInExecutionCount": 29,
-    "metadataOnlyCount": 130
+    "metadataOnlyCount": 131
   },
   "probes": [
     {
@@ -9927,6 +9927,30 @@
         ]
       },
       "source": "plugins/dingtalk-doc/src/tools/helpers.ts:93"
+    },
+    {
+      "id": "registration.definePluginEntry:hapi-openclaw:plugins-hapi-openclaw-crabpot-package-dist-index-js-48",
+      "fixture": "hapi-openclaw",
+      "kind": "registration",
+      "seam": "definePluginEntry",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "entrypoint register function is callable",
+        "entrypoint metadata is preserved"
+      ],
+      "syntheticArguments": [
+        {
+          "id": "fixture-plugin",
+          "register": "function"
+        }
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "entry wrapper metadata is captured before plugin runtime execution"
+      },
+      "source": "plugins/hapi-openclaw/.crabpot-package/dist/index.js:48"
     },
     {
       "id": "registration.registerChannel:mocrane-wecom:plugins-mocrane-wecom-index-ts-31",

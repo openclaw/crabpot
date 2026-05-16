@@ -6,13 +6,13 @@ Generated: deterministic
 
 | Metric                      | Value |
 | --------------------------- | ----- |
-| Fixtures                    | 58    |
-| Entrypoints                 | 105   |
+| Fixtures                    | 59    |
+| Entrypoints                 | 106   |
 | Ready                       | 7     |
-| Blocked                     | 98    |
+| Blocked                     | 99    |
 | TypeScript loader required  | 22    |
 | Build required              | 12    |
-| Dependency install required | 41    |
+| Dependency install required | 42    |
 | SDK alias required          | 0     |
 
 ## Entrypoints
@@ -104,6 +104,7 @@ Generated: deterministic
 | ddingtalk              | extension        | ts-loader-required          | plugins/ddingtalk/index.ts                                          | ts-loader-required, dependency-install-required                               | TypeScript source entrypoint is compiled or loaded before cold import; fixture dependencies are installed in an isolated workspace before cold import                                                                                  |
 | dingtalk-connector     | extension        | build-required              | plugins/dingtalk-connector/dist/index.mjs                           | build-required                                                                | plugin build or source alias resolution runs before cold import                                                                                                                                                                        |
 | dingtalk-doc           | extension        | build-required              | plugins/dingtalk-doc/dist/index.mjs                                 | build-required                                                                | plugin build or source alias resolution runs before cold import                                                                                                                                                                        |
+| hapi-openclaw          | extension        | dependency-install-required | plugins/hapi-openclaw/.crabpot-package/dist/index.js                | top-level-side-effect-review, dependency-install-required                     | cold import sandbox blocks network/process side effects before register capture; fixture dependencies are installed in an isolated workspace before cold import                                                                        |
 | mocrane-wecom          | extension        | ts-loader-required          | plugins/mocrane-wecom/index.ts                                      | ts-loader-required, dependency-install-required                               | TypeScript source entrypoint is compiled or loaded before cold import; fixture dependencies are installed in an isolated workspace before cold import                                                                                  |
 | yuanbao                | extension        | dependency-install-required | plugins/yuanbao/.crabpot-package/dist/index.js                      | dependency-install-required                                                   | fixture dependencies are installed in an isolated workspace before cold import                                                                                                                                                         |
 | yuanbao                | setupEntry       | dependency-install-required | plugins/yuanbao/.crabpot-package/dist/setup-entry.js                | dependency-install-required                                                   | fixture dependencies are installed in an isolated workspace before cold import                                                                                                                                                         |

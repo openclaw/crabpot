@@ -6,15 +6,15 @@ Generated: deterministic
 
 | Metric              | Value |
 | ------------------- | ----- |
-| Fixtures            | 58    |
-| Probes              | 434   |
+| Fixtures            | 59    |
+| Probes              | 435   |
 | Hook probes         | 112   |
-| Registration probes | 322   |
-| Ready               | 434   |
+| Registration probes | 323   |
+| Ready               | 435   |
 | Blocked             | 0     |
 | Direct execution    | 163   |
 | Opt-in execution    | 29    |
-| Metadata-only       | 130   |
+| Metadata-only       | 131   |
 
 ## Probe Inventory
 
@@ -402,6 +402,7 @@ Generated: deterministic
 | dingtalk-connector     | registration | registerGatewayMethod                  | ready  | direct           | plugins/dingtalk-connector/src/gateway-methods.ts:652                  | method name is stable; request and response schema are captured                                 |
 | dingtalk-connector     | registration | registerGatewayMethod                  | ready  | direct           | plugins/dingtalk-connector/src/gateway-methods.ts:719                  | method name is stable; request and response schema are captured                                 |
 | dingtalk-doc           | registration | registerTool                           | ready  | direct           | plugins/dingtalk-doc/src/tools/helpers.ts:93                           | tool name is stable; input schema is captured; result shape metadata is captured                |
+| hapi-openclaw          | registration | definePluginEntry                      | ready  | metadata-only    | plugins/hapi-openclaw/.crabpot-package/dist/index.js:48                | entrypoint register function is callable; entrypoint metadata is preserved                      |
 | mocrane-wecom          | registration | registerChannel                        | ready  | channel-opt-in   | plugins/mocrane-wecom/index.ts:31                                      | channel id is stable; inbound/outbound envelope shape is captured; sender metadata is preserved |
 | mocrane-wecom          | registration | registerHttpRoute                      | ready  | direct           | plugins/mocrane-wecom/index.ts:34                                      | route method and path are captured; auth policy metadata is captured                            |
 | mocrane-wecom          | registration | registerTool                           | ready  | direct           | plugins/mocrane-wecom/index.ts:43                                      | tool name is stable; input schema is captured; result shape metadata is captured                |

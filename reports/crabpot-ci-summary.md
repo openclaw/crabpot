@@ -1,7 +1,7 @@
 # Crabpot CI Summary
 
 Generated: deterministic
-Mode: check
+Mode: local
 OpenClaw: openclaw@latest (2026.5.12, f066dd2f31c2)
 Status: PASS
 
@@ -11,15 +11,15 @@ Status: PASS
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | Breakages                   | 0                                                                                                                      |
 | Warnings                    | 124                                                                                                                    |
-| Suggestions                 | 151                                                                                                                    |
-| Issues                      | 275                                                                                                                    |
+| Suggestions                 | 152                                                                                                                    |
+| Issues                      | 276                                                                                                                    |
 | P0 issues                   | 0                                                                                                                      |
 | P1 issues                   | 16                                                                                                                     |
 | Live issues                 | 0                                                                                                                      |
 | Live P0 issues              | 0                                                                                                                      |
 | Compat gaps                 | 0                                                                                                                      |
 | Deprecation warnings        | 42                                                                                                                     |
-| Inspector gaps              | 160                                                                                                                    |
+| Inspector gaps              | 161                                                                                                                    |
 | Upstream metadata           | 73                                                                                                                     |
 | Ref diff failures           | 0                                                                                                                      |
 | Ref diff warnings           | 0                                                                                                                      |

@@ -104,7 +104,9 @@ function buildReportContext({
       : null,
     packageAvailability: packageAvailability
       ? {
-          path: packageAvailabilityPath ?? defaultPackageAvailabilityPath,
+          path: relativePathLabel(
+            packageAvailabilityPath ?? process.env.CRABPOT_PACKAGE_AVAILABILITY_PATH ?? defaultPackageAvailabilityPath,
+          ),
           failures: packageAvailability.summary?.failureCount ?? packageAvailability.failures?.length ?? 0,
           openclawFailures: packageAvailabilityActionableFailures?.length ?? 0,
           fallbacks: packageAvailability.summary?.fallbackCount ?? 0,

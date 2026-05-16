@@ -685,15 +685,15 @@
   },
   "status": "pass",
   "summary": {
-    "fixtureCount": 58,
+    "fixtureCount": 59,
     "highPriorityFixtures": 22,
     "breakageCount": 0,
     "warningCount": 124,
-    "suggestionCount": 151,
-    "decisionCount": 293,
-    "logCount": 472,
-    "issueCount": 275,
-    "openIssueCount": 275,
+    "suggestionCount": 152,
+    "decisionCount": 294,
+    "logCount": 477,
+    "issueCount": 276,
+    "openIssueCount": 276,
     "p0IssueCount": 0,
     "p1IssueCount": 16,
     "openP0IssueCount": 0,
@@ -702,14 +702,14 @@
     "liveP0IssueCount": 0,
     "compatGapCount": 0,
     "deprecationWarningCount": 42,
-    "inspectorGapCount": 160,
+    "inspectorGapCount": 161,
     "upstreamIssueCount": 73,
     "fixtureRegressionCount": 0,
-    "openInspectorGapCount": 160,
+    "openInspectorGapCount": 161,
     "runtimeCoveredIssueCount": 0,
     "runtimePartiallyCoveredIssueCount": 0,
     "runtimeCoverageArtifactCount": 0,
-    "contractProbeCount": 271
+    "contractProbeCount": 272
   },
   "fixtures": [
     {
@@ -26937,6 +26937,176 @@
       ]
     },
     {
+      "id": "hapi-openclaw",
+      "name": "HAPI OpenClaw Adapter",
+      "priority": "medium",
+      "seams": [
+        "gateway-service",
+        "http-routes",
+        "service-lifecycle",
+        "transcript-bridge",
+        "config-schema"
+      ],
+      "why": "NPM-pinned HAPI adapter fixture covering a native /hapi gateway route surface, plugin-auth HTTP handlers, and transcript bridge/capture services backed by OpenClaw runtime events; this is a plugin-owned gateway surface rather than another channel or sidecar.",
+      "status": "ok",
+      "hooks": [],
+      "hookDetails": [],
+      "registrations": [
+        "definePluginEntry"
+      ],
+      "registrationDetails": [
+        {
+          "name": "definePluginEntry",
+          "file": "plugins/hapi-openclaw/.crabpot-package/dist/index.js",
+          "line": 48,
+          "ref": "plugins/hapi-openclaw/.crabpot-package/dist/index.js:48"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/hapi-openclaw/.crabpot-package/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/hapi-openclaw/.crabpot-package/dist/index.js"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/hapi-openclaw/.crabpot-package/openclaw.plugin.json",
+          "id": "hapi-openclaw",
+          "name": "HAPI OpenClaw Adapter",
+          "version": null,
+          "keys": [
+            "configSchema",
+            "description",
+            "id",
+            "name",
+            "uiHints"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "securityManifests": [],
+      "package": {
+        "path": "plugins/hapi-openclaw/.crabpot-package/package.json",
+        "name": "@twsxtd/hapi-openclaw",
+        "version": "0.1.8",
+        "type": "module",
+        "main": "./dist/index.js",
+        "npmPack": {
+          "advertised": false,
+          "private": false,
+          "filesMode": "allowlist",
+          "files": [
+            "dist",
+            "openclaw.plugin.json",
+            "README.md"
+          ],
+          "invalidFileSpecs": []
+        },
+        "dependencies": [
+          "hono",
+          "openclaw"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./dist/index.js"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": ">=2026.4.11",
+          "buildOpenClawVersion": "2026.4.11",
+          "buildPluginSdkVersion": "2026.4.11",
+          "install": null,
+          "release": null,
+          "unsupportedMetadata": [],
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./dist/index.js",
+              "relativePath": "plugins/hapi-openclaw/.crabpot-package/dist/index.js",
+              "exists": true,
+              "requiresBuild": true
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/hapi-openclaw/.crabpot-package/package.json",
+          "name": "@twsxtd/hapi-openclaw",
+          "version": "0.1.8",
+          "type": "module",
+          "main": "./dist/index.js",
+          "npmPack": {
+            "advertised": false,
+            "private": false,
+            "filesMode": "allowlist",
+            "files": [
+              "dist",
+              "openclaw.plugin.json",
+              "README.md"
+            ],
+            "invalidFileSpecs": []
+          },
+          "dependencies": [
+            "hono",
+            "openclaw"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./dist/index.js"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": ">=2026.4.11",
+            "buildOpenClawVersion": "2026.4.11",
+            "buildPluginSdkVersion": "2026.4.11",
+            "install": null,
+            "release": null,
+            "unsupportedMetadata": [],
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./dist/index.js",
+                "relativePath": "plugins/hapi-openclaw/.crabpot-package/dist/index.js",
+                "exists": true,
+                "requiresBuild": true
+              }
+            ]
+          }
+        },
+        {
+          "path": "plugins/hapi-openclaw/package.json",
+          "name": "@crabpot/fixture-hapi-openclaw",
+          "version": "0.0.0",
+          "type": null,
+          "main": null,
+          "npmPack": {
+            "advertised": false,
+            "private": true,
+            "filesMode": "implicit",
+            "files": [],
+            "invalidFileSpecs": []
+          },
+          "dependencies": [
+            "@twsxtd/hapi-openclaw"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": null
+        }
+      ],
+      "sdkImports": [],
+      "sdkImportDetails": []
+    },
+    {
       "id": "mocrane-wecom",
       "name": "Mocrane WeCom",
       "priority": "high",
@@ -33606,6 +33776,15 @@
       ]
     },
     {
+      "fixture": "hapi-openclaw",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "hono @ plugins/hapi-openclaw/.crabpot-package/package.json"
+      ]
+    },
+    {
       "fixture": "mocrane-wecom",
       "code": "package-typescript-source-entrypoint",
       "level": "suggestion",
@@ -36076,6 +36255,25 @@
         "registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:4945"
       ],
       "compatRecord": "api.capture.runtime-registrars",
+      "runtimeCoverage": null
+    },
+    {
+      "id": "CRABPOT-E9BDCBCE",
+      "fixture": "hapi-openclaw",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "hapi-openclaw: cold import requires dependency installation in an isolated workspace",
+      "evidence": [
+        "hono @ plugins/hapi-openclaw/.crabpot-package/package.json"
+      ],
+      "compatRecord": null,
       "runtimeCoverage": null
     },
     {
@@ -41850,6 +42048,16 @@
       ]
     },
     {
+      "id": "package.entrypoint.isolated-dependency-install:hapi-openclaw",
+      "fixture": "hapi-openclaw",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "hono @ plugins/hapi-openclaw/.crabpot-package/package.json"
+      ]
+    },
+    {
       "id": "package.entrypoint.isolated-dependency-install:lightclawbot",
       "fixture": "lightclawbot",
       "priority": "P3",
@@ -46730,6 +46938,49 @@
       ]
     },
     {
+      "fixture": "hapi-openclaw",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 0 hooks, 1 registrations, and 0 manifest contracts",
+      "evidence": [
+        "registration:definePluginEntry"
+      ]
+    },
+    {
+      "fixture": "hapi-openclaw",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": []
+    },
+    {
+      "fixture": "hapi-openclaw",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": []
+    },
+    {
+      "fixture": "hapi-openclaw",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/hapi-openclaw/.crabpot-package/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "hapi-openclaw",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/hapi-openclaw/.crabpot-package/package.json",
+        "@twsxtd/hapi-openclaw",
+        "version:0.1.8"
+      ]
+    },
+    {
       "fixture": "mocrane-wecom",
       "code": "seam-inventory",
       "level": "log",
@@ -50439,6 +50690,13 @@
       "evidence": "registerTool without manifest contracts.tools"
     },
     {
+      "fixture": "hapi-openclaw",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "hono"
+    },
+    {
       "fixture": "mocrane-wecom",
       "decision": "plugin-upstream-fix",
       "seam": "package-metadata",
@@ -50927,6 +51185,7 @@
       "ddingtalk",
       "dingtalk-connector",
       "dingtalk-doc",
+      "hapi-openclaw",
       "mocrane-wecom",
       "yuanbao",
       "openclaw-weixin",
@@ -50946,7 +51205,7 @@
     "pluginTrack": "latest",
     "runtimeEvidence": null,
     "packageAvailability": {
-      "path": "/home/runner/work/crabpot/crabpot/reports/crabpot-package-availability.json",
+      "path": "reports/crabpot-package-availability.json",
       "failures": 0,
       "openclawFailures": 0,
       "fallbacks": 0

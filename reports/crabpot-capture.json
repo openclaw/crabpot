@@ -7,13 +7,13 @@
     "sdkExportCount": 307
   },
   "summary": {
-    "fixtureCount": 58,
-    "registrationCount": 322,
+    "fixtureCount": 59,
+    "registrationCount": 323,
     "hookCount": 112,
     "sdkImportCount": 2190,
-    "packageEntrypointCount": 105,
-    "issueProbeCount": 271,
-    "inspectorShimRequiredCount": 196,
+    "packageEntrypointCount": 106,
+    "issueProbeCount": 272,
+    "inspectorShimRequiredCount": 197,
     "compatAliasRequiredCount": 0
   },
   "fixtures": [
@@ -31271,6 +31271,45 @@
       ]
     },
     {
+      "id": "hapi-openclaw",
+      "priority": "medium",
+      "registrations": [
+        {
+          "id": "registration.definePluginEntry:hapi-openclaw:plugins-hapi-openclaw-crabpot-package-dist-index-js-48",
+          "fixture": "hapi-openclaw",
+          "registrar": "definePluginEntry",
+          "ref": "plugins/hapi-openclaw/.crabpot-package/dist/index.js:48",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "entrypoint register function is callable",
+            "entrypoint metadata is preserved"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-plugin",
+              "register": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [],
+      "sdkImports": [],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:hapi-openclaw:plugins-hapi-openclaw-crabpot-package-dist-index-js",
+          "fixture": "hapi-openclaw",
+          "kind": "extension",
+          "specifier": "./dist/index.js",
+          "ref": "plugins/hapi-openclaw/.crabpot-package/dist/index.js",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
       "id": "mocrane-wecom",
       "priority": "high",
       "registrations": [
@@ -37045,6 +37084,19 @@
       "evidence": [
         "commander @ plugins/google-meet/.crabpot-package/package.json",
         "typebox @ plugins/google-meet/.crabpot-package/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:hapi-openclaw",
+      "fixture": "hapi-openclaw",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "hono @ plugins/hapi-openclaw/.crabpot-package/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",

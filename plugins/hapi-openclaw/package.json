@@ -1,0 +1,14 @@
+{
+  "name": "@crabpot/fixture-hapi-openclaw",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Crabpot npm fixture shim for HAPI OpenClaw Adapter.",
+  "dependencies": {
+    "@twsxtd/hapi-openclaw": "0.1.8"
+  },
+  "crabpot": {
+    "fixture": "hapi-openclaw",
+    "source": "npm",
+    "package": "@twsxtd/hapi-openclaw"
+  }
+}

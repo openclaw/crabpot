@@ -8,13 +8,13 @@
     "container"
   ],
   "summary": {
-    "fixtureCount": 58,
-    "entrypointCount": 105,
+    "fixtureCount": 59,
+    "entrypointCount": 106,
     "tsLoaderEntrypointCount": 22,
     "jitiAlternativeCount": 22,
-    "lazyImportProbeCount": 105,
+    "lazyImportProbeCount": 106,
     "portabilityFindingCount": 16,
-    "coveredPortabilityFindingCount": 461,
+    "coveredPortabilityFindingCount": 466,
     "windowsRiskStepCount": 16,
     "macosRiskStepCount": 16,
     "linuxRiskStepCount": 16,
@@ -1567,6 +1567,24 @@
       "status": "build-required",
       "entrypoint": "plugins/dingtalk-doc/dist/index.mjs",
       "packageManager": "pnpm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
+    },
+    {
+      "fixture": "hapi-openclaw",
+      "id": "cold-import.extension:hapi-openclaw:plugins-hapi-openclaw-crabpot-package-dist-index-js",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/hapi-openclaw/.crabpot-package/dist/index.js",
+      "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
       "loaderAlternatives": [],
@@ -7253,6 +7271,74 @@
       "entrypoint": "cold-import.extension:dingtalk-doc:plugins-dingtalk-doc-dist-index-mjs",
       "kind": "synthetic-probe",
       "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.mjs --mock-sdk --output ../../results/dingtalk-doc/cold-import-extension-dingtalk-doc-plugins-dingtalk-doc-dist-index-mjs.synthetic.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "hapi-openclaw",
+      "entrypoint": "cold-import.extension:hapi-openclaw:plugins-hapi-openclaw-crabpot-package-dist-index-js",
+      "kind": "prepare",
+      "command": "mkdir -p .crabpot/workspaces/hapi-openclaw && rsync -a --delete plugins/hapi-openclaw/.crabpot-package/ .crabpot/workspaces/hapi-openclaw/",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ]
+    },
+    {
+      "fixture": "hapi-openclaw",
+      "entrypoint": "cold-import.extension:hapi-openclaw:plugins-hapi-openclaw-crabpot-package-dist-index-js",
+      "kind": "prepare-artifacts",
+      "command": "mkdir -p .crabpot/results/hapi-openclaw",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "hapi-openclaw",
+      "entrypoint": "cold-import.extension:hapi-openclaw:plugins-hapi-openclaw-crabpot-package-dist-index-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/hapi-openclaw/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "hapi-openclaw",
+      "entrypoint": "cold-import.extension:hapi-openclaw:plugins-hapi-openclaw-crabpot-package-dist-index-js",
+      "kind": "capture",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/hapi-openclaw/cold-import-extension-hapi-openclaw-plugins-hapi-openclaw-crabpot-package-dist-index-js.capture.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "hapi-openclaw",
+      "entrypoint": "cold-import.extension:hapi-openclaw:plugins-hapi-openclaw-crabpot-package-dist-index-js",
+      "kind": "synthetic-probe",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/hapi-openclaw/cold-import-extension-hapi-openclaw-plugins-hapi-openclaw-crabpot-package-dist-index-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"

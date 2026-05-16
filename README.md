@@ -25,27 +25,27 @@
 
 | Metric                 | Result                                                                                                           |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| Fixtures               | 58                                                                                                               |
+| Fixtures               | 59                                                                                                               |
 | Hard breakages         | 0                                                                                                                |
 | Warnings               | 124                                                                                                              |
-| Suggestions            | 151                                                                                                              |
-| Issues                 | 275                                                                                                              |
+| Suggestions            | 152                                                                                                              |
+| Issues                 | 276                                                                                                              |
 | P0 issues              | [🔴 P0 0](reports/crabpot-issues.md#p0-live-issues)                                                              |
 | P1 issues              | [🟠 P1 16](reports/crabpot-issues.md#triage-summary)                                                             |
 | Live issues            | 0 total / 0 P0                                                                                                   |
 | Compat gaps            | 0                                                                                                                |
 | Deprecation warnings   | 42                                                                                                               |
-| Inspector gaps         | 160                                                                                                              |
+| Inspector gaps         | 161                                                                                                              |
 | Upstream metadata      | 73                                                                                                               |
-| Contract probes        | 271                                                                                                              |
+| Contract probes        | 272                                                                                                              |
 | Policy failures        | 0                                                                                                                |
 | Policy warnings        | 307                                                                                                              |
 | Ref diff failures      | 0                                                                                                                |
 | Profile failures       | 0                                                                                                                |
 | Execution probes       | 120 pass / 0 fail / 306 blocked                                                                                  |
-| Synthetic probes       | 434 ready / 0 blocked / 434 total                                                                                |
-| Cold import            | 7 ready / 98 blocked / 105 entrypoints                                                                           |
-| Workspace plan         | 105 entrypoints / 41 installs / 12 builds                                                                        |
+| Synthetic probes       | 435 ready / 0 blocked / 435 total                                                                                |
+| Cold import            | 7 ready / 99 blocked / 106 entrypoints                                                                           |
+| Workspace plan         | 106 entrypoints / 42 installs / 12 builds                                                                        |
 | Platform risks         | 16 Windows / 16 container                                                                                        |
 | Jiti loader candidates | 22                                                                                                               |
 | Import loop            | p50 1460ms / p95 1488ms / plugin delta RSS 0MB / plugin delta CPU 16ms / OpenClaw import 94.8ms / activate 0.3ms |

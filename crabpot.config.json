@@ -1142,6 +1142,21 @@
       "why": "DingTalk document-tool fixture wrapping MCP doc, block, and file operations into OpenClaw tool registrations with tool-call logging hooks; this covers AliDocs automation rather than another chat channel."
     },
     {
+      "id": "hapi-openclaw",
+      "name": "HAPI OpenClaw Adapter",
+      "package": {
+        "name": "@twsxtd/hapi-openclaw",
+        "tag": "latest"
+      },
+      "path": "plugins/hapi-openclaw",
+      "priority": "medium",
+      "seams": ["gateway-service", "http-routes", "service-lifecycle", "transcript-bridge", "config-schema"],
+      "expect": {
+        "registrations": ["definePluginEntry"]
+      },
+      "why": "NPM-pinned HAPI adapter fixture covering a native /hapi gateway route surface, plugin-auth HTTP handlers, and transcript bridge/capture services backed by OpenClaw runtime events; this is a plugin-owned gateway surface rather than another channel or sidecar."
+    },
+    {
       "id": "mocrane-wecom",
       "name": "Mocrane WeCom",
       "repo": "https://github.com/TencentCloud-Lighthouse/openclaw-wecom.git",

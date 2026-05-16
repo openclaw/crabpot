@@ -8,14 +8,14 @@ Status: PASS
 
 - **OpenClaw host track:** `latest`
 - **Plugin artifact track:** `latest`
-- **Fixture set:** `all (58 fixtures)`
+- **Fixture set:** `all (59 fixtures)`
 - **Package availability:** `reports/crabpot-package-availability.json` (0 OpenClaw failures, 0 fallbacks)
 ## Triage Summary
 
 | Metric                     | Value |
 | -------------------------- | ----- |
-| Issue findings             | 275   |
-| Open issue findings        | 275   |
+| Issue findings             | 276   |
+| Open issue findings        | 276   |
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
 | 🔴 P0                      | 0     |
@@ -26,11 +26,11 @@ Status: PASS
 | Live P0 issues             | 0     |
 | Compat gaps                | 0     |
 | Deprecation warnings       | 42    |
-| Inspector gaps             | 160   |
-| Open inspector gaps        | 160   |
+| Inspector gaps             | 161   |
+| Open inspector gaps        | 161   |
 | Runtime coverage artifacts | 0     |
 | Upstream metadata          | 73    |
-| Contract probes            | 271   |
+| Contract probes            | 272   |
 
 ## Triage Overview
 
@@ -39,7 +39,7 @@ Status: PASS
 | live-issue          | 0     | 0  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.                                          |
 | compat-gap          | 0     | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
 | deprecation-warning | 42    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
-| inspector-gap       | 160   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
+| inspector-gap       | 161   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
 | upstream-metadata   | 73    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                                                                    |
 
@@ -876,6 +876,12 @@ _none_
     - [registerGatewayMethod @ index.js:4774](https://github.com/openclaw/openclaw/blob/f066dd2f31c231f38fbcaacd6f6dfce0801143b3/extensions/google-meet/dist/index.js#L4774)
     - [registerGatewayMethod @ index.js:4790](https://github.com/openclaw/openclaw/blob/f066dd2f31c231f38fbcaacd6f6dfce0801143b3/extensions/google-meet/dist/index.js#L4790)
     - [registerNodeHostCommand @ index.js:4945](https://github.com/openclaw/openclaw/blob/f066dd2f31c231f38fbcaacd6f6dfce0801143b3/extensions/google-meet/dist/index.js#L4945)
+
+- 🟡 P2 **hapi-openclaw** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: hapi-openclaw: cold import requires dependency installation in an isolated workspace
+  - state: open · compat:none
+  - evidence:
+    - hono @ plugins/hapi-openclaw/.crabpot-package/package.json
 
 - 🟡 P2 **hasdata** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hasdata: cold import requires dependency installation in an isolated workspace
@@ -2871,6 +2877,12 @@ _none_
     - [registerGatewayMethod @ index.js:4774](https://github.com/openclaw/openclaw/blob/f066dd2f31c231f38fbcaacd6f6dfce0801143b3/extensions/google-meet/dist/index.js#L4774)
     - [registerGatewayMethod @ index.js:4790](https://github.com/openclaw/openclaw/blob/f066dd2f31c231f38fbcaacd6f6dfce0801143b3/extensions/google-meet/dist/index.js#L4790)
     - [registerNodeHostCommand @ index.js:4945](https://github.com/openclaw/openclaw/blob/f066dd2f31c231f38fbcaacd6f6dfce0801143b3/extensions/google-meet/dist/index.js#L4945)
+
+- 🟡 P2 **hapi-openclaw** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: hapi-openclaw: cold import requires dependency installation in an isolated workspace
+  - state: open · compat:none
+  - evidence:
+    - hono @ plugins/hapi-openclaw/.crabpot-package/package.json
 
 - 🟡 P2 **hasdata** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hasdata: cold import requires dependency installation in an isolated workspace
@@ -5608,6 +5620,12 @@ _none_
   - evidence:
     - [commander @ package.json](https://github.com/openclaw/openclaw/blob/f066dd2f31c231f38fbcaacd6f6dfce0801143b3/extensions/google-meet/package.json)
     - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/f066dd2f31c231f38fbcaacd6f6dfce0801143b3/extensions/google-meet/package.json)
+
+- 🟢 P3 **hapi-openclaw** `package-loader`
+  - contract: Inspector installs package dependencies in an isolated workspace before cold import.
+  - id: `package.entrypoint.isolated-dependency-install:hapi-openclaw`
+  - evidence:
+    - hono @ plugins/hapi-openclaw/.crabpot-package/package.json
 
 - 🟢 P3 **lightclawbot** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.

@@ -3470,7 +3470,7 @@
     {
       "id": "compatibility-report.inspector-gaps",
       "action": "pass",
-      "message": "160 inspector proof gaps tracked",
+      "message": "161 inspector proof gaps tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "dingtalk-doc:before-tool-call-probe",
@@ -3533,6 +3533,7 @@
         "feishu:package-dependency-install-required",
         "google-meet:package-dependency-install-required",
         "google-meet:registration-capture-gap",
+        "hapi-openclaw:package-dependency-install-required",
         "hasdata:package-dependency-install-required",
         "hasdata:package-typescript-source-entrypoint",
         "honcho:package-build-artifact-entrypoint",

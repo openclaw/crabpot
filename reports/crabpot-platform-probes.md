@@ -8,13 +8,13 @@ Targets: linux, macos, windows, container
 
 | Metric                         | Value |
 | ------------------------------ | ----- |
-| fixtureCount                   | 58    |
-| entrypointCount                | 105   |
+| fixtureCount                   | 59    |
+| entrypointCount                | 106   |
 | tsLoaderEntrypointCount        | 22    |
 | jitiAlternativeCount           | 22    |
-| lazyImportProbeCount           | 105   |
+| lazyImportProbeCount           | 106   |
 | portabilityFindingCount        | 16    |
-| coveredPortabilityFindingCount | 461   |
+| coveredPortabilityFindingCount | 466   |
 | windowsRiskStepCount           | 16    |
 | macosRiskStepCount             | 16    |
 | linuxRiskStepCount             | 16    |
@@ -109,6 +109,7 @@ Targets: linux, macos, windows, container
 | ddingtalk              | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/ddingtalk/index.ts                                          |
 | dingtalk-connector     | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/dingtalk-connector/dist/index.mjs                           |
 | dingtalk-doc           | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/dingtalk-doc/dist/index.mjs                                 |
+| hapi-openclaw          | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/hapi-openclaw/.crabpot-package/dist/index.js                |
 | mocrane-wecom          | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/mocrane-wecom/index.ts                                      |
 | yuanbao                | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/yuanbao/.crabpot-package/dist/index.js                      |
 | yuanbao                | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/yuanbao/.crabpot-package/dist/setup-entry.js                |
@@ -526,6 +527,11 @@ Targets: linux, macos, windows, container
 | dingtalk-doc           | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | dingtalk-doc           | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | dingtalk-doc           | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| hapi-openclaw          | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| hapi-openclaw          | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| hapi-openclaw          | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
+| hapi-openclaw          | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| hapi-openclaw          | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | mocrane-wecom          | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | mocrane-wecom          | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | mocrane-wecom          | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |

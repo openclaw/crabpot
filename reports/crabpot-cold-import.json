@@ -6,13 +6,13 @@
     "sdkExportCount": 307
   },
   "summary": {
-    "fixtureCount": 58,
-    "entrypointCount": 105,
+    "fixtureCount": 59,
+    "entrypointCount": 106,
     "readyCount": 7,
-    "blockedCount": 98,
+    "blockedCount": 99,
     "tsLoaderRequiredCount": 22,
     "buildRequiredCount": 12,
-    "dependencyInstallRequiredCount": 41,
+    "dependencyInstallRequiredCount": 42,
     "sdkAliasRequiredCount": 0
   },
   "fixtures": [
@@ -1957,6 +1957,37 @@
           ],
           "assertions": [
             "plugin build or source alias resolution runs before cold import"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hapi-openclaw",
+      "priority": "medium",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:hapi-openclaw:plugins-hapi-openclaw-crabpot-package-dist-index-js",
+          "fixture": "hapi-openclaw",
+          "packagePath": "plugins/hapi-openclaw/.crabpot-package/package.json",
+          "kind": "extension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/hapi-openclaw/.crabpot-package/dist/index.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/hapi-openclaw/.crabpot-package/dist/index.js"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "hono"
+            }
+          ],
+          "assertions": [
+            "cold import sandbox blocks network/process side effects before register capture",
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
       ]
