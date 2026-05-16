@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 import { pathToFileURL } from "node:url";
+import path from "node:path";
+import { repoRoot } from "./manifest-lib.mjs";
 import {
   buildReport,
   defaultIssuesReportPath,
@@ -40,12 +42,18 @@ async function main() {
     console.log(
       `crabpot report check: ${report.status}; ${report.summary.breakageCount} breakages, ${report.summary.warningCount} warnings, ${report.summary.suggestionCount} suggestions, ${report.summary.issueCount} issues`,
     );
-    console.log(`report targets: ${defaultMarkdownReportPath}, ${defaultJsonReportPath}, ${defaultIssuesReportPath}`);
+    console.log(
+      `report targets: ${[defaultMarkdownReportPath, defaultJsonReportPath, defaultIssuesReportPath].map(relativePathLabel).join(", ")}`,
+    );
   }
 
   if (check && report.breakages.length > 0) {
     throw new Error(report.breakages.map((finding) => finding.message).join("\n"));
   }
+}
+
+function relativePathLabel(filePath) {
+  return path.relative(repoRoot, filePath).replaceAll("\\", "/");
 }
 
 function parseArgs(argv) {

@@ -179,7 +179,9 @@ function openClawLifecycleProfileOptions(openclawPath) {
       cwd: resolvedOpenClawPath,
       env: {
         CRABPOT_EXECUTE_ISOLATED: "1",
+        CRABPOT_FIXTURE_ROOT: repoRoot,
         CRABPOT_OPENCLAW_DIR: resolvedOpenClawPath,
+        CRABPOT_OPENCLAW_LABEL: openclawPath,
       },
     }),
   };

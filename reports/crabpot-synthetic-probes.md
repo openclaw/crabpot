@@ -6,13 +6,13 @@ Generated: deterministic
 
 | Metric              | Value |
 | ------------------- | ----- |
-| Fixtures            | 59    |
-| Probes              | 435   |
-| Hook probes         | 112   |
-| Registration probes | 323   |
-| Ready               | 435   |
+| Fixtures            | 60    |
+| Probes              | 443   |
+| Hook probes         | 114   |
+| Registration probes | 329   |
+| Ready               | 443   |
 | Blocked             | 0     |
-| Direct execution    | 163   |
+| Direct execution    | 169   |
 | Opt-in execution    | 29    |
 | Metadata-only       | 131   |
 
@@ -25,6 +25,8 @@ Generated: deterministic
 | wecom                  | hook         | subagent_delivery_target               | ready  | hook-direct      | plugins/wecom/index.js:72                                              | target routing result is preserved; parent/subagent metadata are present                        |
 | wecom                  | hook         | subagent_ended                         | ready  | hook-direct      | plugins/wecom/index.js:74                                              | subagent completion payload is preserved; status metadata is present                            |
 | wecom                  | hook         | subagent_spawned                       | ready  | hook-direct      | plugins/wecom/index.js:73                                              | spawn payload is preserved; parent/subagent metadata are present                                |
+| aiwerk-mcp-bridge      | hook         | deactivate                             | ready  | hook-direct      | plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:399           | hook payload and return value are captured                                                      |
+| aiwerk-mcp-bridge      | hook         | deactivate                             | ready  | hook-direct      | plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:453                | hook payload and return value are captured                                                      |
 | llm-trace-phoenix      | hook         | llm_input                              | ready  | hook-direct      | plugins/llm-trace-phoenix/index.ts:154                                 | model input payload is redacted as expected; model and agent metadata are present               |
 | llm-trace-phoenix      | hook         | llm_output                             | ready  | hook-direct      | plugins/llm-trace-phoenix/index.ts:168                                 | model output payload is redacted as expected; model and agent metadata are present              |
 | opik-openclaw          | hook         | after_tool_call                        | ready  | hook-direct      | plugins/opik-openclaw/src/service/hooks/tool.ts:100                    | hook payload and return value are captured                                                      |
@@ -151,6 +153,12 @@ Generated: deterministic
 | hasdata                | registration | registerTool                           | ready  | direct           | plugins/hasdata/src/index.ts:43                                        | tool name is stable; input schema is captured; result shape metadata is captured                |
 | mcp-adapter            | registration | registerService                        | ready  | lifecycle-opt-in | plugins/mcp-adapter/index.ts:15                                        | service id is stable; start/stop lifecycle handlers are captured                                |
 | mcp-adapter            | registration | registerTool                           | ready  | direct           | plugins/mcp-adapter/index.ts:30                                        | tool name is stable; input schema is captured; result shape metadata is captured                |
+| aiwerk-mcp-bridge      | registration | registerTool                           | ready  | direct           | plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:128           | tool name is stable; input schema is captured; result shape metadata is captured                |
+| aiwerk-mcp-bridge      | registration | registerTool                           | ready  | direct           | plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:320           | tool name is stable; input schema is captured; result shape metadata is captured                |
+| aiwerk-mcp-bridge      | registration | registerTool                           | ready  | direct           | plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:73            | tool name is stable; input schema is captured; result shape metadata is captured                |
+| aiwerk-mcp-bridge      | registration | registerTool                           | ready  | direct           | plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:138                | tool name is stable; input schema is captured; result shape metadata is captured                |
+| aiwerk-mcp-bridge      | registration | registerTool                           | ready  | direct           | plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:361                | tool name is stable; input schema is captured; result shape metadata is captured                |
+| aiwerk-mcp-bridge      | registration | registerTool                           | ready  | direct           | plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:81                 | tool name is stable; input schema is captured; result shape metadata is captured                |
 | opik-openclaw          | registration | registerCli                            | ready  | direct           | plugins/opik-openclaw/index.ts:17                                      | command name is stable; argument schema is captured                                             |
 | opik-openclaw          | registration | registerService                        | ready  | lifecycle-opt-in | plugins/opik-openclaw/index.ts:16                                      | service id is stable; start/stop lifecycle handlers are captured                                |
 | openclaw-telemetry     | registration | registerService                        | ready  | lifecycle-opt-in | plugins/openclaw-telemetry/index.ts:10                                 | service id is stable; start/stop lifecycle handlers are captured                                |

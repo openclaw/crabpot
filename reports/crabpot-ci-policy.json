@@ -22,10 +22,18 @@
   "summary": {
     "checkCount": 314,
     "failCount": 0,
-    "warnCount": 307,
-    "passCount": 7
+    "warnCount": 308,
+    "passCount": 6
   },
   "checks": [
+    {
+      "id": "compatibility-report.live-p0-issues",
+      "action": "warn",
+      "message": "1 live P0 issues tracked",
+      "evidence": [
+        "aiwerk-mcp-bridge:unknown-hook-name:none"
+      ]
+    },
     {
       "id": "execution-results.audit-findings",
       "action": "warn",
@@ -3470,7 +3478,7 @@
     {
       "id": "compatibility-report.inspector-gaps",
       "action": "pass",
-      "message": "161 inspector proof gaps tracked",
+      "message": "164 inspector proof gaps tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "dingtalk-doc:before-tool-call-probe",
@@ -3494,6 +3502,9 @@
         "agentchat:channel-contract-probe",
         "agentchat:package-build-artifact-entrypoint",
         "agentchat:package-dependency-install-required",
+        "aiwerk-mcp-bridge:package-dependency-install-required",
+        "aiwerk-mcp-bridge:package-typescript-source-entrypoint",
+        "aiwerk-mcp-bridge:runtime-tool-capture",
         "apify:package-dependency-install-required",
         "apify:package-typescript-source-entrypoint",
         "apify:runtime-tool-capture",
@@ -3634,12 +3645,6 @@
         "zalouser:channel-contract-probe",
         "zalouser:package-dependency-install-required"
       ]
-    },
-    {
-      "id": "compatibility-report.live-p0-issues",
-      "action": "pass",
-      "message": "0 live P0 issues tracked",
-      "evidence": []
     },
     {
       "id": "compatibility-report.p1-issues",

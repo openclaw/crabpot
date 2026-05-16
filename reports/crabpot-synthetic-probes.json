@@ -1,13 +1,13 @@
 {
   "generatedAt": "deterministic",
   "summary": {
-    "fixtureCount": 59,
-    "probeCount": 435,
-    "hookProbeCount": 112,
-    "registrationProbeCount": 323,
-    "readyCount": 435,
+    "fixtureCount": 60,
+    "probeCount": 443,
+    "hookProbeCount": 114,
+    "registrationProbeCount": 329,
+    "readyCount": 443,
     "blockedCount": 0,
-    "directExecutionCount": 163,
+    "directExecutionCount": 169,
     "optInExecutionCount": 29,
     "metadataOnlyCount": 131
   },
@@ -141,6 +141,46 @@
         "parentAgentId": "agent-parent"
       },
       "source": "plugins/wecom/index.js:73"
+    },
+    {
+      "id": "hook.deactivate:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-dist-index-js-399",
+      "fixture": "aiwerk-mcp-bridge",
+      "kind": "hook",
+      "seam": "deactivate",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "deactivate",
+        "fixture": "aiwerk-mcp-bridge"
+      },
+      "syntheticContext": {
+        "hook": "deactivate",
+        "fixture": "aiwerk-mcp-bridge"
+      },
+      "source": "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:399"
+    },
+    {
+      "id": "hook.deactivate:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-index-ts-453",
+      "fixture": "aiwerk-mcp-bridge",
+      "kind": "hook",
+      "seam": "deactivate",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "deactivate",
+        "fixture": "aiwerk-mcp-bridge"
+      },
+      "syntheticContext": {
+        "hook": "deactivate",
+        "fixture": "aiwerk-mcp-bridge"
+      },
+      "source": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:453"
     },
     {
       "id": "hook.llm_input:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts-154",
@@ -3271,6 +3311,198 @@
         ]
       },
       "source": "plugins/mcp-adapter/index.ts:30"
+    },
+    {
+      "id": "registration.registerTool:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-dist-index-js-128",
+      "fixture": "aiwerk-mcp-bridge",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:128"
+    },
+    {
+      "id": "registration.registerTool:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-dist-index-js-320",
+      "fixture": "aiwerk-mcp-bridge",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:320"
+    },
+    {
+      "id": "registration.registerTool:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-dist-index-js-73",
+      "fixture": "aiwerk-mcp-bridge",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:73"
+    },
+    {
+      "id": "registration.registerTool:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-index-ts-138",
+      "fixture": "aiwerk-mcp-bridge",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:138"
+    },
+    {
+      "id": "registration.registerTool:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-index-ts-361",
+      "fixture": "aiwerk-mcp-bridge",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:361"
+    },
+    {
+      "id": "registration.registerTool:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-index-ts-81",
+      "fixture": "aiwerk-mcp-bridge",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:81"
     },
     {
       "id": "registration.registerCli:opik-openclaw:plugins-opik-openclaw-index-ts-17",

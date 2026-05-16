@@ -8,13 +8,13 @@ Targets: linux, macos, windows, container
 
 | Metric                         | Value |
 | ------------------------------ | ----- |
-| fixtureCount                   | 59    |
-| entrypointCount                | 106   |
-| tsLoaderEntrypointCount        | 22    |
-| jitiAlternativeCount           | 22    |
-| lazyImportProbeCount           | 106   |
+| fixtureCount                   | 60    |
+| entrypointCount                | 107   |
+| tsLoaderEntrypointCount        | 23    |
+| jitiAlternativeCount           | 23    |
+| lazyImportProbeCount           | 107   |
 | portabilityFindingCount        | 16    |
-| coveredPortabilityFindingCount | 466   |
+| coveredPortabilityFindingCount | 471   |
 | windowsRiskStepCount           | 16    |
 | macosRiskStepCount             | 16    |
 | linuxRiskStepCount             | 16    |
@@ -31,6 +31,7 @@ Targets: linux, macos, windows, container
 | a2a-gateway            | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/a2a-gateway/index.ts                                        |
 | hasdata                | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/hasdata/src/index.ts                                        |
 | mcp-adapter            | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/mcp-adapter/index.ts                                        |
+| aiwerk-mcp-bridge      | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts                 |
 | llm-trace-phoenix      | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/llm-trace-phoenix/index.ts                                  |
 | opik-openclaw          | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/opik-openclaw/index.ts                                      |
 | opik-openclaw          | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/opik-openclaw/dist/index.js                                 |
@@ -189,6 +190,11 @@ Targets: linux, macos, windows, container
 | mcp-adapter            | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | mcp-adapter            | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | mcp-adapter            | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| aiwerk-mcp-bridge      | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| aiwerk-mcp-bridge      | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| aiwerk-mcp-bridge      | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
+| aiwerk-mcp-bridge      | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| aiwerk-mcp-bridge      | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | llm-trace-phoenix      | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | llm-trace-phoenix      | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | llm-trace-phoenix      | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |

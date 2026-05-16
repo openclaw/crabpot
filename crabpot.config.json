@@ -89,6 +89,21 @@
       "why": "Dynamic tool discovery from MCP servers with stdio/http transports and schema passthrough."
     },
     {
+      "id": "aiwerk-mcp-bridge",
+      "name": "AIWerk MCP Bridge",
+      "package": {
+        "name": "@aiwerk/openclaw-mcp-bridge",
+        "tag": "latest"
+      },
+      "path": "plugins/aiwerk-mcp-bridge",
+      "priority": "medium",
+      "seams": ["dynamic-tool", "mcp", "tool-refresh", "unregister-tool", "oauth-transport", "skill-bundle"],
+      "expect": {
+        "registrations": ["registerTool"]
+      },
+      "why": "NPM-pinned MCP bridge fixture covering router/direct dynamic tool modes, MCP list refresh with unregisterTool fallback, OAuth/header/env-substituted remote transports, and bundled MCP server recipes plus skills."
+    },
+    {
       "id": "llm-trace-phoenix",
       "name": "Phoenix LLM Trace",
       "repo": "https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix.git",

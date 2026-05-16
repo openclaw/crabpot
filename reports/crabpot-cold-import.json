@@ -6,13 +6,13 @@
     "sdkExportCount": 307
   },
   "summary": {
-    "fixtureCount": 59,
-    "entrypointCount": 106,
+    "fixtureCount": 60,
+    "entrypointCount": 107,
     "readyCount": 7,
-    "blockedCount": 99,
-    "tsLoaderRequiredCount": 22,
+    "blockedCount": 100,
+    "tsLoaderRequiredCount": 23,
     "buildRequiredCount": 12,
-    "dependencyInstallRequiredCount": 42,
+    "dependencyInstallRequiredCount": 43,
     "sdkAliasRequiredCount": 0
   },
   "fixtures": [
@@ -200,6 +200,37 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@modelcontextprotocol/sdk"
+            }
+          ],
+          "assertions": [
+            "TypeScript source entrypoint is compiled or loaded before cold import",
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aiwerk-mcp-bridge",
+      "priority": "medium",
+      "entrypoints": [
+        {
+          "id": "cold-import.extension:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-index-ts",
+          "fixture": "aiwerk-mcp-bridge",
+          "packagePath": "plugins/aiwerk-mcp-bridge/.crabpot-package/package.json",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "path": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts",
+          "status": "ts-loader-required",
+          "blockers": [
+            {
+              "code": "ts-loader-required",
+              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
+              "evidence": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts"
+            },
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@aiwerk/mcp-bridge, @sinclair/typebox"
             }
           ],
           "assertions": [

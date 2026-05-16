@@ -6,13 +6,13 @@ Generated: deterministic
 
 | Metric                      | Value |
 | --------------------------- | ----- |
-| Fixtures                    | 59    |
-| Entrypoints                 | 106   |
+| Fixtures                    | 60    |
+| Entrypoints                 | 107   |
 | Ready                       | 7     |
-| Blocked                     | 99    |
-| TypeScript loader required  | 22    |
+| Blocked                     | 100   |
+| TypeScript loader required  | 23    |
 | Build required              | 12    |
-| Dependency install required | 42    |
+| Dependency install required | 43    |
 | SDK alias required          | 0     |
 
 ## Entrypoints
@@ -26,6 +26,7 @@ Generated: deterministic
 | a2a-gateway            | extension        | ts-loader-required          | plugins/a2a-gateway/index.ts                                        | ts-loader-required, dependency-install-required                               | TypeScript source entrypoint is compiled or loaded before cold import; fixture dependencies are installed in an isolated workspace before cold import                                                                                  |
 | hasdata                | extension        | ts-loader-required          | plugins/hasdata/src/index.ts                                        | ts-loader-required, top-level-side-effect-review, dependency-install-required | TypeScript source entrypoint is compiled or loaded before cold import; cold import sandbox blocks network/process side effects before register capture; fixture dependencies are installed in an isolated workspace before cold import |
 | mcp-adapter            | extension        | ts-loader-required          | plugins/mcp-adapter/index.ts                                        | ts-loader-required, dependency-install-required                               | TypeScript source entrypoint is compiled or loaded before cold import; fixture dependencies are installed in an isolated workspace before cold import                                                                                  |
+| aiwerk-mcp-bridge      | extension        | ts-loader-required          | plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts                 | ts-loader-required, dependency-install-required                               | TypeScript source entrypoint is compiled or loaded before cold import; fixture dependencies are installed in an isolated workspace before cold import                                                                                  |
 | llm-trace-phoenix      | extension        | ts-loader-required          | plugins/llm-trace-phoenix/index.ts                                  | ts-loader-required, top-level-side-effect-review                              | TypeScript source entrypoint is compiled or loaded before cold import; cold import sandbox blocks network/process side effects before register capture                                                                                 |
 | opik-openclaw          | extension        | ts-loader-required          | plugins/opik-openclaw/index.ts                                      | ts-loader-required, dependency-install-required                               | TypeScript source entrypoint is compiled or loaded before cold import; fixture dependencies are installed in an isolated workspace before cold import                                                                                  |
 | opik-openclaw          | runtimeExtension | build-required              | plugins/opik-openclaw/dist/index.js                                 | build-required                                                                | plugin build or source alias resolution runs before cold import                                                                                                                                                                        |

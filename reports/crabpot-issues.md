@@ -8,44 +8,49 @@ Status: PASS
 
 - **OpenClaw host track:** `latest`
 - **Plugin artifact track:** `latest`
-- **Fixture set:** `all (59 fixtures)`
+- **Fixture set:** `all (60 fixtures)`
 - **Package availability:** `reports/crabpot-package-availability.json` (0 OpenClaw failures, 0 fallbacks)
 ## Triage Summary
 
 | Metric                     | Value |
 | -------------------------- | ----- |
-| Issue findings             | 276   |
-| Open issue findings        | 276   |
+| Issue findings             | 283   |
+| Open issue findings        | 283   |
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
-| 🔴 P0                      | 0     |
+| 🔴 P0                      | 1     |
 | 🟠 P1                      | 16    |
-| Open 🔴 P0                 | 0     |
+| Open 🔴 P0                 | 1     |
 | Open 🟠 P1                 | 16    |
-| Live issues                | 0     |
-| Live P0 issues             | 0     |
+| Live issues                | 1     |
+| Live P0 issues             | 1     |
 | Compat gaps                | 0     |
 | Deprecation warnings       | 42    |
-| Inspector gaps             | 161   |
-| Open inspector gaps        | 161   |
+| Inspector gaps             | 164   |
+| Open inspector gaps        | 164   |
 | Runtime coverage artifacts | 0     |
-| Upstream metadata          | 73    |
-| Contract probes            | 272   |
+| Upstream metadata          | 76    |
+| Contract probes            | 278   |
 
 ## Triage Overview
 
 | Class               | Count | P0 | Meaning                                                                                                                                                  |
 | ------------------- | ----- | -- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| live-issue          | 0     | 0  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.                                          |
+| live-issue          | 1     | 1  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.                                          |
 | compat-gap          | 0     | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
 | deprecation-warning | 42    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
-| inspector-gap       | 161   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
-| upstream-metadata   | 73    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
+| inspector-gap       | 164   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
+| upstream-metadata   | 76    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                                                                    |
 
 ## P0 Live Issues
 
-_none_
+- 🔴 P0 **aiwerk-mcp-bridge** `live-issue` `core-compat-adapter`
+  - **unknown-hook-name**: aiwerk-mcp-bridge: fixture uses a hook missing from target OpenClaw
+  - state: blocking · compat:none · live
+  - evidence:
+    - deactivate @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:399
+    - deactivate @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:453
 
 ## Other Live Issues
 
@@ -560,6 +565,30 @@ _none_
     - [pino @ package.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/package.json)
     - [ws @ package.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/package.json)
     - [zod @ package.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/package.json)
+
+- 🟡 P2 **aiwerk-mcp-bridge** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: aiwerk-mcp-bridge: cold import requires dependency installation in an isolated workspace
+  - state: open · compat:none
+  - evidence:
+    - @aiwerk/mcp-bridge @ plugins/aiwerk-mcp-bridge/.crabpot-package/package.json
+    - @sinclair/typebox @ plugins/aiwerk-mcp-bridge/.crabpot-package/package.json
+
+- 🟡 P2 **aiwerk-mcp-bridge** `inspector-gap` `inspector-follow-up`
+  - **package-typescript-source-entrypoint**: aiwerk-mcp-bridge: cold import needs TypeScript source entrypoint support
+  - state: open · compat:none
+  - evidence:
+    - extension:plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts
+
+- 🟡 P2 **aiwerk-mcp-bridge** `inspector-gap` `inspector-follow-up`
+  - **runtime-tool-capture**: aiwerk-mcp-bridge: runtime tool schema needs registration capture
+  - state: open · compat:none
+  - evidence:
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:128
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:320
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:73
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:138
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:361
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:81
 
 - 🟡 P2 **apify** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: apify: cold import requires dependency installation in an isolated workspace
@@ -1678,6 +1707,26 @@ _none_
     - [homepage @ openclaw.plugin.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/openclaw.plugin.json)
     - [icon @ openclaw.plugin.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/openclaw.plugin.json)
 
+- 🟡 P2 **aiwerk-mcp-bridge** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: aiwerk-mcp-bridge: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - entryPoint @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json
+    - required @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json
+
+- 🟡 P2 **aiwerk-mcp-bridge** `upstream-metadata` `plugin-upstream-fix`
+  - **package-manifest-version-drift**: aiwerk-mcp-bridge: package and manifest versions drift
+  - state: open · compat:none
+  - evidence:
+    - package:0.14.0
+    - manifest:0.11.6
+
+- 🟡 P2 **aiwerk-mcp-bridge** `upstream-metadata` `plugin-upstream-fix`
+  - **package-plugin-api-compat-missing**: aiwerk-mcp-bridge: plugin API compatibility range is missing
+  - state: open · compat:none
+  - evidence:
+    - plugins/aiwerk-mcp-bridge/.crabpot-package/package.json
+
 - 🟡 P2 **bluebubbles** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: bluebubbles: OpenClaw package install metadata is incomplete
   - state: open · compat:none
@@ -2115,6 +2164,13 @@ _none_
 
 ## Issues
 
+- 🔴 P0 **aiwerk-mcp-bridge** `live-issue` `core-compat-adapter`
+  - **unknown-hook-name**: aiwerk-mcp-bridge: fixture uses a hook missing from target OpenClaw
+  - state: blocking · compat:none · live
+  - evidence:
+    - deactivate @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:399
+    - deactivate @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:453
+
 - 🟠 P1 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: clawmetry: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
@@ -2315,6 +2371,50 @@ _none_
     - [pino @ package.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/package.json)
     - [ws @ package.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/package.json)
     - [zod @ package.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/package.json)
+
+- 🟡 P2 **aiwerk-mcp-bridge** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: aiwerk-mcp-bridge: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - entryPoint @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json
+    - required @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json
+
+- 🟡 P2 **aiwerk-mcp-bridge** `inspector-gap` `inspector-follow-up`
+  - **package-dependency-install-required**: aiwerk-mcp-bridge: cold import requires dependency installation in an isolated workspace
+  - state: open · compat:none
+  - evidence:
+    - @aiwerk/mcp-bridge @ plugins/aiwerk-mcp-bridge/.crabpot-package/package.json
+    - @sinclair/typebox @ plugins/aiwerk-mcp-bridge/.crabpot-package/package.json
+
+- 🟡 P2 **aiwerk-mcp-bridge** `upstream-metadata` `plugin-upstream-fix`
+  - **package-manifest-version-drift**: aiwerk-mcp-bridge: package and manifest versions drift
+  - state: open · compat:none
+  - evidence:
+    - package:0.14.0
+    - manifest:0.11.6
+
+- 🟡 P2 **aiwerk-mcp-bridge** `upstream-metadata` `plugin-upstream-fix`
+  - **package-plugin-api-compat-missing**: aiwerk-mcp-bridge: plugin API compatibility range is missing
+  - state: open · compat:none
+  - evidence:
+    - plugins/aiwerk-mcp-bridge/.crabpot-package/package.json
+
+- 🟡 P2 **aiwerk-mcp-bridge** `inspector-gap` `inspector-follow-up`
+  - **package-typescript-source-entrypoint**: aiwerk-mcp-bridge: cold import needs TypeScript source entrypoint support
+  - state: open · compat:none
+  - evidence:
+    - extension:plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts
+
+- 🟡 P2 **aiwerk-mcp-bridge** `inspector-gap` `inspector-follow-up`
+  - **runtime-tool-capture**: aiwerk-mcp-bridge: runtime tool schema needs registration capture
+  - state: open · compat:none
+  - evidence:
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:128
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:320
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:73
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:138
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:361
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:81
 
 - 🟡 P2 **apify** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: apify: cold import requires dependency installation in an isolated workspace
@@ -5459,11 +5559,24 @@ _none_
   - evidence:
     - inworld
 
+- 🟢 P3 **aiwerk-mcp-bridge** `manifest-loader`
+  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
+  - id: `manifest.schema.top-level-fields:aiwerk-mcp-bridge`
+  - evidence:
+    - entryPoint @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json
+    - required @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json
+
 - 🟢 P3 **memos-cloud** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
   - id: `manifest.schema.top-level-fields:memos-cloud`
   - evidence:
     - [main @ openclaw.plugin.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/openclaw.plugin.json)
+
+- 🟢 P3 **aiwerk-mcp-bridge** `package-loader`
+  - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
+  - id: `package.compat.plugin-api-range:aiwerk-mcp-bridge`
+  - evidence:
+    - plugins/aiwerk-mcp-bridge/.crabpot-package/package.json
 
 - 🟢 P3 **clawrouter** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -5525,6 +5638,13 @@ _none_
   - evidence:
     - [extension:./dist/index.js @ index.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/dist/index.js)
     - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/dist/setup-entry.js)
+
+- 🟢 P3 **aiwerk-mcp-bridge** `package-loader`
+  - contract: Inspector installs package dependencies in an isolated workspace before cold import.
+  - id: `package.entrypoint.isolated-dependency-install:aiwerk-mcp-bridge`
+  - evidence:
+    - @aiwerk/mcp-bridge @ plugins/aiwerk-mcp-bridge/.crabpot-package/package.json
+    - @sinclair/typebox @ plugins/aiwerk-mcp-bridge/.crabpot-package/package.json
 
 - 🟢 P3 **apify** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -5770,6 +5890,12 @@ _none_
     - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/f066dd2f31c231f38fbcaacd6f6dfce0801143b3/extensions/zalouser/package.json)
     - [zca-js @ package.json](https://github.com/openclaw/openclaw/blob/f066dd2f31c231f38fbcaacd6f6dfce0801143b3/extensions/zalouser/package.json)
     - [zod @ package.json](https://github.com/openclaw/openclaw/blob/f066dd2f31c231f38fbcaacd6f6dfce0801143b3/extensions/zalouser/package.json)
+
+- 🟢 P3 **aiwerk-mcp-bridge** `package-loader`
+  - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
+  - id: `package.entrypoint.typescript-loader:aiwerk-mcp-bridge`
+  - evidence:
+    - extension:plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts
 
 - 🟢 P3 **apify** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -6103,6 +6229,13 @@ _none_
     - minHostVersion:>=2026.4.10
     - buildOpenClawVersion:2026.5.12
 
+- 🟢 P3 **aiwerk-mcp-bridge** `package-loader`
+  - contract: Package and OpenClaw manifest versions stay aligned for release compatibility reporting.
+  - id: `package.metadata.version-alignment:aiwerk-mcp-bridge`
+  - evidence:
+    - package:0.14.0
+    - manifest:0.11.6
+
 - 🟢 P3 **codex** `sdk-import`
   - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
   - id: `sdk.import.reserved-bundled-plugin-boundary:codex`
@@ -6157,6 +6290,17 @@ _none_
   - id: `sdk.import.root-barrel-cold-import:memu-engine`
   - evidence:
     - [openclaw/plugin-sdk @ index.ts:1](https://github.com/duxiaoxiong/memu-engine-for-OpenClaw/blob/a5a22c5faf21e30d17a1b47635829e7dd0728ae5/index.ts#L1)
+
+- 🟢 P3 **aiwerk-mcp-bridge** `tool-runtime`
+  - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
+  - id: `tool.registration.schema-capture:aiwerk-mcp-bridge`
+  - evidence:
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:128
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:320
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:73
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:138
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:361
+    - registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:81
 
 - 🟢 P3 **apify** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.

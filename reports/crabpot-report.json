@@ -685,31 +685,31 @@
   },
   "status": "pass",
   "summary": {
-    "fixtureCount": 59,
+    "fixtureCount": 60,
     "highPriorityFixtures": 22,
     "breakageCount": 0,
-    "warningCount": 124,
-    "suggestionCount": 152,
-    "decisionCount": 294,
-    "logCount": 477,
-    "issueCount": 276,
-    "openIssueCount": 276,
-    "p0IssueCount": 0,
+    "warningCount": 128,
+    "suggestionCount": 155,
+    "decisionCount": 300,
+    "logCount": 481,
+    "issueCount": 283,
+    "openIssueCount": 283,
+    "p0IssueCount": 1,
     "p1IssueCount": 16,
-    "openP0IssueCount": 0,
+    "openP0IssueCount": 1,
     "openP1IssueCount": 16,
-    "liveIssueCount": 0,
-    "liveP0IssueCount": 0,
+    "liveIssueCount": 1,
+    "liveP0IssueCount": 1,
     "compatGapCount": 0,
     "deprecationWarningCount": 42,
-    "inspectorGapCount": 161,
-    "upstreamIssueCount": 73,
+    "inspectorGapCount": 164,
+    "upstreamIssueCount": 76,
     "fixtureRegressionCount": 0,
-    "openInspectorGapCount": 161,
+    "openInspectorGapCount": 164,
     "runtimeCoveredIssueCount": 0,
     "runtimePartiallyCoveredIssueCount": 0,
     "runtimeCoverageArtifactCount": 0,
-    "contractProbeCount": 272
+    "contractProbeCount": 278
   },
   "fixtures": [
     {
@@ -2290,6 +2290,236 @@
               }
             ]
           }
+        }
+      ],
+      "sdkImports": [],
+      "sdkImportDetails": []
+    },
+    {
+      "id": "aiwerk-mcp-bridge",
+      "name": "AIWerk MCP Bridge",
+      "priority": "medium",
+      "seams": [
+        "dynamic-tool",
+        "mcp",
+        "tool-refresh",
+        "unregister-tool",
+        "oauth-transport",
+        "skill-bundle"
+      ],
+      "why": "NPM-pinned MCP bridge fixture covering router/direct dynamic tool modes, MCP list refresh with unregisterTool fallback, OAuth/header/env-substituted remote transports, and bundled MCP server recipes plus skills.",
+      "status": "ok",
+      "hooks": [
+        "deactivate"
+      ],
+      "hookDetails": [
+        {
+          "name": "deactivate",
+          "file": "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js",
+          "line": 399,
+          "ref": "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:399"
+        },
+        {
+          "name": "deactivate",
+          "file": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts",
+          "line": 453,
+          "ref": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:453"
+        }
+      ],
+      "registrations": [
+        "registerTool"
+      ],
+      "registrationDetails": [
+        {
+          "name": "registerTool",
+          "file": "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js",
+          "line": 128,
+          "ref": "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:128"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js",
+          "line": 320,
+          "ref": "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:320"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js",
+          "line": 73,
+          "ref": "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:73"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts",
+          "line": 138,
+          "ref": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:138"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts",
+          "line": 361,
+          "ref": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:361"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts",
+          "line": 81,
+          "ref": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:81"
+        }
+      ],
+      "manifestContracts": [],
+      "manifestFiles": [
+        "plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json"
+      ],
+      "sourceFiles": [
+        "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js",
+        "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/types.js",
+        "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts"
+      ],
+      "pluginManifests": [
+        {
+          "path": "plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json",
+          "id": "openclaw-mcp-bridge",
+          "name": "openclaw-mcp-bridge",
+          "version": "0.11.6",
+          "keys": [
+            "configSchema",
+            "entryPoint",
+            "id",
+            "name",
+            "required",
+            "skills",
+            "version"
+          ],
+          "contracts": [],
+          "providerAuthEnvVars": {},
+          "channelEnvVars": {},
+          "activation": null
+        }
+      ],
+      "securityManifests": [],
+      "package": {
+        "path": "plugins/aiwerk-mcp-bridge/.crabpot-package/package.json",
+        "name": "@aiwerk/openclaw-mcp-bridge",
+        "version": "0.14.0",
+        "type": "module",
+        "main": "index.ts",
+        "npmPack": {
+          "advertised": false,
+          "private": false,
+          "filesMode": "allowlist",
+          "files": [
+            "dist",
+            "skills",
+            "scripts",
+            "servers",
+            "openclaw.plugin.json",
+            "README.md",
+            "LICENSE",
+            "CHANGELOG.md"
+          ],
+          "invalidFileSpecs": []
+        },
+        "dependencies": [
+          "@aiwerk/mcp-bridge",
+          "@sinclair/typebox"
+        ],
+        "peerDependencies": [],
+        "optionalDependencies": [],
+        "openclaw": {
+          "extensions": [
+            "./index.ts"
+          ],
+          "runtimeExtensions": [],
+          "setupEntry": null,
+          "compatPluginApi": null,
+          "buildOpenClawVersion": null,
+          "buildPluginSdkVersion": null,
+          "install": null,
+          "release": null,
+          "unsupportedMetadata": [],
+          "entrypoints": [
+            {
+              "kind": "extension",
+              "specifier": "./index.ts",
+              "relativePath": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts",
+              "exists": true,
+              "requiresBuild": false
+            }
+          ]
+        }
+      },
+      "packages": [
+        {
+          "path": "plugins/aiwerk-mcp-bridge/.crabpot-package/package.json",
+          "name": "@aiwerk/openclaw-mcp-bridge",
+          "version": "0.14.0",
+          "type": "module",
+          "main": "index.ts",
+          "npmPack": {
+            "advertised": false,
+            "private": false,
+            "filesMode": "allowlist",
+            "files": [
+              "dist",
+              "skills",
+              "scripts",
+              "servers",
+              "openclaw.plugin.json",
+              "README.md",
+              "LICENSE",
+              "CHANGELOG.md"
+            ],
+            "invalidFileSpecs": []
+          },
+          "dependencies": [
+            "@aiwerk/mcp-bridge",
+            "@sinclair/typebox"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": {
+            "extensions": [
+              "./index.ts"
+            ],
+            "runtimeExtensions": [],
+            "setupEntry": null,
+            "compatPluginApi": null,
+            "buildOpenClawVersion": null,
+            "buildPluginSdkVersion": null,
+            "install": null,
+            "release": null,
+            "unsupportedMetadata": [],
+            "entrypoints": [
+              {
+                "kind": "extension",
+                "specifier": "./index.ts",
+                "relativePath": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts",
+                "exists": true,
+                "requiresBuild": false
+              }
+            ]
+          }
+        },
+        {
+          "path": "plugins/aiwerk-mcp-bridge/package.json",
+          "name": "crabpot-fixture-aiwerk-mcp-bridge",
+          "version": "0.0.0",
+          "type": null,
+          "main": null,
+          "npmPack": {
+            "advertised": false,
+            "private": true,
+            "filesMode": "implicit",
+            "files": [],
+            "invalidFileSpecs": []
+          },
+          "dependencies": [
+            "@aiwerk/openclaw-mcp-bridge"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": null
         }
       ],
       "sdkImports": [],
@@ -31311,6 +31541,45 @@
       ]
     },
     {
+      "fixture": "aiwerk-mcp-bridge",
+      "code": "unknown-hook-name",
+      "level": "warning",
+      "message": "fixture registers hooks that are not present in the target OpenClaw hook registry",
+      "evidence": [
+        "deactivate @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:399",
+        "deactivate @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:453"
+      ]
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "code": "manifest-unknown-fields",
+      "level": "warning",
+      "message": "manifest uses top-level fields that are not present in the target OpenClaw PluginManifest type",
+      "evidence": [
+        "entryPoint @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json",
+        "required @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "code": "package-manifest-version-drift",
+      "level": "warning",
+      "message": "package.json and openclaw.plugin.json publish different versions",
+      "evidence": [
+        "package:0.14.0",
+        "manifest:0.11.6"
+      ]
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "code": "package-plugin-api-compat-missing",
+      "level": "warning",
+      "message": "package openclaw metadata does not declare compat.pluginApi",
+      "evidence": [
+        "plugins/aiwerk-mcp-bridge/.crabpot-package/package.json"
+      ]
+    },
+    {
       "fixture": "llm-trace-phoenix",
       "code": "conversation-access-hook",
       "level": "warning",
@@ -32717,6 +32986,39 @@
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
         "registerTool @ plugins/mcp-adapter/index.ts:30"
+      ]
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "code": "package-typescript-source-entrypoint",
+      "level": "suggestion",
+      "message": "package OpenClaw entrypoint resolves to TypeScript source in this fixture checkout",
+      "evidence": [
+        "extension:plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts"
+      ]
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "code": "package-dependency-install-required",
+      "level": "suggestion",
+      "message": "package declares runtime dependencies that must be installed before cold import",
+      "evidence": [
+        "@aiwerk/mcp-bridge @ plugins/aiwerk-mcp-bridge/.crabpot-package/package.json",
+        "@sinclair/typebox @ plugins/aiwerk-mcp-bridge/.crabpot-package/package.json"
+      ]
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:128",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:320",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:73",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:138",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:361",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:81"
       ]
     },
     {
@@ -34182,6 +34484,26 @@
   ],
   "issues": [
     {
+      "id": "CRABPOT-870BDFE6",
+      "fixture": "aiwerk-mcp-bridge",
+      "severity": "P0",
+      "owner": "core",
+      "code": "unknown-hook-name",
+      "decision": "core-compat-adapter",
+      "status": "blocking",
+      "issueClass": "live-issue",
+      "live": true,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "aiwerk-mcp-bridge: fixture uses a hook missing from target OpenClaw",
+      "evidence": [
+        "deactivate @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:399",
+        "deactivate @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:453"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null
+    },
+    {
       "id": "CRABPOT-6D5640BA",
       "fixture": "clawmetry",
       "severity": "P1",
@@ -34755,6 +35077,128 @@
         "pino @ plugins/agentchat/integrations/openclaw-channel/package.json",
         "ws @ plugins/agentchat/integrations/openclaw-channel/package.json",
         "zod @ plugins/agentchat/integrations/openclaw-channel/package.json"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null
+    },
+    {
+      "id": "CRABPOT-557CC0AD",
+      "fixture": "aiwerk-mcp-bridge",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "manifest-unknown-fields",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "aiwerk-mcp-bridge: manifest uses unsupported top-level fields",
+      "evidence": [
+        "entryPoint @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json",
+        "required @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null
+    },
+    {
+      "id": "CRABPOT-DD71F80E",
+      "fixture": "aiwerk-mcp-bridge",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-dependency-install-required",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "aiwerk-mcp-bridge: cold import requires dependency installation in an isolated workspace",
+      "evidence": [
+        "@aiwerk/mcp-bridge @ plugins/aiwerk-mcp-bridge/.crabpot-package/package.json",
+        "@sinclair/typebox @ plugins/aiwerk-mcp-bridge/.crabpot-package/package.json"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null
+    },
+    {
+      "id": "CRABPOT-356BE341",
+      "fixture": "aiwerk-mcp-bridge",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-manifest-version-drift",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "aiwerk-mcp-bridge: package and manifest versions drift",
+      "evidence": [
+        "package:0.14.0",
+        "manifest:0.11.6"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null
+    },
+    {
+      "id": "CRABPOT-B1337D70",
+      "fixture": "aiwerk-mcp-bridge",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "package-plugin-api-compat-missing",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "aiwerk-mcp-bridge: plugin API compatibility range is missing",
+      "evidence": [
+        "plugins/aiwerk-mcp-bridge/.crabpot-package/package.json"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null
+    },
+    {
+      "id": "CRABPOT-CD7888F6",
+      "fixture": "aiwerk-mcp-bridge",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "package-typescript-source-entrypoint",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "aiwerk-mcp-bridge: cold import needs TypeScript source entrypoint support",
+      "evidence": [
+        "extension:plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null
+    },
+    {
+      "id": "CRABPOT-0B43AAB7",
+      "fixture": "aiwerk-mcp-bridge",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "aiwerk-mcp-bridge: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:128",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:320",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:73",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:138",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:361",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:81"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -41802,6 +42246,17 @@
       ]
     },
     {
+      "id": "manifest.schema.top-level-fields:aiwerk-mcp-bridge",
+      "fixture": "aiwerk-mcp-bridge",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "contract": "Manifest top-level fields are represented in target OpenClaw PluginManifest.",
+      "evidence": [
+        "entryPoint @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json",
+        "required @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json"
+      ]
+    },
+    {
       "id": "manifest.schema.top-level-fields:memos-cloud",
       "fixture": "memos-cloud",
       "priority": "P3",
@@ -41809,6 +42264,16 @@
       "contract": "Manifest top-level fields are represented in target OpenClaw PluginManifest.",
       "evidence": [
         "main @ plugins/memos-cloud/openclaw.plugin.json"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:aiwerk-mcp-bridge",
+      "fixture": "aiwerk-mcp-bridge",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Package metadata declares the OpenClaw plugin API range used by the plugin.",
+      "evidence": [
+        "plugins/aiwerk-mcp-bridge/.crabpot-package/package.json"
       ]
     },
     {
@@ -41910,6 +42375,17 @@
       "evidence": [
         "extension:./dist/index.js -> plugins/telnyx-sms/dist/index.js",
         "setupEntry:./dist/setup-entry.js -> plugins/telnyx-sms/dist/setup-entry.js"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:aiwerk-mcp-bridge",
+      "fixture": "aiwerk-mcp-bridge",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
+      "evidence": [
+        "@aiwerk/mcp-bridge @ plugins/aiwerk-mcp-bridge/.crabpot-package/package.json",
+        "@sinclair/typebox @ plugins/aiwerk-mcp-bridge/.crabpot-package/package.json"
       ]
     },
     {
@@ -42267,6 +42743,16 @@
         "typebox @ plugins/zalouser/.crabpot-package/package.json",
         "zca-js @ plugins/zalouser/.crabpot-package/package.json",
         "zod @ plugins/zalouser/.crabpot-package/package.json"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:aiwerk-mcp-bridge",
+      "fixture": "aiwerk-mcp-bridge",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Inspector can compile or load TypeScript source entrypoints before registration capture.",
+      "evidence": [
+        "extension:plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts"
       ]
     },
     {
@@ -42806,6 +43292,17 @@
       ]
     },
     {
+      "id": "package.metadata.version-alignment:aiwerk-mcp-bridge",
+      "fixture": "aiwerk-mcp-bridge",
+      "priority": "P3",
+      "target": "package-loader",
+      "contract": "Package and OpenClaw manifest versions stay aligned for release compatibility reporting.",
+      "evidence": [
+        "package:0.14.0",
+        "manifest:0.11.6"
+      ]
+    },
+    {
       "id": "sdk.import.reserved-bundled-plugin-boundary:codex",
       "fixture": "codex",
       "priority": "P3",
@@ -42878,6 +43375,21 @@
       "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
       "evidence": [
         "openclaw/plugin-sdk @ plugins/memu-engine/index.ts:1"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:aiwerk-mcp-bridge",
+      "fixture": "aiwerk-mcp-bridge",
+      "priority": "P3",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:128",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:320",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:73",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:138",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:361",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:81"
       ]
     },
     {
@@ -43274,6 +43786,45 @@
         "plugins/mcp-adapter/package.json",
         "openclaw-mcp-adapter",
         "version:0.1.1"
+      ]
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "code": "seam-inventory",
+      "level": "log",
+      "message": "observed 1 hooks, 1 registrations, and 0 manifest contracts",
+      "evidence": [
+        "hook:deactivate",
+        "registration:registerTool"
+      ]
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerTool"
+      ]
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "code": "manifest-fields-checked",
+      "level": "log",
+      "message": "plugin manifest fields were compared with target OpenClaw manifest types",
+      "evidence": [
+        "plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json"
+      ]
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "code": "package-metadata",
+      "level": "log",
+      "message": "selected package metadata for plugin contract checks",
+      "evidence": [
+        "plugins/aiwerk-mcp-bridge/.crabpot-package/package.json",
+        "@aiwerk/openclaw-mcp-bridge",
+        "version:0.14.0"
       ]
     },
     {
@@ -49325,6 +49876,48 @@
       "evidence": "registerTool without manifest contracts.tools"
     },
     {
+      "fixture": "aiwerk-mcp-bridge",
+      "decision": "plugin-upstream-fix",
+      "seam": "manifest-schema",
+      "action": "Move unknown manifest metadata into supported package openclaw metadata or add a versioned OpenClaw manifest field.",
+      "evidence": "entryPoint, required"
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to keep package and manifest versions aligned before relying on release compatibility signals.",
+      "evidence": "0.14.0 != 0.11.6"
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "decision": "plugin-upstream-fix",
+      "seam": "package-metadata",
+      "action": "Ask the plugin to declare the plugin API range it was built against.",
+      "evidence": "plugins/aiwerk-mcp-bridge/.crabpot-package/package.json"
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Compile TypeScript source or run a loader before cold-importing this fixture entrypoint.",
+      "evidence": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts"
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "decision": "inspector-follow-up",
+      "seam": "cold-import",
+      "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
+      "evidence": "@aiwerk/mcp-bridge, @sinclair/typebox"
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
+    },
+    {
       "fixture": "llm-trace-phoenix",
       "decision": "inspector-follow-up",
       "seam": "cold-import",
@@ -51147,6 +51740,7 @@
       "a2a-gateway",
       "hasdata",
       "mcp-adapter",
+      "aiwerk-mcp-bridge",
       "llm-trace-phoenix",
       "opik-openclaw",
       "openclaw-telemetry",

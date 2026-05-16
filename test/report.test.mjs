@@ -23,9 +23,9 @@ test("compatibility report classifies current fixture seams", async () => {
   assert.ok(report.summary.upstreamIssueCount > 0);
   assert.ok(report.summary.contractProbeCount > 0);
   if (hasTargetOpenClaw) {
-    assert.equal(report.summary.p0IssueCount, 0);
-    assert.equal(report.summary.liveIssueCount, 0);
-    assert.equal(report.summary.liveP0IssueCount, 0);
+    assert.equal(report.summary.p0IssueCount, 1);
+    assert.equal(report.summary.liveIssueCount, 1);
+    assert.equal(report.summary.liveP0IssueCount, 1);
   }
   assert.ok(report.issues.every((issue) => /^CRABPOT-[A-F0-9]{8}$/.test(issue.id)));
   assert.ok(report.issues.every((issue) => typeof issue.issueClass === "string"));
@@ -72,6 +72,8 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasIssueClass(report.issues, "inspector-gap", "registration-capture-gap");
   assertHasIssueClass(report.issues, "upstream-metadata", "package-plugin-api-compat-missing");
   if (hasTargetOpenClaw) {
+    assertHasIssue(report.issues, "P0", "unknown-hook-name");
+    assertHasIssueClass(report.issues, "live-issue", "unknown-hook-name");
     assertHasFinding(report.warnings, "agentchat", "manifest-unknown-fields");
     if (hasSdkExportGap) {
       assertHasIssue(report.issues, "P1", "sdk-export-missing");

@@ -1,26 +1,26 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "check",
-  "openclawLabel": "openclaw@latest (2026.5.12, f066dd2f31c2)",
+  "mode": "track:latest",
+  "openclawLabel": "openclaw@latest",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 124,
-    "suggestions": 152,
-    "issues": 276,
-    "p0Issues": 0,
+    "warnings": 128,
+    "suggestions": 155,
+    "issues": 283,
+    "p0Issues": 1,
     "p1Issues": 16,
-    "liveIssues": 0,
-    "liveP0Issues": 0,
+    "liveIssues": 1,
+    "liveP0Issues": 1,
     "compatGaps": 0,
     "deprecationWarnings": 42,
-    "inspectorGaps": 161,
-    "upstreamIssues": 73,
+    "inspectorGaps": 164,
+    "upstreamIssues": 76,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
-    "policyWarnings": 307,
+    "policyWarnings": 308,
     "profileFailures": 0,
     "profileWarnings": 2,
     "executionPass": 120,
@@ -28,19 +28,27 @@
     "executionBlocked": 306,
     "platformWindowsRisks": 16,
     "platformContainerRisks": 16,
-    "loaderJitiCandidates": 22,
-    "importLoopP50Ms": 1460,
-    "importLoopP95Ms": 1463,
+    "loaderJitiCandidates": 23,
+    "importLoopP50Ms": 2230,
+    "importLoopP95Ms": 3571,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 93.4,
-    "importLoopOpenClawActivationP50Ms": 0.4,
+    "importLoopOpenClawImportP50Ms": 347.7,
+    "importLoopOpenClawActivationP50Ms": 0.2,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 0.3,
-    "importLoopMaxCpuMs": 22,
-    "importLoopRssSampleCount": 173,
-    "importLoopCpuSampleCount": 173
+    "importLoopMaxRssMb": 0,
+    "importLoopMaxCpuMs": 0,
+    "importLoopRssSampleCount": 19,
+    "importLoopCpuSampleCount": 19
   },
   "topIssues": [
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "aiwerk-mcp-bridge",
+      "code": "unknown-hook-name",
+      "title": "aiwerk-mcp-bridge: fixture uses a hook missing from target OpenClaw",
+      "decision": "core-compat-adapter"
+    },
     {
       "severity": "P1",
       "issueClass": "inspector-gap",
@@ -172,6 +180,14 @@
   ],
   "refRegressions": [],
   "policyFindings": [
+    {
+      "id": "compatibility-report.live-p0-issues",
+      "action": "warn",
+      "message": "1 live P0 issues tracked",
+      "evidence": [
+        "aiwerk-mcp-bridge:unknown-hook-name:none"
+      ]
+    },
     {
       "id": "execution-results.audit-findings",
       "action": "warn",
@@ -389,17 +405,6 @@
         "captured registration requires includeLifecycle=true",
         "service-lifecycle-harness"
       ]
-    },
-    {
-      "id": "execution-results.blocked.clawmetry.registerService.6",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration requires includeLifecycle=true",
-      "evidence": [
-        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
-        "registerService",
-        "captured registration requires includeLifecycle=true",
-        "service-lifecycle-harness"
-      ]
     }
   ],
   "profileFindings": [
@@ -407,20 +412,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 85.1% over baseline",
+      "message": "p95WallMs regressed 513% over baseline",
       "baseline": 1273,
-      "current": 2356,
-      "delta": 1083,
-      "percent": 85.1
+      "current": 7804,
+      "delta": 6531,
+      "percent": 513
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 395.79999999999995 over baseline",
+      "message": "maxPeakRssMb regressed 456.69999999999993 over baseline",
       "baseline": 65.1,
-      "current": 460.9,
-      "delta": 395.79999999999995
+      "current": 521.8,
+      "delta": 456.69999999999993
     }
   ],
   "artifacts": {

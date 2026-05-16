@@ -1,0 +1,8 @@
+{
+  "name": "crabpot-fixture-aiwerk-mcp-bridge",
+  "private": true,
+  "version": "0.0.0",
+  "dependencies": {
+    "@aiwerk/openclaw-mcp-bridge": "0.14.0"
+  }
+}

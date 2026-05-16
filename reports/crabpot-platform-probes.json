@@ -8,13 +8,13 @@
     "container"
   ],
   "summary": {
-    "fixtureCount": 59,
-    "entrypointCount": 106,
-    "tsLoaderEntrypointCount": 22,
-    "jitiAlternativeCount": 22,
-    "lazyImportProbeCount": 106,
+    "fixtureCount": 60,
+    "entrypointCount": 107,
+    "tsLoaderEntrypointCount": 23,
+    "jitiAlternativeCount": 23,
+    "lazyImportProbeCount": 107,
     "portabilityFindingCount": 16,
-    "coveredPortabilityFindingCount": 466,
+    "coveredPortabilityFindingCount": 471,
     "windowsRiskStepCount": 16,
     "macosRiskStepCount": 16,
     "linuxRiskStepCount": 16,
@@ -138,6 +138,26 @@
       "id": "cold-import.extension:mcp-adapter:plugins-mcp-adapter-index-ts",
       "status": "ts-loader-required",
       "entrypoint": "plugins/mcp-adapter/index.ts",
+      "packageManager": "npm",
+      "loaderSource": "typescript-source",
+      "loaderPrimary": "tsx",
+      "loaderAlternatives": [
+        "jiti"
+      ],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "id": "cold-import.extension:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-index-ts",
+      "status": "ts-loader-required",
+      "entrypoint": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",
       "loaderPrimary": "tsx",
@@ -2695,6 +2715,74 @@
       "entrypoint": "cold-import.extension:mcp-adapter:plugins-mcp-adapter-index-ts",
       "kind": "synthetic-probe",
       "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/mcp-adapter/cold-import-extension-mcp-adapter-plugins-mcp-adapter-index-ts.synthetic.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "entrypoint": "cold-import.extension:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-index-ts",
+      "kind": "prepare",
+      "command": "mkdir -p .crabpot/workspaces/aiwerk-mcp-bridge && rsync -a --delete plugins/aiwerk-mcp-bridge/.crabpot-package/ .crabpot/workspaces/aiwerk-mcp-bridge/",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ]
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "entrypoint": "cold-import.extension:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-index-ts",
+      "kind": "prepare-artifacts",
+      "command": "mkdir -p .crabpot/results/aiwerk-mcp-bridge",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "entrypoint": "cold-import.extension:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-index-ts",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/aiwerk-mcp-bridge/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "entrypoint": "cold-import.extension:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-index-ts",
+      "kind": "capture",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/aiwerk-mcp-bridge/cold-import-extension-aiwerk-mcp-bridge-plugins-aiwerk-mcp-bridge-crabpot-package-index-ts.capture.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
+      "entrypoint": "cold-import.extension:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-index-ts",
+      "kind": "synthetic-probe",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/aiwerk-mcp-bridge/cold-import-extension-aiwerk-mcp-bridge-plugins-aiwerk-mcp-bridge-crabpot-package-index-ts.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"

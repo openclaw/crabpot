@@ -118,7 +118,7 @@ export async function captureOpenClawLifecycle(entrypoint) {
 
     return {
       status: captured.length > 0 ? "captured" : "failed",
-      entrypoint: path.resolve(entrypoint),
+      entrypoint: lifecyclePathLabel(path.resolve(entrypoint)),
       captured,
       openClawLifecycle: {
         status: plugin?.status ?? "missing",
@@ -127,7 +127,7 @@ export async function captureOpenClawLifecycle(entrypoint) {
         activationPhase: "full:register",
         importMs: importPhase?.elapsedMs ?? null,
         activationMs: activationPhase?.elapsedMs ?? null,
-        openclawPath: openclawRoot,
+        openclawPath: process.env.CRABPOT_OPENCLAW_LABEL ?? openclawRoot,
         phases,
       },
       ...(plugin?.error ? { error: plugin.error } : {}),
@@ -200,8 +200,26 @@ function parseProfileLine(line) {
     phase: match[1],
     pluginId: match[2],
     elapsedMs: Number.parseFloat(match[3]),
-    source: match[4],
+    source: lifecyclePathLabel(match[4]),
   };
+}
+
+function lifecyclePathLabel(filePath) {
+  const normalized = filePath.replace(/^\/private\/tmp\//u, "/tmp/");
+  const tempProbeMatch = /(?:^|\/)(crabpot-openclaw-plugin-[^/]+\/.+)$/u.exec(normalized);
+  if (tempProbeMatch) {
+    return `/tmp/${tempProbeMatch[1]}`;
+  }
+
+  const fixtureRoot = process.env.CRABPOT_FIXTURE_ROOT
+    ? path.resolve(process.env.CRABPOT_FIXTURE_ROOT)
+    : null;
+  const resolved = path.resolve(filePath);
+  if (fixtureRoot && (resolved === fixtureRoot || resolved.startsWith(`${fixtureRoot}${path.sep}`))) {
+    return path.relative(fixtureRoot, resolved).replaceAll("\\", "/");
+  }
+
+  return normalized;
 }
 
 async function writeJsonResult(result, outputPath) {

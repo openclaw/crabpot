@@ -7,12 +7,12 @@
     "sdkExportCount": 307
   },
   "summary": {
-    "fixtureCount": 59,
-    "registrationCount": 323,
-    "hookCount": 112,
+    "fixtureCount": 60,
+    "registrationCount": 329,
+    "hookCount": 114,
     "sdkImportCount": 2190,
-    "packageEntrypointCount": 106,
-    "issueProbeCount": 272,
+    "packageEntrypointCount": 107,
+    "issueProbeCount": 278,
     "inspectorShimRequiredCount": 197,
     "compatAliasRequiredCount": 0
   },
@@ -907,6 +907,197 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "ref": "plugins/mcp-adapter/index.ts",
+          "support": "source-present",
+          "assertions": [
+            "entrypoint path resolves",
+            "entrypoint can be cold-imported after required build step"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aiwerk-mcp-bridge",
+      "priority": "medium",
+      "registrations": [
+        {
+          "id": "registration.registerTool:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-dist-index-js-128",
+          "fixture": "aiwerk-mcp-bridge",
+          "registrar": "registerTool",
+          "ref": "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:128",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-dist-index-js-320",
+          "fixture": "aiwerk-mcp-bridge",
+          "registrar": "registerTool",
+          "ref": "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:320",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-dist-index-js-73",
+          "fixture": "aiwerk-mcp-bridge",
+          "registrar": "registerTool",
+          "ref": "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:73",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-index-ts-138",
+          "fixture": "aiwerk-mcp-bridge",
+          "registrar": "registerTool",
+          "ref": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:138",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-index-ts-361",
+          "fixture": "aiwerk-mcp-bridge",
+          "registrar": "registerTool",
+          "ref": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:361",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-index-ts-81",
+          "fixture": "aiwerk-mcp-bridge",
+          "registrar": "registerTool",
+          "ref": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:81",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        }
+      ],
+      "hooks": [
+        {
+          "id": "hook.deactivate:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-dist-index-js-399",
+          "fixture": "aiwerk-mcp-bridge",
+          "hook": "deactivate",
+          "ref": "plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:399",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "deactivate",
+            "fixture": "aiwerk-mcp-bridge"
+          },
+          "syntheticContext": {
+            "hook": "deactivate",
+            "fixture": "aiwerk-mcp-bridge"
+          }
+        },
+        {
+          "id": "hook.deactivate:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-index-ts-453",
+          "fixture": "aiwerk-mcp-bridge",
+          "hook": "deactivate",
+          "ref": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:453",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "hook payload and return value are captured"
+          ],
+          "syntheticEvent": {
+            "hook": "deactivate",
+            "fixture": "aiwerk-mcp-bridge"
+          },
+          "syntheticContext": {
+            "hook": "deactivate",
+            "fixture": "aiwerk-mcp-bridge"
+          }
+        }
+      ],
+      "sdkImports": [],
+      "packageEntrypoints": [
+        {
+          "id": "package.extension:aiwerk-mcp-bridge:plugins-aiwerk-mcp-bridge-crabpot-package-index-ts",
+          "fixture": "aiwerk-mcp-bridge",
+          "kind": "extension",
+          "specifier": "./index.ts",
+          "ref": "plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts",
           "support": "source-present",
           "assertions": [
             "entrypoint path resolves",
@@ -36782,6 +36973,20 @@
       ]
     },
     {
+      "id": "manifest.schema.top-level-fields:aiwerk-mcp-bridge",
+      "fixture": "aiwerk-mcp-bridge",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "entryPoint @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json",
+        "required @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
       "id": "manifest.schema.top-level-fields:memos-cloud",
       "fixture": "memos-cloud",
       "priority": "P3",
@@ -36792,6 +36997,19 @@
       "assertions": [
         "metadata key is accepted",
         "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "package.compat.plugin-api-range:aiwerk-mcp-bridge",
+      "fixture": "aiwerk-mcp-bridge",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "plugins/aiwerk-mcp-bridge/.crabpot-package/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
       ]
     },
     {
@@ -36919,6 +37137,20 @@
       "evidence": [
         "extension:./dist/index.js -> plugins/telnyx-sms/dist/index.js",
         "setupEntry:./dist/setup-entry.js -> plugins/telnyx-sms/dist/setup-entry.js"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.isolated-dependency-install:aiwerk-mcp-bridge",
+      "fixture": "aiwerk-mcp-bridge",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "@aiwerk/mcp-bridge @ plugins/aiwerk-mcp-bridge/.crabpot-package/package.json",
+        "@sinclair/typebox @ plugins/aiwerk-mcp-bridge/.crabpot-package/package.json"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -37360,6 +37592,19 @@
         "typebox @ plugins/zalouser/.crabpot-package/package.json",
         "zca-js @ plugins/zalouser/.crabpot-package/package.json",
         "zod @ plugins/zalouser/.crabpot-package/package.json"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
+      "id": "package.entrypoint.typescript-loader:aiwerk-mcp-bridge",
+      "fixture": "aiwerk-mcp-bridge",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "extension:plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -38056,6 +38301,20 @@
       ]
     },
     {
+      "id": "package.metadata.version-alignment:aiwerk-mcp-bridge",
+      "fixture": "aiwerk-mcp-bridge",
+      "priority": "P3",
+      "target": "package-loader",
+      "evidence": [
+        "package:0.14.0",
+        "manifest:0.11.6"
+      ],
+      "assertions": [
+        "entrypoint metadata resolves",
+        "cold import failure mode is classified"
+      ]
+    },
+    {
       "id": "sdk.import.reserved-bundled-plugin-boundary:codex",
       "fixture": "codex",
       "priority": "P3",
@@ -38142,6 +38401,24 @@
       "assertions": [
         "package export exists",
         "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:aiwerk-mcp-bridge",
+      "fixture": "aiwerk-mcp-bridge",
+      "priority": "P3",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:128",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:320",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:73",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:138",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:361",
+        "registerTool @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:81"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
       ]
     },
     {
