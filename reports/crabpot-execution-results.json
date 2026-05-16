@@ -9,9 +9,9 @@
     "profileArtifactCount": 1,
     "capturedRegistrationCount": 426,
     "auditFindingCount": 577,
-    "executionWallMs": 925065,
-    "maxPeakRssMb": 1094,
-    "maxCpuMsEstimate": 68913,
+    "executionWallMs": 991043,
+    "maxPeakRssMb": 1083.1,
+    "maxCpuMsEstimate": 70002,
     "passCount": 120,
     "failCount": 0,
     "blockedCount": 306
@@ -175,9 +175,9 @@
       "summary": {
         "stepCount": 468,
         "failCount": 51,
-        "totalWallMs": 925065,
-        "maxPeakRssMb": 1094,
-        "maxCpuMsEstimate": 68913
+        "totalWallMs": 991043,
+        "maxPeakRssMb": 1083.1,
+        "maxCpuMsEstimate": 70002
       },
       "slowestSteps": [
         {
@@ -190,25 +190,10 @@
           "cwd": ".crabpot/workspaces/mocrane-wecom",
           "artifactPath": null,
           "exitCode": 1,
-          "wallMs": 71415,
-          "peakRssMb": 832.9,
-          "peakCpuPercent": 168,
-          "cpuMsEstimate": 68913
-        },
-        {
-          "fixture": "qqbot",
-          "entrypoint": "cold-import.extension:qqbot:plugins-qqbot-preload-cjs",
-          "packagePath": "plugins/qqbot/package.json",
-          "status": "dependency-install-required",
-          "kind": "install",
-          "command": "npm install --ignore-scripts",
-          "cwd": ".crabpot/workspaces/qqbot",
-          "artifactPath": null,
-          "exitCode": 0,
-          "wallMs": 38167,
-          "peakRssMb": 479.6,
-          "peakCpuPercent": 168,
-          "cpuMsEstimate": 49871
+          "wallMs": 71590,
+          "peakRssMb": 837.6,
+          "peakCpuPercent": 169,
+          "cpuMsEstimate": 70002
         },
         {
           "fixture": "memory-tencentdb",
@@ -220,10 +205,25 @@
           "cwd": ".crabpot/workspaces/memory-tencentdb",
           "artifactPath": null,
           "exitCode": 0,
-          "wallMs": 34297,
-          "peakRssMb": 605.7,
-          "peakCpuPercent": 119,
-          "cpuMsEstimate": 21104
+          "wallMs": 39278,
+          "peakRssMb": 608.1,
+          "peakCpuPercent": 128,
+          "cpuMsEstimate": 19727
+        },
+        {
+          "fixture": "qqbot",
+          "entrypoint": "cold-import.extension:qqbot:plugins-qqbot-preload-cjs",
+          "packagePath": "plugins/qqbot/package.json",
+          "status": "dependency-install-required",
+          "kind": "install",
+          "command": "npm install --ignore-scripts",
+          "cwd": ".crabpot/workspaces/qqbot",
+          "artifactPath": null,
+          "exitCode": 0,
+          "wallMs": 34342,
+          "peakRssMb": 442.8,
+          "peakCpuPercent": 167,
+          "cpuMsEstimate": 47278
         },
         {
           "fixture": "openclaw-weixin",
@@ -235,10 +235,10 @@
           "cwd": ".crabpot/workspaces/openclaw-weixin",
           "artifactPath": null,
           "exitCode": 0,
-          "wallMs": 29999,
-          "peakRssMb": 500.1,
-          "peakCpuPercent": 130,
-          "cpuMsEstimate": 23460
+          "wallMs": 32364,
+          "peakRssMb": 459.3,
+          "peakCpuPercent": 135,
+          "cpuMsEstimate": 22571
         },
         {
           "fixture": "yuanbao",
@@ -250,10 +250,10 @@
           "cwd": ".crabpot/workspaces/yuanbao",
           "artifactPath": null,
           "exitCode": 0,
-          "wallMs": 26228,
-          "peakRssMb": 506,
-          "peakCpuPercent": 130,
-          "cpuMsEstimate": 18219
+          "wallMs": 27418,
+          "peakRssMb": 481.2,
+          "peakCpuPercent": 135,
+          "cpuMsEstimate": 18995
         }
       ]
     },
