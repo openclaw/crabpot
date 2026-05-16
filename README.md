@@ -10,53 +10,53 @@
 ## Reporting Data
 
 `main` follows the latest published npm package and npm `latest` plugin artifacts, with bundled OpenClaw fixtures source-packed from the matching checkout. `crab-beta` follows beta npm dist-tags for externalized packages and source-packs bundled fixtures. `crab-development` checks `openclaw/openclaw` main against source-packed official plugin artifacts from that same OpenClaw checkout.
-- **Last dashboard update:** May 16, 2026, 11:42 UTC
+- **Last dashboard update:** May 16, 2026, 14:34 UTC
 <!-- crabpot-tracks:start -->
-- **Source:** `npm-latest`
-- **OpenClaw version:** `2026.5.12`
-- **OpenClaw SHA:** `f066dd2f31c2`
-- **Dashboard target:** `openclaw@latest + @openclaw/*@latest + bundled source fixtures`
-- **Plugin artifacts:** `npm latest fixture set plus bundled source-packed fixtures`
-- **GitHub report run:** [25960955296](https://github.com/openclaw/crabpot/actions/runs/25960955296)
+- **Source:** `npm-beta`
+- **OpenClaw version:** `2026.5.16-beta.2`
+- **OpenClaw SHA:** `dba00cba6fd2`
+- **Dashboard target:** `openclaw@beta + @openclaw/*@beta + bundled source fixtures`
+- **Plugin artifacts:** `npm beta fixture set plus bundled source-packed fixtures`
+- **GitHub report run:** [25964479320](https://github.com/openclaw/crabpot/actions/runs/25964479320)
 <!-- crabpot-tracks:end -->
 
 <!-- crabpot-summary:start -->
 ## Dashboard
 
-| Metric                 | Result                                                                                                           |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| Fixtures               | 60                                                                                                               |
-| Hard breakages         | 0                                                                                                                |
-| Warnings               | 128                                                                                                              |
-| Suggestions            | 155                                                                                                              |
-| Issues                 | 283                                                                                                              |
-| P0 issues              | [🔴 P0 1](reports/crabpot-issues.md#p0-live-issues)                                                              |
-| P1 issues              | [🟠 P1 16](reports/crabpot-issues.md#triage-summary)                                                             |
-| Live issues            | 1 total / 1 P0                                                                                                   |
-| Compat gaps            | 0                                                                                                                |
-| Deprecation warnings   | 42                                                                                                               |
-| Inspector gaps         | 164                                                                                                              |
-| Upstream metadata      | 76                                                                                                               |
-| Contract probes        | 278                                                                                                              |
-| Policy failures        | 0                                                                                                                |
-| Policy warnings        | 308                                                                                                              |
-| Ref diff failures      | 0                                                                                                                |
-| Profile failures       | 0                                                                                                                |
-| Execution probes       | 120 pass / 0 fail / 306 blocked                                                                                  |
-| Synthetic probes       | 443 ready / 0 blocked / 443 total                                                                                |
-| Cold import            | 7 ready / 100 blocked / 107 entrypoints                                                                          |
-| Workspace plan         | 107 entrypoints / 43 installs / 12 builds                                                                        |
-| Platform risks         | 16 Windows / 16 container                                                                                        |
-| Jiti loader candidates | 23                                                                                                               |
-| Import loop            | p50 1331ms / p95 1369ms / plugin delta RSS 0MB / plugin delta CPU 22ms / OpenClaw import 81.8ms / activate 0.3ms |
-| Runtime profile        | p50 2188ms / command p95 2266ms / max RSS 461MB / 3 samples/command                                              |
+| Metric                 | Result                                                                                                                                                                                                                                                        |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Fixtures               | 60<br><em>0 vs main</em>                                                                                                                                                                                                                                      |
+| Hard breakages         | 0<br><em>0 vs main</em>                                                                                                                                                                                                                                       |
+| Warnings               | 128<br><em>0 vs main</em>                                                                                                                                                                                                                                     |
+| Suggestions            | 155<br><em>0 vs main</em>                                                                                                                                                                                                                                     |
+| Issues                 | 283<br><em>0 vs main</em>                                                                                                                                                                                                                                     |
+| P0 issues              | [🔴 P0 1](reports/crabpot-issues.md#p0-live-issues)<br><em>0 vs main</em>                                                                                                                                                                                     |
+| P1 issues              | [🟠 P1 16](reports/crabpot-issues.md#triage-summary)<br><em>0 vs main</em>                                                                                                                                                                                    |
+| Live issues            | 1 total<br><em>0 vs main</em> / 1 P0<br><em>0 vs main</em>                                                                                                                                                                                                    |
+| Compat gaps            | 0<br><em>0 vs main</em>                                                                                                                                                                                                                                       |
+| Deprecation warnings   | 42<br><em>0 vs main</em>                                                                                                                                                                                                                                      |
+| Inspector gaps         | 164<br><em>0 vs main</em>                                                                                                                                                                                                                                     |
+| Upstream metadata      | 76<br><em>0 vs main</em>                                                                                                                                                                                                                                      |
+| Contract probes        | 278<br><em>0 vs main</em>                                                                                                                                                                                                                                     |
+| Policy failures        | 0<br><em>0 vs main</em>                                                                                                                                                                                                                                       |
+| Policy warnings        | 308<br><em>0 vs main</em>                                                                                                                                                                                                                                     |
+| Ref diff failures      | 0<br><em>0 vs main</em>                                                                                                                                                                                                                                       |
+| Profile failures       | 0<br><em>0 vs main</em>                                                                                                                                                                                                                                       |
+| Execution probes       | 124 pass<br><em>+4 vs main</em> / 0 fail<br><em>0 vs main</em> / 306 blocked<br><em>0 vs main</em>                                                                                                                                                            |
+| Synthetic probes       | 445 ready<br><em>+2 vs main</em> / 0 blocked<br><em>0 vs main</em> / 445 total<br><em>+2 vs main</em>                                                                                                                                                         |
+| Cold import            | 7 ready<br><em>0 vs main</em> / 100 blocked<br><em>0 vs main</em> / 107 entrypoints<br><em>0 vs main</em>                                                                                                                                                     |
+| Workspace plan         | 107 entrypoints<br><em>0 vs main</em> / 43 installs<br><em>0 vs main</em> / 12 builds<br><em>0 vs main</em>                                                                                                                                                   |
+| Platform risks         | 16 Windows<br><em>0 vs main</em> / 16 container<br><em>0 vs main</em>                                                                                                                                                                                         |
+| Jiti loader candidates | 23<br><em>0 vs main</em>                                                                                                                                                                                                                                      |
+| Import loop            | p50 1428ms<br><em>+97 vs main</em> / p95 1485ms<br><em>+116 vs main</em> / plugin delta RSS 0MB<br><em>0 vs main</em> / plugin delta CPU 0ms<br><em>-22 vs main</em> / OpenClaw import 83.2ms<br><em>+1.4 vs main</em> / activate 0.3ms<br><em>0 vs main</em> |
+| Runtime profile        | p50 2316ms<br><em>+128 vs main</em> / command p95 2394ms<br><em>+128 vs main</em> / max RSS 462.9MB<br><em>+1.9 vs main</em> / 3 samples/command                                                                                                              |
 
 ### OpenClaw Lifecycle Probe
 
-| Phase                      | p50    | p95    |
-| -------------------------- | ------ | ------ |
-| Import (`full`)            | 81.8ms | 92.5ms |
-| Activate (`full:register`) | 0.3ms  | 0.5ms  |
+| Phase                      | p50                             | p95                             |
+| -------------------------- | ------------------------------- | ------------------------------- |
+| Import (`full`)            | 83.2ms<br><em>+1.4 vs main</em> | 97.3ms<br><em>+4.8 vs main</em> |
+| Activate (`full:register`) | 0.3ms<br><em>0 vs main</em>     | 0.4ms<br><em>-0.1 vs main</em>  |
 
 ### Top Discovered Issues
 

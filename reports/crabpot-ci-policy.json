@@ -37,13 +37,12 @@
     {
       "id": "execution-results.audit-findings",
       "action": "warn",
-      "message": "577 package audit findings",
+      "message": "563 package audit findings",
       "evidence": [
         "a2a-gateway:26",
         "apify:28",
         "codex-app-server:153",
         "ddingtalk:254",
-        "diagnostics-otel:14",
         "feishu:2",
         "hasdata:5",
         "mocrane-wecom:32",
@@ -836,7 +835,7 @@
       ]
     },
     {
-      "id": "execution-results.blocked.codex.inbound_claim.5",
+      "id": "execution-results.blocked.codex.inbound_claim.9",
       "action": "warn",
       "message": "allowed-blocked: captured hook has no callable handler",
       "evidence": [
@@ -847,7 +846,7 @@
       ]
     },
     {
-      "id": "execution-results.blocked.codex.onConversationBindingResolved.6",
+      "id": "execution-results.blocked.codex.onConversationBindingResolved.10",
       "action": "warn",
       "message": "allowed-blocked: captured hook has no callable handler",
       "evidence": [
@@ -858,7 +857,7 @@
       ]
     },
     {
-      "id": "execution-results.blocked.codex.registerCommand.4",
+      "id": "execution-results.blocked.codex.registerCommand.8",
       "action": "warn",
       "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [

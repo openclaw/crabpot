@@ -7,12 +7,12 @@
     "syntheticArtifactCount": 56,
     "auditArtifactCount": 38,
     "profileArtifactCount": 1,
-    "capturedRegistrationCount": 426,
-    "auditFindingCount": 577,
-    "executionWallMs": 925065,
-    "maxPeakRssMb": 1094,
-    "maxCpuMsEstimate": 68913,
-    "passCount": 120,
+    "capturedRegistrationCount": 430,
+    "auditFindingCount": 563,
+    "executionWallMs": 968718,
+    "maxPeakRssMb": 1100.3,
+    "maxCpuMsEstimate": 77963,
+    "passCount": 124,
     "failCount": 0,
     "blockedCount": 306
   },
@@ -175,9 +175,9 @@
       "summary": {
         "stepCount": 468,
         "failCount": 51,
-        "totalWallMs": 925065,
-        "maxPeakRssMb": 1094,
-        "maxCpuMsEstimate": 68913
+        "totalWallMs": 968718,
+        "maxPeakRssMb": 1100.3,
+        "maxCpuMsEstimate": 77963
       },
       "slowestSteps": [
         {
@@ -190,10 +190,10 @@
           "cwd": ".crabpot/workspaces/mocrane-wecom",
           "artifactPath": null,
           "exitCode": 1,
-          "wallMs": 71415,
-          "peakRssMb": 832.9,
-          "peakCpuPercent": 168,
-          "cpuMsEstimate": 68913
+          "wallMs": 71852,
+          "peakRssMb": 831.1,
+          "peakCpuPercent": 175,
+          "cpuMsEstimate": 77963
         },
         {
           "fixture": "qqbot",
@@ -205,10 +205,10 @@
           "cwd": ".crabpot/workspaces/qqbot",
           "artifactPath": null,
           "exitCode": 0,
-          "wallMs": 38167,
-          "peakRssMb": 479.6,
-          "peakCpuPercent": 168,
-          "cpuMsEstimate": 49871
+          "wallMs": 55565,
+          "peakRssMb": 495.5,
+          "peakCpuPercent": 179,
+          "cpuMsEstimate": 67363
         },
         {
           "fixture": "memory-tencentdb",
@@ -220,10 +220,10 @@
           "cwd": ".crabpot/workspaces/memory-tencentdb",
           "artifactPath": null,
           "exitCode": 0,
-          "wallMs": 34297,
-          "peakRssMb": 605.7,
+          "wallMs": 34566,
+          "peakRssMb": 655.5,
           "peakCpuPercent": 119,
-          "cpuMsEstimate": 21104
+          "cpuMsEstimate": 23742
         },
         {
           "fixture": "openclaw-weixin",
@@ -235,25 +235,25 @@
           "cwd": ".crabpot/workspaces/openclaw-weixin",
           "artifactPath": null,
           "exitCode": 0,
-          "wallMs": 29999,
-          "peakRssMb": 500.1,
-          "peakCpuPercent": 130,
-          "cpuMsEstimate": 23460
+          "wallMs": 30164,
+          "peakRssMb": 509.7,
+          "peakCpuPercent": 119,
+          "cpuMsEstimate": 27391
         },
         {
-          "fixture": "yuanbao",
-          "entrypoint": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
-          "packagePath": "plugins/yuanbao/.crabpot-package/package.json",
-          "status": "dependency-install-required",
+          "fixture": "a2a-gateway",
+          "entrypoint": "cold-import.extension:a2a-gateway:plugins-a2a-gateway-index-ts",
+          "packagePath": "plugins/a2a-gateway/package.json",
+          "status": "ts-loader-required",
           "kind": "install",
           "command": "npm install --ignore-scripts",
-          "cwd": ".crabpot/workspaces/yuanbao",
+          "cwd": ".crabpot/workspaces/a2a-gateway",
           "artifactPath": null,
           "exitCode": 0,
-          "wallMs": 26228,
-          "peakRssMb": 506,
-          "peakCpuPercent": 130,
-          "cpuMsEstimate": 18219
+          "wallMs": 24413,
+          "peakRssMb": 849.5,
+          "peakCpuPercent": 178,
+          "cpuMsEstimate": 41487
         }
       ]
     },
@@ -1163,12 +1163,16 @@
       "kind": "capture",
       "entrypoint": "dist/index.js",
       "status": "captured",
-      "capturedCount": 7,
+      "capturedCount": 11,
       "captured": [
         "registration:registerAgentHarness",
         "registration:registerProvider",
         "registration:registerMediaUnderstandingProvider",
         "registration:registerMigrationProvider",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeInvokePolicy",
+        "registration:registerNodeInvokePolicy",
         "registration:registerCommand",
         "hook:inbound_claim",
         "hook:onConversationBindingResolved"
@@ -1181,8 +1185,8 @@
       "entrypoint": "dist/index.js",
       "status": "captured",
       "summary": {
-        "probeCount": 7,
-        "passCount": 4,
+        "probeCount": 11,
+        "passCount": 8,
         "failCount": 0,
         "blockedCount": 3
       },
@@ -1190,7 +1194,11 @@
         "registration:registerAgentHarness",
         "registration:registerProvider",
         "registration:registerMediaUnderstandingProvider",
-        "registration:registerMigrationProvider"
+        "registration:registerMigrationProvider",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeInvokePolicy",
+        "registration:registerNodeInvokePolicy"
       ],
       "passed": [
         {
@@ -1236,12 +1244,56 @@
             "mode": "metadata-only",
             "reason": "migration providers are captured as registration metadata before migration runtime execution"
           }
+        },
+        {
+          "captureIndex": 4,
+          "kind": "registration",
+          "seam": "registerNodeHostCommand",
+          "label": "registerNodeHostCommand",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node host commands are captured as registration metadata before host process execution"
+          }
+        },
+        {
+          "captureIndex": 5,
+          "kind": "registration",
+          "seam": "registerNodeHostCommand",
+          "label": "registerNodeHostCommand",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node host commands are captured as registration metadata before host process execution"
+          }
+        },
+        {
+          "captureIndex": 6,
+          "kind": "registration",
+          "seam": "registerNodeInvokePolicy",
+          "label": "registerNodeInvokePolicy",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node invoke policies are captured as registration metadata before host authorization checks"
+          }
+        },
+        {
+          "captureIndex": 7,
+          "kind": "registration",
+          "seam": "registerNodeInvokePolicy",
+          "label": "registerNodeInvokePolicy",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node invoke policies are captured as registration metadata before host authorization checks"
+          }
         }
       ],
       "failures": [],
       "blocked": [
         {
-          "captureIndex": 4,
+          "captureIndex": 8,
           "kind": "registration",
           "seam": "registerCommand",
           "label": "registerCommand",
@@ -1249,7 +1301,7 @@
           "reason": "captured registration has no supported callable probe"
         },
         {
-          "captureIndex": 5,
+          "captureIndex": 9,
           "kind": "hook",
           "seam": "inbound_claim",
           "label": "inbound_claim",
@@ -1257,7 +1309,7 @@
           "reason": "captured hook has no callable handler"
         },
         {
-          "captureIndex": 6,
+          "captureIndex": 10,
           "kind": "hook",
           "seam": "onConversationBindingResolved",
           "label": "onConversationBindingResolved",
@@ -1423,14 +1475,14 @@
       "kind": "audit",
       "entrypoint": "-",
       "status": "warning",
-      "findingCount": 14,
+      "findingCount": 0,
       "vulnerabilities": {
         "info": 0,
         "low": 0,
         "moderate": 0,
-        "high": 14,
+        "high": 0,
         "critical": 0,
-        "total": 14
+        "total": 0
       }
     },
     {

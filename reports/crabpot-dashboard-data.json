@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-16T11:42:04Z",
-  "runUrl": "https://github.com/openclaw/crabpot/actions/runs/25960955296",
-  "mode": "track:latest",
-  "openclawLabel": "openclaw@latest (2026.5.12, f066dd2f31c2)",
+  "generatedAt": "2026-05-16T14:34:41Z",
+  "runUrl": "https://github.com/openclaw/crabpot/actions/runs/25964479320",
+  "mode": "track:beta",
+  "openclawLabel": "openclaw@beta (2026.5.16-beta.2, dba00cba6fd2)",
   "status": "pass",
   "metrics": {
     "fixtures": 60,
@@ -24,12 +24,12 @@
     "policyWarnings": 308,
     "refDiffFailures": 0,
     "profileFailures": 0,
-    "executionPass": 120,
+    "executionPass": 124,
     "executionFail": 0,
     "executionBlocked": 306,
-    "syntheticReady": 443,
+    "syntheticReady": 445,
     "syntheticBlocked": 0,
-    "syntheticTotal": 443,
+    "syntheticTotal": 445,
     "coldReady": 7,
     "coldBlocked": 100,
     "coldTotal": 107,
@@ -39,27 +39,338 @@
     "platformWindowsRisks": 16,
     "platformContainerRisks": 16,
     "loaderJitiCandidates": 23,
-    "importLoopP50Ms": 1331,
-    "importLoopP95Ms": 1369,
+    "importLoopP50Ms": 1428,
+    "importLoopP95Ms": 1485,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 81.8,
-    "importLoopOpenClawImportP95Ms": 92.5,
+    "importLoopOpenClawImportP50Ms": 83.2,
+    "importLoopOpenClawImportP95Ms": 97.3,
     "importLoopOpenClawActivationP50Ms": 0.3,
-    "importLoopOpenClawActivationP95Ms": 0.5,
+    "importLoopOpenClawActivationP95Ms": 0.4,
     "importLoopMetricBasis": "baseline-adjusted",
     "importLoopMaxRssMb": 0,
-    "importLoopMaxCpuMs": 22,
-    "importLoopRssSampleCount": 159,
-    "importLoopCpuSampleCount": 159,
-    "runtimeP50Ms": 2188,
-    "runtimeP95Ms": 2266,
-    "runtimeMaxRssMb": 461,
-    "runtimeRssSampleCount": 1872,
-    "runtimeCpuSampleCount": 1872,
+    "importLoopMaxCpuMs": 0,
+    "importLoopRssSampleCount": 169,
+    "importLoopCpuSampleCount": 169,
+    "runtimeP50Ms": 2316,
+    "runtimeP95Ms": 2394,
+    "runtimeMaxRssMb": 462.9,
+    "runtimeRssSampleCount": 1983,
+    "runtimeCpuSampleCount": 1983,
     "runtimeSamplesPerCommand": 3,
     "runtimeWallTimeBasis": "command-median-p95"
   },
-  "baseline": null,
+  "baseline": {
+    "label": "main",
+    "generatedAt": "2026-05-16T11:42:04Z",
+    "openclawLabel": "openclaw@latest (2026.5.12, f066dd2f31c2)",
+    "runUrl": "https://github.com/openclaw/crabpot/actions/runs/25960955296",
+    "metrics": {
+      "fixtures": 60,
+      "hardBreakages": 0,
+      "warnings": 128,
+      "suggestions": 155,
+      "issues": 283,
+      "p0Issues": 1,
+      "p1Issues": 16,
+      "liveIssues": 1,
+      "liveP0Issues": 1,
+      "compatGaps": 0,
+      "deprecationWarnings": 42,
+      "inspectorGaps": 164,
+      "upstreamIssues": 76,
+      "contractProbes": 278,
+      "policyFailures": 0,
+      "policyWarnings": 308,
+      "refDiffFailures": 0,
+      "profileFailures": 0,
+      "executionPass": 120,
+      "executionFail": 0,
+      "executionBlocked": 306,
+      "syntheticReady": 443,
+      "syntheticBlocked": 0,
+      "syntheticTotal": 443,
+      "coldReady": 7,
+      "coldBlocked": 100,
+      "coldTotal": 107,
+      "workspaceEntrypoints": 107,
+      "workspaceInstalls": 43,
+      "workspaceBuilds": 12,
+      "platformWindowsRisks": 16,
+      "platformContainerRisks": 16,
+      "loaderJitiCandidates": 23,
+      "importLoopP50Ms": 1331,
+      "importLoopP95Ms": 1369,
+      "importLoopOpenClawLifecycleCount": 3,
+      "importLoopOpenClawImportP50Ms": 81.8,
+      "importLoopOpenClawImportP95Ms": 92.5,
+      "importLoopOpenClawActivationP50Ms": 0.3,
+      "importLoopOpenClawActivationP95Ms": 0.5,
+      "importLoopMetricBasis": "baseline-adjusted",
+      "importLoopMaxRssMb": 0,
+      "importLoopMaxCpuMs": 22,
+      "importLoopRssSampleCount": 159,
+      "importLoopCpuSampleCount": 159,
+      "runtimeP50Ms": 2188,
+      "runtimeP95Ms": 2266,
+      "runtimeMaxRssMb": 461,
+      "runtimeRssSampleCount": 1872,
+      "runtimeCpuSampleCount": 1872,
+      "runtimeSamplesPerCommand": 3,
+      "runtimeWallTimeBasis": "command-median-p95"
+    },
+    "deltas": {
+      "fixtures": {
+        "current": 60,
+        "baseline": 60,
+        "value": 0
+      },
+      "hardBreakages": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "warnings": {
+        "current": 128,
+        "baseline": 128,
+        "value": 0
+      },
+      "suggestions": {
+        "current": 155,
+        "baseline": 155,
+        "value": 0
+      },
+      "issues": {
+        "current": 283,
+        "baseline": 283,
+        "value": 0
+      },
+      "p0Issues": {
+        "current": 1,
+        "baseline": 1,
+        "value": 0
+      },
+      "p1Issues": {
+        "current": 16,
+        "baseline": 16,
+        "value": 0
+      },
+      "liveIssues": {
+        "current": 1,
+        "baseline": 1,
+        "value": 0
+      },
+      "liveP0Issues": {
+        "current": 1,
+        "baseline": 1,
+        "value": 0
+      },
+      "compatGaps": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "deprecationWarnings": {
+        "current": 42,
+        "baseline": 42,
+        "value": 0
+      },
+      "inspectorGaps": {
+        "current": 164,
+        "baseline": 164,
+        "value": 0
+      },
+      "upstreamIssues": {
+        "current": 76,
+        "baseline": 76,
+        "value": 0
+      },
+      "contractProbes": {
+        "current": 278,
+        "baseline": 278,
+        "value": 0
+      },
+      "policyFailures": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "policyWarnings": {
+        "current": 308,
+        "baseline": 308,
+        "value": 0
+      },
+      "refDiffFailures": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "profileFailures": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "executionPass": {
+        "current": 124,
+        "baseline": 120,
+        "value": 4
+      },
+      "executionFail": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "executionBlocked": {
+        "current": 306,
+        "baseline": 306,
+        "value": 0
+      },
+      "syntheticReady": {
+        "current": 445,
+        "baseline": 443,
+        "value": 2
+      },
+      "syntheticBlocked": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "syntheticTotal": {
+        "current": 445,
+        "baseline": 443,
+        "value": 2
+      },
+      "coldReady": {
+        "current": 7,
+        "baseline": 7,
+        "value": 0
+      },
+      "coldBlocked": {
+        "current": 100,
+        "baseline": 100,
+        "value": 0
+      },
+      "coldTotal": {
+        "current": 107,
+        "baseline": 107,
+        "value": 0
+      },
+      "workspaceEntrypoints": {
+        "current": 107,
+        "baseline": 107,
+        "value": 0
+      },
+      "workspaceInstalls": {
+        "current": 43,
+        "baseline": 43,
+        "value": 0
+      },
+      "workspaceBuilds": {
+        "current": 12,
+        "baseline": 12,
+        "value": 0
+      },
+      "platformWindowsRisks": {
+        "current": 16,
+        "baseline": 16,
+        "value": 0
+      },
+      "platformContainerRisks": {
+        "current": 16,
+        "baseline": 16,
+        "value": 0
+      },
+      "loaderJitiCandidates": {
+        "current": 23,
+        "baseline": 23,
+        "value": 0
+      },
+      "importLoopP50Ms": {
+        "current": 1428,
+        "baseline": 1331,
+        "value": 97
+      },
+      "importLoopP95Ms": {
+        "current": 1485,
+        "baseline": 1369,
+        "value": 116
+      },
+      "importLoopOpenClawLifecycleCount": {
+        "current": 3,
+        "baseline": 3,
+        "value": 0
+      },
+      "importLoopOpenClawImportP50Ms": {
+        "current": 83.2,
+        "baseline": 81.8,
+        "value": 1.4
+      },
+      "importLoopOpenClawImportP95Ms": {
+        "current": 97.3,
+        "baseline": 92.5,
+        "value": 4.8
+      },
+      "importLoopOpenClawActivationP50Ms": {
+        "current": 0.3,
+        "baseline": 0.3,
+        "value": 0
+      },
+      "importLoopOpenClawActivationP95Ms": {
+        "current": 0.4,
+        "baseline": 0.5,
+        "value": -0.1
+      },
+      "importLoopMaxRssMb": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "importLoopMaxCpuMs": {
+        "current": 0,
+        "baseline": 22,
+        "value": -22
+      },
+      "importLoopRssSampleCount": {
+        "current": 169,
+        "baseline": 159,
+        "value": 10
+      },
+      "importLoopCpuSampleCount": {
+        "current": 169,
+        "baseline": 159,
+        "value": 10
+      },
+      "runtimeP50Ms": {
+        "current": 2316,
+        "baseline": 2188,
+        "value": 128
+      },
+      "runtimeP95Ms": {
+        "current": 2394,
+        "baseline": 2266,
+        "value": 128
+      },
+      "runtimeMaxRssMb": {
+        "current": 462.9,
+        "baseline": 461,
+        "value": 1.9
+      },
+      "runtimeRssSampleCount": {
+        "current": 1983,
+        "baseline": 1872,
+        "value": 111
+      },
+      "runtimeCpuSampleCount": {
+        "current": 1983,
+        "baseline": 1872,
+        "value": 111
+      },
+      "runtimeSamplesPerCommand": {
+        "current": 3,
+        "baseline": 3,
+        "value": 0
+      }
+    }
+  },
   "topIssues": [
     {
       "id": "CRABPOT-870BDFE6",
@@ -80,7 +391,7 @@
       "title": "clawmetry: conversation-access hooks need privacy-boundary probes"
     },
     {
-      "id": "CRABPOT-FCFC9C8A",
+      "id": "CRABPOT-E0ABDC2D",
       "severity": "P1",
       "issueClass": "upstream-metadata",
       "fixture": "codex",
@@ -134,7 +445,7 @@
       "title": "llm-trace-phoenix: conversation-access hooks need privacy-boundary probes"
     },
     {
-      "id": "CRABPOT-C9FC8584",
+      "id": "CRABPOT-B8059552",
       "severity": "P1",
       "issueClass": "inspector-gap",
       "fixture": "memory-lancedb",
