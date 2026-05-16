@@ -693,11 +693,11 @@
     "decisionCount": 300,
     "logCount": 481,
     "issueCount": 283,
-    "openIssueCount": 251,
+    "openIssueCount": 283,
     "p0IssueCount": 1,
     "p1IssueCount": 16,
     "openP0IssueCount": 1,
-    "openP1IssueCount": 8,
+    "openP1IssueCount": 16,
     "liveIssueCount": 1,
     "liveP0IssueCount": 1,
     "compatGapCount": 0,
@@ -705,10 +705,10 @@
     "inspectorGapCount": 164,
     "upstreamIssueCount": 76,
     "fixtureRegressionCount": 0,
-    "openInspectorGapCount": 132,
-    "runtimeCoveredIssueCount": 32,
-    "runtimePartiallyCoveredIssueCount": 2,
-    "runtimeCoverageArtifactCount": 112,
+    "openInspectorGapCount": 164,
+    "runtimeCoveredIssueCount": 0,
+    "runtimePartiallyCoveredIssueCount": 0,
+    "runtimeCoverageArtifactCount": 0,
     "contractProbeCount": 278
   },
   "fixtures": [
@@ -31588,23 +31588,7 @@
         "llm_input @ plugins/llm-trace-phoenix/index.ts:154",
         "llm_output @ plugins/llm-trace-phoenix/index.ts:168"
       ],
-      "compatRecord": "hook.llm-observer.privacy-payload",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "hook:llm_input",
-          "hook:llm_output"
-        ],
-        "expected": [
-          "hook:llm_input",
-          "hook:llm_output"
-        ],
-        "artifacts": [
-          ".crabpot/results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.capture.json",
-          ".crabpot/results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "hook.llm-observer.privacy-payload"
     },
     {
       "fixture": "llm-trace-phoenix",
@@ -31815,29 +31799,7 @@
         "llm_input @ plugins/kitchen-sink/src/generated-hooks.js:25",
         "llm_output @ plugins/kitchen-sink/src/generated-hooks.js:26"
       ],
-      "compatRecord": "hook.llm-observer.privacy-payload",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "hook:agent_end",
-          "hook:llm_input",
-          "hook:llm_output"
-        ],
-        "expected": [
-          "hook:agent_end",
-          "hook:llm_input",
-          "hook:llm_output"
-        ],
-        "artifacts": [
-          ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-          ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-          ".crabpot/results/kitchen-sink/cold-import-setupEntry-kitchen-sink-plugins-kitchen-sink-src-setup-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-setupEntry-kitchen-sink-plugins-kitchen-sink-src-setup-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "hook.llm-observer.privacy-payload"
     },
     {
       "fixture": "kitchen-sink",
@@ -32447,21 +32409,7 @@
         "agent_end @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:17317",
         "agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:627"
       ],
-      "compatRecord": "hook.llm-observer.privacy-payload",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "hook:agent_end"
-        ],
-        "expected": [
-          "hook:agent_end"
-        ],
-        "artifacts": [
-          ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.capture.json",
-          ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "hook.llm-observer.privacy-payload"
     },
     {
       "fixture": "memory-tencentdb",
@@ -32741,21 +32689,7 @@
       "evidence": [
         "agent_end @ plugins/memos-cloud/index.js:565"
       ],
-      "compatRecord": "hook.llm-observer.privacy-payload",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "hook:agent_end"
-        ],
-        "expected": [
-          "hook:agent_end"
-        ],
-        "artifacts": [
-          ".crabpot/results/memos-cloud/cold-import-extension-memos-cloud-plugins-memos-cloud-index-js.capture.json",
-          ".crabpot/results/memos-cloud/cold-import-extension-memos-cloud-plugins-memos-cloud-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "hook.llm-observer.privacy-payload"
     },
     {
       "fixture": "memos-cloud",
@@ -32785,23 +32719,7 @@
       "evidence": [
         "llm_output @ plugins/clawmetry/clawhub-plugin/src/service.ts:117"
       ],
-      "compatRecord": "hook.llm-observer.privacy-payload",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "hook:llm_output"
-        ],
-        "expected": [
-          "hook:llm_output"
-        ],
-        "artifacts": [
-          ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.capture.json",
-          ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
-          ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.capture.json",
-          ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "hook.llm-observer.privacy-payload"
     },
     {
       "fixture": "clawmetry",
@@ -32893,21 +32811,7 @@
         "registerChannel @ plugins/wecom/index.js:27",
         "registerHttpRoute @ plugins/wecom/index.js:56"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "partial",
-        "captured": [
-          "registration:registerChannel"
-        ],
-        "expected": [
-          "registration:registerChannel",
-          "registration:registerHttpRoute"
-        ],
-        "artifacts": [
-          ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.capture.json",
-          ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json"
-        ]
-      }
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "wecom",
@@ -32917,21 +32821,7 @@
       "evidence": [
         "before_tool_call @ plugins/wecom/index.js:76"
       ],
-      "compatRecord": "hook.before_tool_call.terminal-block-approval",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "hook:before_tool_call"
-        ],
-        "expected": [
-          "hook:before_tool_call"
-        ],
-        "artifacts": [
-          ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.capture.json",
-          ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "hook.before_tool_call.terminal-block-approval"
     },
     {
       "fixture": "wecom",
@@ -32952,21 +32842,7 @@
         "registerTool @ plugins/wecom/index.js:28",
         "registerTool @ plugins/wecom/index.js:40",
         "registerTool @ plugins/wecom/index.js:44"
-      ],
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerTool"
-        ],
-        "expected": [
-          "registration:registerTool"
-        ],
-        "artifacts": [
-          ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.capture.json",
-          ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      ]
     },
     {
       "fixture": "qqbot",
@@ -33046,23 +32922,7 @@
         "registerGatewayMethod @ plugins/a2a-gateway/index.ts:669",
         "registerService @ plugins/a2a-gateway/index.ts:857"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerGatewayMethod",
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerGatewayMethod",
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.capture.json",
-          ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "a2a-gateway",
@@ -33071,21 +32931,7 @@
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
         "registerTool @ plugins/a2a-gateway/index.ts:777"
-      ],
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerTool"
-        ],
-        "expected": [
-          "registration:registerTool"
-        ],
-        "artifacts": [
-          ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.capture.json",
-          ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      ]
     },
     {
       "fixture": "hasdata",
@@ -33357,21 +33203,7 @@
         "registerCommand @ plugins/hyperspell/index.ts:62",
         "registerCommand @ plugins/hyperspell/index.ts:73"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerCommand"
-        ],
-        "expected": [
-          "registration:registerCommand"
-        ],
-        "artifacts": [
-          ".crabpot/results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-dist-index-js.capture.json",
-          ".crabpot/results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-dist-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "honcho",
@@ -33469,69 +33301,7 @@
         "registerService @ plugins/kitchen-sink/src/generated-registrars.js:42",
         "registerService @ plugins/kitchen-sink/src/kitchen-runtime.js:104"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerAutoEnableProbe",
-          "registration:registerChannel",
-          "registration:registerCommand",
-          "registration:registerCompactionProvider",
-          "registration:registerConfigMigration",
-          "registration:registerContextEngine",
-          "registration:registerDetachedTaskRuntime",
-          "registration:registerGatewayDiscoveryService",
-          "registration:registerGatewayMethod",
-          "registration:registerHook",
-          "registration:registerHttpRoute",
-          "registration:registerInteractiveHandler",
-          "registration:registerMemoryCapability",
-          "registration:registerMemoryCorpusSupplement",
-          "registration:registerMemoryFlushPlan",
-          "registration:registerMemoryPromptSection",
-          "registration:registerMemoryPromptSupplement",
-          "registration:registerMemoryRuntime",
-          "registration:registerNodeHostCommand",
-          "registration:registerNodeInvokePolicy",
-          "registration:registerReload",
-          "registration:registerSecurityAuditCollector",
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerAutoEnableProbe",
-          "registration:registerChannel",
-          "registration:registerCommand",
-          "registration:registerCompactionProvider",
-          "registration:registerConfigMigration",
-          "registration:registerContextEngine",
-          "registration:registerDetachedTaskRuntime",
-          "registration:registerGatewayDiscoveryService",
-          "registration:registerGatewayMethod",
-          "registration:registerHook",
-          "registration:registerHttpRoute",
-          "registration:registerInteractiveHandler",
-          "registration:registerMemoryCapability",
-          "registration:registerMemoryCorpusSupplement",
-          "registration:registerMemoryFlushPlan",
-          "registration:registerMemoryPromptSection",
-          "registration:registerMemoryPromptSupplement",
-          "registration:registerMemoryRuntime",
-          "registration:registerNodeHostCommand",
-          "registration:registerNodeInvokePolicy",
-          "registration:registerReload",
-          "registration:registerSecurityAuditCollector",
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-          ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-          ".crabpot/results/kitchen-sink/cold-import-setupEntry-kitchen-sink-plugins-kitchen-sink-src-setup-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-setupEntry-kitchen-sink-plugins-kitchen-sink-src-setup-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "kitchen-sink",
@@ -33541,25 +33311,7 @@
       "evidence": [
         "before_tool_call @ plugins/kitchen-sink/src/generated-hooks.js:19"
       ],
-      "compatRecord": "hook.before_tool_call.terminal-block-approval",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "hook:before_tool_call"
-        ],
-        "expected": [
-          "hook:before_tool_call"
-        ],
-        "artifacts": [
-          ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-          ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-          ".crabpot/results/kitchen-sink/cold-import-setupEntry-kitchen-sink-plugins-kitchen-sink-src-setup-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-setupEntry-kitchen-sink-plugins-kitchen-sink-src-setup-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "hook.before_tool_call.terminal-block-approval"
     },
     {
       "fixture": "kitchen-sink",
@@ -33609,21 +33361,7 @@
       "evidence": [
         "registerService @ plugins/diagnostics-otel/.crabpot-package/dist/index.js:1555"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/diagnostics-otel/cold-import-runtimeExtension-diagnostics-otel-plugins-diagnostics-otel-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/diagnostics-otel/cold-import-runtimeExtension-diagnostics-otel-plugins-diagnostics-otel-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "discord",
@@ -33697,23 +33435,7 @@
         "registerGatewayMethod @ plugins/matrix/.crabpot-package/index.ts:23",
         "registerGatewayMethod @ plugins/matrix/.crabpot-package/index.ts:28"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerGatewayMethod"
-        ],
-        "expected": [
-          "registration:registerGatewayMethod"
-        ],
-        "artifacts": [
-          ".crabpot/results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.capture.json",
-          ".crabpot/results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.synthetic.json",
-          ".crabpot/results/matrix/cold-import-setupEntry-matrix-plugins-matrix-crabpot-package-setup-entry-ts.capture.json",
-          ".crabpot/results/matrix/cold-import-setupEntry-matrix-plugins-matrix-crabpot-package-setup-entry-ts.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "msteams",
@@ -33819,23 +33541,7 @@
         "registerGatewayMethod @ plugins/voice-call/.crabpot-package/dist/index.js:1163",
         "registerService @ plugins/voice-call/.crabpot-package/dist/index.js:1298"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "partial",
-        "captured": [
-          "registration:registerGatewayMethod",
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerConfigMigration",
-          "registration:registerGatewayMethod",
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/voice-call/cold-import-runtimeExtension-voice-call-plugins-voice-call-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/voice-call/cold-import-runtimeExtension-voice-call-plugins-voice-call-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      }
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "zalo",
@@ -33971,23 +33677,7 @@
       "evidence": [
         "registerHttpRoute @ plugins/mattermost/.crabpot-package/src/mattermost/slash-state.ts:396"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerHttpRoute"
-        ],
-        "expected": [
-          "registration:registerHttpRoute"
-        ],
-        "artifacts": [
-          ".crabpot/results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.capture.json",
-          ".crabpot/results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.synthetic.json",
-          ".crabpot/results/mattermost/cold-import-setupEntry-mattermost-plugins-mattermost-crabpot-package-setup-entry-ts.capture.json",
-          ".crabpot/results/mattermost/cold-import-setupEntry-mattermost-plugins-mattermost-crabpot-package-setup-entry-ts.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "mattermost",
@@ -34039,21 +33729,7 @@
       "evidence": [
         "registerCommand @ plugins/codex/.crabpot-package/dist/index.js:1003"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerCommand"
-        ],
-        "expected": [
-          "registration:registerCommand"
-        ],
-        "artifacts": [
-          ".crabpot/results/codex/cold-import-runtimeExtension-codex-plugins-codex-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/codex/cold-import-runtimeExtension-codex-plugins-codex-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "diagnostics-prometheus",
@@ -34064,23 +33740,7 @@
         "registerHttpRoute @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:478",
         "registerService @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:477"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerHttpRoute",
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerHttpRoute",
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/diagnostics-prometheus/cold-import-runtimeExtension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/diagnostics-prometheus/cold-import-runtimeExtension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "google-meet",
@@ -34115,23 +33775,7 @@
         "registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:4790",
         "registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:4945"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerGatewayMethod",
-          "registration:registerNodeHostCommand"
-        ],
-        "expected": [
-          "registration:registerGatewayMethod",
-          "registration:registerNodeHostCommand"
-        ],
-        "artifacts": [
-          ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "diffs",
@@ -34154,21 +33798,7 @@
       "evidence": [
         "registerHttpRoute @ plugins/diffs/.crabpot-package/dist/index.js:2079"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerHttpRoute"
-        ],
-        "expected": [
-          "registration:registerHttpRoute"
-        ],
-        "artifacts": [
-          ".crabpot/results/diffs/cold-import-runtimeExtension-diffs-plugins-diffs-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/diffs/cold-import-runtimeExtension-diffs-plugins-diffs-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "memory-lancedb",
@@ -34191,21 +33821,7 @@
         "registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:360",
         "registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:705"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/memory-lancedb/cold-import-runtimeExtension-memory-lancedb-plugins-memory-lancedb-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/memory-lancedb/cold-import-runtimeExtension-memory-lancedb-plugins-memory-lancedb-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "openclaw-qqbot",
@@ -34228,21 +33844,7 @@
       "evidence": [
         "registerCommand @ plugins/openclaw-qqbot/.crabpot-package/dist/api.js:626"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerCommand"
-        ],
-        "expected": [
-          "registration:registerCommand"
-        ],
-        "artifacts": [
-          ".crabpot/results/openclaw-qqbot/cold-import-runtimeExtension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/openclaw-qqbot/cold-import-runtimeExtension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "whatsapp",
@@ -34298,21 +33900,7 @@
       "evidence": [
         "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:341"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerCommand"
-        ],
-        "expected": [
-          "registration:registerCommand"
-        ],
-        "artifacts": [
-          ".crabpot/results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.capture.json",
-          ".crabpot/results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "nemoclaw",
@@ -34322,21 +33910,7 @@
       "evidence": [
         "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:389"
       ],
-      "compatRecord": "hook.before_tool_call.terminal-block-approval",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "hook:before_tool_call"
-        ],
-        "expected": [
-          "hook:before_tool_call"
-        ],
-        "artifacts": [
-          ".crabpot/results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.capture.json",
-          ".crabpot/results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "hook.before_tool_call.terminal-block-approval"
     },
     {
       "fixture": "memory-tencentdb",
@@ -34586,23 +34160,7 @@
         "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:17",
         "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:18"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerCommand"
-        ],
-        "expected": [
-          "registration:registerCommand"
-        ],
-        "artifacts": [
-          ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.synthetic.json",
-          ".crabpot/results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-dist-setup-entry-js.capture.json",
-          ".crabpot/results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-dist-setup-entry-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "yuanbao",
@@ -34623,23 +34181,7 @@
         "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:78",
         "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:172",
         "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:325"
-      ],
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerTool"
-        ],
-        "expected": [
-          "registration:registerTool"
-        ],
-        "artifacts": [
-          ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.synthetic.json",
-          ".crabpot/results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-dist-setup-entry-js.capture.json",
-          ".crabpot/results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-dist-setup-entry-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      ]
     },
     {
       "fixture": "openclaw-weixin",
@@ -34669,23 +34211,7 @@
         "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13",
         "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerChannel"
-        ],
-        "expected": [
-          "registration:registerChannel"
-        ],
-        "artifacts": [
-          ".crabpot/results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.capture.json",
-          ".crabpot/results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.synthetic.json",
-          ".crabpot/results/openclaw-weixin/cold-import-runtimeExtension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/openclaw-weixin/cold-import-runtimeExtension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "openclaw-weixin",
@@ -34779,23 +34305,7 @@
         "registerCommand @ plugins/clawrouter/src/index.ts:1891",
         "registerService @ plugins/clawrouter/src/index.ts:1900"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerCommand",
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerCommand",
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.capture.json",
-          ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "clawrouter",
@@ -34804,21 +34314,7 @@
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
         "registerTool @ plugins/clawrouter/src/index.ts:1707"
-      ],
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerTool"
-        ],
-        "expected": [
-          "registration:registerTool"
-        ],
-        "artifacts": [
-          ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.capture.json",
-          ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      ]
     },
     {
       "fixture": "memu-engine",
@@ -34867,21 +34363,7 @@
         "registerService @ plugins/secureclaw/secureclaw/src/index.ts:301",
         "registerService @ plugins/secureclaw/secureclaw/src/index.ts:307"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/secureclaw/cold-import-extension-secureclaw-plugins-secureclaw-secureclaw-dist-index-js.capture.json",
-          ".crabpot/results/secureclaw/cold-import-extension-secureclaw-plugins-secureclaw-secureclaw-dist-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "memos-cloud",
@@ -34910,23 +34392,7 @@
       "evidence": [
         "registerService @ plugins/clawmetry/clawhub-plugin/index.ts:20"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.capture.json",
-          ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
-          ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.capture.json",
-          ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "codex-app-server",
@@ -34957,25 +34423,7 @@
         "registerInteractiveHandler @ plugins/codex-app-server/index.ts:38",
         "registerService @ plugins/codex-app-server/index.ts:12"
       ],
-      "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerCommand",
-          "registration:registerInteractiveHandler",
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerCommand",
-          "registration:registerInteractiveHandler",
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.capture.json",
-          ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      "compatRecord": "api.capture.runtime-registrars"
     },
     {
       "fixture": "web-search-plus",
@@ -34994,23 +34442,7 @@
       "evidence": [
         "registerTool @ plugins/web-search-plus/index.ts:1034",
         "registerTool @ plugins/web-search-plus/index.ts:893"
-      ],
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerTool"
-        ],
-        "expected": [
-          "registration:registerTool"
-        ],
-        "artifacts": [
-          ".crabpot/results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.capture.json",
-          ".crabpot/results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.synthetic.json",
-          ".crabpot/results/web-search-plus/cold-import-runtimeExtension-web-search-plus-plugins-web-search-plus-dist-index-js.capture.json",
-          ".crabpot/results/web-search-plus/cold-import-runtimeExtension-web-search-plus-plugins-web-search-plus-dist-index-js.synthetic.json"
-        ]
-      },
-      "status": "runtime-covered"
+      ]
     },
     {
       "fixture": "apify",
@@ -35078,7 +34510,7 @@
       "owner": "core",
       "code": "conversation-access-hook",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -35088,21 +34520,7 @@
         "llm_output @ plugins/clawmetry/clawhub-plugin/src/service.ts:117"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "hook:llm_output"
-        ],
-        "expected": [
-          "hook:llm_output"
-        ],
-        "artifacts": [
-          ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.capture.json",
-          ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
-          ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.capture.json",
-          ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-FCFC9C8A",
@@ -35170,7 +34588,7 @@
       "owner": "inspector",
       "code": "before-tool-call-probe",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -35180,23 +34598,7 @@
         "before_tool_call @ plugins/kitchen-sink/src/generated-hooks.js:19"
       ],
       "compatRecord": "hook.before_tool_call.terminal-block-approval",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "hook:before_tool_call"
-        ],
-        "expected": [
-          "hook:before_tool_call"
-        ],
-        "artifacts": [
-          ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-          ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-          ".crabpot/results/kitchen-sink/cold-import-setupEntry-kitchen-sink-plugins-kitchen-sink-src-setup-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-setupEntry-kitchen-sink-plugins-kitchen-sink-src-setup-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-ADFE9067",
@@ -35205,7 +34607,7 @@
       "owner": "core",
       "code": "conversation-access-hook",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -35217,27 +34619,7 @@
         "llm_output @ plugins/kitchen-sink/src/generated-hooks.js:26"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "hook:agent_end",
-          "hook:llm_input",
-          "hook:llm_output"
-        ],
-        "expected": [
-          "hook:agent_end",
-          "hook:llm_input",
-          "hook:llm_output"
-        ],
-        "artifacts": [
-          ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-          ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-          ".crabpot/results/kitchen-sink/cold-import-setupEntry-kitchen-sink-plugins-kitchen-sink-src-setup-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-setupEntry-kitchen-sink-plugins-kitchen-sink-src-setup-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-5D9C0F25",
@@ -35246,7 +34628,7 @@
       "owner": "core",
       "code": "conversation-access-hook",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -35257,21 +34639,7 @@
         "llm_output @ plugins/llm-trace-phoenix/index.ts:168"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "hook:llm_input",
-          "hook:llm_output"
-        ],
-        "expected": [
-          "hook:llm_input",
-          "hook:llm_output"
-        ],
-        "artifacts": [
-          ".crabpot/results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.capture.json",
-          ".crabpot/results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-C9FC8584",
@@ -35299,7 +34667,7 @@
       "owner": "core",
       "code": "conversation-access-hook",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -35310,19 +34678,7 @@
         "agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:627"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "hook:agent_end"
-        ],
-        "expected": [
-          "hook:agent_end"
-        ],
-        "artifacts": [
-          ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.capture.json",
-          ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-A1A9B1D2",
@@ -35331,7 +34687,7 @@
       "owner": "core",
       "code": "conversation-access-hook",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -35341,19 +34697,7 @@
         "agent_end @ plugins/memos-cloud/index.js:565"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "hook:agent_end"
-        ],
-        "expected": [
-          "hook:agent_end"
-        ],
-        "artifacts": [
-          ".crabpot/results/memos-cloud/cold-import-extension-memos-cloud-plugins-memos-cloud-index-js.capture.json",
-          ".crabpot/results/memos-cloud/cold-import-extension-memos-cloud-plugins-memos-cloud-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-7F447BFA",
@@ -35362,7 +34706,7 @@
       "owner": "inspector",
       "code": "before-tool-call-probe",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -35372,19 +34716,7 @@
         "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:389"
       ],
       "compatRecord": "hook.before_tool_call.terminal-block-approval",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "hook:before_tool_call"
-        ],
-        "expected": [
-          "hook:before_tool_call"
-        ],
-        "artifacts": [
-          ".crabpot/results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.capture.json",
-          ".crabpot/results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-6475B814",
@@ -35471,7 +34803,7 @@
       "owner": "inspector",
       "code": "before-tool-call-probe",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -35481,19 +34813,7 @@
         "before_tool_call @ plugins/wecom/index.js:76"
       ],
       "compatRecord": "hook.before_tool_call.terminal-block-approval",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "hook:before_tool_call"
-        ],
-        "expected": [
-          "hook:before_tool_call"
-        ],
-        "artifacts": [
-          ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.capture.json",
-          ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-6469330F",
@@ -35623,7 +34943,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -35638,21 +34958,7 @@
         "registerService @ plugins/a2a-gateway/index.ts:857"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerGatewayMethod",
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerGatewayMethod",
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.capture.json",
-          ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-654F01E7",
@@ -35661,7 +34967,7 @@
       "owner": "inspector",
       "code": "runtime-tool-capture",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -35671,19 +34977,7 @@
         "registerTool @ plugins/a2a-gateway/index.ts:777"
       ],
       "compatRecord": null,
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerTool"
-        ],
-        "expected": [
-          "registration:registerTool"
-        ],
-        "artifacts": [
-          ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.capture.json",
-          ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-8A157BCD",
@@ -36149,7 +35443,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -36159,21 +35453,7 @@
         "registerService @ plugins/clawmetry/clawhub-plugin/index.ts:20"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.capture.json",
-          ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
-          ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.capture.json",
-          ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-5B6D803B",
@@ -36227,7 +35507,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -36244,21 +35524,7 @@
         "registerService @ plugins/clawrouter/src/index.ts:1900"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerCommand",
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerCommand",
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.capture.json",
-          ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-482E4706",
@@ -36267,7 +35533,7 @@
       "owner": "inspector",
       "code": "runtime-tool-capture",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -36277,19 +35543,7 @@
         "registerTool @ plugins/clawrouter/src/index.ts:1707"
       ],
       "compatRecord": null,
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerTool"
-        ],
-        "expected": [
-          "registration:registerTool"
-        ],
-        "artifacts": [
-          ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.capture.json",
-          ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-2891BB96",
@@ -36360,7 +35614,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -36370,19 +35624,7 @@
         "registerCommand @ plugins/codex/.crabpot-package/dist/index.js:1003"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerCommand"
-        ],
-        "expected": [
-          "registration:registerCommand"
-        ],
-        "artifacts": [
-          ".crabpot/results/codex/cold-import-runtimeExtension-codex-plugins-codex-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/codex/cold-import-runtimeExtension-codex-plugins-codex-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-A36ECE8E",
@@ -36451,7 +35693,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -36464,23 +35706,7 @@
         "registerService @ plugins/codex-app-server/index.ts:12"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerCommand",
-          "registration:registerInteractiveHandler",
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerCommand",
-          "registration:registerInteractiveHandler",
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.capture.json",
-          ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-F86A9E2D",
@@ -36773,7 +35999,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -36783,19 +36009,7 @@
         "registerService @ plugins/diagnostics-otel/.crabpot-package/dist/index.js:1555"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/diagnostics-otel/cold-import-runtimeExtension-diagnostics-otel-plugins-diagnostics-otel-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/diagnostics-otel/cold-import-runtimeExtension-diagnostics-otel-plugins-diagnostics-otel-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-CA7EA209",
@@ -36824,7 +36038,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -36835,21 +36049,7 @@
         "registerService @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:477"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerHttpRoute",
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerHttpRoute",
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/diagnostics-prometheus/cold-import-runtimeExtension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/diagnostics-prometheus/cold-import-runtimeExtension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-005CE57A",
@@ -36920,7 +36120,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -36930,19 +36130,7 @@
         "registerHttpRoute @ plugins/diffs/.crabpot-package/dist/index.js:2079"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerHttpRoute"
-        ],
-        "expected": [
-          "registration:registerHttpRoute"
-        ],
-        "artifacts": [
-          ".crabpot/results/diffs/cold-import-runtimeExtension-diffs-plugins-diffs-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/diffs/cold-import-runtimeExtension-diffs-plugins-diffs-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-E7D8C35A",
@@ -37486,7 +36674,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -37511,21 +36699,7 @@
         "registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:4945"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerGatewayMethod",
-          "registration:registerNodeHostCommand"
-        ],
-        "expected": [
-          "registration:registerGatewayMethod",
-          "registration:registerNodeHostCommand"
-        ],
-        "artifacts": [
-          ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-E9BDCBCE",
@@ -37824,7 +36998,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -37839,19 +37013,7 @@
         "registerCommand @ plugins/hyperspell/index.ts:73"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerCommand"
-        ],
-        "expected": [
-          "registration:registerCommand"
-        ],
-        "artifacts": [
-          ".crabpot/results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-dist-index-js.capture.json",
-          ".crabpot/results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-7C59D06F",
@@ -37956,7 +37118,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -38000,67 +37162,7 @@
         "registerService @ plugins/kitchen-sink/src/kitchen-runtime.js:104"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerAutoEnableProbe",
-          "registration:registerChannel",
-          "registration:registerCommand",
-          "registration:registerCompactionProvider",
-          "registration:registerConfigMigration",
-          "registration:registerContextEngine",
-          "registration:registerDetachedTaskRuntime",
-          "registration:registerGatewayDiscoveryService",
-          "registration:registerGatewayMethod",
-          "registration:registerHook",
-          "registration:registerHttpRoute",
-          "registration:registerInteractiveHandler",
-          "registration:registerMemoryCapability",
-          "registration:registerMemoryCorpusSupplement",
-          "registration:registerMemoryFlushPlan",
-          "registration:registerMemoryPromptSection",
-          "registration:registerMemoryPromptSupplement",
-          "registration:registerMemoryRuntime",
-          "registration:registerNodeHostCommand",
-          "registration:registerNodeInvokePolicy",
-          "registration:registerReload",
-          "registration:registerSecurityAuditCollector",
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerAutoEnableProbe",
-          "registration:registerChannel",
-          "registration:registerCommand",
-          "registration:registerCompactionProvider",
-          "registration:registerConfigMigration",
-          "registration:registerContextEngine",
-          "registration:registerDetachedTaskRuntime",
-          "registration:registerGatewayDiscoveryService",
-          "registration:registerGatewayMethod",
-          "registration:registerHook",
-          "registration:registerHttpRoute",
-          "registration:registerInteractiveHandler",
-          "registration:registerMemoryCapability",
-          "registration:registerMemoryCorpusSupplement",
-          "registration:registerMemoryFlushPlan",
-          "registration:registerMemoryPromptSection",
-          "registration:registerMemoryPromptSupplement",
-          "registration:registerMemoryRuntime",
-          "registration:registerNodeHostCommand",
-          "registration:registerNodeInvokePolicy",
-          "registration:registerReload",
-          "registration:registerSecurityAuditCollector",
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-          ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-          ".crabpot/results/kitchen-sink/cold-import-setupEntry-kitchen-sink-plugins-kitchen-sink-src-setup-js.capture.json",
-          ".crabpot/results/kitchen-sink/cold-import-setupEntry-kitchen-sink-plugins-kitchen-sink-src-setup-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-994BE280",
@@ -38391,7 +37493,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -38403,21 +37505,7 @@
         "registerGatewayMethod @ plugins/matrix/.crabpot-package/index.ts:28"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerGatewayMethod"
-        ],
-        "expected": [
-          "registration:registerGatewayMethod"
-        ],
-        "artifacts": [
-          ".crabpot/results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.capture.json",
-          ".crabpot/results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.synthetic.json",
-          ".crabpot/results/matrix/cold-import-setupEntry-matrix-plugins-matrix-crabpot-package-setup-entry-ts.capture.json",
-          ".crabpot/results/matrix/cold-import-setupEntry-matrix-plugins-matrix-crabpot-package-setup-entry-ts.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-ABFFBF13",
@@ -38523,7 +37611,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -38533,21 +37621,7 @@
         "registerHttpRoute @ plugins/mattermost/.crabpot-package/src/mattermost/slash-state.ts:396"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerHttpRoute"
-        ],
-        "expected": [
-          "registration:registerHttpRoute"
-        ],
-        "artifacts": [
-          ".crabpot/results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.capture.json",
-          ".crabpot/results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.synthetic.json",
-          ".crabpot/results/mattermost/cold-import-setupEntry-mattermost-plugins-mattermost-crabpot-package-setup-entry-ts.capture.json",
-          ".crabpot/results/mattermost/cold-import-setupEntry-mattermost-plugins-mattermost-crabpot-package-setup-entry-ts.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-22E35E29",
@@ -38712,7 +37786,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -38723,19 +37797,7 @@
         "registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:705"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/memory-lancedb/cold-import-runtimeExtension-memory-lancedb-plugins-memory-lancedb-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/memory-lancedb/cold-import-runtimeExtension-memory-lancedb-plugins-memory-lancedb-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-CD9DB890",
@@ -39314,7 +38376,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -39324,19 +38386,7 @@
         "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:341"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerCommand"
-        ],
-        "expected": [
-          "registration:registerCommand"
-        ],
-        "artifacts": [
-          ".crabpot/results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.capture.json",
-          ".crabpot/results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-3568FD0F",
@@ -39638,7 +38688,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -39648,19 +38698,7 @@
         "registerCommand @ plugins/openclaw-qqbot/.crabpot-package/dist/api.js:626"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerCommand"
-        ],
-        "expected": [
-          "registration:registerCommand"
-        ],
-        "artifacts": [
-          ".crabpot/results/openclaw-qqbot/cold-import-runtimeExtension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/openclaw-qqbot/cold-import-runtimeExtension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-BAB79693",
@@ -39844,7 +38882,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -39855,21 +38893,7 @@
         "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerChannel"
-        ],
-        "expected": [
-          "registration:registerChannel"
-        ],
-        "artifacts": [
-          ".crabpot/results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.capture.json",
-          ".crabpot/results/openclaw-weixin/cold-import-extension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-index-ts.synthetic.json",
-          ".crabpot/results/openclaw-weixin/cold-import-runtimeExtension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/openclaw-weixin/cold-import-runtimeExtension-openclaw-weixin-plugins-openclaw-weixin-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-F76EC24F",
@@ -40186,7 +39210,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -40198,19 +39222,7 @@
         "registerService @ plugins/secureclaw/secureclaw/src/index.ts:307"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/secureclaw/cold-import-extension-secureclaw-plugins-secureclaw-secureclaw-dist-index-js.capture.json",
-          ".crabpot/results/secureclaw/cold-import-extension-secureclaw-plugins-secureclaw-secureclaw-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-E47584CE",
@@ -40672,22 +39684,7 @@
         "registerService @ plugins/voice-call/.crabpot-package/dist/index.js:1298"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "partial",
-        "captured": [
-          "registration:registerGatewayMethod",
-          "registration:registerService"
-        ],
-        "expected": [
-          "registration:registerConfigMigration",
-          "registration:registerGatewayMethod",
-          "registration:registerService"
-        ],
-        "artifacts": [
-          ".crabpot/results/voice-call/cold-import-runtimeExtension-voice-call-plugins-voice-call-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/voice-call/cold-import-runtimeExtension-voice-call-plugins-voice-call-crabpot-package-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-E55C4521",
@@ -40715,7 +39712,7 @@
       "owner": "inspector",
       "code": "runtime-tool-capture",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -40726,21 +39723,7 @@
         "registerTool @ plugins/web-search-plus/index.ts:893"
       ],
       "compatRecord": null,
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerTool"
-        ],
-        "expected": [
-          "registration:registerTool"
-        ],
-        "artifacts": [
-          ".crabpot/results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.capture.json",
-          ".crabpot/results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.synthetic.json",
-          ".crabpot/results/web-search-plus/cold-import-runtimeExtension-web-search-plus-plugins-web-search-plus-dist-index-js.capture.json",
-          ".crabpot/results/web-search-plus/cold-import-runtimeExtension-web-search-plus-plugins-web-search-plus-dist-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-DA6A82C2",
@@ -40820,20 +39803,7 @@
         "registerHttpRoute @ plugins/wecom/index.js:56"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "partial",
-        "captured": [
-          "registration:registerChannel"
-        ],
-        "expected": [
-          "registration:registerChannel",
-          "registration:registerHttpRoute"
-        ],
-        "artifacts": [
-          ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.capture.json",
-          ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-76A40DAA",
@@ -40842,7 +39812,7 @@
       "owner": "inspector",
       "code": "runtime-tool-capture",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -40854,19 +39824,7 @@
         "registerTool @ plugins/wecom/index.js:44"
       ],
       "compatRecord": null,
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerTool"
-        ],
-        "expected": [
-          "registration:registerTool"
-        ],
-        "artifacts": [
-          ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.capture.json",
-          ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-D359347D",
@@ -41036,7 +39994,7 @@
       "owner": "inspector",
       "code": "registration-capture-gap",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -41048,21 +40006,7 @@
         "registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:18"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerCommand"
-        ],
-        "expected": [
-          "registration:registerCommand"
-        ],
-        "artifacts": [
-          ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.synthetic.json",
-          ".crabpot/results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-dist-setup-entry-js.capture.json",
-          ".crabpot/results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-dist-setup-entry-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-2AF5816C",
@@ -41071,7 +40015,7 @@
       "owner": "inspector",
       "code": "runtime-tool-capture",
       "decision": "inspector-follow-up",
-      "status": "runtime-covered",
+      "status": "open",
       "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
@@ -41083,21 +40027,7 @@
         "registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:325"
       ],
       "compatRecord": null,
-      "runtimeCoverage": {
-        "status": "covered",
-        "captured": [
-          "registration:registerTool"
-        ],
-        "expected": [
-          "registration:registerTool"
-        ],
-        "artifacts": [
-          ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.capture.json",
-          ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.synthetic.json",
-          ".crabpot/results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-dist-setup-entry-js.capture.json",
-          ".crabpot/results/yuanbao/cold-import-setupEntry-yuanbao-plugins-yuanbao-crabpot-package-dist-setup-entry-js.synthetic.json"
-        ]
-      }
+      "runtimeCoverage": null
     },
     {
       "id": "CRABPOT-451AC64F",
@@ -52867,12 +51797,12 @@
     ],
     "openclawTarget": "latest",
     "pluginTrack": "latest",
-    "runtimeEvidence": {
-      "path": "reports/crabpot-execution-results.json",
-      "artifacts": 151,
-      "captureArtifacts": 56,
-      "capturedRegistrations": 426
-    },
-    "packageAvailability": null
+    "runtimeEvidence": null,
+    "packageAvailability": {
+      "path": "reports/crabpot-package-availability.json",
+      "failures": 0,
+      "openclawFailures": 0,
+      "fallbacks": 0
+    }
   }
 }

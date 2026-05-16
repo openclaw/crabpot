@@ -1,7 +1,7 @@
 # Crabpot CI Summary
 
 Generated: deterministic
-Mode: track:latest
+Mode: check
 OpenClaw: openclaw@latest (2026.5.12, f066dd2f31c2)
 Status: PASS
 
@@ -33,7 +33,7 @@ Status: PASS
 | Windows portability risks   | 16                                                                                                                     |
 | Container portability risks | 16                                                                                                                     |
 | Jiti loader candidates      | 23                                                                                                                     |
-| Import loop                 | p50 1331 ms / p95 1369 ms / plugin delta RSS 0 MB / plugin delta CPU 22 ms / OpenClaw import 81.8 ms / activate 0.3 ms |
+| Import loop                 | p50 1132 ms / p95 1185 ms / plugin delta RSS 0 MB / plugin delta CPU 69 ms / OpenClaw import 78.4 ms / activate 0.3 ms |
 
 ## Top Issues
 
@@ -90,8 +90,8 @@ _none_
 
 | Action | ID               | Metric       | Baseline | Current | Message                                    |
 | ------ | ---------------- | ------------ | -------- | ------- | ------------------------------------------ |
-| warn   | profile.wall-p95 | p95WallMs    | 1273     | 2266    | p95WallMs regressed 78% over baseline      |
-| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 461     | maxPeakRssMb regressed 395.9 over baseline |
+| warn   | profile.wall-p95 | p95WallMs    | 1273     | 1911    | p95WallMs regressed 50.1% over baseline    |
+| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 458.6   | maxPeakRssMb regressed 393.5 over baseline |
 
 ## Artifacts
 
