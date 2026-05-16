@@ -1,86 +1,379 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-16T14:57:35Z",
-  "runUrl": "https://github.com/openclaw/crabpot/actions/runs/25964958095",
-  "mode": "track:latest",
-  "openclawLabel": "openclaw@latest (2026.5.12, f066dd2f31c2)",
+  "generatedAt": "2026-05-16T16:57:35Z",
+  "runUrl": "https://github.com/openclaw/crabpot/actions/runs/25967620376",
+  "mode": "track:development",
+  "openclawLabel": "openclaw/openclaw@main (2026.5.17, 5774517fcee6)",
   "status": "pass",
   "metrics": {
-    "fixtures": 60,
+    "fixtures": 8,
     "hardBreakages": 0,
-    "warnings": 128,
-    "suggestions": 155,
-    "issues": 283,
-    "p0Issues": 1,
-    "p1Issues": 16,
-    "liveIssues": 1,
-    "liveP0Issues": 1,
+    "warnings": 18,
+    "suggestions": 20,
+    "issues": 38,
+    "p0Issues": 0,
+    "p1Issues": 2,
+    "liveIssues": 0,
+    "liveP0Issues": 0,
     "compatGaps": 0,
-    "deprecationWarnings": 42,
-    "inspectorGaps": 164,
-    "upstreamIssues": 76,
-    "contractProbes": 278,
+    "deprecationWarnings": 2,
+    "inspectorGaps": 21,
+    "upstreamIssues": 15,
+    "contractProbes": 38,
     "policyFailures": 0,
-    "policyWarnings": 308,
+    "policyWarnings": 33,
     "refDiffFailures": 0,
     "profileFailures": 0,
-    "executionPass": 120,
+    "executionPass": 10,
     "executionFail": 0,
-    "executionBlocked": 306,
-    "syntheticReady": 443,
+    "executionBlocked": 33,
+    "syntheticReady": 54,
     "syntheticBlocked": 0,
-    "syntheticTotal": 443,
-    "coldReady": 7,
-    "coldBlocked": 100,
-    "coldTotal": 107,
-    "workspaceEntrypoints": 107,
-    "workspaceInstalls": 43,
-    "workspaceBuilds": 12,
-    "platformWindowsRisks": 16,
-    "platformContainerRisks": 16,
-    "loaderJitiCandidates": 23,
-    "importLoopP50Ms": 1354,
-    "importLoopP95Ms": 1357,
+    "syntheticTotal": 54,
+    "coldReady": 0,
+    "coldBlocked": 10,
+    "coldTotal": 10,
+    "workspaceEntrypoints": 10,
+    "workspaceInstalls": 8,
+    "workspaceBuilds": 0,
+    "platformWindowsRisks": 0,
+    "platformContainerRisks": 0,
+    "loaderJitiCandidates": 10,
+    "importLoopP50Ms": 1613,
+    "importLoopP95Ms": 1618,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 88.3,
-    "importLoopOpenClawImportP95Ms": 93.4,
-    "importLoopOpenClawActivationP50Ms": 0.3,
-    "importLoopOpenClawActivationP95Ms": 0.5,
+    "importLoopOpenClawImportP50Ms": 86.5,
+    "importLoopOpenClawImportP95Ms": 88,
+    "importLoopOpenClawActivationP50Ms": 0.4,
+    "importLoopOpenClawActivationP95Ms": 0.4,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 13.1,
-    "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 160,
-    "importLoopCpuSampleCount": 160,
-    "runtimeP50Ms": 2198,
-    "runtimeP95Ms": 2253,
-    "runtimeMaxRssMb": 454.4,
-    "runtimeRssSampleCount": 1882,
-    "runtimeCpuSampleCount": 1882,
+    "importLoopMaxRssMb": 2.9,
+    "importLoopMaxCpuMs": 68,
+    "importLoopRssSampleCount": 191,
+    "importLoopCpuSampleCount": 191,
+    "runtimeP50Ms": 1410,
+    "runtimeP95Ms": 1437,
+    "runtimeMaxRssMb": 437.6,
+    "runtimeRssSampleCount": 1215,
+    "runtimeCpuSampleCount": 1215,
     "runtimeSamplesPerCommand": 3,
     "runtimeWallTimeBasis": "command-median-p95"
   },
-  "baseline": null,
+  "baseline": {
+    "label": "main",
+    "generatedAt": "2026-05-16T14:57:35Z",
+    "openclawLabel": "openclaw@latest (2026.5.12, f066dd2f31c2)",
+    "runUrl": "https://github.com/openclaw/crabpot/actions/runs/25964958095",
+    "metrics": {
+      "fixtures": 60,
+      "hardBreakages": 0,
+      "warnings": 128,
+      "suggestions": 155,
+      "issues": 283,
+      "p0Issues": 1,
+      "p1Issues": 16,
+      "liveIssues": 1,
+      "liveP0Issues": 1,
+      "compatGaps": 0,
+      "deprecationWarnings": 42,
+      "inspectorGaps": 164,
+      "upstreamIssues": 76,
+      "contractProbes": 278,
+      "policyFailures": 0,
+      "policyWarnings": 308,
+      "refDiffFailures": 0,
+      "profileFailures": 0,
+      "executionPass": 120,
+      "executionFail": 0,
+      "executionBlocked": 306,
+      "syntheticReady": 443,
+      "syntheticBlocked": 0,
+      "syntheticTotal": 443,
+      "coldReady": 7,
+      "coldBlocked": 100,
+      "coldTotal": 107,
+      "workspaceEntrypoints": 107,
+      "workspaceInstalls": 43,
+      "workspaceBuilds": 12,
+      "platformWindowsRisks": 16,
+      "platformContainerRisks": 16,
+      "loaderJitiCandidates": 23,
+      "importLoopP50Ms": 1354,
+      "importLoopP95Ms": 1357,
+      "importLoopOpenClawLifecycleCount": 3,
+      "importLoopOpenClawImportP50Ms": 88.3,
+      "importLoopOpenClawImportP95Ms": 93.4,
+      "importLoopOpenClawActivationP50Ms": 0.3,
+      "importLoopOpenClawActivationP95Ms": 0.5,
+      "importLoopMetricBasis": "baseline-adjusted",
+      "importLoopMaxRssMb": 13.1,
+      "importLoopMaxCpuMs": 0,
+      "importLoopRssSampleCount": 160,
+      "importLoopCpuSampleCount": 160,
+      "runtimeP50Ms": 2198,
+      "runtimeP95Ms": 2253,
+      "runtimeMaxRssMb": 454.4,
+      "runtimeRssSampleCount": 1882,
+      "runtimeCpuSampleCount": 1882,
+      "runtimeSamplesPerCommand": 3,
+      "runtimeWallTimeBasis": "command-median-p95"
+    },
+    "deltas": {
+      "fixtures": {
+        "current": 8,
+        "baseline": 60,
+        "value": -52
+      },
+      "hardBreakages": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "warnings": {
+        "current": 18,
+        "baseline": 128,
+        "value": -110
+      },
+      "suggestions": {
+        "current": 20,
+        "baseline": 155,
+        "value": -135
+      },
+      "issues": {
+        "current": 38,
+        "baseline": 283,
+        "value": -245
+      },
+      "p0Issues": {
+        "current": 0,
+        "baseline": 1,
+        "value": -1
+      },
+      "p1Issues": {
+        "current": 2,
+        "baseline": 16,
+        "value": -14
+      },
+      "liveIssues": {
+        "current": 0,
+        "baseline": 1,
+        "value": -1
+      },
+      "liveP0Issues": {
+        "current": 0,
+        "baseline": 1,
+        "value": -1
+      },
+      "compatGaps": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "deprecationWarnings": {
+        "current": 2,
+        "baseline": 42,
+        "value": -40
+      },
+      "inspectorGaps": {
+        "current": 21,
+        "baseline": 164,
+        "value": -143
+      },
+      "upstreamIssues": {
+        "current": 15,
+        "baseline": 76,
+        "value": -61
+      },
+      "contractProbes": {
+        "current": 38,
+        "baseline": 278,
+        "value": -240
+      },
+      "policyFailures": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "policyWarnings": {
+        "current": 33,
+        "baseline": 308,
+        "value": -275
+      },
+      "refDiffFailures": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "profileFailures": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "executionPass": {
+        "current": 10,
+        "baseline": 120,
+        "value": -110
+      },
+      "executionFail": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "executionBlocked": {
+        "current": 33,
+        "baseline": 306,
+        "value": -273
+      },
+      "syntheticReady": {
+        "current": 54,
+        "baseline": 443,
+        "value": -389
+      },
+      "syntheticBlocked": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "syntheticTotal": {
+        "current": 54,
+        "baseline": 443,
+        "value": -389
+      },
+      "coldReady": {
+        "current": 0,
+        "baseline": 7,
+        "value": -7
+      },
+      "coldBlocked": {
+        "current": 10,
+        "baseline": 100,
+        "value": -90
+      },
+      "coldTotal": {
+        "current": 10,
+        "baseline": 107,
+        "value": -97
+      },
+      "workspaceEntrypoints": {
+        "current": 10,
+        "baseline": 107,
+        "value": -97
+      },
+      "workspaceInstalls": {
+        "current": 8,
+        "baseline": 43,
+        "value": -35
+      },
+      "workspaceBuilds": {
+        "current": 0,
+        "baseline": 12,
+        "value": -12
+      },
+      "platformWindowsRisks": {
+        "current": 0,
+        "baseline": 16,
+        "value": -16
+      },
+      "platformContainerRisks": {
+        "current": 0,
+        "baseline": 16,
+        "value": -16
+      },
+      "loaderJitiCandidates": {
+        "current": 10,
+        "baseline": 23,
+        "value": -13
+      },
+      "importLoopP50Ms": {
+        "current": 1613,
+        "baseline": 1354,
+        "value": 259
+      },
+      "importLoopP95Ms": {
+        "current": 1618,
+        "baseline": 1357,
+        "value": 261
+      },
+      "importLoopOpenClawLifecycleCount": {
+        "current": 3,
+        "baseline": 3,
+        "value": 0
+      },
+      "importLoopOpenClawImportP50Ms": {
+        "current": 86.5,
+        "baseline": 88.3,
+        "value": -1.8
+      },
+      "importLoopOpenClawImportP95Ms": {
+        "current": 88,
+        "baseline": 93.4,
+        "value": -5.4
+      },
+      "importLoopOpenClawActivationP50Ms": {
+        "current": 0.4,
+        "baseline": 0.3,
+        "value": 0.1
+      },
+      "importLoopOpenClawActivationP95Ms": {
+        "current": 0.4,
+        "baseline": 0.5,
+        "value": -0.1
+      },
+      "importLoopMaxRssMb": {
+        "current": 2.9,
+        "baseline": 13.1,
+        "value": -10.2
+      },
+      "importLoopMaxCpuMs": {
+        "current": 68,
+        "baseline": 0,
+        "value": 68
+      },
+      "importLoopRssSampleCount": {
+        "current": 191,
+        "baseline": 160,
+        "value": 31
+      },
+      "importLoopCpuSampleCount": {
+        "current": 191,
+        "baseline": 160,
+        "value": 31
+      },
+      "runtimeP50Ms": {
+        "current": 1410,
+        "baseline": 2198,
+        "value": -788
+      },
+      "runtimeP95Ms": {
+        "current": 1437,
+        "baseline": 2253,
+        "value": -816
+      },
+      "runtimeMaxRssMb": {
+        "current": 437.6,
+        "baseline": 454.4,
+        "value": -16.8
+      },
+      "runtimeRssSampleCount": {
+        "current": 1215,
+        "baseline": 1882,
+        "value": -667
+      },
+      "runtimeCpuSampleCount": {
+        "current": 1215,
+        "baseline": 1882,
+        "value": -667
+      },
+      "runtimeSamplesPerCommand": {
+        "current": 3,
+        "baseline": 3,
+        "value": 0
+      }
+    }
+  },
   "topIssues": [
     {
-      "id": "CRABPOT-870BDFE6",
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "aiwerk-mcp-bridge",
-      "code": "unknown-hook-name",
-      "decision": "core-compat-adapter",
-      "title": "aiwerk-mcp-bridge: fixture uses a hook missing from target OpenClaw"
-    },
-    {
-      "id": "CRABPOT-6D5640BA",
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "clawmetry",
-      "code": "conversation-access-hook",
-      "decision": "inspector-follow-up",
-      "title": "clawmetry: conversation-access hooks need privacy-boundary probes"
-    },
-    {
-      "id": "CRABPOT-FCFC9C8A",
+      "id": "CRABPOT-A83D558A",
       "severity": "P1",
       "issueClass": "upstream-metadata",
       "fixture": "codex",
@@ -89,67 +382,13 @@
       "title": "codex: plugin imports reserved bundled-plugin SDK compatibility subpaths"
     },
     {
-      "id": "CRABPOT-4DB969AE",
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "dingtalk-doc",
-      "code": "before-tool-call-probe",
-      "decision": "inspector-follow-up",
-      "title": "dingtalk-doc: before_tool_call needs terminal/block/approval probes"
-    },
-    {
-      "id": "CRABPOT-2D165A73",
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "honcho",
-      "code": "conversation-access-hook",
-      "decision": "inspector-follow-up",
-      "title": "honcho: conversation-access hooks need privacy-boundary probes"
-    },
-    {
-      "id": "CRABPOT-66F07BB5",
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "kitchen-sink",
-      "code": "before-tool-call-probe",
-      "decision": "inspector-follow-up",
-      "title": "kitchen-sink: before_tool_call needs terminal/block/approval probes"
-    },
-    {
-      "id": "CRABPOT-ADFE9067",
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "kitchen-sink",
-      "code": "conversation-access-hook",
-      "decision": "inspector-follow-up",
-      "title": "kitchen-sink: conversation-access hooks need privacy-boundary probes"
-    },
-    {
-      "id": "CRABPOT-5D9C0F25",
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "llm-trace-phoenix",
-      "code": "conversation-access-hook",
-      "decision": "inspector-follow-up",
-      "title": "llm-trace-phoenix: conversation-access hooks need privacy-boundary probes"
-    },
-    {
-      "id": "CRABPOT-C9FC8584",
+      "id": "CRABPOT-8DF1860D",
       "severity": "P1",
       "issueClass": "inspector-gap",
       "fixture": "memory-lancedb",
       "code": "conversation-access-hook",
       "decision": "inspector-follow-up",
       "title": "memory-lancedb: conversation-access hooks need privacy-boundary probes"
-    },
-    {
-      "id": "CRABPOT-49835FB6",
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "memory-tencentdb",
-      "code": "conversation-access-hook",
-      "decision": "inspector-follow-up",
-      "title": "memory-tencentdb: conversation-access hooks need privacy-boundary probes"
     }
   ],
   "artifactPaths": {

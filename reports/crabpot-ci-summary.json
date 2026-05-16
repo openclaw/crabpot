@@ -1,62 +1,46 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "track:latest",
-  "openclawLabel": "openclaw@latest (2026.5.12, f066dd2f31c2)",
+  "mode": "track:development",
+  "openclawLabel": "openclaw/openclaw@main (2026.5.17, 5774517fcee6)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 128,
-    "suggestions": 155,
-    "issues": 283,
-    "p0Issues": 1,
-    "p1Issues": 16,
-    "liveIssues": 1,
-    "liveP0Issues": 1,
+    "warnings": 18,
+    "suggestions": 20,
+    "issues": 38,
+    "p0Issues": 0,
+    "p1Issues": 2,
+    "liveIssues": 0,
+    "liveP0Issues": 0,
     "compatGaps": 0,
-    "deprecationWarnings": 42,
-    "inspectorGaps": 164,
-    "upstreamIssues": 76,
+    "deprecationWarnings": 2,
+    "inspectorGaps": 21,
+    "upstreamIssues": 15,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
-    "policyWarnings": 308,
+    "policyWarnings": 33,
     "profileFailures": 0,
-    "profileWarnings": 2,
-    "executionPass": 120,
+    "profileWarnings": 1,
+    "executionPass": 10,
     "executionFail": 0,
-    "executionBlocked": 306,
-    "platformWindowsRisks": 16,
-    "platformContainerRisks": 16,
-    "loaderJitiCandidates": 23,
-    "importLoopP50Ms": 1354,
-    "importLoopP95Ms": 1357,
+    "executionBlocked": 33,
+    "platformWindowsRisks": 0,
+    "platformContainerRisks": 0,
+    "loaderJitiCandidates": 10,
+    "importLoopP50Ms": 1613,
+    "importLoopP95Ms": 1618,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 88.3,
-    "importLoopOpenClawActivationP50Ms": 0.3,
+    "importLoopOpenClawImportP50Ms": 86.5,
+    "importLoopOpenClawActivationP50Ms": 0.4,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 13.1,
-    "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 160,
-    "importLoopCpuSampleCount": 160
+    "importLoopMaxRssMb": 2.9,
+    "importLoopMaxCpuMs": 68,
+    "importLoopRssSampleCount": 191,
+    "importLoopCpuSampleCount": 191
   },
   "topIssues": [
-    {
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "aiwerk-mcp-bridge",
-      "code": "unknown-hook-name",
-      "title": "aiwerk-mcp-bridge: fixture uses a hook missing from target OpenClaw",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "clawmetry",
-      "code": "conversation-access-hook",
-      "title": "clawmetry: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
     {
       "severity": "P1",
       "issueClass": "upstream-metadata",
@@ -68,364 +52,244 @@
     {
       "severity": "P1",
       "issueClass": "inspector-gap",
-      "fixture": "dingtalk-doc",
-      "code": "before-tool-call-probe",
-      "title": "dingtalk-doc: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "honcho",
-      "code": "conversation-access-hook",
-      "title": "honcho: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "kitchen-sink",
-      "code": "before-tool-call-probe",
-      "title": "kitchen-sink: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "kitchen-sink",
-      "code": "conversation-access-hook",
-      "title": "kitchen-sink: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "llm-trace-phoenix",
-      "code": "conversation-access-hook",
-      "title": "llm-trace-phoenix: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
       "fixture": "memory-lancedb",
       "code": "conversation-access-hook",
       "title": "memory-lancedb: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "memory-tencentdb",
-      "code": "conversation-access-hook",
-      "title": "memory-tencentdb: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "memos-cloud",
-      "code": "conversation-access-hook",
-      "title": "memos-cloud: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "nemoclaw",
-      "code": "before-tool-call-probe",
-      "title": "nemoclaw: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "openclaw-telemetry",
-      "code": "before-tool-call-probe",
-      "title": "openclaw-telemetry: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "openclaw-telemetry",
-      "code": "conversation-access-hook",
-      "title": "openclaw-telemetry: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "opik-openclaw",
-      "code": "before-tool-call-probe",
-      "title": "opik-openclaw: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "opik-openclaw",
-      "code": "conversation-access-hook",
-      "title": "opik-openclaw: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "wecom",
-      "code": "before-tool-call-probe",
-      "title": "wecom: before_tool_call needs terminal/block/approval probes",
       "decision": "inspector-follow-up"
     }
   ],
   "refRegressions": [],
   "policyFindings": [
     {
-      "id": "compatibility-report.live-p0-issues",
+      "id": "execution-results.blocked.codex.inbound_claim.9",
       "action": "warn",
-      "message": "1 live P0 issues tracked",
+      "message": "allowed-blocked: captured hook has no callable handler",
       "evidence": [
-        "aiwerk-mcp-bridge:unknown-hook-name:none"
+        ".crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
+        "inbound_claim",
+        "captured hook has no callable handler",
+        "generated-surface-hook-stubs"
       ]
     },
     {
-      "id": "execution-results.audit-findings",
+      "id": "execution-results.blocked.codex.onConversationBindingResolved.10",
       "action": "warn",
-      "message": "577 package audit findings",
+      "message": "allowed-blocked: captured hook has no callable handler",
       "evidence": [
-        "a2a-gateway:26",
-        "apify:28",
-        "codex-app-server:153",
-        "ddingtalk:254",
-        "diagnostics-otel:14",
-        "feishu:2",
-        "hasdata:5",
-        "mocrane-wecom:32",
-        "openclaw-weixin:2",
-        "opik-openclaw:5",
-        "qqbot:28",
-        "wecom:19",
-        "yuanbao:9"
+        ".crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
+        "onConversationBindingResolved",
+        "captured hook has no callable handler",
+        "generated-surface-hook-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.a2a-gateway.registerGatewayMethod.0",
+      "id": "execution-results.blocked.codex.registerCommand.8",
       "action": "warn",
       "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
-        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
-        "registerGatewayMethod",
+        ".crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
+        "registerCommand",
         "captured registration has no supported callable probe",
         "generated-surface-registration-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.a2a-gateway.registerGatewayMethod.1",
+      "id": "execution-results.blocked.diagnostics-prometheus.registerHttpRoute.1",
       "action": "warn",
       "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
-        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
-        "registerGatewayMethod",
+        ".crabpot/results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.synthetic.json",
+        "registerHttpRoute",
         "captured registration has no supported callable probe",
         "generated-surface-registration-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.a2a-gateway.registerGatewayMethod.2",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.a2a-gateway.registerGatewayMethod.3",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.a2a-gateway.registerGatewayMethod.4",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.a2a-gateway.registerService.6",
+      "id": "execution-results.blocked.diagnostics-prometheus.registerService.0",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeLifecycle=true",
       "evidence": [
-        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
+        ".crabpot/results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.synthetic.json",
         "registerService",
         "captured registration requires includeLifecycle=true",
         "service-lifecycle-harness"
       ]
     },
     {
-      "id": "execution-results.blocked.a2a-gateway.registerTool.5",
+      "id": "execution-results.blocked.diffs.before_prompt_build.2",
+      "action": "warn",
+      "message": "allowed-blocked: captured hook has no callable handler",
+      "evidence": [
+        ".crabpot/results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json",
+        "before_prompt_build",
+        "captured hook has no callable handler",
+        "generated-surface-hook-stubs"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.diffs.registerHttpRoute.1",
       "action": "warn",
       "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
-        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
+        ".crabpot/results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json",
+        "registerHttpRoute",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.diffs.registerTool.0",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "evidence": [
+        ".crabpot/results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json",
         "registerTool",
         "captured registration has no supported callable probe",
         "generated-surface-registration-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.apify.registerCli.0",
+      "id": "execution-results.blocked.google-meet.registerCli.17",
       "action": "warn",
       "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
-        ".crabpot/results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.synthetic.json",
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
         "registerCli",
         "captured registration has no supported callable probe",
         "generated-surface-registration-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.bluebubbles.registerChannel.0",
+      "id": "execution-results.blocked.google-meet.registerGatewayMethod.0",
       "action": "warn",
-      "message": "allowed-blocked: captured registration requires includeChannelRuntime=true",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
-        ".crabpot/results/bluebubbles/cold-import-runtimeExtension-bluebubbles-plugins-bluebubbles-crabpot-package-dist-index-js.synthetic.json",
-        "registerChannel",
-        "captured registration requires includeChannelRuntime=true",
-        "channel-runtime-harness"
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawmetry.after_tool_call.0",
+      "id": "execution-results.blocked.google-meet.registerGatewayMethod.1",
       "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
-        ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
-        "after_tool_call",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawmetry.after_tool_call.0",
+      "id": "execution-results.blocked.google-meet.registerGatewayMethod.10",
       "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
-        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
-        "after_tool_call",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawmetry.llm_output.1",
+      "id": "execution-results.blocked.google-meet.registerGatewayMethod.11",
       "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
-        ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
-        "llm_output",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawmetry.llm_output.1",
+      "id": "execution-results.blocked.google-meet.registerGatewayMethod.12",
       "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
-        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
-        "llm_output",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawmetry.message_received.4",
+      "id": "execution-results.blocked.google-meet.registerGatewayMethod.13",
       "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
-        ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
-        "message_received",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawmetry.message_received.4",
+      "id": "execution-results.blocked.google-meet.registerGatewayMethod.14",
       "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
-        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
-        "message_received",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawmetry.message_sent.5",
+      "id": "execution-results.blocked.google-meet.registerGatewayMethod.2",
       "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
-        ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
-        "message_sent",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawmetry.message_sent.5",
+      "id": "execution-results.blocked.google-meet.registerGatewayMethod.3",
       "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
-        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
-        "message_sent",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.clawmetry.registerService.6",
+      "id": "execution-results.blocked.google-meet.registerGatewayMethod.4",
       "action": "warn",
-      "message": "allowed-blocked: captured registration requires includeLifecycle=true",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
-        ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
-        "registerService",
-        "captured registration requires includeLifecycle=true",
-        "service-lifecycle-harness"
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.google-meet.registerGatewayMethod.5",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "evidence": [
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
       ]
     }
   ],
   "profileFindings": [
     {
-      "id": "profile.wall-p95",
-      "action": "warn",
-      "metric": "p95WallMs",
-      "message": "p95WallMs regressed 77% over baseline",
-      "baseline": 1273,
-      "current": 2253,
-      "delta": 980,
-      "percent": 77
-    },
-    {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 389.29999999999995 over baseline",
+      "message": "maxPeakRssMb regressed 372.5 over baseline",
       "baseline": 65.1,
-      "current": 454.4,
-      "delta": 389.29999999999995
+      "current": 437.6,
+      "delta": 372.5
     }
   ],
   "artifacts": {
