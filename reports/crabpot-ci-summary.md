@@ -1,7 +1,7 @@
 # Crabpot CI Summary
 
 Generated: deterministic
-Mode: track:latest
+Mode: dependabot
 OpenClaw: openclaw@latest (2026.5.12, f066dd2f31c2)
 Status: PASS
 
@@ -33,7 +33,7 @@ Status: PASS
 | Windows portability risks   | 16                                                                                                                       |
 | Container portability risks | 16                                                                                                                       |
 | Jiti loader candidates      | 23                                                                                                                       |
-| Import loop                 | p50 1354 ms / p95 1357 ms / plugin delta RSS 13.1 MB / plugin delta CPU 0 ms / OpenClaw import 88.3 ms / activate 0.3 ms |
+| Import loop                 | p50 1542 ms / p95 1594 ms / plugin delta RSS 4.7 MB / plugin delta CPU 79 ms / OpenClaw import 91.9 ms / activate 0.4 ms |
 
 ## Top Issues
 
@@ -88,10 +88,10 @@ _none_
 
 ## Profile Findings
 
-| Action | ID               | Metric       | Baseline | Current | Message                                                 |
-| ------ | ---------------- | ------------ | -------- | ------- | ------------------------------------------------------- |
-| warn   | profile.wall-p95 | p95WallMs    | 1273     | 2253    | p95WallMs regressed 77% over baseline                   |
-| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 454.4   | maxPeakRssMb regressed 389.29999999999995 over baseline |
+| Action | ID               | Metric       | Baseline | Current | Message                                    |
+| ------ | ---------------- | ------------ | -------- | ------- | ------------------------------------------ |
+| warn   | profile.wall-p95 | p95WallMs    | 1273     | 2408    | p95WallMs regressed 89.2% over baseline    |
+| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 462.6   | maxPeakRssMb regressed 397.5 over baseline |
 
 ## Artifacts
 
