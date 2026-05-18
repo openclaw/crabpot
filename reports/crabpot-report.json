@@ -25488,6 +25488,7 @@
             "@oclif/core",
             "js-yaml",
             "p-retry",
+            "qrcode-terminal",
             "yaml"
           ],
           "peerDependencies": [],
