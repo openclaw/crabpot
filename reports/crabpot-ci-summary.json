@@ -1,7 +1,7 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "track:latest",
+  "mode": "dependabot",
   "openclawLabel": "openclaw@latest (2026.5.12, f066dd2f31c2)",
   "status": "pass",
   "summary": {
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 16,
     "platformContainerRisks": 16,
     "loaderJitiCandidates": 23,
-    "importLoopP50Ms": 1354,
-    "importLoopP95Ms": 1357,
+    "importLoopP50Ms": 1542,
+    "importLoopP95Ms": 1594,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 88.3,
-    "importLoopOpenClawActivationP50Ms": 0.3,
+    "importLoopOpenClawImportP50Ms": 91.9,
+    "importLoopOpenClawActivationP50Ms": 0.4,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 13.1,
-    "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 160,
-    "importLoopCpuSampleCount": 160
+    "importLoopMaxRssMb": 4.7,
+    "importLoopMaxCpuMs": 79,
+    "importLoopRssSampleCount": 184,
+    "importLoopCpuSampleCount": 184
   },
   "topIssues": [
     {
@@ -412,20 +412,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 77% over baseline",
+      "message": "p95WallMs regressed 89.2% over baseline",
       "baseline": 1273,
-      "current": 2253,
-      "delta": 980,
-      "percent": 77
+      "current": 2408,
+      "delta": 1135,
+      "percent": 89.2
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 389.29999999999995 over baseline",
+      "message": "maxPeakRssMb regressed 397.5 over baseline",
       "baseline": 65.1,
-      "current": 454.4,
-      "delta": 389.29999999999995
+      "current": 462.6,
+      "delta": 397.5
     }
   ],
   "artifacts": {
