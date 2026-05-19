@@ -698,11 +698,11 @@
     "highPriorityFixtures": 22,
     "breakageCount": 0,
     "warningCount": 127,
-    "suggestionCount": 155,
+    "suggestionCount": 154,
     "decisionCount": 300,
-    "logCount": 482,
-    "issueCount": 282,
-    "openIssueCount": 282,
+    "logCount": 483,
+    "issueCount": 281,
+    "openIssueCount": 281,
     "p0IssueCount": 0,
     "p1IssueCount": 16,
     "openP0IssueCount": 0,
@@ -711,14 +711,14 @@
     "liveP0IssueCount": 0,
     "compatGapCount": 0,
     "deprecationWarningCount": 42,
-    "inspectorGapCount": 164,
+    "inspectorGapCount": 163,
     "upstreamIssueCount": 76,
     "fixtureRegressionCount": 0,
-    "openInspectorGapCount": 164,
+    "openInspectorGapCount": 163,
     "runtimeCoveredIssueCount": 0,
     "runtimePartiallyCoveredIssueCount": 0,
     "runtimeCoverageArtifactCount": 0,
-    "contractProbeCount": 278
+    "contractProbeCount": 277
   },
   "fixtures": [
     {
@@ -3277,32 +3277,32 @@
         {
           "name": "before_prompt_build",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2351,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2351"
+          "line": 1371,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1371"
         },
         {
           "name": "before_reset",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2344,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2344"
+          "line": 1364,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1364"
         },
         {
           "name": "gateway_start",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2557,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2557"
+          "line": 1723,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1723"
         },
         {
           "name": "gateway_stop",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2581,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2581"
+          "line": 1747,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1747"
         },
         {
           "name": "session_end",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2354,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2354"
+          "line": 1374,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1374"
         }
       ],
       "registrations": [
@@ -3314,38 +3314,38 @@
         {
           "name": "registerCommand",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2385,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2385"
+          "line": 1410,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1410"
         },
         {
           "name": "registerContextEngine",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2365,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2365"
+          "line": 1385,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1385"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2367,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2367"
+          "line": 1387,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1387"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2370,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2370"
+          "line": 1391,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1391"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2373,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2373"
+          "line": 1395,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1395"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 2376,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2376"
+          "line": 1399,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1399"
         }
       ],
       "manifestContracts": [
@@ -3355,7 +3355,12 @@
         "plugins/lossless-claw/openclaw.plugin.json"
       ],
       "sourceFiles": [
+        "plugins/lossless-claw/doctor-contract-api.js",
         "plugins/lossless-claw/index.ts",
+        "plugins/lossless-claw/scripts/lcm-blob-migrate.mjs",
+        "plugins/lossless-claw/scripts/stub-tier-assemble-bench.mjs",
+        "plugins/lossless-claw/scripts/stub-tier-drilldown-harness.mjs",
+        "plugins/lossless-claw/scripts/stub-tier-live-watcher.mjs",
         "plugins/lossless-claw/src/assembler.ts",
         "plugins/lossless-claw/src/compaction.ts",
         "plugins/lossless-claw/src/db/config.ts",
@@ -3367,6 +3372,7 @@
         "plugins/lossless-claw/src/expansion-auth.ts",
         "plugins/lossless-claw/src/expansion-policy.ts",
         "plugins/lossless-claw/src/expansion.ts",
+        "plugins/lossless-claw/src/focus-briefs.ts",
         "plugins/lossless-claw/src/integrity.ts",
         "plugins/lossless-claw/src/large-files.ts",
         "plugins/lossless-claw/src/lcm-log.ts",
@@ -3384,7 +3390,9 @@
         "plugins/lossless-claw/src/startup-banner-log.ts",
         "plugins/lossless-claw/src/store/compaction-maintenance-store.ts",
         "plugins/lossless-claw/src/store/compaction-telemetry-store.ts",
+        "plugins/lossless-claw/src/store/conversation-scope.ts",
         "plugins/lossless-claw/src/store/conversation-store.ts",
+        "plugins/lossless-claw/src/store/focus-brief-store.ts",
         "plugins/lossless-claw/src/store/fts5-sanitize.ts",
         "plugins/lossless-claw/src/store/full-text-fallback.ts",
         "plugins/lossless-claw/src/store/full-text-sort.ts",
@@ -3435,7 +3443,7 @@
       "package": {
         "path": "plugins/lossless-claw/package.json",
         "name": "@martian-engineering/lossless-claw",
-        "version": "0.9.4",
+        "version": "0.11.1",
         "type": "module",
         "main": "dist/index.js",
         "npmPack": {
@@ -3444,6 +3452,8 @@
           "filesMode": "allowlist",
           "files": [
             "dist",
+            "doctor-contract-api.d.ts",
+            "doctor-contract-api.js",
             "skills",
             "openclaw.plugin.json",
             "docs",
@@ -3453,12 +3463,12 @@
           "invalidFileSpecs": []
         },
         "dependencies": [
+          "@earendil-works/pi-agent-core",
+          "@earendil-works/pi-ai",
+          "@earendil-works/pi-coding-agent",
           "@sinclair/typebox"
         ],
         "peerDependencies": [
-          "@mariozechner/pi-agent-core",
-          "@mariozechner/pi-ai",
-          "@mariozechner/pi-coding-agent",
           "openclaw"
         ],
         "optionalDependencies": [],
@@ -3468,8 +3478,8 @@
           ],
           "runtimeExtensions": [],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.2.17 <2026.6.0",
-          "buildOpenClawVersion": "2026.2.17",
+          "compatPluginApi": ">=2026.5.12",
+          "buildOpenClawVersion": "2026.5.12",
           "buildPluginSdkVersion": null,
           "install": null,
           "release": null,
@@ -3489,7 +3499,7 @@
         {
           "path": "plugins/lossless-claw/package.json",
           "name": "@martian-engineering/lossless-claw",
-          "version": "0.9.4",
+          "version": "0.11.1",
           "type": "module",
           "main": "dist/index.js",
           "npmPack": {
@@ -3498,6 +3508,8 @@
             "filesMode": "allowlist",
             "files": [
               "dist",
+              "doctor-contract-api.d.ts",
+              "doctor-contract-api.js",
               "skills",
               "openclaw.plugin.json",
               "docs",
@@ -3507,12 +3519,12 @@
             "invalidFileSpecs": []
           },
           "dependencies": [
+            "@earendil-works/pi-agent-core",
+            "@earendil-works/pi-ai",
+            "@earendil-works/pi-coding-agent",
             "@sinclair/typebox"
           ],
           "peerDependencies": [
-            "@mariozechner/pi-agent-core",
-            "@mariozechner/pi-ai",
-            "@mariozechner/pi-coding-agent",
             "openclaw"
           ],
           "optionalDependencies": [],
@@ -3522,8 +3534,8 @@
             ],
             "runtimeExtensions": [],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.2.17 <2026.6.0",
-            "buildOpenClawVersion": "2026.2.17",
+            "compatPluginApi": ">=2026.5.12",
+            "buildOpenClawVersion": "2026.5.12",
             "buildPluginSdkVersion": null,
             "install": null,
             "release": null,
@@ -3547,14 +3559,8 @@
         {
           "specifier": "openclaw/plugin-sdk",
           "file": "plugins/lossless-claw/src/openclaw-bridge.ts",
-          "line": 21,
-          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:21"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/lossless-claw/src/openclaw-bridge.ts",
-          "line": 26,
-          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:26"
+          "line": 3,
+          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:3"
         }
       ]
     },
@@ -4090,8 +4096,8 @@
         {
           "name": "agent_end",
           "file": "plugins/honcho/hooks/capture.ts",
-          "line": 151,
-          "ref": "plugins/honcho/hooks/capture.ts:151"
+          "line": 164,
+          "ref": "plugins/honcho/hooks/capture.ts:164"
         },
         {
           "name": "agent_end",
@@ -4108,8 +4114,8 @@
         {
           "name": "before_compaction",
           "file": "plugins/honcho/hooks/capture.ts",
-          "line": 177,
-          "ref": "plugins/honcho/hooks/capture.ts:177"
+          "line": 193,
+          "ref": "plugins/honcho/hooks/capture.ts:193"
         },
         {
           "name": "before_prompt_build",
@@ -4120,8 +4126,8 @@
         {
           "name": "before_reset",
           "file": "plugins/honcho/hooks/capture.ts",
-          "line": 194,
-          "ref": "plugins/honcho/hooks/capture.ts:194"
+          "line": 210,
+          "ref": "plugins/honcho/hooks/capture.ts:210"
         },
         {
           "name": "gateway_start",
@@ -4165,8 +4171,8 @@
         {
           "name": "registerMemoryRuntime",
           "file": "plugins/honcho/runtime.ts",
-          "line": 274,
-          "ref": "plugins/honcho/runtime.ts:274"
+          "line": 261,
+          "ref": "plugins/honcho/runtime.ts:261"
         },
         {
           "name": "registerTool",
@@ -4183,8 +4189,8 @@
         {
           "name": "registerTool",
           "file": "plugins/honcho/tools/memory-passthrough.ts",
-          "line": 130,
-          "ref": "plugins/honcho/tools/memory-passthrough.ts:130"
+          "line": 131,
+          "ref": "plugins/honcho/tools/memory-passthrough.ts:131"
         },
         {
           "name": "registerTool",
@@ -4211,7 +4217,9 @@
           "ref": "plugins/honcho/tools/session.ts:8"
         }
       ],
-      "manifestContracts": [],
+      "manifestContracts": [
+        "tools"
+      ],
       "manifestFiles": [
         "plugins/honcho/openclaw.plugin.json"
       ],
@@ -4243,11 +4251,15 @@
           "version": null,
           "keys": [
             "configSchema",
+            "contracts",
             "id",
             "kind",
+            "setup",
             "uiHints"
           ],
-          "contracts": [],
+          "contracts": [
+            "tools"
+          ],
           "providerAuthEnvVars": {},
           "channelEnvVars": {},
           "activation": null
@@ -4257,7 +4269,7 @@
       "package": {
         "path": "plugins/honcho/package.json",
         "name": "@honcho-ai/openclaw-honcho",
-        "version": "1.4.1",
+        "version": "1.5.0",
         "type": "module",
         "main": "dist/index.js",
         "npmPack": {
@@ -4307,7 +4319,7 @@
         {
           "path": "plugins/honcho/package.json",
           "name": "@honcho-ai/openclaw-honcho",
-          "version": "1.4.1",
+          "version": "1.5.0",
           "type": "module",
           "main": "dist/index.js",
           "npmPack": {
@@ -4357,7 +4369,8 @@
       "sdkImports": [
         "openclaw/plugin-sdk",
         "openclaw/plugin-sdk/memory-core",
-        "openclaw/plugin-sdk/plugin-entry"
+        "openclaw/plugin-sdk/plugin-entry",
+        "openclaw/plugin-sdk/routing"
       ],
       "sdkImportDetails": [
         {
@@ -4443,6 +4456,12 @@
           "file": "plugins/honcho/index.ts",
           "line": 9,
           "ref": "plugins/honcho/index.ts:9"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/routing",
+          "file": "plugins/honcho/helpers.ts",
+          "line": 11,
+          "ref": "plugins/honcho/helpers.ts:11"
         }
       ]
     },
@@ -31600,8 +31619,7 @@
       "level": "warning",
       "message": "fixture imports the root plugin SDK barrel",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:21",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:26"
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:3"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
@@ -31657,7 +31675,7 @@
       "level": "warning",
       "message": "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
       "evidence": [
-        "agent_end @ plugins/honcho/hooks/capture.ts:151",
+        "agent_end @ plugins/honcho/hooks/capture.ts:164",
         "agent_end @ plugins/honcho/hooks/subagent.ts:34"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload"
@@ -33046,10 +33064,10 @@
       "level": "suggestion",
       "message": "package declares runtime dependencies that must be installed before cold import",
       "evidence": [
-        "@sinclair/typebox @ plugins/lossless-claw/package.json",
-        "@mariozechner/pi-agent-core @ plugins/lossless-claw/package.json",
-        "@mariozechner/pi-ai @ plugins/lossless-claw/package.json",
-        "@mariozechner/pi-coding-agent @ plugins/lossless-claw/package.json"
+        "@earendil-works/pi-agent-core @ plugins/lossless-claw/package.json",
+        "@earendil-works/pi-ai @ plugins/lossless-claw/package.json",
+        "@earendil-works/pi-coding-agent @ plugins/lossless-claw/package.json",
+        "@sinclair/typebox @ plugins/lossless-claw/package.json"
       ]
     },
     {
@@ -33058,8 +33076,8 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2385",
-        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2365"
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:1410",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1385"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -33154,24 +33172,9 @@
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
         "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
-        "registerMemoryRuntime @ plugins/honcho/runtime.ts:274"
+        "registerMemoryRuntime @ plugins/honcho/runtime.ts:261"
       ],
       "compatRecord": "api.capture.runtime-registrars"
-    },
-    {
-      "fixture": "honcho",
-      "code": "runtime-tool-capture",
-      "level": "suggestion",
-      "message": "tool shape is only visible after runtime registration capture",
-      "evidence": [
-        "registerTool @ plugins/honcho/tools/ask.ts:8",
-        "registerTool @ plugins/honcho/tools/context.ts:8",
-        "registerTool @ plugins/honcho/tools/memory-passthrough.ts:130",
-        "registerTool @ plugins/honcho/tools/memory-passthrough.ts:89",
-        "registerTool @ plugins/honcho/tools/message-search.ts:9",
-        "registerTool @ plugins/honcho/tools/search.ts:8",
-        "registerTool @ plugins/honcho/tools/session.ts:8"
-      ]
     },
     {
       "fixture": "composio",
@@ -34466,7 +34469,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-2D165A73",
+      "id": "CRABPOT-EBD4F708",
       "fixture": "honcho",
       "severity": "P1",
       "owner": "core",
@@ -34479,7 +34482,7 @@
       "compatStatus": "active",
       "title": "honcho: conversation-access hooks need privacy-boundary probes",
       "evidence": [
-        "agent_end @ plugins/honcho/hooks/capture.ts:151",
+        "agent_end @ plugins/honcho/hooks/capture.ts:164",
         "agent_end @ plugins/honcho/hooks/subagent.ts:34"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload",
@@ -36772,7 +36775,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-5AA86AA1",
+      "id": "CRABPOT-6D3F59B6",
       "fixture": "honcho",
       "severity": "P2",
       "owner": "inspector",
@@ -36786,34 +36789,9 @@
       "title": "honcho: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
         "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
-        "registerMemoryRuntime @ plugins/honcho/runtime.ts:274"
+        "registerMemoryRuntime @ plugins/honcho/runtime.ts:261"
       ],
       "compatRecord": "api.capture.runtime-registrars",
-      "runtimeCoverage": null
-    },
-    {
-      "id": "CRABPOT-8823C301",
-      "fixture": "honcho",
-      "severity": "P2",
-      "owner": "inspector",
-      "code": "runtime-tool-capture",
-      "decision": "inspector-follow-up",
-      "status": "open",
-      "issueClass": "inspector-gap",
-      "live": false,
-      "deprecated": false,
-      "compatStatus": "none",
-      "title": "honcho: runtime tool schema needs registration capture",
-      "evidence": [
-        "registerTool @ plugins/honcho/tools/ask.ts:8",
-        "registerTool @ plugins/honcho/tools/context.ts:8",
-        "registerTool @ plugins/honcho/tools/memory-passthrough.ts:130",
-        "registerTool @ plugins/honcho/tools/memory-passthrough.ts:89",
-        "registerTool @ plugins/honcho/tools/message-search.ts:9",
-        "registerTool @ plugins/honcho/tools/search.ts:8",
-        "registerTool @ plugins/honcho/tools/session.ts:8"
-      ],
-      "compatRecord": null,
       "runtimeCoverage": null
     },
     {
@@ -37227,7 +37205,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-B969EA17",
+      "id": "CRABPOT-8F2223EF",
       "fixture": "lossless-claw",
       "severity": "P2",
       "owner": "core",
@@ -37240,8 +37218,7 @@
       "compatStatus": "deprecated",
       "title": "lossless-claw: root plugin SDK barrel is still used by fixtures",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:21",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:26"
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:3"
       ],
       "compatRecord": "legacy-root-sdk-import",
       "runtimeCoverage": null
@@ -37266,7 +37243,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-5D7CF58C",
+      "id": "CRABPOT-4EBF156D",
       "fixture": "lossless-claw",
       "severity": "P2",
       "owner": "inspector",
@@ -37279,16 +37256,16 @@
       "compatStatus": "none",
       "title": "lossless-claw: cold import requires dependency installation in an isolated workspace",
       "evidence": [
-        "@sinclair/typebox @ plugins/lossless-claw/package.json",
-        "@mariozechner/pi-agent-core @ plugins/lossless-claw/package.json",
-        "@mariozechner/pi-ai @ plugins/lossless-claw/package.json",
-        "@mariozechner/pi-coding-agent @ plugins/lossless-claw/package.json"
+        "@earendil-works/pi-agent-core @ plugins/lossless-claw/package.json",
+        "@earendil-works/pi-ai @ plugins/lossless-claw/package.json",
+        "@earendil-works/pi-coding-agent @ plugins/lossless-claw/package.json",
+        "@sinclair/typebox @ plugins/lossless-claw/package.json"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-21AF4BC0",
+      "id": "CRABPOT-CC5746CB",
       "fixture": "lossless-claw",
       "severity": "P2",
       "owner": "inspector",
@@ -37301,8 +37278,8 @@
       "compatStatus": "active",
       "title": "lossless-claw: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2385",
-        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2365"
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:1410",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1385"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -40245,7 +40222,7 @@
       "target": "hook-runner",
       "contract": "LLM observer hooks receive documented prompt/output fields with expected redaction behavior.",
       "evidence": [
-        "agent_end @ plugins/honcho/hooks/capture.ts:151",
+        "agent_end @ plugins/honcho/hooks/capture.ts:164",
         "agent_end @ plugins/honcho/hooks/subagent.ts:34"
       ]
     },
@@ -40383,7 +40360,7 @@
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
         "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
-        "registerMemoryRuntime @ plugins/honcho/runtime.ts:274"
+        "registerMemoryRuntime @ plugins/honcho/runtime.ts:261"
       ]
     },
     {
@@ -40452,8 +40429,8 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2385",
-        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2365"
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:1410",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1385"
       ]
     },
     {
@@ -41047,10 +41024,10 @@
       "target": "package-loader",
       "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
       "evidence": [
-        "@sinclair/typebox @ plugins/lossless-claw/package.json",
-        "@mariozechner/pi-agent-core @ plugins/lossless-claw/package.json",
-        "@mariozechner/pi-ai @ plugins/lossless-claw/package.json",
-        "@mariozechner/pi-coding-agent @ plugins/lossless-claw/package.json"
+        "@earendil-works/pi-agent-core @ plugins/lossless-claw/package.json",
+        "@earendil-works/pi-ai @ plugins/lossless-claw/package.json",
+        "@earendil-works/pi-coding-agent @ plugins/lossless-claw/package.json",
+        "@sinclair/typebox @ plugins/lossless-claw/package.json"
       ]
     },
     {
@@ -41429,8 +41406,7 @@
       "target": "sdk-alias",
       "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:21",
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:26"
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:3"
       ]
     },
     {
@@ -41545,22 +41521,6 @@
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
         "registerTool @ plugins/connectclaw/packages/plugin/src/tools.ts:6"
-      ]
-    },
-    {
-      "id": "tool.registration.schema-capture:honcho",
-      "fixture": "honcho",
-      "priority": "P2",
-      "target": "tool-runtime",
-      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
-      "evidence": [
-        "registerTool @ plugins/honcho/tools/ask.ts:8",
-        "registerTool @ plugins/honcho/tools/context.ts:8",
-        "registerTool @ plugins/honcho/tools/memory-passthrough.ts:130",
-        "registerTool @ plugins/honcho/tools/memory-passthrough.ts:89",
-        "registerTool @ plugins/honcho/tools/message-search.ts:9",
-        "registerTool @ plugins/honcho/tools/search.ts:8",
-        "registerTool @ plugins/honcho/tools/session.ts:8"
       ]
     },
     {
@@ -44009,7 +43969,7 @@
       "evidence": [
         "plugins/lossless-claw/package.json",
         "@martian-engineering/lossless-claw",
-        "version:0.9.4"
+        "version:0.11.1"
       ]
     },
     {
@@ -44154,7 +44114,7 @@
       "fixture": "honcho",
       "code": "seam-inventory",
       "level": "log",
-      "message": "observed 7 hooks, 5 registrations, and 0 manifest contracts",
+      "message": "observed 7 hooks, 5 registrations, and 1 manifest contracts",
       "evidence": [
         "hook:agent_end",
         "hook:before_agent_start",
@@ -44167,7 +44127,8 @@
         "registration:registerCli",
         "registration:registerMemoryPromptSection",
         "registration:registerMemoryRuntime",
-        "registration:registerTool"
+        "registration:registerTool",
+        "manifestContract:tools"
       ]
     },
     {
@@ -44205,7 +44166,8 @@
       "evidence": [
         "openclaw/plugin-sdk",
         "openclaw/plugin-sdk/memory-core",
-        "openclaw/plugin-sdk/plugin-entry"
+        "openclaw/plugin-sdk/plugin-entry",
+        "openclaw/plugin-sdk/routing"
       ]
     },
     {
@@ -44225,7 +44187,16 @@
       "evidence": [
         "plugins/honcho/package.json",
         "@honcho-ai/openclaw-honcho",
-        "version:1.4.1"
+        "version:1.5.0"
+      ]
+    },
+    {
+      "fixture": "honcho",
+      "code": "declarative-contracts",
+      "level": "log",
+      "message": "fixture declares manifest contracts that can be checked without executing plugin code",
+      "evidence": [
+        "tools"
       ]
     },
     {
@@ -49974,7 +49945,7 @@
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
-      "evidence": "@sinclair/typebox, @mariozechner/pi-agent-core, @mariozechner/pi-ai, @mariozechner/pi-coding-agent"
+      "evidence": "@earendil-works/pi-agent-core, @earendil-works/pi-ai, @earendil-works/pi-coding-agent, @sinclair/typebox"
     },
     {
       "fixture": "lossless-claw",
@@ -50118,10 +50089,10 @@
     },
     {
       "fixture": "honcho",
-      "decision": "inspector-follow-up",
-      "seam": "tool-schema",
-      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
-      "evidence": "registerTool without manifest contracts.tools"
+      "decision": "no-action",
+      "seam": "manifest-contract",
+      "action": "Keep checking this declarative contract in default offline CI.",
+      "evidence": "tools"
     },
     {
       "fixture": "composio",
