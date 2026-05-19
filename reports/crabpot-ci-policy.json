@@ -3470,7 +3470,7 @@
     {
       "id": "compatibility-report.inspector-gaps",
       "action": "pass",
-      "message": "164 inspector proof gaps tracked",
+      "message": "163 inspector proof gaps tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "dingtalk-doc:before-tool-call-probe",
@@ -3542,7 +3542,6 @@
         "honcho:package-build-artifact-entrypoint",
         "honcho:package-dependency-install-required",
         "honcho:registration-capture-gap",
-        "honcho:runtime-tool-capture",
         "hyperspell:package-build-artifact-entrypoint",
         "hyperspell:package-dependency-install-required",
         "hyperspell:registration-capture-gap",

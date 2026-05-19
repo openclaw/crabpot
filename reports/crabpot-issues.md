@@ -13,8 +13,8 @@ Status: PASS
 
 | Metric                     | Value |
 | -------------------------- | ----- |
-| Issue findings             | 282   |
-| Open issue findings        | 282   |
+| Issue findings             | 281   |
+| Open issue findings        | 281   |
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
 | 🔴 P0                      | 0     |
@@ -25,11 +25,11 @@ Status: PASS
 | Live P0 issues             | 0     |
 | Compat gaps                | 0     |
 | Deprecation warnings       | 42    |
-| Inspector gaps             | 164   |
-| Open inspector gaps        | 164   |
+| Inspector gaps             | 163   |
+| Open inspector gaps        | 163   |
 | Runtime coverage artifacts | 0     |
 | Upstream metadata          | 76    |
-| Contract probes            | 278   |
+| Contract probes            | 277   |
 
 ## Triage Overview
 
@@ -38,7 +38,7 @@ Status: PASS
 | live-issue          | 0     | 0  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.                                          |
 | compat-gap          | 0     | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
 | deprecation-warning | 42    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
-| inspector-gap       | 164   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
+| inspector-gap       | 163   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
 | upstream-metadata   | 76    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                                                                    |
 
@@ -175,24 +175,24 @@ _none_
   - **legacy-before-agent-start**: honcho: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L18)
+    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L18)
 
 - 🟡 P2 **honcho** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: honcho: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/commands/cli.ts#L8)
-    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/capture.ts#L2)
-    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/context.ts#L2)
-    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/gateway.ts#L2)
-    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L2)
-    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/state.ts#L9)
-    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/ask.ts#L3)
-    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/context.ts#L3)
-    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L3)
-    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/message-search.ts#L3)
-    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/search.ts#L3)
-    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/session.ts#L3)
+    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/commands/cli.ts#L8)
+    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/capture.ts#L2)
+    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/context.ts#L2)
+    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/gateway.ts#L2)
+    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L2)
+    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/state.ts#L9)
+    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/ask.ts#L3)
+    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/context.ts#L3)
+    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/memory-passthrough.ts#L3)
+    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/message-search.ts#L3)
+    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/search.ts#L3)
+    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/session.ts#L3)
 
 - 🟡 P2 **hyperspell** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: hyperspell: root plugin SDK barrel is still used by fixtures
@@ -230,8 +230,7 @@ _none_
   - **legacy-root-sdk-import**: lossless-claw: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:21](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L21)
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:26](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L26)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:3](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L3)
 
 - 🟡 P2 **matrix** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: matrix: channelEnvVars legacy manifest metadata must stay covered
@@ -421,8 +420,8 @@ _none_
   - **conversation-access-hook**: honcho: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ capture.ts:151](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/capture.ts#L151)
-    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L34)
+    - [agent_end @ capture.ts:164](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/capture.ts#L164)
+    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L34)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
@@ -924,33 +923,21 @@ _none_
   - **package-build-artifact-entrypoint**: honcho: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/dist/index.js)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: honcho: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/package.json)
+    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/package.json)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: honcho: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/index.ts#L97)
-    - [registerMemoryRuntime @ runtime.ts:274](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/runtime.ts#L274)
-
-- 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
-  - **runtime-tool-capture**: honcho: runtime tool schema needs registration capture
-  - state: open · compat:none
-  - evidence:
-    - [registerTool @ ask.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/ask.ts#L8)
-    - [registerTool @ context.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/context.ts#L8)
-    - [registerTool @ memory-passthrough.ts:130](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L130)
-    - [registerTool @ memory-passthrough.ts:89](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L89)
-    - [registerTool @ message-search.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/message-search.ts#L9)
-    - [registerTool @ search.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/search.ts#L8)
-    - [registerTool @ session.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/session.ts#L8)
+    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/index.ts#L97)
+    - [registerMemoryRuntime @ runtime.ts:261](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/runtime.ts#L261)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: hyperspell: cold import requires package build output
@@ -1067,17 +1054,17 @@ _none_
   - **package-dependency-install-required**: lossless-claw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
+    - [@earendil-works/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
+    - [@earendil-works/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
+    - [@earendil-works/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
     - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
-    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
-    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
-    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:2385](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L2385)
-    - [registerContextEngine @ index.ts:2365](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L2365)
+    - [registerCommand @ index.ts:1410](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L1410)
+    - [registerContextEngine @ index.ts:1385](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L1385)
 
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: matrix: cold import requires dependency installation in an isolated workspace
@@ -2182,8 +2169,8 @@ _none_
   - **conversation-access-hook**: honcho: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ capture.ts:151](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/capture.ts#L151)
-    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L34)
+    - [agent_end @ capture.ts:164](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/capture.ts#L164)
+    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L34)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
@@ -2996,56 +2983,44 @@ _none_
   - **legacy-before-agent-start**: honcho: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L18)
+    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L18)
 
 - 🟡 P2 **honcho** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: honcho: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/commands/cli.ts#L8)
-    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/capture.ts#L2)
-    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/context.ts#L2)
-    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/gateway.ts#L2)
-    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L2)
-    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/state.ts#L9)
-    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/ask.ts#L3)
-    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/context.ts#L3)
-    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L3)
-    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/message-search.ts#L3)
-    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/search.ts#L3)
-    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/session.ts#L3)
+    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/commands/cli.ts#L8)
+    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/capture.ts#L2)
+    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/context.ts#L2)
+    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/gateway.ts#L2)
+    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L2)
+    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/state.ts#L9)
+    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/ask.ts#L3)
+    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/context.ts#L3)
+    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/memory-passthrough.ts#L3)
+    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/message-search.ts#L3)
+    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/search.ts#L3)
+    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/session.ts#L3)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: honcho: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/dist/index.js)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: honcho: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/package.json)
+    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/package.json)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: honcho: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/index.ts#L97)
-    - [registerMemoryRuntime @ runtime.ts:274](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/runtime.ts#L274)
-
-- 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
-  - **runtime-tool-capture**: honcho: runtime tool schema needs registration capture
-  - state: open · compat:none
-  - evidence:
-    - [registerTool @ ask.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/ask.ts#L8)
-    - [registerTool @ context.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/context.ts#L8)
-    - [registerTool @ memory-passthrough.ts:130](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L130)
-    - [registerTool @ memory-passthrough.ts:89](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L89)
-    - [registerTool @ message-search.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/message-search.ts#L9)
-    - [registerTool @ search.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/search.ts#L8)
-    - [registerTool @ session.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/session.ts#L8)
+    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/index.ts#L97)
+    - [registerMemoryRuntime @ runtime.ts:261](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/runtime.ts#L261)
 
 - 🟡 P2 **hyperspell** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: hyperspell: root plugin SDK barrel is still used by fixtures
@@ -3214,8 +3189,7 @@ _none_
   - **legacy-root-sdk-import**: lossless-claw: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:21](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L21)
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:26](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L26)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:3](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L3)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: lossless-claw: cold import requires package build output
@@ -3227,17 +3201,17 @@ _none_
   - **package-dependency-install-required**: lossless-claw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
+    - [@earendil-works/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
+    - [@earendil-works/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
+    - [@earendil-works/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
     - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
-    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
-    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
-    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:2385](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L2385)
-    - [registerContextEngine @ index.ts:2365](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L2365)
+    - [registerCommand @ index.ts:1410](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L1410)
+    - [registerContextEngine @ index.ts:1385](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L1385)
 
 - 🟡 P2 **matrix** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: matrix: channelEnvVars legacy manifest metadata must stay covered
@@ -4300,8 +4274,8 @@ _none_
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:honcho`
   - evidence:
-    - [agent_end @ capture.ts:151](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/capture.ts#L151)
-    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L34)
+    - [agent_end @ capture.ts:164](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/capture.ts#L164)
+    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L34)
 
 - 🟠 P1 **kitchen-sink** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
@@ -4393,8 +4367,8 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:honcho`
   - evidence:
-    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/index.ts#L97)
-    - [registerMemoryRuntime @ runtime.ts:274](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/runtime.ts#L274)
+    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/index.ts#L97)
+    - [registerMemoryRuntime @ runtime.ts:261](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/runtime.ts#L261)
 
 - 🟡 P2 **hyperspell** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -4451,8 +4425,8 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:lossless-claw`
   - evidence:
-    - [registerCommand @ index.ts:2385](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L2385)
-    - [registerContextEngine @ index.ts:2365](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L2365)
+    - [registerCommand @ index.ts:1410](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L1410)
+    - [registerContextEngine @ index.ts:1385](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L1385)
 
 - 🟡 P2 **mcp-adapter** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -4588,7 +4562,7 @@ _none_
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
   - id: `hook.compat.before-agent-start-migration:honcho`
   - evidence:
-    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L18)
+    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L18)
 
 - 🟡 P2 **kitchen-sink** `hook-runner`
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
@@ -4731,7 +4705,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:honcho`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/dist/index.js)
 
 - 🟡 P2 **hyperspell** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -4807,8 +4781,8 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:honcho`
   - evidence:
-    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/package.json)
+    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/package.json)
 
 - 🟡 P2 **hyperspell** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -4822,10 +4796,10 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:lossless-claw`
   - evidence:
+    - [@earendil-works/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
+    - [@earendil-works/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
+    - [@earendil-works/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
     - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
-    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
-    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
-    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
 
 - 🟡 P2 **mcp-adapter** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -5039,18 +5013,18 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:honcho`
   - evidence:
-    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/commands/cli.ts#L8)
-    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/capture.ts#L2)
-    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/context.ts#L2)
-    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/gateway.ts#L2)
-    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/hooks/subagent.ts#L2)
-    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/state.ts#L9)
-    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/ask.ts#L3)
-    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/context.ts#L3)
-    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L3)
-    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/message-search.ts#L3)
-    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/search.ts#L3)
-    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/session.ts#L3)
+    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/commands/cli.ts#L8)
+    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/capture.ts#L2)
+    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/context.ts#L2)
+    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/gateway.ts#L2)
+    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L2)
+    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/state.ts#L9)
+    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/ask.ts#L3)
+    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/context.ts#L3)
+    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/memory-passthrough.ts#L3)
+    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/message-search.ts#L3)
+    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/search.ts#L3)
+    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/session.ts#L3)
 
 - 🟡 P2 **hyperspell** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
@@ -5076,8 +5050,7 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:lossless-claw`
   - evidence:
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:21](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L21)
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:26](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L26)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:3](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L3)
 
 - 🟡 P2 **memory-tencentdb** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
@@ -5164,18 +5137,6 @@ _none_
   - id: `tool.registration.schema-capture:connectclaw`
   - evidence:
     - [registerTool @ tools.ts:6](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/tools.ts#L6)
-
-- 🟡 P2 **honcho** `tool-runtime`
-  - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
-  - id: `tool.registration.schema-capture:honcho`
-  - evidence:
-    - [registerTool @ ask.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/ask.ts#L8)
-    - [registerTool @ context.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/context.ts#L8)
-    - [registerTool @ memory-passthrough.ts:130](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L130)
-    - [registerTool @ memory-passthrough.ts:89](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/memory-passthrough.ts#L89)
-    - [registerTool @ message-search.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/message-search.ts#L9)
-    - [registerTool @ search.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/search.ts#L8)
-    - [registerTool @ session.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/e9f01452b781d24b38336ef0738f2c97353c541e/tools/session.ts#L8)
 
 - 🟡 P2 **mcp-adapter** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.

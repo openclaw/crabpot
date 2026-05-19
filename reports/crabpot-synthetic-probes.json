@@ -620,7 +620,7 @@
       "source": "plugins/openclaw-telemetry/index.ts:43"
     },
     {
-      "id": "hook.before_prompt_build:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2351",
+      "id": "hook.before_prompt_build:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1371",
       "fixture": "lossless-claw",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -650,10 +650,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:2351"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1371"
     },
     {
-      "id": "hook.before_reset:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2344",
+      "id": "hook.before_reset:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1364",
       "fixture": "lossless-claw",
       "kind": "hook",
       "seam": "before_reset",
@@ -670,10 +670,10 @@
         "hook": "before_reset",
         "fixture": "lossless-claw"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:2344"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1364"
     },
     {
-      "id": "hook.gateway_start:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2557",
+      "id": "hook.gateway_start:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1723",
       "fixture": "lossless-claw",
       "kind": "hook",
       "seam": "gateway_start",
@@ -690,10 +690,10 @@
         "hook": "gateway_start",
         "fixture": "lossless-claw"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:2557"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1723"
     },
     {
-      "id": "hook.gateway_stop:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2581",
+      "id": "hook.gateway_stop:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1747",
       "fixture": "lossless-claw",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -710,10 +710,10 @@
         "hook": "gateway_stop",
         "fixture": "lossless-claw"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:2581"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1747"
     },
     {
-      "id": "hook.session_end:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2354",
+      "id": "hook.session_end:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1374",
       "fixture": "lossless-claw",
       "kind": "hook",
       "seam": "session_end",
@@ -730,7 +730,7 @@
         "hook": "session_end",
         "fixture": "lossless-claw"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:2354"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1374"
     },
     {
       "id": "hook.before_agent_start:connectclaw:plugins-connectclaw-packages-plugin-src-hooks-ts-17",
@@ -758,7 +758,7 @@
       "source": "plugins/connectclaw/packages/plugin/src/hooks.ts:17"
     },
     {
-      "id": "hook.agent_end:honcho:plugins-honcho-hooks-capture-ts-151",
+      "id": "hook.agent_end:honcho:plugins-honcho-hooks-capture-ts-164",
       "fixture": "honcho",
       "kind": "hook",
       "seam": "agent_end",
@@ -786,7 +786,7 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/honcho/hooks/capture.ts:151"
+      "source": "plugins/honcho/hooks/capture.ts:164"
     },
     {
       "id": "hook.agent_end:honcho:plugins-honcho-hooks-subagent-ts-34",
@@ -845,7 +845,7 @@
       "source": "plugins/honcho/hooks/subagent.ts:18"
     },
     {
-      "id": "hook.before_compaction:honcho:plugins-honcho-hooks-capture-ts-177",
+      "id": "hook.before_compaction:honcho:plugins-honcho-hooks-capture-ts-193",
       "fixture": "honcho",
       "kind": "hook",
       "seam": "before_compaction",
@@ -862,7 +862,7 @@
         "hook": "before_compaction",
         "fixture": "honcho"
       },
-      "source": "plugins/honcho/hooks/capture.ts:177"
+      "source": "plugins/honcho/hooks/capture.ts:193"
     },
     {
       "id": "hook.before_prompt_build:honcho:plugins-honcho-hooks-context-ts-7",
@@ -898,7 +898,7 @@
       "source": "plugins/honcho/hooks/context.ts:7"
     },
     {
-      "id": "hook.before_reset:honcho:plugins-honcho-hooks-capture-ts-194",
+      "id": "hook.before_reset:honcho:plugins-honcho-hooks-capture-ts-210",
       "fixture": "honcho",
       "kind": "hook",
       "seam": "before_reset",
@@ -915,7 +915,7 @@
         "hook": "before_reset",
         "fixture": "honcho"
       },
-      "source": "plugins/honcho/hooks/capture.ts:194"
+      "source": "plugins/honcho/hooks/capture.ts:210"
     },
     {
       "id": "hook.gateway_start:honcho:plugins-honcho-hooks-gateway-ts-6",
@@ -3595,7 +3595,7 @@
       "source": "plugins/openclaw-telemetry/index.ts:10"
     },
     {
-      "id": "registration.registerCommand:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2385",
+      "id": "registration.registerCommand:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1410",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerCommand",
@@ -3619,10 +3619,10 @@
           "execute"
         ]
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:2385"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1410"
     },
     {
-      "id": "registration.registerContextEngine:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2365",
+      "id": "registration.registerContextEngine:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1385",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerContextEngine",
@@ -3643,10 +3643,10 @@
         "callableProperties": [],
         "reason": "context engine factories are captured as registration metadata; engine startup remains isolated opt-in"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:2365"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1385"
     },
     {
-      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2367",
+      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1387",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerTool",
@@ -3675,10 +3675,10 @@
           "execute"
         ]
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:2367"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1387"
     },
     {
-      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2370",
+      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1391",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerTool",
@@ -3707,10 +3707,10 @@
           "execute"
         ]
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:2370"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1391"
     },
     {
-      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2373",
+      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1395",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerTool",
@@ -3739,10 +3739,10 @@
           "execute"
         ]
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:2373"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1395"
     },
     {
-      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2376",
+      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1399",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerTool",
@@ -3771,7 +3771,7 @@
           "execute"
         ]
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:2376"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1399"
     },
     {
       "id": "registration.registerCommand:connectclaw:plugins-connectclaw-packages-plugin-src-commands-ts-18",
@@ -4259,7 +4259,7 @@
       "source": "plugins/honcho/index.ts:97"
     },
     {
-      "id": "registration.registerMemoryRuntime:honcho:plugins-honcho-runtime-ts-274",
+      "id": "registration.registerMemoryRuntime:honcho:plugins-honcho-runtime-ts-261",
       "fixture": "honcho",
       "kind": "registration",
       "seam": "registerMemoryRuntime",
@@ -4280,7 +4280,7 @@
         "callableProperties": [],
         "reason": "memory runtime factories are captured as metadata; external memory startup remains isolated opt-in"
       },
-      "source": "plugins/honcho/runtime.ts:274"
+      "source": "plugins/honcho/runtime.ts:261"
     },
     {
       "id": "registration.registerTool:honcho:plugins-honcho-tools-ask-ts-8",
@@ -4347,7 +4347,7 @@
       "source": "plugins/honcho/tools/context.ts:8"
     },
     {
-      "id": "registration.registerTool:honcho:plugins-honcho-tools-memory-passthrough-ts-130",
+      "id": "registration.registerTool:honcho:plugins-honcho-tools-memory-passthrough-ts-131",
       "fixture": "honcho",
       "kind": "registration",
       "seam": "registerTool",
@@ -4376,7 +4376,7 @@
           "execute"
         ]
       },
-      "source": "plugins/honcho/tools/memory-passthrough.ts:130"
+      "source": "plugins/honcho/tools/memory-passthrough.ts:131"
     },
     {
       "id": "registration.registerTool:honcho:plugins-honcho-tools-memory-passthrough-ts-89",
