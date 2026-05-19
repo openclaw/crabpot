@@ -3277,32 +3277,32 @@
         {
           "name": "before_prompt_build",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1371,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1371"
+          "line": 2351,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2351"
         },
         {
           "name": "before_reset",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1364,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1364"
+          "line": 2344,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2344"
         },
         {
           "name": "gateway_start",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1723,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1723"
+          "line": 2557,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2557"
         },
         {
           "name": "gateway_stop",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1747,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1747"
+          "line": 2581,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2581"
         },
         {
           "name": "session_end",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1374,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1374"
+          "line": 2354,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2354"
         }
       ],
       "registrations": [
@@ -3314,38 +3314,38 @@
         {
           "name": "registerCommand",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1410,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1410"
+          "line": 2385,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2385"
         },
         {
           "name": "registerContextEngine",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1385,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1385"
+          "line": 2365,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2365"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1387,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1387"
+          "line": 2367,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2367"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1391,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1391"
+          "line": 2370,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2370"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1395,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1395"
+          "line": 2373,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2373"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1399,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1399"
+          "line": 2376,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2376"
         }
       ],
       "manifestContracts": [
@@ -3355,12 +3355,7 @@
         "plugins/lossless-claw/openclaw.plugin.json"
       ],
       "sourceFiles": [
-        "plugins/lossless-claw/doctor-contract-api.js",
         "plugins/lossless-claw/index.ts",
-        "plugins/lossless-claw/scripts/lcm-blob-migrate.mjs",
-        "plugins/lossless-claw/scripts/stub-tier-assemble-bench.mjs",
-        "plugins/lossless-claw/scripts/stub-tier-drilldown-harness.mjs",
-        "plugins/lossless-claw/scripts/stub-tier-live-watcher.mjs",
         "plugins/lossless-claw/src/assembler.ts",
         "plugins/lossless-claw/src/compaction.ts",
         "plugins/lossless-claw/src/db/config.ts",
@@ -3372,7 +3367,6 @@
         "plugins/lossless-claw/src/expansion-auth.ts",
         "plugins/lossless-claw/src/expansion-policy.ts",
         "plugins/lossless-claw/src/expansion.ts",
-        "plugins/lossless-claw/src/focus-briefs.ts",
         "plugins/lossless-claw/src/integrity.ts",
         "plugins/lossless-claw/src/large-files.ts",
         "plugins/lossless-claw/src/lcm-log.ts",
@@ -3390,9 +3384,7 @@
         "plugins/lossless-claw/src/startup-banner-log.ts",
         "plugins/lossless-claw/src/store/compaction-maintenance-store.ts",
         "plugins/lossless-claw/src/store/compaction-telemetry-store.ts",
-        "plugins/lossless-claw/src/store/conversation-scope.ts",
         "plugins/lossless-claw/src/store/conversation-store.ts",
-        "plugins/lossless-claw/src/store/focus-brief-store.ts",
         "plugins/lossless-claw/src/store/fts5-sanitize.ts",
         "plugins/lossless-claw/src/store/full-text-fallback.ts",
         "plugins/lossless-claw/src/store/full-text-sort.ts",
@@ -3443,7 +3435,7 @@
       "package": {
         "path": "plugins/lossless-claw/package.json",
         "name": "@martian-engineering/lossless-claw",
-        "version": "0.11.1",
+        "version": "0.9.4",
         "type": "module",
         "main": "dist/index.js",
         "npmPack": {
@@ -3452,8 +3444,6 @@
           "filesMode": "allowlist",
           "files": [
             "dist",
-            "doctor-contract-api.d.ts",
-            "doctor-contract-api.js",
             "skills",
             "openclaw.plugin.json",
             "docs",
@@ -3463,12 +3453,12 @@
           "invalidFileSpecs": []
         },
         "dependencies": [
-          "@earendil-works/pi-agent-core",
-          "@earendil-works/pi-ai",
-          "@earendil-works/pi-coding-agent",
           "@sinclair/typebox"
         ],
         "peerDependencies": [
+          "@mariozechner/pi-agent-core",
+          "@mariozechner/pi-ai",
+          "@mariozechner/pi-coding-agent",
           "openclaw"
         ],
         "optionalDependencies": [],
@@ -3478,8 +3468,8 @@
           ],
           "runtimeExtensions": [],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.12",
-          "buildOpenClawVersion": "2026.5.12",
+          "compatPluginApi": ">=2026.2.17 <2026.6.0",
+          "buildOpenClawVersion": "2026.2.17",
           "buildPluginSdkVersion": null,
           "install": null,
           "release": null,
@@ -3499,7 +3489,7 @@
         {
           "path": "plugins/lossless-claw/package.json",
           "name": "@martian-engineering/lossless-claw",
-          "version": "0.11.1",
+          "version": "0.9.4",
           "type": "module",
           "main": "dist/index.js",
           "npmPack": {
@@ -3508,8 +3498,6 @@
             "filesMode": "allowlist",
             "files": [
               "dist",
-              "doctor-contract-api.d.ts",
-              "doctor-contract-api.js",
               "skills",
               "openclaw.plugin.json",
               "docs",
@@ -3519,12 +3507,12 @@
             "invalidFileSpecs": []
           },
           "dependencies": [
-            "@earendil-works/pi-agent-core",
-            "@earendil-works/pi-ai",
-            "@earendil-works/pi-coding-agent",
             "@sinclair/typebox"
           ],
           "peerDependencies": [
+            "@mariozechner/pi-agent-core",
+            "@mariozechner/pi-ai",
+            "@mariozechner/pi-coding-agent",
             "openclaw"
           ],
           "optionalDependencies": [],
@@ -3534,8 +3522,8 @@
             ],
             "runtimeExtensions": [],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.12",
-            "buildOpenClawVersion": "2026.5.12",
+            "compatPluginApi": ">=2026.2.17 <2026.6.0",
+            "buildOpenClawVersion": "2026.2.17",
             "buildPluginSdkVersion": null,
             "install": null,
             "release": null,
@@ -3559,8 +3547,14 @@
         {
           "specifier": "openclaw/plugin-sdk",
           "file": "plugins/lossless-claw/src/openclaw-bridge.ts",
-          "line": 3,
-          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:3"
+          "line": 21,
+          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:21"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/lossless-claw/src/openclaw-bridge.ts",
+          "line": 26,
+          "ref": "plugins/lossless-claw/src/openclaw-bridge.ts:26"
         }
       ]
     },
@@ -30293,13 +30287,18 @@
       "manifestContracts": [],
       "manifestFiles": [],
       "sourceFiles": [
+        "plugins/clawmetry/.github/scripts/post-visual-diff.mjs",
+        "plugins/clawmetry/.github/scripts/visual-diff.mjs",
         "plugins/clawmetry/clawhub-plugin/index.ts",
         "plugins/clawmetry/clawhub-plugin/src/service.ts",
         "plugins/clawmetry/clawmetry/static/js/alerts.js",
         "plugins/clawmetry/clawmetry/static/js/app.js",
         "plugins/clawmetry/clawmetry/static/js/auth-bootstrap.js",
         "plugins/clawmetry/clawmetry/static/js/gw-setup.js",
-        "plugins/clawmetry/clawmetry/static/js/nav-dropdown.js"
+        "plugins/clawmetry/clawmetry/static/js/nav-dropdown.js",
+        "plugins/clawmetry/frontend/src/components/nav.ts",
+        "plugins/clawmetry/frontend/src/hooks/useTheme.ts",
+        "plugins/clawmetry/frontend/vite.config.ts"
       ],
       "pluginManifests": [],
       "securityManifests": [],
@@ -30427,6 +30426,28 @@
               }
             ]
           }
+        },
+        {
+          "path": "plugins/clawmetry/frontend/package.json",
+          "name": "clawmetry-frontend",
+          "version": "0.1.0",
+          "type": "module",
+          "main": null,
+          "npmPack": {
+            "advertised": false,
+            "private": true,
+            "filesMode": "implicit",
+            "files": [],
+            "invalidFileSpecs": []
+          },
+          "dependencies": [
+            "react",
+            "react-dom",
+            "react-router-dom"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": null
         },
         {
           "path": "plugins/clawmetry/package.json",
@@ -31579,7 +31600,8 @@
       "level": "warning",
       "message": "fixture imports the root plugin SDK barrel",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:3"
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:21",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:26"
       ],
       "compatRecord": "legacy-root-sdk-import"
     },
@@ -33024,10 +33046,10 @@
       "level": "suggestion",
       "message": "package declares runtime dependencies that must be installed before cold import",
       "evidence": [
-        "@earendil-works/pi-agent-core @ plugins/lossless-claw/package.json",
-        "@earendil-works/pi-ai @ plugins/lossless-claw/package.json",
-        "@earendil-works/pi-coding-agent @ plugins/lossless-claw/package.json",
-        "@sinclair/typebox @ plugins/lossless-claw/package.json"
+        "@sinclair/typebox @ plugins/lossless-claw/package.json",
+        "@mariozechner/pi-agent-core @ plugins/lossless-claw/package.json",
+        "@mariozechner/pi-ai @ plugins/lossless-claw/package.json",
+        "@mariozechner/pi-coding-agent @ plugins/lossless-claw/package.json"
       ]
     },
     {
@@ -33036,8 +33058,8 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:1410",
-        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1385"
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2385",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2365"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -37205,7 +37227,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-8F2223EF",
+      "id": "CRABPOT-B969EA17",
       "fixture": "lossless-claw",
       "severity": "P2",
       "owner": "core",
@@ -37218,7 +37240,8 @@
       "compatStatus": "deprecated",
       "title": "lossless-claw: root plugin SDK barrel is still used by fixtures",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:3"
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:21",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:26"
       ],
       "compatRecord": "legacy-root-sdk-import",
       "runtimeCoverage": null
@@ -37243,7 +37266,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-4EBF156D",
+      "id": "CRABPOT-5D7CF58C",
       "fixture": "lossless-claw",
       "severity": "P2",
       "owner": "inspector",
@@ -37256,16 +37279,16 @@
       "compatStatus": "none",
       "title": "lossless-claw: cold import requires dependency installation in an isolated workspace",
       "evidence": [
-        "@earendil-works/pi-agent-core @ plugins/lossless-claw/package.json",
-        "@earendil-works/pi-ai @ plugins/lossless-claw/package.json",
-        "@earendil-works/pi-coding-agent @ plugins/lossless-claw/package.json",
-        "@sinclair/typebox @ plugins/lossless-claw/package.json"
+        "@sinclair/typebox @ plugins/lossless-claw/package.json",
+        "@mariozechner/pi-agent-core @ plugins/lossless-claw/package.json",
+        "@mariozechner/pi-ai @ plugins/lossless-claw/package.json",
+        "@mariozechner/pi-coding-agent @ plugins/lossless-claw/package.json"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-CC5746CB",
+      "id": "CRABPOT-21AF4BC0",
       "fixture": "lossless-claw",
       "severity": "P2",
       "owner": "inspector",
@@ -37278,8 +37301,8 @@
       "compatStatus": "active",
       "title": "lossless-claw: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:1410",
-        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1385"
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2385",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2365"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -40429,8 +40452,8 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:1410",
-        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1385"
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:2385",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:2365"
       ]
     },
     {
@@ -41024,10 +41047,10 @@
       "target": "package-loader",
       "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
       "evidence": [
-        "@earendil-works/pi-agent-core @ plugins/lossless-claw/package.json",
-        "@earendil-works/pi-ai @ plugins/lossless-claw/package.json",
-        "@earendil-works/pi-coding-agent @ plugins/lossless-claw/package.json",
-        "@sinclair/typebox @ plugins/lossless-claw/package.json"
+        "@sinclair/typebox @ plugins/lossless-claw/package.json",
+        "@mariozechner/pi-agent-core @ plugins/lossless-claw/package.json",
+        "@mariozechner/pi-ai @ plugins/lossless-claw/package.json",
+        "@mariozechner/pi-coding-agent @ plugins/lossless-claw/package.json"
       ]
     },
     {
@@ -41406,7 +41429,8 @@
       "target": "sdk-alias",
       "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:3"
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:21",
+        "openclaw/plugin-sdk @ plugins/lossless-claw/src/openclaw-bridge.ts:26"
       ]
     },
     {
@@ -43985,7 +44009,7 @@
       "evidence": [
         "plugins/lossless-claw/package.json",
         "@martian-engineering/lossless-claw",
-        "version:0.11.1"
+        "version:0.9.4"
       ]
     },
     {
@@ -49950,7 +49974,7 @@
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
-      "evidence": "@earendil-works/pi-agent-core, @earendil-works/pi-ai, @earendil-works/pi-coding-agent, @sinclair/typebox"
+      "evidence": "@sinclair/typebox, @mariozechner/pi-agent-core, @mariozechner/pi-ai, @mariozechner/pi-coding-agent"
     },
     {
       "fixture": "lossless-claw",
