@@ -2,17 +2,17 @@
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
   "mode": "dependabot",
-  "openclawLabel": "openclaw@latest (2026.5.12, f066dd2f31c2)",
+  "openclawLabel": "openclaw@latest (2026.5.18, 50a2481652b6)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 128,
+    "warnings": 127,
     "suggestions": 155,
-    "issues": 283,
-    "p0Issues": 1,
+    "issues": 282,
+    "p0Issues": 0,
     "p1Issues": 16,
-    "liveIssues": 1,
-    "liveP0Issues": 1,
+    "liveIssues": 0,
+    "liveP0Issues": 0,
     "compatGaps": 0,
     "deprecationWarnings": 42,
     "inspectorGaps": 164,
@@ -20,7 +20,7 @@
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
-    "policyWarnings": 308,
+    "policyWarnings": 307,
     "profileFailures": 0,
     "profileWarnings": 2,
     "executionPass": 120,
@@ -29,26 +29,18 @@
     "platformWindowsRisks": 16,
     "platformContainerRisks": 16,
     "loaderJitiCandidates": 23,
-    "importLoopP50Ms": 1514,
-    "importLoopP95Ms": 1566,
+    "importLoopP50Ms": 1473,
+    "importLoopP95Ms": 1473,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 99.2,
+    "importLoopOpenClawImportP50Ms": 81.1,
     "importLoopOpenClawActivationP50Ms": 0.3,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 1.3,
-    "importLoopMaxCpuMs": 59,
-    "importLoopRssSampleCount": 180,
-    "importLoopCpuSampleCount": 180
+    "importLoopMaxRssMb": 0.9,
+    "importLoopMaxCpuMs": 0,
+    "importLoopRssSampleCount": 173,
+    "importLoopCpuSampleCount": 173
   },
   "topIssues": [
-    {
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "aiwerk-mcp-bridge",
-      "code": "unknown-hook-name",
-      "title": "aiwerk-mcp-bridge: fixture uses a hook missing from target OpenClaw",
-      "decision": "core-compat-adapter"
-    },
     {
       "severity": "P1",
       "issueClass": "inspector-gap",
@@ -180,14 +172,6 @@
   ],
   "refRegressions": [],
   "policyFindings": [
-    {
-      "id": "compatibility-report.live-p0-issues",
-      "action": "warn",
-      "message": "1 live P0 issues tracked",
-      "evidence": [
-        "aiwerk-mcp-bridge:unknown-hook-name:none"
-      ]
-    },
     {
       "id": "execution-results.audit-findings",
       "action": "warn",
@@ -405,6 +389,17 @@
         "captured registration requires includeLifecycle=true",
         "service-lifecycle-harness"
       ]
+    },
+    {
+      "id": "execution-results.blocked.clawmetry.registerService.6",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration requires includeLifecycle=true",
+      "evidence": [
+        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
+        "registerService",
+        "captured registration requires includeLifecycle=true",
+        "service-lifecycle-harness"
+      ]
     }
   ],
   "profileFindings": [
@@ -412,20 +407,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 90.2% over baseline",
+      "message": "p95WallMs regressed 90.7% over baseline",
       "baseline": 1273,
-      "current": 2421,
-      "delta": 1148,
-      "percent": 90.2
+      "current": 2428,
+      "delta": 1155,
+      "percent": 90.7
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 400 over baseline",
+      "message": "maxPeakRssMb regressed 401.1 over baseline",
       "baseline": 65.1,
-      "current": 465.1,
-      "delta": 400
+      "current": 466.2,
+      "delta": 401.1
     }
   ],
   "artifacts": {
