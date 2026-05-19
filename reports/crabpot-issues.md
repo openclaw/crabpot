@@ -78,8 +78,8 @@ _none_
   - **legacy-root-sdk-import**: clawmetry: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/c969c8cb2e7fe41451349792caea03e87e83a174/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/c969c8cb2e7fe41451349792caea03e87e83a174/clawhub-plugin/src/service.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/f57a40df1f1e0dd04707c063cb99c0084b8778f2/clawhub-plugin/index.ts#L1)
+    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/f57a40df1f1e0dd04707c063cb99c0084b8778f2/clawhub-plugin/src/service.ts#L1)
 
 - 🟡 P2 **codex-app-server** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: codex-app-server: root plugin SDK barrel is still used by fixtures
@@ -230,7 +230,8 @@ _none_
   - **legacy-root-sdk-import**: lossless-claw: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:3](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L3)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:21](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L21)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:26](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L26)
 
 - 🟡 P2 **matrix** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: matrix: channelEnvVars legacy manifest metadata must stay covered
@@ -408,7 +409,7 @@ _none_
   - **conversation-access-hook**: clawmetry: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/c969c8cb2e7fe41451349792caea03e87e83a174/clawhub-plugin/src/service.ts#L117)
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/f57a40df1f1e0dd04707c063cb99c0084b8778f2/clawhub-plugin/src/service.ts#L117)
 
 - 🟠 P1 **dingtalk-doc** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: dingtalk-doc: before_tool_call needs terminal/block/approval probes
@@ -612,13 +613,13 @@ _none_
   - **package-typescript-source-entrypoint**: clawmetry: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/c969c8cb2e7fe41451349792caea03e87e83a174/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/f57a40df1f1e0dd04707c063cb99c0084b8778f2/clawhub-plugin/index.ts)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/c969c8cb2e7fe41451349792caea03e87e83a174/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/f57a40df1f1e0dd04707c063cb99c0084b8778f2/clawhub-plugin/index.ts#L20)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
@@ -1066,17 +1067,17 @@ _none_
   - **package-dependency-install-required**: lossless-claw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@earendil-works/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
-    - [@earendil-works/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
-    - [@earendil-works/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
     - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
+    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
+    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
+    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:1410](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L1410)
-    - [registerContextEngine @ index.ts:1385](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L1385)
+    - [registerCommand @ index.ts:2385](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L2385)
+    - [registerContextEngine @ index.ts:2365](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L2365)
 
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: matrix: cold import requires dependency installation in an isolated workspace
@@ -2162,7 +2163,7 @@ _none_
   - **conversation-access-hook**: clawmetry: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/c969c8cb2e7fe41451349792caea03e87e83a174/clawhub-plugin/src/service.ts#L117)
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/f57a40df1f1e0dd04707c063cb99c0084b8778f2/clawhub-plugin/src/service.ts#L117)
 
 - 🟠 P1 **codex** `upstream-metadata` `plugin-upstream-fix`
   - **reserved-sdk-import**: codex: plugin imports reserved bundled-plugin SDK compatibility subpaths
@@ -2464,8 +2465,8 @@ _none_
   - **legacy-root-sdk-import**: clawmetry: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/c969c8cb2e7fe41451349792caea03e87e83a174/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/c969c8cb2e7fe41451349792caea03e87e83a174/clawhub-plugin/src/service.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/f57a40df1f1e0dd04707c063cb99c0084b8778f2/clawhub-plugin/index.ts#L1)
+    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/f57a40df1f1e0dd04707c063cb99c0084b8778f2/clawhub-plugin/src/service.ts#L1)
 
 - 🟡 P2 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: clawmetry: OpenClaw package install metadata is incomplete
@@ -2478,13 +2479,13 @@ _none_
   - **package-typescript-source-entrypoint**: clawmetry: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/c969c8cb2e7fe41451349792caea03e87e83a174/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/f57a40df1f1e0dd04707c063cb99c0084b8778f2/clawhub-plugin/index.ts)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/c969c8cb2e7fe41451349792caea03e87e83a174/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/f57a40df1f1e0dd04707c063cb99c0084b8778f2/clawhub-plugin/index.ts#L20)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
@@ -3213,7 +3214,8 @@ _none_
   - **legacy-root-sdk-import**: lossless-claw: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:3](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L3)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:21](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L21)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:26](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L26)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: lossless-claw: cold import requires package build output
@@ -3225,17 +3227,17 @@ _none_
   - **package-dependency-install-required**: lossless-claw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@earendil-works/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
-    - [@earendil-works/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
-    - [@earendil-works/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
     - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
+    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
+    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
+    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:1410](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L1410)
-    - [registerContextEngine @ index.ts:1385](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L1385)
+    - [registerCommand @ index.ts:2385](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L2385)
+    - [registerContextEngine @ index.ts:2365](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L2365)
 
 - 🟡 P2 **matrix** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: matrix: channelEnvVars legacy manifest metadata must stay covered
@@ -4292,7 +4294,7 @@ _none_
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:clawmetry`
   - evidence:
-    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/c969c8cb2e7fe41451349792caea03e87e83a174/clawhub-plugin/src/service.ts#L117)
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/f57a40df1f1e0dd04707c063cb99c0084b8778f2/clawhub-plugin/src/service.ts#L117)
 
 - 🟠 P1 **honcho** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
@@ -4449,8 +4451,8 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:lossless-claw`
   - evidence:
-    - [registerCommand @ index.ts:1410](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L1410)
-    - [registerContextEngine @ index.ts:1385](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L1385)
+    - [registerCommand @ index.ts:2385](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L2385)
+    - [registerContextEngine @ index.ts:2365](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/plugin/index.ts#L2365)
 
 - 🟡 P2 **mcp-adapter** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -4820,10 +4822,10 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:lossless-claw`
   - evidence:
-    - [@earendil-works/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
-    - [@earendil-works/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
-    - [@earendil-works/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
     - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
+    - [@mariozechner/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
+    - [@mariozechner/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
+    - [@mariozechner/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/package.json)
 
 - 🟡 P2 **mcp-adapter** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -5074,7 +5076,8 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:lossless-claw`
   - evidence:
-    - [openclaw/plugin-sdk @ openclaw-bridge.ts:3](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L3)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:21](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L21)
+    - [openclaw/plugin-sdk @ openclaw-bridge.ts:26](https://github.com/Martian-Engineering/lossless-claw/blob/d42c124a28657c3bacbec34d03128aba1b7638fe/src/openclaw-bridge.ts#L26)
 
 - 🟡 P2 **memory-tencentdb** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
@@ -5213,7 +5216,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:clawmetry`
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/c969c8cb2e7fe41451349792caea03e87e83a174/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/f57a40df1f1e0dd04707c063cb99c0084b8778f2/clawhub-plugin/index.ts#L20)
 
 - 🟢 P3 **clawrouter** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -5894,7 +5897,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:clawmetry`
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/c969c8cb2e7fe41451349792caea03e87e83a174/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/f57a40df1f1e0dd04707c063cb99c0084b8778f2/clawhub-plugin/index.ts)
 
 - 🟢 P3 **codex-app-server** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -6234,8 +6237,8 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:clawmetry`
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/c969c8cb2e7fe41451349792caea03e87e83a174/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/c969c8cb2e7fe41451349792caea03e87e83a174/clawhub-plugin/src/service.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/f57a40df1f1e0dd04707c063cb99c0084b8778f2/clawhub-plugin/index.ts#L1)
+    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/f57a40df1f1e0dd04707c063cb99c0084b8778f2/clawhub-plugin/src/service.ts#L1)
 
 - 🟢 P3 **codex-app-server** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
