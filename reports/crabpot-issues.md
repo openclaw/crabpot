@@ -467,7 +467,7 @@ _none_
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ index.ts:389](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L389)
+    - [before_tool_call @ index.ts:382](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L382)
 
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
@@ -587,20 +587,20 @@ _none_
   - **package-dependency-install-required**: apify: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/fa2941d10efe75f8bd68924ec2676f486ad988e8/package.json)
-    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/fa2941d10efe75f8bd68924ec2676f486ad988e8/package.json)
+    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/750e2a04f1c0c6777801ec21fffdd3861957a7d2/package.json)
+    - [typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/750e2a04f1c0c6777801ec21fffdd3861957a7d2/package.json)
 
 - 🟡 P2 **apify** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: apify: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/apify/apify-openclaw-plugin/blob/fa2941d10efe75f8bd68924ec2676f486ad988e8/src/index.ts)
+    - [extension @ index.ts](https://github.com/apify/apify-openclaw-plugin/blob/750e2a04f1c0c6777801ec21fffdd3861957a7d2/src/index.ts)
 
 - 🟡 P2 **apify** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: apify: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - [registerTool @ index.ts:13](https://github.com/apify/apify-openclaw-plugin/blob/fa2941d10efe75f8bd68924ec2676f486ad988e8/src/index.ts#L13)
+    - [registerTool @ index.ts:13](https://github.com/apify/apify-openclaw-plugin/blob/750e2a04f1c0c6777801ec21fffdd3861957a7d2/src/index.ts#L13)
 
 - 🟡 P2 **bluebubbles** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: bluebubbles: channel runtime needs envelope/config probes
@@ -1274,7 +1274,6 @@ _none_
   - **package-dependency-install-required**: nemoclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [commander @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
@@ -1284,7 +1283,7 @@ _none_
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:341](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L341)
+    - [registerCommand @ index.ts:345](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L345)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
@@ -2209,7 +2208,7 @@ _none_
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ index.ts:389](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L389)
+    - [before_tool_call @ index.ts:382](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L382)
 
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
@@ -2388,20 +2387,20 @@ _none_
   - **package-dependency-install-required**: apify: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/fa2941d10efe75f8bd68924ec2676f486ad988e8/package.json)
-    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/fa2941d10efe75f8bd68924ec2676f486ad988e8/package.json)
+    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/750e2a04f1c0c6777801ec21fffdd3861957a7d2/package.json)
+    - [typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/750e2a04f1c0c6777801ec21fffdd3861957a7d2/package.json)
 
 - 🟡 P2 **apify** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: apify: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/apify/apify-openclaw-plugin/blob/fa2941d10efe75f8bd68924ec2676f486ad988e8/src/index.ts)
+    - [extension @ index.ts](https://github.com/apify/apify-openclaw-plugin/blob/750e2a04f1c0c6777801ec21fffdd3861957a7d2/src/index.ts)
 
 - 🟡 P2 **apify** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: apify: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - [registerTool @ index.ts:13](https://github.com/apify/apify-openclaw-plugin/blob/fa2941d10efe75f8bd68924ec2676f486ad988e8/src/index.ts#L13)
+    - [registerTool @ index.ts:13](https://github.com/apify/apify-openclaw-plugin/blob/750e2a04f1c0c6777801ec21fffdd3861957a7d2/src/index.ts#L13)
 
 - 🟡 P2 **bluebubbles** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: bluebubbles: channel runtime needs envelope/config probes
@@ -3557,7 +3556,6 @@ _none_
   - **package-dependency-install-required**: nemoclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [commander @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
@@ -3567,7 +3565,7 @@ _none_
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:341](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L341)
+    - [registerCommand @ index.ts:345](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L345)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
@@ -4230,7 +4228,7 @@ _none_
   - contract: Hook returns preserve terminal, block, and approval semantics.
   - id: `hook.before_tool_call.terminal-block-approval:nemoclaw`
   - evidence:
-    - [before_tool_call @ index.ts:389](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L389)
+    - [before_tool_call @ index.ts:382](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L382)
 
 - 🟠 P1 **openclaw-telemetry** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
@@ -4440,7 +4438,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:nemoclaw`
   - evidence:
-    - [registerCommand @ index.ts:341](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L341)
+    - [registerCommand @ index.ts:345](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L345)
 
 - 🟡 P2 **openclaw-telemetry** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -4825,7 +4823,6 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:nemoclaw`
   - evidence:
-    - [commander @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
@@ -5588,8 +5585,8 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:apify`
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/fa2941d10efe75f8bd68924ec2676f486ad988e8/package.json)
-    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/fa2941d10efe75f8bd68924ec2676f486ad988e8/package.json)
+    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/750e2a04f1c0c6777801ec21fffdd3861957a7d2/package.json)
+    - [typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/750e2a04f1c0c6777801ec21fffdd3861957a7d2/package.json)
 
 - 🟢 P3 **clawrouter** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -5838,7 +5835,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:apify`
   - evidence:
-    - [extension @ index.ts](https://github.com/apify/apify-openclaw-plugin/blob/fa2941d10efe75f8bd68924ec2676f486ad988e8/src/index.ts)
+    - [extension @ index.ts](https://github.com/apify/apify-openclaw-plugin/blob/750e2a04f1c0c6777801ec21fffdd3861957a7d2/src/index.ts)
 
 - 🟢 P3 **clawmetry** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -6243,7 +6240,7 @@ _none_
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
   - id: `tool.registration.schema-capture:apify`
   - evidence:
-    - [registerTool @ index.ts:13](https://github.com/apify/apify-openclaw-plugin/blob/fa2941d10efe75f8bd68924ec2676f486ad988e8/src/index.ts#L13)
+    - [registerTool @ index.ts:13](https://github.com/apify/apify-openclaw-plugin/blob/750e2a04f1c0c6777801ec21fffdd3861957a7d2/src/index.ts#L13)
 
 - 🟢 P3 **clawrouter** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.

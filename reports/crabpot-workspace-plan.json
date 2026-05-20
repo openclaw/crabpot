@@ -7734,7 +7734,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@sinclair/typebox, apify-client"
+              "evidence": "apify-client, typebox"
             }
           ],
           "steps": [
