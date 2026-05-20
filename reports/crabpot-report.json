@@ -25228,14 +25228,14 @@
         {
           "name": "before_prompt_build",
           "file": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts",
-          "line": 474,
-          "ref": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:474"
+          "line": 78,
+          "ref": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:78"
         },
         {
           "name": "before_tool_call",
           "file": "plugins/nemoclaw/nemoclaw/src/index.ts",
-          "line": 389,
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:389"
+          "line": 382,
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:382"
         }
       ],
       "registrations": [
@@ -25246,14 +25246,14 @@
         {
           "name": "registerCommand",
           "file": "plugins/nemoclaw/nemoclaw/src/index.ts",
-          "line": 341,
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:341"
+          "line": 345,
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:345"
         },
         {
           "name": "registerProvider",
           "file": "plugins/nemoclaw/nemoclaw/src/index.ts",
-          "line": 377,
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:377"
+          "line": 372,
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:372"
         }
       ],
       "manifestContracts": [],
@@ -25318,7 +25318,6 @@
           "invalidFileSpecs": []
         },
         "dependencies": [
-          "commander",
           "execa",
           "json5",
           "tar",
@@ -25332,8 +25331,8 @@
           ],
           "runtimeExtensions": [],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.10-beta.1",
-          "buildOpenClawVersion": "2026.5.10-beta.1",
+          "compatPluginApi": ">=2026.4.24",
+          "buildOpenClawVersion": "2026.4.24",
           "buildPluginSdkVersion": null,
           "install": null,
           "release": null,
@@ -25367,7 +25366,6 @@
             "invalidFileSpecs": []
           },
           "dependencies": [
-            "commander",
             "execa",
             "json5",
             "tar",
@@ -25381,8 +25379,8 @@
             ],
             "runtimeExtensions": [],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.10-beta.1",
-            "buildOpenClawVersion": "2026.5.10-beta.1",
+            "compatPluginApi": ">=2026.4.24",
+            "buildOpenClawVersion": "2026.4.24",
             "buildPluginSdkVersion": null,
             "install": null,
             "release": null,
@@ -25423,6 +25421,7 @@
             "invalidFileSpecs": []
           },
           "dependencies": [
+            "@aws-sdk/client-bedrock-runtime",
             "@oclif/core",
             "js-yaml",
             "p-retry",
@@ -31052,6 +31051,7 @@
         "plugins/apify/openclaw.plugin.json"
       ],
       "sourceFiles": [
+        "plugins/apify/scripts/migrate-id.mjs",
         "plugins/apify/src/apify-client.ts",
         "plugins/apify/src/cli.ts",
         "plugins/apify/src/index.ts",
@@ -31082,7 +31082,7 @@
       "package": {
         "path": "plugins/apify/package.json",
         "name": "@apify/apify-openclaw-plugin",
-        "version": "0.2.0",
+        "version": "0.3.0",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -31091,6 +31091,7 @@
           "filesMode": "allowlist",
           "files": [
             "src",
+            "scripts",
             "openclaw.plugin.json",
             "README.md",
             "LICENSE"
@@ -31098,8 +31099,8 @@
           "invalidFileSpecs": []
         },
         "dependencies": [
-          "@sinclair/typebox",
-          "apify-client"
+          "apify-client",
+          "typebox"
         ],
         "peerDependencies": [
           "openclaw"
@@ -31132,7 +31133,7 @@
         {
           "path": "plugins/apify/package.json",
           "name": "@apify/apify-openclaw-plugin",
-          "version": "0.2.0",
+          "version": "0.3.0",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -31141,6 +31142,7 @@
             "filesMode": "allowlist",
             "files": [
               "src",
+              "scripts",
               "openclaw.plugin.json",
               "README.md",
               "LICENSE"
@@ -31148,8 +31150,8 @@
             "invalidFileSpecs": []
           },
           "dependencies": [
-            "@sinclair/typebox",
-            "apify-client"
+            "apify-client",
+            "typebox"
           ],
           "peerDependencies": [
             "openclaw"
@@ -33876,7 +33878,6 @@
       "level": "suggestion",
       "message": "package declares runtime dependencies that must be installed before cold import",
       "evidence": [
-        "commander @ plugins/nemoclaw/nemoclaw/package.json",
         "execa @ plugins/nemoclaw/nemoclaw/package.json",
         "json5 @ plugins/nemoclaw/nemoclaw/package.json",
         "tar @ plugins/nemoclaw/nemoclaw/package.json",
@@ -33889,7 +33890,7 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:341"
+        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:345"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -33899,7 +33900,7 @@
       "level": "suggestion",
       "message": "add contract probes for before_tool_call terminal, block, and approval semantics",
       "evidence": [
-        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:389"
+        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:382"
       ],
       "compatRecord": "hook.before_tool_call.terminal-block-approval"
     },
@@ -34440,8 +34441,8 @@
       "level": "suggestion",
       "message": "package declares runtime dependencies that must be installed before cold import",
       "evidence": [
-        "@sinclair/typebox @ plugins/apify/package.json",
-        "apify-client @ plugins/apify/package.json"
+        "apify-client @ plugins/apify/package.json",
+        "typebox @ plugins/apify/package.json"
       ]
     },
     {
@@ -34661,7 +34662,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-7F447BFA",
+      "id": "CRABPOT-49FA86B8",
       "fixture": "nemoclaw",
       "severity": "P1",
       "owner": "inspector",
@@ -34674,7 +34675,7 @@
       "compatStatus": "active",
       "title": "nemoclaw: before_tool_call needs terminal/block/approval probes",
       "evidence": [
-        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:389"
+        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:382"
       ],
       "compatRecord": "hook.before_tool_call.terminal-block-approval",
       "runtimeCoverage": null
@@ -35165,7 +35166,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-7BE519A9",
+      "id": "CRABPOT-B81F007B",
       "fixture": "apify",
       "severity": "P2",
       "owner": "inspector",
@@ -35178,8 +35179,8 @@
       "compatStatus": "none",
       "title": "apify: cold import requires dependency installation in an isolated workspace",
       "evidence": [
-        "@sinclair/typebox @ plugins/apify/package.json",
-        "apify-client @ plugins/apify/package.json"
+        "apify-client @ plugins/apify/package.json",
+        "typebox @ plugins/apify/package.json"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -38284,7 +38285,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-0999AA2A",
+      "id": "CRABPOT-2FBC2536",
       "fixture": "nemoclaw",
       "severity": "P2",
       "owner": "inspector",
@@ -38297,7 +38298,6 @@
       "compatStatus": "none",
       "title": "nemoclaw: cold import requires dependency installation in an isolated workspace",
       "evidence": [
-        "commander @ plugins/nemoclaw/nemoclaw/package.json",
         "execa @ plugins/nemoclaw/nemoclaw/package.json",
         "json5 @ plugins/nemoclaw/nemoclaw/package.json",
         "tar @ plugins/nemoclaw/nemoclaw/package.json",
@@ -38307,7 +38307,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-1DD9FBE1",
+      "id": "CRABPOT-ADEBAB36",
       "fixture": "nemoclaw",
       "severity": "P2",
       "owner": "inspector",
@@ -38320,7 +38320,7 @@
       "compatStatus": "active",
       "title": "nemoclaw: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:341"
+        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:345"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -40206,7 +40206,7 @@
       "target": "hook-runner",
       "contract": "Hook returns preserve terminal, block, and approval semantics.",
       "evidence": [
-        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:389"
+        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:382"
       ]
     },
     {
@@ -40508,7 +40508,7 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:341"
+        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:345"
       ]
     },
     {
@@ -41117,7 +41117,6 @@
       "target": "package-loader",
       "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
       "evidence": [
-        "commander @ plugins/nemoclaw/nemoclaw/package.json",
         "execa @ plugins/nemoclaw/nemoclaw/package.json",
         "json5 @ plugins/nemoclaw/nemoclaw/package.json",
         "tar @ plugins/nemoclaw/nemoclaw/package.json",
@@ -42296,8 +42295,8 @@
       "target": "package-loader",
       "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
       "evidence": [
-        "@sinclair/typebox @ plugins/apify/package.json",
-        "apify-client @ plugins/apify/package.json"
+        "apify-client @ plugins/apify/package.json",
+        "typebox @ plugins/apify/package.json"
       ]
     },
     {
@@ -48233,7 +48232,7 @@
       "evidence": [
         "plugins/apify/package.json",
         "@apify/apify-openclaw-plugin",
-        "version:0.2.0"
+        "version:0.3.0"
       ]
     },
     {
@@ -51038,7 +51037,7 @@
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
-      "evidence": "commander, execa, json5, tar, yaml"
+      "evidence": "execa, json5, tar, yaml"
     },
     {
       "fixture": "nemoclaw",
@@ -51640,7 +51639,7 @@
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
-      "evidence": "@sinclair/typebox, apify-client"
+      "evidence": "apify-client, typebox"
     },
     {
       "fixture": "apify",
