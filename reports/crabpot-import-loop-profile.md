@@ -11,22 +11,22 @@ Entrypoint: test/fixtures/lazy-import-plugin.mjs
 | runs                           | 3        |
 | baselineRuns                   | 3        |
 | baselineFailCount              | 0        |
-| p50WallMs                      | 1530     |
-| p95WallMs                      | 1576     |
-| p50PluginWallDeltaMs           | 0        |
-| p95PluginWallDeltaMs           | 42       |
-| maxPluginPeakRssDeltaMb        | 1 MB     |
-| maxPluginCpuDeltaMsEstimate    | 65 ms    |
+| p50WallMs                      | 1527     |
+| p95WallMs                      | 1539     |
+| p50PluginWallDeltaMs           | 9        |
+| p95PluginWallDeltaMs           | 21       |
+| maxPluginPeakRssDeltaMb        | 1.1 MB   |
+| maxPluginCpuDeltaMsEstimate    | 48 ms    |
 | openClawLifecycleCount         | 3        |
-| p50OpenClawImportMs            | 84.9 ms  |
-| p95OpenClawImportMs            | 85.3 ms  |
+| p50OpenClawImportMs            | 83.7 ms  |
+| p95OpenClawImportMs            | 88 ms    |
 | p50OpenClawActivationMs        | 0.4 ms   |
 | p95OpenClawActivationMs        | 0.4 ms   |
-| maxPeakRssMb                   | 264.5 MB |
-| maxCpuMsEstimate               | 2879 ms  |
-| baselineReferenceWallMs        | 1534 ms  |
-| baselineReferencePeakRssMb     | 263.5 MB |
-| baselineReferenceCpuMsEstimate | 2814 ms  |
+| maxPeakRssMb                   | 258.3 MB |
+| maxCpuMsEstimate               | 2793 ms  |
+| baselineReferenceWallMs        | 1518 ms  |
+| baselineReferencePeakRssMb     | 257.2 MB |
+| baselineReferenceCpuMsEstimate | 2745 ms  |
 | statSampleCount                | 181      |
 | rssSampleCount                 | 181      |
 | cpuSampleCount                 | 181      |
@@ -40,12 +40,12 @@ Entrypoint: test/fixtures/lazy-import-plugin.mjs
 | mode                   | minimal-plugin-capture                   |
 | runs                   | 3                                        |
 | entrypoint             | .crabpot/import-loop/baseline-plugin.mjs |
-| referenceWallMs        | 1534 ms                                  |
-| referencePeakRssMb     | 263.5 MB                                 |
-| referenceCpuMsEstimate | 2814 ms                                  |
+| referenceWallMs        | 1518 ms                                  |
+| referencePeakRssMb     | 257.2 MB                                 |
+| referenceCpuMsEstimate | 2745 ms                                  |
 | maxWallMs              | 2051 ms                                  |
-| maxPeakRssMb           | 267.7 MB                                 |
-| maxCpuMsEstimate       | 3668 ms                                  |
+| maxPeakRssMb           | 270.3 MB                                 |
+| maxCpuMsEstimate       | 3678 ms                                  |
 | statSampleCount        | 201                                      |
 | failCount              | 0                                        |
 
@@ -53,6 +53,6 @@ Entrypoint: test/fixtures/lazy-import-plugin.mjs
 
 | Run | Status   | Captured | OpenClaw Import | OpenClaw Activate | Plugin Wall Delta | Plugin RSS Delta | Plugin CPU Delta | Raw Wall | Raw Peak RSS | Raw CPU Estimate | RSS/CPU samples | Exit |
 | --- | -------- | -------- | --------------- | ----------------- | ----------------- | ---------------- | ---------------- | -------- | ------------ | ---------------- | --------------- | ---- |
-| 0   | captured | 2        | 83.7 ms         | 0.4 ms            | 0 ms              | 1 MB             | 0 ms             | 1509 ms  | 264.5 MB     | 2741 ms          | 59/59           | 0    |
-| 1   | captured | 2        | 85.3 ms         | 0.4 ms            | 42 ms             | 0 MB             | 65 ms            | 1576 ms  | 261.1 MB     | 2879 ms          | 62/62           | 0    |
-| 2   | captured | 2        | 84.9 ms         | 0.3 ms            | 0 ms              | 0 MB             | 0 ms             | 1530 ms  | 261.9 MB     | 2813 ms          | 60/60           | 0    |
+| 0   | captured | 2        | 82.1 ms         | 0.4 ms            | 9 ms              | 0 MB             | 48 ms            | 1527 ms  | 252.4 MB     | 2793 ms          | 60/60           | 0    |
+| 1   | captured | 2        | 88 ms           | 0.4 ms            | 21 ms             | 0 MB             | 41 ms            | 1539 ms  | 257.1 MB     | 2786 ms          | 61/61           | 0    |
+| 2   | captured | 2        | 83.7 ms         | 0.4 ms            | 3 ms              | 1.1 MB           | 45 ms            | 1521 ms  | 258.3 MB     | 2790 ms          | 60/60           | 0    |
