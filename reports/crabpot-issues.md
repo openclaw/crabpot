@@ -13,8 +13,8 @@ Status: PASS
 
 | Metric                     | Value |
 | -------------------------- | ----- |
-| Issue findings             | 281   |
-| Open issue findings        | 281   |
+| Issue findings             | 280   |
+| Open issue findings        | 280   |
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
 | 🔴 P0                      | 0     |
@@ -25,11 +25,11 @@ Status: PASS
 | Live P0 issues             | 0     |
 | Compat gaps                | 0     |
 | Deprecation warnings       | 42    |
-| Inspector gaps             | 163   |
-| Open inspector gaps        | 163   |
+| Inspector gaps             | 162   |
+| Open inspector gaps        | 162   |
 | Runtime coverage artifacts | 0     |
 | Upstream metadata          | 76    |
-| Contract probes            | 277   |
+| Contract probes            | 276   |
 
 ## Triage Overview
 
@@ -38,7 +38,7 @@ Status: PASS
 | live-issue          | 0     | 0  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.                                          |
 | compat-gap          | 0     | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
 | deprecation-warning | 42    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
-| inspector-gap       | 163   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
+| inspector-gap       | 162   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
 | upstream-metadata   | 76    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                                                                    |
 
@@ -467,7 +467,7 @@ _none_
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ index.ts:382](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L382)
+    - [before_tool_call @ index.ts:389](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L389)
 
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
@@ -1274,6 +1274,7 @@ _none_
   - **package-dependency-install-required**: nemoclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
+    - [commander @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
@@ -1283,7 +1284,7 @@ _none_
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:345](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L345)
+    - [registerCommand @ index.ts:341](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L341)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
@@ -1536,14 +1537,7 @@ _none_
   - **package-typescript-source-entrypoint**: web-search-plus: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/dd3cab6e11f16eaa3fcee0ce67d3a809b155341a/index.ts)
-
-- 🟡 P2 **web-search-plus** `inspector-gap` `inspector-follow-up`
-  - **runtime-tool-capture**: web-search-plus: runtime tool schema needs registration capture
-  - state: open · compat:none
-  - evidence:
-    - [registerTool @ index.ts:1034](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/dd3cab6e11f16eaa3fcee0ce67d3a809b155341a/index.ts#L1034)
-    - [registerTool @ index.ts:893](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/dd3cab6e11f16eaa3fcee0ce67d3a809b155341a/index.ts#L893)
+    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/21dd15b8d24c71491fb32f270e2f6c13b25fde90/index.ts)
 
 - 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: wecom: channel runtime needs envelope/config probes
@@ -2215,7 +2209,7 @@ _none_
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ index.ts:382](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L382)
+    - [before_tool_call @ index.ts:389](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L389)
 
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
@@ -3563,6 +3557,7 @@ _none_
   - **package-dependency-install-required**: nemoclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
+    - [commander @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
@@ -3572,7 +3567,7 @@ _none_
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:345](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L345)
+    - [registerCommand @ index.ts:341](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L341)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
@@ -4031,14 +4026,7 @@ _none_
   - **package-typescript-source-entrypoint**: web-search-plus: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/dd3cab6e11f16eaa3fcee0ce67d3a809b155341a/index.ts)
-
-- 🟡 P2 **web-search-plus** `inspector-gap` `inspector-follow-up`
-  - **runtime-tool-capture**: web-search-plus: runtime tool schema needs registration capture
-  - state: open · compat:none
-  - evidence:
-    - [registerTool @ index.ts:1034](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/dd3cab6e11f16eaa3fcee0ce67d3a809b155341a/index.ts#L1034)
-    - [registerTool @ index.ts:893](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/dd3cab6e11f16eaa3fcee0ce67d3a809b155341a/index.ts#L893)
+    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/21dd15b8d24c71491fb32f270e2f6c13b25fde90/index.ts)
 
 - 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: wecom: channel runtime needs envelope/config probes
@@ -4242,7 +4230,7 @@ _none_
   - contract: Hook returns preserve terminal, block, and approval semantics.
   - id: `hook.before_tool_call.terminal-block-approval:nemoclaw`
   - evidence:
-    - [before_tool_call @ index.ts:382](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L382)
+    - [before_tool_call @ index.ts:389](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L389)
 
 - 🟠 P1 **openclaw-telemetry** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
@@ -4452,7 +4440,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:nemoclaw`
   - evidence:
-    - [registerCommand @ index.ts:345](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L345)
+    - [registerCommand @ index.ts:341](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/src/index.ts#L341)
 
 - 🟡 P2 **openclaw-telemetry** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -4837,6 +4825,7 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:nemoclaw`
   - evidence:
+    - [commander @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
     - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/11b19373c01fbba06a22d4a3183fbae170e00c86/nemoclaw/package.json)
@@ -5893,7 +5882,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:web-search-plus`
   - evidence:
-    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/dd3cab6e11f16eaa3fcee0ce67d3a809b155341a/index.ts)
+    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/21dd15b8d24c71491fb32f270e2f6c13b25fde90/index.ts)
 
 - 🟢 P3 **bluebubbles** `package-loader`
   - contract: Release publishing metadata declares canonical ClawHub and npm install specs.
@@ -6273,10 +6262,3 @@ _none_
   - id: `tool.registration.schema-capture:memu-engine`
   - evidence:
     - [registerTool @ index.ts:1252](https://github.com/duxiaoxiong/memu-engine-for-OpenClaw/blob/a5a22c5faf21e30d17a1b47635829e7dd0728ae5/index.ts#L1252)
-
-- 🟢 P3 **web-search-plus** `tool-runtime`
-  - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
-  - id: `tool.registration.schema-capture:web-search-plus`
-  - evidence:
-    - [registerTool @ index.ts:1034](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/dd3cab6e11f16eaa3fcee0ce67d3a809b155341a/index.ts#L1034)
-    - [registerTool @ index.ts:893](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/dd3cab6e11f16eaa3fcee0ce67d3a809b155341a/index.ts#L893)

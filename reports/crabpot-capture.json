@@ -8,12 +8,12 @@
   },
   "summary": {
     "fixtureCount": 60,
-    "registrationCount": 331,
+    "registrationCount": 333,
     "hookCount": 114,
-    "sdkImportCount": 2180,
+    "sdkImportCount": 2181,
     "packageEntrypointCount": 107,
-    "issueProbeCount": 277,
-    "inspectorShimRequiredCount": 199,
+    "issueProbeCount": 276,
+    "inspectorShimRequiredCount": 200,
     "compatAliasRequiredCount": 0
   },
   "fixtures": [
@@ -29620,10 +29620,10 @@
       "priority": "high",
       "registrations": [
         {
-          "id": "registration.registerCommand:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-345",
+          "id": "registration.registerCommand:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-341",
           "fixture": "nemoclaw",
           "registrar": "registerCommand",
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:345",
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:341",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -29637,10 +29637,10 @@
           ]
         },
         {
-          "id": "registration.registerProvider:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-372",
+          "id": "registration.registerProvider:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-377",
           "fixture": "nemoclaw",
           "registrar": "registerProvider",
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:372",
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:377",
           "support": "target-captured",
           "assertions": [
             "registration arguments are captured"
@@ -29652,10 +29652,10 @@
       ],
       "hooks": [
         {
-          "id": "hook.before_prompt_build:nemoclaw:plugins-nemoclaw-nemoclaw-src-runtime-context-ts-78",
+          "id": "hook.before_prompt_build:nemoclaw:plugins-nemoclaw-nemoclaw-src-runtime-context-ts-474",
           "fixture": "nemoclaw",
           "hook": "before_prompt_build",
-          "ref": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:78",
+          "ref": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:474",
           "support": "synthetic-event-required",
           "assertions": [
             "prompt mutation result is preserved",
@@ -29683,10 +29683,10 @@
           }
         },
         {
-          "id": "hook.before_tool_call:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-382",
+          "id": "hook.before_tool_call:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-389",
           "fixture": "nemoclaw",
           "hook": "before_tool_call",
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:382",
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:389",
           "support": "synthetic-event-required",
           "assertions": [
             "block/allow return shapes are preserved",
@@ -34092,10 +34092,27 @@
       "priority": "medium",
       "registrations": [
         {
-          "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1034",
+          "id": "registration.definePluginEntry:web-search-plus:plugins-web-search-plus-index-ts-1468",
+          "fixture": "web-search-plus",
+          "registrar": "definePluginEntry",
+          "ref": "plugins/web-search-plus/index.ts:1468",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "entrypoint register function is callable",
+            "entrypoint metadata is preserved"
+          ],
+          "syntheticArguments": [
+            {
+              "id": "fixture-plugin",
+              "register": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1393",
           "fixture": "web-search-plus",
           "registrar": "registerTool",
-          "ref": "plugins/web-search-plus/index.ts:1034",
+          "ref": "plugins/web-search-plus/index.ts:1393",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -34114,10 +34131,32 @@
           ]
         },
         {
-          "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-893",
+          "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1417",
           "fixture": "web-search-plus",
           "registrar": "registerTool",
-          "ref": "plugins/web-search-plus/index.ts:893",
+          "ref": "plugins/web-search-plus/index.ts:1417",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1435",
+          "fixture": "web-search-plus",
+          "registrar": "registerTool",
+          "ref": "plugins/web-search-plus/index.ts:1435",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -34137,7 +34176,19 @@
         }
       ],
       "hooks": [],
-      "sdkImports": [],
+      "sdkImports": [
+        {
+          "id": "sdk.openclaw/plugin-sdk/plugin-entry:web-search-plus:plugins-web-search-plus-index-ts-4",
+          "fixture": "web-search-plus",
+          "specifier": "openclaw/plugin-sdk/plugin-entry",
+          "ref": "plugins/web-search-plus/index.ts:4",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        }
+      ],
       "packageEntrypoints": [
         {
           "id": "package.extension:web-search-plus:plugins-web-search-plus-index-ts",
@@ -34422,7 +34473,7 @@
       "priority": "P1",
       "target": "hook-runner",
       "evidence": [
-        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:382"
+        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:389"
       ],
       "assertions": [
         "synthetic event payload is accepted",
@@ -34793,7 +34844,7 @@
       "priority": "P2",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:345"
+        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:341"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -35570,6 +35621,7 @@
       "priority": "P2",
       "target": "package-loader",
       "evidence": [
+        "commander @ plugins/nemoclaw/nemoclaw/package.json",
         "execa @ plugins/nemoclaw/nemoclaw/package.json",
         "json5 @ plugins/nemoclaw/nemoclaw/package.json",
         "tar @ plugins/nemoclaw/nemoclaw/package.json",
@@ -38363,20 +38415,6 @@
       "target": "tool-runtime",
       "evidence": [
         "registerTool @ plugins/memu-engine/index.ts:1252"
-      ],
-      "assertions": [
-        "tool schema is captured",
-        "tool result metadata is retained"
-      ]
-    },
-    {
-      "id": "tool.registration.schema-capture:web-search-plus",
-      "fixture": "web-search-plus",
-      "priority": "P3",
-      "target": "tool-runtime",
-      "evidence": [
-        "registerTool @ plugins/web-search-plus/index.ts:1034",
-        "registerTool @ plugins/web-search-plus/index.ts:893"
       ],
       "assertions": [
         "tool schema is captured",

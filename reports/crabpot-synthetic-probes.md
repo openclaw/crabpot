@@ -7,14 +7,14 @@ Generated: deterministic
 | Metric              | Value |
 | ------------------- | ----- |
 | Fixtures            | 60    |
-| Probes              | 445   |
+| Probes              | 447   |
 | Hook probes         | 114   |
-| Registration probes | 331   |
-| Ready               | 445   |
+| Registration probes | 333   |
+| Ready               | 447   |
 | Blocked             | 0     |
-| Direct execution    | 169   |
+| Direct execution    | 170   |
 | Opt-in execution    | 29    |
-| Metadata-only       | 133   |
+| Metadata-only       | 134   |
 
 ## Probe Inventory
 
@@ -109,8 +109,8 @@ Generated: deterministic
 | memory-lancedb         | hook         | agent_end                              | ready  | hook-direct      | plugins/memory-lancedb/.crabpot-package/dist/index.js:668              | final conversation payload is redacted as expected; agent id and run metadata are present       |
 | memory-lancedb         | hook         | before_prompt_build                    | ready  | hook-direct      | plugins/memory-lancedb/.crabpot-package/dist/index.js:640              | prompt mutation result is preserved; agent and conversation metadata are present                |
 | memory-lancedb         | hook         | session_end                            | ready  | hook-direct      | plugins/memory-lancedb/.crabpot-package/dist/index.js:712              | hook payload and return value are captured                                                      |
-| nemoclaw               | hook         | before_prompt_build                    | ready  | hook-direct      | plugins/nemoclaw/nemoclaw/src/runtime-context.ts:78                    | prompt mutation result is preserved; agent and conversation metadata are present                |
-| nemoclaw               | hook         | before_tool_call                       | ready  | hook-direct      | plugins/nemoclaw/nemoclaw/src/index.ts:382                             | block/allow return shapes are preserved; terminal and approval metadata are present             |
+| nemoclaw               | hook         | before_prompt_build                    | ready  | hook-direct      | plugins/nemoclaw/nemoclaw/src/runtime-context.ts:474                   | prompt mutation result is preserved; agent and conversation metadata are present                |
+| nemoclaw               | hook         | before_tool_call                       | ready  | hook-direct      | plugins/nemoclaw/nemoclaw/src/index.ts:389                             | block/allow return shapes are preserved; terminal and approval metadata are present             |
 | memory-tencentdb       | hook         | agent_end                              | ready  | hook-direct      | plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:17317         | final conversation payload is redacted as expected; agent id and run metadata are present       |
 | memory-tencentdb       | hook         | agent_end                              | ready  | hook-direct      | plugins/memory-tencentdb/.crabpot-package/index.ts:627                 | final conversation payload is redacted as expected; agent id and run metadata are present       |
 | memory-tencentdb       | hook         | before_message_write                   | ready  | hook-direct      | plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:17279         | hook payload and return value are captured                                                      |
@@ -383,8 +383,8 @@ Generated: deterministic
 | openclaw-qqbot         | registration | registerTool                           | ready  | direct           | plugins/openclaw-qqbot/.crabpot-package/dist/api.js:511                | tool name is stable; input schema is captured; result shape metadata is captured                |
 | whatsapp               | registration | createChatChannelPlugin                | ready  | metadata-only    | plugins/whatsapp/.crabpot-package/dist/channel-CHsR8MoG.js:335         | channel plugin id is stable; channel factory metadata is captured                               |
 | whatsapp               | registration | defineBundledChannelEntry              | ready  | metadata-only    | plugins/whatsapp/.crabpot-package/dist/index.js:3                      | registration arguments are captured                                                             |
-| nemoclaw               | registration | registerCommand                        | ready  | direct           | plugins/nemoclaw/nemoclaw/src/index.ts:345                             | command id is stable; interactive command payload is captured                                   |
-| nemoclaw               | registration | registerProvider                       | ready  | metadata-only    | plugins/nemoclaw/nemoclaw/src/index.ts:372                             | registration arguments are captured                                                             |
+| nemoclaw               | registration | registerCommand                        | ready  | direct           | plugins/nemoclaw/nemoclaw/src/index.ts:341                             | command id is stable; interactive command payload is captured                                   |
+| nemoclaw               | registration | registerProvider                       | ready  | metadata-only    | plugins/nemoclaw/nemoclaw/src/index.ts:377                             | registration arguments are captured                                                             |
 | memory-tencentdb       | registration | registerCli                            | ready  | direct           | plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:17435         | command name is stable; argument schema is captured                                             |
 | memory-tencentdb       | registration | registerCli                            | ready  | direct           | plugins/memory-tencentdb/.crabpot-package/index.ts:817                 | command name is stable; argument schema is captured                                             |
 | memory-tencentdb       | registration | registerContextEngine                  | ready  | metadata-only    | plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:5664          | context engine id is stable; factory metadata is captured                                       |
@@ -459,8 +459,10 @@ Generated: deterministic
 | codex-app-server       | registration | registerInteractiveHandler             | ready  | direct           | plugins/codex-app-server/index.ts:29                                   | handler id is stable; interaction payload and response shape are captured                       |
 | codex-app-server       | registration | registerInteractiveHandler             | ready  | direct           | plugins/codex-app-server/index.ts:38                                   | handler id is stable; interaction payload and response shape are captured                       |
 | codex-app-server       | registration | registerService                        | ready  | lifecycle-opt-in | plugins/codex-app-server/index.ts:12                                   | service id is stable; start/stop lifecycle handlers are captured                                |
-| web-search-plus        | registration | registerTool                           | ready  | direct           | plugins/web-search-plus/index.ts:1034                                  | tool name is stable; input schema is captured; result shape metadata is captured                |
-| web-search-plus        | registration | registerTool                           | ready  | direct           | plugins/web-search-plus/index.ts:893                                   | tool name is stable; input schema is captured; result shape metadata is captured                |
+| web-search-plus        | registration | definePluginEntry                      | ready  | metadata-only    | plugins/web-search-plus/index.ts:1468                                  | entrypoint register function is callable; entrypoint metadata is preserved                      |
+| web-search-plus        | registration | registerTool                           | ready  | direct           | plugins/web-search-plus/index.ts:1393                                  | tool name is stable; input schema is captured; result shape metadata is captured                |
+| web-search-plus        | registration | registerTool                           | ready  | direct           | plugins/web-search-plus/index.ts:1417                                  | tool name is stable; input schema is captured; result shape metadata is captured                |
+| web-search-plus        | registration | registerTool                           | ready  | direct           | plugins/web-search-plus/index.ts:1435                                  | tool name is stable; input schema is captured; result shape metadata is captured                |
 | apify                  | registration | registerCli                            | ready  | direct           | plugins/apify/src/cli.ts:35                                            | command name is stable; argument schema is captured                                             |
 | apify                  | registration | registerTool                           | ready  | direct           | plugins/apify/src/index.ts:13                                          | tool name is stable; input schema is captured; result shape metadata is captured                |
 | inworld-tts            | registration | definePluginEntry                      | ready  | metadata-only    | plugins/inworld-tts/index.ts:4                                         | entrypoint register function is callable; entrypoint metadata is preserved                      |
