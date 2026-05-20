@@ -2,14 +2,14 @@
   "generatedAt": "deterministic",
   "summary": {
     "fixtureCount": 60,
-    "probeCount": 445,
+    "probeCount": 447,
     "hookProbeCount": 114,
-    "registrationProbeCount": 331,
-    "readyCount": 445,
+    "registrationProbeCount": 333,
+    "readyCount": 447,
     "blockedCount": 0,
-    "directExecutionCount": 169,
+    "directExecutionCount": 170,
     "optInExecutionCount": 29,
-    "metadataOnlyCount": 133
+    "metadataOnlyCount": 134
   },
   "probes": [
     {
@@ -2114,7 +2114,7 @@
       "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:712"
     },
     {
-      "id": "hook.before_prompt_build:nemoclaw:plugins-nemoclaw-nemoclaw-src-runtime-context-ts-78",
+      "id": "hook.before_prompt_build:nemoclaw:plugins-nemoclaw-nemoclaw-src-runtime-context-ts-474",
       "fixture": "nemoclaw",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -2144,10 +2144,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:78"
+      "source": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:474"
     },
     {
-      "id": "hook.before_tool_call:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-382",
+      "id": "hook.before_tool_call:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-389",
       "fixture": "nemoclaw",
       "kind": "hook",
       "seam": "before_tool_call",
@@ -2169,7 +2169,7 @@
         "sessionId": "session-fixture",
         "toolName": "fixture_tool"
       },
-      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:382"
+      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:389"
     },
     {
       "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-17317",
@@ -9354,7 +9354,7 @@
       "source": "plugins/whatsapp/.crabpot-package/dist/index.js:3"
     },
     {
-      "id": "registration.registerCommand:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-345",
+      "id": "registration.registerCommand:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-341",
       "fixture": "nemoclaw",
       "kind": "registration",
       "seam": "registerCommand",
@@ -9378,10 +9378,10 @@
           "execute"
         ]
       },
-      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:345"
+      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:341"
     },
     {
-      "id": "registration.registerProvider:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-372",
+      "id": "registration.registerProvider:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-377",
       "fixture": "nemoclaw",
       "kind": "registration",
       "seam": "registerProvider",
@@ -9398,7 +9398,7 @@
         "callableProperties": [],
         "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:372"
+      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:377"
     },
     {
       "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-17435",
@@ -11489,39 +11489,31 @@
       "source": "plugins/codex-app-server/index.ts:12"
     },
     {
-      "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1034",
+      "id": "registration.definePluginEntry:web-search-plus:plugins-web-search-plus-index-ts-1468",
       "fixture": "web-search-plus",
       "kind": "registration",
-      "seam": "registerTool",
+      "seam": "definePluginEntry",
       "status": "ready",
       "blocker": null,
       "assertions": [
-        "tool name is stable",
-        "input schema is captured",
-        "result shape metadata is captured"
+        "entrypoint register function is callable",
+        "entrypoint metadata is preserved"
       ],
       "syntheticArguments": [
         {
-          "name": "fixture_tool",
-          "inputSchema": {
-            "type": "object",
-            "properties": {}
-          },
-          "run": "function"
+          "id": "fixture-plugin",
+          "register": "function"
         }
       ],
       "execution": {
-        "mode": "direct",
-        "callableProperties": [
-          "run",
-          "handler",
-          "execute"
-        ]
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "entry wrapper metadata is captured before plugin runtime execution"
       },
-      "source": "plugins/web-search-plus/index.ts:1034"
+      "source": "plugins/web-search-plus/index.ts:1468"
     },
     {
-      "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-893",
+      "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1393",
       "fixture": "web-search-plus",
       "kind": "registration",
       "seam": "registerTool",
@@ -11550,7 +11542,71 @@
           "execute"
         ]
       },
-      "source": "plugins/web-search-plus/index.ts:893"
+      "source": "plugins/web-search-plus/index.ts:1393"
+    },
+    {
+      "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1417",
+      "fixture": "web-search-plus",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/web-search-plus/index.ts:1417"
+    },
+    {
+      "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1435",
+      "fixture": "web-search-plus",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/web-search-plus/index.ts:1435"
     },
     {
       "id": "registration.registerCli:apify:plugins-apify-src-cli-ts-35",

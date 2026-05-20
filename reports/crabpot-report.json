@@ -698,11 +698,11 @@
     "highPriorityFixtures": 22,
     "breakageCount": 0,
     "warningCount": 127,
-    "suggestionCount": 154,
+    "suggestionCount": 153,
     "decisionCount": 300,
-    "logCount": 483,
-    "issueCount": 281,
-    "openIssueCount": 281,
+    "logCount": 485,
+    "issueCount": 280,
+    "openIssueCount": 280,
     "p0IssueCount": 0,
     "p1IssueCount": 16,
     "openP0IssueCount": 0,
@@ -711,14 +711,14 @@
     "liveP0IssueCount": 0,
     "compatGapCount": 0,
     "deprecationWarningCount": 42,
-    "inspectorGapCount": 163,
+    "inspectorGapCount": 162,
     "upstreamIssueCount": 76,
     "fixtureRegressionCount": 0,
-    "openInspectorGapCount": 163,
+    "openInspectorGapCount": 162,
     "runtimeCoveredIssueCount": 0,
     "runtimePartiallyCoveredIssueCount": 0,
     "runtimeCoverageArtifactCount": 0,
-    "contractProbeCount": 277
+    "contractProbeCount": 276
   },
   "fixtures": [
     {
@@ -25228,14 +25228,14 @@
         {
           "name": "before_prompt_build",
           "file": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts",
-          "line": 78,
-          "ref": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:78"
+          "line": 474,
+          "ref": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:474"
         },
         {
           "name": "before_tool_call",
           "file": "plugins/nemoclaw/nemoclaw/src/index.ts",
-          "line": 382,
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:382"
+          "line": 389,
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:389"
         }
       ],
       "registrations": [
@@ -25246,14 +25246,14 @@
         {
           "name": "registerCommand",
           "file": "plugins/nemoclaw/nemoclaw/src/index.ts",
-          "line": 345,
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:345"
+          "line": 341,
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:341"
         },
         {
           "name": "registerProvider",
           "file": "plugins/nemoclaw/nemoclaw/src/index.ts",
-          "line": 372,
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:372"
+          "line": 377,
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:377"
         }
       ],
       "manifestContracts": [],
@@ -25318,6 +25318,7 @@
           "invalidFileSpecs": []
         },
         "dependencies": [
+          "commander",
           "execa",
           "json5",
           "tar",
@@ -25331,8 +25332,8 @@
           ],
           "runtimeExtensions": [],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.4.24",
-          "buildOpenClawVersion": "2026.4.24",
+          "compatPluginApi": ">=2026.5.10-beta.1",
+          "buildOpenClawVersion": "2026.5.10-beta.1",
           "buildPluginSdkVersion": null,
           "install": null,
           "release": null,
@@ -25366,6 +25367,7 @@
             "invalidFileSpecs": []
           },
           "dependencies": [
+            "commander",
             "execa",
             "json5",
             "tar",
@@ -25379,8 +25381,8 @@
             ],
             "runtimeExtensions": [],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.4.24",
-            "buildOpenClawVersion": "2026.4.24",
+            "compatPluginApi": ">=2026.5.10-beta.1",
+            "buildOpenClawVersion": "2026.5.10-beta.1",
             "buildPluginSdkVersion": null,
             "install": null,
             "release": null,
@@ -25421,7 +25423,6 @@
             "invalidFileSpecs": []
           },
           "dependencies": [
-            "@aws-sdk/client-bedrock-runtime",
             "@oclif/core",
             "js-yaml",
             "p-retry",
@@ -30805,31 +30806,48 @@
       "hooks": [],
       "hookDetails": [],
       "registrations": [
+        "definePluginEntry",
         "registerTool"
       ],
       "registrationDetails": [
         {
-          "name": "registerTool",
+          "name": "definePluginEntry",
           "file": "plugins/web-search-plus/index.ts",
-          "line": 1034,
-          "ref": "plugins/web-search-plus/index.ts:1034"
+          "line": 1468,
+          "ref": "plugins/web-search-plus/index.ts:1468"
         },
         {
           "name": "registerTool",
           "file": "plugins/web-search-plus/index.ts",
-          "line": 893,
-          "ref": "plugins/web-search-plus/index.ts:893"
+          "line": 1393,
+          "ref": "plugins/web-search-plus/index.ts:1393"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/web-search-plus/index.ts",
+          "line": 1417,
+          "ref": "plugins/web-search-plus/index.ts:1417"
+        },
+        {
+          "name": "registerTool",
+          "file": "plugins/web-search-plus/index.ts",
+          "line": 1435,
+          "ref": "plugins/web-search-plus/index.ts:1435"
         }
       ],
-      "manifestContracts": [],
+      "manifestContracts": [
+        "tools"
+      ],
       "manifestFiles": [
         "plugins/web-search-plus/openclaw.plugin.json"
       ],
       "sourceFiles": [
-        "plugins/web-search-plus/env.ts",
+        "plugins/web-search-plus/bin/web-search-plus-setup.mjs",
         "plugins/web-search-plus/extract.ts",
         "plugins/web-search-plus/index.ts",
         "plugins/web-search-plus/paths.ts",
+        "plugins/web-search-plus/routing-config.ts",
+        "plugins/web-search-plus/runtime-config.ts",
         "plugins/web-search-plus/storage.ts"
       ],
       "pluginManifests": [
@@ -30837,27 +30855,33 @@
           "path": "plugins/web-search-plus/openclaw.plugin.json",
           "id": "web-search-plus-plugin-v2",
           "name": "Web Search Plus",
-          "version": "2.3.10",
+          "version": "3.0.0",
           "keys": [
+            "activation",
             "configSchema",
+            "contracts",
             "description",
             "id",
             "name",
-            "setup",
+            "toolMetadata",
             "uiHints",
             "version"
           ],
-          "contracts": [],
+          "contracts": [
+            "tools"
+          ],
           "providerAuthEnvVars": {},
           "channelEnvVars": {},
-          "activation": null
+          "activation": {
+            "onStartup": false
+          }
         }
       ],
       "securityManifests": [],
       "package": {
         "path": "plugins/web-search-plus/package.json",
         "name": "web-search-plus-plugin-v2",
-        "version": "2.3.10",
+        "version": "3.0.0",
         "type": "module",
         "main": "index.ts",
         "npmPack": {
@@ -30867,11 +30891,14 @@
           "files": [
             "index.ts",
             "extract.ts",
-            "paths.ts",
-            "storage.ts",
-            "env.ts",
+            "routing-config.ts",
+            "runtime-config.ts",
             "openclaw.plugin.json",
-            "dist/index.js"
+            "dist/index.js",
+            "bin/web-search-plus-setup.mjs",
+            "SKILL.md",
+            "README.md",
+            "CHANGELOG.md"
           ],
           "invalidFileSpecs": []
         },
@@ -30916,7 +30943,7 @@
         {
           "path": "plugins/web-search-plus/package.json",
           "name": "web-search-plus-plugin-v2",
-          "version": "2.3.10",
+          "version": "3.0.0",
           "type": "module",
           "main": "index.ts",
           "npmPack": {
@@ -30926,11 +30953,14 @@
             "files": [
               "index.ts",
               "extract.ts",
-              "paths.ts",
-              "storage.ts",
-              "env.ts",
+              "routing-config.ts",
+              "runtime-config.ts",
               "openclaw.plugin.json",
-              "dist/index.js"
+              "dist/index.js",
+              "bin/web-search-plus-setup.mjs",
+              "SKILL.md",
+              "README.md",
+              "CHANGELOG.md"
             ],
             "invalidFileSpecs": []
           },
@@ -30972,8 +31002,17 @@
           }
         }
       ],
-      "sdkImports": [],
-      "sdkImportDetails": []
+      "sdkImports": [
+        "openclaw/plugin-sdk/plugin-entry"
+      ],
+      "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk/plugin-entry",
+          "file": "plugins/web-search-plus/index.ts",
+          "line": 4,
+          "ref": "plugins/web-search-plus/index.ts:4"
+        }
+      ]
     },
     {
       "id": "apify",
@@ -33837,6 +33876,7 @@
       "level": "suggestion",
       "message": "package declares runtime dependencies that must be installed before cold import",
       "evidence": [
+        "commander @ plugins/nemoclaw/nemoclaw/package.json",
         "execa @ plugins/nemoclaw/nemoclaw/package.json",
         "json5 @ plugins/nemoclaw/nemoclaw/package.json",
         "tar @ plugins/nemoclaw/nemoclaw/package.json",
@@ -33849,7 +33889,7 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:345"
+        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:341"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -33859,7 +33899,7 @@
       "level": "suggestion",
       "message": "add contract probes for before_tool_call terminal, block, and approval semantics",
       "evidence": [
-        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:382"
+        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:389"
       ],
       "compatRecord": "hook.before_tool_call.terminal-block-approval"
     },
@@ -34386,16 +34426,6 @@
       ]
     },
     {
-      "fixture": "web-search-plus",
-      "code": "runtime-tool-capture",
-      "level": "suggestion",
-      "message": "tool shape is only visible after runtime registration capture",
-      "evidence": [
-        "registerTool @ plugins/web-search-plus/index.ts:1034",
-        "registerTool @ plugins/web-search-plus/index.ts:893"
-      ]
-    },
-    {
       "fixture": "apify",
       "code": "package-typescript-source-entrypoint",
       "level": "suggestion",
@@ -34631,7 +34661,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-49FA86B8",
+      "id": "CRABPOT-7F447BFA",
       "fixture": "nemoclaw",
       "severity": "P1",
       "owner": "inspector",
@@ -34644,7 +34674,7 @@
       "compatStatus": "active",
       "title": "nemoclaw: before_tool_call needs terminal/block/approval probes",
       "evidence": [
-        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:382"
+        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:389"
       ],
       "compatRecord": "hook.before_tool_call.terminal-block-approval",
       "runtimeCoverage": null
@@ -38254,7 +38284,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-2FBC2536",
+      "id": "CRABPOT-0999AA2A",
       "fixture": "nemoclaw",
       "severity": "P2",
       "owner": "inspector",
@@ -38267,6 +38297,7 @@
       "compatStatus": "none",
       "title": "nemoclaw: cold import requires dependency installation in an isolated workspace",
       "evidence": [
+        "commander @ plugins/nemoclaw/nemoclaw/package.json",
         "execa @ plugins/nemoclaw/nemoclaw/package.json",
         "json5 @ plugins/nemoclaw/nemoclaw/package.json",
         "tar @ plugins/nemoclaw/nemoclaw/package.json",
@@ -38276,7 +38307,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-ADEBAB36",
+      "id": "CRABPOT-1DD9FBE1",
       "fixture": "nemoclaw",
       "severity": "P2",
       "owner": "inspector",
@@ -38289,7 +38320,7 @@
       "compatStatus": "active",
       "title": "nemoclaw: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:345"
+        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:341"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -39612,26 +39643,6 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-F50E4C3B",
-      "fixture": "web-search-plus",
-      "severity": "P2",
-      "owner": "inspector",
-      "code": "runtime-tool-capture",
-      "decision": "inspector-follow-up",
-      "status": "open",
-      "issueClass": "inspector-gap",
-      "live": false,
-      "deprecated": false,
-      "compatStatus": "none",
-      "title": "web-search-plus: runtime tool schema needs registration capture",
-      "evidence": [
-        "registerTool @ plugins/web-search-plus/index.ts:1034",
-        "registerTool @ plugins/web-search-plus/index.ts:893"
-      ],
-      "compatRecord": null,
-      "runtimeCoverage": null
-    },
-    {
       "id": "CRABPOT-DA6A82C2",
       "fixture": "wecom",
       "severity": "P2",
@@ -40195,7 +40206,7 @@
       "target": "hook-runner",
       "contract": "Hook returns preserve terminal, block, and approval semantics.",
       "evidence": [
-        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:382"
+        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:389"
       ]
     },
     {
@@ -40497,7 +40508,7 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:345"
+        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:341"
       ]
     },
     {
@@ -41106,6 +41117,7 @@
       "target": "package-loader",
       "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
       "evidence": [
+        "commander @ plugins/nemoclaw/nemoclaw/package.json",
         "execa @ plugins/nemoclaw/nemoclaw/package.json",
         "json5 @ plugins/nemoclaw/nemoclaw/package.json",
         "tar @ plugins/nemoclaw/nemoclaw/package.json",
@@ -43318,17 +43330,6 @@
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
         "registerTool @ plugins/memu-engine/index.ts:1252"
-      ]
-    },
-    {
-      "id": "tool.registration.schema-capture:web-search-plus",
-      "fixture": "web-search-plus",
-      "priority": "P3",
-      "target": "tool-runtime",
-      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
-      "evidence": [
-        "registerTool @ plugins/web-search-plus/index.ts:1034",
-        "registerTool @ plugins/web-search-plus/index.ts:893"
       ]
     }
   ],
@@ -48118,9 +48119,11 @@
       "fixture": "web-search-plus",
       "code": "seam-inventory",
       "level": "log",
-      "message": "observed 0 hooks, 1 registrations, and 0 manifest contracts",
+      "message": "observed 0 hooks, 2 registrations, and 1 manifest contracts",
       "evidence": [
-        "registration:registerTool"
+        "registration:definePluginEntry",
+        "registration:registerTool",
+        "manifestContract:tools"
       ]
     },
     {
@@ -48141,6 +48144,15 @@
     },
     {
       "fixture": "web-search-plus",
+      "code": "sdk-exports-present",
+      "level": "log",
+      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
+      "evidence": [
+        "openclaw/plugin-sdk/plugin-entry"
+      ]
+    },
+    {
+      "fixture": "web-search-plus",
       "code": "manifest-fields-checked",
       "level": "log",
       "message": "plugin manifest fields were compared with target OpenClaw manifest types",
@@ -48156,7 +48168,16 @@
       "evidence": [
         "plugins/web-search-plus/package.json",
         "web-search-plus-plugin-v2",
-        "version:2.3.10"
+        "version:3.0.0"
+      ]
+    },
+    {
+      "fixture": "web-search-plus",
+      "code": "declarative-contracts",
+      "level": "log",
+      "message": "fixture declares manifest contracts that can be checked without executing plugin code",
+      "evidence": [
+        "tools"
       ]
     },
     {
@@ -51017,7 +51038,7 @@
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
-      "evidence": "execa, json5, tar, yaml"
+      "evidence": "commander, execa, json5, tar, yaml"
     },
     {
       "fixture": "nemoclaw",
@@ -51602,10 +51623,10 @@
     },
     {
       "fixture": "web-search-plus",
-      "decision": "inspector-follow-up",
-      "seam": "tool-schema",
-      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
-      "evidence": "registerTool without manifest contracts.tools"
+      "decision": "no-action",
+      "seam": "manifest-contract",
+      "action": "Keep checking this declarative contract in default offline CI.",
+      "evidence": "tools"
     },
     {
       "fixture": "apify",
