@@ -116,16 +116,16 @@ _none_
   - **legacy-root-sdk-import**: dingtalk-connector: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/index.ts#L17)
-    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/channel.ts#L5)
-    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/config/accounts.ts#L2)
-    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/core/connection.ts#L16)
-    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/core/provider.ts#L14)
-    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/directory.ts#L1)
-    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L7)
-    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/onboarding.ts#L5)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/utils/agent.ts#L8)
+    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/index.ts#L17)
+    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/channel.ts#L5)
+    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/config/accounts.ts#L2)
+    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/core/connection.ts#L16)
+    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/core/provider.ts#L14)
+    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/directory.ts#L1)
+    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L7)
+    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/onboarding.ts#L5)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/utils/agent.ts#L8)
 
 - 🟡 P2 **dingtalk-doc** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: dingtalk-doc: root plugin SDK barrel is still used by fixtures
@@ -785,43 +785,43 @@ _none_
   - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/index.ts#L75)
+    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/index.ts#L75)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: dingtalk-connector: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/dist/index.mjs)
+    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/dist/index.mjs)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: dingtalk-connector: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
-    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
-    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
-    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
-    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
-    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
+    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
+    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
+    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
+    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
+    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
+    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/index.ts#L75)
-    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L130)
-    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L190)
-    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L258)
-    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L311)
-    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L351)
-    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L388)
-    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L425)
-    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L452)
-    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L506)
-    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L593)
-    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L60)
-    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L652)
-    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L719)
+    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/index.ts#L75)
+    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L130)
+    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L190)
+    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L258)
+    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L311)
+    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L351)
+    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L388)
+    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L425)
+    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L452)
+    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L506)
+    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L593)
+    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L60)
+    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L652)
+    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L719)
 
 - 🟡 P2 **dingtalk-doc** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: dingtalk-doc: cold import requires package build output
@@ -1063,8 +1063,8 @@ _none_
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:1411](https://github.com/Martian-Engineering/lossless-claw/blob/c100427345f04f955d6425984147f376c1646b30/src/plugin/index.ts#L1411)
-    - [registerContextEngine @ index.ts:1386](https://github.com/Martian-Engineering/lossless-claw/blob/c100427345f04f955d6425984147f376c1646b30/src/plugin/index.ts#L1386)
+    - [registerCommand @ index.ts:1410](https://github.com/Martian-Engineering/lossless-claw/blob/c100427345f04f955d6425984147f376c1646b30/src/plugin/index.ts#L1410)
+    - [registerContextEngine @ index.ts:1385](https://github.com/Martian-Engineering/lossless-claw/blob/c100427345f04f955d6425984147f376c1646b30/src/plugin/index.ts#L1385)
 
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: matrix: cold import requires dependency installation in an isolated workspace
@@ -1796,14 +1796,14 @@ _none_
   - **manifest-unknown-fields**: dingtalk-connector: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/openclaw.plugin.json)
-    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/openclaw.plugin.json)
+    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/openclaw.plugin.json)
 
 - 🟡 P2 **dingtalk-connector** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: dingtalk-connector: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
+    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
 
 - 🟡 P2 **dingtalk-doc** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: dingtalk-doc: plugin API compatibility range is missing
@@ -2720,71 +2720,71 @@ _none_
   - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/index.ts#L75)
+    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/index.ts#L75)
 
 - 🟡 P2 **dingtalk-connector** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: dingtalk-connector: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/index.ts#L17)
-    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/channel.ts#L5)
-    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/config/accounts.ts#L2)
-    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/core/connection.ts#L16)
-    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/core/provider.ts#L14)
-    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/directory.ts#L1)
-    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L7)
-    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/onboarding.ts#L5)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/utils/agent.ts#L8)
+    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/index.ts#L17)
+    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/channel.ts#L5)
+    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/config/accounts.ts#L2)
+    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/core/connection.ts#L16)
+    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/core/provider.ts#L14)
+    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/directory.ts#L1)
+    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L7)
+    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/onboarding.ts#L5)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/utils/agent.ts#L8)
 
 - 🟡 P2 **dingtalk-connector** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: dingtalk-connector: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/openclaw.plugin.json)
-    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/openclaw.plugin.json)
+    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/openclaw.plugin.json)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: dingtalk-connector: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/dist/index.mjs)
+    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/dist/index.mjs)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: dingtalk-connector: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
-    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
-    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
-    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
-    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
-    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
+    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
+    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
+    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
+    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
+    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
+    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
 
 - 🟡 P2 **dingtalk-connector** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: dingtalk-connector: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
+    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/index.ts#L75)
-    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L130)
-    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L190)
-    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L258)
-    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L311)
-    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L351)
-    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L388)
-    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L425)
-    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L452)
-    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L506)
-    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L593)
-    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L60)
-    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L652)
-    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L719)
+    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/index.ts#L75)
+    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L130)
+    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L190)
+    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L258)
+    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L311)
+    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L351)
+    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L388)
+    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L425)
+    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L452)
+    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L506)
+    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L593)
+    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L60)
+    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L652)
+    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L719)
 
 - 🟡 P2 **dingtalk-doc** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: dingtalk-doc: root plugin SDK barrel is still used by fixtures
@@ -3202,8 +3202,8 @@ _none_
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:1411](https://github.com/Martian-Engineering/lossless-claw/blob/c100427345f04f955d6425984147f376c1646b30/src/plugin/index.ts#L1411)
-    - [registerContextEngine @ index.ts:1386](https://github.com/Martian-Engineering/lossless-claw/blob/c100427345f04f955d6425984147f376c1646b30/src/plugin/index.ts#L1386)
+    - [registerCommand @ index.ts:1410](https://github.com/Martian-Engineering/lossless-claw/blob/c100427345f04f955d6425984147f376c1646b30/src/plugin/index.ts#L1410)
+    - [registerContextEngine @ index.ts:1385](https://github.com/Martian-Engineering/lossless-claw/blob/c100427345f04f955d6425984147f376c1646b30/src/plugin/index.ts#L1385)
 
 - 🟡 P2 **matrix** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: matrix: channelEnvVars legacy manifest metadata must stay covered
@@ -4332,20 +4332,20 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:dingtalk-connector`
   - evidence:
-    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/index.ts#L75)
-    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L130)
-    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L190)
-    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L258)
-    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L311)
-    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L351)
-    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L388)
-    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L425)
-    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L452)
-    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L506)
-    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L593)
-    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L60)
-    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L652)
-    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L719)
+    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/index.ts#L75)
+    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L130)
+    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L190)
+    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L258)
+    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L311)
+    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L351)
+    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L388)
+    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L425)
+    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L452)
+    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L506)
+    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L593)
+    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L60)
+    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L652)
+    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L719)
 
 - 🟡 P2 **honcho** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -4409,8 +4409,8 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:lossless-claw`
   - evidence:
-    - [registerCommand @ index.ts:1411](https://github.com/Martian-Engineering/lossless-claw/blob/c100427345f04f955d6425984147f376c1646b30/src/plugin/index.ts#L1411)
-    - [registerContextEngine @ index.ts:1386](https://github.com/Martian-Engineering/lossless-claw/blob/c100427345f04f955d6425984147f376c1646b30/src/plugin/index.ts#L1386)
+    - [registerCommand @ index.ts:1410](https://github.com/Martian-Engineering/lossless-claw/blob/c100427345f04f955d6425984147f376c1646b30/src/plugin/index.ts#L1410)
+    - [registerContextEngine @ index.ts:1385](https://github.com/Martian-Engineering/lossless-claw/blob/c100427345f04f955d6425984147f376c1646b30/src/plugin/index.ts#L1385)
 
 - 🟡 P2 **mcp-adapter** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -4496,7 +4496,7 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:dingtalk-connector`
   - evidence:
-    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/index.ts#L75)
+    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/index.ts#L75)
 
 - 🟡 P2 **kitchen-sink** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -4596,8 +4596,8 @@ _none_
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
   - id: `manifest.schema.top-level-fields:dingtalk-connector`
   - evidence:
-    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/openclaw.plugin.json)
-    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/openclaw.plugin.json)
+    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/openclaw.plugin.json)
 
 - 🟡 P2 **qqbot** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
@@ -4628,7 +4628,7 @@ _none_
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:dingtalk-connector`
   - evidence:
-    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
+    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
 
 - 🟡 P2 **mcp-adapter** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -4683,7 +4683,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:dingtalk-connector`
   - evidence:
-    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/dist/index.mjs)
+    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/dist/index.mjs)
 
 - 🟡 P2 **honcho** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -4748,12 +4748,12 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:dingtalk-connector`
   - evidence:
-    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
-    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
-    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
-    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
-    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
-    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/package.json)
+    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
+    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
+    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
+    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
+    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
+    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/package.json)
 
 - 🟡 P2 **hasdata** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -4981,16 +4981,16 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:dingtalk-connector`
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/index.ts#L17)
-    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/channel.ts#L5)
-    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/config/accounts.ts#L2)
-    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/core/connection.ts#L16)
-    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/core/provider.ts#L14)
-    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/directory.ts#L1)
-    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/gateway-methods.ts#L7)
-    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/onboarding.ts#L5)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/762fb2b6a6084e3dbeaebd488412309e6d92b509/src/utils/agent.ts#L8)
+    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/index.ts#L17)
+    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/channel.ts#L5)
+    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/config/accounts.ts#L2)
+    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/core/connection.ts#L16)
+    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/core/provider.ts#L14)
+    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/directory.ts#L1)
+    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/gateway-methods.ts#L7)
+    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/onboarding.ts#L5)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/6f2d56f6a0594dfa1be6cc5e5eeb23f3100b077f/src/utils/agent.ts#L8)
 
 - 🟡 P2 **honcho** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
