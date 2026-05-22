@@ -10,11 +10,11 @@ Targets: linux, macos, windows, container
 | ------------------------------ | ----- |
 | fixtureCount                   | 60    |
 | entrypointCount                | 107   |
-| tsLoaderEntrypointCount        | 23    |
-| jitiAlternativeCount           | 23    |
+| tsLoaderEntrypointCount        | 22    |
+| jitiAlternativeCount           | 22    |
 | lazyImportProbeCount           | 107   |
 | portabilityFindingCount        | 16    |
-| coveredPortabilityFindingCount | 471   |
+| coveredPortabilityFindingCount | 470   |
 | windowsRiskStepCount           | 16    |
 | macosRiskStepCount             | 16    |
 | linuxRiskStepCount             | 16    |
@@ -129,7 +129,7 @@ Targets: linux, macos, windows, container
 | codex-app-server       | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/codex-app-server/index.ts                                   |
 | web-search-plus        | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/web-search-plus/index.ts                                    |
 | web-search-plus        | review-required             | node    | -            | no          | no            | yes              | yes                | plugins/web-search-plus/dist/index.js                               |
-| apify                  | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/apify/src/index.ts                                          |
+| apify                  | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/apify/dist/index.js                                         |
 | inworld-tts            | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/inworld-tts/index.ts                                        |
 
 ## Portability Findings
@@ -621,7 +621,6 @@ Targets: linux, macos, windows, container
 | web-search-plus        | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | apify                  | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | apify                  | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| apify                  | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | apify                  | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | apify                  | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | inworld-tts            | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |

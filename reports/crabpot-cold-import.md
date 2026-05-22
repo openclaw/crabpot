@@ -10,9 +10,9 @@ Generated: deterministic
 | Entrypoints                 | 107   |
 | Ready                       | 7     |
 | Blocked                     | 100   |
-| TypeScript loader required  | 23    |
-| Build required              | 12    |
-| Dependency install required | 43    |
+| TypeScript loader required  | 22    |
+| Build required              | 13    |
+| Dependency install required | 42    |
 | SDK alias required          | 0     |
 
 ## Entrypoints
@@ -124,5 +124,5 @@ Generated: deterministic
 | codex-app-server       | extension        | ts-loader-required          | plugins/codex-app-server/index.ts                                   | ts-loader-required, dependency-install-required                               | TypeScript source entrypoint is compiled or loaded before cold import; fixture dependencies are installed in an isolated workspace before cold import                                                                                  |
 | web-search-plus        | extension        | ts-loader-required          | plugins/web-search-plus/index.ts                                    | ts-loader-required, top-level-side-effect-review                              | TypeScript source entrypoint is compiled or loaded before cold import; cold import sandbox blocks network/process side effects before register capture                                                                                 |
 | web-search-plus        | runtimeExtension | review-required             | plugins/web-search-plus/dist/index.js                               | top-level-side-effect-review                                                  | cold import sandbox blocks network/process side effects before register capture                                                                                                                                                        |
-| apify                  | extension        | ts-loader-required          | plugins/apify/src/index.ts                                          | ts-loader-required, dependency-install-required                               | TypeScript source entrypoint is compiled or loaded before cold import; fixture dependencies are installed in an isolated workspace before cold import                                                                                  |
+| apify                  | extension        | build-required              | plugins/apify/dist/index.js                                         | build-required                                                                | plugin build or source alias resolution runs before cold import                                                                                                                                                                        |
 | inworld-tts            | extension        | ts-loader-required          | plugins/inworld-tts/index.ts                                        | ts-loader-required                                                            | TypeScript source entrypoint is compiled or loaded before cold import                                                                                                                                                                  |

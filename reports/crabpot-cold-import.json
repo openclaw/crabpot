@@ -3,16 +3,16 @@
   "targetOpenClaw": {
     "status": "ok",
     "configuredPath": "./openclaw",
-    "sdkExportCount": 312
+    "sdkExportCount": 313
   },
   "summary": {
     "fixtureCount": 60,
     "entrypointCount": 107,
     "readyCount": 7,
     "blockedCount": 100,
-    "tsLoaderRequiredCount": 23,
-    "buildRequiredCount": 12,
-    "dependencyInstallRequiredCount": 43,
+    "tsLoaderRequiredCount": 22,
+    "buildRequiredCount": 13,
+    "dependencyInstallRequiredCount": 42,
     "sdkAliasRequiredCount": 0
   },
   "fixtures": [
@@ -2473,28 +2473,22 @@
       "priority": "medium",
       "entrypoints": [
         {
-          "id": "cold-import.extension:apify:plugins-apify-src-index-ts",
+          "id": "cold-import.extension:apify:plugins-apify-dist-index-js",
           "fixture": "apify",
           "packagePath": "plugins/apify/package.json",
           "kind": "extension",
-          "specifier": "./src/index.ts",
-          "path": "plugins/apify/src/index.ts",
-          "status": "ts-loader-required",
+          "specifier": "./dist/index.js",
+          "path": "plugins/apify/dist/index.js",
+          "status": "build-required",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
-              "evidence": "plugins/apify/src/index.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "apify-client, typebox"
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/apify/dist/index.js"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "plugin build or source alias resolution runs before cold import"
           ]
         }
       ]

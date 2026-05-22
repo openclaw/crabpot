@@ -12,16 +12,16 @@
   "summary": {
     "fixtureCount": 60,
     "entrypointCount": 107,
-    "installStepCount": 43,
-    "auditStepCount": 43,
-    "buildStepCount": 12,
+    "installStepCount": 42,
+    "auditStepCount": 42,
+    "buildStepCount": 13,
     "pruneDevWorkspaceDependencyStepCount": 23,
     "artifactStepCount": 107,
     "captureStepCount": 107,
     "syntheticProbeStepCount": 107,
     "targetOpenClawLinkStepCount": 94,
-    "tsLoaderEntrypointCount": 23,
-    "jitiAlternativeCount": 23,
+    "tsLoaderEntrypointCount": 22,
+    "jitiAlternativeCount": 22,
     "missingBuildScriptCount": 0,
     "sdkAliasRequiredCount": 0
   },
@@ -7702,39 +7702,31 @@
       "id": "apify",
       "entrypoints": [
         {
-          "id": "cold-import.extension:apify:plugins-apify-src-index-ts",
+          "id": "cold-import.extension:apify:plugins-apify-dist-index-js",
           "fixture": "apify",
           "packagePath": "plugins/apify/package.json",
           "packageName": "@apify/apify-openclaw-plugin",
-          "entrypoint": "plugins/apify/src/index.ts",
-          "status": "ts-loader-required",
+          "entrypoint": "plugins/apify/dist/index.js",
+          "status": "build-required",
           "packageManager": "npm",
           "lockfile": "plugins/apify/package-lock.json",
           "loaderStrategy": {
-            "source": "typescript-source",
-            "primary": "tsx",
-            "alternatives": [
-              "jiti"
-            ],
-            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
           },
           "requiredCapabilities": [
+            "build",
             "capture-shim",
-            "dependency-install",
             "synthetic-probes",
-            "target-openclaw-link",
-            "ts-loader"
+            "target-openclaw-link"
           ],
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
-              "evidence": "plugins/apify/src/index.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "apify-client, typebox"
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/apify/dist/index.js"
             }
           ],
           "steps": [
@@ -7757,30 +7749,23 @@
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
-              "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "kind": "build",
+              "command": "npm run build",
               "cwd": ".crabpot/workspaces/apify",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
-            },
-            {
-              "kind": "audit",
-              "command": "npm audit --json > ../../results/apify/package-audit.json || true",
-              "cwd": ".crabpot/workspaces/apify",
-              "artifactPath": ".crabpot/results/apify/package-audit.json",
-              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+              "reason": "produce missing OpenClaw build entrypoint"
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-dist-index-js.capture.json",
               "cwd": ".crabpot/workspaces/apify",
-              "artifactPath": ".crabpot/results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.capture.json",
+              "artifactPath": ".crabpot/results/apify/cold-import-extension-apify-plugins-apify-dist-index-js.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-dist-index-js.synthetic.json",
               "cwd": ".crabpot/workspaces/apify",
-              "artifactPath": ".crabpot/results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.synthetic.json",
+              "artifactPath": ".crabpot/results/apify/cold-import-extension-apify-plugins-apify-dist-index-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
