@@ -10,11 +10,11 @@
   "summary": {
     "fixtureCount": 60,
     "entrypointCount": 107,
-    "tsLoaderEntrypointCount": 23,
-    "jitiAlternativeCount": 23,
+    "tsLoaderEntrypointCount": 22,
+    "jitiAlternativeCount": 22,
     "lazyImportProbeCount": 107,
     "portabilityFindingCount": 16,
-    "coveredPortabilityFindingCount": 471,
+    "coveredPortabilityFindingCount": 470,
     "windowsRiskStepCount": 16,
     "macosRiskStepCount": 16,
     "linuxRiskStepCount": 16,
@@ -1955,15 +1955,13 @@
     },
     {
       "fixture": "apify",
-      "id": "cold-import.extension:apify:plugins-apify-src-index-ts",
-      "status": "ts-loader-required",
-      "entrypoint": "plugins/apify/src/index.ts",
+      "id": "cold-import.extension:apify:plugins-apify-dist-index-js",
+      "status": "build-required",
+      "entrypoint": "plugins/apify/dist/index.js",
       "packageManager": "npm",
-      "loaderSource": "typescript-source",
-      "loaderPrimary": "tsx",
-      "loaderAlternatives": [
-        "jiti"
-      ],
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
@@ -8535,7 +8533,7 @@
     },
     {
       "fixture": "apify",
-      "entrypoint": "cold-import.extension:apify:plugins-apify-src-index-ts",
+      "entrypoint": "cold-import.extension:apify:plugins-apify-dist-index-js",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/apify && rsync -a --delete plugins/apify/ .crabpot/workspaces/apify/",
       "coverage": "covered by Crabpot structured executor",
@@ -8550,7 +8548,7 @@
     },
     {
       "fixture": "apify",
-      "entrypoint": "cold-import.extension:apify:plugins-apify-src-index-ts",
+      "entrypoint": "cold-import.extension:apify:plugins-apify-dist-index-js",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/apify",
       "coverage": "covered by Crabpot structured executor",
@@ -8563,23 +8561,9 @@
     },
     {
       "fixture": "apify",
-      "entrypoint": "cold-import.extension:apify:plugins-apify-src-index-ts",
-      "kind": "audit",
-      "command": "npm audit --json > ../../results/apify/package-audit.json || true",
-      "coverage": "covered by Crabpot structured executor",
-      "platforms": [
-        "windows"
-      ],
-      "riskCodes": [
-        "posix-null-failure",
-        "shell-redirection"
-      ]
-    },
-    {
-      "fixture": "apify",
-      "entrypoint": "cold-import.extension:apify:plugins-apify-src-index-ts",
+      "entrypoint": "cold-import.extension:apify:plugins-apify-dist-index-js",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./src/index.ts --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-dist-index-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -8590,9 +8574,9 @@
     },
     {
       "fixture": "apify",
-      "entrypoint": "cold-import.extension:apify:plugins-apify-src-index-ts",
+      "entrypoint": "cold-import.extension:apify:plugins-apify-dist-index-js",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./src/index.ts --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/apify/cold-import-extension-apify-plugins-apify-dist-index-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
