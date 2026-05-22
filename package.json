@@ -36,6 +36,12 @@
     "ref:diff": "node scripts/compare-openclaw-refs.mjs",
     "report": "node scripts/generate-report.mjs",
     "smoke": "node scripts/run-contract-smoke.mjs",
-    "test": "node --test test/*.test.mjs"
+    "test": "node --test test/*.test.mjs",
+    "check:changed": "npm run check",
+    "test:changed": "npm test",
+    "crabbox:hydrate": "crabbox actions hydrate",
+    "crabbox:run": "crabbox run",
+    "crabbox:stop": "crabbox stop",
+    "crabbox:warmup": "crabbox warmup"
   }
 }
