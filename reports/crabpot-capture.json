@@ -38034,7 +38034,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.20-beta.2"
+        "buildOpenClawVersion:2026.5.20"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -38048,7 +38048,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.5.20-beta.2"
+        "buildOpenClawVersion:2026.5.20"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -38076,7 +38076,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.20-beta.2"
+        "buildOpenClawVersion:2026.5.20"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -38090,7 +38090,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.5.20-beta.2"
+        "buildOpenClawVersion:2026.5.20"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -38132,7 +38132,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.5.20-beta.2"
+        "buildOpenClawVersion:2026.5.20"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -38174,7 +38174,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.20-beta.2"
+        "buildOpenClawVersion:2026.5.20"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -38230,7 +38230,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.20-beta.2"
+        "buildOpenClawVersion:2026.5.20"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -38300,7 +38300,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.5.20-beta.2"
+        "buildOpenClawVersion:2026.5.20"
       ],
       "assertions": [
         "entrypoint metadata resolves",
