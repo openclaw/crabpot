@@ -15,7 +15,9 @@ test("compatibility report classifies current fixture seams", async () => {
   const p0Issues = report.issues.filter((issue) => issue.severity === "P0");
   const liveIssues = report.issues.filter((issue) => issue.live);
   const liveP0Issues = liveIssues.filter((issue) => issue.severity === "P0");
-  const hasUnknownHookLiveIssue = liveP0Issues.some((issue) => issue.code === "unknown-hook-name");
+  const knownTargetLiveP0Issues = liveP0Issues.filter((issue) =>
+    ["unknown-hook-name", "unknown-registration-name"].includes(issue.code),
+  );
 
   assert.equal(report.status, "pass");
   assert.equal(report.breakages.length, 0);
@@ -30,7 +32,7 @@ test("compatibility report classifies current fixture seams", async () => {
   assert.equal(report.summary.liveIssueCount, liveIssues.length);
   assert.equal(report.summary.liveP0IssueCount, liveP0Issues.length);
   if (hasTargetOpenClaw) {
-    assert.equal(report.summary.liveP0IssueCount, hasUnknownHookLiveIssue ? 1 : 0);
+    assert.equal(report.summary.liveP0IssueCount, knownTargetLiveP0Issues.length);
   }
   assert.ok(report.issues.every((issue) => /^CRABPOT-[A-F0-9]{8}$/.test(issue.id)));
   assert.ok(report.issues.every((issue) => typeof issue.issueClass === "string"));
@@ -76,9 +78,13 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasIssueClass(report.issues, "deprecation-warning", "legacy-before-agent-start");
   assertHasIssueClass(report.issues, "inspector-gap", "registration-capture-gap");
   assertHasIssueClass(report.issues, "upstream-metadata", "package-plugin-api-compat-missing");
-  if (hasTargetOpenClaw && hasUnknownHookLiveIssue) {
+  if (hasTargetOpenClaw && knownTargetLiveP0Issues.some((issue) => issue.code === "unknown-hook-name")) {
     assertHasIssue(report.issues, "P0", "unknown-hook-name");
     assertHasIssueClass(report.issues, "live-issue", "unknown-hook-name");
+  }
+  if (hasTargetOpenClaw && knownTargetLiveP0Issues.some((issue) => issue.code === "unknown-registration-name")) {
+    assertHasIssue(report.issues, "P0", "unknown-registration-name");
+    assertHasIssueClass(report.issues, "live-issue", "unknown-registration-name");
   }
   if (hasTargetOpenClaw) {
     assertHasFinding(report.warnings, "agentchat", "manifest-unknown-fields");
