@@ -3470,7 +3470,7 @@
     {
       "id": "compatibility-report.inspector-gaps",
       "action": "pass",
-      "message": "160 inspector proof gaps tracked",
+      "message": "161 inspector proof gaps tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "dingtalk-doc:before-tool-call-probe",
@@ -3622,6 +3622,7 @@
         "wecom:channel-contract-probe",
         "wecom:package-dependency-install-required",
         "wecom:registration-capture-gap",
+        "wecom:runtime-tool-capture",
         "whatsapp:channel-contract-probe",
         "whatsapp:package-dependency-install-required",
         "yuanbao:channel-contract-probe",

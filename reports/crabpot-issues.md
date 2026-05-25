@@ -13,8 +13,8 @@ Status: PASS
 
 | Metric                     | Value |
 | -------------------------- | ----- |
-| Issue findings             | 277   |
-| Open issue findings        | 277   |
+| Issue findings             | 278   |
+| Open issue findings        | 278   |
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
 | 🔴 P0                      | 0     |
@@ -25,11 +25,11 @@ Status: PASS
 | Live P0 issues             | 0     |
 | Compat gaps                | 0     |
 | Deprecation warnings       | 42    |
-| Inspector gaps             | 160   |
-| Open inspector gaps        | 160   |
+| Inspector gaps             | 161   |
+| Open inspector gaps        | 161   |
 | Runtime coverage artifacts | 0     |
 | Upstream metadata          | 75    |
-| Contract probes            | 273   |
+| Contract probes            | 274   |
 
 ## Triage Overview
 
@@ -38,7 +38,7 @@ Status: PASS
 | live-issue          | 0     | 0  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.                                          |
 | compat-gap          | 0     | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
 | deprecation-warning | 42    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
-| inspector-gap       | 160   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
+| inspector-gap       | 161   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
 | upstream-metadata   | 75    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                                                                    |
 
@@ -467,7 +467,7 @@ _none_
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ index.ts:382](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/src/index.ts#L382)
+    - [before_tool_call @ index.ts:382](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/src/index.ts#L382)
 
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
@@ -631,20 +631,21 @@ _none_
   - **registration-capture-gap**: clawrouter: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:1721](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1721)
-    - [registerCommand @ index.ts:1773](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1773)
-    - [registerCommand @ index.ts:1827](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1827)
-    - [registerCommand @ index.ts:1881](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1881)
-    - [registerCommand @ index.ts:1886](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1886)
-    - [registerCommand @ index.ts:1890](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1890)
-    - [registerCommand @ index.ts:1891](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1891)
-    - [registerService @ index.ts:1900](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1900)
+    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1792)
+    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1842)
+    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1896)
+    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1954)
+    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L2031)
+    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L2036)
+    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L2040)
+    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L2041)
+    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L2050)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: clawrouter: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - [registerTool @ index.ts:1707](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1707)
+    - [registerTool @ index.ts:1778](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1778)
 
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: codex: cold import requires dependency installation in an isolated workspace
@@ -1262,22 +1263,22 @@ _none_
   - **package-build-artifact-entrypoint**: nemoclaw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/dist/index.js)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nemoclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/package.json)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:345](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/src/index.ts#L345)
+    - [registerCommand @ index.ts:345](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/src/index.ts#L345)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
@@ -1553,6 +1554,14 @@ _none_
   - evidence:
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L27)
     - [registerHttpRoute @ index.js:56](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L56)
+
+- 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
+  - **runtime-tool-capture**: wecom: runtime tool schema needs registration capture
+  - state: open · compat:none
+  - evidence:
+    - [registerTool @ index.js:28](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L28)
+    - [registerTool @ index.js:40](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L40)
+    - [registerTool @ index.js:44](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L44)
 
 - 🟡 P2 **whatsapp** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: whatsapp: channel runtime needs envelope/config probes
@@ -2185,7 +2194,7 @@ _none_
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ index.ts:382](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/src/index.ts#L382)
+    - [before_tool_call @ index.ts:382](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/src/index.ts#L382)
 
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
@@ -2453,20 +2462,21 @@ _none_
   - **registration-capture-gap**: clawrouter: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:1721](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1721)
-    - [registerCommand @ index.ts:1773](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1773)
-    - [registerCommand @ index.ts:1827](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1827)
-    - [registerCommand @ index.ts:1881](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1881)
-    - [registerCommand @ index.ts:1886](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1886)
-    - [registerCommand @ index.ts:1890](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1890)
-    - [registerCommand @ index.ts:1891](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1891)
-    - [registerService @ index.ts:1900](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1900)
+    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1792)
+    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1842)
+    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1896)
+    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1954)
+    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L2031)
+    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L2036)
+    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L2040)
+    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L2041)
+    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L2050)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: clawrouter: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - [registerTool @ index.ts:1707](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1707)
+    - [registerTool @ index.ts:1778](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1778)
 
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: codex: cold import requires dependency installation in an isolated workspace
@@ -3514,22 +3524,22 @@ _none_
   - **package-build-artifact-entrypoint**: nemoclaw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/dist/index.js)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nemoclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/package.json)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:345](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/src/index.ts#L345)
+    - [registerCommand @ index.ts:345](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/src/index.ts#L345)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
@@ -4018,6 +4028,14 @@ _none_
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L27)
     - [registerHttpRoute @ index.js:56](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L56)
 
+- 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
+  - **runtime-tool-capture**: wecom: runtime tool schema needs registration capture
+  - state: open · compat:none
+  - evidence:
+    - [registerTool @ index.js:28](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L28)
+    - [registerTool @ index.js:40](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L40)
+    - [registerTool @ index.js:44](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L44)
+
 - 🟡 P2 **whatsapp** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: whatsapp: channel runtime needs envelope/config probes
   - state: open · compat:active
@@ -4184,7 +4202,7 @@ _none_
   - contract: Hook returns preserve terminal, block, and approval semantics.
   - id: `hook.before_tool_call.terminal-block-approval:nemoclaw`
   - evidence:
-    - [before_tool_call @ index.ts:382](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/src/index.ts#L382)
+    - [before_tool_call @ index.ts:382](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/src/index.ts#L382)
 
 - 🟠 P1 **openclaw-telemetry** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
@@ -4394,7 +4412,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:nemoclaw`
   - evidence:
-    - [registerCommand @ index.ts:345](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/src/index.ts#L345)
+    - [registerCommand @ index.ts:345](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/src/index.ts#L345)
 
 - 🟡 P2 **openclaw-telemetry** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -4663,7 +4681,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:nemoclaw`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/dist/index.js)
 
 - 🟡 P2 **opik-openclaw** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -4779,10 +4797,10 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:nemoclaw`
   - evidence:
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/c84b6f19dd8a82063e12a391002e045f83bb7b95/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/14b2be2933ca8e001f66575a1e7bb4f166f401d8/nemoclaw/package.json)
 
 - 🟡 P2 **openclaw-weixin** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -5096,6 +5114,14 @@ _none_
     - [registerTool @ channel.ts:138](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/channel.ts#L138)
     - [registerTool @ remind.ts:222](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/remind.ts#L222)
 
+- 🟡 P2 **wecom** `tool-runtime`
+  - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
+  - id: `tool.registration.schema-capture:wecom`
+  - evidence:
+    - [registerTool @ index.js:28](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L28)
+    - [registerTool @ index.js:40](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L40)
+    - [registerTool @ index.js:44](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L44)
+
 - 🟡 P2 **yuanbao** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
   - id: `tool.registration.schema-capture:yuanbao`
@@ -5114,14 +5140,15 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:clawrouter`
   - evidence:
-    - [registerCommand @ index.ts:1721](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1721)
-    - [registerCommand @ index.ts:1773](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1773)
-    - [registerCommand @ index.ts:1827](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1827)
-    - [registerCommand @ index.ts:1881](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1881)
-    - [registerCommand @ index.ts:1886](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1886)
-    - [registerCommand @ index.ts:1890](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1890)
-    - [registerCommand @ index.ts:1891](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1891)
-    - [registerService @ index.ts:1900](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1900)
+    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1792)
+    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1842)
+    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1896)
+    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1954)
+    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L2031)
+    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L2036)
+    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L2040)
+    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L2041)
+    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L2050)
 
 - 🟢 P3 **codex** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -6180,7 +6207,7 @@ _none_
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
   - id: `tool.registration.schema-capture:clawrouter`
   - evidence:
-    - [registerTool @ index.ts:1707](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1707)
+    - [registerTool @ index.ts:1778](https://github.com/BlockRunAI/ClawRouter/blob/d87dd0710353c2d399b101bb69b4250b04a39aeb/src/index.ts#L1778)
 
 - 🟢 P3 **dingtalk-doc** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
