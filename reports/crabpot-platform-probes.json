@@ -348,7 +348,7 @@
     {
       "fixture": "kitchen-sink",
       "id": "cold-import.extension:kitchen-sink:plugins-kitchen-sink-src-index-js",
-      "status": "ready",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/kitchen-sink/src/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -366,7 +366,7 @@
     {
       "fixture": "kitchen-sink",
       "id": "cold-import.runtimeExtension:kitchen-sink:plugins-kitchen-sink-src-index-js",
-      "status": "ready",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/kitchen-sink/src/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -384,7 +384,7 @@
     {
       "fixture": "kitchen-sink",
       "id": "cold-import.setupEntry:kitchen-sink:plugins-kitchen-sink-src-setup-js",
-      "status": "ready",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/kitchen-sink/src/setup.js",
       "packageManager": "npm",
       "loaderSource": "native-node",

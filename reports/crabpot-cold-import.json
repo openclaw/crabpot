@@ -8,12 +8,12 @@
   "summary": {
     "fixtureCount": 60,
     "entrypointCount": 107,
-    "readyCount": 7,
-    "blockedCount": 100,
+    "readyCount": 4,
+    "blockedCount": 103,
     "tsLoaderRequiredCount": 22,
     "buildRequiredCount": 13,
     "dependencyInstallRequiredCount": 42,
-    "sdkAliasRequiredCount": 0
+    "sdkAliasRequiredCount": 3
   },
   "fixtures": [
     {
@@ -482,11 +482,16 @@
           "kind": "extension",
           "specifier": "./src/index.js",
           "path": "plugins/kitchen-sink/src/index.js",
-          "status": "ready",
-          "blockers": [],
+          "status": "sdk-alias-required",
+          "blockers": [
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/meeting-notes @ plugins/kitchen-sink/src/generated-sdk-imports.ts:151"
+            }
+          ],
           "assertions": [
-            "entrypoint can be imported by Node without fixture credentials",
-            "registration capture shim receives plugin registrations"
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
         {
@@ -496,11 +501,16 @@
           "kind": "runtimeExtension",
           "specifier": "./src/index.js",
           "path": "plugins/kitchen-sink/src/index.js",
-          "status": "ready",
-          "blockers": [],
+          "status": "sdk-alias-required",
+          "blockers": [
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/meeting-notes @ plugins/kitchen-sink/src/generated-sdk-imports.ts:151"
+            }
+          ],
           "assertions": [
-            "entrypoint can be imported by Node without fixture credentials",
-            "registration capture shim receives plugin registrations"
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
         {
@@ -510,11 +520,16 @@
           "kind": "setupEntry",
           "specifier": "./src/setup.js",
           "path": "plugins/kitchen-sink/src/setup.js",
-          "status": "ready",
-          "blockers": [],
+          "status": "sdk-alias-required",
+          "blockers": [
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/meeting-notes @ plugins/kitchen-sink/src/generated-sdk-imports.ts:151"
+            }
+          ],
           "assertions": [
-            "entrypoint can be imported by Node without fixture credentials",
-            "registration capture shim receives plugin registrations"
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         }
       ]

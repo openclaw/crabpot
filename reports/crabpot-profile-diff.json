@@ -36,14 +36,14 @@
     "summary": {
       "commandCount": 9,
       "sampleCount": 27,
-      "rssSampleCount": 2051,
-      "cpuSampleCount": 2051,
+      "rssSampleCount": 2023,
+      "cpuSampleCount": 2023,
       "wallTimeBasis": "command-median-p95",
-      "p50WallMs": 2392,
-      "p95WallMs": 2482,
-      "maxPeakRssMb": 476.4,
-      "maxRssDeltaMb": 448,
-      "maxCpuMsEstimate": 2718,
+      "p50WallMs": 2369,
+      "p95WallMs": 2442,
+      "maxPeakRssMb": 478.6,
+      "maxRssDeltaMb": 450.1,
+      "maxCpuMsEstimate": 2706,
       "maxHarnessHeapDeltaMb": 7.9
     },
     "targetOpenClaw": {
@@ -60,11 +60,11 @@
     "fixtureInventory": {
       "fixtures": 60,
       "sourceFiles": 1773,
-      "observedHooks": 106,
-      "observedRegistrations": 199,
-      "observedSdkImports": 1223,
-      "contractProbes": 274,
-      "issueFindings": 278
+      "observedHooks": 108,
+      "observedRegistrations": 205,
+      "observedSdkImports": 1230,
+      "contractProbes": 304,
+      "issueFindings": 309
     }
   },
   "thresholds": {
@@ -84,20 +84,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 95% over baseline",
+      "message": "p95WallMs regressed 91.8% over baseline",
       "baseline": 1273,
-      "current": 2482,
-      "delta": 1209,
-      "percent": 95
+      "current": 2442,
+      "delta": 1169,
+      "percent": 91.8
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 411.29999999999995 over baseline",
+      "message": "maxPeakRssMb regressed 413.5 over baseline",
       "baseline": 65.1,
-      "current": 476.4,
-      "delta": 411.29999999999995
+      "current": 478.6,
+      "delta": 413.5
     },
     {
       "id": "profile.node-boot",
@@ -105,8 +105,8 @@
       "metric": "nodeBootWallMs",
       "message": "nodeBootWallMs stayed within 500 absolute regression threshold",
       "baseline": 917,
-      "current": 34,
-      "delta": -883
+      "current": 36,
+      "delta": -881
     },
     {
       "id": "registry.compatRecords",

@@ -22,10 +22,18 @@
   "summary": {
     "checkCount": 314,
     "failCount": 0,
-    "warnCount": 307,
-    "passCount": 7
+    "warnCount": 308,
+    "passCount": 6
   },
   "checks": [
+    {
+      "id": "compatibility-report.live-p0-issues",
+      "action": "warn",
+      "message": "1 live P0 issues tracked",
+      "evidence": [
+        "kitchen-sink:unknown-registration-name:none"
+      ]
+    },
     {
       "id": "execution-results.audit-findings",
       "action": "warn",
@@ -3470,7 +3478,7 @@
     {
       "id": "compatibility-report.inspector-gaps",
       "action": "pass",
-      "message": "161 inspector proof gaps tracked",
+      "message": "160 inspector proof gaps tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "dingtalk-doc:before-tool-call-probe",
@@ -3622,7 +3630,6 @@
         "wecom:channel-contract-probe",
         "wecom:package-dependency-install-required",
         "wecom:registration-capture-gap",
-        "wecom:runtime-tool-capture",
         "whatsapp:channel-contract-probe",
         "whatsapp:package-dependency-install-required",
         "yuanbao:channel-contract-probe",
@@ -3636,15 +3643,9 @@
       ]
     },
     {
-      "id": "compatibility-report.live-p0-issues",
-      "action": "pass",
-      "message": "0 live P0 issues tracked",
-      "evidence": []
-    },
-    {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "16 P1 issues tracked",
+      "message": "19 P1 issues tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "codex:reserved-sdk-import",
@@ -3652,6 +3653,9 @@
         "honcho:conversation-access-hook",
         "kitchen-sink:before-tool-call-probe",
         "kitchen-sink:conversation-access-hook",
+        "kitchen-sink:manifest-unknown-contracts",
+        "kitchen-sink:reserved-sdk-import",
+        "kitchen-sink:sdk-export-missing",
         "llm-trace-phoenix:conversation-access-hook",
         "memory-lancedb:conversation-access-hook",
         "memory-tencentdb:conversation-access-hook",

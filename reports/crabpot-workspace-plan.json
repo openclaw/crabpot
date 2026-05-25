@@ -23,7 +23,7 @@
     "tsLoaderEntrypointCount": 22,
     "jitiAlternativeCount": 22,
     "missingBuildScriptCount": 0,
-    "sdkAliasRequiredCount": 0
+    "sdkAliasRequiredCount": 3
   },
   "fixtures": [
     {
@@ -1326,7 +1326,7 @@
           "packagePath": "plugins/kitchen-sink/package.json",
           "packageName": "@openclaw/kitchen-sink",
           "entrypoint": "plugins/kitchen-sink/src/index.js",
-          "status": "ready",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/kitchen-sink/package-lock.json",
           "loaderStrategy": {
@@ -1337,10 +1337,17 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
-          "blockers": [],
+          "blockers": [
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/meeting-notes @ plugins/kitchen-sink/src/generated-sdk-imports.ts:151"
+            }
+          ],
           "steps": [
             {
               "kind": "prepare",
@@ -1382,7 +1389,7 @@
           "packagePath": "plugins/kitchen-sink/package.json",
           "packageName": "@openclaw/kitchen-sink",
           "entrypoint": "plugins/kitchen-sink/src/index.js",
-          "status": "ready",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/kitchen-sink/package-lock.json",
           "loaderStrategy": {
@@ -1393,10 +1400,17 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
-          "blockers": [],
+          "blockers": [
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/meeting-notes @ plugins/kitchen-sink/src/generated-sdk-imports.ts:151"
+            }
+          ],
           "steps": [
             {
               "kind": "prepare",
@@ -1438,7 +1452,7 @@
           "packagePath": "plugins/kitchen-sink/package.json",
           "packageName": "@openclaw/kitchen-sink",
           "entrypoint": "plugins/kitchen-sink/src/setup.js",
-          "status": "ready",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/kitchen-sink/package-lock.json",
           "loaderStrategy": {
@@ -1449,10 +1463,17 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
-          "blockers": [],
+          "blockers": [
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/meeting-notes @ plugins/kitchen-sink/src/generated-sdk-imports.ts:151"
+            }
+          ],
           "steps": [
             {
               "kind": "prepare",
@@ -2238,7 +2259,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/d1a09d76c4d7c0c618aeff8f431074ab3fb9d2c1/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/matrix",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -2328,7 +2349,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/d1a09d76c4d7c0c618aeff8f431074ab3fb9d2c1/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/matrix",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4206,7 +4227,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/d1a09d76c4d7c0c618aeff8f431074ab3fb9d2c1/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/mattermost",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4296,7 +4317,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/d1a09d76c4d7c0c618aeff8f431074ab3fb9d2c1/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/mattermost",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4779,7 +4800,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/d1a09d76c4d7c0c618aeff8f431074ab3fb9d2c1/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/codex",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5343,7 +5364,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/0202f0c2e4c1fb656592266946076a3f0dee885c/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/d1a09d76c4d7c0c618aeff8f431074ab3fb9d2c1/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/memory-lancedb",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },

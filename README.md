@@ -10,68 +10,68 @@
 ## Reporting Data
 
 `main` follows the latest published npm package and npm `latest` plugin artifacts, with bundled OpenClaw fixtures source-packed from the matching checkout. `crab-beta` follows beta npm dist-tags for externalized packages and source-packs bundled fixtures. `crab-development` checks `openclaw/openclaw` main against source-packed official plugin artifacts from that same OpenClaw checkout.
-- **Last dashboard update:** May 25, 2026, 14:29 UTC
+- **Last dashboard update:** May 25, 2026, 23:31 UTC
 <!-- crabpot-tracks:start -->
 - **Source:** `npm-latest`
 - **OpenClaw version:** `2026.5.22`
 - **OpenClaw SHA:** `a374c3a5bfd5`
 - **Dashboard target:** `openclaw@latest + @openclaw/*@latest + bundled source fixtures`
 - **Plugin artifacts:** `npm latest fixture set plus bundled source-packed fixtures`
-- **GitHub report run:** [26405374827](https://github.com/openclaw/crabpot/actions/runs/26405374827)
+- **GitHub report run:** [26423696091](https://github.com/openclaw/crabpot/actions/runs/26423696091)
 <!-- crabpot-tracks:end -->
 
 <!-- crabpot-summary:start -->
 ## Dashboard
 
-| Metric                 | Result                                                                                                              |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Fixtures               | 60                                                                                                                  |
-| Hard breakages         | 0                                                                                                                   |
-| Warnings               | 126                                                                                                                 |
-| Suggestions            | 152                                                                                                                 |
-| Issues                 | 278                                                                                                                 |
-| P0 issues              | [🔴 P0 0](reports/crabpot-issues.md#p0-live-issues)                                                                 |
-| P1 issues              | [🟠 P1 16](reports/crabpot-issues.md#triage-summary)                                                                |
-| Live issues            | 0 total / 0 P0                                                                                                      |
-| Compat gaps            | 0                                                                                                                   |
-| Deprecation warnings   | 42                                                                                                                  |
-| Inspector gaps         | 161                                                                                                                 |
-| Upstream metadata      | 75                                                                                                                  |
-| Contract probes        | 274                                                                                                                 |
-| Policy failures        | 0                                                                                                                   |
-| Policy warnings        | 307                                                                                                                 |
-| Ref diff failures      | 0                                                                                                                   |
-| Profile failures       | 0                                                                                                                   |
-| Execution probes       | 120 pass / 0 fail / 306 blocked                                                                                     |
-| Synthetic probes       | 448 ready / 0 blocked / 448 total                                                                                   |
-| Cold import            | 7 ready / 100 blocked / 107 entrypoints                                                                             |
-| Workspace plan         | 107 entrypoints / 42 installs / 13 builds                                                                           |
-| Platform risks         | 16 Windows / 16 container                                                                                           |
-| Jiti loader candidates | 22                                                                                                                  |
-| Import loop            | p50 1590ms / p95 1592ms / plugin delta RSS 0.9MB / plugin delta CPU 21ms / OpenClaw import 107.9ms / activate 0.4ms |
-| Runtime profile        | p50 2392ms / command p95 2482ms / max RSS 476.4MB / 3 samples/command                                               |
+| Metric                 | Result                                                                                                             |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Fixtures               | 60                                                                                                                 |
+| Hard breakages         | 0                                                                                                                  |
+| Warnings               | 158                                                                                                                |
+| Suggestions            | 151                                                                                                                |
+| Issues                 | 309                                                                                                                |
+| P0 issues              | [🔴 P0 1](reports/crabpot-issues.md#p0-live-issues)                                                                |
+| P1 issues              | [🟠 P1 19](reports/crabpot-issues.md#triage-summary)                                                               |
+| Live issues            | 1 total / 1 P0                                                                                                     |
+| Compat gaps            | 1                                                                                                                  |
+| Deprecation warnings   | 42                                                                                                                 |
+| Inspector gaps         | 160                                                                                                                |
+| Upstream metadata      | 105                                                                                                                |
+| Contract probes        | 304                                                                                                                |
+| Policy failures        | 0                                                                                                                  |
+| Policy warnings        | 308                                                                                                                |
+| Ref diff failures      | 0                                                                                                                  |
+| Profile failures       | 0                                                                                                                  |
+| Execution probes       | 120 pass / 0 fail / 306 blocked                                                                                    |
+| Synthetic probes       | 458 ready / 0 blocked / 458 total                                                                                  |
+| Cold import            | 4 ready / 103 blocked / 107 entrypoints                                                                            |
+| Workspace plan         | 107 entrypoints / 42 installs / 13 builds                                                                          |
+| Platform risks         | 16 Windows / 16 container                                                                                          |
+| Jiti loader candidates | 22                                                                                                                 |
+| Import loop            | p50 1510ms / p95 1517ms / plugin delta RSS 0MB / plugin delta CPU 143ms / OpenClaw import 106.9ms / activate 0.3ms |
+| Runtime profile        | p50 2369ms / command p95 2442ms / max RSS 478.6MB / 3 samples/command                                              |
 
 ### OpenClaw Lifecycle Probe
 
 | Phase                      | p50     | p95     |
 | -------------------------- | ------- | ------- |
-| Import (`full`)            | 107.9ms | 120.3ms |
-| Activate (`full:register`) | 0.4ms   | 0.6ms   |
+| Import (`full`)            | 106.9ms | 119.2ms |
+| Activate (`full:register`) | 0.3ms   | 0.3ms   |
 
 ### Top Discovered Issues
 
-| Severity | Class             | Fixture           | Code                     | Decision            | Title                                                                                                                          |
-| -------- | ----------------- | ----------------- | ------------------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| 🟠 P1    | inspector-gap     | clawmetry         | conversation-access-hook | inspector-follow-up | [clawmetry: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)            |
-| 🟠 P1    | upstream-metadata | codex             | reserved-sdk-import      | plugin-upstream-fix | [codex: plugin imports reserved bundled-plugin SDK compatibility subpaths](reports/crabpot-issues.md#upstream-metadata-issues) |
-| 🟠 P1    | inspector-gap     | dingtalk-doc      | before-tool-call-probe   | inspector-follow-up | [dingtalk-doc: before_tool_call needs terminal/block/approval probes](reports/crabpot-issues.md#inspector-proof-gaps)          |
-| 🟠 P1    | inspector-gap     | honcho            | conversation-access-hook | inspector-follow-up | [honcho: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)               |
-| 🟠 P1    | inspector-gap     | kitchen-sink      | before-tool-call-probe   | inspector-follow-up | [kitchen-sink: before_tool_call needs terminal/block/approval probes](reports/crabpot-issues.md#inspector-proof-gaps)          |
-| 🟠 P1    | inspector-gap     | kitchen-sink      | conversation-access-hook | inspector-follow-up | [kitchen-sink: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)         |
-| 🟠 P1    | inspector-gap     | llm-trace-phoenix | conversation-access-hook | inspector-follow-up | [llm-trace-phoenix: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)    |
-| 🟠 P1    | inspector-gap     | memory-lancedb    | conversation-access-hook | inspector-follow-up | [memory-lancedb: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)       |
-| 🟠 P1    | inspector-gap     | memory-tencentdb  | conversation-access-hook | inspector-follow-up | [memory-tencentdb: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)     |
-| 🟠 P1    | inspector-gap     | memos-cloud       | conversation-access-hook | inspector-follow-up | [memos-cloud: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)          |
+| Severity | Class             | Fixture      | Code                       | Decision            | Title                                                                                                                                 |
+| -------- | ----------------- | ------------ | -------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| 🔴 P0    | live-issue        | kitchen-sink | unknown-registration-name  | core-compat-adapter | [kitchen-sink: fixture calls a registrar missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)                      |
+| 🟠 P1    | inspector-gap     | clawmetry    | conversation-access-hook   | inspector-follow-up | [clawmetry: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)                   |
+| 🟠 P1    | upstream-metadata | codex        | reserved-sdk-import        | plugin-upstream-fix | [codex: plugin imports reserved bundled-plugin SDK compatibility subpaths](reports/crabpot-issues.md#upstream-metadata-issues)        |
+| 🟠 P1    | inspector-gap     | dingtalk-doc | before-tool-call-probe     | inspector-follow-up | [dingtalk-doc: before_tool_call needs terminal/block/approval probes](reports/crabpot-issues.md#inspector-proof-gaps)                 |
+| 🟠 P1    | inspector-gap     | honcho       | conversation-access-hook   | inspector-follow-up | [honcho: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)                      |
+| 🟠 P1    | inspector-gap     | kitchen-sink | before-tool-call-probe     | inspector-follow-up | [kitchen-sink: before_tool_call needs terminal/block/approval probes](reports/crabpot-issues.md#inspector-proof-gaps)                 |
+| 🟠 P1    | inspector-gap     | kitchen-sink | conversation-access-hook   | inspector-follow-up | [kitchen-sink: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps)                |
+| 🟠 P1    | upstream-metadata | kitchen-sink | manifest-unknown-contracts | plugin-upstream-fix | [kitchen-sink: manifest declares unsupported contract keys](reports/crabpot-issues.md#upstream-metadata-issues)                       |
+| 🟠 P1    | upstream-metadata | kitchen-sink | reserved-sdk-import        | plugin-upstream-fix | [kitchen-sink: plugin imports reserved bundled-plugin SDK compatibility subpaths](reports/crabpot-issues.md#upstream-metadata-issues) |
+| 🟠 P1    | compat-gap        | kitchen-sink | sdk-export-missing         | core-compat-adapter | [kitchen-sink: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#compat-gaps)              |
 <!-- crabpot-summary:end -->
 ## What this tests
 
