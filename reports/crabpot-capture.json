@@ -8,12 +8,12 @@
   },
   "summary": {
     "fixtureCount": 60,
-    "registrationCount": 333,
+    "registrationCount": 334,
     "hookCount": 114,
     "sdkImportCount": 2212,
     "packageEntrypointCount": 107,
-    "issueProbeCount": 273,
-    "inspectorShimRequiredCount": 200,
+    "issueProbeCount": 274,
+    "inspectorShimRequiredCount": 201,
     "compatAliasRequiredCount": 0
   },
   "fixtures": [
@@ -33525,10 +33525,10 @@
       "priority": "medium",
       "registrations": [
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1721",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1792",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/src/index.ts:1721",
+          "ref": "plugins/clawrouter/src/index.ts:1792",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -33542,10 +33542,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1773",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1842",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/src/index.ts:1773",
+          "ref": "plugins/clawrouter/src/index.ts:1842",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -33559,10 +33559,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1827",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1896",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/src/index.ts:1827",
+          "ref": "plugins/clawrouter/src/index.ts:1896",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -33576,10 +33576,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1881",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1954",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/src/index.ts:1881",
+          "ref": "plugins/clawrouter/src/index.ts:1954",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -33593,10 +33593,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1886",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-2031",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/src/index.ts:1886",
+          "ref": "plugins/clawrouter/src/index.ts:2031",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -33610,10 +33610,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1890",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-2036",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/src/index.ts:1890",
+          "ref": "plugins/clawrouter/src/index.ts:2036",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -33627,10 +33627,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1891",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-2040",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/src/index.ts:1891",
+          "ref": "plugins/clawrouter/src/index.ts:2040",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -33644,10 +33644,27 @@
           ]
         },
         {
-          "id": "registration.registerImageGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1622",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-2041",
+          "fixture": "clawrouter",
+          "registrar": "registerCommand",
+          "ref": "plugins/clawrouter/src/index.ts:2041",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "command id is stable",
+            "interactive command payload is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture-command",
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerImageGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1693",
           "fixture": "clawrouter",
           "registrar": "registerImageGenerationProvider",
-          "ref": "plugins/clawrouter/src/index.ts:1622",
+          "ref": "plugins/clawrouter/src/index.ts:1693",
           "support": "target-captured",
           "assertions": [
             "registration arguments are captured"
@@ -33657,10 +33674,10 @@
           ]
         },
         {
-          "id": "registration.registerMusicGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1623",
+          "id": "registration.registerMusicGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1694",
           "fixture": "clawrouter",
           "registrar": "registerMusicGenerationProvider",
-          "ref": "plugins/clawrouter/src/index.ts:1623",
+          "ref": "plugins/clawrouter/src/index.ts:1694",
           "support": "target-captured",
           "assertions": [
             "registration arguments are captured"
@@ -33670,10 +33687,10 @@
           ]
         },
         {
-          "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1613",
+          "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1684",
           "fixture": "clawrouter",
           "registrar": "registerProvider",
-          "ref": "plugins/clawrouter/src/index.ts:1613",
+          "ref": "plugins/clawrouter/src/index.ts:1684",
           "support": "target-captured",
           "assertions": [
             "registration arguments are captured"
@@ -33683,10 +33700,10 @@
           ]
         },
         {
-          "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1618",
+          "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1689",
           "fixture": "clawrouter",
           "registrar": "registerProvider",
-          "ref": "plugins/clawrouter/src/index.ts:1618",
+          "ref": "plugins/clawrouter/src/index.ts:1689",
           "support": "target-captured",
           "assertions": [
             "registration arguments are captured"
@@ -33696,10 +33713,10 @@
           ]
         },
         {
-          "id": "registration.registerService:clawrouter:plugins-clawrouter-src-index-ts-1900",
+          "id": "registration.registerService:clawrouter:plugins-clawrouter-src-index-ts-2050",
           "fixture": "clawrouter",
           "registrar": "registerService",
-          "ref": "plugins/clawrouter/src/index.ts:1900",
+          "ref": "plugins/clawrouter/src/index.ts:2050",
           "support": "inspector-shim-required",
           "assertions": [
             "service id is stable",
@@ -33714,10 +33731,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:clawrouter:plugins-clawrouter-src-index-ts-1707",
+          "id": "registration.registerTool:clawrouter:plugins-clawrouter-src-index-ts-1778",
           "fixture": "clawrouter",
           "registrar": "registerTool",
-          "ref": "plugins/clawrouter/src/index.ts:1707",
+          "ref": "plugins/clawrouter/src/index.ts:1778",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -33736,10 +33753,10 @@
           ]
         },
         {
-          "id": "registration.registerVideoGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1625",
+          "id": "registration.registerVideoGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1696",
           "fixture": "clawrouter",
           "registrar": "registerVideoGenerationProvider",
-          "ref": "plugins/clawrouter/src/index.ts:1625",
+          "ref": "plugins/clawrouter/src/index.ts:1696",
           "support": "target-captured",
           "assertions": [
             "registration arguments are captured"
@@ -33749,10 +33766,10 @@
           ]
         },
         {
-          "id": "registration.registerWebSearchProvider:clawrouter:plugins-clawrouter-src-index-ts-1634",
+          "id": "registration.registerWebSearchProvider:clawrouter:plugins-clawrouter-src-index-ts-1705",
           "fixture": "clawrouter",
           "registrar": "registerWebSearchProvider",
-          "ref": "plugins/clawrouter/src/index.ts:1634",
+          "ref": "plugins/clawrouter/src/index.ts:1705",
           "support": "target-captured",
           "assertions": [
             "registration arguments are captured"
@@ -36551,6 +36568,21 @@
       ]
     },
     {
+      "id": "tool.registration.schema-capture:wecom",
+      "fixture": "wecom",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/wecom/index.js:28",
+        "registerTool @ plugins/wecom/index.js:40",
+        "registerTool @ plugins/wecom/index.js:44"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
+      ]
+    },
+    {
       "id": "tool.registration.schema-capture:yuanbao",
       "fixture": "yuanbao",
       "priority": "P2",
@@ -36584,14 +36616,15 @@
       "priority": "P3",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerCommand @ plugins/clawrouter/src/index.ts:1721",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1773",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1827",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1881",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1886",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1890",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1891",
-        "registerService @ plugins/clawrouter/src/index.ts:1900"
+        "registerCommand @ plugins/clawrouter/src/index.ts:1792",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1842",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1896",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1954",
+        "registerCommand @ plugins/clawrouter/src/index.ts:2031",
+        "registerCommand @ plugins/clawrouter/src/index.ts:2036",
+        "registerCommand @ plugins/clawrouter/src/index.ts:2040",
+        "registerCommand @ plugins/clawrouter/src/index.ts:2041",
+        "registerService @ plugins/clawrouter/src/index.ts:2050"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -38685,7 +38718,7 @@
       "priority": "P3",
       "target": "tool-runtime",
       "evidence": [
-        "registerTool @ plugins/clawrouter/src/index.ts:1707"
+        "registerTool @ plugins/clawrouter/src/index.ts:1778"
       ],
       "assertions": [
         "tool schema is captured",

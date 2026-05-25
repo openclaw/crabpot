@@ -702,11 +702,11 @@
     "highPriorityFixtures": 22,
     "breakageCount": 0,
     "warningCount": 126,
-    "suggestionCount": 151,
+    "suggestionCount": 152,
     "decisionCount": 298,
-    "logCount": 486,
-    "issueCount": 277,
-    "openIssueCount": 277,
+    "logCount": 485,
+    "issueCount": 278,
+    "openIssueCount": 278,
     "p0IssueCount": 0,
     "p1IssueCount": 16,
     "openP0IssueCount": 0,
@@ -715,14 +715,14 @@
     "liveP0IssueCount": 0,
     "compatGapCount": 0,
     "deprecationWarningCount": 42,
-    "inspectorGapCount": 160,
+    "inspectorGapCount": 161,
     "upstreamIssueCount": 75,
     "fixtureRegressionCount": 0,
-    "openInspectorGapCount": 160,
+    "openInspectorGapCount": 161,
     "runtimeCoveredIssueCount": 0,
     "runtimePartiallyCoveredIssueCount": 0,
     "runtimeCoverageArtifactCount": 0,
-    "contractProbeCount": 273
+    "contractProbeCount": 274
   },
   "fixtures": [
     {
@@ -1171,9 +1171,7 @@
           "ref": "plugins/wecom/index.js:44"
         }
       ],
-      "manifestContracts": [
-        "tools"
-      ],
+      "manifestContracts": [],
       "manifestFiles": [
         "plugins/wecom/openclaw.plugin.json"
       ],
@@ -1193,7 +1191,6 @@
         "plugins/wecom/wecom/callback-crypto.js",
         "plugins/wecom/wecom/callback-inbound.js",
         "plugins/wecom/wecom/callback-media.js",
-        "plugins/wecom/wecom/cfg-for-dispatch.js",
         "plugins/wecom/wecom/channel-plugin.js",
         "plugins/wecom/wecom/commands.js",
         "plugins/wecom/wecom/constants.js",
@@ -1229,16 +1226,13 @@
             "channelConfigs",
             "channels",
             "configSchema",
-            "contracts",
             "description",
             "id",
             "kind",
             "name",
             "skills"
           ],
-          "contracts": [
-            "tools"
-          ],
+          "contracts": [],
           "providerAuthEnvVars": {},
           "channelEnvVars": {},
           "activation": null
@@ -1248,7 +1242,7 @@
       "package": {
         "path": "plugins/wecom/package.json",
         "name": "@sunnoy/wecom",
-        "version": "3.4.0",
+        "version": "3.2.0",
         "type": "module",
         "main": "index.js",
         "npmPack": {
@@ -1313,7 +1307,7 @@
         {
           "path": "plugins/wecom/package.json",
           "name": "@sunnoy/wecom",
-          "version": "3.4.0",
+          "version": "3.2.0",
           "type": "module",
           "main": "index.js",
           "npmPack": {
@@ -25568,8 +25562,8 @@
           ],
           "runtimeExtensions": [],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.4.24",
-          "buildOpenClawVersion": "2026.4.24",
+          "compatPluginApi": ">=2026.5.18",
+          "buildOpenClawVersion": "2026.5.18",
           "buildPluginSdkVersion": null,
           "install": null,
           "release": null,
@@ -25616,8 +25610,8 @@
             ],
             "runtimeExtensions": [],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.4.24",
-            "buildOpenClawVersion": "2026.4.24",
+            "compatPluginApi": ">=2026.5.18",
+            "buildOpenClawVersion": "2026.5.18",
             "buildPluginSdkVersion": null,
             "install": null,
             "release": null,
@@ -29650,92 +29644,98 @@
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/src/index.ts",
-          "line": 1721,
-          "ref": "plugins/clawrouter/src/index.ts:1721"
+          "line": 1792,
+          "ref": "plugins/clawrouter/src/index.ts:1792"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/src/index.ts",
-          "line": 1773,
-          "ref": "plugins/clawrouter/src/index.ts:1773"
+          "line": 1842,
+          "ref": "plugins/clawrouter/src/index.ts:1842"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/src/index.ts",
-          "line": 1827,
-          "ref": "plugins/clawrouter/src/index.ts:1827"
+          "line": 1896,
+          "ref": "plugins/clawrouter/src/index.ts:1896"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/src/index.ts",
-          "line": 1881,
-          "ref": "plugins/clawrouter/src/index.ts:1881"
+          "line": 1954,
+          "ref": "plugins/clawrouter/src/index.ts:1954"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/src/index.ts",
-          "line": 1886,
-          "ref": "plugins/clawrouter/src/index.ts:1886"
+          "line": 2031,
+          "ref": "plugins/clawrouter/src/index.ts:2031"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/src/index.ts",
-          "line": 1890,
-          "ref": "plugins/clawrouter/src/index.ts:1890"
+          "line": 2036,
+          "ref": "plugins/clawrouter/src/index.ts:2036"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/src/index.ts",
-          "line": 1891,
-          "ref": "plugins/clawrouter/src/index.ts:1891"
+          "line": 2040,
+          "ref": "plugins/clawrouter/src/index.ts:2040"
+        },
+        {
+          "name": "registerCommand",
+          "file": "plugins/clawrouter/src/index.ts",
+          "line": 2041,
+          "ref": "plugins/clawrouter/src/index.ts:2041"
         },
         {
           "name": "registerImageGenerationProvider",
           "file": "plugins/clawrouter/src/index.ts",
-          "line": 1622,
-          "ref": "plugins/clawrouter/src/index.ts:1622"
+          "line": 1693,
+          "ref": "plugins/clawrouter/src/index.ts:1693"
         },
         {
           "name": "registerMusicGenerationProvider",
           "file": "plugins/clawrouter/src/index.ts",
-          "line": 1623,
-          "ref": "plugins/clawrouter/src/index.ts:1623"
+          "line": 1694,
+          "ref": "plugins/clawrouter/src/index.ts:1694"
         },
         {
           "name": "registerProvider",
           "file": "plugins/clawrouter/src/index.ts",
-          "line": 1613,
-          "ref": "plugins/clawrouter/src/index.ts:1613"
+          "line": 1684,
+          "ref": "plugins/clawrouter/src/index.ts:1684"
         },
         {
           "name": "registerProvider",
           "file": "plugins/clawrouter/src/index.ts",
-          "line": 1618,
-          "ref": "plugins/clawrouter/src/index.ts:1618"
+          "line": 1689,
+          "ref": "plugins/clawrouter/src/index.ts:1689"
         },
         {
           "name": "registerService",
           "file": "plugins/clawrouter/src/index.ts",
-          "line": 1900,
-          "ref": "plugins/clawrouter/src/index.ts:1900"
+          "line": 2050,
+          "ref": "plugins/clawrouter/src/index.ts:2050"
         },
         {
           "name": "registerTool",
           "file": "plugins/clawrouter/src/index.ts",
-          "line": 1707,
-          "ref": "plugins/clawrouter/src/index.ts:1707"
+          "line": 1778,
+          "ref": "plugins/clawrouter/src/index.ts:1778"
         },
         {
           "name": "registerVideoGenerationProvider",
           "file": "plugins/clawrouter/src/index.ts",
-          "line": 1625,
-          "ref": "plugins/clawrouter/src/index.ts:1625"
+          "line": 1696,
+          "ref": "plugins/clawrouter/src/index.ts:1696"
         },
         {
           "name": "registerWebSearchProvider",
           "file": "plugins/clawrouter/src/index.ts",
-          "line": 1634,
-          "ref": "plugins/clawrouter/src/index.ts:1634"
+          "line": 1705,
+          "ref": "plugins/clawrouter/src/index.ts:1705"
         }
       ],
       "manifestContracts": [],
@@ -29743,8 +29743,6 @@
         "plugins/clawrouter/openclaw.plugin.json"
       ],
       "sourceFiles": [
-        "plugins/clawrouter/.tmp-e2e/e2e.js",
-        "plugins/clawrouter/dist-e2e/e2e.js",
         "plugins/clawrouter/eslint.config.js",
         "plugins/clawrouter/scripts/e2e-multiturn.mjs",
         "plugins/clawrouter/src/auth.ts",
@@ -29840,7 +29838,7 @@
       "package": {
         "path": "plugins/clawrouter/package.json",
         "name": "@blockrun/clawrouter",
-        "version": "0.12.190",
+        "version": "0.12.196",
         "type": "module",
         "main": "dist/index.js",
         "npmPack": {
@@ -29899,7 +29897,7 @@
         {
           "path": "plugins/clawrouter/package.json",
           "name": "@blockrun/clawrouter",
-          "version": "0.12.190",
+          "version": "0.12.196",
           "type": "module",
           "main": "dist/index.js",
           "npmPack": {
@@ -33104,6 +33102,17 @@
       "compatRecord": "channel.runtime.envelope-config-metadata"
     },
     {
+      "fixture": "wecom",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool @ plugins/wecom/index.js:28",
+        "registerTool @ plugins/wecom/index.js:40",
+        "registerTool @ plugins/wecom/index.js:44"
+      ]
+    },
+    {
       "fixture": "qqbot",
       "code": "package-dependency-install-required",
       "level": "suggestion",
@@ -34540,14 +34549,15 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerCommand @ plugins/clawrouter/src/index.ts:1721",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1773",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1827",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1881",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1886",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1890",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1891",
-        "registerService @ plugins/clawrouter/src/index.ts:1900"
+        "registerCommand @ plugins/clawrouter/src/index.ts:1792",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1842",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1896",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1954",
+        "registerCommand @ plugins/clawrouter/src/index.ts:2031",
+        "registerCommand @ plugins/clawrouter/src/index.ts:2036",
+        "registerCommand @ plugins/clawrouter/src/index.ts:2040",
+        "registerCommand @ plugins/clawrouter/src/index.ts:2041",
+        "registerService @ plugins/clawrouter/src/index.ts:2050"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -34557,7 +34567,7 @@
       "level": "suggestion",
       "message": "tool shape is only visible after runtime registration capture",
       "evidence": [
-        "registerTool @ plugins/clawrouter/src/index.ts:1707"
+        "registerTool @ plugins/clawrouter/src/index.ts:1778"
       ]
     },
     {
@@ -35666,7 +35676,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-F5778F56",
+      "id": "CRABPOT-1B80B6ED",
       "fixture": "clawrouter",
       "severity": "P2",
       "owner": "inspector",
@@ -35679,20 +35689,21 @@
       "compatStatus": "active",
       "title": "clawrouter: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerCommand @ plugins/clawrouter/src/index.ts:1721",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1773",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1827",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1881",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1886",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1890",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1891",
-        "registerService @ plugins/clawrouter/src/index.ts:1900"
+        "registerCommand @ plugins/clawrouter/src/index.ts:1792",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1842",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1896",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1954",
+        "registerCommand @ plugins/clawrouter/src/index.ts:2031",
+        "registerCommand @ plugins/clawrouter/src/index.ts:2036",
+        "registerCommand @ plugins/clawrouter/src/index.ts:2040",
+        "registerCommand @ plugins/clawrouter/src/index.ts:2041",
+        "registerService @ plugins/clawrouter/src/index.ts:2050"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-482E4706",
+      "id": "CRABPOT-4EFCFF45",
       "fixture": "clawrouter",
       "severity": "P2",
       "owner": "inspector",
@@ -35705,7 +35716,7 @@
       "compatStatus": "none",
       "title": "clawrouter: runtime tool schema needs registration capture",
       "evidence": [
-        "registerTool @ plugins/clawrouter/src/index.ts:1707"
+        "registerTool @ plugins/clawrouter/src/index.ts:1778"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -39926,6 +39937,27 @@
       "runtimeCoverage": null
     },
     {
+      "id": "CRABPOT-76A40DAA",
+      "fixture": "wecom",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "wecom: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/wecom/index.js:28",
+        "registerTool @ plugins/wecom/index.js:40",
+        "registerTool @ plugins/wecom/index.js:44"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null
+    },
+    {
       "id": "CRABPOT-67A43907",
       "fixture": "whatsapp",
       "severity": "P2",
@@ -41770,6 +41802,18 @@
       ]
     },
     {
+      "id": "tool.registration.schema-capture:wecom",
+      "fixture": "wecom",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/wecom/index.js:28",
+        "registerTool @ plugins/wecom/index.js:40",
+        "registerTool @ plugins/wecom/index.js:44"
+      ]
+    },
+    {
       "id": "tool.registration.schema-capture:yuanbao",
       "fixture": "yuanbao",
       "priority": "P2",
@@ -41798,14 +41842,15 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerCommand @ plugins/clawrouter/src/index.ts:1721",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1773",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1827",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1881",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1886",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1890",
-        "registerCommand @ plugins/clawrouter/src/index.ts:1891",
-        "registerService @ plugins/clawrouter/src/index.ts:1900"
+        "registerCommand @ plugins/clawrouter/src/index.ts:1792",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1842",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1896",
+        "registerCommand @ plugins/clawrouter/src/index.ts:1954",
+        "registerCommand @ plugins/clawrouter/src/index.ts:2031",
+        "registerCommand @ plugins/clawrouter/src/index.ts:2036",
+        "registerCommand @ plugins/clawrouter/src/index.ts:2040",
+        "registerCommand @ plugins/clawrouter/src/index.ts:2041",
+        "registerService @ plugins/clawrouter/src/index.ts:2050"
       ]
     },
     {
@@ -43456,7 +43501,7 @@
       "target": "tool-runtime",
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
-        "registerTool @ plugins/clawrouter/src/index.ts:1707"
+        "registerTool @ plugins/clawrouter/src/index.ts:1778"
       ]
     },
     {
@@ -43539,7 +43584,7 @@
       "fixture": "wecom",
       "code": "seam-inventory",
       "level": "log",
-      "message": "observed 5 hooks, 3 registrations, and 1 manifest contracts",
+      "message": "observed 5 hooks, 3 registrations, and 0 manifest contracts",
       "evidence": [
         "hook:before_prompt_build",
         "hook:before_tool_call",
@@ -43548,8 +43593,7 @@
         "hook:subagent_spawned",
         "registration:registerChannel",
         "registration:registerHttpRoute",
-        "registration:registerTool",
-        "manifestContract:tools"
+        "registration:registerTool"
       ]
     },
     {
@@ -43605,16 +43649,7 @@
       "evidence": [
         "plugins/wecom/package.json",
         "@sunnoy/wecom",
-        "version:3.4.0"
-      ]
-    },
-    {
-      "fixture": "wecom",
-      "code": "declarative-contracts",
-      "level": "log",
-      "message": "fixture declares manifest contracts that can be checked without executing plugin code",
-      "evidence": [
-        "tools"
+        "version:3.2.0"
       ]
     },
     {
@@ -47999,7 +48034,7 @@
       "evidence": [
         "plugins/clawrouter/package.json",
         "@blockrun/clawrouter",
-        "version:0.12.190"
+        "version:0.12.196"
       ]
     },
     {
@@ -49814,10 +49849,10 @@
     },
     {
       "fixture": "wecom",
-      "decision": "no-action",
-      "seam": "manifest-contract",
-      "action": "Keep checking this declarative contract in default offline CI.",
-      "evidence": "tools"
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
     },
     {
       "fixture": "qqbot",
