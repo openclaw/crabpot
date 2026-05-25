@@ -3,7 +3,7 @@
   "targetOpenClaw": {
     "status": "ok",
     "configuredPath": "./openclaw",
-    "sdkExportCount": 313
+    "sdkExportCount": 314
   },
   "summary": {
     "fixtureCount": 60,
