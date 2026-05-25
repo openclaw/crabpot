@@ -2,12 +2,12 @@
   "generatedAt": "deterministic",
   "summary": {
     "fixtureCount": 60,
-    "probeCount": 448,
+    "probeCount": 447,
     "hookProbeCount": 114,
-    "registrationProbeCount": 334,
-    "readyCount": 448,
+    "registrationProbeCount": 333,
+    "readyCount": 447,
     "blockedCount": 0,
-    "directExecutionCount": 171,
+    "directExecutionCount": 170,
     "optInExecutionCount": 29,
     "metadataOnlyCount": 134
   },
@@ -10807,7 +10807,7 @@
       "source": "plugins/telnyx-sms/index.ts:259"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1792",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1721",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10831,10 +10831,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1792"
+      "source": "plugins/clawrouter/src/index.ts:1721"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1842",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1773",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10858,10 +10858,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1842"
+      "source": "plugins/clawrouter/src/index.ts:1773"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1896",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1827",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10885,10 +10885,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1896"
+      "source": "plugins/clawrouter/src/index.ts:1827"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1954",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1881",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10912,10 +10912,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1954"
+      "source": "plugins/clawrouter/src/index.ts:1881"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-2031",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1886",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10939,10 +10939,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:2031"
+      "source": "plugins/clawrouter/src/index.ts:1886"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-2036",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1890",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10966,10 +10966,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:2036"
+      "source": "plugins/clawrouter/src/index.ts:1890"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-2040",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1891",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10993,37 +10993,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:2040"
+      "source": "plugins/clawrouter/src/index.ts:1891"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-2041",
-      "fixture": "clawrouter",
-      "kind": "registration",
-      "seam": "registerCommand",
-      "status": "ready",
-      "blocker": null,
-      "assertions": [
-        "command id is stable",
-        "interactive command payload is captured"
-      ],
-      "syntheticArguments": [
-        {
-          "name": "fixture-command",
-          "handler": "function"
-        }
-      ],
-      "execution": {
-        "mode": "direct",
-        "callableProperties": [
-          "handler",
-          "run",
-          "execute"
-        ]
-      },
-      "source": "plugins/clawrouter/src/index.ts:2041"
-    },
-    {
-      "id": "registration.registerImageGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1693",
+      "id": "registration.registerImageGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1622",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerImageGenerationProvider",
@@ -11040,10 +11013,10 @@
         "callableProperties": [],
         "reason": "image generation providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1693"
+      "source": "plugins/clawrouter/src/index.ts:1622"
     },
     {
-      "id": "registration.registerMusicGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1694",
+      "id": "registration.registerMusicGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1623",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerMusicGenerationProvider",
@@ -11060,10 +11033,10 @@
         "callableProperties": [],
         "reason": "music generation providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1694"
+      "source": "plugins/clawrouter/src/index.ts:1623"
     },
     {
-      "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1684",
+      "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1613",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerProvider",
@@ -11080,10 +11053,10 @@
         "callableProperties": [],
         "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1684"
+      "source": "plugins/clawrouter/src/index.ts:1613"
     },
     {
-      "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1689",
+      "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1618",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerProvider",
@@ -11100,10 +11073,10 @@
         "callableProperties": [],
         "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1689"
+      "source": "plugins/clawrouter/src/index.ts:1618"
     },
     {
-      "id": "registration.registerService:clawrouter:plugins-clawrouter-src-index-ts-2050",
+      "id": "registration.registerService:clawrouter:plugins-clawrouter-src-index-ts-1900",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerService",
@@ -11129,10 +11102,10 @@
         ],
         "option": "includeLifecycle"
       },
-      "source": "plugins/clawrouter/src/index.ts:2050"
+      "source": "plugins/clawrouter/src/index.ts:1900"
     },
     {
-      "id": "registration.registerTool:clawrouter:plugins-clawrouter-src-index-ts-1778",
+      "id": "registration.registerTool:clawrouter:plugins-clawrouter-src-index-ts-1707",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerTool",
@@ -11161,10 +11134,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1778"
+      "source": "plugins/clawrouter/src/index.ts:1707"
     },
     {
-      "id": "registration.registerVideoGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1696",
+      "id": "registration.registerVideoGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1625",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerVideoGenerationProvider",
@@ -11181,10 +11154,10 @@
         "callableProperties": [],
         "reason": "video generation providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1696"
+      "source": "plugins/clawrouter/src/index.ts:1625"
     },
     {
-      "id": "registration.registerWebSearchProvider:clawrouter:plugins-clawrouter-src-index-ts-1705",
+      "id": "registration.registerWebSearchProvider:clawrouter:plugins-clawrouter-src-index-ts-1634",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerWebSearchProvider",
@@ -11201,7 +11174,7 @@
         "callableProperties": [],
         "reason": "web search providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1705"
+      "source": "plugins/clawrouter/src/index.ts:1634"
     },
     {
       "id": "registration.registerTool:memu-engine:plugins-memu-engine-index-ts-1252",
