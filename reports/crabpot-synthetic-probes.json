@@ -2,12 +2,12 @@
   "generatedAt": "deterministic",
   "summary": {
     "fixtureCount": 60,
-    "probeCount": 447,
+    "probeCount": 448,
     "hookProbeCount": 114,
-    "registrationProbeCount": 333,
-    "readyCount": 447,
+    "registrationProbeCount": 334,
+    "readyCount": 448,
     "blockedCount": 0,
-    "directExecutionCount": 170,
+    "directExecutionCount": 171,
     "optInExecutionCount": 29,
     "metadataOnlyCount": 134
   },
@@ -2030,7 +2030,7 @@
       "source": "plugins/diffs/.crabpot-package/dist/index.js:2097"
     },
     {
-      "id": "hook.agent_end:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js-668",
+      "id": "hook.agent_end:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js-672",
       "fixture": "memory-lancedb",
       "kind": "hook",
       "seam": "agent_end",
@@ -2058,10 +2058,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:668"
+      "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:672"
     },
     {
-      "id": "hook.before_prompt_build:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js-640",
+      "id": "hook.before_prompt_build:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js-644",
       "fixture": "memory-lancedb",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -2091,10 +2091,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:640"
+      "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:644"
     },
     {
-      "id": "hook.session_end:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js-712",
+      "id": "hook.session_end:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js-716",
       "fixture": "memory-lancedb",
       "kind": "hook",
       "seam": "session_end",
@@ -2111,7 +2111,7 @@
         "hook": "session_end",
         "fixture": "memory-lancedb"
       },
-      "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:712"
+      "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:716"
     },
     {
       "id": "hook.before_prompt_build:nemoclaw:plugins-nemoclaw-nemoclaw-src-runtime-context-ts-78",
@@ -6342,7 +6342,7 @@
       "source": "plugins/bluebubbles/.crabpot-package/dist/index.js:3"
     },
     {
-      "id": "registration.definePluginEntry:diagnostics-otel:plugins-diagnostics-otel-crabpot-package-dist-index-js-1602",
+      "id": "registration.definePluginEntry:diagnostics-otel:plugins-diagnostics-otel-crabpot-package-dist-index-js-1693",
       "fixture": "diagnostics-otel",
       "kind": "registration",
       "seam": "definePluginEntry",
@@ -6363,10 +6363,10 @@
         "callableProperties": [],
         "reason": "entry wrapper metadata is captured before plugin runtime execution"
       },
-      "source": "plugins/diagnostics-otel/.crabpot-package/dist/index.js:1602"
+      "source": "plugins/diagnostics-otel/.crabpot-package/dist/index.js:1693"
     },
     {
-      "id": "registration.registerService:diagnostics-otel:plugins-diagnostics-otel-crabpot-package-dist-index-js-1607",
+      "id": "registration.registerService:diagnostics-otel:plugins-diagnostics-otel-crabpot-package-dist-index-js-1698",
       "fixture": "diagnostics-otel",
       "kind": "registration",
       "seam": "registerService",
@@ -6392,10 +6392,10 @@
         ],
         "option": "includeLifecycle"
       },
-      "source": "plugins/diagnostics-otel/.crabpot-package/dist/index.js:1607"
+      "source": "plugins/diagnostics-otel/.crabpot-package/dist/index.js:1698"
     },
     {
-      "id": "registration.createChatChannelPlugin:discord:plugins-discord-crabpot-package-dist-channel-BswuOAN6-js-423",
+      "id": "registration.createChatChannelPlugin:discord:plugins-discord-crabpot-package-dist-channel-LszCFESI-js-423",
       "fixture": "discord",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -6420,7 +6420,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/discord/.crabpot-package/dist/channel-BswuOAN6.js:423"
+      "source": "plugins/discord/.crabpot-package/dist/channel-LszCFESI.js:423"
     },
     {
       "id": "registration.defineBundledChannelEntry:discord:plugins-discord-crabpot-package-dist-index-js-4",
@@ -6668,7 +6668,7 @@
       "source": "plugins/matrix/.crabpot-package/index.ts:28"
     },
     {
-      "id": "registration.createChatChannelPlugin:msteams:plugins-msteams-crabpot-package-dist-channel-DgswKGEX-js-567",
+      "id": "registration.createChatChannelPlugin:msteams:plugins-msteams-crabpot-package-dist-channel-GgLcEkGO-js-567",
       "fixture": "msteams",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -6693,7 +6693,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/msteams/.crabpot-package/dist/channel-DgswKGEX.js:567"
+      "source": "plugins/msteams/.crabpot-package/dist/channel-GgLcEkGO.js:567"
     },
     {
       "id": "registration.defineBundledChannelEntry:msteams:plugins-msteams-crabpot-package-dist-index-js-3",
@@ -7464,7 +7464,7 @@
       "source": "plugins/zalouser/.crabpot-package/dist/index.js:23"
     },
     {
-      "id": "registration.createChatChannelPlugin:feishu:plugins-feishu-crabpot-package-dist-channel-Bp7ymPWB-js-1518",
+      "id": "registration.createChatChannelPlugin:feishu:plugins-feishu-crabpot-package-dist-channel-Br99IozO-js-1518",
       "fixture": "feishu",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -7489,7 +7489,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/feishu/.crabpot-package/dist/channel-Bp7ymPWB.js:1518"
+      "source": "plugins/feishu/.crabpot-package/dist/channel-Br99IozO.js:1518"
     },
     {
       "id": "registration.defineBundledChannelEntry:feishu:plugins-feishu-crabpot-package-dist-channel-entry-js-3",
@@ -8191,7 +8191,7 @@
       "source": "plugins/codex/.crabpot-package/dist/index.js:1105"
     },
     {
-      "id": "registration.definePluginEntry:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-dist-index-js-472",
+      "id": "registration.definePluginEntry:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-dist-index-js-535",
       "fixture": "diagnostics-prometheus",
       "kind": "registration",
       "seam": "definePluginEntry",
@@ -8212,10 +8212,10 @@
         "callableProperties": [],
         "reason": "entry wrapper metadata is captured before plugin runtime execution"
       },
-      "source": "plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:472"
+      "source": "plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:535"
     },
     {
-      "id": "registration.registerHttpRoute:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-dist-index-js-478",
+      "id": "registration.registerHttpRoute:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-dist-index-js-541",
       "fixture": "diagnostics-prometheus",
       "kind": "registration",
       "seam": "registerHttpRoute",
@@ -8240,10 +8240,10 @@
           "execute"
         ]
       },
-      "source": "plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:478"
+      "source": "plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:541"
     },
     {
-      "id": "registration.registerService:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-dist-index-js-477",
+      "id": "registration.registerService:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-dist-index-js-540",
       "fixture": "diagnostics-prometheus",
       "kind": "registration",
       "seam": "registerService",
@@ -8269,7 +8269,7 @@
         ],
         "option": "includeLifecycle"
       },
-      "source": "plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:477"
+      "source": "plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:540"
     },
     {
       "id": "registration.definePluginEntry:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4591",
@@ -9009,7 +9009,7 @@
       "source": "plugins/memory-lancedb/.crabpot-package/dist/cli-metadata.js:8"
     },
     {
-      "id": "registration.registerCli:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js-572",
+      "id": "registration.registerCli:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js-576",
       "fixture": "memory-lancedb",
       "kind": "registration",
       "seam": "registerCli",
@@ -9038,7 +9038,7 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:572"
+      "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:576"
     },
     {
       "id": "registration.registerService:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js-370",
@@ -9070,7 +9070,7 @@
       "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:370"
     },
     {
-      "id": "registration.registerService:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js-718",
+      "id": "registration.registerService:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js-722",
       "fixture": "memory-lancedb",
       "kind": "registration",
       "seam": "registerService",
@@ -9096,10 +9096,10 @@
         ],
         "option": "includeLifecycle"
       },
-      "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:718"
+      "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:722"
     },
     {
-      "id": "registration.registerTool:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js-413",
+      "id": "registration.registerTool:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js-417",
       "fixture": "memory-lancedb",
       "kind": "registration",
       "seam": "registerTool",
@@ -9128,10 +9128,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:413"
+      "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:417"
     },
     {
-      "id": "registration.registerTool:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js-453",
+      "id": "registration.registerTool:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js-457",
       "fixture": "memory-lancedb",
       "kind": "registration",
       "seam": "registerTool",
@@ -9160,10 +9160,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:453"
+      "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:457"
     },
     {
-      "id": "registration.registerTool:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js-498",
+      "id": "registration.registerTool:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js-502",
       "fixture": "memory-lancedb",
       "kind": "registration",
       "seam": "registerTool",
@@ -9192,7 +9192,7 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:498"
+      "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:502"
     },
     {
       "id": "registration.defineBundledChannelEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-index-js-9",
@@ -9306,7 +9306,7 @@
       "source": "plugins/openclaw-qqbot/.crabpot-package/dist/api.js:503"
     },
     {
-      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BVMD1oZL-js-335",
+      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-DOxZCBxE-js-716",
       "fixture": "whatsapp",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -9331,7 +9331,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/whatsapp/.crabpot-package/dist/channel-BVMD1oZL.js:335"
+      "source": "plugins/whatsapp/.crabpot-package/dist/channel-DOxZCBxE.js:716"
     },
     {
       "id": "registration.defineBundledChannelEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-index-js-3",
@@ -10807,7 +10807,7 @@
       "source": "plugins/telnyx-sms/index.ts:259"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1721",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1792",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10831,10 +10831,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1721"
+      "source": "plugins/clawrouter/src/index.ts:1792"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1773",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1842",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10858,10 +10858,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1773"
+      "source": "plugins/clawrouter/src/index.ts:1842"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1827",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1896",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10885,10 +10885,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1827"
+      "source": "plugins/clawrouter/src/index.ts:1896"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1881",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1954",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10912,10 +10912,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1881"
+      "source": "plugins/clawrouter/src/index.ts:1954"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1886",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-2031",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10939,10 +10939,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1886"
+      "source": "plugins/clawrouter/src/index.ts:2031"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1890",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-2036",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10966,10 +10966,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1890"
+      "source": "plugins/clawrouter/src/index.ts:2036"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1891",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-2040",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -10993,10 +10993,37 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1891"
+      "source": "plugins/clawrouter/src/index.ts:2040"
     },
     {
-      "id": "registration.registerImageGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1622",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-2041",
+      "fixture": "clawrouter",
+      "kind": "registration",
+      "seam": "registerCommand",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "command id is stable",
+        "interactive command payload is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-command",
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute"
+        ]
+      },
+      "source": "plugins/clawrouter/src/index.ts:2041"
+    },
+    {
+      "id": "registration.registerImageGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1693",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerImageGenerationProvider",
@@ -11013,10 +11040,10 @@
         "callableProperties": [],
         "reason": "image generation providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1622"
+      "source": "plugins/clawrouter/src/index.ts:1693"
     },
     {
-      "id": "registration.registerMusicGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1623",
+      "id": "registration.registerMusicGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1694",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerMusicGenerationProvider",
@@ -11033,10 +11060,10 @@
         "callableProperties": [],
         "reason": "music generation providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1623"
+      "source": "plugins/clawrouter/src/index.ts:1694"
     },
     {
-      "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1613",
+      "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1684",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerProvider",
@@ -11053,10 +11080,10 @@
         "callableProperties": [],
         "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1613"
+      "source": "plugins/clawrouter/src/index.ts:1684"
     },
     {
-      "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1618",
+      "id": "registration.registerProvider:clawrouter:plugins-clawrouter-src-index-ts-1689",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerProvider",
@@ -11073,10 +11100,10 @@
         "callableProperties": [],
         "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1618"
+      "source": "plugins/clawrouter/src/index.ts:1689"
     },
     {
-      "id": "registration.registerService:clawrouter:plugins-clawrouter-src-index-ts-1900",
+      "id": "registration.registerService:clawrouter:plugins-clawrouter-src-index-ts-2050",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerService",
@@ -11102,10 +11129,10 @@
         ],
         "option": "includeLifecycle"
       },
-      "source": "plugins/clawrouter/src/index.ts:1900"
+      "source": "plugins/clawrouter/src/index.ts:2050"
     },
     {
-      "id": "registration.registerTool:clawrouter:plugins-clawrouter-src-index-ts-1707",
+      "id": "registration.registerTool:clawrouter:plugins-clawrouter-src-index-ts-1778",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerTool",
@@ -11134,10 +11161,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/src/index.ts:1707"
+      "source": "plugins/clawrouter/src/index.ts:1778"
     },
     {
-      "id": "registration.registerVideoGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1625",
+      "id": "registration.registerVideoGenerationProvider:clawrouter:plugins-clawrouter-src-index-ts-1696",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerVideoGenerationProvider",
@@ -11154,10 +11181,10 @@
         "callableProperties": [],
         "reason": "video generation providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1625"
+      "source": "plugins/clawrouter/src/index.ts:1696"
     },
     {
-      "id": "registration.registerWebSearchProvider:clawrouter:plugins-clawrouter-src-index-ts-1634",
+      "id": "registration.registerWebSearchProvider:clawrouter:plugins-clawrouter-src-index-ts-1705",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerWebSearchProvider",
@@ -11174,7 +11201,7 @@
         "callableProperties": [],
         "reason": "web search providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/clawrouter/src/index.ts:1634"
+      "source": "plugins/clawrouter/src/index.ts:1705"
     },
     {
       "id": "registration.registerTool:memu-engine:plugins-memu-engine-index-ts-1252",
