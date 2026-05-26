@@ -108,6 +108,48 @@ test("default ci policy classifies generated kitchen-sink callable stubs", async
   );
 });
 
+test("default ci policy classifies known memory-lancedb runtime blockers", async () => {
+  const report = await buildCiPolicyReport({
+    compatibilityReport: compatibilityReport(),
+    executionResults: executionResults([
+      {
+        seam: "registerTool",
+        reason: "captured memory tool requires realistic query/text input",
+      },
+      {
+        seam: "registerTool",
+        reason: "captured memory tool requires the host embedding provider runtime",
+      },
+    ]),
+  });
+
+  assert.equal(report.status, "pass");
+  assert.equal(validateCiPolicyReport(report).length, 0);
+  assert.deepEqual(
+    report.checks.filter((check) => check.id.startsWith("execution-results.blocked.")).map((check) => check.action),
+    ["warn", "warn"],
+  );
+});
+
+test("default ci policy classifies HTTP route descriptor blockers", async () => {
+  const report = await buildCiPolicyReport({
+    compatibilityReport: compatibilityReport(),
+    executionResults: executionResults([
+      {
+        seam: "registerHttpRoute",
+        reason: "captured HTTP route probe requires route descriptor input",
+      },
+    ]),
+  });
+
+  assert.equal(report.status, "pass");
+  assert.equal(validateCiPolicyReport(report).length, 0);
+  assert.deepEqual(
+    report.checks.filter((check) => check.id.startsWith("execution-results.blocked.")).map((check) => check.action),
+    ["warn"],
+  );
+});
+
 test("ci policy fails ref diff hard regressions", async () => {
   const report = await buildCiPolicyReport({
     policy,

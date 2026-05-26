@@ -26,6 +26,37 @@ test("synthetic probe plan is generated from the current crabpot capture", async
   assert.match(renderSyntheticProbeMarkdown(plan), /Crabpot Synthetic Probes/);
 });
 
+test("synthetic probe plan marks HTTP routes blocked until descriptor inputs exist", async () => {
+  const plan = await buildSyntheticProbePlan({
+    capture: {
+      generatedAt: "deterministic",
+      summary: { fixtureCount: 1 },
+      fixtures: [
+        {
+          id: "fixture",
+          hooks: [],
+          registrations: [
+            {
+              id: "registration.registerHttpRoute:fixture",
+              registrar: "registerHttpRoute",
+              assertions: ["route descriptor input is available"],
+              syntheticArguments: [{}],
+              ref: "fixture.js:1",
+            },
+          ],
+        },
+      ],
+    },
+  });
+
+  assert.deepEqual(validateSyntheticProbePlan(plan), []);
+  assert.equal(plan.summary.readyCount, 0);
+  assert.equal(plan.summary.blockedCount, 1);
+  assert.equal(plan.summary.directExecutionCount, 1);
+  assert.equal(plan.probes[0].status, "blocked");
+  assert.equal(plan.probes[0].blocker, "captured HTTP route probe requires route descriptor input");
+});
+
 test("synthetic probe CLI refuses isolated execution without opt-in", async () => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-probes-"));
   const entrypoint = path.join(dir, "fixture.mjs");
@@ -72,6 +103,40 @@ test("synthetic probe CLI honors mock SDK for OpenClaw SDK imports", async () =>
   const probes = JSON.parse(result.stdout);
   assert.equal(probes.status, "captured");
   assert.equal(probes.summary.failCount, 0);
+});
+
+test("synthetic probe CLI keeps HTTP route handlers blocked without route descriptors", async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-probes-http-"));
+  const entrypoint = path.join(dir, "index.mjs");
+  await writeFile(
+    entrypoint,
+    [
+      "export function register(api) {",
+      "  api.registerHttpRoute({",
+      "    method: 'GET',",
+      "    path: '/metrics',",
+      "    handler() {",
+      "      throw new Error('handler should not be called without descriptor-aware probe input');",
+      "    },",
+      "  });",
+      "}",
+    ].join("\n"),
+    "utf8",
+  );
+
+  const result = spawnSync(process.execPath, ["scripts/synthetic-probes.mjs", "--entrypoint", entrypoint], {
+    cwd: repoRoot,
+    encoding: "utf8",
+    env: { ...process.env, CRABPOT_EXECUTE_ISOLATED: "1" },
+  });
+
+  assert.equal(result.status, 0, result.stderr);
+  const probes = JSON.parse(result.stdout);
+  assert.equal(probes.status, "captured");
+  assert.equal(probes.summary.failCount, 0);
+  assert.equal(probes.summary.blockedCount, 1);
+  assert.equal(probes.results[0].status, "blocked");
+  assert.equal(probes.results[0].blockedBy, "http-route-descriptor-input");
 });
 
 test("fixture execution policy classifies known live tool failures as blocked", () => {

@@ -5,8 +5,8 @@
     "probeCount": 458,
     "hookProbeCount": 116,
     "registrationProbeCount": 342,
-    "readyCount": 458,
-    "blockedCount": 0,
+    "readyCount": 449,
+    "blockedCount": 9,
     "directExecutionCount": 171,
     "optInExecutionCount": 29,
     "metadataOnlyCount": 142
@@ -2939,8 +2939,8 @@
       "fixture": "wecom",
       "kind": "registration",
       "seam": "registerHttpRoute",
-      "status": "ready",
-      "blocker": null,
+      "status": "blocked",
+      "blocker": "captured HTTP route probe requires route descriptor input",
       "assertions": [
         "route method and path are captured",
         "auth policy metadata is captured"
@@ -2958,7 +2958,8 @@
           "handler",
           "run",
           "execute"
-        ]
+        ],
+        "blockedBy": "http-route-descriptor-input"
       },
       "source": "plugins/wecom/index.js:56"
     },
@@ -5348,8 +5349,8 @@
       "fixture": "kitchen-sink",
       "kind": "registration",
       "seam": "registerHttpRoute",
-      "status": "ready",
-      "blocker": null,
+      "status": "blocked",
+      "blocker": "captured HTTP route probe requires route descriptor input",
       "assertions": [
         "route method and path are captured",
         "auth policy metadata is captured"
@@ -5367,7 +5368,8 @@
           "handler",
           "run",
           "execute"
-        ]
+        ],
+        "blockedBy": "http-route-descriptor-input"
       },
       "source": "plugins/kitchen-sink/src/generated-registrars.js:23"
     },
@@ -5376,8 +5378,8 @@
       "fixture": "kitchen-sink",
       "kind": "registration",
       "seam": "registerHttpRoute",
-      "status": "ready",
-      "blocker": null,
+      "status": "blocked",
+      "blocker": "captured HTTP route probe requires route descriptor input",
       "assertions": [
         "route method and path are captured",
         "auth policy metadata is captured"
@@ -5395,7 +5397,8 @@
           "handler",
           "run",
           "execute"
-        ]
+        ],
+        "blockedBy": "http-route-descriptor-input"
       },
       "source": "plugins/kitchen-sink/src/kitchen-runtime.js:105"
     },
@@ -7126,8 +7129,8 @@
       "fixture": "nostr",
       "kind": "registration",
       "seam": "registerHttpRoute",
-      "status": "ready",
-      "blocker": null,
+      "status": "blocked",
+      "blocker": "captured HTTP route probe requires route descriptor input",
       "assertions": [
         "route method and path are captured",
         "auth policy metadata is captured"
@@ -7145,7 +7148,8 @@
           "handler",
           "run",
           "execute"
-        ]
+        ],
+        "blockedBy": "http-route-descriptor-input"
       },
       "source": "plugins/nostr/.crabpot-package/dist/index.js:71"
     },
@@ -8214,8 +8218,8 @@
       "fixture": "mattermost",
       "kind": "registration",
       "seam": "registerHttpRoute",
-      "status": "ready",
-      "blocker": null,
+      "status": "blocked",
+      "blocker": "captured HTTP route probe requires route descriptor input",
       "assertions": [
         "route method and path are captured",
         "auth policy metadata is captured"
@@ -8233,7 +8237,8 @@
           "handler",
           "run",
           "execute"
-        ]
+        ],
+        "blockedBy": "http-route-descriptor-input"
       },
       "source": "plugins/mattermost/.crabpot-package/src/mattermost/slash-state.ts:396"
     },
@@ -8529,8 +8534,8 @@
       "fixture": "diagnostics-prometheus",
       "kind": "registration",
       "seam": "registerHttpRoute",
-      "status": "ready",
-      "blocker": null,
+      "status": "blocked",
+      "blocker": "captured HTTP route probe requires route descriptor input",
       "assertions": [
         "route method and path are captured",
         "auth policy metadata is captured"
@@ -8548,7 +8553,8 @@
           "handler",
           "run",
           "execute"
-        ]
+        ],
+        "blockedBy": "http-route-descriptor-input"
       },
       "source": "plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:541"
     },
@@ -9183,8 +9189,8 @@
       "fixture": "diffs",
       "kind": "registration",
       "seam": "registerHttpRoute",
-      "status": "ready",
-      "blocker": null,
+      "status": "blocked",
+      "blocker": "captured HTTP route probe requires route descriptor input",
       "assertions": [
         "route method and path are captured",
         "auth policy metadata is captured"
@@ -9202,7 +9208,8 @@
           "handler",
           "run",
           "execute"
-        ]
+        ],
+        "blockedBy": "http-route-descriptor-input"
       },
       "source": "plugins/diffs/.crabpot-package/dist/index.js:2084"
     },
@@ -10570,8 +10577,8 @@
       "fixture": "mocrane-wecom",
       "kind": "registration",
       "seam": "registerHttpRoute",
-      "status": "ready",
-      "blocker": null,
+      "status": "blocked",
+      "blocker": "captured HTTP route probe requires route descriptor input",
       "assertions": [
         "route method and path are captured",
         "auth policy metadata is captured"
@@ -10589,7 +10596,8 @@
           "handler",
           "run",
           "execute"
-        ]
+        ],
+        "blockedBy": "http-route-descriptor-input"
       },
       "source": "plugins/mocrane-wecom/index.ts:34"
     },
@@ -11093,8 +11101,8 @@
       "fixture": "telnyx-sms",
       "kind": "registration",
       "seam": "registerHttpRoute",
-      "status": "ready",
-      "blocker": null,
+      "status": "blocked",
+      "blocker": "captured HTTP route probe requires route descriptor input",
       "assertions": [
         "route method and path are captured",
         "auth policy metadata is captured"
@@ -11112,7 +11120,8 @@
           "handler",
           "run",
           "execute"
-        ]
+        ],
+        "blockedBy": "http-route-descriptor-input"
       },
       "source": "plugins/telnyx-sms/index.ts:259"
     },
