@@ -36,15 +36,15 @@
     "summary": {
       "commandCount": 9,
       "sampleCount": 27,
-      "rssSampleCount": 2054,
-      "cpuSampleCount": 2054,
+      "rssSampleCount": 2053,
+      "cpuSampleCount": 2053,
       "wallTimeBasis": "command-median-p95",
-      "p50WallMs": 2422,
-      "p95WallMs": 2518,
-      "maxPeakRssMb": 478,
-      "maxRssDeltaMb": 448.8,
-      "maxCpuMsEstimate": 2762,
-      "maxHarnessHeapDeltaMb": 8.1
+      "p50WallMs": 2409,
+      "p95WallMs": 2481,
+      "maxPeakRssMb": 484.1,
+      "maxRssDeltaMb": 455.7,
+      "maxCpuMsEstimate": 2759,
+      "maxHarnessHeapDeltaMb": 7.7
     },
     "targetOpenClaw": {
       "status": "ok",
@@ -59,10 +59,10 @@
     },
     "fixtureInventory": {
       "fixtures": 60,
-      "sourceFiles": 1773,
+      "sourceFiles": 1778,
       "observedHooks": 108,
       "observedRegistrations": 205,
-      "observedSdkImports": 1230,
+      "observedSdkImports": 1244,
       "contractProbes": 304,
       "issueFindings": 309
     }
@@ -84,20 +84,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 97.8% over baseline",
+      "message": "p95WallMs regressed 94.9% over baseline",
       "baseline": 1273,
-      "current": 2518,
-      "delta": 1245,
-      "percent": 97.8
+      "current": 2481,
+      "delta": 1208,
+      "percent": 94.9
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 412.9 over baseline",
+      "message": "maxPeakRssMb regressed 419 over baseline",
       "baseline": 65.1,
-      "current": 478,
-      "delta": 412.9
+      "current": 484.1,
+      "delta": 419
     },
     {
       "id": "profile.node-boot",
@@ -105,8 +105,8 @@
       "metric": "nodeBootWallMs",
       "message": "nodeBootWallMs stayed within 500 absolute regression threshold",
       "baseline": 917,
-      "current": 40,
-      "delta": -877
+      "current": 39,
+      "delta": -878
     },
     {
       "id": "registry.compatRecords",
