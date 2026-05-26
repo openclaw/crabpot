@@ -43,6 +43,27 @@
       "reasonIncludes": "captured registration has no supported callable probe",
       "decision": "allowed-blocked",
       "until": "generated surface runtime harness lands"
+    },
+    {
+      "id": "http-route-descriptor-input",
+      "seam": "registerHttpRoute",
+      "reasonIncludes": "captured HTTP route probe requires route descriptor input",
+      "decision": "allowed-blocked",
+      "until": "HTTP route synthetic probes receive captured method/path descriptor input"
+    },
+    {
+      "id": "memory-lancedb-tool-query-input",
+      "seam": "registerTool",
+      "reasonIncludes": "captured memory tool requires realistic query/text input",
+      "decision": "allowed-blocked",
+      "until": "memory tool argument synthesis supports realistic query payloads"
+    },
+    {
+      "id": "memory-lancedb-host-embedding-runtime",
+      "seam": "registerTool",
+      "reasonIncludes": "captured memory tool requires the host embedding provider runtime",
+      "decision": "allowed-blocked",
+      "until": "memory synthetic probes can inject a host embedding runtime"
     }
   ],
   "expectedWarnings": [

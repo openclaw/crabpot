@@ -3,7 +3,7 @@
   "status": "pass",
   "strict": false,
   "policy": {
-    "allowedBlocked": 6,
+    "allowedBlocked": 9,
     "expectedWarnings": 1,
     "fixtureSets": [
       "build",
