@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-26T15:52:29.658Z",
+  "generatedAt": "2026-05-26T16:47:52.230Z",
   "fixtureSet": "all",
-  "pluginTrack": "latest",
+  "pluginTrack": "manifest",
   "summary": {
     "failureCount": 0,
     "openclawFailureCount": 0,

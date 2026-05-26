@@ -5694,7 +5694,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "audio-decode, baileys, https-proxy-agent, jimp, typebox"
+              "evidence": "audio-decode, baileys, https-proxy-agent, typebox"
             }
           ],
           "steps": [
