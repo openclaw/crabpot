@@ -1,39 +1,39 @@
 # Crabpot CI Summary
 
 Generated: deterministic
-Mode: dependabot
+Mode: check
 OpenClaw: openclaw@latest (2026.5.22, a374c3a5bfd5)
 Status: PASS
 
 ## Counts
 
-| Metric                      | Value                                                                                                                  |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Breakages                   | 0                                                                                                                      |
-| Warnings                    | 158                                                                                                                    |
-| Suggestions                 | 151                                                                                                                    |
-| Issues                      | 309                                                                                                                    |
-| P0 issues                   | 1                                                                                                                      |
-| P1 issues                   | 19                                                                                                                     |
-| Live issues                 | 1                                                                                                                      |
-| Live P0 issues              | 1                                                                                                                      |
-| Compat gaps                 | 1                                                                                                                      |
-| Deprecation warnings        | 42                                                                                                                     |
-| Inspector gaps              | 160                                                                                                                    |
-| Upstream metadata           | 105                                                                                                                    |
-| Ref diff failures           | 0                                                                                                                      |
-| Ref diff warnings           | 0                                                                                                                      |
-| Policy failures             | 0                                                                                                                      |
-| Policy warnings             | 308                                                                                                                    |
-| Profile failures            | 0                                                                                                                      |
-| Profile warnings            | 2                                                                                                                      |
-| Execution pass              | 120                                                                                                                    |
-| Execution fail              | 0                                                                                                                      |
-| Execution blocked           | 306                                                                                                                    |
-| Windows portability risks   | 16                                                                                                                     |
-| Container portability risks | 16                                                                                                                     |
-| Jiti loader candidates      | 22                                                                                                                     |
-| Import loop                 | p50 1553 ms / p95 1568 ms / plugin delta RSS 0 MB / plugin delta CPU 0 ms / OpenClaw import 108.7 ms / activate 0.3 ms |
+| Metric                      | Value                                                                                                                    |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Breakages                   | 0                                                                                                                        |
+| Warnings                    | 158                                                                                                                      |
+| Suggestions                 | 151                                                                                                                      |
+| Issues                      | 309                                                                                                                      |
+| P0 issues                   | 1                                                                                                                        |
+| P1 issues                   | 19                                                                                                                       |
+| Live issues                 | 1                                                                                                                        |
+| Live P0 issues              | 1                                                                                                                        |
+| Compat gaps                 | 1                                                                                                                        |
+| Deprecation warnings        | 42                                                                                                                       |
+| Inspector gaps              | 160                                                                                                                      |
+| Upstream metadata           | 105                                                                                                                      |
+| Ref diff failures           | 0                                                                                                                        |
+| Ref diff warnings           | 0                                                                                                                        |
+| Policy failures             | 0                                                                                                                        |
+| Policy warnings             | 308                                                                                                                      |
+| Profile failures            | 0                                                                                                                        |
+| Profile warnings            | 2                                                                                                                        |
+| Execution pass              | 120                                                                                                                      |
+| Execution fail              | 0                                                                                                                        |
+| Execution blocked           | 306                                                                                                                      |
+| Windows portability risks   | 16                                                                                                                       |
+| Container portability risks | 16                                                                                                                       |
+| Jiti loader candidates      | 22                                                                                                                       |
+| Import loop                 | p50 1537 ms / p95 1556 ms / plugin delta RSS 0 MB / plugin delta CPU 150 ms / OpenClaw import 109.4 ms / activate 0.3 ms |
 
 ## Top Issues
 
@@ -91,10 +91,10 @@ _none_
 
 ## Profile Findings
 
-| Action | ID               | Metric       | Baseline | Current | Message                                                 |
-| ------ | ---------------- | ------------ | -------- | ------- | ------------------------------------------------------- |
-| warn   | profile.wall-p95 | p95WallMs    | 1273     | 2487    | p95WallMs regressed 95.4% over baseline                 |
-| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 476.3   | maxPeakRssMb regressed 411.20000000000005 over baseline |
+| Action | ID               | Metric       | Baseline | Current | Message                                    |
+| ------ | ---------------- | ------------ | -------- | ------- | ------------------------------------------ |
+| warn   | profile.wall-p95 | p95WallMs    | 1273     | 2518    | p95WallMs regressed 97.8% over baseline    |
+| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 478     | maxPeakRssMb regressed 412.9 over baseline |
 
 ## Artifacts
 
