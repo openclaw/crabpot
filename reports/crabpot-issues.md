@@ -13,8 +13,8 @@ Status: PASS
 
 | Metric                     | Value |
 | -------------------------- | ----- |
-| Issue findings             | 309   |
-| Open issue findings        | 309   |
+| Issue findings             | 310   |
+| Open issue findings        | 310   |
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
 | 🔴 P0                      | 1     |
@@ -25,11 +25,11 @@ Status: PASS
 | Live P0 issues             | 1     |
 | Compat gaps                | 2     |
 | Deprecation warnings       | 42    |
-| Inspector gaps             | 159   |
-| Open inspector gaps        | 159   |
+| Inspector gaps             | 160   |
+| Open inspector gaps        | 160   |
 | Runtime coverage artifacts | 0     |
 | Upstream metadata          | 105   |
-| Contract probes            | 304   |
+| Contract probes            | 305   |
 
 ## Triage Overview
 
@@ -38,7 +38,7 @@ Status: PASS
 | live-issue          | 1     | 1  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.                                          |
 | compat-gap          | 2     | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
 | deprecation-warning | 42    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
-| inspector-gap       | 159   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
+| inspector-gap       | 160   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
 | upstream-metadata   | 105   | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                                                                    |
 
@@ -95,8 +95,8 @@ _none_
   - **legacy-root-sdk-import**: clawmetry: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/66351077818a2b8bb5825546ed2532e7eb6135fc/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/66351077818a2b8bb5825546ed2532e7eb6135fc/clawhub-plugin/src/service.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/33b37f700c3b55d5158e0ca5294f2d6f405fdc9b/clawhub-plugin/index.ts#L1)
+    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/33b37f700c3b55d5158e0ca5294f2d6f405fdc9b/clawhub-plugin/src/service.ts#L1)
 
 - 🟡 P2 **codex-app-server** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: codex-app-server: root plugin SDK barrel is still used by fixtures
@@ -425,7 +425,7 @@ _none_
   - **conversation-access-hook**: clawmetry: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/66351077818a2b8bb5825546ed2532e7eb6135fc/clawhub-plugin/src/service.ts#L117)
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/33b37f700c3b55d5158e0ca5294f2d6f405fdc9b/clawhub-plugin/src/service.ts#L117)
 
 - 🟠 P1 **dingtalk-doc** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: dingtalk-doc: before_tool_call needs terminal/block/approval probes
@@ -540,7 +540,18 @@ _none_
   - **registration-capture-gap**: a2a-gateway: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:897](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L897)
+    - [registerGatewayMethod @ index.ts:616](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L616)
+    - [registerGatewayMethod @ index.ts:622](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L622)
+    - [registerGatewayMethod @ index.ts:631](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L631)
+    - [registerGatewayMethod @ index.ts:657](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L657)
+    - [registerGatewayMethod @ index.ts:669](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L669)
+    - [registerService @ index.ts:857](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L857)
+
+- 🟡 P2 **a2a-gateway** `inspector-gap` `inspector-follow-up`
+  - **runtime-tool-capture**: a2a-gateway: runtime tool schema needs registration capture
+  - state: open · compat:none
+  - evidence:
+    - [registerTool @ index.ts:777](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L777)
 
 - 🟡 P2 **agentchat** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: agentchat: channel runtime needs envelope/config probes
@@ -612,13 +623,13 @@ _none_
   - **package-typescript-source-entrypoint**: clawmetry: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/66351077818a2b8bb5825546ed2532e7eb6135fc/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/33b37f700c3b55d5158e0ca5294f2d6f405fdc9b/clawhub-plugin/index.ts)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/66351077818a2b8bb5825546ed2532e7eb6135fc/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/33b37f700c3b55d5158e0ca5294f2d6f405fdc9b/clawhub-plugin/index.ts#L20)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
@@ -2319,7 +2330,7 @@ _none_
   - **conversation-access-hook**: clawmetry: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/66351077818a2b8bb5825546ed2532e7eb6135fc/clawhub-plugin/src/service.ts#L117)
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/33b37f700c3b55d5158e0ca5294f2d6f405fdc9b/clawhub-plugin/src/service.ts#L117)
 
 - 🟠 P1 **codex** `upstream-metadata` `plugin-upstream-fix`
   - **reserved-sdk-import**: codex: plugin imports reserved bundled-plugin SDK compatibility subpaths
@@ -2491,7 +2502,18 @@ _none_
   - **registration-capture-gap**: a2a-gateway: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:897](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L897)
+    - [registerGatewayMethod @ index.ts:616](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L616)
+    - [registerGatewayMethod @ index.ts:622](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L622)
+    - [registerGatewayMethod @ index.ts:631](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L631)
+    - [registerGatewayMethod @ index.ts:657](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L657)
+    - [registerGatewayMethod @ index.ts:669](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L669)
+    - [registerService @ index.ts:857](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L857)
+
+- 🟡 P2 **a2a-gateway** `inspector-gap` `inspector-follow-up`
+  - **runtime-tool-capture**: a2a-gateway: runtime tool schema needs registration capture
+  - state: open · compat:none
+  - evidence:
+    - [registerTool @ index.ts:777](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L777)
 
 - 🟡 P2 **agentchat** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: agentchat: channel runtime needs envelope/config probes
@@ -2634,8 +2656,8 @@ _none_
   - **legacy-root-sdk-import**: clawmetry: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/66351077818a2b8bb5825546ed2532e7eb6135fc/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/66351077818a2b8bb5825546ed2532e7eb6135fc/clawhub-plugin/src/service.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/33b37f700c3b55d5158e0ca5294f2d6f405fdc9b/clawhub-plugin/index.ts#L1)
+    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/33b37f700c3b55d5158e0ca5294f2d6f405fdc9b/clawhub-plugin/src/service.ts#L1)
 
 - 🟡 P2 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: clawmetry: OpenClaw package install metadata is incomplete
@@ -2648,13 +2670,13 @@ _none_
   - **package-typescript-source-entrypoint**: clawmetry: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/66351077818a2b8bb5825546ed2532e7eb6135fc/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/33b37f700c3b55d5158e0ca5294f2d6f405fdc9b/clawhub-plugin/index.ts)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/66351077818a2b8bb5825546ed2532e7eb6135fc/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/33b37f700c3b55d5158e0ca5294f2d6f405fdc9b/clawhub-plugin/index.ts#L20)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
@@ -4596,7 +4618,7 @@ _none_
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:clawmetry`
   - evidence:
-    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/66351077818a2b8bb5825546ed2532e7eb6135fc/clawhub-plugin/src/service.ts#L117)
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/33b37f700c3b55d5158e0ca5294f2d6f405fdc9b/clawhub-plugin/src/service.ts#L117)
 
 - 🟠 P1 **honcho** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
@@ -4671,7 +4693,12 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:a2a-gateway`
   - evidence:
-    - [registerService @ index.ts:897](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L897)
+    - [registerGatewayMethod @ index.ts:616](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L616)
+    - [registerGatewayMethod @ index.ts:622](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L622)
+    - [registerGatewayMethod @ index.ts:631](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L631)
+    - [registerGatewayMethod @ index.ts:657](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L657)
+    - [registerGatewayMethod @ index.ts:669](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L669)
+    - [registerService @ index.ts:857](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L857)
 
 - 🟡 P2 **connectclaw** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -5522,6 +5549,12 @@ _none_
     - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/channel.ts#L1)
     - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/remind.ts#L1)
 
+- 🟡 P2 **a2a-gateway** `tool-runtime`
+  - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
+  - id: `tool.registration.schema-capture:a2a-gateway`
+  - evidence:
+    - [registerTool @ index.ts:777](https://github.com/win4r/openclaw-a2a-gateway/blob/91a332d82df19b05b7ba22c1ad0d991ad1ce8ef9/index.ts#L777)
+
 - 🟡 P2 **connectclaw** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
   - id: `tool.registration.schema-capture:connectclaw`
@@ -5559,7 +5592,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:clawmetry`
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/66351077818a2b8bb5825546ed2532e7eb6135fc/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/33b37f700c3b55d5158e0ca5294f2d6f405fdc9b/clawhub-plugin/index.ts#L20)
 
 - 🟢 P3 **clawrouter** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -6366,7 +6399,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:clawmetry`
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/66351077818a2b8bb5825546ed2532e7eb6135fc/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/33b37f700c3b55d5158e0ca5294f2d6f405fdc9b/clawhub-plugin/index.ts)
 
 - 🟢 P3 **codex-app-server** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -6698,8 +6731,8 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:clawmetry`
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/66351077818a2b8bb5825546ed2532e7eb6135fc/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/66351077818a2b8bb5825546ed2532e7eb6135fc/clawhub-plugin/src/service.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/33b37f700c3b55d5158e0ca5294f2d6f405fdc9b/clawhub-plugin/index.ts#L1)
+    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/33b37f700c3b55d5158e0ca5294f2d6f405fdc9b/clawhub-plugin/src/service.ts#L1)
 
 - 🟢 P3 **codex-app-server** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.

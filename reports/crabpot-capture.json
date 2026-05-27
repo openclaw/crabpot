@@ -8,12 +8,12 @@
   },
   "summary": {
     "fixtureCount": 60,
-    "registrationCount": 337,
+    "registrationCount": 342,
     "hookCount": 116,
     "sdkImportCount": 2254,
     "packageEntrypointCount": 107,
-    "issueProbeCount": 304,
-    "inspectorShimRequiredCount": 201,
+    "issueProbeCount": 305,
+    "inspectorShimRequiredCount": 206,
     "compatAliasRequiredCount": 4
   },
   "fixtures": [
@@ -640,10 +640,110 @@
       "priority": "high",
       "registrations": [
         {
-          "id": "registration.registerService:a2a-gateway:plugins-a2a-gateway-index-ts-897",
+          "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-616",
+          "fixture": "a2a-gateway",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/a2a-gateway/index.ts:616",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-622",
+          "fixture": "a2a-gateway",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/a2a-gateway/index.ts:622",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-631",
+          "fixture": "a2a-gateway",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/a2a-gateway/index.ts:631",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-657",
+          "fixture": "a2a-gateway",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/a2a-gateway/index.ts:657",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-669",
+          "fixture": "a2a-gateway",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/a2a-gateway/index.ts:669",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerService:a2a-gateway:plugins-a2a-gateway-index-ts-857",
           "fixture": "a2a-gateway",
           "registrar": "registerService",
-          "ref": "plugins/a2a-gateway/index.ts:897",
+          "ref": "plugins/a2a-gateway/index.ts:857",
           "support": "inspector-shim-required",
           "assertions": [
             "service id is stable",
@@ -658,10 +758,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:a2a-gateway:plugins-a2a-gateway-index-ts-817",
+          "id": "registration.registerTool:a2a-gateway:plugins-a2a-gateway-index-ts-777",
           "fixture": "a2a-gateway",
           "registrar": "registerTool",
-          "ref": "plugins/a2a-gateway/index.ts:817",
+          "ref": "plugins/a2a-gateway/index.ts:777",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -35647,7 +35747,12 @@
       "priority": "P2",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerService @ plugins/a2a-gateway/index.ts:897"
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:616",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:622",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:631",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:657",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:669",
+        "registerService @ plugins/a2a-gateway/index.ts:857"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -37256,6 +37361,19 @@
       "assertions": [
         "package export exists",
         "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "evidence": [
+        "registerTool @ plugins/a2a-gateway/index.ts:777"
+      ],
+      "assertions": [
+        "tool schema is captured",
+        "tool result metadata is retained"
       ]
     },
     {

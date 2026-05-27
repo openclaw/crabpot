@@ -2,12 +2,12 @@
   "generatedAt": "deterministic",
   "summary": {
     "fixtureCount": 60,
-    "probeCount": 453,
+    "probeCount": 458,
     "hookProbeCount": 116,
-    "registrationProbeCount": 337,
-    "readyCount": 444,
+    "registrationProbeCount": 342,
+    "readyCount": 449,
     "blockedCount": 9,
-    "directExecutionCount": 166,
+    "directExecutionCount": 171,
     "optInExecutionCount": 29,
     "metadataOnlyCount": 142
   },
@@ -3155,7 +3155,162 @@
       "source": "plugins/qqbot/src/tools/remind.ts:222"
     },
     {
-      "id": "registration.registerService:a2a-gateway:plugins-a2a-gateway-index-ts-897",
+      "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-616",
+      "fixture": "a2a-gateway",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/a2a-gateway/index.ts:616"
+    },
+    {
+      "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-622",
+      "fixture": "a2a-gateway",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/a2a-gateway/index.ts:622"
+    },
+    {
+      "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-631",
+      "fixture": "a2a-gateway",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/a2a-gateway/index.ts:631"
+    },
+    {
+      "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-657",
+      "fixture": "a2a-gateway",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/a2a-gateway/index.ts:657"
+    },
+    {
+      "id": "registration.registerGatewayMethod:a2a-gateway:plugins-a2a-gateway-index-ts-669",
+      "fixture": "a2a-gateway",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/a2a-gateway/index.ts:669"
+    },
+    {
+      "id": "registration.registerService:a2a-gateway:plugins-a2a-gateway-index-ts-857",
       "fixture": "a2a-gateway",
       "kind": "registration",
       "seam": "registerService",
@@ -3181,10 +3336,10 @@
         ],
         "option": "includeLifecycle"
       },
-      "source": "plugins/a2a-gateway/index.ts:897"
+      "source": "plugins/a2a-gateway/index.ts:857"
     },
     {
-      "id": "registration.registerTool:a2a-gateway:plugins-a2a-gateway-index-ts-817",
+      "id": "registration.registerTool:a2a-gateway:plugins-a2a-gateway-index-ts-777",
       "fixture": "a2a-gateway",
       "kind": "registration",
       "seam": "registerTool",
@@ -3213,7 +3368,7 @@
           "execute"
         ]
       },
-      "source": "plugins/a2a-gateway/index.ts:817"
+      "source": "plugins/a2a-gateway/index.ts:777"
     },
     {
       "id": "registration.registerTool:hasdata:plugins-hasdata-src-index-ts-43",

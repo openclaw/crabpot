@@ -702,11 +702,11 @@
     "highPriorityFixtures": 22,
     "breakageCount": 0,
     "warningCount": 159,
-    "suggestionCount": 150,
+    "suggestionCount": 151,
     "decisionCount": 330,
-    "logCount": 484,
-    "issueCount": 309,
-    "openIssueCount": 309,
+    "logCount": 483,
+    "issueCount": 310,
+    "openIssueCount": 310,
     "p0IssueCount": 1,
     "p1IssueCount": 20,
     "openP0IssueCount": 1,
@@ -715,14 +715,14 @@
     "liveP0IssueCount": 1,
     "compatGapCount": 2,
     "deprecationWarningCount": 42,
-    "inspectorGapCount": 159,
+    "inspectorGapCount": 160,
     "upstreamIssueCount": 105,
     "fixtureRegressionCount": 0,
-    "openInspectorGapCount": 159,
+    "openInspectorGapCount": 160,
     "runtimeCoveredIssueCount": 0,
     "runtimePartiallyCoveredIssueCount": 0,
     "runtimeCoverageArtifactCount": 0,
-    "contractProbeCount": 304
+    "contractProbeCount": 305
   },
   "fixtures": [
     {
@@ -1724,27 +1724,55 @@
       "hooks": [],
       "hookDetails": [],
       "registrations": [
+        "registerGatewayMethod",
         "registerService",
         "registerTool"
       ],
       "registrationDetails": [
         {
+          "name": "registerGatewayMethod",
+          "file": "plugins/a2a-gateway/index.ts",
+          "line": 616,
+          "ref": "plugins/a2a-gateway/index.ts:616"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/a2a-gateway/index.ts",
+          "line": 622,
+          "ref": "plugins/a2a-gateway/index.ts:622"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/a2a-gateway/index.ts",
+          "line": 631,
+          "ref": "plugins/a2a-gateway/index.ts:631"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/a2a-gateway/index.ts",
+          "line": 657,
+          "ref": "plugins/a2a-gateway/index.ts:657"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/a2a-gateway/index.ts",
+          "line": 669,
+          "ref": "plugins/a2a-gateway/index.ts:669"
+        },
+        {
           "name": "registerService",
           "file": "plugins/a2a-gateway/index.ts",
-          "line": 897,
-          "ref": "plugins/a2a-gateway/index.ts:897"
+          "line": 857,
+          "ref": "plugins/a2a-gateway/index.ts:857"
         },
         {
           "name": "registerTool",
           "file": "plugins/a2a-gateway/index.ts",
-          "line": 817,
-          "ref": "plugins/a2a-gateway/index.ts:817"
+          "line": 777,
+          "ref": "plugins/a2a-gateway/index.ts:777"
         }
       ],
-      "manifestContracts": [
-        "gatewayMethodDispatch",
-        "tools"
-      ],
+      "manifestContracts": [],
       "manifestFiles": [
         "plugins/a2a-gateway/openclaw.plugin.json"
       ],
@@ -1803,9 +1831,7 @@
           "name": "A2A Gateway",
           "version": "1.3.0",
           "keys": [
-            "activation",
             "configSchema",
-            "contracts",
             "defaultConfig",
             "description",
             "id",
@@ -1813,15 +1839,10 @@
             "uiHints",
             "version"
           ],
-          "contracts": [
-            "gatewayMethodDispatch",
-            "tools"
-          ],
+          "contracts": [],
           "providerAuthEnvVars": {},
           "channelEnvVars": {},
-          "activation": {
-            "onStartup": true
-          }
+          "activation": null
         }
       ],
       "securityManifests": [],
@@ -33814,9 +33835,23 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerService @ plugins/a2a-gateway/index.ts:897"
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:616",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:622",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:631",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:657",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:669",
+        "registerService @ plugins/a2a-gateway/index.ts:857"
       ],
       "compatRecord": "api.capture.runtime-registrars"
+    },
+    {
+      "fixture": "a2a-gateway",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool @ plugins/a2a-gateway/index.ts:777"
+      ]
     },
     {
       "fixture": "hasdata",
@@ -35870,7 +35905,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-088C2A16",
+      "id": "CRABPOT-2BD1E811",
       "fixture": "a2a-gateway",
       "severity": "P2",
       "owner": "inspector",
@@ -35883,9 +35918,33 @@
       "compatStatus": "active",
       "title": "a2a-gateway: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerService @ plugins/a2a-gateway/index.ts:897"
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:616",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:622",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:631",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:657",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:669",
+        "registerService @ plugins/a2a-gateway/index.ts:857"
       ],
       "compatRecord": "api.capture.runtime-registrars",
+      "runtimeCoverage": null
+    },
+    {
+      "id": "CRABPOT-654F01E7",
+      "fixture": "a2a-gateway",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "a2a-gateway: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/a2a-gateway/index.ts:777"
+      ],
+      "compatRecord": null,
       "runtimeCoverage": null
     },
     {
@@ -41790,7 +41849,12 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerService @ plugins/a2a-gateway/index.ts:897"
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:616",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:622",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:631",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:657",
+        "registerGatewayMethod @ plugins/a2a-gateway/index.ts:669",
+        "registerService @ plugins/a2a-gateway/index.ts:857"
       ]
     },
     {
@@ -43072,6 +43136,16 @@
         "openclaw/plugin-sdk @ plugins/qqbot/src/runtime.ts:1",
         "openclaw/plugin-sdk @ plugins/qqbot/src/tools/channel.ts:1",
         "openclaw/plugin-sdk @ plugins/qqbot/src/tools/remind.ts:1"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:a2a-gateway",
+      "fixture": "a2a-gateway",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/a2a-gateway/index.ts:777"
       ]
     },
     {
@@ -45234,12 +45308,11 @@
       "fixture": "a2a-gateway",
       "code": "seam-inventory",
       "level": "log",
-      "message": "observed 0 hooks, 2 registrations, and 2 manifest contracts",
+      "message": "observed 0 hooks, 3 registrations, and 0 manifest contracts",
       "evidence": [
+        "registration:registerGatewayMethod",
         "registration:registerService",
-        "registration:registerTool",
-        "manifestContract:gatewayMethodDispatch",
-        "manifestContract:tools"
+        "registration:registerTool"
       ]
     },
     {
@@ -45255,6 +45328,7 @@
       "level": "log",
       "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
       "evidence": [
+        "registerGatewayMethod",
         "registerService",
         "registerTool"
       ]
@@ -45286,16 +45360,6 @@
         "plugins/a2a-gateway/package.json",
         "openclaw-a2a-gateway",
         "version:1.4.0"
-      ]
-    },
-    {
-      "fixture": "a2a-gateway",
-      "code": "declarative-contracts",
-      "level": "log",
-      "message": "fixture declares manifest contracts that can be checked without executing plugin code",
-      "evidence": [
-        "gatewayMethodDispatch",
-        "tools"
       ]
     },
     {
@@ -51049,14 +51113,14 @@
       "decision": "inspector-follow-up",
       "seam": "registration-capture",
       "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
-      "evidence": "registerService"
+      "evidence": "registerGatewayMethod, registerService"
     },
     {
       "fixture": "a2a-gateway",
-      "decision": "no-action",
-      "seam": "manifest-contract",
-      "action": "Keep checking this declarative contract in default offline CI.",
-      "evidence": "gatewayMethodDispatch, tools"
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
     },
     {
       "fixture": "hasdata",
