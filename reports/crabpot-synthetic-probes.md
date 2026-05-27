@@ -7,12 +7,12 @@ Generated: deterministic
 | Metric              | Value |
 | ------------------- | ----- |
 | Fixtures            | 60    |
-| Probes              | 458   |
+| Probes              | 453   |
 | Hook probes         | 116   |
-| Registration probes | 342   |
-| Ready               | 449   |
+| Registration probes | 337   |
+| Ready               | 444   |
 | Blocked             | 9     |
-| Direct execution    | 171   |
+| Direct execution    | 166   |
 | Opt-in execution    | 29    |
 | Metadata-only       | 142   |
 
@@ -145,13 +145,8 @@ Generated: deterministic
 | qqbot                  | registration | registerChannel                        | ready   | channel-opt-in   | plugins/qqbot/index.ts:16                                              | channel id is stable; inbound/outbound envelope shape is captured; sender metadata is preserved |
 | qqbot                  | registration | registerTool                           | ready   | direct           | plugins/qqbot/src/tools/channel.ts:138                                 | tool name is stable; input schema is captured; result shape metadata is captured                |
 | qqbot                  | registration | registerTool                           | ready   | direct           | plugins/qqbot/src/tools/remind.ts:222                                  | tool name is stable; input schema is captured; result shape metadata is captured                |
-| a2a-gateway            | registration | registerGatewayMethod                  | ready   | direct           | plugins/a2a-gateway/index.ts:616                                       | method name is stable; request and response schema are captured                                 |
-| a2a-gateway            | registration | registerGatewayMethod                  | ready   | direct           | plugins/a2a-gateway/index.ts:622                                       | method name is stable; request and response schema are captured                                 |
-| a2a-gateway            | registration | registerGatewayMethod                  | ready   | direct           | plugins/a2a-gateway/index.ts:631                                       | method name is stable; request and response schema are captured                                 |
-| a2a-gateway            | registration | registerGatewayMethod                  | ready   | direct           | plugins/a2a-gateway/index.ts:657                                       | method name is stable; request and response schema are captured                                 |
-| a2a-gateway            | registration | registerGatewayMethod                  | ready   | direct           | plugins/a2a-gateway/index.ts:669                                       | method name is stable; request and response schema are captured                                 |
-| a2a-gateway            | registration | registerService                        | ready   | lifecycle-opt-in | plugins/a2a-gateway/index.ts:857                                       | service id is stable; start/stop lifecycle handlers are captured                                |
-| a2a-gateway            | registration | registerTool                           | ready   | direct           | plugins/a2a-gateway/index.ts:777                                       | tool name is stable; input schema is captured; result shape metadata is captured                |
+| a2a-gateway            | registration | registerService                        | ready   | lifecycle-opt-in | plugins/a2a-gateway/index.ts:897                                       | service id is stable; start/stop lifecycle handlers are captured                                |
+| a2a-gateway            | registration | registerTool                           | ready   | direct           | plugins/a2a-gateway/index.ts:817                                       | tool name is stable; input schema is captured; result shape metadata is captured                |
 | hasdata                | registration | registerTool                           | ready   | direct           | plugins/hasdata/src/index.ts:43                                        | tool name is stable; input schema is captured; result shape metadata is captured                |
 | mcp-adapter            | registration | registerService                        | ready   | lifecycle-opt-in | plugins/mcp-adapter/index.ts:15                                        | service id is stable; start/stop lifecycle handlers are captured                                |
 | mcp-adapter            | registration | registerTool                           | ready   | direct           | plugins/mcp-adapter/index.ts:30                                        | tool name is stable; input schema is captured; result shape metadata is captured                |
