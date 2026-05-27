@@ -29200,6 +29200,7 @@
         "plugins/lightclawbot/.crabpot-package/dist/src/history/session-store.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/history/text-processing.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/history/types.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/history/usage-aggregator.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/inbound.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/media.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/messaging.js",
@@ -29207,6 +29208,7 @@
         "plugins/lightclawbot/.crabpot-package/dist/src/runtime.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/setup-core.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/shared.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/socket/agent-soul.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/chat.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/handlers.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/index.js",
@@ -29220,6 +29222,9 @@
         "plugins/lightclawbot/.crabpot-package/dist/src/tools.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/types.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/upload-tool.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/usage/index.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/usage/normalize.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/usage/types.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/utils/account.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/utils/common.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/utils/index.js"
@@ -29253,7 +29258,7 @@
       "package": {
         "path": "plugins/lightclawbot/.crabpot-package/package.json",
         "name": "lightclawbot",
-        "version": "1.2.5",
+        "version": "1.2.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -29313,7 +29318,7 @@
         {
           "path": "plugins/lightclawbot/.crabpot-package/package.json",
           "name": "lightclawbot",
-          "version": "1.2.5",
+          "version": "1.2.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -48836,7 +48841,7 @@
       "evidence": [
         "plugins/lightclawbot/.crabpot-package/package.json",
         "lightclawbot",
-        "version:1.2.5"
+        "version:1.2.6"
       ]
     },
     {
