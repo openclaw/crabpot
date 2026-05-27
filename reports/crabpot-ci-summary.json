@@ -7,15 +7,15 @@
   "summary": {
     "breakages": 0,
     "warnings": 159,
-    "suggestions": 150,
-    "issues": 309,
+    "suggestions": 151,
+    "issues": 310,
     "p0Issues": 1,
     "p1Issues": 20,
     "liveIssues": 1,
     "liveP0Issues": 1,
     "compatGaps": 2,
     "deprecationWarnings": 42,
-    "inspectorGaps": 159,
+    "inspectorGaps": 160,
     "upstreamIssues": 105,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 16,
     "platformContainerRisks": 16,
     "loaderJitiCandidates": 22,
-    "importLoopP50Ms": 1151,
-    "importLoopP95Ms": 1165,
+    "importLoopP50Ms": 1489,
+    "importLoopP95Ms": 1489,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 86.5,
+    "importLoopOpenClawImportP50Ms": 107.9,
     "importLoopOpenClawActivationP50Ms": 0.3,
     "importLoopMetricBasis": "baseline-adjusted",
     "importLoopMaxRssMb": 0,
     "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 136,
-    "importLoopCpuSampleCount": 136
+    "importLoopRssSampleCount": 175,
+    "importLoopCpuSampleCount": 175
   },
   "topIssues": [
     {
@@ -436,20 +436,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 51.6% over baseline",
+      "message": "p95WallMs regressed 100.4% over baseline",
       "baseline": 1273,
-      "current": 1930,
-      "delta": 657,
-      "percent": 51.6
+      "current": 2551,
+      "delta": 1278,
+      "percent": 100.4
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 417.1 over baseline",
+      "message": "maxPeakRssMb regressed 421 over baseline",
       "baseline": 65.1,
-      "current": 482.2,
-      "delta": 417.1
+      "current": 486.1,
+      "delta": 421
     }
   ],
   "artifacts": {
