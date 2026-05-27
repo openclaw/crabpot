@@ -6,7 +6,13 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  await main();
+  try {
+    await main();
+    process.exit(0);
+  } catch (error) {
+    console.error(error?.stack ?? String(error));
+    process.exit(1);
+  }
 }
 
 async function main() {
