@@ -1,6 +1,13 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
+import { mkdtemp, mkdir, writeFile } from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
 import { test } from "node:test";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { buildImportLoopProfile, renderImportLoopProfileMarkdown, validateImportLoopProfile } from "../scripts/import-loop-profile.mjs";
+
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 test("import loop profile measures repeated cold capture subprocesses", async () => {
   const profile = await buildImportLoopProfile({ runs: 2 });
@@ -83,4 +90,77 @@ test("import loop validation fails requested OpenClaw lifecycle profiles without
   assert.deepEqual(errors, [
     "OpenClaw lifecycle profile requested but no import+activate samples were captured",
   ]);
+});
+
+test("OpenClaw lifecycle capture CLI exits after writing output when loader leaves active handles", async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-openclaw-lifecycle-"));
+  const openclawRoot = path.join(dir, "openclaw");
+  const pluginDir = path.join(dir, "plugin");
+  const loaderPath = path.join(dir, "ts-loader.mjs");
+  await writeFile(
+    loaderPath,
+    [
+      "import { readFile } from 'node:fs/promises';",
+      "export async function load(url, context, nextLoad) {",
+      "  if (url.endsWith('.ts')) {",
+      "    return { format: 'module', shortCircuit: true, source: await readFile(new URL(url), 'utf8') };",
+      "  }",
+      "  return nextLoad(url, context);",
+      "}",
+      "",
+    ].join("\n"),
+    "utf8",
+  );
+  await mkdir(path.join(openclawRoot, "src", "plugins"), { recursive: true });
+  await mkdir(pluginDir, { recursive: true });
+  await writeFile(
+    path.join(openclawRoot, "src", "plugins", "loader.ts"),
+    [
+      "export function clearPluginLoaderCache() {}",
+      "export function loadOpenClawPlugins() {",
+      "  setInterval(() => undefined, 1000);",
+      "  return { plugins: [{ id: 'crabpot-lifecycle-probe', status: 'loaded' }] };",
+      "}",
+      "",
+    ].join("\n"),
+    "utf8",
+  );
+  await writeFile(
+    path.join(openclawRoot, "src", "plugins", "runtime.ts"),
+    "export function resetPluginRuntimeStateForTest() {}\n",
+    "utf8",
+  );
+  const entrypoint = path.join(pluginDir, "index.mjs");
+  await writeFile(
+    entrypoint,
+    "export default { register(api) { api.registerTool?.({ name: 'fixture' }); } };\n",
+    "utf8",
+  );
+
+  const result = spawnSync(
+    process.execPath,
+    [
+      "--experimental-loader",
+      pathToFileURL(loaderPath).href,
+      "scripts/run-openclaw-lifecycle-capture.mjs",
+      entrypoint,
+    ],
+    {
+      cwd: repoRoot,
+      encoding: "utf8",
+      env: {
+        ...process.env,
+        CRABPOT_EXECUTE_ISOLATED: "1",
+        CRABPOT_FIXTURE_ROOT: repoRoot,
+        CRABPOT_OPENCLAW_DIR: openclawRoot,
+        CRABPOT_OPENCLAW_LABEL: "fake-openclaw",
+      },
+      timeout: 2_000,
+    },
+  );
+
+  assert.equal(result.error?.code, undefined, result.error?.message);
+  assert.equal(result.status, 0, result.stderr);
+  const capture = JSON.parse(result.stdout);
+  assert.equal(capture.openClawLifecycle.status, "loaded");
 });
