@@ -36,15 +36,15 @@
     "summary": {
       "commandCount": 9,
       "sampleCount": 27,
-      "rssSampleCount": 1620,
-      "cpuSampleCount": 1620,
+      "rssSampleCount": 2094,
+      "cpuSampleCount": 2094,
       "wallTimeBasis": "command-median-p95",
-      "p50WallMs": 1915,
-      "p95WallMs": 1930,
-      "maxPeakRssMb": 482.2,
-      "maxRssDeltaMb": 453.6,
-      "maxCpuMsEstimate": 2141,
-      "maxHarnessHeapDeltaMb": 6.5
+      "p50WallMs": 2467,
+      "p95WallMs": 2551,
+      "maxPeakRssMb": 486.1,
+      "maxRssDeltaMb": 456.9,
+      "maxCpuMsEstimate": 2853,
+      "maxHarnessHeapDeltaMb": 8.2
     },
     "targetOpenClaw": {
       "status": "ok",
@@ -61,10 +61,10 @@
       "fixtures": 60,
       "sourceFiles": 1783,
       "observedHooks": 108,
-      "observedRegistrations": 204,
+      "observedRegistrations": 205,
       "observedSdkImports": 1243,
-      "contractProbes": 304,
-      "issueFindings": 309
+      "contractProbes": 305,
+      "issueFindings": 310
     }
   },
   "thresholds": {
@@ -84,20 +84,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 51.6% over baseline",
+      "message": "p95WallMs regressed 100.4% over baseline",
       "baseline": 1273,
-      "current": 1930,
-      "delta": 657,
-      "percent": 51.6
+      "current": 2551,
+      "delta": 1278,
+      "percent": 100.4
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 417.1 over baseline",
+      "message": "maxPeakRssMb regressed 421 over baseline",
       "baseline": 65.1,
-      "current": 482.2,
-      "delta": 417.1
+      "current": 486.1,
+      "delta": 421
     },
     {
       "id": "profile.node-boot",
@@ -105,8 +105,8 @@
       "metric": "nodeBootWallMs",
       "message": "nodeBootWallMs stayed within 500 absolute regression threshold",
       "baseline": 917,
-      "current": 30,
-      "delta": -887
+      "current": 39,
+      "delta": -878
     },
     {
       "id": "registry.compatRecords",
