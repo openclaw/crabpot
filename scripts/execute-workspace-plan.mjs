@@ -319,6 +319,10 @@ async function measureLocalStep(step, callback) {
 function measureProcessStep(step, operation) {
   return new Promise((resolve, reject) => {
     const start = performance.now();
+    const timeoutMs = readWorkspaceStepTimeoutMs();
+    let timedOut = false;
+    let forceKillTimer;
+    let terminateTimer;
     let peakRssKb = 0;
     let peakCpuPercent = 0;
     const cpuSamples = [];
@@ -329,10 +333,18 @@ function measureProcessStep(step, operation) {
     mkdirSync(env.OPENCLAW_HOME, { recursive: true });
     const child = spawn(portableCommand(operation.command), operation.args, {
       cwd: path.join(repoRoot, step.cwd),
+      detached: process.platform !== "win32",
       env,
       shell: false,
       stdio: operation.captureStdoutPath ? ["ignore", "pipe", "inherit"] : "inherit",
     });
+    if (timeoutMs > 0) {
+      terminateTimer = setTimeout(() => {
+        timedOut = true;
+        forceKillTimer = terminateProcessGroup(child);
+      }, timeoutMs);
+      terminateTimer.unref?.();
+    }
     const stdoutChunks = [];
     if (operation.captureStdoutPath) {
       child.stdout.on("data", (chunk) => stdoutChunks.push(chunk));
@@ -357,6 +369,8 @@ function measureProcessStep(step, operation) {
     }, 100);
     child.on("exit", async (code) => {
       clearInterval(poll);
+      clearTimeout(terminateTimer);
+      clearTimeout(forceKillTimer);
       const finalStats = await readProcessStats(child.pid);
       peakRssKb = Math.max(peakRssKb, finalStats.rssKb);
       peakCpuPercent = Math.max(peakCpuPercent, finalStats.cpuPercent);
@@ -372,7 +386,7 @@ function measureProcessStep(step, operation) {
         await mkdir(path.dirname(operation.captureStdoutPath), { recursive: true });
         await writeFile(operation.captureStdoutPath, Buffer.concat(stdoutChunks));
       }
-      const exitCode = code ?? 1;
+      const exitCode = timedOut ? 124 : code ?? 1;
       resolve({
         kind: step.kind,
         command: step.command,
@@ -380,6 +394,8 @@ function measureProcessStep(step, operation) {
         artifactPath: step.artifactPath ?? null,
         exitCode: operation.ignoreExitCode ? 0 : exitCode,
         rawExitCode: operation.ignoreExitCode ? exitCode : undefined,
+        timeoutMs: timeoutMs > 0 ? timeoutMs : undefined,
+        timedOut,
         wallMs,
         peakRssMb: Math.round((peakRssKb / 1024) * 10) / 10,
         peakCpuPercent: Math.round(peakCpuPercent * 10) / 10,
@@ -388,9 +404,51 @@ function measureProcessStep(step, operation) {
     });
     child.on("error", (error) => {
       clearInterval(poll);
+      clearTimeout(terminateTimer);
+      clearTimeout(forceKillTimer);
       reject(error);
     });
   });
+}
+
+export function readWorkspaceStepTimeoutMs(env = process.env) {
+  const raw = env.CRABPOT_WORKSPACE_STEP_TIMEOUT_MS;
+  if (!raw) {
+    return 0;
+  }
+  if (!/^[1-9][0-9]*$/u.test(raw)) {
+    throw new Error("CRABPOT_WORKSPACE_STEP_TIMEOUT_MS must be a positive integer");
+  }
+  return Number(raw);
+}
+
+function terminateProcessGroup(child) {
+  if (!child.pid) {
+    return undefined;
+  }
+  const signal = "SIGTERM";
+  try {
+    if (process.platform === "win32") {
+      child.kill(signal);
+    } else {
+      process.kill(-child.pid, signal);
+    }
+  } catch {
+    // The process may have exited between the timeout firing and the signal.
+  }
+  const killTimer = setTimeout(() => {
+    try {
+      if (process.platform === "win32") {
+        child.kill("SIGKILL");
+      } else {
+        process.kill(-child.pid, "SIGKILL");
+      }
+    } catch {
+      // Already gone.
+    }
+  }, 5_000);
+  killTimer.unref?.();
+  return killTimer;
 }
 
 export function executionEnvForStep(step, operationEnv = {}) {
