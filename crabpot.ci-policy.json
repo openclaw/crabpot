@@ -71,6 +71,48 @@
       "reasonIncludes": "captured registration has no execution profile",
       "decision": "allowed-blocked",
       "until": "transcript source provider synthetic probes can execute provider runtime hooks"
+    },
+    {
+      "id": "clawrouter-endpoint-path-runtime",
+      "seam": "registerTool",
+      "reasonIncludes": "captured ClawRouter endpoint tool requires configured endpoint path input",
+      "decision": "allowed-blocked",
+      "until": "endpoint tool synthetic probes can inject configured path arguments"
+    },
+    {
+      "id": "codex-app-server-conversation-binding-runtime",
+      "seam": "onConversationBindingResolved",
+      "reasonIncludes": "captured conversation-binding hook requires host conversation context",
+      "decision": "allowed-blocked",
+      "until": "conversation-binding synthetic probes can inject host conversation context"
+    },
+    {
+      "id": "codex-app-server-interactive-payload-runtime",
+      "seam": "registerInteractiveHandler",
+      "reasonIncludes": "captured interactive handler requires host callback payload",
+      "decision": "allowed-blocked",
+      "until": "interactive-handler synthetic probes can inject callback payloads"
+    },
+    {
+      "id": "codex-app-server-command-text-runtime",
+      "seam": "registerCommand",
+      "reasonIncludes": "captured command handler requires host command text",
+      "decision": "allowed-blocked",
+      "until": "command-handler synthetic probes can inject command text"
+    },
+    {
+      "id": "discord-subagent-state-dir-runtime",
+      "seam": "subagent_ended",
+      "reasonIncludes": "captured Discord subagent hook requires the host state-dir runtime",
+      "decision": "allowed-blocked",
+      "until": "subagent hook synthetic probes can inject host state-dir runtime"
+    },
+    {
+      "id": "memory-tencentdb-message-content-runtime",
+      "seam": "before_message_write",
+      "reasonIncludes": "captured memory write hook requires host message content",
+      "decision": "allowed-blocked",
+      "until": "memory write synthetic probes can inject host message content"
     }
   ],
   "expectedWarnings": [

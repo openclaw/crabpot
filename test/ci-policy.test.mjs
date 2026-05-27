@@ -169,6 +169,45 @@ test("default ci policy classifies transcript source metadata blockers", async (
   assert.equal(validateCiPolicyReport(report).length, 0);
 });
 
+test("default ci policy classifies beta dashboard harness blockers", async () => {
+  const report = await buildCiPolicyReport({
+    compatibilityReport: compatibilityReport(),
+    executionResults: executionResults([
+      {
+        seam: "registerTool",
+        reason: "captured ClawRouter endpoint tool requires configured endpoint path input",
+      },
+      {
+        seam: "onConversationBindingResolved",
+        reason: "captured conversation-binding hook requires host conversation context",
+      },
+      {
+        seam: "registerInteractiveHandler",
+        reason: "captured interactive handler requires host callback payload",
+      },
+      {
+        seam: "registerCommand",
+        reason: "captured command handler requires host command text",
+      },
+      {
+        seam: "subagent_ended",
+        reason: "captured Discord subagent hook requires the host state-dir runtime",
+      },
+      {
+        seam: "before_message_write",
+        reason: "captured memory write hook requires host message content",
+      },
+    ]),
+  });
+
+  assert.equal(report.status, "pass");
+  assert.deepEqual(
+    report.checks.filter((check) => check.id.startsWith("execution-results.blocked.")).map((check) => check.action),
+    ["warn", "warn", "warn", "warn", "warn", "warn"],
+  );
+  assert.equal(validateCiPolicyReport(report).length, 0);
+});
+
 test("ci policy fails ref diff hard regressions", async () => {
   const report = await buildCiPolicyReport({
     policy,
