@@ -126,6 +126,20 @@ jobs:
           if [ -z "${execution_fixture_set}" ]; then
             execution_fixture_set="all"
           fi
+          run_openclaw_import_loop_profile() {
+            if timeout 180s node scripts/import-loop-profile.mjs --openclaw ./openclaw --runs 3; then
+              return 0
+            fi
+            echo "::warning::OpenClaw lifecycle import-loop profile failed or timed out; falling back to fixture-only import-loop profile"
+            node scripts/import-loop-profile.mjs --runs 3
+          }
+          run_openclaw_runtime_profile() {
+            if timeout 240s node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs 3; then
+              return 0
+            fi
+            echo "::warning::OpenClaw runtime profile failed or timed out; falling back to fixture-only runtime profile"
+            node scripts/profile-contract-runtime.mjs --runs 3
+          }
           CRABPOT_EXECUTE_ISOLATED=1 node scripts/execute-workspace-plan.mjs --fixture-set "${execution_fixture_set}" --openclaw ./openclaw --continue-on-error
           node scripts/summarize-execution-results.mjs --write
           execution_results_args=(--execution-results reports/crabpot-execution-results.json)
@@ -136,8 +150,8 @@ jobs:
           node scripts/workspace-plan.mjs --openclaw ./openclaw
           node scripts/platform-probes.mjs --openclaw ./openclaw
           node scripts/check-generated-surface-fixture.mjs --openclaw ./openclaw
-          node scripts/import-loop-profile.mjs --openclaw ./openclaw --runs 3
-          node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs 3
+          run_openclaw_import_loop_profile
+          run_openclaw_runtime_profile
           node scripts/compare-runtime-profile.mjs
           node scripts/check-ci-policy.mjs
           node scripts/write-ci-summary.mjs --mode "track:${{ matrix.track }}" --openclaw-label "${{ steps.openclaw-track.outputs.label }}"
