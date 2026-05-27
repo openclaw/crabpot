@@ -1935,7 +1935,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@discordjs/voice, discord-api-types, https-proxy-agent, opusscript, typebox, undici, ws"
+              "evidence": "@discordjs/voice, discord-api-types, https-proxy-agent, libopus-wasm, typebox, undici, ws"
             }
           ],
           "steps": [
@@ -2146,7 +2146,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@clawdbot/lobster, ajv, typebox"
+              "evidence": "@clawdbot/lobster, typebox"
             }
           ],
           "steps": [
@@ -4776,7 +4776,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@earendil-works/pi-coding-agent, @openai/codex, ajv, ws, zod"
+              "evidence": "@earendil-works/pi-coding-agent, @openai/codex, typebox, ws, zod"
             }
           ],
           "steps": [
@@ -5694,7 +5694,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "audio-decode, baileys, https-proxy-agent, jimp, typebox"
+              "evidence": "audio-decode, baileys, https-proxy-agent, typebox"
             }
           ],
           "steps": [

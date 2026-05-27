@@ -3,7 +3,7 @@
   "status": "pass",
   "strict": false,
   "policy": {
-    "allowedBlocked": 10,
+    "allowedBlocked": 16,
     "expectedWarnings": 1,
     "fixtureSets": [
       "build",
@@ -20,9 +20,9 @@
     }
   },
   "summary": {
-    "checkCount": 314,
+    "checkCount": 150,
     "failCount": 0,
-    "warnCount": 308,
+    "warnCount": 144,
     "passCount": 6
   },
   "checks": [
@@ -37,76 +37,23 @@
     {
       "id": "execution-results.audit-findings",
       "action": "warn",
-      "message": "577 package audit findings",
+      "message": "574 package audit findings",
       "evidence": [
-        "a2a-gateway:26",
-        "apify:28",
-        "codex-app-server:153",
-        "ddingtalk:254",
-        "diagnostics-otel:14",
+        "a2a-gateway:30",
+        "clawrouter:5",
+        "codex-app-server:159",
+        "ddingtalk:259",
         "feishu:2",
-        "hasdata:5",
-        "mocrane-wecom:32",
-        "openclaw-weixin:2",
-        "opik-openclaw:5",
-        "qqbot:28",
-        "wecom:19",
-        "yuanbao:9"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.a2a-gateway.registerGatewayMethod.0",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.a2a-gateway.registerGatewayMethod.1",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.a2a-gateway.registerGatewayMethod.2",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.a2a-gateway.registerGatewayMethod.3",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.a2a-gateway.registerGatewayMethod.4",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "hasdata:6",
+        "lightclawbot:1",
+        "memory-tencentdb:1",
+        "mocrane-wecom:34",
+        "msteams:3",
+        "openclaw-weixin:4",
+        "opik-openclaw:9",
+        "qqbot:29",
+        "wecom:22",
+        "yuanbao:10"
       ]
     },
     {
@@ -121,22 +68,11 @@
       ]
     },
     {
-      "id": "execution-results.blocked.a2a-gateway.registerTool.5",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/a2a-gateway/cold-import-extension-a2a-gateway-plugins-a2a-gateway-index-ts.synthetic.json",
-        "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
       "id": "execution-results.blocked.apify.registerCli.0",
       "action": "warn",
       "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
-        ".crabpot/results/apify/cold-import-extension-apify-plugins-apify-src-index-ts.synthetic.json",
+        ".crabpot/results/apify/cold-import-extension-apify-plugins-apify-dist-index-js.synthetic.json",
         "registerCli",
         "captured registration has no supported callable probe",
         "generated-surface-registration-stubs"
@@ -154,94 +90,6 @@
       ]
     },
     {
-      "id": "execution-results.blocked.clawmetry.after_tool_call.0",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
-        "after_tool_call",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawmetry.after_tool_call.0",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
-        "after_tool_call",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawmetry.llm_output.1",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
-        "llm_output",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawmetry.llm_output.1",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
-        "llm_output",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawmetry.message_received.4",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
-        "message_received",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawmetry.message_received.4",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
-        "message_received",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawmetry.message_sent.5",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
-        "message_sent",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawmetry.message_sent.5",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
-        "message_sent",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
       "id": "execution-results.blocked.clawmetry.registerService.6",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeLifecycle=true",
@@ -264,128 +112,7 @@
       ]
     },
     {
-      "id": "execution-results.blocked.clawmetry.session_end.3",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
-        "session_end",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawmetry.session_end.3",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
-        "session_end",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawmetry.session_start.2",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/clawmetry/cold-import-extension-clawmetry-plugins-clawmetry-clawhub-plugin-index-ts.synthetic.json",
-        "session_start",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawmetry.session_start.2",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
-        "session_start",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawrouter.registerCommand.23",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawrouter.registerCommand.24",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawrouter.registerCommand.25",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawrouter.registerCommand.26",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawrouter.registerCommand.27",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawrouter.registerCommand.28",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawrouter.registerCommand.29",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.clawrouter.registerService.30",
+      "id": "execution-results.blocked.clawrouter.registerService.39",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeLifecycle=true",
       "evidence": [
@@ -398,430 +125,507 @@
     {
       "id": "execution-results.blocked.clawrouter.registerTool.10",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured tool requires live network access",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     },
     {
       "id": "execution-results.blocked.clawrouter.registerTool.11",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured tool requires live network access",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     },
     {
       "id": "execution-results.blocked.clawrouter.registerTool.12",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured tool requires live network access",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     },
     {
       "id": "execution-results.blocked.clawrouter.registerTool.13",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured ClawRouter endpoint tool requires configured endpoint path input",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured ClawRouter endpoint tool requires configured endpoint path input",
+        "clawrouter-endpoint-path-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.clawrouter.registerTool.14",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured tool requires live network access",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     },
     {
       "id": "execution-results.blocked.clawrouter.registerTool.15",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured tool requires live network access",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     },
     {
       "id": "execution-results.blocked.clawrouter.registerTool.16",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured tool requires live network access",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     },
     {
       "id": "execution-results.blocked.clawrouter.registerTool.17",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured tool requires live network access",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     },
     {
       "id": "execution-results.blocked.clawrouter.registerTool.18",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured tool requires live network access",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     },
     {
       "id": "execution-results.blocked.clawrouter.registerTool.19",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured tool requires live network access",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     },
     {
       "id": "execution-results.blocked.clawrouter.registerTool.20",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured tool requires live network access",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     },
     {
       "id": "execution-results.blocked.clawrouter.registerTool.21",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured tool requires live network access",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     },
     {
       "id": "execution-results.blocked.clawrouter.registerTool.22",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured tool requires live network access",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.23",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.24",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.25",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.26",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.27",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.28",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.29",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.clawrouter.registerTool.30",
+      "action": "warn",
+      "message": "allowed-blocked: captured tool requires live network access",
+      "evidence": [
+        ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     },
     {
       "id": "execution-results.blocked.clawrouter.registerTool.5",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured tool requires live network access",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     },
     {
       "id": "execution-results.blocked.clawrouter.registerTool.6",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured tool requires live network access",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     },
     {
       "id": "execution-results.blocked.clawrouter.registerTool.7",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured tool requires live network access",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     },
     {
       "id": "execution-results.blocked.clawrouter.registerTool.8",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured tool requires live network access",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     },
     {
       "id": "execution-results.blocked.clawrouter.registerTool.9",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured tool requires live network access",
       "evidence": [
         ".crabpot/results/clawrouter/cold-import-extension-clawrouter-plugins-clawrouter-dist-index-js.synthetic.json",
         "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.codex-app-server.inbound_claim.2",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
-        "inbound_claim",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
+        "captured tool requires live network access",
+        "live-network-tool-probes"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.onConversationBindingResolved.1",
       "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
+      "message": "allowed-blocked: captured conversation-binding hook requires host conversation context",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "onConversationBindingResolved",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
+        "captured conversation-binding hook requires host conversation context",
+        "codex-app-server-conversation-binding-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerCommand.10",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured command handler requires host command text",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured command handler requires host command text",
+        "codex-app-server-command-text-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerCommand.11",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured command handler requires host command text",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured command handler requires host command text",
+        "codex-app-server-command-text-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerCommand.12",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured command handler requires host command text",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured command handler requires host command text",
+        "codex-app-server-command-text-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerCommand.13",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured command handler requires host command text",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured command handler requires host command text",
+        "codex-app-server-command-text-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerCommand.14",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured command handler requires host command text",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured command handler requires host command text",
+        "codex-app-server-command-text-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerCommand.15",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured command handler requires host command text",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured command handler requires host command text",
+        "codex-app-server-command-text-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerCommand.16",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured command handler requires host command text",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured command handler requires host command text",
+        "codex-app-server-command-text-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerCommand.17",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured command handler requires host command text",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured command handler requires host command text",
+        "codex-app-server-command-text-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerCommand.18",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured command handler requires host command text",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured command handler requires host command text",
+        "codex-app-server-command-text-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerCommand.19",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured command handler requires host command text",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured command handler requires host command text",
+        "codex-app-server-command-text-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerCommand.20",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured command handler requires host command text",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured command handler requires host command text",
+        "codex-app-server-command-text-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerCommand.21",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured command handler requires host command text",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured command handler requires host command text",
+        "codex-app-server-command-text-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerCommand.5",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured command handler requires host command text",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured command handler requires host command text",
+        "codex-app-server-command-text-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerCommand.6",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured command handler requires host command text",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured command handler requires host command text",
+        "codex-app-server-command-text-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerCommand.7",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured command handler requires host command text",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured command handler requires host command text",
+        "codex-app-server-command-text-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerCommand.8",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured command handler requires host command text",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured command handler requires host command text",
+        "codex-app-server-command-text-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerCommand.9",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured command handler requires host command text",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured command handler requires host command text",
+        "codex-app-server-command-text-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerInteractiveHandler.3",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured interactive handler requires host callback payload",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerInteractiveHandler",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured interactive handler requires host callback payload",
+        "codex-app-server-interactive-payload-runtime"
       ]
     },
     {
       "id": "execution-results.blocked.codex-app-server.registerInteractiveHandler.4",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured interactive handler requires host callback payload",
       "evidence": [
         ".crabpot/results/codex-app-server/cold-import-extension-codex-app-server-plugins-codex-app-server-index-ts.synthetic.json",
         "registerInteractiveHandler",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured interactive handler requires host callback payload",
+        "codex-app-server-interactive-payload-runtime"
       ]
     },
     {
@@ -836,56 +640,34 @@
       ]
     },
     {
-      "id": "execution-results.blocked.codex.inbound_claim.5",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/codex/cold-import-runtimeExtension-codex-plugins-codex-crabpot-package-dist-index-js.synthetic.json",
-        "inbound_claim",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.codex.onConversationBindingResolved.6",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/codex/cold-import-runtimeExtension-codex-plugins-codex-crabpot-package-dist-index-js.synthetic.json",
-        "onConversationBindingResolved",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.codex.registerCommand.4",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/codex/cold-import-runtimeExtension-codex-plugins-codex-crabpot-package-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.composio.before_prompt_build.1",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/composio/cold-import-extension-composio-plugins-composio-index-ts.synthetic.json",
-        "before_prompt_build",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
       "id": "execution-results.blocked.composio.registerCli.0",
       "action": "warn",
       "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
         ".crabpot/results/composio/cold-import-extension-composio-plugins-composio-index-ts.synthetic.json",
         "registerCli",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.connectclaw.registerService.4",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration requires includeLifecycle=true",
+      "evidence": [
+        ".crabpot/results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.synthetic.json",
+        "registerService",
+        "captured registration requires includeLifecycle=true",
+        "service-lifecycle-harness"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.connectclaw.registerTool.0",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "evidence": [
+        ".crabpot/results/connectclaw/cold-import-extension-connectclaw-plugins-connectclaw-packages-plugin-index-ts.synthetic.json",
+        "registerTool",
         "captured registration has no supported callable probe",
         "generated-surface-registration-stubs"
       ]
@@ -915,12 +697,12 @@
     {
       "id": "execution-results.blocked.diagnostics-prometheus.registerHttpRoute.1",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured HTTP route probe requires route descriptor input",
       "evidence": [
         ".crabpot/results/diagnostics-prometheus/cold-import-runtimeExtension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-dist-index-js.synthetic.json",
         "registerHttpRoute",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured HTTP route probe requires route descriptor input",
+        "http-route-descriptor-input"
       ]
     },
     {
@@ -935,25 +717,14 @@
       ]
     },
     {
-      "id": "execution-results.blocked.diffs.before_prompt_build.2",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/diffs/cold-import-runtimeExtension-diffs-plugins-diffs-crabpot-package-dist-index-js.synthetic.json",
-        "before_prompt_build",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
       "id": "execution-results.blocked.diffs.registerHttpRoute.1",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured HTTP route probe requires route descriptor input",
       "evidence": [
         ".crabpot/results/diffs/cold-import-runtimeExtension-diffs-plugins-diffs-crabpot-package-dist-index-js.synthetic.json",
         "registerHttpRoute",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured HTTP route probe requires route descriptor input",
+        "http-route-descriptor-input"
       ]
     },
     {
@@ -979,36 +750,25 @@
       ]
     },
     {
-      "id": "execution-results.blocked.discord.subagent_delivery_target.3",
+      "id": "execution-results.blocked.discord.registerTranscriptSourceProvider.4",
       "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
+      "message": "allowed-blocked: captured registration has no execution profile",
       "evidence": [
         ".crabpot/results/discord/cold-import-runtimeExtension-discord-plugins-discord-crabpot-package-dist-index-js.synthetic.json",
-        "subagent_delivery_target",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
+        "registerTranscriptSourceProvider",
+        "captured registration has no execution profile",
+        "transcript-source-provider-metadata"
       ]
     },
     {
       "id": "execution-results.blocked.discord.subagent_ended.2",
       "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
+      "message": "allowed-blocked: captured Discord subagent hook requires the host state-dir runtime",
       "evidence": [
         ".crabpot/results/discord/cold-import-runtimeExtension-discord-plugins-discord-crabpot-package-dist-index-js.synthetic.json",
         "subagent_ended",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.discord.subagent_spawning.1",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/discord/cold-import-runtimeExtension-discord-plugins-discord-crabpot-package-dist-index-js.synthetic.json",
-        "subagent_spawning",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
+        "captured Discord subagent hook requires the host state-dir runtime",
+        "discord-subagent-state-dir-runtime"
       ]
     },
     {
@@ -1023,198 +783,11 @@
       ]
     },
     {
-      "id": "execution-results.blocked.google-meet.registerGatewayMethod.0",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.google-meet.registerGatewayMethod.1",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.google-meet.registerGatewayMethod.10",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.google-meet.registerGatewayMethod.11",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.google-meet.registerGatewayMethod.12",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.google-meet.registerGatewayMethod.13",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.google-meet.registerGatewayMethod.14",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.google-meet.registerGatewayMethod.2",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.google-meet.registerGatewayMethod.3",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.google-meet.registerGatewayMethod.4",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.google-meet.registerGatewayMethod.5",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.google-meet.registerGatewayMethod.6",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.google-meet.registerGatewayMethod.7",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.google-meet.registerGatewayMethod.8",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.google-meet.registerGatewayMethod.9",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
       "id": "execution-results.blocked.google-meet.registerTool.15",
       "action": "warn",
       "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
         ".crabpot/results/google-meet/cold-import-runtimeExtension-google-meet-plugins-google-meet-crabpot-package-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.hasdata.registerCli.1",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.synthetic.json",
-        "registerCli",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.hasdata.registerTool.0",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/hasdata/cold-import-extension-hasdata-plugins-hasdata-src-index-ts.synthetic.json",
         "registerTool",
         "captured registration has no supported callable probe",
         "generated-surface-registration-stubs"
@@ -1232,39 +805,6 @@
       ]
     },
     {
-      "id": "execution-results.blocked.hyperspell.registerCommand.1",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.hyperspell.registerCommand.2",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.hyperspell.registerCommand.3",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
       "id": "execution-results.blocked.inworld-tts.registerSpeechProvider.0",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeProviderCapabilities=true",
@@ -1276,601 +816,7 @@
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.after_compaction.0",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "after_compaction",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.after_compaction.0",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "after_compaction",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.after_tool_call.1",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "after_tool_call",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.after_tool_call.1",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "after_tool_call",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.agent_end.2",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "agent_end",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.agent_end.2",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "agent_end",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.agent_turn_prepare.3",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "agent_turn_prepare",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.agent_turn_prepare.3",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "agent_turn_prepare",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_agent_finalize.4",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_agent_finalize",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_agent_finalize.4",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_agent_finalize",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_agent_reply.5",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_agent_reply",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_agent_reply.5",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_agent_reply",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_agent_start.6",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_agent_start",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_agent_start.6",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_agent_start",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_compaction.7",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_compaction",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_compaction.7",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_compaction",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_dispatch.8",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_dispatch",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_dispatch.8",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_dispatch",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_install.9",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_install",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_install.9",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_install",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_message_write.10",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_message_write",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_message_write.10",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_message_write",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_model_resolve.11",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_model_resolve",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_model_resolve.11",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_model_resolve",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_prompt_build.12",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_prompt_build",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_prompt_build.12",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_prompt_build",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_reset.13",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_reset",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_reset.13",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_reset",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_tool_call.14",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_tool_call",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.before_tool_call.14",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "before_tool_call",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.cron_changed.15",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "cron_changed",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.cron_changed.15",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "cron_changed",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.gateway_start.16",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "gateway_start",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.gateway_start.16",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "gateway_start",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.gateway_stop.17",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "gateway_stop",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.gateway_stop.17",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "gateway_stop",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.heartbeat_prompt_contribution.18",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "heartbeat_prompt_contribution",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.heartbeat_prompt_contribution.18",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "heartbeat_prompt_contribution",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.inbound_claim.19",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "inbound_claim",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.inbound_claim.19",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "inbound_claim",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.llm_input.20",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "llm_input",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.llm_input.20",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "llm_input",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.llm_output.21",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "llm_output",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.llm_output.21",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "llm_output",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.message_received.22",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "message_received",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.message_received.22",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "message_received",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.message_sending.23",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "message_sending",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.message_sending.23",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "message_sending",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.message_sent.24",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "message_sent",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.message_sent.24",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "message_sent",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.model_call_ended.25",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "model_call_ended",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.model_call_ended.25",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "model_call_ended",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.model_call_started.26",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "model_call_started",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.model_call_started.26",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "model_call_started",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerChannel.39",
+      "id": "execution-results.blocked.kitchen-sink.registerChannel.41",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeChannelRuntime=true",
       "evidence": [
@@ -1881,7 +827,7 @@
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerChannel.39",
+      "id": "execution-results.blocked.kitchen-sink.registerChannel.41",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeChannelRuntime=true",
       "evidence": [
@@ -1892,7 +838,7 @@
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerChannel.86",
+      "id": "execution-results.blocked.kitchen-sink.registerChannel.94",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeChannelRuntime=true",
       "evidence": [
@@ -1903,7 +849,7 @@
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerChannel.86",
+      "id": "execution-results.blocked.kitchen-sink.registerChannel.94",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeChannelRuntime=true",
       "evidence": [
@@ -1914,7 +860,7 @@
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerCli.108",
+      "id": "execution-results.blocked.kitchen-sink.registerCli.116",
       "action": "warn",
       "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
@@ -1925,7 +871,7 @@
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerCli.108",
+      "id": "execution-results.blocked.kitchen-sink.registerCli.116",
       "action": "warn",
       "message": "allowed-blocked: captured registration has no supported callable probe",
       "evidence": [
@@ -1936,227 +882,95 @@
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerCli.40",
+      "id": "execution-results.blocked.kitchen-sink.registerHttpRoute.114",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerCli",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerCli.40",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerCli",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerCommand.43",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerCommand.43",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerCommand.83",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerCommand.83",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerCommand.84",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerCommand.84",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerGatewayMethod.107",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerGatewayMethod.107",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerGatewayMethod.49",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerGatewayMethod.49",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerHttpRoute.106",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured HTTP route probe requires route descriptor input",
       "evidence": [
         ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
         "registerHttpRoute",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured HTTP route probe requires route descriptor input",
+        "http-route-descriptor-input"
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerHttpRoute.106",
+      "id": "execution-results.blocked.kitchen-sink.registerHttpRoute.114",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured HTTP route probe requires route descriptor input",
       "evidence": [
         ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
         "registerHttpRoute",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured HTTP route probe requires route descriptor input",
+        "http-route-descriptor-input"
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerHttpRoute.51",
+      "id": "execution-results.blocked.kitchen-sink.registerHttpRoute.55",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured HTTP route probe requires route descriptor input",
       "evidence": [
         ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
         "registerHttpRoute",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured HTTP route probe requires route descriptor input",
+        "http-route-descriptor-input"
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerHttpRoute.51",
+      "id": "execution-results.blocked.kitchen-sink.registerHttpRoute.55",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured HTTP route probe requires route descriptor input",
+      "evidence": [
+        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
+        "registerHttpRoute",
+        "captured HTTP route probe requires route descriptor input",
+        "http-route-descriptor-input"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.kitchen-sink.registerHttpRoute.55",
+      "action": "warn",
+      "message": "allowed-blocked: captured HTTP route probe requires route descriptor input",
+      "evidence": [
+        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
+        "registerHttpRoute",
+        "captured HTTP route probe requires route descriptor input",
+        "http-route-descriptor-input"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.kitchen-sink.registerHttpRoute.55",
+      "action": "warn",
+      "message": "allowed-blocked: captured HTTP route probe requires route descriptor input",
       "evidence": [
         ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
         "registerHttpRoute",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "captured HTTP route probe requires route descriptor input",
+        "http-route-descriptor-input"
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerInteractiveHandler.53",
+      "id": "execution-results.blocked.kitchen-sink.registerHttpRoute.55",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerInteractiveHandler",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerInteractiveHandler.53",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured HTTP route probe requires route descriptor input",
       "evidence": [
         ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerInteractiveHandler",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "registerHttpRoute",
+        "captured HTTP route probe requires route descriptor input",
+        "http-route-descriptor-input"
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerInteractiveHandler.85",
+      "id": "execution-results.blocked.kitchen-sink.registerHttpRoute.55",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerInteractiveHandler",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerInteractiveHandler.85",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured HTTP route probe requires route descriptor input",
       "evidence": [
         ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerInteractiveHandler",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
+        "registerHttpRoute",
+        "captured HTTP route probe requires route descriptor input",
+        "http-route-descriptor-input"
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerService.105",
+      "id": "execution-results.blocked.kitchen-sink.registerService.113",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeLifecycle=true",
       "evidence": [
@@ -2167,7 +981,7 @@
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerService.105",
+      "id": "execution-results.blocked.kitchen-sink.registerService.113",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeLifecycle=true",
       "evidence": [
@@ -2178,7 +992,7 @@
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerService.72",
+      "id": "execution-results.blocked.kitchen-sink.registerService.79",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeLifecycle=true",
       "evidence": [
@@ -2189,7 +1003,7 @@
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerService.72",
+      "id": "execution-results.blocked.kitchen-sink.registerService.79",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeLifecycle=true",
       "evidence": [
@@ -2200,7 +1014,7 @@
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerSpeechProvider.75",
+      "id": "execution-results.blocked.kitchen-sink.registerSpeechProvider.101",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeProviderCapabilities=true",
       "evidence": [
@@ -2211,7 +1025,7 @@
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerSpeechProvider.75",
+      "id": "execution-results.blocked.kitchen-sink.registerSpeechProvider.101",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeProviderCapabilities=true",
       "evidence": [
@@ -2222,7 +1036,7 @@
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerSpeechProvider.93",
+      "id": "execution-results.blocked.kitchen-sink.registerSpeechProvider.83",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeProviderCapabilities=true",
       "evidence": [
@@ -2233,7 +1047,7 @@
       ]
     },
     {
-      "id": "execution-results.blocked.kitchen-sink.registerSpeechProvider.93",
+      "id": "execution-results.blocked.kitchen-sink.registerSpeechProvider.83",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeProviderCapabilities=true",
       "evidence": [
@@ -2241,270 +1055,6 @@
         "registerSpeechProvider",
         "captured registration requires includeProviderCapabilities=true",
         "provider-capability-harness"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerTool.77",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerTool.77",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerTool.87",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerTool.87",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerTool.88",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerTool.88",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerTool.89",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.registerTool.89",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.reply_dispatch.27",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "reply_dispatch",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.reply_dispatch.27",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "reply_dispatch",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.session_end.28",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "session_end",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.session_end.28",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "session_end",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.session_start.29",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "session_start",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.session_start.29",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "session_start",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.subagent_delivery_target.30",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "subagent_delivery_target",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.subagent_delivery_target.30",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "subagent_delivery_target",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.subagent_ended.31",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "subagent_ended",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.subagent_ended.31",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "subagent_ended",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.subagent_spawned.32",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "subagent_spawned",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.subagent_spawned.32",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "subagent_spawned",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.subagent_spawning.33",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "subagent_spawning",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.subagent_spawning.33",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "subagent_spawning",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.tool_result_persist.34",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-extension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "tool_result_persist",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.kitchen-sink.tool_result_persist.34",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/kitchen-sink/cold-import-runtimeExtension-kitchen-sink-plugins-kitchen-sink-src-index-js.synthetic.json",
-        "tool_result_persist",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
       ]
     },
     {
@@ -2527,28 +1077,6 @@
         "registerTool",
         "captured registration has no supported callable probe",
         "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.llm-trace-phoenix.llm_input.0",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.synthetic.json",
-        "llm_input",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.llm-trace-phoenix.llm_output.1",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.synthetic.json",
-        "llm_output",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
       ]
     },
     {
@@ -2585,72 +1113,6 @@
       ]
     },
     {
-      "id": "execution-results.blocked.matrix.registerGatewayMethod.2",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.matrix.registerGatewayMethod.3",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.matrix.registerGatewayMethod.4",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.synthetic.json",
-        "registerGatewayMethod",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.matrix.subagent_delivery_target.7",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.synthetic.json",
-        "subagent_delivery_target",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.matrix.subagent_ended.6",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.synthetic.json",
-        "subagent_ended",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.matrix.subagent_spawning.5",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/matrix/cold-import-extension-matrix-plugins-matrix-crabpot-package-index-ts.synthetic.json",
-        "subagent_spawning",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
       "id": "execution-results.blocked.mattermost.registerChannel.0",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeChannelRuntime=true",
@@ -2664,16 +1126,27 @@
     {
       "id": "execution-results.blocked.mattermost.registerHttpRoute.1",
       "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "message": "allowed-blocked: captured HTTP route probe requires route descriptor input",
       "evidence": [
         ".crabpot/results/mattermost/cold-import-extension-mattermost-plugins-mattermost-crabpot-package-index-ts.synthetic.json",
         "registerHttpRoute",
+        "captured HTTP route probe requires route descriptor input",
+        "http-route-descriptor-input"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.memory-lancedb.registerCli.4",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "evidence": [
+        ".crabpot/results/memory-lancedb/cold-import-runtimeExtension-memory-lancedb-plugins-memory-lancedb-crabpot-package-dist-index-js.synthetic.json",
+        "registerCli",
         "captured registration has no supported callable probe",
         "generated-surface-registration-stubs"
       ]
     },
     {
-      "id": "execution-results.blocked.memory-lancedb.registerService.0",
+      "id": "execution-results.blocked.memory-lancedb.registerService.8",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeLifecycle=true",
       "evidence": [
@@ -2684,47 +1157,36 @@
       ]
     },
     {
-      "id": "execution-results.blocked.memory-tencentdb.agent_end.4",
+      "id": "execution-results.blocked.memory-lancedb.registerTool.1",
       "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
+      "message": "allowed-blocked: captured memory tool requires realistic query/text input",
       "evidence": [
-        ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json",
-        "agent_end",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
+        ".crabpot/results/memory-lancedb/cold-import-runtimeExtension-memory-lancedb-plugins-memory-lancedb-crabpot-package-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured memory tool requires realistic query/text input",
+        "memory-lancedb-tool-query-input"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.memory-lancedb.registerTool.2",
+      "action": "warn",
+      "message": "allowed-blocked: captured memory tool requires realistic query/text input",
+      "evidence": [
+        ".crabpot/results/memory-lancedb/cold-import-runtimeExtension-memory-lancedb-plugins-memory-lancedb-crabpot-package-dist-index-js.synthetic.json",
+        "registerTool",
+        "captured memory tool requires realistic query/text input",
+        "memory-lancedb-tool-query-input"
       ]
     },
     {
       "id": "execution-results.blocked.memory-tencentdb.before_message_write.3",
       "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
+      "message": "allowed-blocked: captured memory write hook requires host message content",
       "evidence": [
         ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json",
         "before_message_write",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.memory-tencentdb.before_prompt_build.2",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json",
-        "before_prompt_build",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.memory-tencentdb.gateway_stop.5",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json",
-        "gateway_stop",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
+        "captured memory write hook requires host message content",
+        "memory-tencentdb-message-content-runtime"
       ]
     },
     {
@@ -2739,50 +1201,6 @@
       ]
     },
     {
-      "id": "execution-results.blocked.memory-tencentdb.registerTool.0",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json",
-        "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.memory-tencentdb.registerTool.1",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-index-ts.synthetic.json",
-        "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.memos-cloud.agent_end.1",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/memos-cloud/cold-import-extension-memos-cloud-plugins-memos-cloud-index-js.synthetic.json",
-        "agent_end",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.memos-cloud.before_agent_start.0",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/memos-cloud/cold-import-extension-memos-cloud-plugins-memos-cloud-index-js.synthetic.json",
-        "before_agent_start",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
       "id": "execution-results.blocked.msteams.registerChannel.0",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeChannelRuntime=true",
@@ -2791,39 +1209,6 @@
         "registerChannel",
         "captured registration requires includeChannelRuntime=true",
         "channel-runtime-harness"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.nemoclaw.before_prompt_build.1",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.synthetic.json",
-        "before_prompt_build",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.nemoclaw.before_tool_call.3",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.synthetic.json",
-        "before_tool_call",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.nemoclaw.registerCommand.0",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
       ]
     },
     {
@@ -2849,50 +1234,6 @@
       ]
     },
     {
-      "id": "execution-results.blocked.openclaw-qqbot.registerCommand.2",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/openclaw-qqbot/cold-import-runtimeExtension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.openclaw-qqbot.registerCommand.3",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/openclaw-qqbot/cold-import-runtimeExtension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.openclaw-qqbot.registerCommand.4",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/openclaw-qqbot/cold-import-runtimeExtension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.openclaw-qqbot.registerCommand.5",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/openclaw-qqbot/cold-import-runtimeExtension-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
       "id": "execution-results.blocked.openclaw-qqbot.registerTool.1",
       "action": "warn",
       "message": "allowed-blocked: captured registration has no supported callable probe",
@@ -2901,6 +1242,17 @@
         "registerTool",
         "captured registration has no supported callable probe",
         "generated-surface-registration-stubs"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.openclaw-telemetry.registerService.0",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration requires includeLifecycle=true",
+      "evidence": [
+        ".crabpot/results/openclaw-telemetry/cold-import-extension-openclaw-telemetry-plugins-openclaw-telemetry-index-ts.synthetic.json",
+        "registerService",
+        "captured registration requires includeLifecycle=true",
+        "service-lifecycle-harness"
       ]
     },
     {
@@ -2923,17 +1275,6 @@
         "registerChannel",
         "captured registration requires includeChannelRuntime=true",
         "channel-runtime-harness"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.secureclaw.gateway_start.3",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/secureclaw/cold-import-extension-secureclaw-plugins-secureclaw-secureclaw-dist-index-js.synthetic.json",
-        "gateway_start",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
       ]
     },
     {
@@ -3157,83 +1498,6 @@
       ]
     },
     {
-      "id": "execution-results.blocked.voice-call.registerTool.9",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/voice-call/cold-import-runtimeExtension-voice-call-plugins-voice-call-crabpot-package-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.web-search-plus.registerTool.0",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.synthetic.json",
-        "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.web-search-plus.registerTool.0",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/web-search-plus/cold-import-runtimeExtension-web-search-plus-plugins-web-search-plus-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.web-search-plus.registerTool.1",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/web-search-plus/cold-import-extension-web-search-plus-plugins-web-search-plus-index-ts.synthetic.json",
-        "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.web-search-plus.registerTool.1",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/web-search-plus/cold-import-runtimeExtension-web-search-plus-plugins-web-search-plus-dist-index-js.synthetic.json",
-        "registerTool",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.wecom.before_prompt_build.3",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json",
-        "before_prompt_build",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.wecom.before_tool_call.7",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json",
-        "before_tool_call",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
       "id": "execution-results.blocked.wecom.registerChannel.0",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeChannelRuntime=true",
@@ -3267,39 +1531,6 @@
       ]
     },
     {
-      "id": "execution-results.blocked.wecom.subagent_delivery_target.4",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json",
-        "subagent_delivery_target",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.wecom.subagent_ended.6",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json",
-        "subagent_ended",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.wecom.subagent_spawned.5",
-      "action": "warn",
-      "message": "allowed-blocked: captured hook has no callable handler",
-      "evidence": [
-        ".crabpot/results/wecom/cold-import-extension-wecom-plugins-wecom-index-js.synthetic.json",
-        "subagent_spawned",
-        "captured hook has no callable handler",
-        "generated-surface-hook-stubs"
-      ]
-    },
-    {
       "id": "execution-results.blocked.whatsapp.registerChannel.0",
       "action": "warn",
       "message": "allowed-blocked: captured registration requires includeChannelRuntime=true",
@@ -3319,39 +1550,6 @@
         "registerChannel",
         "captured registration requires includeChannelRuntime=true",
         "channel-runtime-harness"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.yuanbao.registerCommand.1",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.yuanbao.registerCommand.2",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
-      ]
-    },
-    {
-      "id": "execution-results.blocked.yuanbao.registerCommand.3",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration has no supported callable probe",
-      "evidence": [
-        ".crabpot/results/yuanbao/cold-import-extension-yuanbao-plugins-yuanbao-crabpot-package-dist-index-js.synthetic.json",
-        "registerCommand",
-        "captured registration has no supported callable probe",
-        "generated-surface-registration-stubs"
       ]
     },
     {
