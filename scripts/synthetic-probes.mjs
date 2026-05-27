@@ -12,6 +12,12 @@ export const defaultSyntheticProbeMarkdownPath = path.join(repoRoot, "reports/cr
 const pluginInspector = await loadPluginInspectorPublicApi();
 
 const httpRouteDescriptorInputReason = "captured HTTP route probe requires route descriptor input";
+const crabpotMetadataOnlyRegistrars = new Map([
+  [
+    "registerTranscriptSourceProvider",
+    "transcript source providers are captured as registration metadata before transcript provider runtime execution",
+  ],
+]);
 
 export function validateSyntheticProbePlan(plan) {
   return pluginInspector
@@ -273,6 +279,21 @@ function applyCrabpotSyntheticProbePlanPolicy(plan) {
 
   let changed = false;
   const probes = plan.probes.map((probe) => {
+    const metadataOnlyReason = crabpotMetadataOnlyRegistrars.get(probe.seam);
+    if (probe.kind === "registration" && probe.status === "blocked" && metadataOnlyReason) {
+      changed = true;
+      return {
+        ...probe,
+        status: "ready",
+        blocker: null,
+        execution: {
+          mode: "metadata-only",
+          callableProperties: [],
+          reason: metadataOnlyReason,
+        },
+      };
+    }
+
     if (probe.kind !== "registration" || probe.seam !== "registerHttpRoute" || probe.status !== "ready") {
       return probe;
     }
