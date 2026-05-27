@@ -456,6 +456,16 @@
           "registerChannel"
         ]
       },
+      "execution": {
+        "blockedFailures": [
+          {
+            "id": "discord-subagent-state-dir-runtime",
+            "seam": "subagent_ended",
+            "errorIncludes": "Received function resolveStateDir.name",
+            "reason": "captured Discord subagent hook requires the host state-dir runtime"
+          }
+        ]
+      },
       "why": "Official OpenClaw Discord channel package covering subagent routing hooks, message policy, account auth, and npm artifact packaging from the monorepo."
     },
     {
@@ -1134,6 +1144,16 @@
         "hooks": ["before_prompt_build", "gateway_stop", "agent_end"],
         "registrations": ["registerTool", "registerCli"]
       },
+      "execution": {
+        "blockedFailures": [
+          {
+            "id": "memory-tencentdb-message-content-runtime",
+            "seam": "before_message_write",
+            "errorIncludes": "reading 'content'",
+            "reason": "captured memory write hook requires host message content"
+          }
+        ]
+      },
       "why": "NPM-pinned memory fixture covering automatic recall/capture hooks, TencentDB vector storage, SQLite fallback, cleanup lifecycle, and seed/export CLI commands."
     },
     {
@@ -1284,6 +1304,12 @@
             "seam": "registerTool",
             "errorIncludes": "fetch failed",
             "reason": "captured tool requires live network access"
+          },
+          {
+            "id": "clawrouter-endpoint-path-runtime",
+            "seam": "registerTool",
+            "errorIncludes": "invalid path ''",
+            "reason": "captured ClawRouter endpoint tool requires configured endpoint path input"
           }
         ]
       },
@@ -1350,6 +1376,28 @@
       "expect": {
         "hooks": ["inbound_claim"],
         "registrations": ["registerService"]
+      },
+      "execution": {
+        "blockedFailures": [
+          {
+            "id": "codex-app-server-conversation-binding-runtime",
+            "seam": "onConversationBindingResolved",
+            "errorIncludes": "reading 'conversation'",
+            "reason": "captured conversation-binding hook requires host conversation context"
+          },
+          {
+            "id": "codex-app-server-interactive-payload-runtime",
+            "seam": "registerInteractiveHandler",
+            "errorIncludes": "reading 'payload'",
+            "reason": "captured interactive handler requires host callback payload"
+          },
+          {
+            "id": "codex-app-server-command-text-runtime",
+            "seam": "registerCommand",
+            "errorIncludes": "reading 'trim'",
+            "reason": "captured command handler requires host command text"
+          }
+        ]
       },
       "why": "Bridge fixture for process launch policy, install safety gates, and channel-specific SDK compatibility."
     },

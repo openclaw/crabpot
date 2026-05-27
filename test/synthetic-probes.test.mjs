@@ -6,6 +6,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { test } from "node:test";
 import { buildContractCapture } from "../scripts/capture-contracts.mjs";
+import { readConfiguredManifest } from "../scripts/manifest-lib.mjs";
 import {
   applyFixtureSyntheticFailurePolicy,
   buildSyntheticProbePlan,
@@ -218,4 +219,59 @@ test("fixture execution policy classifies known live tool failures as blocked", 
   assert.equal(result.results[0].status, "blocked");
   assert.equal(result.results[0].reason, "captured tool requires live network access");
   assert.equal(result.results[1].status, "fail");
+});
+
+test("fixture execution policy classifies beta dashboard harness gaps", async () => {
+  const manifest = await readConfiguredManifest();
+  const cases = [
+    {
+      fixture: "clawrouter",
+      seam: "registerTool",
+      error: "predexon_endpoint_call: invalid path ''",
+      blockedBy: "clawrouter-endpoint-path-runtime",
+    },
+    {
+      fixture: "codex-app-server",
+      seam: "registerCommand",
+      error: "Cannot read properties of undefined (reading 'trim')",
+      blockedBy: "codex-app-server-command-text-runtime",
+    },
+    {
+      fixture: "discord",
+      seam: "subagent_ended",
+      error: 'The "path" argument must be of type string. Received function resolveStateDir.name',
+      blockedBy: "discord-subagent-state-dir-runtime",
+    },
+    {
+      fixture: "memory-tencentdb",
+      seam: "before_message_write",
+      error: "Cannot read properties of undefined (reading 'content')",
+      blockedBy: "memory-tencentdb-message-content-runtime",
+    },
+  ];
+
+  for (const item of cases) {
+    const result = applyFixtureSyntheticFailurePolicy(
+      {
+        entrypoint: path.join(repoRoot, `.crabpot/workspaces/${item.fixture}/index.js`),
+        status: "captured",
+        summary: { probeCount: 1, passCount: 0, failCount: 1, blockedCount: 0 },
+        results: [
+          {
+            captureIndex: 0,
+            kind: item.seam.startsWith("register") ? "registration" : "hook",
+            seam: item.seam,
+            label: item.seam,
+            status: "fail",
+            error: item.error,
+          },
+        ],
+      },
+      manifest,
+    );
+
+    assert.deepEqual(result.summary, { probeCount: 1, passCount: 0, failCount: 0, blockedCount: 1 });
+    assert.equal(result.results[0].status, "blocked");
+    assert.equal(result.results[0].blockedBy, item.blockedBy);
+  }
 });

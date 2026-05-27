@@ -64,6 +64,13 @@
       "reasonIncludes": "captured memory tool requires the host embedding provider runtime",
       "decision": "allowed-blocked",
       "until": "memory synthetic probes can inject a host embedding runtime"
+    },
+    {
+      "id": "transcript-source-provider-metadata",
+      "seam": "registerTranscriptSourceProvider",
+      "reasonIncludes": "captured registration has no execution profile",
+      "decision": "allowed-blocked",
+      "until": "transcript source provider synthetic probes can execute provider runtime hooks"
     }
   ],
   "expectedWarnings": [

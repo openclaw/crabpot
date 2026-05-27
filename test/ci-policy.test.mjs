@@ -150,6 +150,25 @@ test("default ci policy classifies HTTP route descriptor blockers", async () => 
   );
 });
 
+test("default ci policy classifies transcript source metadata blockers", async () => {
+  const report = await buildCiPolicyReport({
+    compatibilityReport: compatibilityReport(),
+    executionResults: executionResults([
+      {
+        seam: "registerTranscriptSourceProvider",
+        reason: "captured registration has no execution profile",
+      },
+    ]),
+  });
+
+  assert.equal(report.status, "pass");
+  assert.deepEqual(
+    report.checks.filter((check) => check.id.startsWith("execution-results.blocked.")).map((check) => check.action),
+    ["warn"],
+  );
+  assert.equal(validateCiPolicyReport(report).length, 0);
+});
+
 test("ci policy fails ref diff hard regressions", async () => {
   const report = await buildCiPolicyReport({
     policy,
