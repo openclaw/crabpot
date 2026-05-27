@@ -1,0 +1,23 @@
+{
+  "id": "lcm-basic-memory-turn",
+  "category": "context-engine",
+  "description": "Install LCM, select it as the context engine, and run one memory-shaped turn through an isolated gateway.",
+  "checks": [
+    {
+      "id": "install",
+      "description": "The requested OpenClaw package resolves and the LCM npm plugin installs into isolated state."
+    },
+    {
+      "id": "gateway-load",
+      "description": "The gateway starts with lossless-claw enabled and selected in the contextEngine slot."
+    },
+    {
+      "id": "agent-turn",
+      "description": "An agent call accepts a seeded memory fact and returns a completed run or a classified failure."
+    },
+    {
+      "id": "memory-assembly",
+      "description": "A follow-up turn can observe the seeded fact through assembled context, or the run is classified as an LCM assembly failure."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "forward-lcm-release-gate",
+  "category": "context-engine",
+  "scenario": "lcm-basic-memory-turn",
+  "why": "Default forward gate for LCM-style context-engine plugin behavior beyond API seam compatibility.",
+  "expectation": {
+    "mode": "must-pass"
+  },
+  "openclaw": {
+    "source": "npm",
+    "version": "latest"
+  },
+  "plugins": [
+    {
+      "id": "lossless-claw",
+      "source": "npm",
+      "spec": "@martian-engineering/lossless-claw@latest",
+      "slot": "contextEngine"
+    }
+  ],
+  "runner": {
+    "providerMode": "mock-openai",
+    "execution": "blacksmith",
+    "timeoutMs": 900000
+  }
+}

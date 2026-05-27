@@ -1,0 +1,31 @@
+{
+  "id": "recent-lcm-2026-5-22",
+  "category": "context-engine",
+  "scenario": "lcm-basic-memory-turn",
+  "why": "Historical repro profile for the recent Discord-reported LCM break on openclaw@2026.5.22 with lossless-claw@0.11.2.",
+  "expectation": {
+    "mode": "known-failure",
+    "failureClasses": [
+      "embedded-attempt-session-takeover",
+      "agent-runner-unavailable",
+      "memory-recall-mismatch"
+    ]
+  },
+  "openclaw": {
+    "source": "npm",
+    "version": "2026.5.22"
+  },
+  "plugins": [
+    {
+      "id": "lossless-claw",
+      "source": "npm",
+      "spec": "@martian-engineering/lossless-claw@0.11.2",
+      "slot": "contextEngine"
+    }
+  ],
+  "runner": {
+    "providerMode": "mock-openai",
+    "execution": "blacksmith",
+    "timeoutMs": 900000
+  }
+}
