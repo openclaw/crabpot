@@ -3478,7 +3478,7 @@
     {
       "id": "compatibility-report.inspector-gaps",
       "action": "pass",
-      "message": "160 inspector proof gaps tracked",
+      "message": "159 inspector proof gaps tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "dingtalk-doc:before-tool-call-probe",
@@ -3498,7 +3498,6 @@
         "a2a-gateway:package-dependency-install-required",
         "a2a-gateway:package-typescript-source-entrypoint",
         "a2a-gateway:registration-capture-gap",
-        "a2a-gateway:runtime-tool-capture",
         "agentchat:channel-contract-probe",
         "agentchat:package-build-artifact-entrypoint",
         "agentchat:package-dependency-install-required",
@@ -3645,7 +3644,7 @@
     {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "19 P1 issues tracked",
+      "message": "20 P1 issues tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "codex:reserved-sdk-import",
@@ -3665,7 +3664,8 @@
         "openclaw-telemetry:conversation-access-hook",
         "opik-openclaw:before-tool-call-probe",
         "opik-openclaw:conversation-access-hook",
-        "wecom:before-tool-call-probe"
+        "wecom:before-tool-call-probe",
+        "whatsapp:sdk-export-missing"
       ]
     },
     {

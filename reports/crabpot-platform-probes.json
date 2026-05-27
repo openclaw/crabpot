@@ -1454,7 +1454,7 @@
     {
       "fixture": "whatsapp",
       "id": "cold-import.extension:whatsapp:plugins-whatsapp-crabpot-package-index-ts",
-      "status": "missing",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/whatsapp/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1472,7 +1472,7 @@
     {
       "fixture": "whatsapp",
       "id": "cold-import.runtimeExtension:whatsapp:plugins-whatsapp-crabpot-package-dist-index-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/whatsapp/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1490,7 +1490,7 @@
     {
       "fixture": "whatsapp",
       "id": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
-      "status": "missing",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/whatsapp/.crabpot-package/setup-entry.ts",
       "packageManager": "npm",
       "loaderSource": "native-node",
