@@ -6,6 +6,8 @@ import { repoRoot } from "../scripts/manifest-lib.mjs";
 import {
   executionEnvForStep,
   parsePortableStep,
+  readWorkspaceStepTimeoutMs,
+  runStep,
   validateExecutionRequest,
   selectWorkspaceSteps,
 } from "../scripts/execute-workspace-plan.mjs";
@@ -339,6 +341,38 @@ test("workspace executor gives process steps fixture-scoped home directories", (
   assert.match(env.HOME, /\.crabpot[/\\]home[/\\]clawrouter$/);
   assert.equal(env.USERPROFILE, env.HOME);
   assert.equal(env.OPENCLAW_HOME, path.join(env.HOME, ".openclaw"));
+});
+
+test("workspace executor bounds hung process steps", async () => {
+  const previous = process.env.CRABPOT_WORKSPACE_STEP_TIMEOUT_MS;
+  process.env.CRABPOT_WORKSPACE_STEP_TIMEOUT_MS = "50";
+  try {
+    const result = await runStep({
+      kind: "capture",
+      command: `${process.execPath} -e "setTimeout(() => {}, 1000)"`,
+      cwd: ".",
+    });
+
+    assert.equal(result.exitCode, 124);
+    assert.equal(result.timedOut, true);
+    assert.equal(result.timeoutMs, 50);
+    assert.ok(result.wallMs < 1000, `expected timeout before sleep completed, got ${result.wallMs}ms`);
+  } finally {
+    if (previous === undefined) {
+      delete process.env.CRABPOT_WORKSPACE_STEP_TIMEOUT_MS;
+    } else {
+      process.env.CRABPOT_WORKSPACE_STEP_TIMEOUT_MS = previous;
+    }
+  }
+});
+
+test("workspace executor validates process step timeout configuration", () => {
+  assert.equal(readWorkspaceStepTimeoutMs({}), 0);
+  assert.equal(readWorkspaceStepTimeoutMs({ CRABPOT_WORKSPACE_STEP_TIMEOUT_MS: "120000" }), 120000);
+  assert.throws(
+    () => readWorkspaceStepTimeoutMs({ CRABPOT_WORKSPACE_STEP_TIMEOUT_MS: "1s" }),
+    /CRABPOT_WORKSPACE_STEP_TIMEOUT_MS/,
+  );
 });
 
 test("workspace executor CLI emits a narrow dry-run plan", () => {

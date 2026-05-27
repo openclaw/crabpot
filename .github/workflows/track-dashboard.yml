@@ -117,6 +117,7 @@ jobs:
           CRABPOT_OPENCLAW_TRACK: ${{ matrix.track }}
           CRABPOT_PLUGIN_TRACK: ${{ matrix.plugin_track }}
           CRABPOT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          CRABPOT_WORKSPACE_STEP_TIMEOUT_MS: "300000"
         run: |
           CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
           export CRABPOT_SUMMARY_GENERATED_AT
