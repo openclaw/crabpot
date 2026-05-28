@@ -7,6 +7,7 @@ import { test } from "node:test";
 import {
   behaviorEvalExecutionExitCode,
   buildBehaviorEvalPlan,
+  buildBehaviorEvalMockResponseText,
   executeBehaviorEvalPlan,
   loadBehaviorEvalProfile,
   loadBehaviorEvalScenario,
@@ -160,6 +161,19 @@ test("behavior eval exit code follows expectation contract", () => {
   assert.equal(behaviorEvalExecutionExitCode({ status: "fail" }, "report-only"), 0);
 });
 
+test("behavior eval mock recall derives answers from request context", () => {
+  assert.equal(
+    buildBehaviorEvalMockResponseText("What is CRABPOT_LCM_FACT?"),
+    "I do not have that fact.",
+  );
+  assert.equal(
+    buildBehaviorEvalMockResponseText(
+      "Memory: CRABPOT_LCM_FACT is blue-lantern-42.\nWhat is CRABPOT_LCM_FACT?",
+    ),
+    "blue-lantern-42",
+  );
+});
+
 test("behavior eval markdown report names the TDD target and command", () => {
   const plan = buildBehaviorEvalPlan({ profile: historicalProfile, scenario });
   const markdown = renderBehaviorEvalMarkdown(plan);
@@ -265,8 +279,8 @@ test("behavior eval executor records isolated setup, config, and gateway readine
         baseUrl: "http://127.0.0.1:45678",
         stop: async () => {},
       }),
-      runGatewayRpc: async (method, params) => {
-        rpcCalls.push({ method, params });
+      runGatewayRpc: async (method, params, context, options) => {
+        rpcCalls.push({ method, params, options });
         if (method === "chat.send") {
           return { status: "started", runId: params.idempotencyKey };
         }
@@ -315,6 +329,8 @@ test("behavior eval executor records isolated setup, config, and gateway readine
     assert.equal(rpcCalls[0].params.sessionKey, "agent:qa:discord:channel:crabpot-lcm-basic-memory-turn");
     assert.match(rpcCalls[0].params.message, /CRABPOT_LCM_FACT/);
     assert.equal(rpcCalls[1].params.runId, rpcCalls[0].params.idempotencyKey);
+    assert.equal(rpcCalls[1].params.timeoutMs, 900000);
+    assert.equal(rpcCalls[1].options.timeoutMs, 905000);
 
     const config = JSON.parse(await readFile(path.join(tempRoot, "config.json"), "utf8"));
     assert.deepEqual(config.plugins.slots, { contextEngine: "lossless-claw" });

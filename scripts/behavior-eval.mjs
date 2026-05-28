@@ -1277,14 +1277,19 @@ function extractBehaviorEvalRequestText(value) {
   return parts.join("\n");
 }
 
-function buildBehaviorEvalMockResponseText(inputText) {
+export function buildBehaviorEvalMockResponseText(inputText) {
   if (/remember.*crabpot_lcm_fact|crabpot_lcm_fact/iu.test(inputText)) {
     if (/what is crabpot_lcm_fact|recall.*crabpot_lcm_fact/iu.test(inputText)) {
-      return "blue-lantern-42";
+      return extractBehaviorEvalFactValue(inputText) ?? "I do not have that fact.";
     }
     return "remembered CRABPOT_LCM_FACT";
   }
   return "ok";
+}
+
+function extractBehaviorEvalFactValue(inputText) {
+  const match = inputText.match(/\bCRABPOT_LCM_FACT\s*(?:is|=|:)\s*([A-Za-z0-9._-]+)/iu);
+  return match?.[1]?.replace(/[.?!,;:]+$/u, "") ?? null;
 }
 
 function buildBehaviorEvalMockResponseEvents(text) {
@@ -1345,7 +1350,7 @@ async function runBehaviorEvalScenario(plan, context) {
   const stderr = [];
   for (const turn of turns) {
     const runId = `crabpot-${randomUUID()}`;
-    const waitTimeoutMs = Math.max(1, Math.min(context.timeoutMs, 120_000));
+    const waitTimeoutMs = Math.max(1, context.timeoutMs);
     const sendParams = {
       sessionKey,
       message: turn.message,
@@ -1521,7 +1526,7 @@ async function runBehaviorEvalGatewayRpc(method, params, context, options = {}) 
     context.gatewayRpcClient = await createBehaviorEvalGatewayRpcClient({
       url: `ws://127.0.0.1:${context.port}`,
       token: context.token,
-      timeoutMs: Math.min(context.timeoutMs, 120_000),
+      timeoutMs: context.timeoutMs,
     });
   }
   return await context.gatewayRpcClient.request(method, params, {
