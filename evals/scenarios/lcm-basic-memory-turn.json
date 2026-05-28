@@ -1,7 +1,7 @@
 {
   "id": "lcm-basic-memory-turn",
   "category": "context-engine",
-  "description": "Install LCM, select it as the context engine, and run two memory-shaped turns through one stable session key.",
+  "description": "Install LCM, select it as the context engine, and recall a seeded fact through one stable session key after a session reset.",
   "recallScope": "same-session-key",
   "checks": [
     {
@@ -18,7 +18,20 @@
     },
     {
       "id": "memory-assembly",
-      "description": "A follow-up turn on the same stable session key can observe the seeded fact through assembled context, or the run is classified as an LCM assembly failure."
+      "description": "A follow-up turn on the same stable session key after sessions.reset can observe the seeded fact through assembled context, or the run is classified as an LCM assembly failure."
+    }
+  ],
+  "turns": [
+    {
+      "sessionSuffix": "default",
+      "message": "Remember this exact test fact: CRABPOT_LCM_FACT is blue-lantern-42.",
+      "expectText": "remembered"
+    },
+    {
+      "sessionSuffix": "default",
+      "resetBefore": true,
+      "message": "What is CRABPOT_LCM_FACT? Answer with only the remembered value.",
+      "expectText": "blue-lantern-42"
     }
   ]
 }

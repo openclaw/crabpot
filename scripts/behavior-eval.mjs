@@ -1385,8 +1385,26 @@ async function runBehaviorEvalScenario(plan, context) {
       timeoutMs: waitTimeoutMs,
       idempotencyKey: runId,
     };
-    commands.push(`gateway rpc chat.send ${JSON.stringify(sendParams)}`);
     try {
+      if (turn.resetBefore) {
+        const resetParams = { key: sessionKey, reason: "reset" };
+        commands.push(`gateway rpc sessions.reset ${JSON.stringify(resetParams)}`);
+        const reset = await context.runGatewayRpc("sessions.reset", resetParams, context, {
+          timeoutMs: Math.min(waitTimeoutMs, 30_000),
+        });
+        stdout.push(`sessions.reset ${JSON.stringify(reset)}`);
+        if (reset?.status && reset.status !== "ok") {
+          return {
+            status: "fail",
+            exitCode: 1,
+            command: commands.join("\n"),
+            stdout: stdout.join("\n"),
+            stderr: `sessions.reset returned ${JSON.stringify(reset)}`,
+            wallMs: Date.now() - startedAt,
+          };
+        }
+      }
+      commands.push(`gateway rpc chat.send ${JSON.stringify(sendParams)}`);
       const started = await context.runGatewayRpc("chat.send", sendParams, context, {
         timeoutMs: Math.min(waitTimeoutMs, 30_000),
       });
@@ -1534,6 +1552,7 @@ function resolveBehaviorEvalScenarioTurns(scenario) {
     return scenario.turns.map((turn) => ({
       sessionKey: typeof turn.sessionKey === "string" && turn.sessionKey ? turn.sessionKey : undefined,
       sessionSuffix: typeof turn.sessionSuffix === "string" && turn.sessionSuffix ? turn.sessionSuffix : undefined,
+      resetBefore: turn.resetBefore === true,
       message: String(turn.message ?? ""),
       expectText: typeof turn.expectText === "string" ? turn.expectText : undefined,
     }));
@@ -1546,6 +1565,7 @@ function resolveBehaviorEvalScenarioTurns(scenario) {
     },
     {
       sessionSuffix: scenario.recallScope === "cross-session" ? "recall" : undefined,
+      resetBefore: scenario.recallScope !== "cross-session",
       message: "What is CRABPOT_LCM_FACT? Answer with only the remembered value.",
       expectText: "blue-lantern-42",
     },

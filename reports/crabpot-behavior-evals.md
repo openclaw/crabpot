@@ -36,7 +36,7 @@
    ```
 
 6. Run scenario
-   Install LCM, select it as the context engine, and run two memory-shaped turns through one stable session key.
+   Install LCM, select it as the context engine, and recall a seeded fact through one stable session key after a session reset.
 7. Classify result
    Expected mode is must-pass.
 ## Scenario Checks
@@ -44,7 +44,7 @@
 - install: The requested OpenClaw package resolves and the LCM npm plugin installs into isolated state.
 - gateway-load: The gateway starts with lossless-claw enabled and selected in the contextEngine slot.
 - agent-turn: An agent call accepts a seeded memory fact and returns a completed run or a classified failure.
-- memory-assembly: A follow-up turn on the same stable session key can observe the seeded fact through assembled context, or the run is classified as an LCM assembly failure.
+- memory-assembly: A follow-up turn on the same stable session key after sessions.reset can observe the seeded fact through assembled context, or the run is classified as an LCM assembly failure.
 
 ## Planned Classification
 
