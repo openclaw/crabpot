@@ -3277,32 +3277,32 @@
         {
           "name": "before_prompt_build",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1372,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1372"
+          "line": 1375,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1375"
         },
         {
           "name": "before_reset",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1365,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1365"
+          "line": 1368,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1368"
         },
         {
           "name": "gateway_start",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1724,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1724"
+          "line": 1727,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1727"
         },
         {
           "name": "gateway_stop",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1748,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1748"
+          "line": 1751,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1751"
         },
         {
           "name": "session_end",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1375,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1375"
+          "line": 1378,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1378"
         }
       ],
       "registrations": [
@@ -3314,38 +3314,38 @@
         {
           "name": "registerCommand",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1411,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1411"
+          "line": 1414,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1414"
         },
         {
           "name": "registerContextEngine",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1386,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1386"
+          "line": 1389,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1389"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1388,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1388"
+          "line": 1391,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1391"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1392,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1392"
+          "line": 1395,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1395"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1396,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1396"
+          "line": 1399,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1399"
         },
         {
           "name": "registerTool",
           "file": "plugins/lossless-claw/src/plugin/index.ts",
-          "line": 1400,
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1400"
+          "line": 1403,
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1403"
         }
       ],
       "manifestContracts": [
@@ -3443,7 +3443,7 @@
       "package": {
         "path": "plugins/lossless-claw/package.json",
         "name": "@martian-engineering/lossless-claw",
-        "version": "0.11.2",
+        "version": "0.11.3",
         "type": "module",
         "main": "dist/index.js",
         "npmPack": {
@@ -3478,8 +3478,8 @@
           ],
           "runtimeExtensions": [],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.5.12",
-          "buildOpenClawVersion": "2026.5.12",
+          "compatPluginApi": ">=2026.5.22",
+          "buildOpenClawVersion": "2026.5.22",
           "buildPluginSdkVersion": null,
           "install": null,
           "release": null,
@@ -3499,7 +3499,7 @@
         {
           "path": "plugins/lossless-claw/package.json",
           "name": "@martian-engineering/lossless-claw",
-          "version": "0.11.2",
+          "version": "0.11.3",
           "type": "module",
           "main": "dist/index.js",
           "npmPack": {
@@ -3534,8 +3534,8 @@
             ],
             "runtimeExtensions": [],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.5.12",
-            "buildOpenClawVersion": "2026.5.12",
+            "compatPluginApi": ">=2026.5.22",
+            "buildOpenClawVersion": "2026.5.22",
             "buildPluginSdkVersion": null,
             "install": null,
             "release": null,
@@ -34133,8 +34133,8 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:1411",
-        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1386"
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:1414",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1389"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -38518,7 +38518,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-8AA68D84",
+      "id": "CRABPOT-0AD58C62",
       "fixture": "lossless-claw",
       "severity": "P2",
       "owner": "inspector",
@@ -38531,8 +38531,8 @@
       "compatStatus": "active",
       "title": "lossless-claw: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:1411",
-        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1386"
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:1414",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1389"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -41939,8 +41939,8 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:1411",
-        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1386"
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:1414",
+        "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1389"
       ]
     },
     {
@@ -45681,7 +45681,7 @@
       "evidence": [
         "plugins/lossless-claw/package.json",
         "@martian-engineering/lossless-claw",
-        "version:0.11.2"
+        "version:0.11.3"
       ]
     },
     {
