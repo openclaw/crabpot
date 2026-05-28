@@ -1,0 +1,46 @@
+{
+  "id": "context-engine-quarantine-fallback",
+  "category": "context-engine",
+  "description": "Select a malformed context-engine plugin and verify OpenClaw still completes a turn while health reports the quarantine.",
+  "checks": [
+    {
+      "id": "install",
+      "description": "The requested OpenClaw package resolves and the synthetic broken context-engine plugin installs into isolated state."
+    },
+    {
+      "id": "gateway-load",
+      "description": "The gateway starts with the malformed context engine selected in the contextEngine slot."
+    },
+    {
+      "id": "agent-turn",
+      "description": "An agent call completes through the downgraded/default engine instead of bricking OpenClaw."
+    },
+    {
+      "id": "health-quarantine",
+      "description": "Gateway health reports the selected broken context engine as quarantined."
+    }
+  ],
+  "turns": [
+    {
+      "message": "Say ok after loading context.",
+      "expectText": "ok"
+    }
+  ],
+  "healthChecks": [
+    {
+      "method": "health",
+      "params": {
+        "probe": true
+      },
+      "expect": {
+        "contextEngineQuarantines": [
+          {
+            "pluginId": "broken-context-engine",
+            "engineId": "broken-context-engine",
+            "reasonIncludes": "invalid ContextEngine"
+          }
+        ]
+      }
+    }
+  ]
+}

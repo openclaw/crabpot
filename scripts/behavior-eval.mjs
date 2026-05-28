@@ -296,10 +296,11 @@ export function buildBehaviorEvalPlan({ profile, scenario }) {
     category: profile.category,
     scenario,
     expectation: cloneJson(profile.expectation),
+    plugins: cloneJson(profile.plugins),
     expectedFailureClasses: [...(profile.expectation.failureClasses ?? [])],
     summary: {
       openclaw,
-      plugins: profile.plugins.map((plugin) => plugin.spec).join(", "),
+      plugins: profile.plugins.map(formatPluginSummary).join(", "),
       runner: profile.runner.execution,
       providerMode: profile.runner.providerMode,
       timeoutMs: profile.runner.timeoutMs,
@@ -430,6 +431,7 @@ export async function executeBehaviorEvalPlan(plan, options = {}) {
     token,
     timeoutMs,
     workspace,
+    pluginFixtures: await createBehaviorEvalPluginFixtures({ plan, workspace }),
     openclawCommand: resolveOpenClawCommandFromPlan(plan),
     providerBaseUrl: undefined,
     runCommand,
@@ -607,6 +609,87 @@ async function prepareBehaviorEvalWorkspace(workspace) {
     mkdir(workspace.xdgDataHome, { recursive: true }),
     writeFile(resolveBehaviorEvalNpmUserConfig(workspace), "", "utf8"),
   ]);
+}
+
+async function createBehaviorEvalPluginFixtures({ plan, workspace }) {
+  const fixtures = {};
+  for (const plugin of plan.plugins ?? []) {
+    if (plugin.source !== "fixture") {
+      continue;
+    }
+    fixtures[plugin.fixture] = await writeBehaviorEvalPluginFixture({ fixture: plugin.fixture, workspace });
+  }
+  return fixtures;
+}
+
+async function writeBehaviorEvalPluginFixture({ fixture, workspace }) {
+  if (fixture !== "broken-context-engine") {
+    throw new Error(`unknown behavior eval plugin fixture: ${fixture}`);
+  }
+  const fixtureDir = path.join(workspace.tempRoot, "fixtures", fixture);
+  await mkdir(fixtureDir, { recursive: true });
+  await Promise.all([
+    writeFile(
+      path.join(fixtureDir, "package.json"),
+      `${JSON.stringify(
+        {
+          name: "@crabpot/broken-context-engine-fixture",
+          version: "0.0.0",
+          private: true,
+          type: "module",
+          main: "index.js",
+          openclaw: {
+            extensions: ["./index.js"],
+            runtimeExtensions: ["./index.js"],
+          },
+        },
+        null,
+        2,
+      )}\n`,
+      "utf8",
+    ),
+    writeFile(
+      path.join(fixtureDir, "openclaw.plugin.json"),
+      `${JSON.stringify(
+        {
+          id: "broken-context-engine",
+          name: "Broken Context Engine Fixture",
+          version: "0.0.0",
+          enabledByDefault: false,
+          kind: "context-engine",
+          activation: {
+            onCapabilities: ["context-engine"],
+          },
+        },
+        null,
+        2,
+      )}\n`,
+      "utf8",
+    ),
+    writeFile(
+      path.join(fixtureDir, "index.js"),
+      [
+        "export const plugin = {",
+        '  id: "broken-context-engine",',
+        "  register(api) {",
+        '    api.registerContextEngine("broken-context-engine", () => ({',
+        '      info: { id: "broken-context-engine", name: "Broken Context Engine Fixture", ownsCompaction: true },',
+        "      ingest: async () => ({ ingested: true }),",
+        "    }));",
+        "  },",
+        "};",
+        "",
+        "export function register(api) {",
+        "  plugin.register(api);",
+        "}",
+        "",
+        "export default plugin;",
+        "",
+      ].join("\n"),
+      "utf8",
+    ),
+  ]);
+  return fixtureDir;
 }
 
 function resolveBehaviorEvalWorkspaceDir(workspace) {
@@ -1286,6 +1369,17 @@ async function runBehaviorEvalScenario(plan, context) {
       };
     }
   }
+  const healthFailure = await runBehaviorEvalScenarioHealthChecks({
+    plan,
+    context,
+    commands,
+    stdout,
+    stderr,
+    startedAt,
+  });
+  if (healthFailure) {
+    return healthFailure;
+  }
   return {
     status: "pass",
     exitCode: 0,
@@ -1294,6 +1388,65 @@ async function runBehaviorEvalScenario(plan, context) {
     stderr: stderr.join("\n"),
     wallMs: Date.now() - startedAt,
   };
+}
+
+async function runBehaviorEvalScenarioHealthChecks({ plan, context, commands, stdout, stderr, startedAt }) {
+  const checks = Array.isArray(plan.scenario.healthChecks) ? plan.scenario.healthChecks : [];
+  for (const check of checks) {
+    const method = typeof check.method === "string" && check.method ? check.method : "health";
+    const params = check.params && typeof check.params === "object" ? check.params : { probe: true };
+    commands.push(`gateway rpc ${method} ${JSON.stringify(params)}`);
+    try {
+      const payload = await context.runGatewayRpc(method, params, context, {
+        timeoutMs: Math.min(context.timeoutMs, 30_000),
+      });
+      stdout.push(`${method} ${JSON.stringify(payload)}`);
+      const failure = evaluateBehaviorEvalHealthCheck(check, payload);
+      if (failure) {
+        return {
+          status: "fail",
+          exitCode: 1,
+          command: commands.join("\n"),
+          stdout: stdout.join("\n"),
+          stderr: `${stderr.join("\n")}\n${failure}`,
+          wallMs: Date.now() - startedAt,
+        };
+      }
+    } catch (error) {
+      return {
+        status: "fail",
+        exitCode: 1,
+        command: commands.join("\n"),
+        stdout: stdout.join("\n"),
+        stderr: `${stderr.join("\n")}\n${formatErrorForReport(error)}`,
+        wallMs: Date.now() - startedAt,
+      };
+    }
+  }
+  return null;
+}
+
+function evaluateBehaviorEvalHealthCheck(check, payload) {
+  const expectedQuarantines = Array.isArray(check.expect?.contextEngineQuarantines)
+    ? check.expect.contextEngineQuarantines
+    : [];
+  if (expectedQuarantines.length === 0) {
+    return null;
+  }
+  const quarantines = Array.isArray(payload?.contextEngineQuarantines)
+    ? payload.contextEngineQuarantines
+    : [];
+  for (const expected of expectedQuarantines) {
+    const match = quarantines.find((quarantine) =>
+      (!expected.pluginId || quarantine.pluginId === expected.pluginId) &&
+      (!expected.engineId || quarantine.engineId === expected.engineId) &&
+      (!expected.reasonIncludes || String(quarantine.reason ?? "").includes(expected.reasonIncludes))
+    );
+    if (!match) {
+      return `context-engine-quarantine-missing: expected ${JSON.stringify(expected)} in ${JSON.stringify(quarantines)}`;
+    }
+  }
+  return null;
 }
 
 function resolveBehaviorEvalScenarioTurns(scenario) {
@@ -1628,9 +1781,13 @@ function splitCommands(value) {
 }
 
 function materializeBehaviorEvalCommand(command, context) {
-  return command
+  let materialized = command
     .replaceAll("<free-port>", String(context.port))
     .replaceAll("<token>", shellQuote(context.token));
+  for (const [fixture, fixturePath] of Object.entries(context.pluginFixtures ?? {})) {
+    materialized = materialized.replaceAll(fixtureInstallToken(fixture), shellQuote(fixturePath));
+  }
+  return materialized;
 }
 
 function resolveOpenClawCommandFromPlan(plan) {
@@ -1671,6 +1828,9 @@ function classifyBehaviorEvalFailure(output) {
   }
   if (text.includes("memory-recall-mismatch")) {
     return "memory-recall-mismatch";
+  }
+  if (text.includes("context-engine-quarantine-missing")) {
+    return "context-engine-quarantine-missing";
   }
   if (text.includes("gateway")) {
     return "gateway-unavailable";
@@ -1724,11 +1884,28 @@ function formatPluginInstallSpec(plugin) {
   if (plugin.source === "npm") {
     return `npm:${plugin.spec}`;
   }
+  if (plugin.source === "fixture") {
+    return fixtureInstallToken(plugin.fixture);
+  }
   throw new Error(`unsupported plugin source for ${plugin.id}: ${plugin.source}`);
 }
 
 function normalizeNpmPluginSpec(spec) {
   return spec.startsWith("npm:") ? spec.slice("npm:".length) : spec;
+}
+
+function fixtureInstallToken(fixture) {
+  return `__CRABPOT_BEHAVIOR_PLUGIN_FIXTURE_${fixture}__`;
+}
+
+function formatPluginSummary(plugin) {
+  if (plugin.source === "npm") {
+    return plugin.spec;
+  }
+  if (plugin.source === "fixture") {
+    return `fixture:${plugin.fixture}`;
+  }
+  return `${plugin.source}:${plugin.id}`;
 }
 
 function plannedStatusForExpectation(mode) {
@@ -1783,11 +1960,14 @@ function validateBehaviorEvalProfile(profile, label) {
       if (!/^[a-z0-9][a-z0-9-]*$/.test(plugin.id ?? "")) {
         errors.push("plugin id must be kebab-case");
       }
-      if (plugin.source !== "npm") {
-        errors.push(`${plugin.id}: plugin source must be npm`);
+      if (!["npm", "fixture"].includes(plugin.source)) {
+        errors.push(`${plugin.id}: plugin source must be npm or fixture`);
       }
-      if (typeof plugin.spec !== "string" || plugin.spec.trim().length === 0) {
+      if (plugin.source === "npm" && (typeof plugin.spec !== "string" || plugin.spec.trim().length === 0)) {
         errors.push(`${plugin.id}: plugin spec must be set`);
+      }
+      if (plugin.source === "fixture" && !/^[a-z0-9][a-z0-9-]*$/.test(plugin.fixture ?? "")) {
+        errors.push(`${plugin.id}: plugin fixture must be kebab-case`);
       }
     }
   }

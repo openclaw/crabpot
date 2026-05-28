@@ -121,6 +121,24 @@ test("behavior eval loader reads the default forward LCM release gate", async ()
   assert.match(plan.summary.plugins, /@martian-engineering\/lossless-claw@latest/);
 });
 
+test("behavior eval loader reads the context-engine quarantine release gate", async () => {
+  const profile = await loadBehaviorEvalProfile("forward-context-engine-quarantine-gate");
+  const loadedScenario = await loadBehaviorEvalScenario(profile.scenario);
+  const plan = buildBehaviorEvalPlan({ profile, scenario: loadedScenario });
+
+  assert.equal(plan.profileId, "forward-context-engine-quarantine-gate");
+  assert.equal(plan.scenario.id, "context-engine-quarantine-fallback");
+  assert.equal(plan.expectation.mode, "must-pass");
+  assert.equal(plan.summary.openclaw, "openclaw@latest");
+  assert.equal(plan.summary.plugins, "fixture:broken-context-engine");
+  assert.deepEqual(plan.configPatch.plugins.slots, { contextEngine: "broken-context-engine" });
+  assert.ok(
+    plan.steps.some((step) =>
+      step.command?.includes("__CRABPOT_BEHAVIOR_PLUGIN_FIXTURE_broken-context-engine__"),
+    ),
+  );
+});
+
 test("behavior eval executor requires explicit isolated execution opt-in", async () => {
   const plan = buildBehaviorEvalPlan({ profile: historicalProfile, scenario });
 
@@ -376,6 +394,125 @@ test("behavior eval executor fails recall when the token only appears in earlier
     assert.equal(result.failureClass, "memory-recall-mismatch");
     assert.equal(result.workspace.kept, false);
     assert.match(result.steps.at(-2).stderr, /latest assistant/);
+  } finally {
+    await rm(tempRoot, { recursive: true, force: true });
+  }
+});
+
+test("behavior eval executor passes when a broken context engine is downgraded and reported", async () => {
+  const tempRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot-behavior-test-"));
+  try {
+    const profile = await loadBehaviorEvalProfile("forward-context-engine-quarantine-gate");
+    const loadedScenario = await loadBehaviorEvalScenario(profile.scenario);
+    const plan = buildBehaviorEvalPlan({ profile, scenario: loadedScenario });
+    const commands = [];
+    const result = await executeBehaviorEvalPlan(plan, {
+      env: { CRABPOT_EXECUTE_BEHAVIOR: "1" },
+      workspace: {
+        tempRoot,
+        homeDir: path.join(tempRoot, "home"),
+        workspaceDir: path.join(tempRoot, "workspace"),
+        stateDir: path.join(tempRoot, "state"),
+        configPath: path.join(tempRoot, "config.json"),
+        xdgCacheHome: path.join(tempRoot, "xdg-cache"),
+        xdgConfigHome: path.join(tempRoot, "xdg-config"),
+        xdgDataHome: path.join(tempRoot, "xdg-data"),
+      },
+      getFreePort: async () => 19794,
+      runCommand: async (command) => {
+        commands.push(command);
+        return { exitCode: 0, stdout: "ok", stderr: "", wallMs: 1 };
+      },
+      startGateway: async (command) => {
+        commands.push(command);
+        return { status: "pass", stdout: "ready", stderr: "", wallMs: 1 };
+      },
+      startProvider: async () => ({
+        baseUrl: "http://127.0.0.1:45682",
+        stop: async () => {},
+      }),
+      runGatewayRpc: async (method, params) => {
+        if (method === "chat.send") {
+          return { status: "started", runId: params.idempotencyKey };
+        }
+        if (method === "agent.wait") {
+          return { status: "ok", runId: params.runId };
+        }
+        if (method === "chat.history") {
+          return { messages: [{ role: "assistant", text: "ok" }] };
+        }
+        if (method === "health") {
+          return {
+            contextEngineQuarantines: [
+              {
+                pluginId: "broken-context-engine",
+                engineId: "broken-context-engine",
+                reason: "Context engine \"broken-context-engine\" factory returned an invalid ContextEngine: missing assemble(), missing compact().",
+              },
+            ],
+          };
+        }
+        throw new Error(`unexpected rpc method ${method}`);
+      },
+    });
+
+    assert.equal(result.status, "pass");
+    assert.equal(result.failureClass, null);
+    assert.ok(commands.some((command) => command.includes(path.join(tempRoot, "fixtures", "broken-context-engine"))));
+    assert.match(
+      await readFile(path.join(tempRoot, "fixtures", "broken-context-engine", "index.js"), "utf8"),
+      /registerContextEngine/,
+    );
+  } finally {
+    await rm(tempRoot, { recursive: true, force: true });
+  }
+});
+
+test("behavior eval executor fails when broken context engine quarantine is not reported", async () => {
+  const tempRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot-behavior-test-"));
+  try {
+    const profile = await loadBehaviorEvalProfile("forward-context-engine-quarantine-gate");
+    const loadedScenario = await loadBehaviorEvalScenario(profile.scenario);
+    const plan = buildBehaviorEvalPlan({ profile, scenario: loadedScenario });
+    const result = await executeBehaviorEvalPlan(plan, {
+      env: { CRABPOT_EXECUTE_BEHAVIOR: "1" },
+      workspace: {
+        tempRoot,
+        homeDir: path.join(tempRoot, "home"),
+        workspaceDir: path.join(tempRoot, "workspace"),
+        stateDir: path.join(tempRoot, "state"),
+        configPath: path.join(tempRoot, "config.json"),
+        xdgCacheHome: path.join(tempRoot, "xdg-cache"),
+        xdgConfigHome: path.join(tempRoot, "xdg-config"),
+        xdgDataHome: path.join(tempRoot, "xdg-data"),
+      },
+      getFreePort: async () => 19795,
+      runCommand: async () => ({ exitCode: 0, stdout: "ok", stderr: "", wallMs: 1 }),
+      startGateway: async () => ({ status: "pass", stdout: "ready", stderr: "", wallMs: 1 }),
+      startProvider: async () => ({
+        baseUrl: "http://127.0.0.1:45683",
+        stop: async () => {},
+      }),
+      runGatewayRpc: async (method, params) => {
+        if (method === "chat.send") {
+          return { status: "started", runId: params.idempotencyKey };
+        }
+        if (method === "agent.wait") {
+          return { status: "ok", runId: params.runId };
+        }
+        if (method === "chat.history") {
+          return { messages: [{ role: "assistant", text: "ok" }] };
+        }
+        if (method === "health") {
+          return { contextEngineQuarantines: [] };
+        }
+        throw new Error(`unexpected rpc method ${method}`);
+      },
+    });
+
+    assert.equal(result.status, "fail");
+    assert.equal(result.failureClass, "context-engine-quarantine-missing");
+    assert.match(result.steps.at(-2).stderr, /context-engine-quarantine-missing/);
   } finally {
     await rm(tempRoot, { recursive: true, force: true });
   }

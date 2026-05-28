@@ -170,6 +170,14 @@ Run the recent historical repro target from Discord chatter with:
 npm run eval:behavior -- --profile recent-lcm-2026-5-22 --json
 ```
 
+The companion quarantine gate installs a synthetic malformed context-engine
+plugin, selects it in the active slot, requires the agent turn to continue
+through downgrade/default behavior, and checks gateway health for the quarantine:
+
+```bash
+npm run eval:behavior -- --profile forward-context-engine-quarantine-gate
+```
+
 Execution is opt-in and isolated. The current POC stages a QA-lab-style mock
 model provider, starts an isolated gateway, drives `chat.send` -> `agent.wait`
 -> `chat.history`, and checks the latest assistant response on a second turn:
