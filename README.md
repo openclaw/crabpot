@@ -1,3 +1,5 @@
+![crabpot banner](docs/assets/readme-banner.jpg)
+
 # 🦀 crabpot
 
 <img width="1376" height="768" alt="crabpot" src="https://github.com/user-attachments/assets/79eb0be1-0736-4a78-a62d-cb66ab080c60" />
