@@ -21,7 +21,7 @@ import {
 const scenario = {
   id: "lcm-basic-memory-turn",
   category: "context-engine",
-  description: "Install LCM, select it as the context engine, and recall after a session reset.",
+  description: "Install LCM, select it as the context engine, and run two memory-shaped turns.",
   recallScope: "same-session-key",
   checks: [
     { id: "install", description: "LCM package installs" },
@@ -304,9 +304,6 @@ test("behavior eval executor records isolated setup, config, and gateway readine
             ],
           };
         }
-        if (method === "sessions.reset") {
-          return { ok: true, key: params.key };
-        }
         throw new Error(`unexpected rpc method ${method}`);
       },
     });
@@ -329,15 +326,12 @@ test("behavior eval executor records isolated setup, config, and gateway readine
       "chat.send",
       "agent.wait",
       "chat.history",
-      "sessions.reset",
       "chat.send",
       "agent.wait",
       "chat.history",
     ]);
     assert.equal(rpcCalls[0].params.sessionKey, "agent:qa:discord:channel:crabpot-lcm-basic-memory-turn:default");
-    assert.equal(rpcCalls[3].params.key, "agent:qa:discord:channel:crabpot-lcm-basic-memory-turn:default");
-    assert.equal(rpcCalls[3].params.reason, "reset");
-    assert.equal(rpcCalls[4].params.sessionKey, "agent:qa:discord:channel:crabpot-lcm-basic-memory-turn:default");
+    assert.equal(rpcCalls[3].params.sessionKey, "agent:qa:discord:channel:crabpot-lcm-basic-memory-turn:default");
     assert.match(rpcCalls[0].params.message, /CRABPOT_LCM_FACT/);
     assert.equal(rpcCalls[1].params.runId, rpcCalls[0].params.idempotencyKey);
     assert.equal(rpcCalls[1].params.timeoutMs, 900000);
@@ -495,9 +489,6 @@ test("behavior eval executor fails recall when the token only appears in earlier
               },
             ],
           };
-        }
-        if (method === "sessions.reset") {
-          return { ok: true, key: params.key };
         }
         throw new Error(`unexpected rpc method ${method}`);
       },
