@@ -121,6 +121,37 @@ test("behavior eval profile resolver absolutizes local OpenClaw paths", () => {
   assert.equal(resolved.openclaw.path, path.resolve("../openclaw"));
 });
 
+test("behavior eval planner rejects shell-shaped npm coordinates", () => {
+  assert.throws(
+    () =>
+      buildBehaviorEvalPlan({
+        profile: {
+          ...historicalProfile,
+          openclaw: { source: "npm", version: "2026.5.22; echo leaked" },
+        },
+        scenario,
+      }),
+    /openclaw\.version/,
+  );
+
+  assert.throws(
+    () =>
+      buildBehaviorEvalPlan({
+        profile: {
+          ...historicalProfile,
+          plugins: [
+            {
+              ...historicalProfile.plugins[0],
+              spec: "@martian-engineering/lossless-claw@0.11.2; echo leaked",
+            },
+          ],
+        },
+        scenario,
+      }),
+    /plugin spec/,
+  );
+});
+
 test("behavior eval exit code follows expectation contract", () => {
   assert.equal(behaviorEvalExecutionExitCode({ status: "pass" }, "must-pass"), 0);
   assert.equal(behaviorEvalExecutionExitCode({ status: "fail" }, "must-pass"), 1);
@@ -204,7 +235,12 @@ test("behavior eval executor records isolated setup, config, and gateway readine
     const rpcCalls = [];
     const commandEnvs = [];
     const result = await executeBehaviorEvalPlan(plan, {
-      env: { CRABPOT_EXECUTE_BEHAVIOR: "1" },
+      env: {
+        CRABPOT_EXECUTE_BEHAVIOR: "1",
+        PATH: "/bin:/usr/bin",
+        OPENAI_API_KEY: "must-not-leak",
+        NPM_TOKEN: "must-not-leak",
+      },
       workspace: {
         tempRoot,
         homeDir: path.join(tempRoot, "home"),
@@ -264,6 +300,9 @@ test("behavior eval executor records isolated setup, config, and gateway readine
     assert.equal(commandEnvs[0].NPM_CONFIG_USERCONFIG, path.join(tempRoot, "npmrc"));
     assert.equal(commandEnvs[0].npm_config_userconfig, path.join(tempRoot, "npmrc"));
     assert.equal(commandEnvs[0].npm_config_before, "");
+    assert.equal(commandEnvs[0].PATH, "/bin:/usr/bin");
+    assert.equal(commandEnvs[0].OPENAI_API_KEY, undefined);
+    assert.equal(commandEnvs[0].NPM_TOKEN, undefined);
     assert.equal(await readFile(path.join(tempRoot, "npmrc"), "utf8"), "");
     assert.deepEqual(rpcCalls.map((call) => call.method), [
       "chat.send",

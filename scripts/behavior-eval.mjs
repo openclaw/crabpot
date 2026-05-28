@@ -624,6 +624,9 @@ async function prepareBehaviorEvalWorkspace(workspace) {
     mkdir(workspace.homeDir, { recursive: true }),
     mkdir(resolveBehaviorEvalWorkspaceDir(workspace), { recursive: true }),
     mkdir(workspace.stateDir, { recursive: true }),
+    mkdir(path.join(workspace.stateDir, "appdata"), { recursive: true }),
+    mkdir(path.join(workspace.stateDir, "local-appdata"), { recursive: true }),
+    mkdir(path.join(workspace.tempRoot, "npm-cache"), { recursive: true }),
     mkdir(path.dirname(workspace.configPath), { recursive: true }),
     mkdir(workspace.xdgCacheHome, { recursive: true }),
     mkdir(workspace.xdgConfigHome, { recursive: true }),
@@ -723,8 +726,11 @@ function resolveBehaviorEvalNpmUserConfig(workspace) {
 
 function buildBehaviorEvalRuntimeEnv({ baseEnv = process.env, port, token, workspace }) {
   return {
-    ...baseEnv,
+    ...buildBehaviorEvalBaseEnv(baseEnv),
     HOME: workspace.homeDir,
+    USERPROFILE: workspace.homeDir,
+    APPDATA: path.join(workspace.stateDir, "appdata"),
+    LOCALAPPDATA: path.join(workspace.stateDir, "local-appdata"),
     OPENCLAW_HOME: workspace.homeDir,
     OPENCLAW_CONFIG_PATH: workspace.configPath,
     OPENCLAW_STATE_DIR: workspace.stateDir,
@@ -739,12 +745,33 @@ function buildBehaviorEvalRuntimeEnv({ baseEnv = process.env, port, token, works
     OPENCLAW_TEST_FAST: "1",
     NPM_CONFIG_USERCONFIG: resolveBehaviorEvalNpmUserConfig(workspace),
     npm_config_userconfig: resolveBehaviorEvalNpmUserConfig(workspace),
+    NPM_CONFIG_CACHE: path.join(workspace.tempRoot, "npm-cache"),
+    npm_config_cache: path.join(workspace.tempRoot, "npm-cache"),
     NPM_CONFIG_BEFORE: "",
     npm_config_before: "",
     XDG_CACHE_HOME: workspace.xdgCacheHome,
     XDG_CONFIG_HOME: workspace.xdgConfigHome,
     XDG_DATA_HOME: workspace.xdgDataHome,
   };
+}
+
+function buildBehaviorEvalBaseEnv(baseEnv) {
+  const allowed = [
+    "PATH",
+    "Path",
+    "SystemRoot",
+    "WINDIR",
+    "ComSpec",
+    "PATHEXT",
+    "TMPDIR",
+    "TMP",
+    "TEMP",
+  ];
+  return Object.fromEntries(
+    allowed
+      .filter((key) => typeof baseEnv?.[key] === "string" && baseEnv[key].length > 0)
+      .map((key) => [key, baseEnv[key]]),
+  );
 }
 
 async function writeBehaviorEvalConfig({ plan, workspace, context }) {
@@ -1896,14 +1923,14 @@ function formatOpenClawTarget(openclaw) {
 
 function openclawInvocation(openclaw) {
   if (openclaw.source === "npm") {
-    return `npm exec --yes --package=openclaw@${openclaw.version} -- openclaw`;
+    return `npm exec --yes --package=${shellQuote(`openclaw@${openclaw.version}`)} -- openclaw`;
   }
   return `node ${shellQuote(path.join(openclaw.path, "dist", "index.js"))}`;
 }
 
 function formatPluginInstallSpec(plugin) {
   if (plugin.source === "npm") {
-    return `npm:${plugin.spec}`;
+    return shellQuote(`npm:${plugin.spec}`);
   }
   if (plugin.source === "fixture") {
     return fixtureInstallToken(plugin.fixture);
@@ -1913,6 +1940,10 @@ function formatPluginInstallSpec(plugin) {
 
 function normalizeNpmPluginSpec(spec) {
   return spec.startsWith("npm:") ? spec.slice("npm:".length) : spec;
+}
+
+function isSafeNpmCoordinate(value) {
+  return /^[A-Za-z0-9_./:@+-]+$/.test(value);
 }
 
 function fixtureInstallToken(fixture) {
@@ -1966,6 +1997,8 @@ function validateBehaviorEvalProfile(profile, label) {
   } else if (profile.openclaw.source === "npm") {
     if (typeof profile.openclaw.version !== "string" || profile.openclaw.version.trim().length === 0) {
       errors.push("openclaw.version must be set for npm source");
+    } else if (!isSafeNpmCoordinate(profile.openclaw.version)) {
+      errors.push("openclaw.version must be an npm version or dist-tag without shell metacharacters");
     }
   } else if (profile.openclaw.source === "path") {
     if (typeof profile.openclaw.path !== "string" || profile.openclaw.path.trim().length === 0) {
@@ -1986,6 +2019,8 @@ function validateBehaviorEvalProfile(profile, label) {
       }
       if (plugin.source === "npm" && (typeof plugin.spec !== "string" || plugin.spec.trim().length === 0)) {
         errors.push(`${plugin.id}: plugin spec must be set`);
+      } else if (plugin.source === "npm" && !isSafeNpmCoordinate(plugin.spec)) {
+        errors.push(`${plugin.id}: plugin spec must be an npm package spec without shell metacharacters`);
       }
       if (plugin.source === "fixture" && !/^[a-z0-9][a-z0-9-]*$/.test(plugin.fixture ?? "")) {
         errors.push(`${plugin.id}: plugin fixture must be kebab-case`);
