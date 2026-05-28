@@ -21,8 +21,8 @@ import {
 const scenario = {
   id: "lcm-basic-memory-turn",
   category: "context-engine",
-  description: "Install LCM, select it as the context engine, and run one memory-shaped turn.",
-  recallScope: "cross-session",
+  description: "Install LCM, select it as the context engine, and run two memory-shaped turns.",
+  recallScope: "same-session-key",
   checks: [
     { id: "install", description: "LCM package installs" },
     { id: "gateway-load", description: "Gateway starts with LCM selected" },
@@ -330,8 +330,8 @@ test("behavior eval executor records isolated setup, config, and gateway readine
       "agent.wait",
       "chat.history",
     ]);
-    assert.equal(rpcCalls[0].params.sessionKey, "agent:qa:discord:channel:crabpot-lcm-basic-memory-turn:seed");
-    assert.equal(rpcCalls[3].params.sessionKey, "agent:qa:discord:channel:crabpot-lcm-basic-memory-turn:recall");
+    assert.equal(rpcCalls[0].params.sessionKey, "agent:qa:discord:channel:crabpot-lcm-basic-memory-turn:default");
+    assert.equal(rpcCalls[3].params.sessionKey, "agent:qa:discord:channel:crabpot-lcm-basic-memory-turn:default");
     assert.match(rpcCalls[0].params.message, /CRABPOT_LCM_FACT/);
     assert.equal(rpcCalls[1].params.runId, rpcCalls[0].params.idempotencyKey);
     assert.equal(rpcCalls[1].params.timeoutMs, 900000);

@@ -158,7 +158,8 @@ dashboard card used to compare `crab-beta` and `crab-development` against
 Behavior evals are profile-driven, default to a dry plan, and stay
 credential-free unless execution is explicitly enabled. The default profile is
 the forward LCM release gate against latest OpenClaw and latest
-`@martian-engineering/lossless-claw`:
+`@martian-engineering/lossless-claw`. It verifies recall inside one stable
+session-key family, which is LCM's supported context boundary:
 
 ```bash
 npm run eval:behavior
@@ -182,7 +183,8 @@ npm run eval:behavior -- --profile forward-context-engine-quarantine-gate
 
 Execution is opt-in and isolated. The current POC stages a QA-lab-style mock
 model provider, starts an isolated gateway, drives `chat.send` -> `agent.wait`
--> `chat.history`, and checks the latest assistant response on a second turn:
+-> `chat.history`, and checks the latest assistant response on a second turn
+using the same stable session key:
 
 ```bash
 CRABPOT_EXECUTE_BEHAVIOR=1 npm run eval:behavior -- --execute --profile recent-lcm-2026-5-22 --runner local --timeout-ms 120000

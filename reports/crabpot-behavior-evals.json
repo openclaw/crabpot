@@ -1,0 +1,147 @@
+{
+  "generatedAt": "deterministic",
+  "summary": {
+    "openclaw": "openclaw@latest",
+    "plugins": "@martian-engineering/lossless-claw@latest",
+    "runner": "blacksmith",
+    "providerMode": "mock-openai",
+    "timeoutMs": 900000
+  },
+  "profiles": [
+    {
+      "id": "forward-lcm-release-gate",
+      "category": "context-engine",
+      "scenario": "lcm-basic-memory-turn",
+      "status": "planned-must-pass",
+      "expectation": {
+        "mode": "must-pass"
+      },
+      "stepCount": 7
+    }
+  ],
+  "plans": [
+    {
+      "generatedAt": "deterministic",
+      "profileId": "forward-lcm-release-gate",
+      "category": "context-engine",
+      "scenario": {
+        "id": "lcm-basic-memory-turn",
+        "category": "context-engine",
+        "description": "Install LCM, select it as the context engine, and run two memory-shaped turns through one stable session key.",
+        "recallScope": "same-session-key",
+        "checks": [
+          {
+            "id": "install",
+            "description": "The requested OpenClaw package resolves and the LCM npm plugin installs into isolated state."
+          },
+          {
+            "id": "gateway-load",
+            "description": "The gateway starts with lossless-claw enabled and selected in the contextEngine slot."
+          },
+          {
+            "id": "agent-turn",
+            "description": "An agent call accepts a seeded memory fact and returns a completed run or a classified failure."
+          },
+          {
+            "id": "memory-assembly",
+            "description": "A follow-up turn on the same stable session key can observe the seeded fact through assembled context, or the run is classified as an LCM assembly failure."
+          }
+        ]
+      },
+      "expectation": {
+        "mode": "must-pass"
+      },
+      "plugins": [
+        {
+          "id": "lossless-claw",
+          "source": "npm",
+          "spec": "@martian-engineering/lossless-claw@latest",
+          "slot": "contextEngine"
+        }
+      ],
+      "expectedFailureClasses": [],
+      "summary": {
+        "openclaw": "openclaw@latest",
+        "plugins": "@martian-engineering/lossless-claw@latest",
+        "runner": "blacksmith",
+        "providerMode": "mock-openai",
+        "timeoutMs": 900000
+      },
+      "configPatch": {
+        "plugins": {
+          "slots": {
+            "contextEngine": "lossless-claw"
+          },
+          "entries": {
+            "lossless-claw": {
+              "enabled": true
+            }
+          }
+        }
+      },
+      "steps": [
+        {
+          "id": "isolate",
+          "title": "Create isolated temp state",
+          "description": "Create temp HOME, OPENCLAW_HOME, OPENCLAW_STATE_DIR, OPENCLAW_CONFIG_PATH, and XDG dirs."
+        },
+        {
+          "id": "openclaw",
+          "title": "Resolve OpenClaw CLI",
+          "description": "Use openclaw@latest.",
+          "command": "npm exec --yes --package=openclaw@latest -- openclaw --version"
+        },
+        {
+          "id": "plugin",
+          "title": "Install plugin",
+          "description": "Install lossless-claw.",
+          "command": "npm exec --yes --package=openclaw@latest -- openclaw plugins install npm:@martian-engineering/lossless-claw@latest --pin"
+        },
+        {
+          "id": "config",
+          "title": "Patch isolated config",
+          "description": "Enable plugin entries and select any requested exclusive slot.",
+          "configPatch": {
+            "plugins": {
+              "slots": {
+                "contextEngine": "lossless-claw"
+              },
+              "entries": {
+                "lossless-claw": {
+                  "enabled": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "gateway",
+          "title": "Start gateway",
+          "description": "Run the foreground gateway with provider mode mock-openai.",
+          "command": "npm exec --yes --package=openclaw@latest -- openclaw gateway run --allow-unconfigured --bind loopback --port <free-port> --token <token>"
+        },
+        {
+          "id": "scenario",
+          "title": "Run scenario",
+          "description": "Install LCM, select it as the context engine, and run two memory-shaped turns through one stable session key.",
+          "checks": [
+            "install",
+            "gateway-load",
+            "agent-turn",
+            "memory-assembly"
+          ]
+        },
+        {
+          "id": "report",
+          "title": "Classify result",
+          "description": "Expected mode is must-pass."
+        }
+      ],
+      "report": {
+        "status": "planned-must-pass",
+        "resultMode": "must-pass",
+        "failureClasses": []
+      }
+    }
+  ]
+}
