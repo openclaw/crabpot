@@ -126,7 +126,7 @@ test("default check workflow runs OS and container static lanes", async () => {
   const workflow = await readWorkflow(".github/workflows/check.yml");
 
   assert.match(workflow, /name: Static checks \(\$\{\{ matrix\.os \}\}\)/);
-  assert.match(workflow, /os: \[ubuntu-latest, macos-latest, windows-latest\]/);
+  assert.match(workflow, /os: \[ubuntu-latest, macos-15, windows-latest\]/);
   assert.match(workflow, /container-smoke:/);
   assert.match(workflow, /image: node:22-bookworm/);
   assert.match(workflow, /node scripts\/run-static-suite\.mjs[\s\S]*--openclaw \.\/openclaw[\s\S]*--plugin-inspector-smoke/);
