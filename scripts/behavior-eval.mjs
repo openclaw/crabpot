@@ -1747,26 +1747,34 @@ function toBehaviorEvalScenarioStep(result) {
 
 async function waitForBehaviorEvalGatewayReady({ baseUrl, child, logs, timeoutMs }) {
   const startedAt = Date.now();
+  let lastHealth = "not checked";
   while (Date.now() - startedAt < timeoutMs) {
     if (child.exitCode !== null || child.signalCode !== null) {
       throw new Error(`gateway exited before readiness: ${logs()}`);
     }
-    for (const pathName of ["/readyz", "/healthz"]) {
-      try {
-        const response = await fetch(`${baseUrl}${pathName}`, {
-          method: "HEAD",
-          signal: AbortSignal.timeout(2_000),
-        });
-        if (response.ok) {
-          return;
-        }
-      } catch {
-        // Keep polling until timeout.
+    try {
+      const response = await fetch(`${baseUrl}/readyz`, {
+        method: "HEAD",
+        signal: AbortSignal.timeout(2_000),
+      });
+      if (response.ok) {
+        return;
       }
+    } catch {
+      // Keep polling until timeout.
+    }
+    try {
+      const response = await fetch(`${baseUrl}/healthz`, {
+        method: "HEAD",
+        signal: AbortSignal.timeout(2_000),
+      });
+      lastHealth = `${response.status} ${response.statusText}`.trim();
+    } catch (error) {
+      lastHealth = formatErrorForReport(error);
     }
     await new Promise((resolve) => setTimeout(resolve, 250));
   }
-  throw new Error(`gateway did not become ready: ${logs()}`);
+  throw new Error(`gateway did not become ready; last healthz=${lastHealth}: ${logs()}`);
 }
 
 function finalizeBehaviorEvalExecution({ plan, steps, workspace, port, keptTemp, token }) {
