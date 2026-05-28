@@ -2,15 +2,15 @@
   "generatedAt": "deterministic",
   "targetOpenClaw": {
     "status": "ok",
-    "configuredPath": "../openclaw",
+    "configuredPath": "./openclaw",
     "capturedRegistrarCount": 30,
-    "sdkExportCount": 308
+    "sdkExportCount": 304
   },
   "summary": {
     "fixtureCount": 60,
     "registrationCount": 340,
     "hookCount": 116,
-    "sdkImportCount": 2257,
+    "sdkImportCount": 2256,
     "packageEntrypointCount": 107,
     "issueProbeCount": 284,
     "inspectorShimRequiredCount": 201,
@@ -13440,17 +13440,6 @@
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/acp-binding-runtime",
           "ref": "plugins/matrix/.crabpot-package/src/runtime-api.ts:80",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk/agent-core:matrix:plugins-matrix-crabpot-package-src-tool-actions-ts-1",
-          "fixture": "matrix",
-          "specifier": "openclaw/plugin-sdk/agent-core",
-          "ref": "plugins/matrix/.crabpot-package/src/tool-actions.ts:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -39270,7 +39259,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.28"
+        "buildOpenClawVersion:2026.5.27"
       ],
       "assertions": [
         "entrypoint metadata resolves",

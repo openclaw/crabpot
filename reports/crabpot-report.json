@@ -1,14 +1,13 @@
 {
   "generatedAt": "deterministic",
   "targetOpenClaw": {
-    "configuredPath": "../openclaw",
+    "configuredPath": "./openclaw",
     "searchedPaths": [
-      "../openclaw",
       "./openclaw"
     ],
     "status": "ok",
-    "compatRegistryPath": "../openclaw/src/plugins/compat/registry.ts",
-    "compatRecordCount": 65,
+    "compatRegistryPath": "openclaw/src/plugins/compat/registry.ts",
+    "compatRecordCount": 64,
     "compatRecords": [
       "activation-agent-harness-hint",
       "activation-capability-hint",
@@ -43,7 +42,6 @@
       "deprecated-memory-embedding-provider-api",
       "disable-persisted-plugin-registry-env",
       "embedded-harness-config-alias",
-      "embedded-pi-agent-sdk-aliases",
       "generated-bundled-channel-config-fallback",
       "hook-only-plugin-shape",
       "hook.before_tool_call.terminal-block-approval",
@@ -110,7 +108,6 @@
       "deprecated-memory-embedding-provider-api": "deprecated",
       "disable-persisted-plugin-registry-env": "deprecated",
       "embedded-harness-config-alias": "deprecated",
-      "embedded-pi-agent-sdk-aliases": "deprecated",
       "generated-bundled-channel-config-fallback": "active",
       "hook-only-plugin-shape": "active",
       "hook.before_tool_call.terminal-block-approval": "active",
@@ -143,7 +140,7 @@
       "runtime-taskflow-legacy-alias": "deprecated",
       "setup-runtime-fallback": "active"
     },
-    "hookTypesPath": "../openclaw/src/plugins/hook-types.ts",
+    "hookTypesPath": "openclaw/src/plugins/hook-types.ts",
     "hookNameCount": 37,
     "hookNames": [
       "after_compaction",
@@ -184,7 +181,7 @@
       "subagent_spawning",
       "tool_result_persist"
     ],
-    "apiBuilderPath": "../openclaw/src/plugins/api-builder.ts",
+    "apiBuilderPath": "openclaw/src/plugins/api-builder.ts",
     "apiRegistrarCount": 55,
     "apiRegistrars": [
       "registerAgentEventSubscription",
@@ -243,7 +240,7 @@
       "registerWebFetchProvider",
       "registerWebSearchProvider"
     ],
-    "capturedRegistrationPath": "../openclaw/src/plugins/captured-registration.ts",
+    "capturedRegistrationPath": "openclaw/src/plugins/captured-registration.ts",
     "capturedRegistrarCount": 30,
     "capturedRegistrars": [
       "registerAgentEventSubscription",
@@ -277,8 +274,8 @@
       "registerWebFetchProvider",
       "registerWebSearchProvider"
     ],
-    "packagePath": "../openclaw/package.json",
-    "sdkExportCount": 308,
+    "packagePath": "openclaw/package.json",
+    "sdkExportCount": 304,
     "sdkExports": [
       "openclaw/plugin-sdk",
       "openclaw/plugin-sdk/access-groups",
@@ -292,13 +289,11 @@
       "openclaw/plugin-sdk/acp-runtime",
       "openclaw/plugin-sdk/acp-runtime-backend",
       "openclaw/plugin-sdk/agent-config-primitives",
-      "openclaw/plugin-sdk/agent-core",
       "openclaw/plugin-sdk/agent-harness",
       "openclaw/plugin-sdk/agent-harness-runtime",
       "openclaw/plugin-sdk/agent-harness-task-runtime",
       "openclaw/plugin-sdk/agent-media-payload",
       "openclaw/plugin-sdk/agent-runtime",
-      "openclaw/plugin-sdk/agent-sessions",
       "openclaw/plugin-sdk/allow-from",
       "openclaw/plugin-sdk/allowlist-config-edit",
       "openclaw/plugin-sdk/approval-auth-runtime",
@@ -416,10 +411,8 @@
       "openclaw/plugin-sdk/interactive-runtime",
       "openclaw/plugin-sdk/json-schema-runtime",
       "openclaw/plugin-sdk/json-store",
-      "openclaw/plugin-sdk/json-unsafe-integers",
       "openclaw/plugin-sdk/keyed-async-queue",
       "openclaw/plugin-sdk/lazy-runtime",
-      "openclaw/plugin-sdk/llm",
       "openclaw/plugin-sdk/lmstudio",
       "openclaw/plugin-sdk/lmstudio-runtime",
       "openclaw/plugin-sdk/logging-core",
@@ -589,7 +582,7 @@
       "openclaw/plugin-sdk/zalouser",
       "openclaw/plugin-sdk/zod"
     ],
-    "pluginSdkEntrypointsPath": "../openclaw/src/plugin-sdk/entrypoints.ts",
+    "pluginSdkEntrypointsPath": "openclaw/src/plugin-sdk/entrypoints.ts",
     "reservedSdkExportCount": 1,
     "reservedSdkExports": [
       "openclaw/plugin-sdk/codex-mcp-projection"
@@ -633,7 +626,7 @@
       "openclaw/plugin-sdk/telegram-command-config",
       "openclaw/plugin-sdk/video-generation-core"
     ],
-    "manifestTypesPath": "../openclaw/src/plugins/manifest.ts",
+    "manifestTypesPath": "openclaw/src/plugins/manifest.ts",
     "manifestFieldCount": 41,
     "manifestFields": [
       "activation",
@@ -665,11 +658,11 @@
       "providerAuthChoices",
       "providerAuthEnvVars",
       "providerCatalogEntry",
+      "providerDiscoveryEntry",
       "providerEndpoints",
       "providerRequest",
       "providers",
       "qaRunners",
-      "requiresPlugins",
       "setup",
       "skills",
       "syntheticAuthRefs",
@@ -11651,7 +11644,7 @@
       "package": {
         "path": "plugins/matrix/.crabpot-package/package.json",
         "name": "@openclaw/matrix",
-        "version": "2026.5.28",
+        "version": "2026.5.27",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -11681,8 +11674,8 @@
           ],
           "runtimeExtensions": [],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.5.28",
-          "buildOpenClawVersion": "2026.5.28",
+          "compatPluginApi": ">=2026.5.27",
+          "buildOpenClawVersion": "2026.5.27",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": "clawhub:@openclaw/matrix",
@@ -11717,7 +11710,7 @@
         {
           "path": "plugins/matrix/.crabpot-package/package.json",
           "name": "@openclaw/matrix",
-          "version": "2026.5.28",
+          "version": "2026.5.27",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -11747,8 +11740,8 @@
             ],
             "runtimeExtensions": [],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.5.28",
-            "buildOpenClawVersion": "2026.5.28",
+            "compatPluginApi": ">=2026.5.27",
+            "buildOpenClawVersion": "2026.5.27",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": "clawhub:@openclaw/matrix",
@@ -11807,7 +11800,6 @@
         "openclaw/plugin-sdk/account-resolution-runtime",
         "openclaw/plugin-sdk/acp-binding-resolve-runtime",
         "openclaw/plugin-sdk/acp-binding-runtime",
-        "openclaw/plugin-sdk/agent-core",
         "openclaw/plugin-sdk/agent-media-payload",
         "openclaw/plugin-sdk/allow-from",
         "openclaw/plugin-sdk/approval-auth-runtime",
@@ -12105,12 +12097,6 @@
           "file": "plugins/matrix/.crabpot-package/src/runtime-api.ts",
           "line": 80,
           "ref": "plugins/matrix/.crabpot-package/src/runtime-api.ts:80"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/agent-core",
-          "file": "plugins/matrix/.crabpot-package/src/tool-actions.ts",
-          "line": 1,
-          "ref": "plugins/matrix/.crabpot-package/src/tool-actions.ts:1"
         },
         {
           "specifier": "openclaw/plugin-sdk/agent-media-payload",
@@ -19808,7 +19794,7 @@
       "package": {
         "path": "plugins/mattermost/.crabpot-package/package.json",
         "name": "@openclaw/mattermost",
-        "version": "2026.5.28",
+        "version": "2026.5.27",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -19865,7 +19851,7 @@
         {
           "path": "plugins/mattermost/.crabpot-package/package.json",
           "name": "@openclaw/mattermost",
-          "version": "2026.5.28",
+          "version": "2026.5.27",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -32653,7 +32639,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.28"
+        "buildOpenClawVersion:2026.5.27"
       ]
     },
     {
@@ -38265,7 +38251,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-EBEB61AA",
+      "id": "CRABPOT-4E6435CB",
       "fixture": "matrix",
       "severity": "P2",
       "owner": "plugin",
@@ -38279,7 +38265,7 @@
       "title": "matrix: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.28"
+        "buildOpenClawVersion:2026.5.27"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -44097,7 +44083,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.5.28"
+        "buildOpenClawVersion:2026.5.27"
       ]
     },
     {
@@ -45979,7 +45965,6 @@
         "openclaw/plugin-sdk/account-resolution-runtime",
         "openclaw/plugin-sdk/acp-binding-resolve-runtime",
         "openclaw/plugin-sdk/acp-binding-runtime",
-        "openclaw/plugin-sdk/agent-core",
         "openclaw/plugin-sdk/agent-media-payload",
         "openclaw/plugin-sdk/allow-from",
         "openclaw/plugin-sdk/approval-auth-runtime",
@@ -46085,7 +46070,7 @@
       "evidence": [
         "plugins/matrix/.crabpot-package/package.json",
         "@openclaw/matrix",
-        "version:2026.5.28"
+        "version:2026.5.27"
       ]
     },
     {
@@ -47030,7 +47015,7 @@
       "evidence": [
         "plugins/mattermost/.crabpot-package/package.json",
         "@openclaw/mattermost",
-        "version:2026.5.28"
+        "version:2026.5.27"
       ]
     },
     {

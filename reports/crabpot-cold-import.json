@@ -2,8 +2,8 @@
   "generatedAt": "deterministic",
   "targetOpenClaw": {
     "status": "ok",
-    "configuredPath": "../openclaw",
-    "sdkExportCount": 308
+    "configuredPath": "./openclaw",
+    "sdkExportCount": 304
   },
   "summary": {
     "fixtureCount": 60,
