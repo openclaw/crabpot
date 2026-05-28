@@ -2,9 +2,12 @@
   "id": "forward-context-engine-quarantine-gate",
   "category": "context-engine",
   "scenario": "context-engine-quarantine-fallback",
-  "why": "Default forward gate for context-engine quarantine and downgrade behavior when a selected plugin breaks the active context slot.",
+  "why": "Tracking gate for context-engine quarantine and downgrade behavior when a selected plugin breaks the active context slot. Expected-failure until OpenClaw latest exposes quarantine health.",
   "expectation": {
-    "mode": "must-pass"
+    "mode": "known-failure",
+    "failureClasses": [
+      "context-engine-quarantine-missing"
+    ]
   },
   "openclaw": {
     "source": "npm",

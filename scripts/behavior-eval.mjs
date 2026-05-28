@@ -1517,12 +1517,12 @@ function resolveBehaviorEvalScenarioTurns(scenario) {
   }
   return [
     {
-      sessionSuffix: "seed",
+      sessionSuffix: scenario.recallScope === "cross-session" ? "seed" : undefined,
       message: "Remember this exact test fact: CRABPOT_LCM_FACT is blue-lantern-42.",
       expectText: "remembered",
     },
     {
-      sessionSuffix: "recall",
+      sessionSuffix: scenario.recallScope === "cross-session" ? "recall" : undefined,
       message: "What is CRABPOT_LCM_FACT? Answer with only the remembered value.",
       expectText: "blue-lantern-42",
     },

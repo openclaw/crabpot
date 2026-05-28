@@ -172,7 +172,9 @@ npm run eval:behavior -- --profile recent-lcm-2026-5-22 --json
 
 The companion quarantine gate installs a synthetic malformed context-engine
 plugin, selects it in the active slot, requires the agent turn to continue
-through downgrade/default behavior, and checks gateway health for the quarantine:
+through downgrade/default behavior, and tracks the gateway health quarantine
+signal as an expected failure until that OpenClaw health contract ships in
+`latest`:
 
 ```bash
 npm run eval:behavior -- --profile forward-context-engine-quarantine-gate

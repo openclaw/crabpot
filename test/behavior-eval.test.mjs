@@ -21,6 +21,7 @@ const scenario = {
   id: "lcm-basic-memory-turn",
   category: "context-engine",
   description: "Install LCM, select it as the context engine, and run one memory-shaped turn.",
+  recallScope: "cross-session",
   checks: [
     { id: "install", description: "LCM package installs" },
     { id: "gateway-load", description: "Gateway starts with LCM selected" },
@@ -205,7 +206,8 @@ test("behavior eval loader reads the context-engine quarantine release gate", as
 
   assert.equal(plan.profileId, "forward-context-engine-quarantine-gate");
   assert.equal(plan.scenario.id, "context-engine-quarantine-fallback");
-  assert.equal(plan.expectation.mode, "must-pass");
+  assert.equal(plan.expectation.mode, "known-failure");
+  assert.deepEqual(plan.expectedFailureClasses, ["context-engine-quarantine-missing"]);
   assert.equal(plan.summary.openclaw, "openclaw@latest");
   assert.equal(plan.summary.plugins, "fixture:broken-context-engine");
   assert.deepEqual(plan.configPatch.plugins.slots, { contextEngine: "broken-context-engine" });
@@ -500,7 +502,7 @@ test("behavior eval executor fails recall when the token only appears in earlier
   }
 });
 
-test("behavior eval executor passes when a broken context engine is downgraded and reported", async () => {
+test("behavior eval executor flags quarantine health as unexpected pass while tracking latest", async () => {
   const tempRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot-behavior-test-"));
   try {
     const profile = await loadBehaviorEvalProfile("forward-context-engine-quarantine-gate");
@@ -557,7 +559,7 @@ test("behavior eval executor passes when a broken context engine is downgraded a
       },
     });
 
-    assert.equal(result.status, "pass");
+    assert.equal(result.status, "unexpected-pass");
     assert.equal(result.failureClass, null);
     assert.ok(commands.some((command) => command.includes(path.join(tempRoot, "fixtures", "broken-context-engine"))));
     assert.match(
@@ -569,7 +571,7 @@ test("behavior eval executor passes when a broken context engine is downgraded a
   }
 });
 
-test("behavior eval executor fails when broken context engine quarantine is not reported", async () => {
+test("behavior eval executor tracks missing quarantine health as expected failure", async () => {
   const tempRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot-behavior-test-"));
   try {
     const profile = await loadBehaviorEvalProfile("forward-context-engine-quarantine-gate");
@@ -611,7 +613,7 @@ test("behavior eval executor fails when broken context engine quarantine is not 
       },
     });
 
-    assert.equal(result.status, "fail");
+    assert.equal(result.status, "expected-failure");
     assert.equal(result.failureClass, "context-engine-quarantine-missing");
     assert.match(result.steps.at(-2).stderr, /context-engine-quarantine-missing/);
   } finally {

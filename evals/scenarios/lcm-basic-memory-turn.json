@@ -2,6 +2,7 @@
   "id": "lcm-basic-memory-turn",
   "category": "context-engine",
   "description": "Install LCM, select it as the context engine, and run one memory-shaped turn through an isolated gateway.",
+  "recallScope": "cross-session",
   "checks": [
     {
       "id": "install",
