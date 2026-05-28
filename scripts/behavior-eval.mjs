@@ -49,6 +49,7 @@ async function main() {
       keepTemp: args.keepTemp,
       timeoutMs: args.timeoutMs,
     });
+    process.exitCode = behaviorEvalExecutionExitCode(execution, plan.expectation.mode);
     await writeBehaviorEvalExecutionResult(execution, {
       resultsDir: args.resultsDir,
     });
@@ -225,7 +226,7 @@ export function resolveBehaviorEvalProfile({ profile, overrides = {} }) {
   if (overrides.openclawPath) {
     next.openclaw = {
       source: "path",
-      path: overrides.openclawPath,
+      path: path.resolve(overrides.openclawPath),
     };
   } else if (overrides.openclawVersion) {
     next.openclaw = {
@@ -407,6 +408,7 @@ export function renderBehaviorEvalMarkdown(plan) {
 
 export async function executeBehaviorEvalPlan(plan, options = {}) {
   validateBehaviorEvalExecutionRequest({ env: options.env });
+  validateBehaviorEvalRunner(plan);
   const workspace = options.workspace ?? (await createBehaviorEvalWorkspace());
   const ownsWorkspace = !options.workspace;
   const getFreePortFn = options.getFreePort ?? getFreePort;
@@ -581,6 +583,25 @@ function validateBehaviorEvalExecutionRequest({ env = process.env }) {
   if (env.CRABPOT_EXECUTE_BEHAVIOR !== "1") {
     throw new Error("behavior eval execution requires CRABPOT_EXECUTE_BEHAVIOR=1");
   }
+}
+
+function validateBehaviorEvalRunner(plan) {
+  if (plan.summary.runner !== "local") {
+    throw new Error(`behavior eval execution requires runner.execution=local; got ${plan.summary.runner}`);
+  }
+}
+
+export function behaviorEvalExecutionExitCode(execution, expectationMode) {
+  if (expectationMode === "report-only") {
+    return 0;
+  }
+  if (expectationMode === "must-pass") {
+    return execution.status === "pass" ? 0 : 1;
+  }
+  if (expectationMode === "known-failure") {
+    return execution.status === "expected-failure" ? 0 : 1;
+  }
+  return 1;
 }
 
 async function createBehaviorEvalWorkspace() {

@@ -5,6 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import { test } from "node:test";
 import {
+  behaviorEvalExecutionExitCode,
   buildBehaviorEvalPlan,
   executeBehaviorEvalPlan,
   loadBehaviorEvalProfile,
@@ -52,6 +53,16 @@ const historicalProfile = {
   },
 };
 
+function buildLocalPlan(profile, scenarioValue) {
+  return buildBehaviorEvalPlan({
+    profile: resolveBehaviorEvalProfile({
+      profile,
+      overrides: { runnerExecution: "local" },
+    }),
+    scenario: scenarioValue,
+  });
+}
+
 test("behavior eval planner builds the historical LCM repro steps", () => {
   const plan = buildBehaviorEvalPlan({ profile: historicalProfile, scenario });
 
@@ -98,6 +109,26 @@ test("behavior eval profile resolver applies ad hoc version overrides", () => {
   assert.equal(resolved.runner.execution, "local");
 });
 
+test("behavior eval profile resolver absolutizes local OpenClaw paths", () => {
+  const resolved = resolveBehaviorEvalProfile({
+    profile: historicalProfile,
+    overrides: {
+      openclawPath: "../openclaw",
+    },
+  });
+
+  assert.equal(resolved.openclaw.source, "path");
+  assert.equal(resolved.openclaw.path, path.resolve("../openclaw"));
+});
+
+test("behavior eval exit code follows expectation contract", () => {
+  assert.equal(behaviorEvalExecutionExitCode({ status: "pass" }, "must-pass"), 0);
+  assert.equal(behaviorEvalExecutionExitCode({ status: "fail" }, "must-pass"), 1);
+  assert.equal(behaviorEvalExecutionExitCode({ status: "expected-failure" }, "known-failure"), 0);
+  assert.equal(behaviorEvalExecutionExitCode({ status: "unexpected-pass" }, "known-failure"), 1);
+  assert.equal(behaviorEvalExecutionExitCode({ status: "fail" }, "report-only"), 0);
+});
+
 test("behavior eval markdown report names the TDD target and command", () => {
   const plan = buildBehaviorEvalPlan({ profile: historicalProfile, scenario });
   const markdown = renderBehaviorEvalMarkdown(plan);
@@ -140,7 +171,7 @@ test("behavior eval loader reads the context-engine quarantine release gate", as
 });
 
 test("behavior eval executor requires explicit isolated execution opt-in", async () => {
-  const plan = buildBehaviorEvalPlan({ profile: historicalProfile, scenario });
+  const plan = buildLocalPlan(historicalProfile, scenario);
 
   await assert.rejects(
     () =>
@@ -152,10 +183,23 @@ test("behavior eval executor requires explicit isolated execution opt-in", async
   );
 });
 
+test("behavior eval executor rejects unimplemented non-local runners", async () => {
+  const plan = buildBehaviorEvalPlan({ profile: historicalProfile, scenario });
+
+  await assert.rejects(
+    () =>
+      executeBehaviorEvalPlan(plan, {
+        env: { CRABPOT_EXECUTE_BEHAVIOR: "1" },
+        runCommand: async () => ({ exitCode: 0, stdout: "", stderr: "", wallMs: 1 }),
+      }),
+    /runner\.execution=local/,
+  );
+});
+
 test("behavior eval executor records isolated setup, config, and gateway readiness", async () => {
   const tempRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot-behavior-test-"));
   try {
-    const plan = buildBehaviorEvalPlan({ profile: historicalProfile, scenario });
+    const plan = buildLocalPlan(historicalProfile, scenario);
     const commands = [];
     const rpcCalls = [];
     const commandEnvs = [];
@@ -254,7 +298,7 @@ test("behavior eval executor records isolated setup, config, and gateway readine
 test("behavior eval executor classifies historical LCM install failures as expected failures", async () => {
   const tempRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot-behavior-test-"));
   try {
-    const plan = buildBehaviorEvalPlan({ profile: historicalProfile, scenario });
+    const plan = buildLocalPlan(historicalProfile, scenario);
     const result = await executeBehaviorEvalPlan(plan, {
       env: { CRABPOT_EXECUTE_BEHAVIOR: "1" },
       workspace: {
@@ -290,7 +334,7 @@ test("behavior eval executor classifies historical LCM install failures as expec
 test("behavior eval executor classifies historical LCM gateway-turn failures as expected failures", async () => {
   const tempRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot-behavior-test-"));
   try {
-    const plan = buildBehaviorEvalPlan({ profile: historicalProfile, scenario });
+    const plan = buildLocalPlan(historicalProfile, scenario);
     const result = await executeBehaviorEvalPlan(plan, {
       env: { CRABPOT_EXECUTE_BEHAVIOR: "1" },
       workspace: {
@@ -335,7 +379,7 @@ test("behavior eval executor fails recall when the token only appears in earlier
       id: "forward-lcm-release-gate",
       expectation: { mode: "must-pass" },
     };
-    const plan = buildBehaviorEvalPlan({ profile, scenario });
+    const plan = buildLocalPlan(profile, scenario);
     let sendCount = 0;
     const result = await executeBehaviorEvalPlan(plan, {
       env: { CRABPOT_EXECUTE_BEHAVIOR: "1" },
@@ -404,7 +448,7 @@ test("behavior eval executor passes when a broken context engine is downgraded a
   try {
     const profile = await loadBehaviorEvalProfile("forward-context-engine-quarantine-gate");
     const loadedScenario = await loadBehaviorEvalScenario(profile.scenario);
-    const plan = buildBehaviorEvalPlan({ profile, scenario: loadedScenario });
+    const plan = buildLocalPlan(profile, loadedScenario);
     const commands = [];
     const result = await executeBehaviorEvalPlan(plan, {
       env: { CRABPOT_EXECUTE_BEHAVIOR: "1" },
@@ -473,7 +517,7 @@ test("behavior eval executor fails when broken context engine quarantine is not 
   try {
     const profile = await loadBehaviorEvalProfile("forward-context-engine-quarantine-gate");
     const loadedScenario = await loadBehaviorEvalScenario(profile.scenario);
-    const plan = buildBehaviorEvalPlan({ profile, scenario: loadedScenario });
+    const plan = buildLocalPlan(profile, loadedScenario);
     const result = await executeBehaviorEvalPlan(plan, {
       env: { CRABPOT_EXECUTE_BEHAVIOR: "1" },
       workspace: {
@@ -521,7 +565,7 @@ test("behavior eval executor fails when broken context engine quarantine is not 
 test("behavior eval executor classifies historical LCM agent-turn failures as expected failures", async () => {
   const tempRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot-behavior-test-"));
   try {
-    const plan = buildBehaviorEvalPlan({ profile: historicalProfile, scenario });
+    const plan = buildLocalPlan(historicalProfile, scenario);
     const result = await executeBehaviorEvalPlan(plan, {
       env: { CRABPOT_EXECUTE_BEHAVIOR: "1" },
       workspace: {
