@@ -6,7 +6,8 @@
 - OpenClaw: openclaw@latest
 - Plugins: @martian-engineering/lossless-claw@latest
 - Runner: blacksmith (mock-openai)
-- Expected mode: must-pass
+- Expected mode: known-failure
+- Expected failure classes: memory-recall-mismatch
 
 ## Steps
 
@@ -36,17 +37,17 @@
    ```
 
 6. Run scenario
-   Install LCM, select it as the context engine, rotate the transcript, and recall a seeded fact through one stable session key.
+   Install LCM, select it as the context engine, rotate the transcript, and recall an assistant-seeded fact through one stable session key.
 7. Classify result
-   Expected mode is must-pass.
+   Expected mode is known-failure.
 ## Scenario Checks
 
 - install: The requested OpenClaw package resolves and the LCM npm plugin installs into isolated state.
 - gateway-load: The gateway starts with lossless-claw enabled and selected in the contextEngine slot.
-- agent-turn: An agent call accepts a seeded memory fact and returns a completed run or a classified failure.
-- memory-assembly: A follow-up turn on the same stable session key after /lossless rotate can observe the seeded fact through assembled context, or the run is classified as an LCM assembly failure.
+- agent-turn: An agent call emits a seeded memory fact and returns a completed run or a classified failure.
+- memory-assembly: A follow-up turn on the same stable session key after /lossless rotate can observe the assistant-seeded fact through summarized LCM context, or the run is classified as an LCM assembly failure.
 
 ## Planned Classification
 
-- Status: planned-must-pass
+- Status: planned-known-failure
 

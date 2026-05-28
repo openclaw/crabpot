@@ -19,9 +19,17 @@ test("static suite keeps the dashboard gate broad and target-explicit", () => {
     rendered.some(([command, args]) => command === "node" && args === "scripts/run-plugin-inspector-smoke.mjs --check"),
   );
   assert.ok(rendered.some(([, args]) => args === "scripts/run-contract-smoke.mjs --strict --openclaw ./openclaw"));
+  assert.equal(rendered.some(([, args]) => args.startsWith("scripts/behavior-eval.mjs")), false);
   assert.ok(rendered.some(([, args]) => args === "scripts/import-loop-profile.mjs --check --runs 2"));
   assert.ok(rendered.some(([, args]) => args === "scripts/profile-contract-runtime.mjs --check --openclaw ./openclaw --runs 2"));
   assert.ok(rendered.some(([, args]) => args === "scripts/check-ci-policy.mjs --check"));
+});
+
+test("static suite checks behavior eval reports only for default committed targets", () => {
+  const steps = buildStaticSuiteSteps();
+  const rendered = steps.map(([, args]) => args.join(" "));
+
+  assert.ok(rendered.includes("scripts/behavior-eval.mjs --check"));
 });
 
 test("static suite release policy keeps compatibility findings advisory", () => {

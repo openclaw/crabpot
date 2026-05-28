@@ -157,10 +157,10 @@ dashboard card used to compare `crab-beta` and `crab-development` against
 
 Behavior evals are profile-driven, default to a dry plan, and stay
 credential-free unless execution is explicitly enabled. The default profile is
-the forward LCM release gate against latest OpenClaw and latest
+the forward LCM tracking gate against latest OpenClaw and latest
 `@martian-engineering/lossless-claw`. It verifies recall inside one stable
-session-key family after `/lossless rotate`, which exercises LCM-owned
-transcript maintenance before the recall turn:
+session-key family after `/lossless rotate`, with the seed pushed behind the
+fresh tail so raw transcript replay is not enough to pass:
 
 ```bash
 npm run eval:behavior
@@ -193,9 +193,13 @@ CRABPOT_EXECUTE_BEHAVIOR=1 npm run eval:behavior -- --execute --profile recent-l
 ```
 
 The historical LCM target is intentionally red: `openclaw@2026.5.22` with
-`@martian-engineering/lossless-claw@0.11.2` is expected to fail with
-`memory-recall-mismatch`. A forward release-gate proof can pin a newer OpenClaw
-package while keeping the same LCM plugin:
+`@martian-engineering/lossless-claw@0.11.2` may fail before final recall as a
+`behavior-turn-mismatch`, or at final recall with `memory-recall-mismatch`. The
+forward LCM target is stricter and only expects the final summary-backed recall
+failure until latest OpenClaw plus LCM can recall after rotate from summarized
+context rather than raw transcript history. To test a candidate fix, pin a
+newer OpenClaw
+package while keeping the same LCM plugin and override the expectation:
 
 ```bash
 CRABPOT_EXECUTE_BEHAVIOR=1 npm run eval:behavior -- --execute --profile forward-lcm-release-gate --openclaw-version 2026.5.26 --plugin npm:@martian-engineering/lossless-claw@0.11.2 --expect must-pass --runner local --timeout-ms 240000

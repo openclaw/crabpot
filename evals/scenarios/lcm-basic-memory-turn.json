@@ -1,7 +1,7 @@
 {
   "id": "lcm-basic-memory-turn",
   "category": "context-engine",
-  "description": "Install LCM, select it as the context engine, rotate the transcript, and recall a seeded fact through one stable session key.",
+  "description": "Install LCM, select it as the context engine, rotate the transcript, and recall an assistant-seeded fact through one stable session key.",
   "recallScope": "same-session-key",
   "checks": [
     {
@@ -14,18 +14,23 @@
     },
     {
       "id": "agent-turn",
-      "description": "An agent call accepts a seeded memory fact and returns a completed run or a classified failure."
+      "description": "An agent call emits a seeded memory fact and returns a completed run or a classified failure."
     },
     {
       "id": "memory-assembly",
-      "description": "A follow-up turn on the same stable session key after /lossless rotate can observe the seeded fact through assembled context, or the run is classified as an LCM assembly failure."
+      "description": "A follow-up turn on the same stable session key after /lossless rotate can observe the assistant-seeded fact through summarized LCM context, or the run is classified as an LCM assembly failure."
     }
   ],
   "turns": [
     {
       "sessionSuffix": "default",
-      "message": "Remember this exact test fact: CRABPOT_LCM_FACT is blue-lantern-42.",
-      "expectText": "remembered"
+      "message": "Reply with this exact memory marker: CRABPOT_LCM_FACT is blue-lantern-42.",
+      "expectText": "blue-lantern-42"
+    },
+    {
+      "sessionSuffix": "default",
+      "message": "Say one neutral filler response.",
+      "expectText": "ok"
     },
     {
       "sessionSuffix": "default",

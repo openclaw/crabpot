@@ -2,9 +2,10 @@
   "id": "forward-lcm-release-gate",
   "category": "context-engine",
   "scenario": "lcm-basic-memory-turn",
-  "why": "Default forward gate for LCM-style context-engine plugin behavior beyond API seam compatibility.",
+  "why": "Forward tracking gate for LCM-style context-engine plugin behavior beyond API seam compatibility. Expected-failure until latest OpenClaw plus LCM can recall after rotate from summarized context instead of raw transcript replay.",
   "expectation": {
-    "mode": "must-pass"
+    "mode": "known-failure",
+    "failureClasses": ["memory-recall-mismatch"]
   },
   "openclaw": {
     "source": "npm",
@@ -15,7 +16,13 @@
       "id": "lossless-claw",
       "source": "npm",
       "spec": "@martian-engineering/lossless-claw@latest",
-      "slot": "contextEngine"
+      "slot": "contextEngine",
+      "config": {
+        "freshTailCount": 1,
+        "leafMinFanout": 2,
+        "leafChunkTokens": 100,
+        "summaryPrefixTargetTokens": 100
+      }
     }
   ],
   "runner": {

@@ -36,7 +36,12 @@ const historicalProfile = {
   scenario: "lcm-basic-memory-turn",
   expectation: {
     mode: "known-failure",
-    failureClasses: ["embedded-attempt-session-takeover", "agent-runner-unavailable", "memory-recall-mismatch"],
+    failureClasses: [
+      "embedded-attempt-session-takeover",
+      "agent-runner-unavailable",
+      "behavior-turn-mismatch",
+      "memory-recall-mismatch",
+    ],
   },
   openclaw: {
     source: "npm",
@@ -76,6 +81,7 @@ test("behavior eval planner builds the historical LCM repro steps", () => {
   assert.deepEqual(plan.expectedFailureClasses, [
     "embedded-attempt-session-takeover",
     "agent-runner-unavailable",
+    "behavior-turn-mismatch",
     "memory-recall-mismatch",
   ]);
   assert.equal(plan.summary.openclaw, "openclaw@2026.5.22");
@@ -110,6 +116,7 @@ test("behavior eval profile resolver applies ad hoc version overrides", () => {
   assert.equal(resolved.openclaw.version, "2026.5.26");
   assert.equal(resolved.plugins[0].spec, "@martian-engineering/lossless-claw@0.12.0");
   assert.equal(resolved.expectation.mode, "must-pass");
+  assert.equal(resolved.expectation.failureClasses, undefined);
   assert.equal(resolved.runner.execution, "local");
 });
 
@@ -171,9 +178,33 @@ test("behavior eval mock recall derives answers from request context", () => {
   );
   assert.equal(
     buildBehaviorEvalMockResponseText(
-      "Memory: CRABPOT_LCM_FACT is blue-lantern-42.\nWhat is CRABPOT_LCM_FACT?",
+      "Reply with this exact memory marker: CRABPOT_LCM_FACT is blue-lantern-42.",
+    ),
+    "CRABPOT_LCM_FACT is blue-lantern-42.",
+  );
+  assert.equal(
+    buildBehaviorEvalMockResponseText(
+      "Reply with this exact memory marker: CRABPOT_LCM_FACT is blue-lantern-42.\nSay one neutral filler response.",
+    ),
+    "ok",
+  );
+  assert.equal(
+    buildBehaviorEvalMockResponseText(
+      "User: CRABPOT_LCM_FACT is blue-lantern-42.\nWhat is CRABPOT_LCM_FACT?",
+    ),
+    "I do not have that fact.",
+  );
+  assert.equal(
+    buildBehaviorEvalMockResponseText(
+      "<summary id=\"s1\" kind=\"leaf\"><content>CRABPOT_LCM_FACT is blue-lantern-42.</content></summary>\nWhat is CRABPOT_LCM_FACT?",
     ),
     "blue-lantern-42",
+  );
+  assert.equal(
+    buildBehaviorEvalMockResponseText(
+      "You summarize a SEGMENT of an OpenClaw conversation for future model turns.\n<conversation_segment>\nCRABPOT_LCM_FACT is blue-lantern-42.\n</conversation_segment>",
+    ),
+    "CRABPOT_LCM_FACT is blue-lantern-42.",
   );
 });
 
@@ -195,7 +226,8 @@ test("behavior eval loader reads the default forward LCM release gate", async ()
 
   assert.equal(plan.profileId, "forward-lcm-release-gate");
   assert.equal(plan.scenario.id, "lcm-basic-memory-turn");
-  assert.equal(plan.expectation.mode, "must-pass");
+  assert.equal(plan.expectation.mode, "known-failure");
+  assert.deepEqual(plan.expectedFailureClasses, ["memory-recall-mismatch"]);
   assert.equal(plan.summary.openclaw, "openclaw@latest");
   assert.match(plan.summary.plugins, /@martian-engineering\/lossless-claw@latest/);
 });
@@ -339,7 +371,11 @@ test("behavior eval executor records isolated setup, config, and gateway readine
 
     const config = JSON.parse(await readFile(path.join(tempRoot, "config.json"), "utf8"));
     assert.deepEqual(config.plugins.slots, { contextEngine: "lossless-claw" });
-    assert.deepEqual(config.plugins.entries, { "lossless-claw": { enabled: true } });
+    assert.deepEqual(config.plugins.entries, {
+      "lossless-claw": {
+        enabled: true,
+      },
+    });
     assert.equal(config.gateway.port, 19789);
     assert.equal(config.gateway.auth.token, result.gateway.token);
     assert.deepEqual(config.agents.defaults.model, { primary: "mock-openai/gpt-5.5" });
@@ -391,6 +427,46 @@ test("behavior eval executor classifies historical LCM install failures as expec
   }
 });
 
+test("behavior eval executor reports known failure classes as failures under must-pass override", async () => {
+  const tempRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot-behavior-test-"));
+  try {
+    const profile = resolveBehaviorEvalProfile({
+      profile: historicalProfile,
+      overrides: { expectationMode: "must-pass", runnerExecution: "local" },
+    });
+    const plan = buildBehaviorEvalPlan({ profile, scenario });
+    const result = await executeBehaviorEvalPlan(plan, {
+      env: { CRABPOT_EXECUTE_BEHAVIOR: "1" },
+      workspace: {
+        tempRoot,
+        homeDir: path.join(tempRoot, "home"),
+        workspaceDir: path.join(tempRoot, "workspace"),
+        stateDir: path.join(tempRoot, "state"),
+        configPath: path.join(tempRoot, "config.json"),
+        xdgCacheHome: path.join(tempRoot, "xdg-cache"),
+        xdgConfigHome: path.join(tempRoot, "xdg-config"),
+        xdgDataHome: path.join(tempRoot, "xdg-data"),
+      },
+      getFreePort: async () => 19793,
+      runCommand: async (command) =>
+        command.includes("plugins install")
+          ? {
+              exitCode: 1,
+              stdout: "",
+              stderr: "EmbeddedAttemptSessionTakeoverError: agent runner failed",
+              wallMs: 1,
+            }
+          : { exitCode: 0, stdout: "ok", stderr: "", wallMs: 1 },
+    });
+
+    assert.equal(result.status, "fail");
+    assert.equal(result.failureClass, "embedded-attempt-session-takeover");
+    assert.deepEqual(result.expectedFailureClasses, []);
+  } finally {
+    await rm(tempRoot, { recursive: true, force: true });
+  }
+});
+
 test("behavior eval executor classifies historical LCM gateway-turn failures as expected failures", async () => {
   const tempRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot-behavior-test-"));
   try {
@@ -431,6 +507,53 @@ test("behavior eval executor classifies historical LCM gateway-turn failures as 
   }
 });
 
+test("behavior eval executor keeps the forward gate from accepting pre-recall turn mismatches", async () => {
+  const tempRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot-behavior-test-"));
+  try {
+    const profile = await loadBehaviorEvalProfile("forward-lcm-release-gate");
+    const loadedScenario = await loadBehaviorEvalScenario(profile.scenario);
+    const plan = buildLocalPlan(profile, loadedScenario);
+    const result = await executeBehaviorEvalPlan(plan, {
+      env: { CRABPOT_EXECUTE_BEHAVIOR: "1" },
+      workspace: {
+        tempRoot,
+        homeDir: path.join(tempRoot, "home"),
+        workspaceDir: path.join(tempRoot, "workspace"),
+        stateDir: path.join(tempRoot, "state"),
+        configPath: path.join(tempRoot, "config.json"),
+        xdgCacheHome: path.join(tempRoot, "xdg-cache"),
+        xdgConfigHome: path.join(tempRoot, "xdg-config"),
+        xdgDataHome: path.join(tempRoot, "xdg-data"),
+      },
+      getFreePort: async () => 19797,
+      runCommand: async () => ({ exitCode: 0, stdout: "ok", stderr: "", wallMs: 1 }),
+      startGateway: async () => ({ status: "pass", stdout: "ready", stderr: "", wallMs: 1 }),
+      startProvider: async () => ({
+        baseUrl: "http://127.0.0.1:45685",
+        stop: async () => {},
+      }),
+      runGatewayRpc: async (method, params) => {
+        if (method === "chat.send") {
+          return { status: "started", runId: params.idempotencyKey };
+        }
+        if (method === "agent.wait") {
+          return { status: "ok", runId: params.runId };
+        }
+        if (method === "chat.history") {
+          return { messages: [{ role: "assistant", text: "wrong setup response" }] };
+        }
+        throw new Error(`unexpected rpc method ${method}`);
+      },
+    });
+
+    assert.equal(result.status, "fail");
+    assert.equal(result.failureClass, "behavior-turn-mismatch");
+    assert.match(result.steps.at(-2).stderr, /expected turn 1/);
+  } finally {
+    await rm(tempRoot, { recursive: true, force: true });
+  }
+});
+
 test("behavior eval executor fails recall when the token only appears in earlier user text", async () => {
   const tempRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot-behavior-test-"));
   try {
@@ -439,7 +562,8 @@ test("behavior eval executor fails recall when the token only appears in earlier
       id: "forward-lcm-release-gate",
       expectation: { mode: "must-pass" },
     };
-    const plan = buildLocalPlan(profile, scenario);
+    const loadedScenario = await loadBehaviorEvalScenario("lcm-basic-memory-turn");
+    const plan = buildLocalPlan(profile, loadedScenario);
     let sendCount = 0;
     const result = await executeBehaviorEvalPlan(plan, {
       env: { CRABPOT_EXECUTE_BEHAVIOR: "1" },
@@ -480,10 +604,12 @@ test("behavior eval executor fails recall when the token only appears in earlier
                 content: [
                   {
                     type: "text",
-                    text:
-                      sendCount === 1
-                        ? "remembered CRABPOT_LCM_FACT"
-                        : "I do not have that fact.",
+                    text: {
+                      1: "blue-lantern-42",
+                      2: "ok",
+                      3: "status: rotated",
+                      4: "I do not have that fact.",
+                    }[sendCount] ?? "I do not have that fact.",
                   },
                 ],
               },

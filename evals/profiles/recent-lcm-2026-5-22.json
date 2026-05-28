@@ -8,6 +8,7 @@
     "failureClasses": [
       "embedded-attempt-session-takeover",
       "agent-runner-unavailable",
+      "behavior-turn-mismatch",
       "memory-recall-mismatch"
     ]
   },
@@ -20,7 +21,13 @@
       "id": "lossless-claw",
       "source": "npm",
       "spec": "@martian-engineering/lossless-claw@0.11.2",
-      "slot": "contextEngine"
+      "slot": "contextEngine",
+      "config": {
+        "freshTailCount": 1,
+        "leafMinFanout": 2,
+        "leafChunkTokens": 100,
+        "summaryPrefixTargetTokens": 100
+      }
     }
   ],
   "runner": {

@@ -249,6 +249,9 @@ export function resolveBehaviorEvalProfile({ profile, overrides = {} }) {
       ...next.expectation,
       mode: overrides.expectationMode,
     };
+    if (overrides.expectationMode !== "known-failure") {
+      delete next.expectation.failureClasses;
+    }
   }
   if (overrides.runnerExecution) {
     next.runner = {
@@ -272,6 +275,7 @@ export function buildBehaviorEvalPlan({ profile, scenario }) {
       plugin.id,
       {
         enabled: true,
+        ...(plugin.config ? { config: cloneJson(plugin.config) } : {}),
       },
     ]),
   );
@@ -1307,18 +1311,48 @@ function extractBehaviorEvalRequestText(value) {
 }
 
 export function buildBehaviorEvalMockResponseText(inputText) {
+  if (isBehaviorEvalSummarizationRequest(inputText)) {
+    const fact = extractBehaviorEvalFactValue(inputText);
+    return fact ? `CRABPOT_LCM_FACT is ${fact}.` : "No CRABPOT_LCM_FACT was present.";
+  }
+  if (/Say one neutral filler response/iu.test(inputText)) {
+    return "ok";
+  }
   if (/remember.*crabpot_lcm_fact|crabpot_lcm_fact/iu.test(inputText)) {
     if (/what is crabpot_lcm_fact|recall.*crabpot_lcm_fact/iu.test(inputText)) {
-      return extractBehaviorEvalFactValue(inputText) ?? "I do not have that fact.";
+      return extractBehaviorEvalContextFactValue(inputText) ?? "I do not have that fact.";
+    }
+    if (/reply.*crabpot_lcm_fact|exact memory marker/iu.test(inputText)) {
+      const fact = extractBehaviorEvalFactValue(inputText);
+      return fact ? `CRABPOT_LCM_FACT is ${fact}.` : "CRABPOT_LCM_FACT is missing.";
     }
     return "remembered CRABPOT_LCM_FACT";
   }
   return "ok";
 }
 
+function isBehaviorEvalSummarizationRequest(inputText) {
+  return (
+    /context-compaction summarization engine/iu.test(inputText) ||
+    /You summarize a SEGMENT of an OpenClaw conversation/iu.test(inputText) ||
+    /<conversation_segment>/iu.test(inputText)
+  );
+}
+
 function extractBehaviorEvalFactValue(inputText) {
   const match = inputText.match(/\bCRABPOT_LCM_FACT\s*(?:is|=|:)\s*([A-Za-z0-9._-]+)/iu);
   return match?.[1]?.replace(/[.?!,;:]+$/u, "") ?? null;
+}
+
+function extractBehaviorEvalContextFactValue(inputText) {
+  const contextBlocks = inputText.match(/<(?:summary|focus_brief)\b[\s\S]*?<\/(?:summary|focus_brief)>/giu) ?? [];
+  for (const block of contextBlocks) {
+    const value = extractBehaviorEvalFactValue(block);
+    if (value) {
+      return value;
+    }
+  }
+  return null;
 }
 
 function buildBehaviorEvalMockResponseEvents(text) {
@@ -1377,7 +1411,7 @@ async function runBehaviorEvalScenario(plan, context) {
   const commands = [];
   const stdout = [];
   const stderr = [];
-  for (const turn of turns) {
+  for (const [turnIndex, turn] of turns.entries()) {
     const sessionKey = turn.sessionKey ?? `${baseSessionKey}:${turn.sessionSuffix ?? "default"}`;
     const runId = `crabpot-${randomUUID()}`;
     const waitTimeoutMs = Math.max(1, context.timeoutMs);
@@ -1432,12 +1466,14 @@ async function runBehaviorEvalScenario(plan, context) {
       stdout.push(`chat.history ${JSON.stringify(history)}`);
       const latestAssistantText = extractLatestBehaviorEvalAssistantText(history);
       if (turn.expectText && !latestAssistantText.includes(turn.expectText)) {
+        const mismatchClass =
+          turnIndex === turns.length - 1 ? "memory-recall-mismatch" : "behavior-turn-mismatch";
         return {
           status: "fail",
           exitCode: 1,
           command: commands.join("\n"),
           stdout: stdout.join("\n"),
-          stderr: `${stderr.join("\n")}\nmemory-recall-mismatch: expected latest assistant message to contain ${turn.expectText}; got ${latestAssistantText || "<empty>"}`,
+          stderr: `${stderr.join("\n")}\n${mismatchClass}: expected turn ${turnIndex + 1} latest assistant message to contain ${turn.expectText}; got ${latestAssistantText || "<empty>"}`,
           wallMs: Date.now() - startedAt,
         };
       }
@@ -1806,7 +1842,10 @@ async function waitForBehaviorEvalGatewayReady({ baseUrl, child, logs, timeoutMs
 function finalizeBehaviorEvalExecution({ plan, steps, workspace, port, keptTemp, token }) {
   const failed = steps.find((step) => step.status === "fail");
   const failureClass = failed?.failureClass;
-  const expectedFailure = failureClass && plan.expectedFailureClasses.includes(failureClass);
+  const expectedFailure =
+    plan.expectation.mode === "known-failure" &&
+    failureClass &&
+    plan.expectedFailureClasses.includes(failureClass);
   const status = failed
     ? expectedFailure
       ? "expected-failure"
@@ -1923,6 +1962,9 @@ function classifyBehaviorEvalFailure(output) {
   }
   if (text.includes("memory-recall-mismatch")) {
     return "memory-recall-mismatch";
+  }
+  if (text.includes("behavior-turn-mismatch")) {
+    return "behavior-turn-mismatch";
   }
   if (text.includes("context-engine-quarantine-missing")) {
     return "context-engine-quarantine-missing";
@@ -2071,6 +2113,9 @@ function validateBehaviorEvalProfile(profile, label) {
       }
       if (plugin.source === "fixture" && !/^[a-z0-9][a-z0-9-]*$/.test(plugin.fixture ?? "")) {
         errors.push(`${plugin.id}: plugin fixture must be kebab-case`);
+      }
+      if (plugin.config !== undefined && (!plugin.config || typeof plugin.config !== "object" || Array.isArray(plugin.config))) {
+        errors.push(`${plugin.id}: plugin config must be an object`);
       }
     }
   }
