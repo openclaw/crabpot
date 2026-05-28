@@ -13,6 +13,7 @@ import {
   loadBehaviorEvalScenario,
   renderBehaviorEvalMarkdown,
   resolveBehaviorEvalProfile,
+  runBehaviorEvalCommand,
   stopBehaviorEvalChildProcess,
 } from "../scripts/behavior-eval.mjs";
 
@@ -326,7 +327,8 @@ test("behavior eval executor records isolated setup, config, and gateway readine
       "agent.wait",
       "chat.history",
     ]);
-    assert.equal(rpcCalls[0].params.sessionKey, "agent:qa:discord:channel:crabpot-lcm-basic-memory-turn");
+    assert.equal(rpcCalls[0].params.sessionKey, "agent:qa:discord:channel:crabpot-lcm-basic-memory-turn:seed");
+    assert.equal(rpcCalls[3].params.sessionKey, "agent:qa:discord:channel:crabpot-lcm-basic-memory-turn:recall");
     assert.match(rpcCalls[0].params.message, /CRABPOT_LCM_FACT/);
     assert.equal(rpcCalls[1].params.runId, rpcCalls[0].params.idempotencyKey);
     assert.equal(rpcCalls[1].params.timeoutMs, 900000);
@@ -680,4 +682,23 @@ test("behavior eval gateway stop waits for the child process to exit", async () 
   assert.equal(child.exitCode, null);
   await stopPromise;
   assert.equal(child.exitCode, 0);
+});
+
+test("behavior eval shell command timeout reports and terminates the command group", async () => {
+  const tempRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot-behavior-test-"));
+  try {
+    const result = await runBehaviorEvalCommand(
+      `"${process.execPath}" -e "setInterval(() => {}, 1000)"`,
+      {
+        workspace: { tempRoot },
+        env: process.env,
+        timeoutMs: 20,
+      },
+    );
+
+    assert.equal(result.exitCode, 1);
+    assert.match(result.stderr, /command timed out/);
+  } finally {
+    await rm(tempRoot, { recursive: true, force: true });
+  }
 });

@@ -1017,19 +1017,22 @@ async function runBehaviorEvalStep({ id, command, context, runCommand }) {
   };
 }
 
-function runBehaviorEvalCommand(command, context) {
+export function runBehaviorEvalCommand(command, context) {
   return new Promise((resolve) => {
     const startedAt = Date.now();
     const stdout = [];
     const stderr = [];
+    let timedOut = false;
     const child = spawn(command, {
       cwd: context.workspace.tempRoot,
       env: context.env,
       shell: true,
+      detached: process.platform !== "win32",
       stdio: ["ignore", "pipe", "pipe"],
     });
     const timeout = setTimeout(() => {
-      child.kill("SIGKILL");
+      timedOut = true;
+      signalBehaviorEvalChildProcess(child, "SIGKILL", process.kill);
     }, context.timeoutMs);
     child.stdout.on("data", (chunk) => stdout.push(Buffer.from(chunk)));
     child.stderr.on("data", (chunk) => stderr.push(Buffer.from(chunk)));
@@ -1047,7 +1050,7 @@ function runBehaviorEvalCommand(command, context) {
       resolve({
         exitCode: signal ? 1 : (code ?? 1),
         stdout: Buffer.concat(stdout).toString("utf8"),
-        stderr: Buffer.concat(stderr).toString("utf8"),
+        stderr: `${Buffer.concat(stderr).toString("utf8")}${timedOut ? "\ncommand timed out" : ""}`,
         wallMs: Date.now() - startedAt,
       });
     });
@@ -1344,11 +1347,12 @@ function buildBehaviorEvalMockResponseEvents(text) {
 async function runBehaviorEvalScenario(plan, context) {
   const startedAt = Date.now();
   const turns = resolveBehaviorEvalScenarioTurns(plan.scenario);
-  const sessionKey = `agent:qa:discord:channel:crabpot-${plan.scenario.id}`;
+  const baseSessionKey = `agent:qa:discord:channel:crabpot-${plan.scenario.id}`;
   const commands = [];
   const stdout = [];
   const stderr = [];
   for (const turn of turns) {
+    const sessionKey = turn.sessionKey ?? `${baseSessionKey}:${turn.sessionSuffix ?? "default"}`;
     const runId = `crabpot-${randomUUID()}`;
     const waitTimeoutMs = Math.max(1, context.timeoutMs);
     const sendParams = {
@@ -1505,16 +1509,20 @@ function evaluateBehaviorEvalHealthCheck(check, payload) {
 function resolveBehaviorEvalScenarioTurns(scenario) {
   if (Array.isArray(scenario.turns) && scenario.turns.length > 0) {
     return scenario.turns.map((turn) => ({
+      sessionKey: typeof turn.sessionKey === "string" && turn.sessionKey ? turn.sessionKey : undefined,
+      sessionSuffix: typeof turn.sessionSuffix === "string" && turn.sessionSuffix ? turn.sessionSuffix : undefined,
       message: String(turn.message ?? ""),
       expectText: typeof turn.expectText === "string" ? turn.expectText : undefined,
     }));
   }
   return [
     {
+      sessionSuffix: "seed",
       message: "Remember this exact test fact: CRABPOT_LCM_FACT is blue-lantern-42.",
       expectText: "remembered",
     },
     {
+      sessionSuffix: "recall",
       message: "What is CRABPOT_LCM_FACT? Answer with only the remembered value.",
       expectText: "blue-lantern-42",
     },
