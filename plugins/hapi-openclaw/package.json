@@ -10,5 +10,15 @@
     "fixture": "hapi-openclaw",
     "source": "npm",
     "package": "@twsxtd/hapi-openclaw"
+  },
+  "overrides": {
+    "@anthropic-ai/sdk": "0.91.1",
+    "axios": "1.15.2",
+    "hono": "4.12.18",
+    "openclaw": "2026.5.26",
+    "qs": "6.15.2",
+    "tar": "7.5.11",
+    "uuid": "11.1.1",
+    "ws": "8.20.1"
   }
 }
