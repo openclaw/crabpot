@@ -574,8 +574,31 @@ export async function executeBehaviorEvalPlan(plan, options = {}) {
       await providerHandle.stop().catch(() => {});
     }
     if (ownsWorkspace && !options.keepTemp) {
-      await rm(workspace.tempRoot, { recursive: true, force: true });
+      await removeBehaviorEvalTempRoot(workspace.tempRoot);
     }
+  }
+}
+
+export async function removeBehaviorEvalTempRoot(
+  tempRoot,
+  { remove = rm, warn = (message) => process.stderr.write(`${message}\n`) } = {},
+) {
+  try {
+    await remove(tempRoot, {
+      recursive: true,
+      force: true,
+      maxRetries: 10,
+      retryDelay: 100,
+    });
+  } catch (error) {
+    if (error?.code === "ENOENT") {
+      return;
+    }
+    if (["ENOTEMPTY", "EBUSY", "EPERM"].includes(error?.code)) {
+      warn(`behavior eval temp cleanup skipped after process teardown: ${formatErrorForReport(error)}`);
+      return;
+    }
+    throw error;
   }
 }
 

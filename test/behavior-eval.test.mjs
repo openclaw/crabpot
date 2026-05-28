@@ -11,6 +11,7 @@ import {
   executeBehaviorEvalPlan,
   loadBehaviorEvalProfile,
   loadBehaviorEvalScenario,
+  removeBehaviorEvalTempRoot,
   renderBehaviorEvalMarkdown,
   resolveBehaviorEvalProfile,
   runBehaviorEvalCommand,
@@ -703,4 +704,20 @@ test("behavior eval shell command timeout reports and terminates the command gro
   } finally {
     await rm(tempRoot, { recursive: true, force: true });
   }
+});
+
+test("behavior eval temp cleanup does not mask transient removal races", async () => {
+  const messages = [];
+  const error = new Error("directory not empty");
+  error.code = "ENOTEMPTY";
+
+  await removeBehaviorEvalTempRoot("/tmp/crabpot-behavior-test-race", {
+    remove: async () => {
+      throw error;
+    },
+    warn: (message) => messages.push(message),
+  });
+
+  assert.equal(messages.length, 1);
+  assert.match(messages[0], /cleanup skipped/);
 });
