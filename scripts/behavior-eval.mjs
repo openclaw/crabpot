@@ -798,6 +798,9 @@ function buildBehaviorEvalBaseEnv(baseEnv) {
 }
 
 async function writeBehaviorEvalConfig({ plan, workspace, context }) {
+  // Plugin install records are written by `openclaw plugins install` under the
+  // isolated state dir. This config only selects/enables the already-installed
+  // plugin ids before the gateway starts.
   let config = {
     plugins: plan.configPatch.plugins,
     agents: {
