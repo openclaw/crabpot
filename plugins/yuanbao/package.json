@@ -8,13 +8,21 @@
   },
   "overrides": {
     "@anthropic-ai/sdk": "0.91.1",
+    "basic-ftp": "5.3.1",
+    "brace-expansion": "5.0.6",
     "conf": "10.2.0",
     "cos-nodejs-sdk-v5": "2.16.0-beta.8",
+    "fast-uri": "3.1.2",
+    "fast-xml-builder": "1.1.7",
     "fast-xml-parser": "5.7.2",
     "form-data": "4.0.5",
-    "qs": "6.15.1",
+    "hono": "4.12.18",
+    "ip-address": "10.1.1",
+    "protobufjs": "8.2.0",
+    "qs": "6.15.2",
     "tough-cookie": "6.0.1",
-    "uuid": "14.0.0"
+    "uuid": "14.0.0",
+    "ws": "8.20.1"
   },
   "crabpot": {
     "fixture": "yuanbao",

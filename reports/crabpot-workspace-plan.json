@@ -23,7 +23,7 @@
     "tsLoaderEntrypointCount": 22,
     "jitiAlternativeCount": 22,
     "missingBuildScriptCount": 0,
-    "sdkAliasRequiredCount": 6
+    "sdkAliasRequiredCount": 9
   },
   "fixtures": [
     {
@@ -1935,7 +1935,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@discordjs/voice, discord-api-types, https-proxy-agent, opusscript, typebox, undici, ws"
+              "evidence": "@discordjs/voice, discord-api-types, https-proxy-agent, libopus-wasm, typebox, undici, ws"
             }
           ],
           "steps": [
@@ -2146,7 +2146,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@clawdbot/lobster, ajv, typebox"
+              "evidence": "@clawdbot/lobster, typebox"
             }
           ],
           "steps": [
@@ -5408,7 +5408,7 @@
           "packagePath": "plugins/openclaw-qqbot/.crabpot-package/package.json",
           "packageName": "@openclaw/qqbot",
           "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/index.ts",
-          "status": "missing",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/openclaw-qqbot/package-lock.json",
           "loaderStrategy": {
@@ -5419,6 +5419,7 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -5427,6 +5428,11 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/openclaw-qqbot/.crabpot-package/index.ts"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/openclaw-qqbot/.crabpot-package/dist/channel-C_7BS_5A.js:5"
             }
           ],
           "steps": [
@@ -5470,7 +5476,7 @@
           "packagePath": "plugins/openclaw-qqbot/.crabpot-package/package.json",
           "packageName": "@openclaw/qqbot",
           "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/openclaw-qqbot/package-lock.json",
           "loaderStrategy": {
@@ -5482,6 +5488,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -5490,6 +5497,11 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@tencent-connect/qqbot-connector, mpg123-decoder, silk-wasm, ws, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/openclaw-qqbot/.crabpot-package/dist/channel-C_7BS_5A.js:5"
             }
           ],
           "steps": [
@@ -5546,7 +5558,7 @@
           "packagePath": "plugins/openclaw-qqbot/.crabpot-package/package.json",
           "packageName": "@openclaw/qqbot",
           "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/setup-entry.ts",
-          "status": "missing",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/openclaw-qqbot/package-lock.json",
           "loaderStrategy": {
@@ -5557,6 +5569,7 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -5565,6 +5578,11 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/openclaw-qqbot/.crabpot-package/setup-entry.ts"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/openclaw-qqbot/.crabpot-package/dist/channel-C_7BS_5A.js:5"
             }
           ],
           "steps": [
@@ -5637,17 +5655,32 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/approval-handler.runtime-D0hxugEn.js:7"
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/account-config-6PTOSfaI.js:2"
             },
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/channel-BfG9HEZG.js:21"
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/channel-BVjAjxDN.js:18"
             },
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/send-BuORvrFd.js:17"
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/monitor-C2v24RgX.js:20"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/outbound-base-DEqi9Ujk.js:5"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/outbound-media-contract-BKCo2tsn.js:5"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/send-api-DPoMFw-l.js:8"
             }
           ],
           "steps": [
@@ -5716,17 +5749,32 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/approval-handler.runtime-D0hxugEn.js:7"
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/account-config-6PTOSfaI.js:2"
             },
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/channel-BfG9HEZG.js:21"
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/channel-BVjAjxDN.js:18"
             },
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/send-BuORvrFd.js:17"
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/monitor-C2v24RgX.js:20"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/outbound-base-DEqi9Ujk.js:5"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/outbound-media-contract-BKCo2tsn.js:5"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/send-api-DPoMFw-l.js:8"
             }
           ],
           "steps": [
@@ -5807,17 +5855,32 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/approval-handler.runtime-D0hxugEn.js:7"
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/account-config-6PTOSfaI.js:2"
             },
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/channel-BfG9HEZG.js:21"
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/channel-BVjAjxDN.js:18"
             },
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/send-BuORvrFd.js:17"
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/monitor-C2v24RgX.js:20"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/outbound-base-DEqi9Ujk.js:5"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/outbound-media-contract-BKCo2tsn.js:5"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-outbound @ plugins/whatsapp/.crabpot-package/dist/send-api-DPoMFw-l.js:8"
             }
           ],
           "steps": [
@@ -6453,7 +6516,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "cos-nodejs-sdk-v5, protobufjs, semver, ws"
+              "evidence": "protobufjs, semver, ws"
             }
           ],
           "steps": [
@@ -6522,7 +6585,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "cos-nodejs-sdk-v5, protobufjs, semver, ws"
+              "evidence": "protobufjs, semver, ws"
             }
           ],
           "steps": [
