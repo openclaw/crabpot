@@ -1400,7 +1400,7 @@
     {
       "fixture": "openclaw-qqbot",
       "id": "cold-import.extension:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-index-ts",
-      "status": "sdk-alias-required",
+      "status": "missing",
       "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1418,7 +1418,7 @@
     {
       "fixture": "openclaw-qqbot",
       "id": "cold-import.runtimeExtension:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1436,7 +1436,7 @@
     {
       "fixture": "openclaw-qqbot",
       "id": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-setup-entry-ts",
-      "status": "sdk-alias-required",
+      "status": "missing",
       "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/setup-entry.ts",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1454,7 +1454,7 @@
     {
       "fixture": "whatsapp",
       "id": "cold-import.extension:whatsapp:plugins-whatsapp-crabpot-package-index-ts",
-      "status": "sdk-alias-required",
+      "status": "missing",
       "entrypoint": "plugins/whatsapp/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1472,7 +1472,7 @@
     {
       "fixture": "whatsapp",
       "id": "cold-import.runtimeExtension:whatsapp:plugins-whatsapp-crabpot-package-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/whatsapp/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1490,7 +1490,7 @@
     {
       "fixture": "whatsapp",
       "id": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
-      "status": "sdk-alias-required",
+      "status": "missing",
       "entrypoint": "plugins/whatsapp/.crabpot-package/setup-entry.ts",
       "packageManager": "npm",
       "loaderSource": "native-node",

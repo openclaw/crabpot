@@ -1,22 +1,22 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "dependabot",
-  "openclawLabel": "openclaw@latest (2026.5.26, 10ad3aa16068)",
+  "mode": "check",
+  "openclawLabel": "openclaw@latest (2026.5.27, 27ae826f6525)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 154,
+    "warnings": 139,
     "suggestions": 150,
-    "issues": 304,
+    "issues": 289,
     "p0Issues": 1,
-    "p1Issues": 21,
+    "p1Issues": 19,
     "liveIssues": 1,
     "liveP0Issues": 1,
-    "compatGaps": 3,
+    "compatGaps": 1,
     "deprecationWarnings": 42,
     "inspectorGaps": 159,
-    "upstreamIssues": 99,
+    "upstreamIssues": 86,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 16,
     "platformContainerRisks": 16,
     "loaderJitiCandidates": 22,
-    "importLoopP50Ms": 1504,
-    "importLoopP95Ms": 1505,
+    "importLoopP50Ms": 1486,
+    "importLoopP95Ms": 1530,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 96.2,
+    "importLoopOpenClawImportP50Ms": 95.5,
     "importLoopOpenClawActivationP50Ms": 0.3,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 2.2,
-    "importLoopMaxCpuMs": 1,
-    "importLoopRssSampleCount": 177,
-    "importLoopCpuSampleCount": 177
+    "importLoopMaxRssMb": 5.5,
+    "importLoopMaxCpuMs": 68,
+    "importLoopRssSampleCount": 178,
+    "importLoopCpuSampleCount": 178
   },
   "topIssues": [
     {
@@ -163,14 +163,6 @@
     },
     {
       "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "openclaw-qqbot",
-      "code": "sdk-export-missing",
-      "title": "openclaw-qqbot: plugin SDK import aliases are missing from target package exports",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
       "issueClass": "inspector-gap",
       "fixture": "openclaw-telemetry",
       "code": "before-tool-call-probe",
@@ -199,6 +191,14 @@
       "fixture": "opik-openclaw",
       "code": "conversation-access-hook",
       "title": "opik-openclaw: conversation-access hooks need privacy-boundary probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "wecom",
+      "code": "before-tool-call-probe",
+      "title": "wecom: before_tool_call needs terminal/block/approval probes",
       "decision": "inspector-follow-up"
     }
   ],
@@ -436,20 +436,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 57.5% over baseline",
+      "message": "p95WallMs regressed 55.2% over baseline",
       "baseline": 1273,
-      "current": 2005,
-      "delta": 732,
-      "percent": 57.5
+      "current": 1976,
+      "delta": 703,
+      "percent": 55.2
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 417.20000000000005 over baseline",
+      "message": "maxPeakRssMb regressed 419.5 over baseline",
       "baseline": 65.1,
-      "current": 482.3,
-      "delta": 417.20000000000005
+      "current": 484.6,
+      "delta": 419.5
     }
   ],
   "artifacts": {

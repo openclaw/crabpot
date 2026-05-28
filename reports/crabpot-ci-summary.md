@@ -1,64 +1,64 @@
 # Crabpot CI Summary
 
 Generated: deterministic
-Mode: dependabot
-OpenClaw: openclaw@latest (2026.5.26, 10ad3aa16068)
+Mode: check
+OpenClaw: openclaw@latest (2026.5.27, 27ae826f6525)
 Status: PASS
 
 ## Counts
 
-| Metric                      | Value                                                                                                                   |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Breakages                   | 0                                                                                                                       |
-| Warnings                    | 154                                                                                                                     |
-| Suggestions                 | 150                                                                                                                     |
-| Issues                      | 304                                                                                                                     |
-| P0 issues                   | 1                                                                                                                       |
-| P1 issues                   | 21                                                                                                                      |
-| Live issues                 | 1                                                                                                                       |
-| Live P0 issues              | 1                                                                                                                       |
-| Compat gaps                 | 3                                                                                                                       |
-| Deprecation warnings        | 42                                                                                                                      |
-| Inspector gaps              | 159                                                                                                                     |
-| Upstream metadata           | 99                                                                                                                      |
-| Ref diff failures           | 0                                                                                                                       |
-| Ref diff warnings           | 0                                                                                                                       |
-| Policy failures             | 0                                                                                                                       |
-| Policy warnings             | 308                                                                                                                     |
-| Profile failures            | 0                                                                                                                       |
-| Profile warnings            | 2                                                                                                                       |
-| Execution pass              | 120                                                                                                                     |
-| Execution fail              | 0                                                                                                                       |
-| Execution blocked           | 306                                                                                                                     |
-| Windows portability risks   | 16                                                                                                                      |
-| Container portability risks | 16                                                                                                                      |
-| Jiti loader candidates      | 22                                                                                                                      |
-| Import loop                 | p50 1504 ms / p95 1505 ms / plugin delta RSS 2.2 MB / plugin delta CPU 1 ms / OpenClaw import 96.2 ms / activate 0.3 ms |
+| Metric                      | Value                                                                                                                    |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Breakages                   | 0                                                                                                                        |
+| Warnings                    | 139                                                                                                                      |
+| Suggestions                 | 150                                                                                                                      |
+| Issues                      | 289                                                                                                                      |
+| P0 issues                   | 1                                                                                                                        |
+| P1 issues                   | 19                                                                                                                       |
+| Live issues                 | 1                                                                                                                        |
+| Live P0 issues              | 1                                                                                                                        |
+| Compat gaps                 | 1                                                                                                                        |
+| Deprecation warnings        | 42                                                                                                                       |
+| Inspector gaps              | 159                                                                                                                      |
+| Upstream metadata           | 86                                                                                                                       |
+| Ref diff failures           | 0                                                                                                                        |
+| Ref diff warnings           | 0                                                                                                                        |
+| Policy failures             | 0                                                                                                                        |
+| Policy warnings             | 308                                                                                                                      |
+| Profile failures            | 0                                                                                                                        |
+| Profile warnings            | 2                                                                                                                        |
+| Execution pass              | 120                                                                                                                      |
+| Execution fail              | 0                                                                                                                        |
+| Execution blocked           | 306                                                                                                                      |
+| Windows portability risks   | 16                                                                                                                       |
+| Container portability risks | 16                                                                                                                       |
+| Jiti loader candidates      | 22                                                                                                                       |
+| Import loop                 | p50 1486 ms / p95 1530 ms / plugin delta RSS 5.5 MB / plugin delta CPU 68 ms / OpenClaw import 95.5 ms / activate 0.3 ms |
 
 ## Top Issues
 
-| Severity | Class             | Fixture            | Code                       | Decision            | Title                                                                             |
-| -------- | ----------------- | ------------------ | -------------------------- | ------------------- | --------------------------------------------------------------------------------- |
-| P0       | live-issue        | kitchen-sink       | unknown-registration-name  | core-compat-adapter | kitchen-sink: fixture calls a registrar missing from target OpenClaw              |
-| P1       | inspector-gap     | clawmetry          | conversation-access-hook   | inspector-follow-up | clawmetry: conversation-access hooks need privacy-boundary probes                 |
-| P1       | upstream-metadata | codex              | reserved-sdk-import        | plugin-upstream-fix | codex: plugin imports reserved bundled-plugin SDK compatibility subpaths          |
-| P1       | inspector-gap     | dingtalk-doc       | before-tool-call-probe     | inspector-follow-up | dingtalk-doc: before_tool_call needs terminal/block/approval probes               |
-| P1       | inspector-gap     | honcho             | conversation-access-hook   | inspector-follow-up | honcho: conversation-access hooks need privacy-boundary probes                    |
-| P1       | inspector-gap     | kitchen-sink       | before-tool-call-probe     | inspector-follow-up | kitchen-sink: before_tool_call needs terminal/block/approval probes               |
-| P1       | inspector-gap     | kitchen-sink       | conversation-access-hook   | inspector-follow-up | kitchen-sink: conversation-access hooks need privacy-boundary probes              |
-| P1       | upstream-metadata | kitchen-sink       | manifest-unknown-contracts | plugin-upstream-fix | kitchen-sink: manifest declares unsupported contract keys                         |
-| P1       | upstream-metadata | kitchen-sink       | reserved-sdk-import        | plugin-upstream-fix | kitchen-sink: plugin imports reserved bundled-plugin SDK compatibility subpaths   |
-| P1       | compat-gap        | kitchen-sink       | sdk-export-missing         | core-compat-adapter | kitchen-sink: plugin SDK import aliases are missing from target package exports   |
-| P1       | inspector-gap     | llm-trace-phoenix  | conversation-access-hook   | inspector-follow-up | llm-trace-phoenix: conversation-access hooks need privacy-boundary probes         |
-| P1       | inspector-gap     | memory-lancedb     | conversation-access-hook   | inspector-follow-up | memory-lancedb: conversation-access hooks need privacy-boundary probes            |
-| P1       | inspector-gap     | memory-tencentdb   | conversation-access-hook   | inspector-follow-up | memory-tencentdb: conversation-access hooks need privacy-boundary probes          |
-| P1       | inspector-gap     | memos-cloud        | conversation-access-hook   | inspector-follow-up | memos-cloud: conversation-access hooks need privacy-boundary probes               |
-| P1       | inspector-gap     | nemoclaw           | before-tool-call-probe     | inspector-follow-up | nemoclaw: before_tool_call needs terminal/block/approval probes                   |
-| P1       | compat-gap        | openclaw-qqbot     | sdk-export-missing         | core-compat-adapter | openclaw-qqbot: plugin SDK import aliases are missing from target package exports |
-| P1       | inspector-gap     | openclaw-telemetry | before-tool-call-probe     | inspector-follow-up | openclaw-telemetry: before_tool_call needs terminal/block/approval probes         |
-| P1       | inspector-gap     | openclaw-telemetry | conversation-access-hook   | inspector-follow-up | openclaw-telemetry: conversation-access hooks need privacy-boundary probes        |
-| P1       | inspector-gap     | opik-openclaw      | before-tool-call-probe     | inspector-follow-up | opik-openclaw: before_tool_call needs terminal/block/approval probes              |
-| P1       | inspector-gap     | opik-openclaw      | conversation-access-hook   | inspector-follow-up | opik-openclaw: conversation-access hooks need privacy-boundary probes             |
+| Severity | Class             | Fixture            | Code                       | Decision            | Title                                                                           |
+| -------- | ----------------- | ------------------ | -------------------------- | ------------------- | ------------------------------------------------------------------------------- |
+| P0       | live-issue        | kitchen-sink       | unknown-registration-name  | core-compat-adapter | kitchen-sink: fixture calls a registrar missing from target OpenClaw            |
+| P1       | inspector-gap     | clawmetry          | conversation-access-hook   | inspector-follow-up | clawmetry: conversation-access hooks need privacy-boundary probes               |
+| P1       | upstream-metadata | codex              | reserved-sdk-import        | plugin-upstream-fix | codex: plugin imports reserved bundled-plugin SDK compatibility subpaths        |
+| P1       | inspector-gap     | dingtalk-doc       | before-tool-call-probe     | inspector-follow-up | dingtalk-doc: before_tool_call needs terminal/block/approval probes             |
+| P1       | inspector-gap     | honcho             | conversation-access-hook   | inspector-follow-up | honcho: conversation-access hooks need privacy-boundary probes                  |
+| P1       | inspector-gap     | kitchen-sink       | before-tool-call-probe     | inspector-follow-up | kitchen-sink: before_tool_call needs terminal/block/approval probes             |
+| P1       | inspector-gap     | kitchen-sink       | conversation-access-hook   | inspector-follow-up | kitchen-sink: conversation-access hooks need privacy-boundary probes            |
+| P1       | upstream-metadata | kitchen-sink       | manifest-unknown-contracts | plugin-upstream-fix | kitchen-sink: manifest declares unsupported contract keys                       |
+| P1       | upstream-metadata | kitchen-sink       | reserved-sdk-import        | plugin-upstream-fix | kitchen-sink: plugin imports reserved bundled-plugin SDK compatibility subpaths |
+| P1       | compat-gap        | kitchen-sink       | sdk-export-missing         | core-compat-adapter | kitchen-sink: plugin SDK import aliases are missing from target package exports |
+| P1       | inspector-gap     | llm-trace-phoenix  | conversation-access-hook   | inspector-follow-up | llm-trace-phoenix: conversation-access hooks need privacy-boundary probes       |
+| P1       | inspector-gap     | memory-lancedb     | conversation-access-hook   | inspector-follow-up | memory-lancedb: conversation-access hooks need privacy-boundary probes          |
+| P1       | inspector-gap     | memory-tencentdb   | conversation-access-hook   | inspector-follow-up | memory-tencentdb: conversation-access hooks need privacy-boundary probes        |
+| P1       | inspector-gap     | memos-cloud        | conversation-access-hook   | inspector-follow-up | memos-cloud: conversation-access hooks need privacy-boundary probes             |
+| P1       | inspector-gap     | nemoclaw           | before-tool-call-probe     | inspector-follow-up | nemoclaw: before_tool_call needs terminal/block/approval probes                 |
+| P1       | inspector-gap     | openclaw-telemetry | before-tool-call-probe     | inspector-follow-up | openclaw-telemetry: before_tool_call needs terminal/block/approval probes       |
+| P1       | inspector-gap     | openclaw-telemetry | conversation-access-hook   | inspector-follow-up | openclaw-telemetry: conversation-access hooks need privacy-boundary probes      |
+| P1       | inspector-gap     | opik-openclaw      | before-tool-call-probe     | inspector-follow-up | opik-openclaw: before_tool_call needs terminal/block/approval probes            |
+| P1       | inspector-gap     | opik-openclaw      | conversation-access-hook   | inspector-follow-up | opik-openclaw: conversation-access hooks need privacy-boundary probes           |
+| P1       | inspector-gap     | wecom              | before-tool-call-probe     | inspector-follow-up | wecom: before_tool_call needs terminal/block/approval probes                    |
 
 ## Ref Regressions
 
@@ -91,10 +91,10 @@ _none_
 
 ## Profile Findings
 
-| Action | ID               | Metric       | Baseline | Current | Message                                                 |
-| ------ | ---------------- | ------------ | -------- | ------- | ------------------------------------------------------- |
-| warn   | profile.wall-p95 | p95WallMs    | 1273     | 2005    | p95WallMs regressed 57.5% over baseline                 |
-| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 482.3   | maxPeakRssMb regressed 417.20000000000005 over baseline |
+| Action | ID               | Metric       | Baseline | Current | Message                                    |
+| ------ | ---------------- | ------------ | -------- | ------- | ------------------------------------------ |
+| warn   | profile.wall-p95 | p95WallMs    | 1273     | 1976    | p95WallMs regressed 55.2% over baseline    |
+| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 484.6   | maxPeakRssMb regressed 419.5 over baseline |
 
 ## Artifacts
 

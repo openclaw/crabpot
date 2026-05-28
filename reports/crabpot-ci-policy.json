@@ -3644,7 +3644,7 @@
     {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "21 P1 issues tracked",
+      "message": "19 P1 issues tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "codex:reserved-sdk-import",
@@ -3660,13 +3660,11 @@
         "memory-tencentdb:conversation-access-hook",
         "memos-cloud:conversation-access-hook",
         "nemoclaw:before-tool-call-probe",
-        "openclaw-qqbot:sdk-export-missing",
         "openclaw-telemetry:before-tool-call-probe",
         "openclaw-telemetry:conversation-access-hook",
         "opik-openclaw:before-tool-call-probe",
         "opik-openclaw:conversation-access-hook",
-        "wecom:before-tool-call-probe",
-        "whatsapp:sdk-export-missing"
+        "wecom:before-tool-call-probe"
       ]
     },
     {
