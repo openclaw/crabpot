@@ -1326,13 +1326,13 @@ export function buildBehaviorEvalMockResponseText(inputText) {
     const fact = extractBehaviorEvalFactValue(inputText);
     return fact ? `CRABPOT_LCM_FACT is ${fact}.` : "No CRABPOT_LCM_FACT was present.";
   }
+  if (/what is crabpot_lcm_fact|recall.*crabpot_lcm_fact/iu.test(inputText)) {
+    return extractBehaviorEvalContextFactValue(inputText) ?? "I do not have that fact.";
+  }
   if (/Say one neutral filler response/iu.test(inputText)) {
     return "ok";
   }
   if (/remember.*crabpot_lcm_fact|crabpot_lcm_fact/iu.test(inputText)) {
-    if (/what is crabpot_lcm_fact|recall.*crabpot_lcm_fact/iu.test(inputText)) {
-      return extractBehaviorEvalContextFactValue(inputText) ?? "I do not have that fact.";
-    }
     if (/reply.*crabpot_lcm_fact|exact memory marker/iu.test(inputText)) {
       const fact = extractBehaviorEvalFactValue(inputText);
       return fact ? `CRABPOT_LCM_FACT is ${fact}.` : "CRABPOT_LCM_FACT is missing.";

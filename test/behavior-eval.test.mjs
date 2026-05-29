@@ -225,6 +225,12 @@ test("behavior eval mock recall derives answers from request context", () => {
   );
   assert.equal(
     buildBehaviorEvalMockResponseText(
+      "<summary id=\"s1\" kind=\"leaf\"><content>CRABPOT_LCM_FACT is blue-lantern-42. Say one neutral filler response.</content></summary>\nWhat is CRABPOT_LCM_FACT?",
+    ),
+    "blue-lantern-42",
+  );
+  assert.equal(
+    buildBehaviorEvalMockResponseText(
       "You summarize a SEGMENT of an OpenClaw conversation for future model turns.\n<conversation_segment>\nCRABPOT_LCM_FACT is blue-lantern-42.\n</conversation_segment>",
     ),
     "CRABPOT_LCM_FACT is blue-lantern-42.",
@@ -630,8 +636,10 @@ test("behavior eval executor fails recall when the token only appears in earlier
                     text: {
                       1: "blue-lantern-42",
                       2: "ok",
-                      3: "status: rotated",
-                      4: "I do not have that fact.",
+                      3: "ok",
+                      4: "ok",
+                      5: "status: rotated",
+                      6: "I do not have that fact.",
                     }[sendCount] ?? "I do not have that fact.",
                   },
                 ],

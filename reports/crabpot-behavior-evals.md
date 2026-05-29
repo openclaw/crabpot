@@ -37,7 +37,7 @@
    ```
 
 6. Run scenario
-   Install LCM, select it as the context engine, rotate the transcript, and recall an assistant-seeded fact through one stable session key.
+   Install LCM, select it as the context engine, build raw context beyond the fresh tail, rotate the transcript, and recall a fact through summarized context.
 7. Classify result
    Expected mode is known-failure.
 ## Scenario Checks
@@ -45,7 +45,7 @@
 - install: The requested OpenClaw package resolves and the LCM npm plugin installs into isolated state.
 - gateway-load: The gateway starts with lossless-claw enabled and selected in the contextEngine slot.
 - agent-turn: An agent call emits a seeded memory fact and returns a completed run or a classified failure.
-- memory-assembly: A follow-up turn on the same stable session key after /lossless rotate can observe the assistant-seeded fact through summarized LCM context, or the run is classified as an LCM assembly failure.
+- memory-assembly: A follow-up turn on the same stable session key after /lossless rotate can observe the seeded fact through summarized LCM context, or the run is classified as an LCM assembly failure.
 
 ## Planned Classification
 

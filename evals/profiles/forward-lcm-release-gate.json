@@ -18,7 +18,7 @@
       "spec": "@martian-engineering/lossless-claw@latest",
       "slot": "contextEngine",
       "config": {
-        "freshTailCount": 1,
+        "freshTailCount": 8,
         "leafMinFanout": 2,
         "leafChunkTokens": 100,
         "summaryPrefixTargetTokens": 100
