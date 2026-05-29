@@ -14,6 +14,30 @@ const pluginInspector = await loadPluginInspectorPublicApi();
 const httpRouteDescriptorInputReason = "captured HTTP route probe requires route descriptor input";
 const crabpotMetadataOnlyRegistrars = new Map([
   [
+    "registerEmbeddingProvider",
+    "embedding providers are captured as registration metadata before provider runtime execution",
+  ],
+  [
+    "registerHostedMediaResolver",
+    "hosted media resolvers are captured as registration metadata before resolver runtime execution",
+  ],
+  [
+    "registerMeetingNotesSourceProvider",
+    "meeting notes source providers are captured as registration metadata before source runtime execution",
+  ],
+  [
+    "registerModelCatalogProvider",
+    "model catalog providers are captured as registration metadata before provider runtime execution",
+  ],
+  [
+    "registerNodeCliFeature",
+    "node CLI features are captured as registration metadata before CLI command execution",
+  ],
+  [
+    "registerSessionAction",
+    "session actions are captured as registration metadata before session runtime execution",
+  ],
+  [
     "registerTranscriptSourceProvider",
     "transcript source providers are captured as registration metadata before transcript provider runtime execution",
   ],

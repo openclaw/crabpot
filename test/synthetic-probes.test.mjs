@@ -58,7 +58,16 @@ test("synthetic probe plan marks HTTP routes blocked until descriptor inputs exi
   assert.equal(plan.probes[0].blocker, "captured HTTP route probe requires route descriptor input");
 });
 
-test("synthetic probe plan treats transcript source providers as metadata-only", async () => {
+test("synthetic probe plan treats descriptor registrars as metadata-only", async () => {
+  const registrars = [
+    "registerEmbeddingProvider",
+    "registerHostedMediaResolver",
+    "registerMeetingNotesSourceProvider",
+    "registerModelCatalogProvider",
+    "registerNodeCliFeature",
+    "registerSessionAction",
+    "registerTranscriptSourceProvider",
+  ];
   const plan = await buildSyntheticProbePlan({
     capture: {
       generatedAt: "deterministic",
@@ -67,26 +76,26 @@ test("synthetic probe plan treats transcript source providers as metadata-only",
         {
           id: "fixture",
           hooks: [],
-          registrations: [
-            {
-              id: "registration.registerTranscriptSourceProvider:fixture",
-              registrar: "registerTranscriptSourceProvider",
-              assertions: ["registration arguments are captured"],
-              syntheticArguments: [{ id: "fixture-transcript-source" }],
-              ref: "fixture.js:1",
-            },
-          ],
+          registrations: registrars.map((registrar) => ({
+            id: `registration.${registrar}:fixture`,
+            registrar,
+            assertions: ["registration arguments are captured"],
+            syntheticArguments: [{ id: `fixture-${registrar}` }],
+            ref: "fixture.js:1",
+          })),
         },
       ],
     },
   });
 
   assert.deepEqual(validateSyntheticProbePlan(plan), []);
-  assert.equal(plan.summary.readyCount, 1);
+  assert.equal(plan.summary.readyCount, registrars.length);
   assert.equal(plan.summary.blockedCount, 0);
-  assert.equal(plan.summary.metadataOnlyCount, 1);
-  assert.equal(plan.probes[0].status, "ready");
-  assert.equal(plan.probes[0].execution.mode, "metadata-only");
+  assert.equal(plan.summary.metadataOnlyCount, registrars.length);
+  assert.deepEqual(
+    plan.probes.map((probe) => [probe.seam, probe.status, probe.execution.mode]),
+    registrars.map((registrar) => [registrar, "ready", "metadata-only"]),
+  );
 });
 
 test("synthetic probe CLI refuses isolated execution without opt-in", async () => {

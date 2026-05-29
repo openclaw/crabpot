@@ -46,12 +46,14 @@ for (const fixture of manifest.fixtures) {
   run("git", ["-c", "safe.directory=*", "submodule", "add", "--depth", "1", fixture.repo, fixture.path]);
 }
 
-await writePackageAvailabilityReport({
-  generatedAt: new Date().toISOString(),
-  fixtureSet: args.fixtureSet || "all",
-  pluginTrack: args.pluginTrack || "manifest",
-  failures: packageAvailabilityFailures,
-});
+if (args.packageAvailabilityReport) {
+  await writePackageAvailabilityReport({
+    generatedAt: new Date().toISOString(),
+    fixtureSet: args.fixtureSet || "all",
+    pluginTrack: args.pluginTrack || "manifest",
+    failures: packageAvailabilityFailures,
+  });
+}
 
 console.log("crabpot: fixtures materialized. review .gitmodules and commit pinned revisions.");
 
@@ -379,6 +381,7 @@ function parseArgs(argv) {
     fixtureSet: undefined,
     materialize: false,
     openclawPath: process.env.CRABPOT_TEST_OPENCLAW_PATH || "",
+    packageAvailabilityReport: true,
     pluginTrack: process.env.CRABPOT_PLUGIN_TRACK || "",
   };
 
@@ -400,6 +403,10 @@ function parseArgs(argv) {
     if (arg === "--plugin-track") {
       parsed.pluginTrack = argv[index + 1];
       index += 1;
+      continue;
+    }
+    if (arg === "--no-package-availability-report") {
+      parsed.packageAvailabilityReport = false;
       continue;
     }
     if (arg === "--openclaw") {

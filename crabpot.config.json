@@ -353,7 +353,6 @@
           "gatewayMethodDispatch",
           "imageGenerationProviders",
           "mediaUnderstandingProviders",
-          "meetingNotesSourceProviders",
           "memoryEmbeddingProviders",
           "migrationProviders",
           "musicGenerationProviders",
