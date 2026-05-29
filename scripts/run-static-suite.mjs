@@ -3,6 +3,8 @@ import { spawnSync } from "node:child_process";
 import { pathToFileURL } from "node:url";
 import { portableCommand } from "./portable-command.mjs";
 
+const defaultStepTimeoutMs = 10 * 60 * 1000;
+
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   main();
 }
@@ -125,15 +127,33 @@ function assertPolicy(policy) {
 }
 
 function run(command, args, env = {}) {
+  const timeout = configuredTimeoutMs("CRABPOT_STATIC_STEP_TIMEOUT_MS", defaultStepTimeoutMs);
   const result = spawnSync(portableCommand(command), args, {
     encoding: "utf8",
     env: { ...process.env, ...env },
     stdio: "inherit",
+    timeout,
   });
   if (result.error) {
+    if (result.error.code === "ETIMEDOUT") {
+      const rendered = [command, ...args].join(" ");
+      throw new Error(`static suite step timed out after ${timeout}ms: ${rendered}`);
+    }
     throw result.error;
   }
   if (result.status !== 0) {
     process.exit(result.status ?? 1);
   }
+}
+
+function configuredTimeoutMs(envName, fallback) {
+  const raw = process.env[envName];
+  if (!raw) {
+    return fallback;
+  }
+  const parsed = Number.parseInt(raw, 10);
+  if (!Number.isInteger(parsed) || parsed <= 0) {
+    throw new Error(`${envName} must be a positive integer timeout in milliseconds`);
+  }
+  return parsed;
 }

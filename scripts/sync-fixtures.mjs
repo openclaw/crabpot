@@ -9,6 +9,8 @@ import { writePackageAvailabilityReport } from "./package-availability.mjs";
 
 const openclawSourceRepo = "https://github.com/openclaw/openclaw.git";
 const sourcePackPluginTrack = "source-pack";
+const defaultNpmTimeoutMs = 2 * 60 * 1000;
+const defaultGitTimeoutMs = 2 * 60 * 1000;
 
 const args = parseArgs(process.argv.slice(2));
 const materialize = args.materialize;
@@ -104,13 +106,7 @@ async function materializeNpmFixture(fixture, target) {
   const tempDir = await mkdtemp(path.join(os.tmpdir(), "crabpot-npm-fixture-"));
   const payloadDir = fixtureSourceRoot(fixture);
   try {
-    const pack = spawnSync("npm", ["pack", spec, "--pack-destination", tempDir, "--json"], {
-      cwd: repoRoot,
-      encoding: "utf8",
-      env: process.env,
-      maxBuffer: 16 * 1024 * 1024,
-      shell: process.platform === "win32",
-    });
+    const pack = npmSpawnSync(["pack", spec, "--pack-destination", tempDir, "--json"]);
     if (pack.status !== 0) {
       process.stderr.write(pack.stderr ?? "");
       const detail = pack.error ? `: ${pack.error.message}` : "";
@@ -169,13 +165,7 @@ async function materializeSourcePackFixture(fixture, target) {
   const payloadDir = fixtureSourceRoot(fixture);
   const sourceHead = gitHead(openclawRoot);
   try {
-    const pack = spawnSync("npm", ["pack", sourceDir, "--pack-destination", tempDir, "--json"], {
-      cwd: repoRoot,
-      encoding: "utf8",
-      env: process.env,
-      maxBuffer: 16 * 1024 * 1024,
-      shell: process.platform === "win32",
-    });
+    const pack = npmSpawnSync(["pack", sourceDir, "--pack-destination", tempDir, "--json"]);
     if (pack.status !== 0) {
       process.stderr.write(pack.stderr ?? "");
       const detail = pack.error ? `: ${pack.error.message}` : "";
@@ -307,14 +297,9 @@ function packageArtifactSource(fixture) {
 }
 
 async function npmDistTag(name, tag) {
-  const result = spawnSync("npm", ["view", name, "dist-tags", "--json"], {
-    cwd: repoRoot,
-    encoding: "utf8",
-    env: process.env,
-    shell: process.platform === "win32",
-  });
+  const result = npmSpawnSync(["view", name, "dist-tags", "--json"]);
   if (result.status !== 0) {
-    const detail = result.stderr?.trim() ? `: ${result.stderr.trim()}` : "";
+    const detail = spawnFailureDetail(result);
     throw new Error(`${name}: npm dist-tag ${tag} could not be resolved${detail}`);
   }
   const tags = JSON.parse(result.stdout || "{}");
@@ -341,12 +326,7 @@ function recordPackageAvailabilityFailure(fixture, failure) {
 }
 
 async function npmPackageGitHead(name, version) {
-  const result = spawnSync("npm", ["view", `${name}@${version}`, "gitHead", "--json"], {
-    cwd: repoRoot,
-    encoding: "utf8",
-    env: process.env,
-    shell: process.platform === "win32",
-  });
+  const result = npmSpawnSync(["view", `${name}@${version}`, "gitHead", "--json"]);
   if (result.status !== 0 || !result.stdout.trim()) {
     return "";
   }
@@ -431,6 +411,7 @@ function run(command, args) {
     cwd: repoRoot,
     stdio: "inherit",
     env: process.env,
+    timeout: configuredTimeoutMs("CRABPOT_GIT_TIMEOUT_MS", defaultGitTimeoutMs),
   });
 
   if (result.status !== 0) {
@@ -464,9 +445,41 @@ function extractPackageTarball(tarballPath, payloadDir) {
 function gitHead(cwd) {
   const result = spawnSync("git", ["-C", cwd, "rev-parse", "HEAD"], {
     encoding: "utf8",
+    env: process.env,
+    timeout: configuredTimeoutMs("CRABPOT_GIT_TIMEOUT_MS", defaultGitTimeoutMs),
   });
   const head = result.status === 0 ? result.stdout.trim() : "";
   return /^[0-9a-f]{40}$/i.test(head) ? head : "";
+}
+
+function npmSpawnSync(args) {
+  return spawnSync("npm", args, {
+    cwd: repoRoot,
+    encoding: "utf8",
+    env: process.env,
+    maxBuffer: 16 * 1024 * 1024,
+    shell: process.platform === "win32",
+    timeout: configuredTimeoutMs("CRABPOT_NPM_TIMEOUT_MS", defaultNpmTimeoutMs),
+  });
+}
+
+function spawnFailureDetail(result) {
+  if (result.error?.code === "ETIMEDOUT") {
+    return `: ${result.error.message}`;
+  }
+  return result.stderr?.trim() ? `: ${result.stderr.trim()}` : "";
+}
+
+function configuredTimeoutMs(envName, fallback) {
+  const raw = process.env[envName];
+  if (!raw) {
+    return fallback;
+  }
+  const parsed = Number.parseInt(raw, 10);
+  if (!Number.isInteger(parsed) || parsed <= 0) {
+    throw new Error(`${envName} must be a positive integer timeout in milliseconds`);
+  }
+  return parsed;
 }
 
 function tarPath(filePath) {
