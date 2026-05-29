@@ -142,6 +142,7 @@ For deeper review, open the reports in this order:
 | Why plugin entrypoints cannot be safely cold-imported yet | `npm run cold-import` | `reports/crabpot-cold-import.md` |
 | Isolated install/build/capture commands Crabpot would run | `npm run workspace:plan` | `reports/crabpot-workspace-plan.md` |
 | Results from opt-in isolated fixture execution | `npm run execution:report` | `reports/crabpot-execution-results.md` |
+| Behavioral eval planning for plugin categories | `npm run eval:behavior` | stdout / `.crabpot/results/behavior/` when executed |
 | Boot time and RSS against the target OpenClaw registry surface | `npm run profile` | `reports/crabpot-runtime-profile.md` |
 | China and adjacent external plugin monitor candidates | manual live discovery pass | `reports/crabpot-external-plugin-monitor.md` |
 | README dashboard refresh from all generated JSON reports | `npm run readme:summary` | `README.md`, `reports/crabpot-dashboard-data.json` |
@@ -151,6 +152,62 @@ future inspector tooling. The JSON is the contract; the Markdown is the review
 surface. `reports/crabpot-dashboard-data.json` is the compact machine-readable
 dashboard card used to compare `crab-beta` and `crab-development` against
 `main`.
+
+## Behavioral eval POC
+
+Behavior evals are profile-driven, default to a dry plan, and stay
+credential-free unless execution is explicitly enabled. The default profile is
+the forward LCM tracking gate against latest OpenClaw and latest
+`@martian-engineering/lossless-claw`. It verifies recall inside one stable
+session-key family after `/lossless rotate`, with the seed pushed behind the
+fresh tail so raw transcript replay is not enough to pass:
+
+```bash
+npm run eval:behavior
+```
+
+Run the recent historical repro target from Discord chatter with:
+
+```bash
+npm run eval:behavior -- --profile recent-lcm-2026-5-22 --json
+```
+
+The companion quarantine gate installs a synthetic malformed context-engine
+plugin, selects it in the active slot, requires the agent turn to continue
+through downgrade/default behavior, and tracks the gateway health quarantine
+signal as an expected failure until that OpenClaw health contract ships in
+`latest`:
+
+```bash
+npm run eval:behavior -- --profile forward-context-engine-quarantine-gate
+```
+
+Execution is opt-in and isolated. The current POC stages a QA-lab-style mock
+model provider, starts an isolated gateway, drives `chat.send` -> `agent.wait`
+-> `chat.history`, requires the `/lossless rotate` command response, and checks
+the latest assistant response on the recall turn using the same stable session
+key:
+
+```bash
+CRABPOT_EXECUTE_BEHAVIOR=1 npm run eval:behavior -- --execute --profile recent-lcm-2026-5-22 --runner local --timeout-ms 120000
+```
+
+The historical LCM target is intentionally red: `openclaw@2026.5.22` with
+`@martian-engineering/lossless-claw@0.11.2` may fail before final recall as a
+`behavior-turn-mismatch`, or at final recall with `memory-recall-mismatch`. The
+forward LCM target is stricter and only expects the final summary-backed recall
+failure until latest OpenClaw plus LCM can recall after rotate from summarized
+context rather than raw transcript history. To test a candidate fix, pin a
+newer OpenClaw
+package while keeping the same LCM plugin and override the expectation:
+
+```bash
+CRABPOT_EXECUTE_BEHAVIOR=1 npm run eval:behavior -- --execute --profile forward-lcm-release-gate --openclaw-version 2026.5.26 --plugin npm:@martian-engineering/lossless-claw@0.11.2 --expect must-pass --runner local --timeout-ms 240000
+```
+
+Behavior eval execution writes an empty npm user config inside the temp
+workspace so local npm policy, such as a `before` cutoff, does not silently move
+`latest` back to an older release.
 
 Use the main compatibility report like this:
 

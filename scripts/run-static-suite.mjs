@@ -55,6 +55,7 @@ export function buildStaticSuiteSteps({
     ["node", ["scripts/generate-report.mjs", "--check", ...openclawArgs], fixtureEnv],
     ["node", ["scripts/capture-contracts.mjs", "--check", ...openclawArgs], fixtureEnv],
     ["node", ["scripts/synthetic-probes.mjs", "--check", ...openclawArgs], fixtureEnv],
+    ...(openclawArgs.length === 0 ? [["node", ["scripts/behavior-eval.mjs", "--check"], fixtureEnv]] : []),
     ["node", ["scripts/cold-import-readiness.mjs", "--check", ...openclawArgs], fixtureEnv],
     ["node", ["scripts/workspace-plan.mjs", "--check", ...openclawArgs], fixtureEnv],
     ["node", ["scripts/platform-probes.mjs", "--check", ...openclawArgs], fixtureEnv],

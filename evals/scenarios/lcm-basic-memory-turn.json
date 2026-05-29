@@ -1,0 +1,46 @@
+{
+  "id": "lcm-basic-memory-turn",
+  "category": "context-engine",
+  "description": "Install LCM, select it as the context engine, rotate the transcript, and recall an assistant-seeded fact through one stable session key.",
+  "recallScope": "same-session-key",
+  "checks": [
+    {
+      "id": "install",
+      "description": "The requested OpenClaw package resolves and the LCM npm plugin installs into isolated state."
+    },
+    {
+      "id": "gateway-load",
+      "description": "The gateway starts with lossless-claw enabled and selected in the contextEngine slot."
+    },
+    {
+      "id": "agent-turn",
+      "description": "An agent call emits a seeded memory fact and returns a completed run or a classified failure."
+    },
+    {
+      "id": "memory-assembly",
+      "description": "A follow-up turn on the same stable session key after /lossless rotate can observe the assistant-seeded fact through summarized LCM context, or the run is classified as an LCM assembly failure."
+    }
+  ],
+  "turns": [
+    {
+      "sessionSuffix": "default",
+      "message": "Reply with this exact memory marker: CRABPOT_LCM_FACT is blue-lantern-42.",
+      "expectText": "blue-lantern-42"
+    },
+    {
+      "sessionSuffix": "default",
+      "message": "Say one neutral filler response.",
+      "expectText": "ok"
+    },
+    {
+      "sessionSuffix": "default",
+      "message": "/lossless rotate",
+      "expectText": "status: rotated"
+    },
+    {
+      "sessionSuffix": "default",
+      "message": "What is CRABPOT_LCM_FACT? Answer with only the remembered value.",
+      "expectText": "blue-lantern-42"
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "generatedAt": "deterministic",
+  "summary": {
+    "openclaw": "openclaw@latest",
+    "plugins": "@martian-engineering/lossless-claw@latest",
+    "runner": "blacksmith",
+    "providerMode": "mock-openai",
+    "timeoutMs": 900000
+  },
+  "profiles": [
+    {
+      "id": "forward-lcm-release-gate",
+      "category": "context-engine",
+      "scenario": "lcm-basic-memory-turn",
+      "status": "planned-known-failure",
+      "expectation": {
+        "mode": "known-failure",
+        "failureClasses": [
+          "memory-recall-mismatch"
+        ]
+      },
+      "stepCount": 7
+    }
+  ],
+  "plans": [
+    {
+      "generatedAt": "deterministic",
+      "profileId": "forward-lcm-release-gate",
+      "category": "context-engine",
+      "scenario": {
+        "id": "lcm-basic-memory-turn",
+        "category": "context-engine",
+        "description": "Install LCM, select it as the context engine, rotate the transcript, and recall an assistant-seeded fact through one stable session key.",
+        "recallScope": "same-session-key",
+        "checks": [
+          {
+            "id": "install",
+            "description": "The requested OpenClaw package resolves and the LCM npm plugin installs into isolated state."
+          },
+          {
+            "id": "gateway-load",
+            "description": "The gateway starts with lossless-claw enabled and selected in the contextEngine slot."
+          },
+          {
+            "id": "agent-turn",
+            "description": "An agent call emits a seeded memory fact and returns a completed run or a classified failure."
+          },
+          {
+            "id": "memory-assembly",
+            "description": "A follow-up turn on the same stable session key after /lossless rotate can observe the assistant-seeded fact through summarized LCM context, or the run is classified as an LCM assembly failure."
+          }
+        ],
+        "turns": [
+          {
+            "sessionSuffix": "default",
+            "message": "Reply with this exact memory marker: CRABPOT_LCM_FACT is blue-lantern-42.",
+            "expectText": "blue-lantern-42"
+          },
+          {
+            "sessionSuffix": "default",
+            "message": "Say one neutral filler response.",
+            "expectText": "ok"
+          },
+          {
+            "sessionSuffix": "default",
+            "message": "/lossless rotate",
+            "expectText": "status: rotated"
+          },
+          {
+            "sessionSuffix": "default",
+            "message": "What is CRABPOT_LCM_FACT? Answer with only the remembered value.",
+            "expectText": "blue-lantern-42"
+          }
+        ]
+      },
+      "expectation": {
+        "mode": "known-failure",
+        "failureClasses": [
+          "memory-recall-mismatch"
+        ]
+      },
+      "plugins": [
+        {
+          "id": "lossless-claw",
+          "source": "npm",
+          "spec": "@martian-engineering/lossless-claw@latest",
+          "slot": "contextEngine",
+          "config": {
+            "freshTailCount": 1,
+            "leafMinFanout": 2,
+            "leafChunkTokens": 100,
+            "summaryPrefixTargetTokens": 100
+          }
+        }
+      ],
+      "expectedFailureClasses": [
+        "memory-recall-mismatch"
+      ],
+      "summary": {
+        "openclaw": "openclaw@latest",
+        "plugins": "@martian-engineering/lossless-claw@latest",
+        "runner": "blacksmith",
+        "providerMode": "mock-openai",
+        "timeoutMs": 900000
+      },
+      "configPatch": {
+        "plugins": {
+          "slots": {
+            "contextEngine": "lossless-claw"
+          },
+          "entries": {
+            "lossless-claw": {
+              "enabled": true,
+              "config": {
+                "freshTailCount": 1,
+                "leafMinFanout": 2,
+                "leafChunkTokens": 100,
+                "summaryPrefixTargetTokens": 100
+              }
+            }
+          }
+        }
+      },
+      "steps": [
+        {
+          "id": "isolate",
+          "title": "Create isolated temp state",
+          "description": "Create temp HOME, OPENCLAW_HOME, OPENCLAW_STATE_DIR, OPENCLAW_CONFIG_PATH, and XDG dirs."
+        },
+        {
+          "id": "openclaw",
+          "title": "Resolve OpenClaw CLI",
+          "description": "Use openclaw@latest.",
+          "command": "npm exec --yes --package=openclaw@latest -- openclaw --version"
+        },
+        {
+          "id": "plugin",
+          "title": "Install plugin",
+          "description": "Install lossless-claw.",
+          "command": "npm exec --yes --package=openclaw@latest -- openclaw plugins install npm:@martian-engineering/lossless-claw@latest --pin"
+        },
+        {
+          "id": "config",
+          "title": "Patch isolated config",
+          "description": "Enable plugin entries and select any requested exclusive slot.",
+          "configPatch": {
+            "plugins": {
+              "slots": {
+                "contextEngine": "lossless-claw"
+              },
+              "entries": {
+                "lossless-claw": {
+                  "enabled": true,
+                  "config": {
+                    "freshTailCount": 1,
+                    "leafMinFanout": 2,
+                    "leafChunkTokens": 100,
+                    "summaryPrefixTargetTokens": 100
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "gateway",
+          "title": "Start gateway",
+          "description": "Run the foreground gateway with provider mode mock-openai.",
+          "command": "npm exec --yes --package=openclaw@latest -- openclaw gateway run --allow-unconfigured --bind loopback --port <free-port> --token <token>"
+        },
+        {
+          "id": "scenario",
+          "title": "Run scenario",
+          "description": "Install LCM, select it as the context engine, rotate the transcript, and recall an assistant-seeded fact through one stable session key.",
+          "checks": [
+            "install",
+            "gateway-load",
+            "agent-turn",
+            "memory-assembly"
+          ]
+        },
+        {
+          "id": "report",
+          "title": "Classify result",
+          "description": "Expected mode is known-failure."
+        }
+      ],
+      "report": {
+        "status": "planned-known-failure",
+        "resultMode": "known-failure",
+        "failureClasses": [
+          "memory-recall-mismatch"
+        ]
+      }
+    }
+  ]
+}
