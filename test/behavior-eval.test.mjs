@@ -795,6 +795,13 @@ test("behavior eval gateway stop waits for the child process to exit", async () 
   child.exitCode = null;
   child.signalCode = null;
   const signals = [];
+  child.kill = (signal) => {
+    signals.push({ pid: child.pid, signal });
+    setTimeout(() => {
+      child.exitCode = 0;
+      child.emit("exit", 0, signal);
+    }, 10);
+  };
 
   const stopPromise = stopBehaviorEvalChildProcess(child, {
     timeoutMs: 1000,
@@ -807,7 +814,8 @@ test("behavior eval gateway stop waits for the child process to exit", async () 
     },
   });
 
-  assert.deepEqual(signals, [{ pid: -1234, signal: "SIGTERM" }]);
+  const expectedPid = process.platform === "win32" ? 1234 : -1234;
+  assert.deepEqual(signals, [{ pid: expectedPid, signal: "SIGTERM" }]);
   assert.equal(child.exitCode, null);
   await stopPromise;
   assert.equal(child.exitCode, 0);

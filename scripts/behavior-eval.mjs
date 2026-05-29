@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { spawn } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import { randomUUID } from "node:crypto";
 import { existsSync } from "node:fs";
 import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
@@ -1151,6 +1151,18 @@ export async function stopBehaviorEvalChildProcess(
 
 function signalBehaviorEvalChildProcess(child, signal, killProcess) {
   try {
+    if (process.platform === "win32") {
+      if (signal === "SIGKILL" && child.pid) {
+        const result = spawnSync("taskkill", ["/pid", String(child.pid), "/t", "/f"], {
+          stdio: "ignore",
+        });
+        if (result.status === 0) {
+          return;
+        }
+      }
+      child.kill(signal);
+      return;
+    }
     if (process.platform !== "win32" && child.pid) {
       killProcess(-child.pid, signal);
       return;
