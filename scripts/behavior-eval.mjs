@@ -240,8 +240,7 @@ export function resolveBehaviorEvalProfile({ profile, overrides = {} }) {
     }
     next.plugins[0] = {
       ...next.plugins[0],
-      source: "npm",
-      spec: normalizeNpmPluginSpec(overrides.pluginSpec),
+      ...resolvePluginOverrideSpec(overrides.pluginSpec),
     };
   }
   if (overrides.expectationMode) {
@@ -2033,14 +2032,29 @@ function formatPluginInstallSpec(plugin) {
   if (plugin.source === "npm") {
     return shellQuote(`npm:${plugin.spec}`);
   }
+  if (plugin.source === "npm-pack") {
+    return shellQuote(`npm-pack:${plugin.path}`);
+  }
   if (plugin.source === "fixture") {
     return fixtureInstallToken(plugin.fixture);
   }
   throw new Error(`unsupported plugin source for ${plugin.id}: ${plugin.source}`);
 }
 
+function resolvePluginOverrideSpec(spec) {
+  const npmPackPath = normalizeNpmPackPluginSpec(spec);
+  if (npmPackPath !== null) {
+    return { source: "npm-pack", path: npmPackPath };
+  }
+  return { source: "npm", spec: normalizeNpmPluginSpec(spec) };
+}
+
 function normalizeNpmPluginSpec(spec) {
   return spec.startsWith("npm:") ? spec.slice("npm:".length) : spec;
+}
+
+function normalizeNpmPackPluginSpec(spec) {
+  return spec.startsWith("npm-pack:") ? spec.slice("npm-pack:".length) : null;
 }
 
 function isSafeNpmCoordinate(value) {
@@ -2054,6 +2068,9 @@ function fixtureInstallToken(fixture) {
 function formatPluginSummary(plugin) {
   if (plugin.source === "npm") {
     return plugin.spec;
+  }
+  if (plugin.source === "npm-pack") {
+    return `npm-pack:${plugin.path}`;
   }
   if (plugin.source === "fixture") {
     return `fixture:${plugin.fixture}`;
@@ -2115,13 +2132,18 @@ function validateBehaviorEvalProfile(profile, label) {
       if (!/^[a-z0-9][a-z0-9-]*$/.test(plugin.id ?? "")) {
         errors.push("plugin id must be kebab-case");
       }
-      if (!["npm", "fixture"].includes(plugin.source)) {
-        errors.push(`${plugin.id}: plugin source must be npm or fixture`);
+      if (!["npm", "npm-pack", "fixture"].includes(plugin.source)) {
+        errors.push(`${plugin.id}: plugin source must be npm, npm-pack, or fixture`);
       }
       if (plugin.source === "npm" && (typeof plugin.spec !== "string" || plugin.spec.trim().length === 0)) {
         errors.push(`${plugin.id}: plugin spec must be set`);
       } else if (plugin.source === "npm" && !isSafeNpmCoordinate(plugin.spec)) {
         errors.push(`${plugin.id}: plugin spec must be an npm package spec without shell metacharacters`);
+      }
+      if (plugin.source === "npm-pack" && (typeof plugin.path !== "string" || plugin.path.trim().length === 0)) {
+        errors.push(`${plugin.id}: plugin npm-pack path must be set`);
+      } else if (plugin.source === "npm-pack" && !isSafeNpmCoordinate(plugin.path)) {
+        errors.push(`${plugin.id}: plugin npm-pack path must not contain shell metacharacters`);
       }
       if (plugin.source === "fixture" && !/^[a-z0-9][a-z0-9-]*$/.test(plugin.fixture ?? "")) {
         errors.push(`${plugin.id}: plugin fixture must be kebab-case`);
