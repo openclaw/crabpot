@@ -120,6 +120,29 @@ test("behavior eval profile resolver applies ad hoc version overrides", () => {
   assert.equal(resolved.runner.execution, "local");
 });
 
+test("behavior eval profile resolver preserves npm-pack plugin overrides", () => {
+  const resolved = resolveBehaviorEvalProfile({
+    profile: historicalProfile,
+    overrides: {
+      pluginSpec: "npm-pack:/tmp/martian-engineering-lossless-claw-0.11.3.tgz",
+      expectationMode: "must-pass",
+      runnerExecution: "local",
+    },
+  });
+  const plan = buildBehaviorEvalPlan({ profile: resolved, scenario });
+
+  assert.equal(resolved.plugins[0].source, "npm-pack");
+  assert.equal(resolved.plugins[0].path, "/tmp/martian-engineering-lossless-claw-0.11.3.tgz");
+  assert.equal(plan.summary.plugins, "npm-pack:/tmp/martian-engineering-lossless-claw-0.11.3.tgz");
+  assert.ok(
+    plan.steps.some((step) =>
+      step.command?.includes(
+        "openclaw plugins install npm-pack:/tmp/martian-engineering-lossless-claw-0.11.3.tgz",
+      ),
+    ),
+  );
+});
+
 test("behavior eval profile resolver absolutizes local OpenClaw paths", () => {
   const resolved = resolveBehaviorEvalProfile({
     profile: historicalProfile,
