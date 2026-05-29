@@ -1,0 +1,149 @@
+{
+  "id": "lcm-compaction-tools",
+  "category": "context-engine",
+  "description": "Install LCM, rotate compacted context, then verify plugin-provided recall tools can inspect and expand a compacted summary.",
+  "why": "Covers dynamic-tool behavior after compaction without adding LCM-specific code to the eval runner.",
+  "configPatch": {
+    "plugins": {
+      "entries": {
+        "lossless-claw": {
+          "llm": {
+            "allowModelOverride": true,
+            "allowedModels": ["mock-openai/gpt-5.5"]
+          },
+          "subagent": {
+            "allowModelOverride": true,
+            "allowedModels": ["mock-openai/gpt-5.5"]
+          },
+          "config": {
+            "contextThreshold": 0.0001,
+            "freshTailCount": 1,
+            "leafMinFanout": 2,
+            "leafChunkTokens": 100,
+            "leafTargetTokens": 120,
+            "summaryPrefixTargetTokens": 100,
+            "sweepMaxDepth": 0,
+            "proactiveThresholdCompactionMode": "inline",
+            "maxSweepIterations": 4,
+            "sweepDeadlineMs": 30000,
+            "summaryTimeoutMs": 30000,
+            "delegationTimeoutMs": 60000,
+            "summaryProvider": "mock-openai",
+            "summaryModel": "gpt-5.5",
+            "expansionProvider": "mock-openai",
+            "expansionModel": "gpt-5.5"
+          }
+        }
+      }
+    }
+  },
+  "operations": [
+    {
+      "id": "seed-and-rotate",
+      "type": "chat.turns",
+      "sessionKey": "agent:qa:discord:channel:crabpot-lcm-compaction-tools:default",
+      "turns": [
+        {
+          "message": "Reply with this exact memory marker: CRABPOT_LCM_FACT is blue-lantern-42.",
+          "expectText": "blue-lantern-42"
+        },
+        {
+          "message": "Say one neutral filler response.",
+          "expectText": "ok"
+        },
+        {
+          "message": "/lossless rotate",
+          "expectText": "status: rotated"
+        }
+      ]
+    },
+    {
+      "id": "wait-context-maintenance",
+      "type": "tasks.waitForIdle",
+      "sessionKey": "agent:qa:discord:channel:crabpot-lcm-compaction-tools:default",
+      "kind": "context_engine_turn_maintenance",
+      "timeoutMs": 30000,
+      "pollIntervalMs": 100,
+      "settleMs": 500
+    },
+    {
+      "id": "grep-summary",
+      "type": "tools.invoke",
+      "sessionKey": "agent:qa:discord:channel:crabpot-lcm-compaction-tools:default",
+      "name": "lcm_grep",
+      "args": {
+        "pattern": "CRABPOT_LCM_FACT",
+        "mode": "regex",
+        "scope": "summaries",
+        "limit": 10
+      },
+      "expect": {
+        "ok": true,
+        "contains": "sum_"
+      }
+    },
+    {
+      "id": "summary-id",
+      "type": "extract",
+      "from": "grep-summary",
+      "pattern": "\\[(sum_[a-z0-9]+)\\]",
+      "variable": "summaryId"
+    },
+    {
+      "id": "describe-summary",
+      "type": "tools.invoke",
+      "sessionKey": "agent:qa:discord:channel:crabpot-lcm-compaction-tools:default",
+      "name": "lcm_describe",
+      "args": {
+        "id": "${summaryId}"
+      },
+      "expect": {
+        "ok": true,
+        "contains": "blue-lantern-42"
+      }
+    },
+    {
+      "id": "expand-query",
+      "type": "tools.invoke",
+      "sessionKey": "agent:qa:discord:channel:crabpot-lcm-compaction-tools:default",
+      "name": "lcm_expand_query",
+      "args": {
+        "summaryIds": ["${summaryId}"],
+        "prompt": "What is CRABPOT_LCM_FACT? Answer with only the remembered value.",
+        "timeoutMs": 60000,
+        "maxTokens": 400
+      },
+      "timeoutMs": 90000,
+      "expect": {
+        "ok": true,
+        "contains": "blue-lantern-42"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "install",
+      "description": "The requested OpenClaw package resolves and the LCM npm plugin installs into isolated state."
+    },
+    {
+      "id": "gateway-load",
+      "description": "The gateway starts with lossless-claw enabled and selected in the contextEngine slot."
+    },
+    {
+      "id": "compaction",
+      "description": "Inline threshold compaction creates at least one searchable summary for the seeded fact."
+    },
+    {
+      "id": "lcm-grep",
+      "description": "lcm_grep executes through the gateway dynamic-tool path and finds a summary ID."
+    },
+    {
+      "id": "lcm-describe",
+      "description": "lcm_describe executes through the gateway dynamic-tool path and returns the compacted fact."
+    },
+    {
+      "id": "lcm-expand-query",
+      "description": "lcm_expand_query executes through delegated recall and returns the compacted fact."
+    }
+  ]
+}

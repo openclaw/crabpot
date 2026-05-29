@@ -391,6 +391,185 @@ test("behavior eval executor records isolated setup, config, and gateway readine
   }
 });
 
+test("behavior eval planner deep-merges scenario config patches into plugin entries", () => {
+  const patchedScenario = {
+    ...scenario,
+    configPatch: {
+      plugins: {
+        entries: {
+          "lossless-claw": {
+            llm: {
+              allowModelOverride: true,
+              allowedModels: ["mock-openai/gpt-5.5"],
+            },
+            config: {
+              contextThreshold: 0.0001,
+              freshTailCount: 1,
+              proactiveThresholdCompactionMode: "inline",
+            },
+          },
+        },
+      },
+    },
+  };
+
+  const plan = buildLocalPlan(historicalProfile, patchedScenario);
+
+  assert.deepEqual(plan.configPatch.plugins.slots, { contextEngine: "lossless-claw" });
+  assert.deepEqual(plan.configPatch.plugins.entries, {
+    "lossless-claw": {
+      enabled: true,
+      llm: {
+        allowModelOverride: true,
+        allowedModels: ["mock-openai/gpt-5.5"],
+      },
+      config: {
+        contextThreshold: 0.0001,
+        freshTailCount: 1,
+        proactiveThresholdCompactionMode: "inline",
+      },
+    },
+  });
+});
+
+test("behavior eval executor runs generic tool operations with extracted values", async () => {
+  const tempRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot-behavior-test-"));
+  try {
+    const toolScenario = {
+      ...scenario,
+      id: "lcm-compaction-tools",
+      operations: [
+        {
+          id: "seed",
+          type: "chat.turns",
+          sessionKey: "agent:qa:discord:channel:crabpot-tool-test",
+          turns: [
+            {
+              message: "Reply with this exact memory marker: CRABPOT_LCM_FACT is blue-lantern-42.",
+            },
+          ],
+        },
+        {
+          id: "grep",
+          type: "tools.invoke",
+          sessionKey: "agent:qa:discord:channel:crabpot-tool-test",
+          name: "lcm_grep",
+          args: {
+            pattern: "CRABPOT_LCM_FACT",
+            scope: "summaries",
+          },
+          expect: {
+            ok: true,
+            contains: "sum_abc123",
+          },
+        },
+        {
+          id: "wait-maintenance",
+          type: "tasks.waitForIdle",
+          sessionKey: "agent:qa:discord:channel:crabpot-tool-test",
+          kind: "context_engine_turn_maintenance",
+          timeoutMs: 1000,
+          pollIntervalMs: 1,
+          settleMs: 0,
+        },
+        {
+          id: "summary-id",
+          type: "extract",
+          from: "grep",
+          pattern: "\\[(sum_[a-z0-9]+)\\]",
+          variable: "summaryId",
+        },
+        {
+          id: "describe",
+          type: "tools.invoke",
+          sessionKey: "agent:qa:discord:channel:crabpot-tool-test",
+          name: "lcm_describe",
+          args: {
+            id: "${summaryId}",
+          },
+          expect: {
+            ok: true,
+            contains: "blue-lantern-42",
+          },
+        },
+      ],
+    };
+    const plan = buildLocalPlan({ ...historicalProfile, scenario: "lcm-compaction-tools" }, toolScenario);
+    const rpcCalls = [];
+    let taskListCount = 0;
+    const result = await executeBehaviorEvalPlan(plan, {
+      env: { CRABPOT_EXECUTE_BEHAVIOR: "1" },
+      workspace: {
+        tempRoot,
+        homeDir: path.join(tempRoot, "home"),
+        workspaceDir: path.join(tempRoot, "workspace"),
+        stateDir: path.join(tempRoot, "state"),
+        configPath: path.join(tempRoot, "config.json"),
+        xdgCacheHome: path.join(tempRoot, "xdg-cache"),
+        xdgConfigHome: path.join(tempRoot, "xdg-config"),
+        xdgDataHome: path.join(tempRoot, "xdg-data"),
+      },
+      getFreePort: async () => 19798,
+      runCommand: async () => ({ exitCode: 0, stdout: "ok", stderr: "", wallMs: 1 }),
+      startGateway: async () => ({ status: "pass", stdout: "ready", stderr: "", wallMs: 1 }),
+      startProvider: async () => ({
+        baseUrl: "http://127.0.0.1:45686",
+        stop: async () => {},
+      }),
+      runGatewayRpc: async (method, params) => {
+        rpcCalls.push({ method, params });
+        if (method === "chat.send") {
+          return { status: "started", runId: params.idempotencyKey };
+        }
+        if (method === "agent.wait") {
+          return { status: "ok", runId: params.runId };
+        }
+        if (method === "tasks.list") {
+          taskListCount += 1;
+          return {
+            tasks:
+              taskListCount === 1
+                ? [{ id: "task_1", kind: "context_engine_turn_maintenance", status: "running" }]
+                : [],
+          };
+        }
+        if (method === "tools.invoke" && params.name === "lcm_grep") {
+          return {
+            ok: true,
+            toolName: "lcm_grep",
+            output: "### Summaries\n- [sum_abc123] CRABPOT_LCM_FACT is blue-lantern-42",
+          };
+        }
+        if (method === "tools.invoke" && params.name === "lcm_describe") {
+          return {
+            ok: true,
+            toolName: "lcm_describe",
+            output: `Summary ${params.args.id}: CRABPOT_LCM_FACT is blue-lantern-42`,
+          };
+        }
+        throw new Error(`unexpected rpc method ${method}`);
+      },
+    });
+
+    assert.equal(result.status, "unexpected-pass");
+    assert.equal(result.steps.at(-2).status, "pass");
+    assert.deepEqual(
+      rpcCalls.map((call) => `${call.method}${call.params?.name ? `:${call.params.name}` : ""}`),
+      [
+        "chat.send",
+        "agent.wait",
+        "tools.invoke:lcm_grep",
+        "tasks.list",
+        "tasks.list",
+        "tools.invoke:lcm_describe",
+      ],
+    );
+    assert.equal(rpcCalls.at(-1).params.args.id, "sum_abc123");
+  } finally {
+    await rm(tempRoot, { recursive: true, force: true });
+  }
+});
+
 test("behavior eval executor classifies historical LCM install failures as expected failures", async () => {
   const tempRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot-behavior-test-"));
   try {

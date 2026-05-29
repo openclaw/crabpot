@@ -1,0 +1,27 @@
+{
+  "id": "forward-lcm-compaction-tools",
+  "category": "context-engine",
+  "scenario": "lcm-compaction-tools",
+  "why": "Forward tracking gate for LCM compaction plus dynamic LCM tool execution. Expected-failure until compacted summaries are discoverable through tool calls.",
+  "expectation": {
+    "mode": "known-failure",
+    "failureClasses": ["compaction-summary-missing"]
+  },
+  "openclaw": {
+    "source": "npm",
+    "version": "latest"
+  },
+  "plugins": [
+    {
+      "id": "lossless-claw",
+      "source": "npm",
+      "spec": "@martian-engineering/lossless-claw@latest",
+      "slot": "contextEngine"
+    }
+  ],
+  "runner": {
+    "providerMode": "mock-openai",
+    "execution": "blacksmith",
+    "timeoutMs": 900000
+  }
+}

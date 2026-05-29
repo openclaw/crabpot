@@ -287,12 +287,12 @@ export function buildBehaviorEvalPlan({ profile, scenario }) {
   const openclaw = formatOpenClawTarget(profile.openclaw);
   const openclawCommand = openclawInvocation(profile.openclaw);
   const installCommands = profile.plugins.map((plugin) => `${openclawCommand} plugins install ${formatPluginInstallSpec(plugin)} --pin`);
-  const configPatch = {
+  const configPatch = deepMergeJson({
     plugins: {
       ...(Object.keys(slots).length > 0 ? { slots } : {}),
       entries: pluginEntries,
     },
-  };
+  }, scenario.configPatch ?? {});
   const reportStatus = plannedStatusForExpectation(profile.expectation.mode);
 
   return {
@@ -894,6 +894,7 @@ async function writeBehaviorEvalConfig({ plan, workspace, context }) {
       providers: ["mock-openai", "openai", "anthropic"],
     });
   }
+  config = deepMergeJson(config, plan.configPatch);
   await writeFile(workspace.configPath, `${JSON.stringify(config, null, 2)}\n`, {
     encoding: "utf8",
     mode: 0o600,
@@ -1417,6 +1418,10 @@ function buildBehaviorEvalMockResponseEvents(text) {
 }
 
 async function runBehaviorEvalScenario(plan, context) {
+  if (Array.isArray(plan.scenario.operations) && plan.scenario.operations.length > 0) {
+    return await runBehaviorEvalOperations(plan, context);
+  }
+
   const startedAt = Date.now();
   const turns = resolveBehaviorEvalScenarioTurns(plan.scenario);
   const baseSessionKey = `agent:qa:discord:channel:crabpot-${plan.scenario.id}`;
@@ -1519,6 +1524,310 @@ async function runBehaviorEvalScenario(plan, context) {
     stderr: stderr.join("\n"),
     wallMs: Date.now() - startedAt,
   };
+}
+
+async function runBehaviorEvalOperations(plan, context) {
+  const startedAt = Date.now();
+  const state = {
+    results: new Map(),
+    variables: new Map(),
+  };
+  const commands = [];
+  const stdout = [];
+  const defaultSessionKey = `agent:qa:discord:channel:crabpot-${plan.scenario.id}:default`;
+
+  try {
+    // Execute operations serially so later tool calls can reuse IDs extracted
+    // from earlier gateway responses.
+    for (const operation of plan.scenario.operations) {
+      const result = await runBehaviorEvalOperation({
+        operation,
+        context,
+        state,
+        defaultSessionKey,
+        commands,
+        stdout,
+      });
+      if (operation.id) {
+        state.results.set(operation.id, result);
+      }
+    }
+    return {
+      status: "pass",
+      exitCode: 0,
+      command: commands.join("\n"),
+      stdout: stdout.join("\n"),
+      stderr: "",
+      wallMs: Date.now() - startedAt,
+    };
+  } catch (error) {
+    return {
+      status: "fail",
+      exitCode: 1,
+      command: commands.join("\n"),
+      stdout: stdout.join("\n"),
+      stderr: formatErrorForReport(error),
+      wallMs: Date.now() - startedAt,
+    };
+  }
+}
+
+async function runBehaviorEvalOperation({ operation, context, state, defaultSessionKey, commands, stdout }) {
+  if (!operation || typeof operation !== "object") {
+    throw new Error("scenario operation must be an object");
+  }
+  // Chat operations reuse the legacy turn runner semantics while allowing a
+  // scenario to interleave maintenance waits and direct gateway tool calls.
+  if (operation.type === "chat.turns") {
+    return await runBehaviorEvalChatTurnsOperation({
+      operation,
+      context,
+      state,
+      defaultSessionKey,
+      commands,
+      stdout,
+    });
+  }
+  // Dynamic tool operations intentionally go through the public Gateway RPC
+  // surface so the eval validates plugin-provided tool registration end to end.
+  if (operation.type === "tools.invoke") {
+    const params = materializeBehaviorEvalValue(
+      {
+        name: operation.name,
+        args: operation.args ?? {},
+        sessionKey: operation.sessionKey ?? defaultSessionKey,
+        idempotencyKey: operation.idempotencyKey ?? `crabpot-${operation.id ?? randomUUID()}`,
+        ...(operation.confirm === undefined ? {} : { confirm: operation.confirm }),
+      },
+      state,
+    );
+    commands.push(`gateway rpc tools.invoke ${JSON.stringify(params)}`);
+    const result = await context.runGatewayRpc("tools.invoke", params, context, {
+      timeoutMs: operation.timeoutMs ?? Math.min(context.timeoutMs, 120_000),
+    });
+    stdout.push(`${operation.id ?? operation.type} ${JSON.stringify(result)}`);
+    assertBehaviorEvalOperationExpectation({
+      id: operation.id ?? operation.type,
+      result,
+      expect: operation.expect,
+    });
+    return result;
+  }
+  // The generic RPC escape hatch keeps future fixture logic data-driven without
+  // teaching crabpot about product-specific commands.
+  if (operation.type === "gateway.rpc") {
+    const method = requireBehaviorEvalString(operation.method, "gateway.rpc operation requires method");
+    const params = materializeBehaviorEvalValue(operation.params ?? {}, state);
+    commands.push(`gateway rpc ${method} ${JSON.stringify(params)}`);
+    const result = await context.runGatewayRpc(method, params, context, {
+      timeoutMs: operation.timeoutMs ?? Math.min(context.timeoutMs, 120_000),
+    });
+    stdout.push(`${operation.id ?? method} ${JSON.stringify(result)}`);
+    assertBehaviorEvalOperationExpectation({
+      id: operation.id ?? method,
+      result,
+      expect: operation.expect,
+    });
+    return result;
+  }
+  // Background task polling lets scenarios wait for deferred maintenance while
+  // staying independent of a specific plugin's internal task names.
+  if (operation.type === "tasks.waitForIdle") {
+    return await runBehaviorEvalTasksWaitForIdleOperation({
+      operation,
+      context,
+      state,
+      defaultSessionKey,
+      commands,
+      stdout,
+    });
+  }
+  // Extraction provides simple variable binding for later JSON-ish operation
+  // payloads, for example passing a discovered summary ID to a describe call.
+  if (operation.type === "extract") {
+    const sourceId = requireBehaviorEvalString(operation.from, "extract operation requires from");
+    const variable = requireBehaviorEvalString(operation.variable, "extract operation requires variable");
+    const pattern = requireBehaviorEvalString(operation.pattern, "extract operation requires pattern");
+    const source = state.results.get(sourceId);
+    if (source === undefined) {
+      throw new Error(`extract operation could not find result ${sourceId}`);
+    }
+    const match = stringifyBehaviorEvalValue(source).match(new RegExp(pattern, "u"));
+    if (!match) {
+      throw new Error(`extract operation ${operation.id ?? variable} did not match ${pattern}`);
+    }
+    const value = match[1] ?? match[0];
+    state.variables.set(variable, value);
+    stdout.push(`${operation.id ?? variable} ${variable}=${value}`);
+    return value;
+  }
+  throw new Error(`unsupported scenario operation type: ${operation.type}`);
+}
+
+async function runBehaviorEvalTasksWaitForIdleOperation({ operation, context, state, defaultSessionKey, commands, stdout }) {
+  const startedAt = Date.now();
+  const timeoutMs = operation.timeoutMs ?? Math.min(context.timeoutMs, 120_000);
+  const pollIntervalMs = operation.pollIntervalMs ?? 100;
+  const settleMs = operation.settleMs ?? 250;
+  const sessionKey = String(materializeBehaviorEvalValue(operation.sessionKey ?? defaultSessionKey, state));
+  const kind = typeof operation.kind === "string" ? operation.kind : undefined;
+  let idleSince = 0;
+  let lastActive = [];
+
+  // Require one settled idle window so callers do not race a task that briefly
+  // disappears and immediately requeues under the same session key.
+  while (Date.now() - startedAt < timeoutMs) {
+    const params = {
+      sessionKey,
+      status: ["queued", "running"],
+      limit: 500,
+    };
+    commands.push(`gateway rpc tasks.list ${JSON.stringify(params)}`);
+    const listed = await context.runGatewayRpc("tasks.list", params, context, {
+      timeoutMs: Math.min(timeoutMs, 30_000),
+    });
+    const activeTasks = (Array.isArray(listed?.tasks) ? listed.tasks : []).filter((task) =>
+      kind ? task?.kind === kind : true,
+    );
+    lastActive = activeTasks;
+    stdout.push(`${operation.id ?? operation.type} ${JSON.stringify({ activeCount: activeTasks.length })}`);
+    if (activeTasks.length === 0) {
+      if (idleSince === 0) {
+        idleSince = Date.now();
+      }
+      if (Date.now() - idleSince >= settleMs) {
+        return {
+          status: "idle",
+          activeCount: 0,
+          sessionKey,
+          ...(kind ? { kind } : {}),
+        };
+      }
+    } else {
+      idleSince = 0;
+    }
+    await sleepBehaviorEval(pollIntervalMs);
+  }
+  throw new Error(
+    `${operation.id ?? operation.type}: timed out waiting for idle tasks; active=${stringifyBehaviorEvalValue(lastActive)}`,
+  );
+}
+
+async function runBehaviorEvalChatTurnsOperation({ operation, context, state, defaultSessionKey, commands, stdout }) {
+  const sessionKey = String(materializeBehaviorEvalValue(operation.sessionKey ?? defaultSessionKey, state));
+  const turns = Array.isArray(operation.turns) && operation.turns.length > 0 ? operation.turns : [];
+  let latestResult = null;
+  for (const [turnIndex, turn] of turns.entries()) {
+    // The send/wait/history sequence mirrors the legacy behavior eval path so
+    // turn expectations classify setup mismatches differently from recall loss.
+    const runId = `crabpot-${randomUUID()}`;
+    const waitTimeoutMs = Math.max(1, Math.min(context.timeoutMs, turn.timeoutMs ?? 120_000));
+    const sendParams = {
+      sessionKey,
+      message: String(materializeBehaviorEvalValue(turn.message ?? "", state)),
+      deliver: false,
+      timeoutMs: waitTimeoutMs,
+      idempotencyKey: runId,
+    };
+    commands.push(`gateway rpc chat.send ${JSON.stringify(sendParams)}`);
+    const started = await context.runGatewayRpc("chat.send", sendParams, context, {
+      timeoutMs: Math.min(waitTimeoutMs, 30_000),
+    });
+    stdout.push(`chat.send ${JSON.stringify(started)}`);
+    if (started?.status && !["started", "accepted", "ok"].includes(started.status)) {
+      throw new Error(`chat.send returned ${JSON.stringify(started)}`);
+    }
+    const waitRunId = typeof started?.runId === "string" && started.runId ? started.runId : runId;
+    const waitParams = {
+      runId: waitRunId,
+      timeoutMs: waitTimeoutMs,
+    };
+    commands.push(`gateway rpc agent.wait ${JSON.stringify(waitParams)}`);
+    const waited = await context.runGatewayRpc("agent.wait", waitParams, context, {
+      timeoutMs: waitTimeoutMs + 5_000,
+    });
+    stdout.push(`agent.wait ${JSON.stringify(waited)}`);
+    if (waited?.status && waited.status !== "ok") {
+      throw new Error(`agent.wait returned ${JSON.stringify(waited)}`);
+    }
+    latestResult = waited;
+    if (typeof turn.expectText === "string") {
+      const historyParams = { sessionKey, limit: 20 };
+      commands.push(`gateway rpc chat.history ${JSON.stringify(historyParams)}`);
+      const history = await context.runGatewayRpc("chat.history", historyParams, context, {
+        timeoutMs: Math.min(waitTimeoutMs, 30_000),
+      });
+      stdout.push(`chat.history ${JSON.stringify(history)}`);
+      const latestAssistantText = extractLatestBehaviorEvalAssistantText(history);
+      if (!latestAssistantText.includes(turn.expectText)) {
+        const mismatchClass =
+          turnIndex === turns.length - 1 ? "memory-recall-mismatch" : "behavior-turn-mismatch";
+        throw new Error(
+          `${mismatchClass}: expected turn ${turnIndex + 1} latest assistant message to contain ${turn.expectText}; got ${latestAssistantText || "<empty>"}`,
+        );
+      }
+      latestResult = history;
+    }
+  }
+  return latestResult ?? { status: "ok" };
+}
+
+function assertBehaviorEvalOperationExpectation({ id, result, expect }) {
+  if (!expect) {
+    return;
+  }
+  const text = stringifyBehaviorEvalValue(result);
+  if (typeof expect.ok === "boolean" && Boolean(result?.ok) !== expect.ok) {
+    throw new Error(`${id}: expected ok=${expect.ok}; got ${text}`);
+  }
+  if (typeof expect.contains === "string" && !text.includes(expect.contains)) {
+    throw new Error(`${id}: expected output to contain ${expect.contains}; got ${text}`);
+  }
+  if (typeof expect.matches === "string" && !new RegExp(expect.matches, "u").test(text)) {
+    throw new Error(`${id}: expected output to match ${expect.matches}; got ${text}`);
+  }
+}
+
+function materializeBehaviorEvalValue(value, state) {
+  if (typeof value === "string") {
+    return value.replace(/\$\{([A-Za-z_][A-Za-z0-9_]*)\}/gu, (_match, name) => {
+      if (!state.variables.has(name)) {
+        throw new Error(`unknown scenario variable: ${name}`);
+      }
+      return state.variables.get(name);
+    });
+  }
+  if (Array.isArray(value)) {
+    return value.map((item) => materializeBehaviorEvalValue(item, state));
+  }
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, child]) => [key, materializeBehaviorEvalValue(child, state)]),
+    );
+  }
+  return value;
+}
+
+function stringifyBehaviorEvalValue(value) {
+  if (typeof value === "string") {
+    return value;
+  }
+  try {
+    return JSON.stringify(value);
+  } catch {
+    return String(value);
+  }
+}
+
+function requireBehaviorEvalString(value, message) {
+  if (typeof value !== "string" || value.length === 0) {
+    throw new Error(message);
+  }
+  return value;
+}
+
+function sleepBehaviorEval(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 async function runBehaviorEvalScenarioHealthChecks({ plan, context, commands, stdout, stderr, startedAt }) {
@@ -1981,6 +2290,9 @@ function classifyBehaviorEvalFailure(output) {
   if (text.includes("context-engine-quarantine-missing")) {
     return "context-engine-quarantine-missing";
   }
+  if (text.includes("no matches found") && text.includes("lcm grep results")) {
+    return "compaction-summary-missing";
+  }
   if (text.includes("gateway")) {
     return "gateway-unavailable";
   }
@@ -2186,6 +2498,21 @@ async function readJson(jsonPath) {
 
 function cloneJson(value) {
   return JSON.parse(JSON.stringify(value));
+}
+
+function deepMergeJson(base, patch) {
+  if (!isPlainJsonObject(base) || !isPlainJsonObject(patch)) {
+    return cloneJson(patch);
+  }
+  const merged = cloneJson(base);
+  for (const [key, value] of Object.entries(patch)) {
+    merged[key] = key in merged ? deepMergeJson(merged[key], value) : cloneJson(value);
+  }
+  return merged;
+}
+
+function isPlainJsonObject(value) {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
 }
 
 function indentBlock(value, indent) {
