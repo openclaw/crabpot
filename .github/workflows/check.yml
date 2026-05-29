@@ -38,6 +38,7 @@ jobs:
           ref: ${{ steps.openclaw-track.outputs.ref }}
           path: openclaw
       - shell: bash
+        timeout-minutes: 30
         run: |
           plugin_track="${{ steps.openclaw-track.outputs.track }}"
           extra_args=(--openclaw-track "${{ steps.openclaw-track.outputs.track }}" --plugin-track "${plugin_track}")
@@ -92,6 +93,7 @@ jobs:
           path: openclaw
       - run: node --version
       - shell: bash
+        timeout-minutes: 30
         run: |
           plugin_track="${{ steps.openclaw-track.outputs.track }}"
           extra_args=(--openclaw-track "${{ steps.openclaw-track.outputs.track }}" --plugin-track "${plugin_track}")

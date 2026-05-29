@@ -30,8 +30,9 @@ function main() {
     profileArgs,
   });
 
-  for (const [command, commandArgs, env] of steps) {
-    run(command, commandArgs, env);
+  for (let index = 0; index < steps.length; index += 1) {
+    const [command, commandArgs, env] = steps[index];
+    run(command, commandArgs, env, index + 1, steps.length);
   }
 }
 
@@ -126,8 +127,10 @@ function assertPolicy(policy) {
   return policy;
 }
 
-function run(command, args, env = {}) {
+function run(command, args, env = {}, index = 1, total = 1) {
   const timeout = configuredTimeoutMs("CRABPOT_STATIC_STEP_TIMEOUT_MS", defaultStepTimeoutMs);
+  const rendered = [command, ...args].join(" ");
+  console.log(`crabpot: static step ${index}/${total}: ${rendered}`);
   const result = spawnSync(portableCommand(command), args, {
     encoding: "utf8",
     env: { ...process.env, ...env },
@@ -136,7 +139,6 @@ function run(command, args, env = {}) {
   });
   if (result.error) {
     if (result.error.code === "ETIMEDOUT") {
-      const rendered = [command, ...args].join(" ");
       throw new Error(`static suite step timed out after ${timeout}ms: ${rendered}`);
     }
     throw result.error;
@@ -144,6 +146,7 @@ function run(command, args, env = {}) {
   if (result.status !== 0) {
     process.exit(result.status ?? 1);
   }
+  console.log(`crabpot: static step ${index}/${total} complete`);
 }
 
 function configuredTimeoutMs(envName, fallback) {
