@@ -3644,7 +3644,7 @@
     {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "19 P1 issues tracked",
+      "message": "17 P1 issues tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "codex:reserved-sdk-import",
@@ -3652,9 +3652,7 @@
         "honcho:conversation-access-hook",
         "kitchen-sink:before-tool-call-probe",
         "kitchen-sink:conversation-access-hook",
-        "kitchen-sink:manifest-unknown-contracts",
         "kitchen-sink:reserved-sdk-import",
-        "kitchen-sink:sdk-export-missing",
         "llm-trace-phoenix:conversation-access-hook",
         "memory-lancedb:conversation-access-hook",
         "memory-tencentdb:conversation-access-hook",

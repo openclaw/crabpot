@@ -23,7 +23,7 @@
     "tsLoaderEntrypointCount": 22,
     "jitiAlternativeCount": 22,
     "missingBuildScriptCount": 0,
-    "sdkAliasRequiredCount": 3
+    "sdkAliasRequiredCount": 0
   },
   "fixtures": [
     {
@@ -1326,7 +1326,7 @@
           "packagePath": "plugins/kitchen-sink/package.json",
           "packageName": "@openclaw/kitchen-sink",
           "entrypoint": "plugins/kitchen-sink/src/index.js",
-          "status": "sdk-alias-required",
+          "status": "ready",
           "packageManager": "npm",
           "lockfile": "plugins/kitchen-sink/package-lock.json",
           "loaderStrategy": {
@@ -1337,82 +1337,10 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
-          "blockers": [
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-runtime-test-contracts @ plugins/kitchen-sink/src/generated-sdk-imports.ts:19"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-contract-testing @ plugins/kitchen-sink/src/generated-sdk-imports.ts:43"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-target-testing @ plugins/kitchen-sink/src/generated-sdk-imports.ts:75"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-test-helpers @ plugins/kitchen-sink/src/generated-sdk-imports.ts:77"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/meeting-notes @ plugins/kitchen-sink/src/generated-sdk-imports.ts:151"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/plugin-test-api @ plugins/kitchen-sink/src/generated-sdk-imports.ts:190"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/plugin-test-contracts @ plugins/kitchen-sink/src/generated-sdk-imports.ts:191"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/plugin-test-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:192"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/provider-http-test-mocks @ plugins/kitchen-sink/src/generated-sdk-imports.ts:205"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/provider-test-contracts @ plugins/kitchen-sink/src/generated-sdk-imports.ts:214"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/test-env @ plugins/kitchen-sink/src/generated-sdk-imports.ts:285"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/test-fixtures @ plugins/kitchen-sink/src/generated-sdk-imports.ts:286"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/test-node-mocks @ plugins/kitchen-sink/src/generated-sdk-imports.ts:287"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/testing @ plugins/kitchen-sink/src/generated-sdk-imports.ts:288"
-            }
-          ],
+          "blockers": [],
           "steps": [
             {
               "kind": "prepare",
@@ -1454,7 +1382,7 @@
           "packagePath": "plugins/kitchen-sink/package.json",
           "packageName": "@openclaw/kitchen-sink",
           "entrypoint": "plugins/kitchen-sink/src/index.js",
-          "status": "sdk-alias-required",
+          "status": "ready",
           "packageManager": "npm",
           "lockfile": "plugins/kitchen-sink/package-lock.json",
           "loaderStrategy": {
@@ -1465,82 +1393,10 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
-          "blockers": [
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-runtime-test-contracts @ plugins/kitchen-sink/src/generated-sdk-imports.ts:19"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-contract-testing @ plugins/kitchen-sink/src/generated-sdk-imports.ts:43"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-target-testing @ plugins/kitchen-sink/src/generated-sdk-imports.ts:75"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-test-helpers @ plugins/kitchen-sink/src/generated-sdk-imports.ts:77"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/meeting-notes @ plugins/kitchen-sink/src/generated-sdk-imports.ts:151"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/plugin-test-api @ plugins/kitchen-sink/src/generated-sdk-imports.ts:190"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/plugin-test-contracts @ plugins/kitchen-sink/src/generated-sdk-imports.ts:191"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/plugin-test-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:192"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/provider-http-test-mocks @ plugins/kitchen-sink/src/generated-sdk-imports.ts:205"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/provider-test-contracts @ plugins/kitchen-sink/src/generated-sdk-imports.ts:214"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/test-env @ plugins/kitchen-sink/src/generated-sdk-imports.ts:285"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/test-fixtures @ plugins/kitchen-sink/src/generated-sdk-imports.ts:286"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/test-node-mocks @ plugins/kitchen-sink/src/generated-sdk-imports.ts:287"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/testing @ plugins/kitchen-sink/src/generated-sdk-imports.ts:288"
-            }
-          ],
+          "blockers": [],
           "steps": [
             {
               "kind": "prepare",
@@ -1582,7 +1438,7 @@
           "packagePath": "plugins/kitchen-sink/package.json",
           "packageName": "@openclaw/kitchen-sink",
           "entrypoint": "plugins/kitchen-sink/src/setup.js",
-          "status": "sdk-alias-required",
+          "status": "ready",
           "packageManager": "npm",
           "lockfile": "plugins/kitchen-sink/package-lock.json",
           "loaderStrategy": {
@@ -1593,82 +1449,10 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
-          "blockers": [
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-runtime-test-contracts @ plugins/kitchen-sink/src/generated-sdk-imports.ts:19"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-contract-testing @ plugins/kitchen-sink/src/generated-sdk-imports.ts:43"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-target-testing @ plugins/kitchen-sink/src/generated-sdk-imports.ts:75"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-test-helpers @ plugins/kitchen-sink/src/generated-sdk-imports.ts:77"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/meeting-notes @ plugins/kitchen-sink/src/generated-sdk-imports.ts:151"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/plugin-test-api @ plugins/kitchen-sink/src/generated-sdk-imports.ts:190"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/plugin-test-contracts @ plugins/kitchen-sink/src/generated-sdk-imports.ts:191"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/plugin-test-runtime @ plugins/kitchen-sink/src/generated-sdk-imports.ts:192"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/provider-http-test-mocks @ plugins/kitchen-sink/src/generated-sdk-imports.ts:205"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/provider-test-contracts @ plugins/kitchen-sink/src/generated-sdk-imports.ts:214"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/test-env @ plugins/kitchen-sink/src/generated-sdk-imports.ts:285"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/test-fixtures @ plugins/kitchen-sink/src/generated-sdk-imports.ts:286"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/test-node-mocks @ plugins/kitchen-sink/src/generated-sdk-imports.ts:287"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/testing @ plugins/kitchen-sink/src/generated-sdk-imports.ts:288"
-            }
-          ],
+          "blockers": [],
           "steps": [
             {
               "kind": "prepare",

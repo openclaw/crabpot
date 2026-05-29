@@ -6,17 +6,17 @@
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 139,
+    "warnings": 137,
     "suggestions": 150,
-    "issues": 289,
+    "issues": 287,
     "p0Issues": 1,
-    "p1Issues": 19,
+    "p1Issues": 17,
     "liveIssues": 1,
     "liveP0Issues": 1,
-    "compatGaps": 1,
+    "compatGaps": 0,
     "deprecationWarnings": 42,
     "inspectorGaps": 159,
-    "upstreamIssues": 86,
+    "upstreamIssues": 85,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 16,
     "platformContainerRisks": 16,
     "loaderJitiCandidates": 22,
-    "importLoopP50Ms": 1866,
-    "importLoopP95Ms": 1896,
+    "importLoopP50Ms": 2052,
+    "importLoopP95Ms": 2062,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 110.7,
-    "importLoopOpenClawActivationP50Ms": 0.3,
+    "importLoopOpenClawImportP50Ms": 106.4,
+    "importLoopOpenClawActivationP50Ms": 0.4,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 8.1,
-    "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 221,
-    "importLoopCpuSampleCount": 221
+    "importLoopMaxRssMb": 11.3,
+    "importLoopMaxCpuMs": 15,
+    "importLoopRssSampleCount": 242,
+    "importLoopCpuSampleCount": 242
   },
   "topIssues": [
     {
@@ -101,25 +101,9 @@
       "severity": "P1",
       "issueClass": "upstream-metadata",
       "fixture": "kitchen-sink",
-      "code": "manifest-unknown-contracts",
-      "title": "kitchen-sink: manifest declares unsupported contract keys",
-      "decision": "plugin-upstream-fix"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "kitchen-sink",
       "code": "reserved-sdk-import",
       "title": "kitchen-sink: plugin imports reserved bundled-plugin SDK compatibility subpaths",
       "decision": "plugin-upstream-fix"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "kitchen-sink",
-      "code": "sdk-export-missing",
-      "title": "kitchen-sink: plugin SDK import aliases are missing from target package exports",
-      "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
@@ -436,20 +420,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 95.5% over baseline",
+      "message": "p95WallMs regressed 102.6% over baseline",
       "baseline": 1273,
-      "current": 2489,
-      "delta": 1216,
-      "percent": 95.5
+      "current": 2579,
+      "delta": 1306,
+      "percent": 102.6
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 417.70000000000005 over baseline",
+      "message": "maxPeakRssMb regressed 417.6 over baseline",
       "baseline": 65.1,
-      "current": 482.8,
-      "delta": 417.70000000000005
+      "current": 482.7,
+      "delta": 417.6
     }
   ],
   "artifacts": {
