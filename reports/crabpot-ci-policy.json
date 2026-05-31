@@ -3643,10 +3643,11 @@
     {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "17 P1 issues tracked",
+      "message": "18 P1 issues tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "codex:reserved-sdk-import",
+        "codex:sdk-export-missing",
         "dingtalk-doc:before-tool-call-probe",
         "honcho:conversation-access-hook",
         "kitchen-sink:before-tool-call-probe",
