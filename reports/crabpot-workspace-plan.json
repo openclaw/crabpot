@@ -1914,7 +1914,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@discordjs/voice, discord-api-types, https-proxy-agent, libopus-wasm, typebox, undici, ws"
+              "evidence": "@discordjs/voice, discord-api-types, libopus-wasm, typebox, undici, ws"
             }
           ],
           "steps": [
@@ -2453,7 +2453,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, jsonwebtoken, jwks-rsa, typebox"
+              "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, typebox"
             }
           ],
           "steps": [
@@ -4755,7 +4755,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@earendil-works/pi-coding-agent, @openai/codex, typebox, ws, zod"
+              "evidence": "@openai/codex, typebox, ws, zod"
             }
           ],
           "steps": [
@@ -5176,7 +5176,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@pierre/diffs, @pierre/theme, playwright-core, typebox, zod"
+              "evidence": "@pierre/diffs, @pierre/theme, @shikijs/langs, playwright-core, typebox, zod"
             }
           ],
           "steps": [
@@ -5673,7 +5673,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "audio-decode, baileys, https-proxy-agent, typebox"
+              "evidence": "audio-decode, baileys, typebox"
             }
           ],
           "steps": [

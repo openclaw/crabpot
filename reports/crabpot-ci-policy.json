@@ -3429,11 +3429,10 @@
     {
       "id": "compatibility-report.deprecation-warnings",
       "action": "pass",
-      "message": "42 deprecated compat seams tracked",
+      "message": "41 deprecated compat seams tracked",
       "evidence": [
         "a2a-gateway:legacy-root-sdk-import",
         "agentchat:channel-env-vars",
-        "brave-plugin:provider-auth-env-vars",
         "clawmetry:legacy-root-sdk-import",
         "codex-app-server:legacy-root-sdk-import",
         "composio:legacy-root-sdk-import",
