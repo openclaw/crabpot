@@ -95,6 +95,7 @@ jobs:
       - name: Refresh compatibility reports
         env:
           CRABPOT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          CRABPOT_TEST_OPENCLAW_PATH: ./openclaw
         run: |
           CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
           export CRABPOT_SUMMARY_GENERATED_AT

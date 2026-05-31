@@ -194,6 +194,7 @@ test("dependabot auto-merge refreshes reports after fixture pin updates", async 
   assert.match(workflow, /node scripts\/sync-fixtures\.mjs --materialize/);
   assert.match(workflow, /node scripts\/resolve-openclaw-track\.mjs --branch "\$\{\{ github\.event\.pull_request\.base\.ref \}\}" --github-output/);
   assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw/);
+  assert.match(workflow, /CRABPOT_TEST_OPENCLAW_PATH: \.\/openclaw/);
   assert.match(workflow, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
   assert.match(workflow, /node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
   assert.match(workflow, /node scripts\/update-track-metadata\.mjs/);
