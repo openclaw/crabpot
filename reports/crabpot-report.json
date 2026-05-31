@@ -31448,6 +31448,11 @@
             "invalidFileSpecs": []
           },
           "dependencies": [
+            "@visx/gradient",
+            "@visx/group",
+            "@visx/scale",
+            "@visx/shape",
+            "framer-motion",
             "react",
             "react-dom",
             "react-router-dom",
