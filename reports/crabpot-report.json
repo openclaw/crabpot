@@ -26170,8 +26170,8 @@
         {
           "name": "before_tool_call",
           "file": "plugins/nemoclaw/nemoclaw/src/index.ts",
-          "line": 382,
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:382"
+          "line": 383,
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:383"
         }
       ],
       "registrations": [
@@ -26182,14 +26182,14 @@
         {
           "name": "registerCommand",
           "file": "plugins/nemoclaw/nemoclaw/src/index.ts",
-          "line": 345,
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:345"
+          "line": 346,
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:346"
         },
         {
           "name": "registerProvider",
           "file": "plugins/nemoclaw/nemoclaw/src/index.ts",
-          "line": 372,
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:372"
+          "line": 373,
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:373"
         }
       ],
       "manifestContracts": [],
@@ -26213,6 +26213,7 @@
         "plugins/nemoclaw/nemoclaw/src/lib/subprocess-env.ts",
         "plugins/nemoclaw/nemoclaw/src/onboard/config.ts",
         "plugins/nemoclaw/nemoclaw/src/runtime-context.ts",
+        "plugins/nemoclaw/nemoclaw/src/security/safe-resolve-path.ts",
         "plugins/nemoclaw/nemoclaw/src/security/secret-scanner.ts",
         "plugins/nemoclaw/nemoclaw/vitest.config.ts",
         "plugins/nemoclaw/vitest.config.ts"
@@ -34979,7 +34980,7 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:345"
+        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:346"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -34989,7 +34990,7 @@
       "level": "suggestion",
       "message": "add contract probes for before_tool_call terminal, block, and approval semantics",
       "evidence": [
-        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:382"
+        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:383"
       ],
       "compatRecord": "hook.before_tool_call.terminal-block-approval"
     },
@@ -35817,7 +35818,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-49FA86B8",
+      "id": "CRABPOT-65551997",
       "fixture": "nemoclaw",
       "severity": "P1",
       "owner": "inspector",
@@ -35830,7 +35831,7 @@
       "compatStatus": "active",
       "title": "nemoclaw: before_tool_call needs terminal/block/approval probes",
       "evidence": [
-        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:382"
+        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:383"
       ],
       "compatRecord": "hook.before_tool_call.terminal-block-approval",
       "runtimeCoverage": null
@@ -39535,7 +39536,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-ADEBAB36",
+      "id": "CRABPOT-8B54F4A6",
       "fixture": "nemoclaw",
       "severity": "P2",
       "owner": "inspector",
@@ -39548,7 +39549,7 @@
       "compatStatus": "active",
       "title": "nemoclaw: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:345"
+        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:346"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -41448,7 +41449,7 @@
       "target": "hook-runner",
       "contract": "Hook returns preserve terminal, block, and approval semantics.",
       "evidence": [
-        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:382"
+        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:383"
       ]
     },
     {
@@ -41770,7 +41771,7 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:345"
+        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:346"
       ]
     },
     {

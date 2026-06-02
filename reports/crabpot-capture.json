@@ -31152,10 +31152,10 @@
       "priority": "high",
       "registrations": [
         {
-          "id": "registration.registerCommand:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-345",
+          "id": "registration.registerCommand:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-346",
           "fixture": "nemoclaw",
           "registrar": "registerCommand",
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:345",
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:346",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -31169,10 +31169,10 @@
           ]
         },
         {
-          "id": "registration.registerProvider:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-372",
+          "id": "registration.registerProvider:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-373",
           "fixture": "nemoclaw",
           "registrar": "registerProvider",
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:372",
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:373",
           "support": "target-captured",
           "assertions": [
             "registration arguments are captured"
@@ -31215,10 +31215,10 @@
           }
         },
         {
-          "id": "hook.before_tool_call:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-382",
+          "id": "hook.before_tool_call:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-383",
           "fixture": "nemoclaw",
           "hook": "before_tool_call",
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:382",
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:383",
           "support": "synthetic-event-required",
           "assertions": [
             "block/allow return shapes are preserved",
@@ -36135,7 +36135,7 @@
       "priority": "P1",
       "target": "hook-runner",
       "evidence": [
-        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:382"
+        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:383"
       ],
       "assertions": [
         "synthetic event payload is accepted",
@@ -36532,7 +36532,7 @@
       "priority": "P2",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:345"
+        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:346"
       ],
       "assertions": [
         "registration arguments are recorded",
