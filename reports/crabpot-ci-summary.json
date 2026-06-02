@@ -6,14 +6,14 @@
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 138,
+    "warnings": 139,
     "suggestions": 150,
-    "issues": 288,
+    "issues": 289,
     "p0Issues": 1,
-    "p1Issues": 18,
+    "p1Issues": 19,
     "liveIssues": 1,
     "liveP0Issues": 1,
-    "compatGaps": 1,
+    "compatGaps": 2,
     "deprecationWarnings": 41,
     "inspectorGaps": 159,
     "upstreamIssues": 86,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 16,
     "platformContainerRisks": 16,
     "loaderJitiCandidates": 22,
-    "importLoopP50Ms": 2039,
-    "importLoopP95Ms": 2053,
+    "importLoopP50Ms": 1034,
+    "importLoopP95Ms": 1077,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 112,
-    "importLoopOpenClawActivationP50Ms": 0.4,
+    "importLoopOpenClawImportP50Ms": 74.7,
+    "importLoopOpenClawActivationP50Ms": 0.2,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 0,
-    "importLoopMaxCpuMs": 61,
-    "importLoopRssSampleCount": 239,
-    "importLoopCpuSampleCount": 239
+    "importLoopMaxRssMb": 1.8,
+    "importLoopMaxCpuMs": 112,
+    "importLoopRssSampleCount": 123,
+    "importLoopCpuSampleCount": 123
   },
   "topIssues": [
     {
@@ -128,6 +128,14 @@
       "code": "conversation-access-hook",
       "title": "memory-lancedb: conversation-access hooks need privacy-boundary probes",
       "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "memory-lancedb",
+      "code": "sdk-export-missing",
+      "title": "memory-lancedb: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
@@ -428,10 +436,10 @@
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 257.4 over baseline",
+      "message": "maxPeakRssMb regressed 265.5 over baseline",
       "baseline": 65.1,
-      "current": 322.5,
-      "delta": 257.4
+      "current": 330.6,
+      "delta": 265.5
     }
   ],
   "artifacts": {
