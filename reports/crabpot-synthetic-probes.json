@@ -2261,7 +2261,7 @@
       "source": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:78"
     },
     {
-      "id": "hook.before_tool_call:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-382",
+      "id": "hook.before_tool_call:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-383",
       "fixture": "nemoclaw",
       "kind": "hook",
       "seam": "before_tool_call",
@@ -2283,7 +2283,7 @@
         "sessionId": "session-fixture",
         "toolName": "fixture_tool"
       },
-      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:382"
+      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:383"
     },
     {
       "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-18379",
@@ -9580,7 +9580,7 @@
       "source": "plugins/whatsapp/.crabpot-package/dist/index.js:3"
     },
     {
-      "id": "registration.registerCommand:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-345",
+      "id": "registration.registerCommand:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-346",
       "fixture": "nemoclaw",
       "kind": "registration",
       "seam": "registerCommand",
@@ -9604,10 +9604,10 @@
           "execute"
         ]
       },
-      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:345"
+      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:346"
     },
     {
-      "id": "registration.registerProvider:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-372",
+      "id": "registration.registerProvider:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-373",
       "fixture": "nemoclaw",
       "kind": "registration",
       "seam": "registerProvider",
@@ -9624,7 +9624,7 @@
         "callableProperties": [],
         "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:372"
+      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:373"
     },
     {
       "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-17977",
