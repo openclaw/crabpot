@@ -23,7 +23,7 @@
     "tsLoaderEntrypointCount": 22,
     "jitiAlternativeCount": 22,
     "missingBuildScriptCount": 0,
-    "sdkAliasRequiredCount": 2
+    "sdkAliasRequiredCount": 4
   },
   "fixtures": [
     {
@@ -4692,7 +4692,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/inline-image-data-url-runtime @ plugins/codex/.crabpot-package/dist/thread-lifecycle-BR74qMaY.js:13"
+              "evidence": "openclaw/plugin-sdk/inline-image-data-url-runtime @ plugins/codex/.crabpot-package/dist/thread-lifecycle-W15Byt1U.js:14"
             }
           ],
           "steps": [
@@ -4767,7 +4767,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/inline-image-data-url-runtime @ plugins/codex/.crabpot-package/dist/thread-lifecycle-BR74qMaY.js:13"
+              "evidence": "openclaw/plugin-sdk/inline-image-data-url-runtime @ plugins/codex/.crabpot-package/dist/thread-lifecycle-W15Byt1U.js:14"
             }
           ],
           "steps": [
@@ -5250,7 +5250,7 @@
           "packagePath": "plugins/memory-lancedb/.crabpot-package/package.json",
           "packageName": "@openclaw/memory-lancedb",
           "entrypoint": "plugins/memory-lancedb/.crabpot-package/index.ts",
-          "status": "missing",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/memory-lancedb/package-lock.json",
           "loaderStrategy": {
@@ -5261,6 +5261,7 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -5269,6 +5270,11 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/memory-lancedb/.crabpot-package/index.ts"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/chat-channel-ids @ plugins/memory-lancedb/.crabpot-package/dist/index.js:7"
             }
           ],
           "steps": [
@@ -5312,7 +5318,7 @@
           "packagePath": "plugins/memory-lancedb/.crabpot-package/package.json",
           "packageName": "@openclaw/memory-lancedb",
           "entrypoint": "plugins/memory-lancedb/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/memory-lancedb/package-lock.json",
           "loaderStrategy": {
@@ -5324,6 +5330,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -5332,6 +5339,11 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@lancedb/lancedb, apache-arrow, openai, typebox"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/chat-channel-ids @ plugins/memory-lancedb/.crabpot-package/dist/index.js:7"
             }
           ],
           "steps": [
