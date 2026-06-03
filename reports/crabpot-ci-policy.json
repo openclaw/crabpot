@@ -3477,7 +3477,7 @@
     {
       "id": "compatibility-report.inspector-gaps",
       "action": "pass",
-      "message": "159 inspector proof gaps tracked",
+      "message": "158 inspector proof gaps tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "dingtalk-doc:before-tool-call-probe",
@@ -3510,7 +3510,6 @@
         "clawmetry:registration-capture-gap",
         "clawrouter:package-dependency-install-required",
         "clawrouter:registration-capture-gap",
-        "clawrouter:runtime-tool-capture",
         "codex:package-dependency-install-required",
         "codex:registration-capture-gap",
         "codex-app-server:package-dependency-install-required",
@@ -3643,11 +3642,10 @@
     {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "19 P1 issues tracked",
+      "message": "17 P1 issues tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "codex:reserved-sdk-import",
-        "codex:sdk-export-missing",
         "dingtalk-doc:before-tool-call-probe",
         "honcho:conversation-access-hook",
         "kitchen-sink:before-tool-call-probe",
@@ -3655,7 +3653,6 @@
         "kitchen-sink:reserved-sdk-import",
         "llm-trace-phoenix:conversation-access-hook",
         "memory-lancedb:conversation-access-hook",
-        "memory-lancedb:sdk-export-missing",
         "memory-tencentdb:conversation-access-hook",
         "memos-cloud:conversation-access-hook",
         "nemoclaw:before-tool-call-probe",

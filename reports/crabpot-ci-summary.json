@@ -1,21 +1,21 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "dependabot",
+  "mode": "check",
   "openclawLabel": "openclaw@latest (2026.5.28, e93216080aa1)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 139,
-    "suggestions": 150,
-    "issues": 289,
+    "warnings": 137,
+    "suggestions": 149,
+    "issues": 286,
     "p0Issues": 1,
-    "p1Issues": 19,
+    "p1Issues": 17,
     "liveIssues": 1,
     "liveP0Issues": 1,
-    "compatGaps": 2,
+    "compatGaps": 0,
     "deprecationWarnings": 41,
-    "inspectorGaps": 159,
+    "inspectorGaps": 158,
     "upstreamIssues": 86,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 16,
     "platformContainerRisks": 16,
     "loaderJitiCandidates": 22,
-    "importLoopP50Ms": 2023,
-    "importLoopP95Ms": 2049,
+    "importLoopP50Ms": 1988,
+    "importLoopP95Ms": 2034,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 104.1,
+    "importLoopOpenClawImportP50Ms": 102.7,
     "importLoopOpenClawActivationP50Ms": 0.4,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 19,
+    "importLoopMaxRssMb": 15.6,
     "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 240,
-    "importLoopCpuSampleCount": 240
+    "importLoopRssSampleCount": 236,
+    "importLoopCpuSampleCount": 236
   },
   "topIssues": [
     {
@@ -64,14 +64,6 @@
       "code": "reserved-sdk-import",
       "title": "codex: plugin imports reserved bundled-plugin SDK compatibility subpaths",
       "decision": "plugin-upstream-fix"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "codex",
-      "code": "sdk-export-missing",
-      "title": "codex: plugin SDK import aliases are missing from target package exports",
-      "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
@@ -128,14 +120,6 @@
       "code": "conversation-access-hook",
       "title": "memory-lancedb: conversation-access hooks need privacy-boundary probes",
       "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "memory-lancedb",
-      "code": "sdk-export-missing",
-      "title": "memory-lancedb: plugin SDK import aliases are missing from target package exports",
-      "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
@@ -436,10 +420,10 @@
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 260.29999999999995 over baseline",
+      "message": "maxPeakRssMb regressed 259.9 over baseline",
       "baseline": 65.1,
-      "current": 325.4,
-      "delta": 260.29999999999995
+      "current": 325,
+      "delta": 259.9
     }
   ],
   "artifacts": {

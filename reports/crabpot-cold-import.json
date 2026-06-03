@@ -13,7 +13,7 @@
     "tsLoaderRequiredCount": 22,
     "buildRequiredCount": 13,
     "dependencyInstallRequiredCount": 42,
-    "sdkAliasRequiredCount": 4
+    "sdkAliasRequiredCount": 0
   },
   "fixtures": [
     {
@@ -1513,22 +1513,16 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/codex/.crabpot-package/index.ts",
-          "status": "sdk-alias-required",
+          "status": "missing",
           "blockers": [
             {
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/codex/.crabpot-package/index.ts"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/inline-image-data-url-runtime @ plugins/codex/.crabpot-package/dist/thread-lifecycle-W15Byt1U.js:14"
             }
           ],
           "assertions": [
-            "plugin package metadata points at an existing OpenClaw entrypoint",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
           ]
         },
         {
@@ -1538,7 +1532,7 @@
           "kind": "runtimeExtension",
           "specifier": "./dist/index.js",
           "path": "plugins/codex/.crabpot-package/dist/index.js",
-          "status": "sdk-alias-required",
+          "status": "dependency-install-required",
           "blockers": [
             {
               "code": "top-level-side-effect-review",
@@ -1549,17 +1543,11 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@openai/codex, typebox, ws, zod"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/inline-image-data-url-runtime @ plugins/codex/.crabpot-package/dist/thread-lifecycle-W15Byt1U.js:14"
             }
           ],
           "assertions": [
             "cold import sandbox blocks network/process side effects before register capture",
-            "fixture dependencies are installed in an isolated workspace before cold import",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim"
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
       ]
@@ -1708,22 +1696,16 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/memory-lancedb/.crabpot-package/index.ts",
-          "status": "sdk-alias-required",
+          "status": "missing",
           "blockers": [
             {
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/memory-lancedb/.crabpot-package/index.ts"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/chat-channel-ids @ plugins/memory-lancedb/.crabpot-package/dist/index.js:7"
             }
           ],
           "assertions": [
-            "plugin package metadata points at an existing OpenClaw entrypoint",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
           ]
         },
         {
@@ -1733,22 +1715,16 @@
           "kind": "runtimeExtension",
           "specifier": "./dist/index.js",
           "path": "plugins/memory-lancedb/.crabpot-package/dist/index.js",
-          "status": "sdk-alias-required",
+          "status": "dependency-install-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@lancedb/lancedb, apache-arrow, openai, typebox"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/chat-channel-ids @ plugins/memory-lancedb/.crabpot-package/dist/index.js:7"
             }
           ],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim"
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
       ]
