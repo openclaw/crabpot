@@ -448,8 +448,7 @@
       "expect": {
         "hooks": [
           "subagent_delivery_target",
-          "subagent_ended",
-          "subagent_spawning"
+          "subagent_ended"
         ],
         "registrations": [
           "registerChannel"
