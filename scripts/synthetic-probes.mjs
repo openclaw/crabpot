@@ -12,6 +12,16 @@ export const defaultSyntheticProbeMarkdownPath = path.join(repoRoot, "reports/cr
 const pluginInspector = await loadPluginInspectorPublicApi();
 
 const httpRouteDescriptorInputReason = "captured HTTP route probe requires route descriptor input";
+const crabpotSyntheticHookEvents = {
+  ...(pluginInspector.defaultSyntheticHookEvents ?? {}),
+  subagent_ended: {
+    ...(pluginInspector.defaultSyntheticHookEvents?.subagent_ended ?? {}),
+    targetSessionKey: "child-session",
+    targetKind: "subagent",
+    reason: "completed",
+    sendFarewell: false,
+  },
+};
 const crabpotMetadataOnlyRegistrars = new Map([
   [
     "registerEmbeddingProvider",
@@ -170,7 +180,10 @@ function parseArgs(argv) {
 export async function buildSyntheticProbePlan(options = {}) {
   const report = options.report ?? (options.capture ? null : await buildReport({ openclawPath: options.openclawPath }));
   return applyCrabpotSyntheticProbePlanPolicy(
-    pluginInspector.buildSyntheticProbePlanFromReport(report, { capture: options.capture }),
+    pluginInspector.buildSyntheticProbePlanFromReport(report, {
+      capture: options.capture,
+      hookEvents: mergeHookEvents(options.hookEvents),
+    }),
   );
 }
 
@@ -187,6 +200,7 @@ export async function writeSyntheticProbePlan(plan, options = {}) {
 export async function runCapturedSyntheticProbes(capture, options = {}) {
   const result = await pluginInspector.runCapturedSyntheticProbes(capture, {
     ...options,
+    hookEvents: mergeHookEvents(options.hookEvents),
     registrationProbeInputs: mergeRegistrationProbeInputs(options.registrationProbeInputs),
     syntheticSource: "crabpot.synthetic",
   });
@@ -213,6 +227,7 @@ export async function runEntrypointSyntheticProbes(entrypoint, options = {}) {
       ...(options.apiOptions ?? {}),
       retainHandlers: true,
     },
+    hookEvents: mergeHookEvents(options.hookEvents),
     registrationProbeInputs: mergeRegistrationProbeInputs(options.registrationProbeInputs),
     syntheticSource: "crabpot.synthetic",
   });
@@ -389,6 +404,17 @@ function mergeRegistrationProbeInputs(inputs = {}) {
     registerHttpRoute: {
       ...crabpotRegistrationProbeInputs.registerHttpRoute,
       ...(inputs.registerHttpRoute ?? {}),
+    },
+  };
+}
+
+function mergeHookEvents(events = {}) {
+  return {
+    ...crabpotSyntheticHookEvents,
+    ...events,
+    subagent_ended: {
+      ...crabpotSyntheticHookEvents.subagent_ended,
+      ...(events.subagent_ended ?? {}),
     },
   };
 }

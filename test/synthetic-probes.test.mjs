@@ -11,6 +11,7 @@ import {
   applyFixtureSyntheticFailurePolicy,
   buildSyntheticProbePlan,
   renderSyntheticProbeMarkdown,
+  runCapturedSyntheticProbes,
   validateSyntheticProbePlan,
 } from "../scripts/synthetic-probes.mjs";
 
@@ -178,6 +179,32 @@ test("synthetic probe CLI keeps HTTP route handlers blocked without route descri
   assert.equal(probes.summary.blockedCount, 1);
   assert.equal(probes.results[0].status, "blocked");
   assert.equal(probes.results[0].blockedBy, "http-route-descriptor-input");
+});
+
+test("synthetic probes send subagent_ended target session keys", async () => {
+  const seen = [];
+  const result = await runCapturedSyntheticProbes({
+    entrypoint: path.join(repoRoot, ".crabpot/workspaces/discord/index.js"),
+    status: "captured",
+    captured: [
+      {
+        kind: "hook",
+        name: "subagent_ended",
+      },
+    ],
+    retained: [
+      {
+        captureIndex: 0,
+        handler(event) {
+          seen.push(event);
+        },
+      },
+    ],
+  });
+
+  assert.deepEqual(result.summary, { probeCount: 1, passCount: 1, failCount: 0, blockedCount: 0 });
+  assert.equal(seen[0].targetSessionKey, "child-session");
+  assert.equal(seen[0].targetKind, "subagent");
 });
 
 test("fixture execution policy classifies known live tool failures as blocked", () => {
