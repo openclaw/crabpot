@@ -434,7 +434,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/discord",
-        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+        "ref": "2e08f0f4221f522b60423ed6ffd83427942b28de"
       },
       "path": "plugins/discord",
       "priority": "medium",
@@ -448,8 +448,7 @@
       "expect": {
         "hooks": [
           "subagent_delivery_target",
-          "subagent_ended",
-          "subagent_spawning"
+          "subagent_ended"
         ],
         "registrations": [
           "registerChannel"
