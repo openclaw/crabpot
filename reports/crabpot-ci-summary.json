@@ -1,8 +1,8 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "check",
-  "openclawLabel": "openclaw@latest (2026.5.28, e93216080aa1)",
+  "mode": "dependabot",
+  "openclawLabel": "openclaw@latest (2026.6.1, 2e08f0f4221f)",
   "status": "pass",
   "summary": {
     "breakages": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 16,
     "platformContainerRisks": 16,
     "loaderJitiCandidates": 22,
-    "importLoopP50Ms": 1988,
-    "importLoopP95Ms": 2034,
+    "importLoopP50Ms": 2377,
+    "importLoopP95Ms": 2382,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 102.7,
+    "importLoopOpenClawImportP50Ms": 111.2,
     "importLoopOpenClawActivationP50Ms": 0.4,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 15.6,
+    "importLoopMaxRssMb": 4.4,
     "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 236,
-    "importLoopCpuSampleCount": 236
+    "importLoopRssSampleCount": 279,
+    "importLoopCpuSampleCount": 279
   },
   "topIssues": [
     {
@@ -420,10 +420,10 @@
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 259.9 over baseline",
+      "message": "maxPeakRssMb regressed 259.4 over baseline",
       "baseline": 65.1,
-      "current": 325,
-      "delta": 259.9
+      "current": 324.5,
+      "delta": 259.4
     }
   ],
   "artifacts": {
