@@ -15,7 +15,7 @@
     "installStepCount": 42,
     "auditStepCount": 42,
     "buildStepCount": 13,
-    "pruneDevWorkspaceDependencyStepCount": 6,
+    "pruneDevWorkspaceDependencyStepCount": 7,
     "artifactStepCount": 107,
     "captureStepCount": 107,
     "syntheticProbeStepCount": 107,
@@ -3847,6 +3847,12 @@
               "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/tlon",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/8a10c5096f6b2752b4ef3511b66f4d64f92f7cc7/src/prune-workspace-dev-deps-cli.js",
+              "cwd": ".crabpot/workspaces/tlon",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
