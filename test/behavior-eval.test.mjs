@@ -62,6 +62,43 @@ const historicalProfile = {
   },
 };
 
+const genericScenario = {
+  id: "generic-context-engine-turn",
+  category: "context-engine",
+  description: "Install a generic context engine plugin and run a behavior-shaped turn.",
+  recallScope: "same-session-key",
+  checks: [
+    { id: "install", description: "Generic package installs" },
+    { id: "gateway-load", description: "Gateway starts with the generic plugin selected" },
+  ],
+};
+
+const genericProfile = {
+  id: "generic-context-engine-release-gate",
+  category: "context-engine",
+  scenario: "generic-context-engine-turn",
+  expectation: {
+    mode: "must-pass",
+  },
+  openclaw: {
+    source: "npm",
+    version: "2026.5.22",
+  },
+  plugins: [
+    {
+      id: "sample-context-engine",
+      source: "npm",
+      spec: "@example/sample-context-engine@1.0.0",
+      slot: "contextEngine",
+    },
+  ],
+  runner: {
+    providerMode: "mock-openai",
+    execution: "local",
+    timeoutMs: 900000,
+  },
+};
+
 function buildLocalPlan(profile, scenarioValue) {
   return buildBehaviorEvalPlan({
     profile: resolveBehaviorEvalProfile({
@@ -120,27 +157,48 @@ test("behavior eval profile resolver applies ad hoc version overrides", () => {
   assert.equal(resolved.runner.execution, "local");
 });
 
-test("behavior eval profile resolver preserves npm-pack plugin overrides", () => {
+test("behavior eval profile resolver absolutizes generic npm-pack plugin overrides", () => {
+  const relativeTarball = "fixtures/sample-context-engine-0.0.0.tgz";
+  const resolvedTarball = path.resolve(relativeTarball);
   const resolved = resolveBehaviorEvalProfile({
-    profile: historicalProfile,
+    profile: genericProfile,
     overrides: {
-      pluginSpec: "npm-pack:/tmp/martian-engineering-lossless-claw-0.11.3.tgz",
+      pluginSpec: `npm-pack:${relativeTarball}`,
       expectationMode: "must-pass",
       runnerExecution: "local",
     },
   });
-  const plan = buildBehaviorEvalPlan({ profile: resolved, scenario });
+  const plan = buildBehaviorEvalPlan({ profile: resolved, scenario: genericScenario });
+  const planText = [plan.summary.plugins, ...plan.steps.map((step) => step.command ?? "")].join("\n");
 
   assert.equal(resolved.plugins[0].source, "npm-pack");
-  assert.equal(resolved.plugins[0].path, "/tmp/martian-engineering-lossless-claw-0.11.3.tgz");
-  assert.equal(plan.summary.plugins, "npm-pack:/tmp/martian-engineering-lossless-claw-0.11.3.tgz");
+  assert.equal(resolved.plugins[0].path, resolvedTarball);
+  assert.equal(plan.summary.plugins, `npm-pack:${resolvedTarball}`);
   assert.ok(
     plan.steps.some((step) =>
-      step.command?.includes(
-        "openclaw plugins install npm-pack:/tmp/martian-engineering-lossless-claw-0.11.3.tgz",
-      ),
+      step.command?.includes(`openclaw plugins install npm-pack:${resolvedTarball}`),
     ),
   );
+  assert.doesNotMatch(planText, /lossless/i);
+});
+
+test("behavior eval planner accepts Windows npm-pack paths", () => {
+  const windowsTarball = String.raw`D:\a\crabpot\fixtures\sample-context-engine-0.0.0.tgz`;
+  const plan = buildBehaviorEvalPlan({
+    profile: {
+      ...genericProfile,
+      plugins: [
+        {
+          ...genericProfile.plugins[0],
+          source: "npm-pack",
+          path: windowsTarball,
+        },
+      ],
+    },
+    scenario: genericScenario,
+  });
+
+  assert.equal(plan.summary.plugins, `npm-pack:${windowsTarball}`);
 });
 
 test("behavior eval profile resolver absolutizes local OpenClaw paths", () => {
@@ -183,6 +241,28 @@ test("behavior eval planner rejects shell-shaped npm coordinates", () => {
         scenario,
       }),
     /plugin spec/,
+  );
+
+  assert.throws(
+    () =>
+      resolveBehaviorEvalProfile({
+        profile: genericProfile,
+        overrides: {
+          pluginSpec: "npm-pack:fixtures/sample-context-engine-0.0.0.tgz; echo leaked",
+        },
+      }),
+    /npm-pack path/,
+  );
+
+  assert.throws(
+    () =>
+      resolveBehaviorEvalProfile({
+        profile: genericProfile,
+        overrides: {
+          pluginSpec: "npm-pack:",
+        },
+      }),
+    /npm-pack path/,
   );
 });
 

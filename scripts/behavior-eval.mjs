@@ -2042,7 +2042,7 @@ function formatPluginInstallSpec(plugin) {
 }
 
 function resolvePluginOverrideSpec(spec) {
-  const npmPackPath = normalizeNpmPackPluginSpec(spec);
+  const npmPackPath = resolveNpmPackPluginPath(spec);
   if (npmPackPath !== null) {
     return { source: "npm-pack", path: npmPackPath };
   }
@@ -2053,12 +2053,20 @@ function normalizeNpmPluginSpec(spec) {
   return spec.startsWith("npm:") ? spec.slice("npm:".length) : spec;
 }
 
-function normalizeNpmPackPluginSpec(spec) {
-  return spec.startsWith("npm-pack:") ? spec.slice("npm-pack:".length) : null;
+function resolveNpmPackPluginPath(spec) {
+  if (!spec.startsWith("npm-pack:")) {
+    return null;
+  }
+  const rawPath = spec.slice("npm-pack:".length);
+  return rawPath.trim().length === 0 ? rawPath : path.resolve(rawPath);
 }
 
 function isSafeNpmCoordinate(value) {
   return /^[A-Za-z0-9_./:@+-]+$/.test(value);
+}
+
+function isSafeNpmPackPath(value) {
+  return /^[A-Za-z0-9_./:\\@+-]+$/.test(value);
 }
 
 function fixtureInstallToken(fixture) {
@@ -2142,7 +2150,7 @@ function validateBehaviorEvalProfile(profile, label) {
       }
       if (plugin.source === "npm-pack" && (typeof plugin.path !== "string" || plugin.path.trim().length === 0)) {
         errors.push(`${plugin.id}: plugin npm-pack path must be set`);
-      } else if (plugin.source === "npm-pack" && !isSafeNpmCoordinate(plugin.path)) {
+      } else if (plugin.source === "npm-pack" && !isSafeNpmPackPath(plugin.path)) {
         errors.push(`${plugin.id}: plugin npm-pack path must not contain shell metacharacters`);
       }
       if (plugin.source === "fixture" && !/^[a-z0-9][a-z0-9-]*$/.test(plugin.fixture ?? "")) {
@@ -2215,7 +2223,10 @@ function indentBlock(value, indent) {
 }
 
 function shellQuote(value) {
-  if (/^[A-Za-z0-9_./:=@+-]+$/.test(value)) {
+  const safePattern = process.platform === "win32"
+    ? /^[A-Za-z0-9_./:\\=@+-]+$/
+    : /^[A-Za-z0-9_./:=@+-]+$/;
+  if (safePattern.test(value)) {
     return value;
   }
   return `'${value.replaceAll("'", "'\\''")}'`;
