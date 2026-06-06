@@ -647,7 +647,7 @@
       "source": "plugins/openclaw-telemetry/index.ts:43"
     },
     {
-      "id": "hook.before_prompt_build:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1375",
+      "id": "hook.before_prompt_build:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1450",
       "fixture": "lossless-claw",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -677,10 +677,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1375"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1450"
     },
     {
-      "id": "hook.before_reset:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1368",
+      "id": "hook.before_reset:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1443",
       "fixture": "lossless-claw",
       "kind": "hook",
       "seam": "before_reset",
@@ -697,10 +697,10 @@
         "hook": "before_reset",
         "fixture": "lossless-claw"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1368"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1443"
     },
     {
-      "id": "hook.gateway_start:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1727",
+      "id": "hook.gateway_start:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1807",
       "fixture": "lossless-claw",
       "kind": "hook",
       "seam": "gateway_start",
@@ -717,10 +717,10 @@
         "hook": "gateway_start",
         "fixture": "lossless-claw"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1727"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1807"
     },
     {
-      "id": "hook.gateway_stop:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1751",
+      "id": "hook.gateway_stop:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1831",
       "fixture": "lossless-claw",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -737,10 +737,10 @@
         "hook": "gateway_stop",
         "fixture": "lossless-claw"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1751"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1831"
     },
     {
-      "id": "hook.session_end:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1378",
+      "id": "hook.session_end:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1453",
       "fixture": "lossless-claw",
       "kind": "hook",
       "seam": "session_end",
@@ -757,7 +757,7 @@
         "hook": "session_end",
         "fixture": "lossless-claw"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1378"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1453"
     },
     {
       "id": "hook.before_agent_start:connectclaw:plugins-connectclaw-packages-plugin-src-hooks-ts-17",
@@ -2014,7 +2014,7 @@
       "source": "plugins/feishu/.crabpot-package/dist/subagent-hooks-api.js:12"
     },
     {
-      "id": "hook.inbound_claim:codex:plugins-codex-crabpot-package-dist-index-js-1559",
+      "id": "hook.inbound_claim:codex:plugins-codex-crabpot-package-dist-index-js-1562",
       "fixture": "codex",
       "kind": "hook",
       "seam": "inbound_claim",
@@ -2039,7 +2039,7 @@
         "channelId": "fixture-channel",
         "accountId": "fixture-account"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1559"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1562"
     },
     {
       "id": "hook.before_prompt_build:diffs:plugins-diffs-crabpot-package-dist-index-js-2427",
@@ -3531,7 +3531,7 @@
       "source": "plugins/openclaw-telemetry/index.ts:10"
     },
     {
-      "id": "registration.registerCommand:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1414",
+      "id": "registration.registerCommand:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1489",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerCommand",
@@ -3555,10 +3555,10 @@
           "execute"
         ]
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1414"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1489"
     },
     {
-      "id": "registration.registerContextEngine:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1389",
+      "id": "registration.registerContextEngine:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1464",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerContextEngine",
@@ -3579,10 +3579,10 @@
         "callableProperties": [],
         "reason": "context engine factories are captured as registration metadata; engine startup remains isolated opt-in"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1389"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1464"
     },
     {
-      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1391",
+      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1466",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerTool",
@@ -3611,10 +3611,10 @@
           "execute"
         ]
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1391"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1466"
     },
     {
-      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1395",
+      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1470",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerTool",
@@ -3643,10 +3643,10 @@
           "execute"
         ]
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1395"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1470"
     },
     {
-      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1399",
+      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1474",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerTool",
@@ -3675,10 +3675,10 @@
           "execute"
         ]
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1399"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1474"
     },
     {
-      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1403",
+      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1478",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerTool",
@@ -3707,7 +3707,7 @@
           "execute"
         ]
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1403"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1478"
     },
     {
       "id": "registration.registerCommand:connectclaw:plugins-connectclaw-packages-plugin-src-commands-ts-18",
@@ -8184,7 +8184,7 @@
       "source": "plugins/brave-plugin/.crabpot-package/dist/index.js:9"
     },
     {
-      "id": "registration.definePluginEntry:codex:plugins-codex-crabpot-package-dist-index-js-1496",
+      "id": "registration.definePluginEntry:codex:plugins-codex-crabpot-package-dist-index-js-1499",
       "fixture": "codex",
       "kind": "registration",
       "seam": "definePluginEntry",
@@ -8205,10 +8205,10 @@
         "callableProperties": [],
         "reason": "entry wrapper metadata is captured before plugin runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1496"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1499"
     },
     {
-      "id": "registration.registerAgentHarness:codex:plugins-codex-crabpot-package-dist-index-js-1503",
+      "id": "registration.registerAgentHarness:codex:plugins-codex-crabpot-package-dist-index-js-1506",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerAgentHarness",
@@ -8225,10 +8225,10 @@
         "callableProperties": [],
         "reason": "agent harness factories are captured as registration metadata; agent runtime execution remains isolated opt-in"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1503"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1506"
     },
     {
-      "id": "registration.registerCommand:codex:plugins-codex-crabpot-package-dist-index-js-1509",
+      "id": "registration.registerCommand:codex:plugins-codex-crabpot-package-dist-index-js-1512",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerCommand",
@@ -8252,10 +8252,10 @@
           "execute"
         ]
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1509"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1512"
     },
     {
-      "id": "registration.registerMediaUnderstandingProvider:codex:plugins-codex-crabpot-package-dist-index-js-1505",
+      "id": "registration.registerMediaUnderstandingProvider:codex:plugins-codex-crabpot-package-dist-index-js-1508",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerMediaUnderstandingProvider",
@@ -8272,10 +8272,10 @@
         "callableProperties": [],
         "reason": "media understanding providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1505"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1508"
     },
     {
-      "id": "registration.registerMigrationProvider:codex:plugins-codex-crabpot-package-dist-index-js-1506",
+      "id": "registration.registerMigrationProvider:codex:plugins-codex-crabpot-package-dist-index-js-1509",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerMigrationProvider",
@@ -8292,10 +8292,10 @@
         "callableProperties": [],
         "reason": "migration providers are captured as registration metadata before migration runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1506"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1509"
     },
     {
-      "id": "registration.registerNodeHostCommand:codex:plugins-codex-crabpot-package-dist-index-js-1507",
+      "id": "registration.registerNodeHostCommand:codex:plugins-codex-crabpot-package-dist-index-js-1510",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerNodeHostCommand",
@@ -8312,10 +8312,10 @@
         "callableProperties": [],
         "reason": "node host commands are captured as registration metadata before host process execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1507"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1510"
     },
     {
-      "id": "registration.registerNodeInvokePolicy:codex:plugins-codex-crabpot-package-dist-index-js-1508",
+      "id": "registration.registerNodeInvokePolicy:codex:plugins-codex-crabpot-package-dist-index-js-1511",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerNodeInvokePolicy",
@@ -8332,10 +8332,10 @@
         "callableProperties": [],
         "reason": "node invoke policies are captured as registration metadata before host authorization checks"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1508"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1511"
     },
     {
-      "id": "registration.registerProvider:codex:plugins-codex-crabpot-package-dist-index-js-1504",
+      "id": "registration.registerProvider:codex:plugins-codex-crabpot-package-dist-index-js-1507",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerProvider",
@@ -8352,7 +8352,7 @@
         "callableProperties": [],
         "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1504"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1507"
     },
     {
       "id": "registration.definePluginEntry:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-dist-index-js-626",
@@ -9472,7 +9472,7 @@
       "source": "plugins/openclaw-qqbot/.crabpot-package/dist/api.js:511"
     },
     {
-      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-gnvuSqEF-js-616",
+      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-616",
       "fixture": "whatsapp",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -9497,7 +9497,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/whatsapp/.crabpot-package/dist/channel-gnvuSqEF.js:616"
+      "source": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:616"
     },
     {
       "id": "registration.defineBundledChannelEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-index-js-3",

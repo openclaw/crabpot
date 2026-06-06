@@ -3429,7 +3429,7 @@
     {
       "id": "compatibility-report.deprecation-warnings",
       "action": "pass",
-      "message": "41 deprecated compat seams tracked",
+      "message": "40 deprecated compat seams tracked",
       "evidence": [
         "a2a-gateway:legacy-root-sdk-import",
         "agentchat:channel-env-vars",
@@ -3450,7 +3450,6 @@
         "kitchen-sink:legacy-before-agent-start",
         "kitchen-sink:legacy-root-sdk-import",
         "llm-trace-phoenix:legacy-root-sdk-import",
-        "lossless-claw:legacy-root-sdk-import",
         "matrix:channel-env-vars",
         "mattermost:channel-env-vars",
         "memory-tencentdb:legacy-root-sdk-import",

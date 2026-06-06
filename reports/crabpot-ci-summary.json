@@ -1,22 +1,22 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "dependabot",
+  "mode": "check",
   "openclawLabel": "openclaw@latest (2026.6.1, 2e08f0f4221f)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 137,
+    "warnings": 135,
     "suggestions": 149,
-    "issues": 286,
+    "issues": 284,
     "p0Issues": 1,
     "p1Issues": 17,
     "liveIssues": 1,
     "liveP0Issues": 1,
     "compatGaps": 0,
-    "deprecationWarnings": 41,
+    "deprecationWarnings": 40,
     "inspectorGaps": 158,
-    "upstreamIssues": 86,
+    "upstreamIssues": 85,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 16,
     "platformContainerRisks": 16,
     "loaderJitiCandidates": 22,
-    "importLoopP50Ms": 2163,
-    "importLoopP95Ms": 2181,
+    "importLoopP50Ms": 2374,
+    "importLoopP95Ms": 2393,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 109,
-    "importLoopOpenClawActivationP50Ms": 0.3,
+    "importLoopOpenClawImportP50Ms": 112.6,
+    "importLoopOpenClawActivationP50Ms": 0.4,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 11.7,
+    "importLoopMaxRssMb": 1.4,
     "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 252,
-    "importLoopCpuSampleCount": 252
+    "importLoopRssSampleCount": 282,
+    "importLoopCpuSampleCount": 282
   },
   "topIssues": [
     {
@@ -420,10 +420,10 @@
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 259.70000000000005 over baseline",
+      "message": "maxPeakRssMb regressed 259.5 over baseline",
       "baseline": 65.1,
-      "current": 324.8,
-      "delta": 259.70000000000005
+      "current": 324.6,
+      "delta": 259.5
     }
   ],
   "artifacts": {
