@@ -1237,8 +1237,8 @@ function startBehaviorEvalMockOpenAiProvider() {
         return;
       }
       writeBehaviorEvalJson(res, 404, { error: "not found" });
-    } catch (error) {
-      writeBehaviorEvalJson(res, 500, { error: formatErrorForReport(error) });
+    } catch {
+      writeBehaviorEvalJson(res, 500, { error: "mock provider request failed" });
     }
   });
 
