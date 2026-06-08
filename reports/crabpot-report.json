@@ -26311,8 +26311,8 @@
         {
           "name": "before_prompt_build",
           "file": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts",
-          "line": 78,
-          "ref": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:78"
+          "line": 80,
+          "ref": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:80"
         },
         {
           "name": "before_tool_call",

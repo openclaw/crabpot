@@ -31382,10 +31382,10 @@
       ],
       "hooks": [
         {
-          "id": "hook.before_prompt_build:nemoclaw:plugins-nemoclaw-nemoclaw-src-runtime-context-ts-78",
+          "id": "hook.before_prompt_build:nemoclaw:plugins-nemoclaw-nemoclaw-src-runtime-context-ts-80",
           "fixture": "nemoclaw",
           "hook": "before_prompt_build",
-          "ref": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:78",
+          "ref": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:80",
           "support": "synthetic-event-required",
           "assertions": [
             "prompt mutation result is preserved",
