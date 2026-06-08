@@ -2014,7 +2014,7 @@
       "source": "plugins/feishu/.crabpot-package/dist/subagent-hooks-api.js:12"
     },
     {
-      "id": "hook.inbound_claim:codex:plugins-codex-crabpot-package-dist-index-js-1562",
+      "id": "hook.inbound_claim:codex:plugins-codex-crabpot-package-dist-index-js-1561",
       "fixture": "codex",
       "kind": "hook",
       "seam": "inbound_claim",
@@ -2039,7 +2039,7 @@
         "channelId": "fixture-channel",
         "accountId": "fixture-account"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1562"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1561"
     },
     {
       "id": "hook.before_prompt_build:diffs:plugins-diffs-crabpot-package-dist-index-js-2427",
@@ -8140,7 +8140,7 @@
       "source": "plugins/synology-chat/.crabpot-package/dist/index.js:3"
     },
     {
-      "id": "registration.definePluginEntry:brave-plugin:plugins-brave-plugin-crabpot-package-dist-index-js-4",
+      "id": "registration.definePluginEntry:brave-plugin:plugins-brave-plugin-crabpot-package-dist-index-js-9",
       "fixture": "brave-plugin",
       "kind": "registration",
       "seam": "definePluginEntry",
@@ -8161,10 +8161,10 @@
         "callableProperties": [],
         "reason": "entry wrapper metadata is captured before plugin runtime execution"
       },
-      "source": "plugins/brave-plugin/.crabpot-package/dist/index.js:4"
+      "source": "plugins/brave-plugin/.crabpot-package/dist/index.js:9"
     },
     {
-      "id": "registration.registerWebSearchProvider:brave-plugin:plugins-brave-plugin-crabpot-package-dist-index-js-9",
+      "id": "registration.registerWebSearchProvider:brave-plugin:plugins-brave-plugin-crabpot-package-dist-index-js-14",
       "fixture": "brave-plugin",
       "kind": "registration",
       "seam": "registerWebSearchProvider",
@@ -8181,10 +8181,10 @@
         "callableProperties": [],
         "reason": "web search providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/brave-plugin/.crabpot-package/dist/index.js:9"
+      "source": "plugins/brave-plugin/.crabpot-package/dist/index.js:14"
     },
     {
-      "id": "registration.definePluginEntry:codex:plugins-codex-crabpot-package-dist-index-js-1499",
+      "id": "registration.definePluginEntry:codex:plugins-codex-crabpot-package-dist-index-js-1498",
       "fixture": "codex",
       "kind": "registration",
       "seam": "definePluginEntry",
@@ -8205,10 +8205,10 @@
         "callableProperties": [],
         "reason": "entry wrapper metadata is captured before plugin runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1499"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1498"
     },
     {
-      "id": "registration.registerAgentHarness:codex:plugins-codex-crabpot-package-dist-index-js-1506",
+      "id": "registration.registerAgentHarness:codex:plugins-codex-crabpot-package-dist-index-js-1505",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerAgentHarness",
@@ -8225,10 +8225,10 @@
         "callableProperties": [],
         "reason": "agent harness factories are captured as registration metadata; agent runtime execution remains isolated opt-in"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1506"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1505"
     },
     {
-      "id": "registration.registerCommand:codex:plugins-codex-crabpot-package-dist-index-js-1512",
+      "id": "registration.registerCommand:codex:plugins-codex-crabpot-package-dist-index-js-1511",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerCommand",
@@ -8252,10 +8252,10 @@
           "execute"
         ]
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1512"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1511"
     },
     {
-      "id": "registration.registerMediaUnderstandingProvider:codex:plugins-codex-crabpot-package-dist-index-js-1508",
+      "id": "registration.registerMediaUnderstandingProvider:codex:plugins-codex-crabpot-package-dist-index-js-1507",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerMediaUnderstandingProvider",
@@ -8272,10 +8272,10 @@
         "callableProperties": [],
         "reason": "media understanding providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1508"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1507"
     },
     {
-      "id": "registration.registerMigrationProvider:codex:plugins-codex-crabpot-package-dist-index-js-1509",
+      "id": "registration.registerMigrationProvider:codex:plugins-codex-crabpot-package-dist-index-js-1508",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerMigrationProvider",
@@ -8292,10 +8292,10 @@
         "callableProperties": [],
         "reason": "migration providers are captured as registration metadata before migration runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1509"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1508"
     },
     {
-      "id": "registration.registerNodeHostCommand:codex:plugins-codex-crabpot-package-dist-index-js-1510",
+      "id": "registration.registerNodeHostCommand:codex:plugins-codex-crabpot-package-dist-index-js-1509",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerNodeHostCommand",
@@ -8312,10 +8312,10 @@
         "callableProperties": [],
         "reason": "node host commands are captured as registration metadata before host process execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1510"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1509"
     },
     {
-      "id": "registration.registerNodeInvokePolicy:codex:plugins-codex-crabpot-package-dist-index-js-1511",
+      "id": "registration.registerNodeInvokePolicy:codex:plugins-codex-crabpot-package-dist-index-js-1510",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerNodeInvokePolicy",
@@ -8332,10 +8332,10 @@
         "callableProperties": [],
         "reason": "node invoke policies are captured as registration metadata before host authorization checks"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1511"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1510"
     },
     {
-      "id": "registration.registerProvider:codex:plugins-codex-crabpot-package-dist-index-js-1507",
+      "id": "registration.registerProvider:codex:plugins-codex-crabpot-package-dist-index-js-1506",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerProvider",
@@ -8352,7 +8352,7 @@
         "callableProperties": [],
         "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1507"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1506"
     },
     {
       "id": "registration.definePluginEntry:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-dist-index-js-626",
@@ -9472,7 +9472,7 @@
       "source": "plugins/openclaw-qqbot/.crabpot-package/dist/api.js:511"
     },
     {
-      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-616",
+      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-616",
       "fixture": "whatsapp",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -9497,7 +9497,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:616"
+      "source": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:616"
     },
     {
       "id": "registration.defineBundledChannelEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-index-js-3",
