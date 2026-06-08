@@ -10,7 +10,7 @@
     "fixtureCount": 60,
     "registrationCount": 343,
     "hookCount": 113,
-    "sdkImportCount": 2331,
+    "sdkImportCount": 2332,
     "packageEntrypointCount": 107,
     "issueProbeCount": 279,
     "inspectorShimRequiredCount": 201,
@@ -26036,10 +26036,10 @@
       "priority": "medium",
       "registrations": [
         {
-          "id": "registration.definePluginEntry:brave-plugin:plugins-brave-plugin-crabpot-package-dist-index-js-4",
+          "id": "registration.definePluginEntry:brave-plugin:plugins-brave-plugin-crabpot-package-dist-index-js-9",
           "fixture": "brave-plugin",
           "registrar": "definePluginEntry",
-          "ref": "plugins/brave-plugin/.crabpot-package/dist/index.js:4",
+          "ref": "plugins/brave-plugin/.crabpot-package/dist/index.js:9",
           "support": "inspector-shim-required",
           "assertions": [
             "entrypoint register function is callable",
@@ -26053,10 +26053,10 @@
           ]
         },
         {
-          "id": "registration.registerWebSearchProvider:brave-plugin:plugins-brave-plugin-crabpot-package-dist-index-js-9",
+          "id": "registration.registerWebSearchProvider:brave-plugin:plugins-brave-plugin-crabpot-package-dist-index-js-14",
           "fixture": "brave-plugin",
           "registrar": "registerWebSearchProvider",
-          "ref": "plugins/brave-plugin/.crabpot-package/dist/index.js:9",
+          "ref": "plugins/brave-plugin/.crabpot-package/dist/index.js:14",
           "support": "target-captured",
           "assertions": [
             "registration arguments are captured"
@@ -26069,10 +26069,10 @@
       "hooks": [],
       "sdkImports": [
         {
-          "id": "sdk.openclaw/plugin-sdk/diagnostic-runtime:brave-plugin:plugins-brave-plugin-crabpot-package-dist-brave-web-search-provider-BzuOscZC-js-2",
+          "id": "sdk.openclaw/plugin-sdk/diagnostic-runtime:brave-plugin:plugins-brave-plugin-crabpot-package-dist-brave-web-search-provider-6mNi77fe-js-2",
           "fixture": "brave-plugin",
           "specifier": "openclaw/plugin-sdk/diagnostic-runtime",
-          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-BzuOscZC.js:2",
+          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-6mNi77fe.js:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26091,10 +26091,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/provider-http:brave-plugin:plugins-brave-plugin-crabpot-package-dist-brave-web-search-provider-runtime-SKsUJmbH-js-2",
+          "id": "sdk.openclaw/plugin-sdk/provider-http:brave-plugin:plugins-brave-plugin-crabpot-package-dist-brave-web-search-provider-runtime-D-z2neAi-js-2",
           "fixture": "brave-plugin",
           "specifier": "openclaw/plugin-sdk/provider-http",
-          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-SKsUJmbH.js:2",
+          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-D_z2neAi.js:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26102,10 +26102,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/provider-web-search:brave-plugin:plugins-brave-plugin-crabpot-package-dist-brave-web-search-provider-runtime-SKsUJmbH-js-3",
+          "id": "sdk.openclaw/plugin-sdk/provider-web-search:brave-plugin:plugins-brave-plugin-crabpot-package-dist-brave-web-search-provider-runtime-D-z2neAi-js-3",
           "fixture": "brave-plugin",
           "specifier": "openclaw/plugin-sdk/provider-web-search",
-          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-SKsUJmbH.js:3",
+          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-D_z2neAi.js:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26113,10 +26113,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/provider-web-search-config-contract:brave-plugin:plugins-brave-plugin-crabpot-package-dist-brave-web-search-provider-BzuOscZC-js-3",
+          "id": "sdk.openclaw/plugin-sdk/provider-web-search-config-contract:brave-plugin:plugins-brave-plugin-crabpot-package-dist-brave-web-search-provider-6mNi77fe-js-3",
           "fixture": "brave-plugin",
           "specifier": "openclaw/plugin-sdk/provider-web-search-config-contract",
-          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-BzuOscZC.js:3",
+          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-6mNi77fe.js:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26135,10 +26135,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/runtime-env:brave-plugin:plugins-brave-plugin-crabpot-package-dist-brave-web-search-provider-runtime-SKsUJmbH-js-4",
+          "id": "sdk.openclaw/plugin-sdk/runtime-env:brave-plugin:plugins-brave-plugin-crabpot-package-dist-brave-web-search-provider-runtime-D-z2neAi-js-4",
           "fixture": "brave-plugin",
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-SKsUJmbH.js:4",
+          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-D_z2neAi.js:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26146,10 +26146,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:brave-plugin:plugins-brave-plugin-crabpot-package-dist-brave-web-search-provider-runtime-SKsUJmbH-js-5",
+          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:brave-plugin:plugins-brave-plugin-crabpot-package-dist-brave-web-search-provider-runtime-D-z2neAi-js-5",
           "fixture": "brave-plugin",
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-SKsUJmbH.js:5",
+          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-D_z2neAi.js:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26157,10 +26157,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:brave-plugin:plugins-brave-plugin-crabpot-package-dist-brave-web-search-provider-BzuOscZC-js-4",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:brave-plugin:plugins-brave-plugin-crabpot-package-dist-brave-web-search-provider-6mNi77fe-js-4",
           "fixture": "brave-plugin",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-BzuOscZC.js:4",
+          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-6mNi77fe.js:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26168,10 +26168,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:brave-plugin:plugins-brave-plugin-crabpot-package-dist-brave-web-search-provider-runtime-SKsUJmbH-js-1",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:brave-plugin:plugins-brave-plugin-crabpot-package-dist-brave-web-search-provider-runtime-D-z2neAi-js-1",
           "fixture": "brave-plugin",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-SKsUJmbH.js:1",
+          "ref": "plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider.runtime-D_z2neAi.js:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26222,10 +26222,10 @@
       "priority": "medium",
       "registrations": [
         {
-          "id": "registration.definePluginEntry:codex:plugins-codex-crabpot-package-dist-index-js-1499",
+          "id": "registration.definePluginEntry:codex:plugins-codex-crabpot-package-dist-index-js-1498",
           "fixture": "codex",
           "registrar": "definePluginEntry",
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:1499",
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:1498",
           "support": "inspector-shim-required",
           "assertions": [
             "entrypoint register function is callable",
@@ -26239,10 +26239,10 @@
           ]
         },
         {
-          "id": "registration.registerAgentHarness:codex:plugins-codex-crabpot-package-dist-index-js-1506",
+          "id": "registration.registerAgentHarness:codex:plugins-codex-crabpot-package-dist-index-js-1505",
           "fixture": "codex",
           "registrar": "registerAgentHarness",
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:1506",
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:1505",
           "support": "target-captured",
           "assertions": [
             "registration arguments are captured"
@@ -26252,10 +26252,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:codex:plugins-codex-crabpot-package-dist-index-js-1512",
+          "id": "registration.registerCommand:codex:plugins-codex-crabpot-package-dist-index-js-1511",
           "fixture": "codex",
           "registrar": "registerCommand",
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:1512",
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:1511",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -26269,9 +26269,22 @@
           ]
         },
         {
-          "id": "registration.registerMediaUnderstandingProvider:codex:plugins-codex-crabpot-package-dist-index-js-1508",
+          "id": "registration.registerMediaUnderstandingProvider:codex:plugins-codex-crabpot-package-dist-index-js-1507",
           "fixture": "codex",
           "registrar": "registerMediaUnderstandingProvider",
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:1507",
+          "support": "target-captured",
+          "assertions": [
+            "registration arguments are captured"
+          ],
+          "syntheticArguments": [
+            {}
+          ]
+        },
+        {
+          "id": "registration.registerMigrationProvider:codex:plugins-codex-crabpot-package-dist-index-js-1508",
+          "fixture": "codex",
+          "registrar": "registerMigrationProvider",
           "ref": "plugins/codex/.crabpot-package/dist/index.js:1508",
           "support": "target-captured",
           "assertions": [
@@ -26282,11 +26295,11 @@
           ]
         },
         {
-          "id": "registration.registerMigrationProvider:codex:plugins-codex-crabpot-package-dist-index-js-1509",
+          "id": "registration.registerNodeHostCommand:codex:plugins-codex-crabpot-package-dist-index-js-1509",
           "fixture": "codex",
-          "registrar": "registerMigrationProvider",
+          "registrar": "registerNodeHostCommand",
           "ref": "plugins/codex/.crabpot-package/dist/index.js:1509",
-          "support": "target-captured",
+          "support": "inspector-shim-required",
           "assertions": [
             "registration arguments are captured"
           ],
@@ -26295,9 +26308,9 @@
           ]
         },
         {
-          "id": "registration.registerNodeHostCommand:codex:plugins-codex-crabpot-package-dist-index-js-1510",
+          "id": "registration.registerNodeInvokePolicy:codex:plugins-codex-crabpot-package-dist-index-js-1510",
           "fixture": "codex",
-          "registrar": "registerNodeHostCommand",
+          "registrar": "registerNodeInvokePolicy",
           "ref": "plugins/codex/.crabpot-package/dist/index.js:1510",
           "support": "inspector-shim-required",
           "assertions": [
@@ -26308,23 +26321,10 @@
           ]
         },
         {
-          "id": "registration.registerNodeInvokePolicy:codex:plugins-codex-crabpot-package-dist-index-js-1511",
-          "fixture": "codex",
-          "registrar": "registerNodeInvokePolicy",
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:1511",
-          "support": "inspector-shim-required",
-          "assertions": [
-            "registration arguments are captured"
-          ],
-          "syntheticArguments": [
-            {}
-          ]
-        },
-        {
-          "id": "registration.registerProvider:codex:plugins-codex-crabpot-package-dist-index-js-1507",
+          "id": "registration.registerProvider:codex:plugins-codex-crabpot-package-dist-index-js-1506",
           "fixture": "codex",
           "registrar": "registerProvider",
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:1507",
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:1506",
           "support": "target-captured",
           "assertions": [
             "registration arguments are captured"
@@ -26336,10 +26336,10 @@
       ],
       "hooks": [
         {
-          "id": "hook.inbound_claim:codex:plugins-codex-crabpot-package-dist-index-js-1562",
+          "id": "hook.inbound_claim:codex:plugins-codex-crabpot-package-dist-index-js-1561",
           "fixture": "codex",
           "hook": "inbound_claim",
-          "ref": "plugins/codex/.crabpot-package/dist/index.js:1562",
+          "ref": "plugins/codex/.crabpot-package/dist/index.js:1561",
           "support": "synthetic-event-required",
           "assertions": [
             "claim payload preserves channel/source identity",
@@ -26364,10 +26364,10 @@
       ],
       "sdkImports": [
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness:codex:plugins-codex-crabpot-package-dist-run-attempt-DM53zFlW-js-1195",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness:codex:plugins-codex-crabpot-package-dist-run-attempt-CWfXFq9Q-js-1323",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DM53zFlW.js:1195",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CWfXFq9Q.js:1323",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26375,10 +26375,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness:codex:plugins-codex-crabpot-package-dist-side-question-dIZf9RBV-js-350",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness:codex:plugins-codex-crabpot-package-dist-side-question-BEpALo9c-js-350",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness",
-          "ref": "plugins/codex/.crabpot-package/dist/side-question-dIZf9RBV.js:350",
+          "ref": "plugins/codex/.crabpot-package/dist/side-question-BEpALo9c.js:350",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26386,10 +26386,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-client-BnOmn0y-js-3",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-client-kMCtlApt-js-3",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/client-BnOmn0y-.js:3",
+          "ref": "plugins/codex/.crabpot-package/dist/client-kMCtlApt.js:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26397,10 +26397,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-compact-D1dSrNrT-js-5",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-compact-CwnPeYnM-js-6",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/compact-D1dSrNrT.js:5",
+          "ref": "plugins/codex/.crabpot-package/dist/compact-CwnPeYnM.js:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26408,10 +26408,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-CqVPKJPp-js-14",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-CzpvaBs1-js-14",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CqVPKJPp.js:14",
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CzpvaBs1.js:14",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26419,10 +26419,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-native-hook-relay-CIJt8cLN-js-8",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-native-hook-relay-DZ3Oon0b-js-8",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/native-hook-relay-CIJt8cLN.js:8",
+          "ref": "plugins/codex/.crabpot-package/dist/native-hook-relay-DZ3Oon0b.js:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26430,10 +26430,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DM53zFlW-js-19",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-CWfXFq9Q-js-19",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DM53zFlW.js:19",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CWfXFq9Q.js:19",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26441,10 +26441,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-session-binding-DWiEGATW-js-3",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-session-binding-BgTv-YGm-js-3",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/session-binding-DWiEGATW.js:3",
+          "ref": "plugins/codex/.crabpot-package/dist/session-binding-BgTv_YGm.js:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26452,10 +26452,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-side-question-dIZf9RBV-js-11",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-side-question-BEpALo9c-js-11",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/side-question-dIZf9RBV.js:11",
+          "ref": "plugins/codex/.crabpot-package/dist/side-question-BEpALo9c.js:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26463,10 +26463,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-6nrEQZMV-js-10",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-BJsazZ8j-js-10",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-6nrEQZMV.js:10",
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-BJsazZ8j.js:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26474,10 +26474,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-task-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DM53zFlW-js-34",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness-task-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-CWfXFq9Q-js-34",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness-task-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DM53zFlW.js:34",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CWfXFq9Q.js:34",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26485,10 +26485,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-command-handlers-VhJdcXcI-js-14",
+          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-command-handlers-DMn2M7W7-js-14",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/command-handlers-VhJdcXcI.js:14",
+          "ref": "plugins/codex/.crabpot-package/dist/command-handlers-DMn2M7W7.js:14",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26496,10 +26496,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-CqVPKJPp-js-18",
+          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-CzpvaBs1-js-18",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CqVPKJPp.js:18",
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CzpvaBs1.js:18",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26518,10 +26518,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DM53zFlW-js-27",
+          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-CWfXFq9Q-js-27",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DM53zFlW.js:27",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CWfXFq9Q.js:27",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26529,10 +26529,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-session-binding-DWiEGATW-js-5",
+          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-session-binding-BgTv-YGm-js-5",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/session-binding-DWiEGATW.js:5",
+          "ref": "plugins/codex/.crabpot-package/dist/session-binding-BgTv_YGm.js:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26540,10 +26540,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-shared-client-DUWLidr5-js-10",
+          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-shared-client-xytpSKD0-js-10",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/shared-client-DUWLidr5.js:10",
+          "ref": "plugins/codex/.crabpot-package/dist/shared-client-xytpSKD0.js:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26551,10 +26551,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-sessions:codex:plugins-codex-crabpot-package-dist-run-attempt-DM53zFlW-js-30",
+          "id": "sdk.openclaw/plugin-sdk/agent-sessions:codex:plugins-codex-crabpot-package-dist-run-attempt-CWfXFq9Q-js-30",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-sessions",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DM53zFlW.js:30",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CWfXFq9Q.js:30",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26562,10 +26562,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/codex-mcp-projection:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-6nrEQZMV-js-11",
+          "id": "sdk.openclaw/plugin-sdk/codex-mcp-projection:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-BJsazZ8j-js-11",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/codex-mcp-projection",
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-6nrEQZMV.js:11",
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-BJsazZ8j.js:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26595,10 +26595,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/diagnostic-runtime:codex:plugins-codex-crabpot-package-dist-native-hook-relay-CIJt8cLN-js-9",
+          "id": "sdk.openclaw/plugin-sdk/diagnostic-runtime:codex:plugins-codex-crabpot-package-dist-native-hook-relay-DZ3Oon0b-js-9",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/diagnostic-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/native-hook-relay-CIJt8cLN.js:9",
+          "ref": "plugins/codex/.crabpot-package/dist/native-hook-relay-DZ3Oon0b.js:9",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26606,10 +26606,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/diagnostic-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DM53zFlW-js-26",
+          "id": "sdk.openclaw/plugin-sdk/diagnostic-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-CWfXFq9Q-js-26",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/diagnostic-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DM53zFlW.js:26",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CWfXFq9Q.js:26",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26617,10 +26617,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/diagnostic-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-6nrEQZMV-js-17",
+          "id": "sdk.openclaw/plugin-sdk/diagnostic-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-BJsazZ8j-js-17",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/diagnostic-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-6nrEQZMV.js:17",
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-BJsazZ8j.js:17",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26628,10 +26628,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/exec-approvals-runtime:codex:plugins-codex-crabpot-package-dist-config-AlzuNKCY-js-5",
+          "id": "sdk.openclaw/plugin-sdk/exec-approvals-runtime:codex:plugins-codex-crabpot-package-dist-config-BT6SLiE6-js-5",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/exec-approvals-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/config-AlzuNKCY.js:5",
+          "ref": "plugins/codex/.crabpot-package/dist/config-BT6SLiE6.js:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26639,10 +26639,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/exec-approvals-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-CqVPKJPp-js-11",
+          "id": "sdk.openclaw/plugin-sdk/exec-approvals-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-CzpvaBs1-js-11",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/exec-approvals-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CqVPKJPp.js:11",
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CzpvaBs1.js:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26650,10 +26650,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/exec-approvals-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DM53zFlW-js-17",
+          "id": "sdk.openclaw/plugin-sdk/exec-approvals-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-CWfXFq9Q-js-17",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/exec-approvals-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DM53zFlW.js:17",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CWfXFq9Q.js:17",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26661,10 +26661,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/image-generation:codex:plugins-codex-crabpot-package-dist-run-attempt-DM53zFlW-js-32",
+          "id": "sdk.openclaw/plugin-sdk/image-generation:codex:plugins-codex-crabpot-package-dist-run-attempt-CWfXFq9Q-js-32",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/image-generation",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DM53zFlW.js:32",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CWfXFq9Q.js:32",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26672,10 +26672,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/inline-image-data-url-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-6nrEQZMV-js-14",
+          "id": "sdk.openclaw/plugin-sdk/inline-image-data-url-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-BJsazZ8j-js-14",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/inline-image-data-url-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-6nrEQZMV.js:14",
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-BJsazZ8j.js:14",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26705,10 +26705,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/logging-core:codex:plugins-codex-crabpot-package-dist-run-attempt-DM53zFlW-js-23",
+          "id": "sdk.openclaw/plugin-sdk/logging-core:codex:plugins-codex-crabpot-package-dist-run-attempt-CWfXFq9Q-js-23",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/logging-core",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DM53zFlW.js:23",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CWfXFq9Q.js:23",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26716,10 +26716,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/logging-core:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-6nrEQZMV-js-13",
+          "id": "sdk.openclaw/plugin-sdk/logging-core:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-BJsazZ8j-js-13",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/logging-core",
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-6nrEQZMV.js:13",
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-BJsazZ8j.js:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26727,10 +26727,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/media-store:codex:plugins-codex-crabpot-package-dist-run-attempt-DM53zFlW-js-33",
+          "id": "sdk.openclaw/plugin-sdk/media-store:codex:plugins-codex-crabpot-package-dist-run-attempt-CWfXFq9Q-js-33",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/media-store",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DM53zFlW.js:33",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CWfXFq9Q.js:33",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26760,10 +26760,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-command-handlers-VhJdcXcI-js-11",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-command-handlers-DMn2M7W7-js-11",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/command-handlers-VhJdcXcI.js:11",
+          "ref": "plugins/codex/.crabpot-package/dist/command-handlers-DMn2M7W7.js:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26771,10 +26771,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-config-AlzuNKCY-js-1",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-config-BT6SLiE6-js-1",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/config-AlzuNKCY.js:1",
+          "ref": "plugins/codex/.crabpot-package/dist/config-BT6SLiE6.js:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26782,10 +26782,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-CqVPKJPp-js-9",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-CzpvaBs1-js-9",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CqVPKJPp.js:9",
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CzpvaBs1.js:9",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26815,10 +26815,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-native-hook-relay-CIJt8cLN-js-4",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-native-hook-relay-DZ3Oon0b-js-4",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/native-hook-relay-CIJt8cLN.js:4",
+          "ref": "plugins/codex/.crabpot-package/dist/native-hook-relay-DZ3Oon0b.js:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26826,10 +26826,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-notification-correlation-BykOI-jh-js-2",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-notification-correlation-o8quHmTK-js-2",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/notification-correlation-BykOI_jh.js:2",
+          "ref": "plugins/codex/.crabpot-package/dist/notification-correlation-o8quHmTK.js:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26837,10 +26837,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DM53zFlW-js-14",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-CWfXFq9Q-js-14",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DM53zFlW.js:14",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CWfXFq9Q.js:14",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26848,10 +26848,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-6nrEQZMV-js-7",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-BJsazZ8j-js-7",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-6nrEQZMV.js:7",
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-BJsazZ8j.js:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26892,10 +26892,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/plugin-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-6nrEQZMV-js-12",
+          "id": "sdk.openclaw/plugin-sdk/plugin-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-BJsazZ8j-js-12",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/plugin-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-6nrEQZMV.js:12",
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-BJsazZ8j.js:12",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26936,10 +26936,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/routing:codex:plugins-codex-crabpot-package-dist-config-AlzuNKCY-js-6",
+          "id": "sdk.openclaw/plugin-sdk/routing:codex:plugins-codex-crabpot-package-dist-config-BT6SLiE6-js-6",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/routing",
-          "ref": "plugins/codex/.crabpot-package/dist/config-AlzuNKCY.js:6",
+          "ref": "plugins/codex/.crabpot-package/dist/config-BT6SLiE6.js:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26947,10 +26947,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/routing:codex:plugins-codex-crabpot-package-dist-native-hook-relay-CIJt8cLN-js-6",
+          "id": "sdk.openclaw/plugin-sdk/routing:codex:plugins-codex-crabpot-package-dist-native-hook-relay-DZ3Oon0b-js-6",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/routing",
-          "ref": "plugins/codex/.crabpot-package/dist/native-hook-relay-CIJt8cLN.js:6",
+          "ref": "plugins/codex/.crabpot-package/dist/native-hook-relay-DZ3Oon0b.js:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26958,10 +26958,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/sandbox:codex:plugins-codex-crabpot-package-dist-run-attempt-DM53zFlW-js-28",
+          "id": "sdk.openclaw/plugin-sdk/sandbox:codex:plugins-codex-crabpot-package-dist-run-attempt-CWfXFq9Q-js-28",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/sandbox",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DM53zFlW.js:28",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CWfXFq9Q.js:28",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26969,10 +26969,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/sandbox:codex:plugins-codex-crabpot-package-dist-sandbox-guard-DMCJlzmz-js-2",
+          "id": "sdk.openclaw/plugin-sdk/sandbox:codex:plugins-codex-crabpot-package-dist-sandbox-guard-C-Yv9uwY-js-2",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/sandbox",
-          "ref": "plugins/codex/.crabpot-package/dist/sandbox-guard-DMCJlzmz.js:2",
+          "ref": "plugins/codex/.crabpot-package/dist/sandbox-guard-C-Yv9uwY.js:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26991,10 +26991,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/security-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DM53zFlW-js-29",
+          "id": "sdk.openclaw/plugin-sdk/security-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-CWfXFq9Q-js-29",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/security-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DM53zFlW.js:29",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CWfXFq9Q.js:29",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27002,10 +27002,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/security-runtime:codex:plugins-codex-crabpot-package-dist-shared-client-DUWLidr5-js-12",
+          "id": "sdk.openclaw/plugin-sdk/security-runtime:codex:plugins-codex-crabpot-package-dist-shared-client-xytpSKD0-js-12",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/security-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/shared-client-DUWLidr5.js:12",
+          "ref": "plugins/codex/.crabpot-package/dist/shared-client-xytpSKD0.js:12",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27013,10 +27013,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/session-store-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-CqVPKJPp-js-19",
+          "id": "sdk.openclaw/plugin-sdk/session-store-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-CzpvaBs1-js-19",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/session-store-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CqVPKJPp.js:19",
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CzpvaBs1.js:19",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27024,10 +27024,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/session-store-runtime:codex:plugins-codex-crabpot-package-dist-sandbox-guard-DMCJlzmz-js-1",
+          "id": "sdk.openclaw/plugin-sdk/session-store-runtime:codex:plugins-codex-crabpot-package-dist-sandbox-guard-C-Yv9uwY-js-1",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/session-store-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/sandbox-guard-DMCJlzmz.js:1",
+          "ref": "plugins/codex/.crabpot-package/dist/sandbox-guard-C-Yv9uwY.js:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27035,10 +27035,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-command-handlers-VhJdcXcI-js-13",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-command-handlers-DMn2M7W7-js-13",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/command-handlers-VhJdcXcI.js:13",
+          "ref": "plugins/codex/.crabpot-package/dist/command-handlers-DMn2M7W7.js:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27046,10 +27046,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-config-AlzuNKCY-js-7",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-config-BT6SLiE6-js-7",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/config-AlzuNKCY.js:7",
+          "ref": "plugins/codex/.crabpot-package/dist/config-BT6SLiE6.js:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27057,10 +27057,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-CqVPKJPp-js-12",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-CzpvaBs1-js-12",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CqVPKJPp.js:12",
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CzpvaBs1.js:12",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27079,10 +27079,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-models-DAJvlyJu-js-3",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-models-DXorTaja-js-3",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/models-DAJvlyJu.js:3",
+          "ref": "plugins/codex/.crabpot-package/dist/models-DXorTaja.js:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27090,10 +27090,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-native-hook-relay-CIJt8cLN-js-7",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-native-hook-relay-DZ3Oon0b-js-7",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/native-hook-relay-CIJt8cLN.js:7",
+          "ref": "plugins/codex/.crabpot-package/dist/native-hook-relay-DZ3Oon0b.js:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27101,10 +27101,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-notification-correlation-BykOI-jh-js-3",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-notification-correlation-o8quHmTK-js-3",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/notification-correlation-BykOI_jh.js:3",
+          "ref": "plugins/codex/.crabpot-package/dist/notification-correlation-o8quHmTK.js:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27112,10 +27112,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DM53zFlW-js-18",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-CWfXFq9Q-js-18",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DM53zFlW.js:18",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-CWfXFq9Q.js:18",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27123,10 +27123,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-6nrEQZMV-js-9",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-BJsazZ8j-js-9",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-6nrEQZMV.js:9",
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-BJsazZ8j.js:9",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27134,10 +27134,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/temp-path:codex:plugins-codex-crabpot-package-dist-conversation-binding-CqVPKJPp-js-22",
+          "id": "sdk.openclaw/plugin-sdk/temp-path:codex:plugins-codex-crabpot-package-dist-conversation-binding-CzpvaBs1-js-22",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/temp-path",
-          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CqVPKJPp.js:22",
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CzpvaBs1.js:22",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27145,10 +27145,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/windows-spawn:codex:plugins-codex-crabpot-package-dist-client-BnOmn0y-js-2",
+          "id": "sdk.openclaw/plugin-sdk/windows-spawn:codex:plugins-codex-crabpot-package-dist-client-kMCtlApt-js-2",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/windows-spawn",
-          "ref": "plugins/codex/.crabpot-package/dist/client-BnOmn0y-.js:2",
+          "ref": "plugins/codex/.crabpot-package/dist/client-kMCtlApt.js:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27156,10 +27156,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/windows-spawn:codex:plugins-codex-crabpot-package-dist-config-AlzuNKCY-js-8",
+          "id": "sdk.openclaw/plugin-sdk/windows-spawn:codex:plugins-codex-crabpot-package-dist-config-BT6SLiE6-js-8",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/windows-spawn",
-          "ref": "plugins/codex/.crabpot-package/dist/config-AlzuNKCY.js:8",
+          "ref": "plugins/codex/.crabpot-package/dist/config-BT6SLiE6.js:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27167,10 +27167,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/windows-spawn:codex:plugins-codex-crabpot-package-dist-conversation-binding-CqVPKJPp-js-13",
+          "id": "sdk.openclaw/plugin-sdk/windows-spawn:codex:plugins-codex-crabpot-package-dist-conversation-binding-CzpvaBs1-js-13",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/windows-spawn",
-          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CqVPKJPp.js:13",
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CzpvaBs1.js:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -28860,10 +28860,10 @@
       "hooks": [],
       "sdkImports": [
         {
-          "id": "sdk.openclaw/plugin-sdk/access-groups:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DNHe6a8p-js-26",
+          "id": "sdk.openclaw/plugin-sdk/access-groups:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-iL9SWAED-js-26",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/access-groups",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DNHe6a8p.js:26",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-iL9SWAED.js:26",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -28882,10 +28882,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-auth-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BYYYPzrA-js-10",
+          "id": "sdk.openclaw/plugin-sdk/approval-auth-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BLMrGYfg-js-11",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-auth-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BYYYPzrA.js:10",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BLMrGYfg.js:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -28893,10 +28893,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-auth-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DNHe6a8p-js-8",
+          "id": "sdk.openclaw/plugin-sdk/approval-auth-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-iL9SWAED-js-8",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-auth-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DNHe6a8p.js:8",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-iL9SWAED.js:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -28904,10 +28904,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-client-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BYYYPzrA-js-11",
+          "id": "sdk.openclaw/plugin-sdk/approval-client-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BLMrGYfg-js-12",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-client-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BYYYPzrA.js:11",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BLMrGYfg.js:12",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -28915,10 +28915,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-delivery-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BYYYPzrA-js-6",
+          "id": "sdk.openclaw/plugin-sdk/approval-delivery-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BLMrGYfg-js-7",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-delivery-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BYYYPzrA.js:6",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BLMrGYfg.js:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -28937,10 +28937,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-handler-adapter-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BYYYPzrA-js-7",
+          "id": "sdk.openclaw/plugin-sdk/approval-handler-adapter-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BLMrGYfg-js-8",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-handler-adapter-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BYYYPzrA.js:7",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BLMrGYfg.js:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -28948,10 +28948,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-handler-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-handler-runtime-DEXmNJcJ-js-5",
+          "id": "sdk.openclaw/plugin-sdk/approval-handler-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-handler-runtime-CjXwuNlq-js-5",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-handler-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-DEXmNJcJ.js:5",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-CjXwuNlq.js:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -28959,10 +28959,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-native-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BYYYPzrA-js-8",
+          "id": "sdk.openclaw/plugin-sdk/approval-native-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BLMrGYfg-js-9",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-native-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BYYYPzrA.js:8",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BLMrGYfg.js:9",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -28970,10 +28970,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-native-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-handler-runtime-DEXmNJcJ-js-4",
+          "id": "sdk.openclaw/plugin-sdk/approval-native-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-handler-runtime-CjXwuNlq-js-4",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-native-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-DEXmNJcJ.js:4",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-CjXwuNlq.js:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -28981,10 +28981,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BYYYPzrA-js-4",
+          "id": "sdk.openclaw/plugin-sdk/approval-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BLMrGYfg-js-4",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BYYYPzrA.js:4",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BLMrGYfg.js:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29025,10 +29025,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-inbound:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DNHe6a8p-js-23",
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-iL9SWAED-js-23",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/channel-inbound",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DNHe6a8p.js:23",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-iL9SWAED.js:23",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29036,10 +29036,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-ingress-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DNHe6a8p-js-27",
+          "id": "sdk.openclaw/plugin-sdk/channel-ingress-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-iL9SWAED-js-27",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/channel-ingress-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DNHe6a8p.js:27",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-iL9SWAED.js:27",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29047,10 +29047,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-mention-gating:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DNHe6a8p-js-28",
+          "id": "sdk.openclaw/plugin-sdk/channel-mention-gating:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-iL9SWAED-js-28",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/channel-mention-gating",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DNHe6a8p.js:28",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-iL9SWAED.js:28",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29058,10 +29058,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-outbound:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BYYYPzrA-js-5",
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BLMrGYfg-js-5",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/channel-outbound",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BYYYPzrA.js:5",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BLMrGYfg.js:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29080,10 +29080,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/cli-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DNHe6a8p-js-19",
+          "id": "sdk.openclaw/plugin-sdk/cli-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-iL9SWAED-js-19",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/cli-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DNHe6a8p.js:19",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-iL9SWAED.js:19",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29102,10 +29102,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/extension-shared:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DNHe6a8p-js-22",
+          "id": "sdk.openclaw/plugin-sdk/extension-shared:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-iL9SWAED-js-22",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/extension-shared",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DNHe6a8p.js:22",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-iL9SWAED.js:22",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29113,10 +29113,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/json-store:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BYYYPzrA-js-19",
+          "id": "sdk.openclaw/plugin-sdk/json-store:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BLMrGYfg-js-20",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/json-store",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BYYYPzrA.js:19",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BLMrGYfg.js:20",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29124,10 +29124,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/json-store:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-request-context-BL0hymyD-js-6",
+          "id": "sdk.openclaw/plugin-sdk/json-store:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-request-context-DsuA124s-js-6",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/json-store",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/request-context-BL0hymyD.js:6",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/request-context-DsuA124s.js:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29135,10 +29135,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/media-mime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DNHe6a8p-js-17",
+          "id": "sdk.openclaw/plugin-sdk/media-mime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-iL9SWAED-js-17",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/media-mime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DNHe6a8p.js:17",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-iL9SWAED.js:17",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29146,10 +29146,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/media-mime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-outbound-CVVQeQxX-js-6",
+          "id": "sdk.openclaw/plugin-sdk/media-mime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-outbound-CEqyriPT-js-6",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/media-mime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/outbound-CVVQeQxX.js:6",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/outbound-CEqyriPT.js:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29190,10 +29190,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DNHe6a8p-js-18",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-iL9SWAED-js-18",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DNHe6a8p.js:18",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-iL9SWAED.js:18",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29223,10 +29223,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-history:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DNHe6a8p-js-29",
+          "id": "sdk.openclaw/plugin-sdk/reply-history:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-iL9SWAED-js-29",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/reply-history",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DNHe6a8p.js:29",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-iL9SWAED.js:29",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29245,10 +29245,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/routing:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BYYYPzrA-js-12",
+          "id": "sdk.openclaw/plugin-sdk/routing:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BLMrGYfg-js-13",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/routing",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BYYYPzrA.js:12",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BLMrGYfg.js:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29267,10 +29267,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/runtime-config-snapshot:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DNHe6a8p-js-20",
+          "id": "sdk.openclaw/plugin-sdk/runtime-config-snapshot:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-iL9SWAED-js-20",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/runtime-config-snapshot",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DNHe6a8p.js:20",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-iL9SWAED.js:20",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29300,10 +29300,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/security-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DNHe6a8p-js-14",
+          "id": "sdk.openclaw/plugin-sdk/security-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-iL9SWAED-js-14",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/security-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DNHe6a8p.js:14",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-iL9SWAED.js:14",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29311,10 +29311,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/security-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-outbound-CVVQeQxX-js-4",
+          "id": "sdk.openclaw/plugin-sdk/security-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-outbound-CEqyriPT-js-4",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/security-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/outbound-CVVQeQxX.js:4",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/outbound-CEqyriPT.js:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29355,10 +29355,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DNHe6a8p-js-13",
+          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-iL9SWAED-js-13",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DNHe6a8p.js:13",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-iL9SWAED.js:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29377,10 +29377,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/state-paths:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BYYYPzrA-js-20",
+          "id": "sdk.openclaw/plugin-sdk/state-paths:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BLMrGYfg-js-21",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/state-paths",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BYYYPzrA.js:20",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BLMrGYfg.js:21",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29388,10 +29388,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BYYYPzrA-js-9",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BLMrGYfg-js-10",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BYYYPzrA.js:9",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BLMrGYfg.js:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29399,10 +29399,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DNHe6a8p-js-7",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-iL9SWAED-js-7",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DNHe6a8p.js:7",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-iL9SWAED.js:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29410,10 +29410,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-request-context-BL0hymyD-js-3",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-request-context-DsuA124s-js-3",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/request-context-BL0hymyD.js:3",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/request-context-DsuA124s.js:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29425,6 +29425,17 @@
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/temp-path",
           "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/config-schema-BI7AYP6Q.js:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/text-chunking:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-BLMrGYfg-js-6",
+          "fixture": "openclaw-qqbot",
+          "specifier": "openclaw/plugin-sdk/text-chunking",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-BLMrGYfg.js:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29476,10 +29487,10 @@
       "priority": "medium",
       "registrations": [
         {
-          "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-616",
+          "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-616",
           "fixture": "whatsapp",
           "registrar": "createChatChannelPlugin",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:616",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:616",
           "support": "inspector-shim-required",
           "assertions": [
             "channel plugin id is stable",
@@ -29546,10 +29557,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/account-core:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-16",
+          "id": "sdk.openclaw/plugin-sdk/account-core:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-16",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/account-core",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:16",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:16",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29568,10 +29579,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/account-core:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-16",
+          "id": "sdk.openclaw/plugin-sdk/account-core:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-16",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/account-core",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:16",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:16",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29579,10 +29590,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/account-helpers:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-C3XZ2KBH-js-15",
+          "id": "sdk.openclaw/plugin-sdk/account-helpers:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-DLXi32yR-js-15",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/account-helpers",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-C3XZ2KBH.js:15",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-DLXi32yR.js:15",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29601,10 +29612,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/account-id:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-23",
+          "id": "sdk.openclaw/plugin-sdk/account-id:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-23",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/account-id",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:23",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:23",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29612,10 +29623,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/account-id:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-C3XZ2KBH-js-13",
+          "id": "sdk.openclaw/plugin-sdk/account-id:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-DLXi32yR-js-13",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/account-id",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-C3XZ2KBH.js:13",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-DLXi32yR.js:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29656,10 +29667,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/account-resolution:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-C3XZ2KBH-js-11",
+          "id": "sdk.openclaw/plugin-sdk/account-resolution:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-DLXi32yR-js-11",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/account-resolution",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-C3XZ2KBH.js:11",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-DLXi32yR.js:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29678,10 +29689,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-51",
+          "id": "sdk.openclaw/plugin-sdk/agent-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-51",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:51",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:51",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29689,10 +29700,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/allowlist-config-edit:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-24",
+          "id": "sdk.openclaw/plugin-sdk/allowlist-config-edit:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-24",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/allowlist-config-edit",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:24",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:24",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29711,10 +29722,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-delivery-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-27",
+          "id": "sdk.openclaw/plugin-sdk/approval-delivery-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-27",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/approval-delivery-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:27",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:27",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29733,10 +29744,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-handler-adapter-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-28",
+          "id": "sdk.openclaw/plugin-sdk/approval-handler-adapter-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-28",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/approval-handler-adapter-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:28",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:28",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29755,10 +29766,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-handler-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-38",
+          "id": "sdk.openclaw/plugin-sdk/approval-handler-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-38",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/approval-handler-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:38",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:38",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29777,10 +29788,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-native-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-29",
+          "id": "sdk.openclaw/plugin-sdk/approval-native-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-29",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/approval-native-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:29",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:29",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29799,10 +29810,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-reaction-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-22",
+          "id": "sdk.openclaw/plugin-sdk/approval-reaction-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-22",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/approval-reaction-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:22",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:22",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29854,10 +29865,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-actions:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-15",
+          "id": "sdk.openclaw/plugin-sdk/channel-actions:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-15",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/channel-actions",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:15",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:15",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29876,10 +29887,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-activity-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-35",
+          "id": "sdk.openclaw/plugin-sdk/channel-activity-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-35",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/channel-activity-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:35",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:35",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29898,10 +29909,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-config-helpers:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-C3XZ2KBH-js-16",
+          "id": "sdk.openclaw/plugin-sdk/channel-config-helpers:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-DLXi32yR-js-16",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/channel-config-helpers",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-C3XZ2KBH.js:16",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-DLXi32yR.js:16",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29909,10 +29920,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-core:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-25",
+          "id": "sdk.openclaw/plugin-sdk/channel-core:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-25",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/channel-core",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:25",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:25",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29942,10 +29953,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-feedback:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-20",
+          "id": "sdk.openclaw/plugin-sdk/channel-feedback:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-20",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/channel-feedback",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:20",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:20",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29964,10 +29975,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-inbound:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-34",
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-34",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/channel-inbound",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:34",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:34",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29986,10 +29997,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-inbound-debounce:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-39",
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound-debounce:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-39",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/channel-inbound-debounce",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:39",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:39",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30008,10 +30019,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-mention-gating:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-49",
+          "id": "sdk.openclaw/plugin-sdk/channel-mention-gating:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-49",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/channel-mention-gating",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:49",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:49",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30030,10 +30041,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-outbound:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-18",
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-18",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/channel-outbound",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:18",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:18",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30041,10 +30052,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-outbound:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-18",
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-18",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/channel-outbound",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:18",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:18",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30085,10 +30096,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-pairing:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-C3XZ2KBH-js-18",
+          "id": "sdk.openclaw/plugin-sdk/channel-pairing:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-DLXi32yR-js-18",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/channel-pairing",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-C3XZ2KBH.js:18",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-DLXi32yR.js:18",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30107,10 +30118,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-policy:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-C3XZ2KBH-js-14",
+          "id": "sdk.openclaw/plugin-sdk/channel-policy:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-DLXi32yR-js-14",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/channel-policy",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-C3XZ2KBH.js:14",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-DLXi32yR.js:14",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30118,10 +30129,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-runtime-context:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-40",
+          "id": "sdk.openclaw/plugin-sdk/channel-runtime-context:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-40",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/channel-runtime-context",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:40",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:40",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30129,10 +30140,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-send-result:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-31",
+          "id": "sdk.openclaw/plugin-sdk/channel-send-result:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-31",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/channel-send-result",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:31",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:31",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30140,10 +30151,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/cli-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-auth-store-CZ22aNcV-js-8",
+          "id": "sdk.openclaw/plugin-sdk/cli-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-auth-store-B2ZibndQ-js-8",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/cli-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-CZ22aNcV.js:8",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-B2ZibndQ.js:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30151,10 +30162,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/cli-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-20",
+          "id": "sdk.openclaw/plugin-sdk/cli-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-20",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/cli-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:20",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:20",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30162,10 +30173,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/cli-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-login-CRtqboZq-js-6",
+          "id": "sdk.openclaw/plugin-sdk/cli-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-login-Bflq347x-js-6",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/cli-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/login-CRtqboZq.js:6",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/login-Bflq347x.js:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30173,10 +30184,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/cli-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-21",
+          "id": "sdk.openclaw/plugin-sdk/cli-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-21",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/cli-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:21",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:21",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30195,10 +30206,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/cli-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-session-mBuvPUCy-js-5",
+          "id": "sdk.openclaw/plugin-sdk/cli-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-session-CoxlXm2K-js-5",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/cli-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/session-mBuvPUCy.js:5",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/session-CoxlXm2K.js:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30206,10 +30217,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/command-detection:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-41",
+          "id": "sdk.openclaw/plugin-sdk/command-detection:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-41",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/command-detection",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:41",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:41",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30217,10 +30228,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/context-visibility-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-48",
+          "id": "sdk.openclaw/plugin-sdk/context-visibility-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-48",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/context-visibility-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:48",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:48",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30239,10 +30250,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/conversation-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-31",
+          "id": "sdk.openclaw/plugin-sdk/conversation-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-31",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/conversation-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:31",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:31",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30250,10 +30261,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/core:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-21",
+          "id": "sdk.openclaw/plugin-sdk/core:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-21",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:21",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:21",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30272,10 +30283,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/core:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-C3XZ2KBH-js-12",
+          "id": "sdk.openclaw/plugin-sdk/core:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-DLXi32yR-js-12",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-C3XZ2KBH.js:12",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-DLXi32yR.js:12",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30283,10 +30294,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/delivery-queue-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-42",
+          "id": "sdk.openclaw/plugin-sdk/delivery-queue-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-42",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/delivery-queue-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:42",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:42",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30316,10 +30327,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/fetch-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-session-mBuvPUCy-js-10",
+          "id": "sdk.openclaw/plugin-sdk/fetch-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-session-CoxlXm2K-js-10",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/fetch-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/session-mBuvPUCy.js:10",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/session-CoxlXm2K.js:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30327,10 +30338,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/gateway-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-50",
+          "id": "sdk.openclaw/plugin-sdk/gateway-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-50",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/gateway-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:50",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:50",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30338,10 +30349,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/group-activation:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-52",
+          "id": "sdk.openclaw/plugin-sdk/group-activation:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-52",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/group-activation",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:52",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:52",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30349,10 +30360,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/hook-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-53",
+          "id": "sdk.openclaw/plugin-sdk/hook-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-53",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/hook-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:53",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:53",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30360,10 +30371,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/lazy-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-26",
+          "id": "sdk.openclaw/plugin-sdk/lazy-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-26",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/lazy-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:26",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:26",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30371,10 +30382,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/logging-core:whatsapp:plugins-whatsapp-crabpot-package-dist-login-CRtqboZq-js-7",
+          "id": "sdk.openclaw/plugin-sdk/logging-core:whatsapp:plugins-whatsapp-crabpot-package-dist-login-Bflq347x-js-7",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/logging-core",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/login-CRtqboZq.js:7",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/login-Bflq347x.js:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30382,10 +30393,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/logging-core:whatsapp:plugins-whatsapp-crabpot-package-dist-login-qr-B27eAPhh-js-5",
+          "id": "sdk.openclaw/plugin-sdk/logging-core:whatsapp:plugins-whatsapp-crabpot-package-dist-login-qr-CHWzkQq4-js-5",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/logging-core",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-B27eAPhh.js:5",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-CHWzkQq4.js:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30393,10 +30404,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/logging-core:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-22",
+          "id": "sdk.openclaw/plugin-sdk/logging-core:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-22",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/logging-core",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:22",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:22",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30415,10 +30426,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/markdown-table-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-23",
+          "id": "sdk.openclaw/plugin-sdk/markdown-table-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-23",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/markdown-table-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:23",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:23",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30459,10 +30470,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/media-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-login-qr-B27eAPhh-js-7",
+          "id": "sdk.openclaw/plugin-sdk/media-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-login-qr-CHWzkQq4-js-7",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/media-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-B27eAPhh.js:7",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-CHWzkQq4.js:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30470,10 +30481,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/media-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-25",
+          "id": "sdk.openclaw/plugin-sdk/media-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-25",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/media-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:25",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:25",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30503,10 +30514,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/media-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-session-mBuvPUCy-js-7",
+          "id": "sdk.openclaw/plugin-sdk/media-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-session-CoxlXm2K-js-7",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/media-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/session-mBuvPUCy.js:7",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/session-CoxlXm2K.js:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30514,10 +30525,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/media-store:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-46",
+          "id": "sdk.openclaw/plugin-sdk/media-store:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-46",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/media-store",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:46",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:46",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30525,10 +30536,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-auth-store-CZ22aNcV-js-12",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-auth-store-B2ZibndQ-js-12",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-CZ22aNcV.js:12",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-B2ZibndQ.js:12",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30536,10 +30547,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-login-qr-B27eAPhh-js-8",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-login-qr-CHWzkQq4-js-8",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-B27eAPhh.js:8",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-CHWzkQq4.js:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30547,10 +30558,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-30",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-30",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:30",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:30",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30558,10 +30569,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/persistent-dedupe:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-45",
+          "id": "sdk.openclaw/plugin-sdk/persistent-dedupe:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-45",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/persistent-dedupe",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:45",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:45",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30580,10 +30591,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/plugin-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-54",
+          "id": "sdk.openclaw/plugin-sdk/plugin-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-54",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/plugin-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:54",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:54",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30602,10 +30613,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-chunking:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-30",
+          "id": "sdk.openclaw/plugin-sdk/reply-chunking:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-30",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/reply-chunking",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:30",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:30",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30613,10 +30624,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-chunking:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-27",
+          "id": "sdk.openclaw/plugin-sdk/reply-chunking:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-27",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/reply-chunking",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:27",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:27",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30624,10 +30635,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-history:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-43",
+          "id": "sdk.openclaw/plugin-sdk/reply-history:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-43",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/reply-history",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:43",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:43",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30635,10 +30646,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-payload:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-32",
+          "id": "sdk.openclaw/plugin-sdk/reply-payload:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-32",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/reply-payload",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:32",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:32",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30646,10 +30657,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-payload:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-28",
+          "id": "sdk.openclaw/plugin-sdk/reply-payload:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-28",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/reply-payload",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:28",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:28",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30657,10 +30668,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-reference:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-55",
+          "id": "sdk.openclaw/plugin-sdk/reply-reference:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-55",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/reply-reference",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:55",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:55",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30668,10 +30679,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-37",
+          "id": "sdk.openclaw/plugin-sdk/reply-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-37",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/reply-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:37",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:37",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30701,10 +30712,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/routing:whatsapp:plugins-whatsapp-crabpot-package-dist-auth-store-CZ22aNcV-js-11",
+          "id": "sdk.openclaw/plugin-sdk/routing:whatsapp:plugins-whatsapp-crabpot-package-dist-auth-store-B2ZibndQ-js-11",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/routing",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-CZ22aNcV.js:11",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-B2ZibndQ.js:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30712,10 +30723,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/routing:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-29",
+          "id": "sdk.openclaw/plugin-sdk/routing:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-29",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/routing",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:29",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:29",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30723,10 +30734,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/runtime-config-snapshot:whatsapp:plugins-whatsapp-crabpot-package-dist-login-CRtqboZq-js-9",
+          "id": "sdk.openclaw/plugin-sdk/runtime-config-snapshot:whatsapp:plugins-whatsapp-crabpot-package-dist-login-Bflq347x-js-9",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/runtime-config-snapshot",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/login-CRtqboZq.js:9",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/login-Bflq347x.js:9",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30734,10 +30745,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/runtime-config-snapshot:whatsapp:plugins-whatsapp-crabpot-package-dist-login-qr-B27eAPhh-js-10",
+          "id": "sdk.openclaw/plugin-sdk/runtime-config-snapshot:whatsapp:plugins-whatsapp-crabpot-package-dist-login-qr-CHWzkQq4-js-10",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/runtime-config-snapshot",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-B27eAPhh.js:10",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-CHWzkQq4.js:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30745,10 +30756,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/runtime-config-snapshot:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-47",
+          "id": "sdk.openclaw/plugin-sdk/runtime-config-snapshot:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-47",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/runtime-config-snapshot",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:47",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:47",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30778,10 +30789,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/runtime-env:whatsapp:plugins-whatsapp-crabpot-package-dist-auth-store-CZ22aNcV-js-9",
+          "id": "sdk.openclaw/plugin-sdk/runtime-env:whatsapp:plugins-whatsapp-crabpot-package-dist-auth-store-B2ZibndQ-js-9",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-CZ22aNcV.js:9",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-B2ZibndQ.js:9",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30789,10 +30800,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/runtime-env:whatsapp:plugins-whatsapp-crabpot-package-dist-connection-controller-B07CNCkw-js-4",
+          "id": "sdk.openclaw/plugin-sdk/runtime-env:whatsapp:plugins-whatsapp-crabpot-package-dist-connection-controller-BnRkIjlP-js-4",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/connection-controller-B07CNCkw.js:4",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/connection-controller-BnRkIjlP.js:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30800,10 +30811,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/runtime-env:whatsapp:plugins-whatsapp-crabpot-package-dist-login-CRtqboZq-js-8",
+          "id": "sdk.openclaw/plugin-sdk/runtime-env:whatsapp:plugins-whatsapp-crabpot-package-dist-login-Bflq347x-js-8",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/login-CRtqboZq.js:8",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/login-Bflq347x.js:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30811,10 +30822,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/runtime-env:whatsapp:plugins-whatsapp-crabpot-package-dist-login-qr-B27eAPhh-js-6",
+          "id": "sdk.openclaw/plugin-sdk/runtime-env:whatsapp:plugins-whatsapp-crabpot-package-dist-login-qr-CHWzkQq4-js-6",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-B27eAPhh.js:6",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/login-qr-CHWzkQq4.js:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30822,10 +30833,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/runtime-env:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-24",
+          "id": "sdk.openclaw/plugin-sdk/runtime-env:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-24",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:24",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:24",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30855,10 +30866,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/runtime-env:whatsapp:plugins-whatsapp-crabpot-package-dist-session-mBuvPUCy-js-6",
+          "id": "sdk.openclaw/plugin-sdk/runtime-env:whatsapp:plugins-whatsapp-crabpot-package-dist-session-CoxlXm2K-js-6",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/runtime-env",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/session-mBuvPUCy.js:6",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/session-CoxlXm2K.js:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30899,10 +30910,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/security-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-auth-store-CZ22aNcV-js-7",
+          "id": "sdk.openclaw/plugin-sdk/security-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-auth-store-B2ZibndQ-js-7",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/security-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-CZ22aNcV.js:7",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-B2ZibndQ.js:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30921,10 +30932,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/security-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-19",
+          "id": "sdk.openclaw/plugin-sdk/security-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-19",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/security-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:19",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:19",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30965,10 +30976,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/session-store-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-32",
+          "id": "sdk.openclaw/plugin-sdk/session-store-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-32",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/session-store-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:32",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:32",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30976,10 +30987,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/setup:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-C3XZ2KBH-js-19",
+          "id": "sdk.openclaw/plugin-sdk/setup:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-DLXi32yR-js-19",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/setup",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-C3XZ2KBH.js:19",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-DLXi32yR.js:19",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30987,10 +30998,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/setup:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-finalize-B7FVDzwJ-js-6",
+          "id": "sdk.openclaw/plugin-sdk/setup:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-finalize-B-g0GzHp-js-6",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/setup",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-finalize-B7FVDzwJ.js:6",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-finalize-B-g0GzHp.js:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30998,10 +31009,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/setup:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-surface-CGTWO-E-js-4",
+          "id": "sdk.openclaw/plugin-sdk/setup:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-surface-YtBXJFy0-js-4",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/setup",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-surface-CGTWO_-E.js:4",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-surface-YtBXJFy0.js:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -31009,10 +31020,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/setup-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-C3XZ2KBH-js-17",
+          "id": "sdk.openclaw/plugin-sdk/setup-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-DLXi32yR-js-17",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/setup-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-C3XZ2KBH.js:17",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-DLXi32yR.js:17",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -31020,10 +31031,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/setup-tools:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-finalize-B7FVDzwJ-js-7",
+          "id": "sdk.openclaw/plugin-sdk/setup-tools:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-finalize-B-g0GzHp-js-7",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/setup-tools",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-finalize-B7FVDzwJ.js:7",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-finalize-B-g0GzHp.js:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -31053,10 +31064,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/state-paths:whatsapp:plugins-whatsapp-crabpot-package-dist-auth-store-CZ22aNcV-js-6",
+          "id": "sdk.openclaw/plugin-sdk/state-paths:whatsapp:plugins-whatsapp-crabpot-package-dist-auth-store-B2ZibndQ-js-6",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/state-paths",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-CZ22aNcV.js:6",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/auth-store-B2ZibndQ.js:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -31064,10 +31075,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/status-helpers:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-19",
+          "id": "sdk.openclaw/plugin-sdk/status-helpers:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-19",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/status-helpers",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:19",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:19",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -31097,10 +31108,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BbtRTgNk-js-17",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-17",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:17",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:17",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -31119,10 +31130,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-17",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-17",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:17",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:17",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -31196,10 +31207,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-C3XZ2KBH-js-10",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-core-DLXi32yR-js-10",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-C3XZ2KBH.js:10",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/setup-core-DLXi32yR.js:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -31207,10 +31218,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/system-event-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-44",
+          "id": "sdk.openclaw/plugin-sdk/system-event-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-44",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/system-event-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:44",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:44",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -31240,10 +31251,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/text-utility-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-connection-controller-B07CNCkw-js-5",
+          "id": "sdk.openclaw/plugin-sdk/text-utility-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-connection-controller-BnRkIjlP-js-5",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/text-utility-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/connection-controller-B07CNCkw.js:5",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/connection-controller-BnRkIjlP.js:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -31251,10 +31262,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/text-utility-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-session-mBuvPUCy-js-8",
+          "id": "sdk.openclaw/plugin-sdk/text-utility-runtime:whatsapp:plugins-whatsapp-crabpot-package-dist-session-CoxlXm2K-js-8",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/text-utility-runtime",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/session-mBuvPUCy.js:8",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/session-CoxlXm2K.js:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -31273,10 +31284,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/web-media:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CnioHf5V-js-26",
+          "id": "sdk.openclaw/plugin-sdk/web-media:whatsapp:plugins-whatsapp-crabpot-package-dist-monitor-CFUAZhBS-js-26",
           "fixture": "whatsapp",
           "specifier": "openclaw/plugin-sdk/web-media",
-          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CnioHf5V.js:26",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CFUAZhBS.js:26",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -38199,9 +38210,9 @@
       "priority": "P3",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerCommand @ plugins/codex/.crabpot-package/dist/index.js:1512",
-        "registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:1510",
-        "registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:1511"
+        "registerCommand @ plugins/codex/.crabpot-package/dist/index.js:1511",
+        "registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:1509",
+        "registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:1510"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -38587,7 +38598,7 @@
       "priority": "P3",
       "target": "channel-runtime",
       "evidence": [
-        "createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/channel-BbtRTgNk.js:616"
+        "createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:616"
       ],
       "assertions": [
         "message envelope is stable",
@@ -39887,7 +39898,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.6.1"
+        "buildOpenClawVersion:2026.6.5-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -39901,7 +39912,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.6.1"
+        "buildOpenClawVersion:2026.6.5-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -39929,7 +39940,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.6.1"
+        "buildOpenClawVersion:2026.6.5-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -39943,7 +39954,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.6.1"
+        "buildOpenClawVersion:2026.6.5-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -39985,7 +39996,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.6.1"
+        "buildOpenClawVersion:2026.6.5-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40027,7 +40038,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.5.31",
-        "buildOpenClawVersion:2026.6.1"
+        "buildOpenClawVersion:2026.6.5-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40083,7 +40094,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.6.1"
+        "buildOpenClawVersion:2026.6.5-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40153,7 +40164,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.6.1"
+        "buildOpenClawVersion:2026.6.5-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40194,7 +40205,7 @@
       "priority": "P3",
       "target": "sdk-import",
       "evidence": [
-        "openclaw/plugin-sdk/codex-mcp-projection @ plugins/codex/.crabpot-package/dist/thread-lifecycle-6nrEQZMV.js:11"
+        "openclaw/plugin-sdk/codex-mcp-projection @ plugins/codex/.crabpot-package/dist/thread-lifecycle-BJsazZ8j.js:11"
       ],
       "assertions": [
         "probe has fixture evidence and a target contract"
