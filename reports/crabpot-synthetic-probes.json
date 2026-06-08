@@ -2168,7 +2168,7 @@
       "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:1261"
     },
     {
-      "id": "hook.before_prompt_build:nemoclaw:plugins-nemoclaw-nemoclaw-src-runtime-context-ts-78",
+      "id": "hook.before_prompt_build:nemoclaw:plugins-nemoclaw-nemoclaw-src-runtime-context-ts-80",
       "fixture": "nemoclaw",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -2198,7 +2198,7 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:78"
+      "source": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:80"
     },
     {
       "id": "hook.before_tool_call:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-383",
