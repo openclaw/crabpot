@@ -2,10 +2,10 @@
   "generatedAt": "deterministic",
   "summary": {
     "fixtureCount": 60,
-    "probeCount": 456,
-    "hookProbeCount": 113,
+    "probeCount": 458,
+    "hookProbeCount": 115,
     "registrationProbeCount": 343,
-    "readyCount": 447,
+    "readyCount": 449,
     "blockedCount": 9,
     "directExecutionCount": 169,
     "optInExecutionCount": 29,
@@ -1715,7 +1715,47 @@
       "source": "plugins/kitchen-sink/src/generated-hooks.js:34"
     },
     {
-      "id": "hook.session_end:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-35",
+      "id": "hook.reply_payload_sending:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-35",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "reply_payload_sending",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "reply_payload_sending",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "reply_payload_sending",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:35"
+    },
+    {
+      "id": "hook.resolve_exec_env:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-36",
+      "fixture": "kitchen-sink",
+      "kind": "hook",
+      "seam": "resolve_exec_env",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "hook payload and return value are captured"
+      ],
+      "syntheticEvent": {
+        "hook": "resolve_exec_env",
+        "fixture": "kitchen-sink"
+      },
+      "syntheticContext": {
+        "hook": "resolve_exec_env",
+        "fixture": "kitchen-sink"
+      },
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:36"
+    },
+    {
+      "id": "hook.session_end:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-37",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "session_end",
@@ -1732,10 +1772,10 @@
         "hook": "session_end",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:35"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:37"
     },
     {
-      "id": "hook.session_start:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-36",
+      "id": "hook.session_start:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-38",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "session_start",
@@ -1752,10 +1792,10 @@
         "hook": "session_start",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:36"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:38"
     },
     {
-      "id": "hook.subagent_delivery_target:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-37",
+      "id": "hook.subagent_delivery_target:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-39",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "subagent_delivery_target",
@@ -1779,10 +1819,10 @@
         "runId": "run-fixture",
         "parentAgentId": "agent-parent"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:37"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:39"
     },
     {
-      "id": "hook.subagent_ended:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-38",
+      "id": "hook.subagent_ended:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-40",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "subagent_ended",
@@ -1801,10 +1841,10 @@
         "runId": "run-fixture",
         "parentAgentId": "agent-parent"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:38"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:40"
     },
     {
-      "id": "hook.subagent_spawned:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-39",
+      "id": "hook.subagent_spawned:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-41",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "subagent_spawned",
@@ -1824,10 +1864,10 @@
         "runId": "run-fixture",
         "parentAgentId": "agent-parent"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:39"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:41"
     },
     {
-      "id": "hook.subagent_spawning:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-40",
+      "id": "hook.subagent_spawning:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-42",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "subagent_spawning",
@@ -1844,10 +1884,10 @@
         "hook": "subagent_spawning",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:40"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:42"
     },
     {
-      "id": "hook.tool_result_persist:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-41",
+      "id": "hook.tool_result_persist:kitchen-sink:plugins-kitchen-sink-src-generated-hooks-js-43",
       "fixture": "kitchen-sink",
       "kind": "hook",
       "seam": "tool_result_persist",
@@ -1864,7 +1904,7 @@
         "hook": "tool_result_persist",
         "fixture": "kitchen-sink"
       },
-      "source": "plugins/kitchen-sink/src/generated-hooks.js:41"
+      "source": "plugins/kitchen-sink/src/generated-hooks.js:43"
     },
     {
       "id": "hook.subagent_delivery_target:discord:plugins-discord-crabpot-package-dist-subagent-hooks-api-js-12",
@@ -9361,7 +9401,7 @@
       "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:978"
     },
     {
-      "id": "registration.defineBundledChannelEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-index-js-9",
+      "id": "registration.defineBundledChannelEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-index-js-16",
       "fixture": "openclaw-qqbot",
       "kind": "registration",
       "seam": "defineBundledChannelEntry",
@@ -9378,10 +9418,10 @@
         "callableProperties": [],
         "reason": "bundled channel entry metadata is captured before channel runtime execution"
       },
-      "source": "plugins/openclaw-qqbot/.crabpot-package/dist/index.js:9"
+      "source": "plugins/openclaw-qqbot/.crabpot-package/dist/index.js:16"
     },
     {
-      "id": "registration.registerCommand:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-api-js-626",
+      "id": "registration.registerCommand:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-entry-fUBLXKPr-js-111",
       "fixture": "openclaw-qqbot",
       "kind": "registration",
       "seam": "registerCommand",
@@ -9405,10 +9445,10 @@
           "execute"
         ]
       },
-      "source": "plugins/openclaw-qqbot/.crabpot-package/dist/api.js:626"
+      "source": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-entry-fUBLXKPr.js:111"
     },
     {
-      "id": "registration.registerTool:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-api-js-209",
+      "id": "registration.registerTool:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-tools-2d9t-N1b-js-206",
       "fixture": "openclaw-qqbot",
       "kind": "registration",
       "seam": "registerTool",
@@ -9437,10 +9477,10 @@
           "execute"
         ]
       },
-      "source": "plugins/openclaw-qqbot/.crabpot-package/dist/api.js:209"
+      "source": "plugins/openclaw-qqbot/.crabpot-package/dist/tools-2d9t-N1b.js:206"
     },
     {
-      "id": "registration.registerTool:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-api-js-511",
+      "id": "registration.registerTool:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-tools-2d9t-N1b-js-509",
       "fixture": "openclaw-qqbot",
       "kind": "registration",
       "seam": "registerTool",
@@ -9469,10 +9509,10 @@
           "execute"
         ]
       },
-      "source": "plugins/openclaw-qqbot/.crabpot-package/dist/api.js:511"
+      "source": "plugins/openclaw-qqbot/.crabpot-package/dist/tools-2d9t-N1b.js:509"
     },
     {
-      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CK-4OwYn-js-616",
+      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-DhMmokKH-js-616",
       "fixture": "whatsapp",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -9497,7 +9537,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/whatsapp/.crabpot-package/dist/channel-CK_4OwYn.js:616"
+      "source": "plugins/whatsapp/.crabpot-package/dist/channel-DhMmokKH.js:616"
     },
     {
       "id": "registration.defineBundledChannelEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-index-js-3",
