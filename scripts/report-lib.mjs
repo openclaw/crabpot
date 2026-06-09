@@ -25,6 +25,7 @@ export async function buildReport(options = {}) {
     rootDir: repoRoot,
   }, {
     generatedAt,
+    includeInspectorGaps: true,
     openclawPath: options.openclawPath,
   });
 }

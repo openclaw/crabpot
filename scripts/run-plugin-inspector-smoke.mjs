@@ -13,7 +13,7 @@ const configIndex = args.indexOf("--config");
 const configPath = configIndex === -1 ? "crabpot.config.json" : args[configIndex + 1];
 
 const command = check ? "ci" : "report";
-const inspectorArgs = [command, "--config", configPath, "--out", outDir];
+const inspectorArgs = [command, "--config", configPath, "--out", outDir, "--include-inspector-gaps"];
 const invocation = resolvePluginInspectorCliInvocation();
 const result = spawnSync(invocation.command, [...invocation.args, ...inspectorArgs], {
   cwd: repoRoot,
