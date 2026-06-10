@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import {
   pluginInspectorPackage,
@@ -37,6 +38,15 @@ test("plugin inspector smoke can run local source or an explicit binary", () => 
       args: [],
     });
   });
+});
+
+test("plugin inspector smoke uses full default findings output", () => {
+  const smokeScript = readFileSync(new URL("../scripts/run-plugin-inspector-smoke.mjs", import.meta.url), "utf8");
+
+  assert.doesNotMatch(smokeScript, /--include-inspector-gaps/);
+  assert.doesNotMatch(smokeScript, /--author-facing/);
+  assert.doesNotMatch(smokeScript, /const command =/);
+  assert.match(smokeScript, /"report", "--config", configPath, "--out", outDir/);
 });
 
 function withEnv(values, callback) {
