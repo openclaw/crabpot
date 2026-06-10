@@ -30913,6 +30913,7 @@
         "plugins/clawrouter/src/retry.ts",
         "plugins/clawrouter/src/router/config.ts",
         "plugins/clawrouter/src/router/index.ts",
+        "plugins/clawrouter/src/router/llm-classifier.ts",
         "plugins/clawrouter/src/router/rules.ts",
         "plugins/clawrouter/src/router/selector.ts",
         "plugins/clawrouter/src/router/strategy.ts",
@@ -30976,7 +30977,7 @@
       "package": {
         "path": "plugins/clawrouter/package.json",
         "name": "@blockrun/clawrouter",
-        "version": "0.12.206",
+        "version": "0.12.199",
         "type": "module",
         "main": "dist/index.js",
         "npmPack": {
@@ -30995,7 +30996,6 @@
           "invalidFileSpecs": []
         },
         "dependencies": [
-          "@noble/hashes",
           "@scure/bip32",
           "@scure/bip39",
           "@solana/kit",
@@ -31036,7 +31036,7 @@
         {
           "path": "plugins/clawrouter/package.json",
           "name": "@blockrun/clawrouter",
-          "version": "0.12.206",
+          "version": "0.12.199",
           "type": "module",
           "main": "dist/index.js",
           "npmPack": {
@@ -31055,7 +31055,6 @@
             "invalidFileSpecs": []
           },
           "dependencies": [
-            "@noble/hashes",
             "@scure/bip32",
             "@scure/bip39",
             "@solana/kit",
@@ -35740,7 +35739,6 @@
       "level": "suggestion",
       "message": "package declares runtime dependencies that must be installed before cold import",
       "evidence": [
-        "@noble/hashes @ plugins/clawrouter/package.json",
         "@scure/bip32 @ plugins/clawrouter/package.json",
         "@scure/bip39 @ plugins/clawrouter/package.json",
         "@solana/kit @ plugins/clawrouter/package.json",
@@ -36844,7 +36842,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-78B0D52F",
+      "id": "CRABPOT-5B6D803B",
       "fixture": "clawrouter",
       "severity": "P2",
       "owner": "inspector",
@@ -36857,7 +36855,6 @@
       "compatStatus": "none",
       "title": "clawrouter: cold import requires dependency installation in an isolated workspace",
       "evidence": [
-        "@noble/hashes @ plugins/clawrouter/package.json",
         "@scure/bip32 @ plugins/clawrouter/package.json",
         "@scure/bip39 @ plugins/clawrouter/package.json",
         "@solana/kit @ plugins/clawrouter/package.json",
@@ -43895,7 +43892,6 @@
       "target": "package-loader",
       "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
       "evidence": [
-        "@noble/hashes @ plugins/clawrouter/package.json",
         "@scure/bip32 @ plugins/clawrouter/package.json",
         "@scure/bip39 @ plugins/clawrouter/package.json",
         "@solana/kit @ plugins/clawrouter/package.json",
@@ -49065,7 +49061,7 @@
       "evidence": [
         "plugins/clawrouter/package.json",
         "@blockrun/clawrouter",
-        "version:0.12.206"
+        "version:0.12.199"
       ]
     },
     {
@@ -52705,7 +52701,7 @@
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
-      "evidence": "@noble/hashes, @scure/bip32, @scure/bip39, @solana/kit, @x402/core, @x402/evm, @x402/fetch, @x402/svm, viem"
+      "evidence": "@scure/bip32, @scure/bip39, @solana/kit, @x402/core, @x402/evm, @x402/fetch, @x402/svm, viem"
     },
     {
       "fixture": "clawrouter",

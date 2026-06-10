@@ -39363,7 +39363,6 @@
       "priority": "P3",
       "target": "package-loader",
       "evidence": [
-        "@noble/hashes @ plugins/clawrouter/package.json",
         "@scure/bip32 @ plugins/clawrouter/package.json",
         "@scure/bip39 @ plugins/clawrouter/package.json",
         "@solana/kit @ plugins/clawrouter/package.json",
