@@ -10,8 +10,8 @@ Strict: false
 | ------------- | ----- |
 | Checks        | 10    |
 | Fail          | 0     |
-| Warn          | 1     |
-| Pass          | 9     |
+| Warn          | 2     |
+| Pass          | 8     |
 | Current runs  | 3     |
 | Baseline runs | 3     |
 
@@ -19,9 +19,9 @@ Strict: false
 
 | Action | ID                              | Metric                 | Baseline | Current | Delta              | Percent | Message                                                        |
 | ------ | ------------------------------- | ---------------------- | -------- | ------- | ------------------ | ------- | -------------------------------------------------------------- |
-| pass   | profile.wall-p95                | p95WallMs              | 1273     | 1757    | 484                | 38%     | p95WallMs stayed within 50% regression threshold               |
-| warn   | profile.peak-rss                | maxPeakRssMb           | 65.1     | 333.4   | 268.29999999999995 | -       | maxPeakRssMb regressed 268.29999999999995 over baseline        |
-| pass   | profile.node-boot               | nodeBootWallMs         | 917      | 29      | -888               | -       | nodeBootWallMs stayed within 500 absolute regression threshold |
+| warn   | profile.wall-p95                | p95WallMs              | 1273     | 1912    | 639                | 50.2%   | p95WallMs regressed 50.2% over baseline                        |
+| warn   | profile.peak-rss                | maxPeakRssMb           | 65.1     | 324.9   | 259.79999999999995 | -       | maxPeakRssMb regressed 259.79999999999995 over baseline        |
+| pass   | profile.node-boot               | nodeBootWallMs         | 917      | 33      | -884               | -       | nodeBootWallMs stayed within 500 absolute regression threshold |
 | pass   | registry.compatRecords          | compatRecords          | 19       | 66      | 47                 | -       | registry surface delta is tracked as context                   |
 | pass   | registry.hookNames              | hookNames              | 31       | 39      | 8                  | -       | registry surface delta is tracked as context                   |
 | pass   | registry.apiRegistrars          | apiRegistrars          | 40       | 55      | 15                 | -       | registry surface delta is tracked as context                   |
