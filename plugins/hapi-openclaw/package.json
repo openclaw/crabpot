@@ -14,7 +14,7 @@
   "overrides": {
     "@anthropic-ai/sdk": "0.91.1",
     "axios": "1.15.2",
-    "hono": "4.12.18",
+    "hono": "4.12.21",
     "openclaw": "2026.5.26",
     "qs": "6.15.2",
     "tar": "7.5.11",
