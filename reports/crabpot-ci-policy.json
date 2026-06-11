@@ -3577,8 +3577,8 @@
         "mcp-adapter:runtime-tool-capture",
         "memory-lancedb:package-dependency-install-required",
         "memory-lancedb:registration-capture-gap",
+        "memory-tencentdb:package-build-artifact-entrypoint",
         "memory-tencentdb:package-dependency-install-required",
-        "memory-tencentdb:package-typescript-source-entrypoint",
         "memory-tencentdb:registration-capture-gap",
         "memos-cloud:registration-capture-gap",
         "memu-engine:package-typescript-source-entrypoint",
@@ -3647,10 +3647,11 @@
     {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "17 P1 issues tracked",
+      "message": "18 P1 issues tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "codex:reserved-sdk-import",
+        "codex:sdk-export-missing",
         "dingtalk-doc:before-tool-call-probe",
         "honcho:conversation-access-hook",
         "kitchen-sink:before-tool-call-probe",

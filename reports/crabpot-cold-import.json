@@ -7,13 +7,13 @@
   },
   "summary": {
     "fixtureCount": 60,
-    "entrypointCount": 107,
+    "entrypointCount": 108,
     "readyCount": 7,
-    "blockedCount": 100,
+    "blockedCount": 101,
     "tsLoaderRequiredCount": 22,
-    "buildRequiredCount": 13,
+    "buildRequiredCount": 14,
     "dependencyInstallRequiredCount": 42,
-    "sdkAliasRequiredCount": 0
+    "sdkAliasRequiredCount": 2
   },
   "fixtures": [
     {
@@ -1513,16 +1513,22 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/codex/.crabpot-package/index.ts",
-          "status": "missing",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/codex/.crabpot-package/index.ts"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-harness-exec-review-runtime @ plugins/codex/.crabpot-package/dist/native-hook-relay-CmUUO3Eu.js:11"
             }
           ],
           "assertions": [
-            "plugin package metadata points at an existing OpenClaw entrypoint"
+            "plugin package metadata points at an existing OpenClaw entrypoint",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
         {
@@ -1532,7 +1538,7 @@
           "kind": "runtimeExtension",
           "specifier": "./dist/index.js",
           "path": "plugins/codex/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "top-level-side-effect-review",
@@ -1543,11 +1549,17 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@openai/codex, typebox, ws, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-harness-exec-review-runtime @ plugins/codex/.crabpot-package/dist/native-hook-relay-CmUUO3Eu.js:11"
             }
           ],
           "assertions": [
             "cold import sandbox blocks network/process side effects before register capture",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         }
       ]
@@ -1885,6 +1897,25 @@
       "priority": "high",
       "entrypoints": [
         {
+          "id": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-openclaw-plugin-dist-index-js",
+          "fixture": "memory-tencentdb",
+          "packagePath": "plugins/memory-tencentdb/.crabpot-package/openclaw-plugin/package.json",
+          "kind": "extension",
+          "specifier": "./dist/index.js",
+          "path": "plugins/memory-tencentdb/.crabpot-package/openclaw-plugin/dist/index.js",
+          "status": "build-required",
+          "blockers": [
+            {
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/memory-tencentdb/.crabpot-package/openclaw-plugin/dist/index.js"
+            }
+          ],
+          "assertions": [
+            "plugin build or source alias resolution runs before cold import"
+          ]
+        },
+        {
           "id": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
           "fixture": "memory-tencentdb",
           "packagePath": "plugins/memory-tencentdb/.crabpot-package/package.json",
@@ -1901,7 +1932,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@ai-sdk/openai, @node-rs/jieba, @tencentdb-agent-memory/tcvdb-text, ai, js-tiktoken, json5, sqlite-vec, tsx, undici, yaml, zod, node-llama-cpp, opik"
+              "evidence": "@ai-sdk/openai, @node-rs/jieba, @opentelemetry/api, @opentelemetry/api-logs, @opentelemetry/exporter-logs-otlp-http, @opentelemetry/exporter-trace-otlp-http, @opentelemetry/resources, @opentelemetry/sdk-logs, @opentelemetry/sdk-node, @opentelemetry/sdk-trace-base, @opentelemetry/semantic-conventions, @tencentdb-agent-memory/memory-sdk-ts, @tencentdb-agent-memory/tcvdb-text, ai, crc-32, dayjs, js-tiktoken, json5, sqlite-vec, tsx, undici, yaml, zod, node-llama-cpp, @clickhouse/client, @opentelemetry/context-async-hooks, @opentelemetry/exporter-logs-otlp-grpc, @opentelemetry/exporter-trace-otlp-grpc, cos-nodejs-sdk-v5, ioredis, kafkajs, opik"
             }
           ],
           "assertions": [

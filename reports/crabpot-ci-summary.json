@@ -1,19 +1,19 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "check",
+  "mode": "dependabot",
   "openclawLabel": "openclaw@latest (2026.6.5, 5181e4f7c82b)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 141,
+    "warnings": 142,
     "suggestions": 149,
-    "issues": 290,
+    "issues": 291,
     "p0Issues": 1,
-    "p1Issues": 17,
+    "p1Issues": 18,
     "liveIssues": 1,
     "liveP0Issues": 1,
-    "compatGaps": 0,
+    "compatGaps": 1,
     "deprecationWarnings": 46,
     "inspectorGaps": 158,
     "upstreamIssues": 85,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 16,
     "platformContainerRisks": 16,
     "loaderJitiCandidates": 22,
-    "importLoopP50Ms": 2397,
-    "importLoopP95Ms": 2460,
+    "importLoopP50Ms": 2036,
+    "importLoopP95Ms": 2074,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 116.3,
-    "importLoopOpenClawActivationP50Ms": 0.4,
+    "importLoopOpenClawImportP50Ms": 101.9,
+    "importLoopOpenClawActivationP50Ms": 0.3,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 2.4,
+    "importLoopMaxRssMb": 12.4,
     "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 285,
-    "importLoopCpuSampleCount": 285
+    "importLoopRssSampleCount": 241,
+    "importLoopCpuSampleCount": 241
   },
   "topIssues": [
     {
@@ -64,6 +64,14 @@
       "code": "reserved-sdk-import",
       "title": "codex: plugin imports reserved bundled-plugin SDK compatibility subpaths",
       "decision": "plugin-upstream-fix"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "codex",
+      "code": "sdk-export-missing",
+      "title": "codex: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
@@ -420,20 +428,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 69.7% over baseline",
+      "message": "p95WallMs regressed 56.8% over baseline",
       "baseline": 1273,
-      "current": 2160,
-      "delta": 887,
-      "percent": 69.7
+      "current": 1996,
+      "delta": 723,
+      "percent": 56.8
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 264.29999999999995 over baseline",
+      "message": "maxPeakRssMb regressed 267.1 over baseline",
       "baseline": 65.1,
-      "current": 329.4,
-      "delta": 264.29999999999995
+      "current": 332.2,
+      "delta": 267.1
     }
   ],
   "artifacts": {
