@@ -9,12 +9,12 @@
   ],
   "summary": {
     "fixtureCount": 60,
-    "entrypointCount": 107,
+    "entrypointCount": 108,
     "tsLoaderEntrypointCount": 22,
     "jitiAlternativeCount": 22,
-    "lazyImportProbeCount": 107,
+    "lazyImportProbeCount": 108,
     "portabilityFindingCount": 16,
-    "coveredPortabilityFindingCount": 470,
+    "coveredPortabilityFindingCount": 474,
     "windowsRiskStepCount": 16,
     "macosRiskStepCount": 16,
     "linuxRiskStepCount": 16,
@@ -1220,7 +1220,7 @@
     {
       "fixture": "codex",
       "id": "cold-import.extension:codex:plugins-codex-crabpot-package-index-ts",
-      "status": "missing",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/codex/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1238,7 +1238,7 @@
     {
       "fixture": "codex",
       "id": "cold-import.runtimeExtension:codex:plugins-codex-crabpot-package-dist-index-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/codex/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1510,6 +1510,24 @@
       "id": "cold-import.extension:nemoclaw:plugins-nemoclaw-nemoclaw-dist-index-js",
       "status": "build-required",
       "entrypoint": "plugins/nemoclaw/nemoclaw/dist/index.js",
+      "packageManager": "npm",
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
+      "capturePlanned": true,
+      "syntheticProbePlanned": true,
+      "captureUsesTsx": false,
+      "syntheticUsesTsx": false,
+      "captureUsesMockSdk": true,
+      "syntheticUsesMockSdk": true,
+      "captureUsesTypeScriptLoader": true,
+      "syntheticUsesTypeScriptLoader": true
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "id": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-openclaw-plugin-dist-index-js",
+      "status": "build-required",
+      "entrypoint": "plugins/memory-tencentdb/.crabpot-package/openclaw-plugin/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -7113,6 +7131,60 @@
       "entrypoint": "cold-import.extension:nemoclaw:plugins-nemoclaw-nemoclaw-dist-index-js",
       "kind": "synthetic-probe",
       "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/nemoclaw/cold-import-extension-nemoclaw-plugins-nemoclaw-nemoclaw-dist-index-js.synthetic.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-openclaw-plugin-dist-index-js",
+      "kind": "prepare",
+      "command": "mkdir -p .crabpot/workspaces/memory-tencentdb && rsync -a --delete plugins/memory-tencentdb/.crabpot-package/openclaw-plugin/ .crabpot/workspaces/memory-tencentdb/",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "container",
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir",
+        "rsync-required"
+      ]
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-openclaw-plugin-dist-index-js",
+      "kind": "prepare-artifacts",
+      "command": "mkdir -p .crabpot/results/memory-tencentdb",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-openclaw-plugin-dist-index-js",
+      "kind": "capture",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-openclaw-plugin-dist-index-js.capture.json",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-env-prefix"
+      ]
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-openclaw-plugin-dist-index-js",
+      "kind": "synthetic-probe",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-openclaw-plugin-dist-index-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
