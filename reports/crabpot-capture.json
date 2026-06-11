@@ -349,7 +349,11 @@
           "syntheticEvent": {
             "childSessionKey": "child-session",
             "agentId": "agent-child",
-            "status": "completed"
+            "status": "completed",
+            "targetSessionKey": "child-session",
+            "targetKind": "subagent",
+            "reason": "completed",
+            "sendFarewell": false
           },
           "syntheticContext": {
             "runId": "run-fixture",
@@ -1303,7 +1307,11 @@
           "syntheticEvent": {
             "childSessionKey": "child-session",
             "agentId": "agent-child",
-            "status": "completed"
+            "status": "completed",
+            "targetSessionKey": "child-session",
+            "targetKind": "subagent",
+            "reason": "completed",
+            "sendFarewell": false
           },
           "syntheticContext": {
             "runId": "run-fixture",
@@ -5106,7 +5114,11 @@
           "syntheticEvent": {
             "childSessionKey": "child-session",
             "agentId": "agent-child",
-            "status": "completed"
+            "status": "completed",
+            "targetSessionKey": "child-session",
+            "targetKind": "subagent",
+            "reason": "completed",
+            "sendFarewell": false
           },
           "syntheticContext": {
             "runId": "run-fixture",
@@ -9733,7 +9745,11 @@
           "syntheticEvent": {
             "childSessionKey": "child-session",
             "agentId": "agent-child",
-            "status": "completed"
+            "status": "completed",
+            "targetSessionKey": "child-session",
+            "targetKind": "subagent",
+            "reason": "completed",
+            "sendFarewell": false
           },
           "syntheticContext": {
             "runId": "run-fixture",
@@ -13235,7 +13251,11 @@
           "syntheticEvent": {
             "childSessionKey": "child-session",
             "agentId": "agent-child",
-            "status": "completed"
+            "status": "completed",
+            "targetSessionKey": "child-session",
+            "targetKind": "subagent",
+            "reason": "completed",
+            "sendFarewell": false
           },
           "syntheticContext": {
             "runId": "run-fixture",
@@ -21981,7 +22001,11 @@
           "syntheticEvent": {
             "childSessionKey": "child-session",
             "agentId": "agent-child",
-            "status": "completed"
+            "status": "completed",
+            "targetSessionKey": "child-session",
+            "targetKind": "subagent",
+            "reason": "completed",
+            "sendFarewell": false
           },
           "syntheticContext": {
             "runId": "run-fixture",

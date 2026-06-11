@@ -17,6 +17,7 @@ test("contract capture turns observed seams into executable probe assertions", a
   assertHasRegistrationCapture(capture, "agentchat", "defineChannelPluginEntry", "inspector-shim-required");
   assertHasRegistrationCapture(capture, "clawmetry", "registerService", "inspector-shim-required");
   assertHasHookProbe(capture, "wecom", "before_tool_call");
+  assertHasSubagentEndedHookProbe(capture, "wecom");
   assertHasLegacyStartupHookProbe(capture, "connectclaw");
   if (report.issues.some((issue) => issue.code === "sdk-export-missing")) {
     assert.ok(capture.summary.compatAliasRequiredCount > 0);
@@ -72,6 +73,16 @@ function assertHasLegacyStartupHookProbe(capture, fixtureId) {
     ),
     `expected ${fixtureId} before_agent_start hook probe`,
   );
+}
+
+function assertHasSubagentEndedHookProbe(capture, fixtureId) {
+  const fixture = capture.fixtures.find((item) => item.id === fixtureId);
+  const hook = fixture?.hooks.find((item) => item.hook === "subagent_ended");
+  assert.ok(hook, `expected ${fixtureId} subagent_ended hook probe`);
+  assert.equal(hook.syntheticEvent.targetSessionKey, "child-session");
+  assert.equal(hook.syntheticEvent.targetKind, "subagent");
+  assert.equal(hook.syntheticEvent.reason, "completed");
+  assert.equal(hook.syntheticEvent.sendFarewell, false);
 }
 
 function assertHasSdkProbe(capture, support) {

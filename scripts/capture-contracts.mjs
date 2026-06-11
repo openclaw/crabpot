@@ -13,7 +13,7 @@ const pluginInspector = await loadPluginInspectorPublicApi();
 export const REGISTRATION_ASSERTIONS = pluginInspector.defaultRegistrationAssertions;
 export const REGISTRATION_ARGUMENTS = pluginInspector.defaultRegistrationArguments;
 export const HOOK_ASSERTIONS = pluginInspector.defaultHookAssertions;
-export const HOOK_EVENTS = pluginInspector.defaultHookEvents;
+export const HOOK_EVENTS = mergeCrabpotHookEvents();
 export const HOOK_CONTEXTS = pluginInspector.defaultHookContexts;
 export const validateContractCapture = pluginInspector.validateContractCapture;
 
@@ -79,7 +79,29 @@ function parseArgs(argv) {
 
 export async function buildContractCapture(options = {}) {
   const report = options.report ?? (await buildReport({ openclawPath: options.openclawPath }));
-  return pluginInspector.buildContractCapture({ report });
+  return pluginInspector.buildContractCapture({
+    report,
+    hookEvents: mergeCrabpotHookEvents(options.hookEvents),
+  });
+}
+
+export function mergeCrabpotHookEvents(events = {}) {
+  const defaults = pluginInspector.defaultHookEvents ?? {};
+  const subagentEnded = {
+    ...(defaults.subagent_ended ?? {}),
+    targetSessionKey: "child-session",
+    targetKind: "subagent",
+    reason: "completed",
+    sendFarewell: false,
+  };
+  return {
+    ...defaults,
+    ...events,
+    subagent_ended: {
+      ...subagentEnded,
+      ...(events.subagent_ended ?? {}),
+    },
+  };
 }
 
 export async function writeContractCapture(capture, options = {}) {
