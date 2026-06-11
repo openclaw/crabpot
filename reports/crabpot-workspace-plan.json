@@ -15,7 +15,7 @@
     "installStepCount": 42,
     "auditStepCount": 42,
     "buildStepCount": 13,
-    "pruneDevWorkspaceDependencyStepCount": 7,
+    "pruneDevWorkspaceDependencyStepCount": 6,
     "artifactStepCount": 107,
     "captureStepCount": 107,
     "syntheticProbeStepCount": 107,
@@ -2238,7 +2238,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8a10c5096f6b2752b4ef3511b66f4d64f92f7cc7/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/d7db36b0a1f53e6cfe9a80b02cfa317902d68925/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/matrix",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -2328,7 +2328,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8a10c5096f6b2752b4ef3511b66f4d64f92f7cc7/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/d7db36b0a1f53e6cfe9a80b02cfa317902d68925/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/matrix",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -3849,12 +3849,6 @@
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
-              "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8a10c5096f6b2752b4ef3511b66f4d64f92f7cc7/src/prune-workspace-dev-deps-cli.js",
-              "cwd": ".crabpot/workspaces/tlon",
-              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
-            },
-            {
               "kind": "install",
               "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/tlon",
@@ -4212,7 +4206,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8a10c5096f6b2752b4ef3511b66f4d64f92f7cc7/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/d7db36b0a1f53e6cfe9a80b02cfa317902d68925/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/mattermost",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4302,7 +4296,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8a10c5096f6b2752b4ef3511b66f4d64f92f7cc7/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/d7db36b0a1f53e6cfe9a80b02cfa317902d68925/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/mattermost",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4785,7 +4779,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8a10c5096f6b2752b4ef3511b66f4d64f92f7cc7/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/d7db36b0a1f53e6cfe9a80b02cfa317902d68925/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/codex",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5349,7 +5343,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8a10c5096f6b2752b4ef3511b66f4d64f92f7cc7/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/d7db36b0a1f53e6cfe9a80b02cfa317902d68925/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/memory-lancedb",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -6991,7 +6985,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@scure/bip32, @scure/bip39, @solana/kit, @x402/core, @x402/evm, @x402/fetch, @x402/svm, viem"
+              "evidence": "@noble/hashes, @scure/bip32, @scure/bip39, @solana/kit, @x402/core, @x402/evm, @x402/fetch, @x402/svm, viem"
             }
           ],
           "steps": [
