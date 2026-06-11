@@ -11,6 +11,7 @@ import {
   applyFixtureSyntheticFailurePolicy,
   buildSyntheticProbePlan,
   renderSyntheticProbeMarkdown,
+  runCapturedSyntheticProbes,
   validateSyntheticProbePlan,
 } from "../scripts/synthetic-probes.mjs";
 
@@ -56,6 +57,41 @@ test("synthetic probe plan marks HTTP routes blocked until descriptor inputs exi
   assert.equal(plan.summary.directExecutionCount, 1);
   assert.equal(plan.probes[0].status, "blocked");
   assert.equal(plan.probes[0].blocker, "captured HTTP route probe requires route descriptor input");
+});
+
+test("synthetic probe plans normalize stale captured subagent_ended events", async () => {
+  const plan = await buildSyntheticProbePlan({
+    capture: {
+      generatedAt: "deterministic",
+      summary: { fixtureCount: 1 },
+      fixtures: [
+        {
+          id: "fixture",
+          hooks: [
+            {
+              id: "hook.subagent_ended:fixture",
+              hook: "subagent_ended",
+              assertions: ["subagent completion payload is preserved"],
+              syntheticEvent: {
+                childSessionKey: "child-session",
+                agentId: "agent-child",
+                status: "completed",
+              },
+              syntheticContext: {},
+              ref: "fixture.js:1",
+            },
+          ],
+          registrations: [],
+        },
+      ],
+    },
+  });
+
+  assert.deepEqual(validateSyntheticProbePlan(plan), []);
+  assert.equal(plan.probes[0].syntheticEvent.targetSessionKey, "child-session");
+  assert.equal(plan.probes[0].syntheticEvent.targetKind, "subagent");
+  assert.equal(plan.probes[0].syntheticEvent.reason, "completed");
+  assert.equal(plan.probes[0].syntheticEvent.sendFarewell, false);
 });
 
 test("synthetic probe plan treats descriptor registrars as metadata-only", async () => {
@@ -178,6 +214,34 @@ test("synthetic probe CLI keeps HTTP route handlers blocked without route descri
   assert.equal(probes.summary.blockedCount, 1);
   assert.equal(probes.results[0].status, "blocked");
   assert.equal(probes.results[0].blockedBy, "http-route-descriptor-input");
+});
+
+test("synthetic probes send Discord-compatible subagent_ended events", async () => {
+  const seen = [];
+  const result = await runCapturedSyntheticProbes({
+    entrypoint: path.join(repoRoot, ".crabpot/workspaces/discord/index.js"),
+    status: "captured",
+    captured: [
+      {
+        kind: "hook",
+        name: "subagent_ended",
+      },
+    ],
+    retained: [
+      {
+        captureIndex: 0,
+        handler(event) {
+          seen.push(event);
+        },
+      },
+    ],
+  });
+
+  assert.deepEqual(result.summary, { probeCount: 1, passCount: 1, failCount: 0, blockedCount: 0 });
+  assert.equal(seen[0].targetSessionKey, "child-session");
+  assert.equal(seen[0].targetKind, "subagent");
+  assert.equal(seen[0].reason, "completed");
+  assert.equal(seen[0].sendFarewell, false);
 });
 
 test("fixture execution policy classifies known live tool failures as blocked", () => {

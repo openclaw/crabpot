@@ -2,6 +2,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { mergeCrabpotHookEvents } from "./capture-contracts.mjs";
 import { readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
 import { buildReport } from "./report-lib.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
@@ -169,8 +170,12 @@ function parseArgs(argv) {
 
 export async function buildSyntheticProbePlan(options = {}) {
   const report = options.report ?? (options.capture ? null : await buildReport({ openclawPath: options.openclawPath }));
+  const hookEvents = mergeHookEvents(options.hookEvents);
   return applyCrabpotSyntheticProbePlanPolicy(
-    pluginInspector.buildSyntheticProbePlanFromReport(report, { capture: options.capture }),
+    pluginInspector.buildSyntheticProbePlanFromReport(report, {
+      capture: normalizeCaptureHookEvents(options.capture, hookEvents),
+      hookEvents,
+    }),
   );
 }
 
@@ -187,6 +192,7 @@ export async function writeSyntheticProbePlan(plan, options = {}) {
 export async function runCapturedSyntheticProbes(capture, options = {}) {
   const result = await pluginInspector.runCapturedSyntheticProbes(capture, {
     ...options,
+    hookEvents: mergeHookEvents(options.hookEvents),
     registrationProbeInputs: mergeRegistrationProbeInputs(options.registrationProbeInputs),
     syntheticSource: "crabpot.synthetic",
   });
@@ -213,6 +219,7 @@ export async function runEntrypointSyntheticProbes(entrypoint, options = {}) {
       ...(options.apiOptions ?? {}),
       retainHandlers: true,
     },
+    hookEvents: mergeHookEvents(options.hookEvents),
     registrationProbeInputs: mergeRegistrationProbeInputs(options.registrationProbeInputs),
     syntheticSource: "crabpot.synthetic",
   });
@@ -390,6 +397,33 @@ function mergeRegistrationProbeInputs(inputs = {}) {
       ...crabpotRegistrationProbeInputs.registerHttpRoute,
       ...(inputs.registerHttpRoute ?? {}),
     },
+  };
+}
+
+function mergeHookEvents(events = {}) {
+  return mergeCrabpotHookEvents(events);
+}
+
+function normalizeCaptureHookEvents(capture, hookEvents) {
+  if (!capture) {
+    return capture;
+  }
+  return {
+    ...capture,
+    fixtures: capture.fixtures.map((fixture) => ({
+      ...fixture,
+      hooks: fixture.hooks.map((hook) =>
+        hook.hook === "subagent_ended"
+          ? {
+              ...hook,
+              syntheticEvent: {
+                ...hookEvents.subagent_ended,
+                ...(hook.syntheticEvent ?? {}),
+              },
+            }
+          : hook,
+      ),
+    })),
   };
 }
 
