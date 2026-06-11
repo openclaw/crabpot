@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1 - Unreleased
+
+_No changes yet._
+
 ## 0.2.0 - 2026-06-11
 
 - Added track-aware compatibility dashboards for OpenClaw stable, beta, and development sources.
