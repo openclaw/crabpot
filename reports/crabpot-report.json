@@ -721,12 +721,12 @@
     "fixtureCount": 60,
     "highPriorityFixtures": 22,
     "breakageCount": 0,
-    "warningCount": 135,
+    "warningCount": 141,
     "suggestionCount": 149,
-    "decisionCount": 307,
+    "decisionCount": 313,
     "logCount": 484,
-    "issueCount": 284,
-    "openIssueCount": 284,
+    "issueCount": 290,
+    "openIssueCount": 290,
     "p0IssueCount": 1,
     "p1IssueCount": 17,
     "openP0IssueCount": 1,
@@ -734,7 +734,7 @@
     "liveIssueCount": 1,
     "liveP0IssueCount": 1,
     "compatGapCount": 0,
-    "deprecationWarningCount": 40,
+    "deprecationWarningCount": 46,
     "inspectorGapCount": 158,
     "upstreamIssueCount": 85,
     "fixtureRegressionCount": 0,
@@ -1100,7 +1100,8 @@
           "line": 46,
           "ref": "plugins/agentchat/integrations/openclaw-channel/src/channel.wizard.ts:46"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "wecom",
@@ -1426,7 +1427,8 @@
           "line": 6,
           "ref": "plugins/wecom/wecom/channel-plugin.js:6"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "qqbot",
@@ -1726,7 +1728,8 @@
           "line": 7,
           "ref": "plugins/qqbot/src/channel.ts:7"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "a2a-gateway",
@@ -1974,7 +1977,8 @@
           "line": 14,
           "ref": "plugins/a2a-gateway/src/types.ts:14"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "hasdata",
@@ -2151,7 +2155,8 @@
         }
       ],
       "sdkImports": [],
-      "sdkImportDetails": []
+      "sdkImportDetails": [],
+      "sdkDeprecations": []
     },
     {
       "id": "mcp-adapter",
@@ -2311,7 +2316,8 @@
         }
       ],
       "sdkImports": [],
-      "sdkImportDetails": []
+      "sdkImportDetails": [],
+      "sdkDeprecations": []
     },
     {
       "id": "aiwerk-mcp-bridge",
@@ -2543,7 +2549,8 @@
         }
       ],
       "sdkImports": [],
-      "sdkImportDetails": []
+      "sdkImportDetails": [],
+      "sdkDeprecations": []
     },
     {
       "id": "llm-trace-phoenix",
@@ -2696,7 +2703,8 @@
           "line": 12,
           "ref": "plugins/llm-trace-phoenix/index.ts:12"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "opik-openclaw",
@@ -3058,7 +3066,8 @@
           "line": 1,
           "ref": "plugins/opik-openclaw/src/service/hooks/tool.ts:1"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "openclaw-telemetry",
@@ -3264,7 +3273,8 @@
           "line": 2,
           "ref": "plugins/openclaw-telemetry/src/service.ts:2"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "lossless-claw",
@@ -3568,7 +3578,8 @@
         }
       ],
       "sdkImports": [],
-      "sdkImportDetails": []
+      "sdkImportDetails": [],
+      "sdkDeprecations": []
     },
     {
       "id": "connectclaw",
@@ -3815,7 +3826,8 @@
           "line": 2,
           "ref": "plugins/connectclaw/packages/plugin/src/tools.ts:2"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "hyperspell",
@@ -4074,7 +4086,8 @@
           "line": 1,
           "ref": "plugins/hyperspell/index.ts:1"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "honcho",
@@ -4469,7 +4482,8 @@
           "line": 11,
           "ref": "plugins/honcho/helpers.ts:11"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "composio",
@@ -4630,7 +4644,8 @@
           "line": 1,
           "ref": "plugins/composio/index.ts:1"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "kitchen-sink",
@@ -7970,7 +7985,8 @@
           "line": 313,
           "ref": "plugins/kitchen-sink/src/generated-sdk-imports.ts:313"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "bluebubbles",
@@ -8692,7 +8708,8 @@
           "line": 3,
           "ref": "plugins/bluebubbles/.crabpot-package/dist/config-schema-a7F7uzDv.js:3"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "diagnostics-otel",
@@ -8972,7 +8989,8 @@
           "line": 3,
           "ref": "plugins/diagnostics-otel/.crabpot-package/dist/api.js:3"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "discord",
@@ -11177,6 +11195,22 @@
           "line": 12,
           "ref": "plugins/discord/.crabpot-package/dist/send.shared-B3QxPnR3.js:12"
         }
+      ],
+      "sdkDeprecations": [
+        {
+          "code": "sdk-load-session-store",
+          "surface": "openclaw/plugin-sdk/session-store-runtime import",
+          "replacement": "getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes",
+          "ref": "plugins/discord/.crabpot-package/dist/message-handler.process-fTJCmd5o.js:32",
+          "message": "loadSessionStore keeps the legacy whole-store session shape; use getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes."
+        },
+        {
+          "code": "sdk-load-session-store",
+          "surface": "openclaw/plugin-sdk/session-store-runtime import",
+          "replacement": "getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes",
+          "ref": "plugins/discord/.crabpot-package/dist/provider-BzydhoOf.js:59",
+          "message": "loadSessionStore keeps the legacy whole-store session shape; use getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes."
+        }
       ]
     },
     {
@@ -11442,7 +11476,8 @@
           "line": 2,
           "ref": "plugins/lobster/.crabpot-package/dist/runtime-api.js:2"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "matrix",
@@ -14096,6 +14131,22 @@
           "line": 15,
           "ref": "plugins/matrix/.crabpot-package/src/actions.ts:15"
         }
+      ],
+      "sdkDeprecations": [
+        {
+          "code": "sdk-load-session-store",
+          "surface": "openclaw/plugin-sdk/session-store-runtime import",
+          "replacement": "getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:45",
+          "message": "loadSessionStore keeps the legacy whole-store session shape; use getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes."
+        },
+        {
+          "code": "sdk-load-session-store",
+          "surface": "openclaw/plugin-sdk/session-store-runtime import",
+          "replacement": "getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes",
+          "ref": "plugins/matrix/.crabpot-package/src/session-route.ts:10",
+          "message": "loadSessionStore keeps the legacy whole-store session shape; use getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes."
+        }
       ]
     },
     {
@@ -14942,7 +14993,8 @@
           "line": 19,
           "ref": "plugins/msteams/.crabpot-package/dist/runtime-api.js:19"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "nextcloud-talk",
@@ -15511,7 +15563,8 @@
           "line": 40,
           "ref": "plugins/nextcloud-talk/.crabpot-package/dist/channel-Cg-iYKsC.js:40"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "nostr",
@@ -16035,7 +16088,8 @@
           "line": 9,
           "ref": "plugins/nostr/.crabpot-package/dist/api.js:9"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "voice-call",
@@ -16674,7 +16728,8 @@
           "line": 2,
           "ref": "plugins/voice-call/.crabpot-package/dist/runtime-api.js:2"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "zalo",
@@ -17396,7 +17451,8 @@
           "line": 15,
           "ref": "plugins/zalo/.crabpot-package/dist/runtime-api-CDwUY_-_.js:15"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "zalouser",
@@ -18099,7 +18155,8 @@
           "line": 12,
           "ref": "plugins/zalouser/.crabpot-package/dist/zalo-js-C2Eq5K4i.js:12"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "feishu",
@@ -19180,6 +19237,22 @@
           "line": 39,
           "ref": "plugins/feishu/.crabpot-package/dist/monitor.account-xGp5NwWv.js:39"
         }
+      ],
+      "sdkDeprecations": [
+        {
+          "code": "sdk-load-session-store",
+          "surface": "openclaw/plugin-sdk/session-store-runtime import",
+          "replacement": "getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes",
+          "ref": "plugins/feishu/.crabpot-package/dist/channel-BEX7iZKr.js:36",
+          "message": "loadSessionStore keeps the legacy whole-store session shape; use getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes."
+        },
+        {
+          "code": "sdk-load-session-store",
+          "surface": "openclaw/plugin-sdk/session-store-runtime import",
+          "replacement": "getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes",
+          "ref": "plugins/feishu/.crabpot-package/dist/runtime-api.js:7",
+          "message": "loadSessionStore keeps the legacy whole-store session shape; use getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes."
+        }
       ]
     },
     {
@@ -19639,7 +19712,8 @@
           "line": 2,
           "ref": "plugins/tlon/.crabpot-package/dist/setup-surface-B0C8wpts.js:2"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "twitch",
@@ -20037,7 +20111,8 @@
           "line": 3,
           "ref": "plugins/twitch/.crabpot-package/dist/setup-surface-CSxU-v0y.js:3"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "mattermost",
@@ -21367,6 +21442,22 @@
           "line": 41,
           "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:41"
         }
+      ],
+      "sdkDeprecations": [
+        {
+          "code": "sdk-load-session-store",
+          "surface": "openclaw/plugin-sdk/session-store-runtime re-export",
+          "replacement": "getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:49",
+          "message": "loadSessionStore keeps the legacy whole-store session shape; use getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes."
+        },
+        {
+          "code": "sdk-load-session-store",
+          "surface": "openclaw/plugin-sdk/session-store-runtime import",
+          "replacement": "getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/model-picker.ts:10",
+          "message": "loadSessionStore keeps the legacy whole-store session shape; use getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes."
+        }
       ]
     },
     {
@@ -21798,7 +21889,8 @@
           "line": 20,
           "ref": "plugins/synology-chat/.crabpot-package/dist/channel-D8xW77Og.js:20"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "brave-plugin",
@@ -21878,7 +21970,7 @@
       "package": {
         "path": "plugins/brave-plugin/.crabpot-package/package.json",
         "name": "@openclaw/brave-plugin",
-        "version": "2026.6.5-beta.6",
+        "version": "2026.6.5",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -21906,8 +21998,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.6.5-beta.6",
-          "buildOpenClawVersion": "2026.6.5-beta.6",
+          "compatPluginApi": ">=2026.6.5",
+          "buildOpenClawVersion": "2026.6.5",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -21942,7 +22034,7 @@
         {
           "path": "plugins/brave-plugin/.crabpot-package/package.json",
           "name": "@openclaw/brave-plugin",
-          "version": "2026.6.5-beta.6",
+          "version": "2026.6.5",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -21970,8 +22062,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.6.5-beta.6",
-            "buildOpenClawVersion": "2026.6.5-beta.6",
+            "compatPluginApi": ">=2026.6.5",
+            "buildOpenClawVersion": "2026.6.5",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -22100,7 +22192,8 @@
           "line": 2,
           "ref": "plugins/brave-plugin/.crabpot-package/dist/web-search-shared.js:2"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "codex",
@@ -22262,7 +22355,7 @@
       "package": {
         "path": "plugins/codex/.crabpot-package/package.json",
         "name": "@openclaw/codex",
-        "version": "2026.6.5-beta.6",
+        "version": "2026.6.5",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -22295,8 +22388,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.6.5-beta.6",
-          "buildOpenClawVersion": "2026.6.5-beta.6",
+          "compatPluginApi": ">=2026.6.5",
+          "buildOpenClawVersion": "2026.6.5",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -22331,7 +22424,7 @@
         {
           "path": "plugins/codex/.crabpot-package/package.json",
           "name": "@openclaw/codex",
-          "version": "2026.6.5-beta.6",
+          "version": "2026.6.5",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -22364,8 +22457,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.6.5-beta.6",
-            "buildOpenClawVersion": "2026.6.5-beta.6",
+            "compatPluginApi": ">=2026.6.5",
+            "buildOpenClawVersion": "2026.6.5",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -22895,6 +22988,15 @@
           "line": 13,
           "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CzpvaBs1.js:13"
         }
+      ],
+      "sdkDeprecations": [
+        {
+          "code": "sdk-load-session-store",
+          "surface": "openclaw/plugin-sdk/session-store-runtime import",
+          "replacement": "getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes",
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-CzpvaBs1.js:19",
+          "message": "loadSessionStore keeps the legacy whole-store session shape; use getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes."
+        }
       ]
     },
     {
@@ -22970,7 +23072,7 @@
       "package": {
         "path": "plugins/diagnostics-prometheus/.crabpot-package/package.json",
         "name": "@openclaw/diagnostics-prometheus",
-        "version": "2026.6.5-beta.6",
+        "version": "2026.6.5",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -22998,8 +23100,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.6.5-beta.6",
-          "buildOpenClawVersion": "2026.6.5-beta.6",
+          "compatPluginApi": ">=2026.6.5",
+          "buildOpenClawVersion": "2026.6.5",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": "clawhub:@openclaw/diagnostics-prometheus",
@@ -23034,7 +23136,7 @@
         {
           "path": "plugins/diagnostics-prometheus/.crabpot-package/package.json",
           "name": "@openclaw/diagnostics-prometheus",
-          "version": "2026.6.5-beta.6",
+          "version": "2026.6.5",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -23062,8 +23164,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.6.5-beta.6",
-            "buildOpenClawVersion": "2026.6.5-beta.6",
+            "compatPluginApi": ">=2026.6.5",
+            "buildOpenClawVersion": "2026.6.5",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": "clawhub:@openclaw/diagnostics-prometheus",
@@ -23145,7 +23247,8 @@
           "line": 3,
           "ref": "plugins/diagnostics-prometheus/.crabpot-package/dist/api.js:3"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "google-meet",
@@ -23338,7 +23441,7 @@
       "package": {
         "path": "plugins/google-meet/.crabpot-package/package.json",
         "name": "@openclaw/google-meet",
-        "version": "2026.6.5-beta.6",
+        "version": "2026.6.5",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -23369,8 +23472,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.6.5-beta.6",
-          "buildOpenClawVersion": "2026.6.5-beta.6",
+          "compatPluginApi": ">=2026.6.5",
+          "buildOpenClawVersion": "2026.6.5",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -23405,7 +23508,7 @@
         {
           "path": "plugins/google-meet/.crabpot-package/package.json",
           "name": "@openclaw/google-meet",
-          "version": "2026.6.5-beta.6",
+          "version": "2026.6.5",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -23436,8 +23539,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.6.5-beta.6",
-            "buildOpenClawVersion": "2026.6.5-beta.6",
+            "compatPluginApi": ">=2026.6.5",
+            "buildOpenClawVersion": "2026.6.5",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -23673,7 +23776,8 @@
           "line": 7,
           "ref": "plugins/google-meet/.crabpot-package/dist/index.js:7"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "diffs",
@@ -23767,7 +23871,7 @@
       "package": {
         "path": "plugins/diffs/.crabpot-package/package.json",
         "name": "@openclaw/diffs",
-        "version": "2026.6.5-beta.6",
+        "version": "2026.6.5",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -23803,8 +23907,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.6.5-beta.6",
-          "buildOpenClawVersion": "2026.6.5-beta.6",
+          "compatPluginApi": ">=2026.6.5",
+          "buildOpenClawVersion": "2026.6.5",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -23839,7 +23943,7 @@
         {
           "path": "plugins/diffs/.crabpot-package/package.json",
           "name": "@openclaw/diffs",
-          "version": "2026.6.5-beta.6",
+          "version": "2026.6.5",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -23875,8 +23979,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.6.5-beta.6",
-            "buildOpenClawVersion": "2026.6.5-beta.6",
+            "compatPluginApi": ">=2026.6.5",
+            "buildOpenClawVersion": "2026.6.5",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -24021,7 +24125,8 @@
           "line": 1,
           "ref": "plugins/diffs/.crabpot-package/dist/runtime-api.js:1"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "memory-lancedb",
@@ -24170,7 +24275,7 @@
       "package": {
         "path": "plugins/memory-lancedb/.crabpot-package/package.json",
         "name": "@openclaw/memory-lancedb",
-        "version": "2026.6.5-beta.6",
+        "version": "2026.6.5",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -24203,8 +24308,8 @@
             "./dist/index.js"
           ],
           "setupEntry": null,
-          "compatPluginApi": ">=2026.6.5-beta.6",
-          "buildOpenClawVersion": "2026.6.5-beta.6",
+          "compatPluginApi": ">=2026.6.5",
+          "buildOpenClawVersion": "2026.6.5",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -24239,7 +24344,7 @@
         {
           "path": "plugins/memory-lancedb/.crabpot-package/package.json",
           "name": "@openclaw/memory-lancedb",
-          "version": "2026.6.5-beta.6",
+          "version": "2026.6.5",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -24272,8 +24377,8 @@
               "./dist/index.js"
             ],
             "setupEntry": null,
-            "compatPluginApi": ">=2026.6.5-beta.6",
-            "buildOpenClawVersion": "2026.6.5-beta.6",
+            "compatPluginApi": ">=2026.6.5",
+            "buildOpenClawVersion": "2026.6.5",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -24425,7 +24530,8 @@
           "line": 13,
           "ref": "plugins/memory-lancedb/.crabpot-package/dist/index.js:13"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "openclaw-qqbot",
@@ -24546,7 +24652,7 @@
       "package": {
         "path": "plugins/openclaw-qqbot/.crabpot-package/package.json",
         "name": "@openclaw/qqbot",
-        "version": "2026.6.5-beta.6",
+        "version": "2026.6.5",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -24581,8 +24687,8 @@
             "./dist/index.js"
           ],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.6.5-beta.6",
-          "buildOpenClawVersion": "2026.6.5-beta.6",
+          "compatPluginApi": ">=2026.6.5",
+          "buildOpenClawVersion": "2026.6.5",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": null,
@@ -24624,7 +24730,7 @@
         {
           "path": "plugins/openclaw-qqbot/.crabpot-package/package.json",
           "name": "@openclaw/qqbot",
-          "version": "2026.6.5-beta.6",
+          "version": "2026.6.5",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -24659,8 +24765,8 @@
               "./dist/index.js"
             ],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.6.5-beta.6",
-            "buildOpenClawVersion": "2026.6.5-beta.6",
+            "compatPluginApi": ">=2026.6.5",
+            "buildOpenClawVersion": "2026.6.5",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": null,
@@ -25099,7 +25205,8 @@
           "line": 9,
           "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-D13iTVCr.js:9"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "whatsapp",
@@ -25237,7 +25344,7 @@
       "package": {
         "path": "plugins/whatsapp/.crabpot-package/package.json",
         "name": "@openclaw/whatsapp",
-        "version": "2026.6.5-beta.6",
+        "version": "2026.6.5",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -25269,8 +25376,8 @@
             "./dist/index.js"
           ],
           "setupEntry": "./setup-entry.ts",
-          "compatPluginApi": ">=2026.6.5-beta.6",
-          "buildOpenClawVersion": "2026.6.5-beta.6",
+          "compatPluginApi": ">=2026.6.5",
+          "buildOpenClawVersion": "2026.6.5",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": "clawhub:@openclaw/whatsapp",
@@ -25312,7 +25419,7 @@
         {
           "path": "plugins/whatsapp/.crabpot-package/package.json",
           "name": "@openclaw/whatsapp",
-          "version": "2026.6.5-beta.6",
+          "version": "2026.6.5",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -25344,8 +25451,8 @@
               "./dist/index.js"
             ],
             "setupEntry": "./setup-entry.ts",
-            "compatPluginApi": ">=2026.6.5-beta.6",
-            "buildOpenClawVersion": "2026.6.5-beta.6",
+            "compatPluginApi": ">=2026.6.5",
+            "buildOpenClawVersion": "2026.6.5",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": "clawhub:@openclaw/whatsapp",
@@ -26460,6 +26567,15 @@
           "line": 26,
           "ref": "plugins/whatsapp/.crabpot-package/dist/send-DSlVXKL_.js:26"
         }
+      ],
+      "sdkDeprecations": [
+        {
+          "code": "sdk-load-session-store",
+          "surface": "openclaw/plugin-sdk/session-store-runtime import",
+          "replacement": "getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes",
+          "ref": "plugins/whatsapp/.crabpot-package/dist/monitor-CXuZBVgk.js:32",
+          "message": "loadSessionStore keeps the legacy whole-store session shape; use getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes."
+        }
       ]
     },
     {
@@ -26713,7 +26829,8 @@
         }
       ],
       "sdkImports": [],
-      "sdkImportDetails": []
+      "sdkImportDetails": [],
+      "sdkDeprecations": []
     },
     {
       "id": "memory-tencentdb",
@@ -27249,7 +27366,8 @@
           "line": 17,
           "ref": "plugins/memory-tencentdb/.crabpot-package/src/utils/clean-context-runner.ts:17"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "ddingtalk",
@@ -27530,7 +27648,8 @@
           "line": 12,
           "ref": "plugins/ddingtalk/src/channel.ts:12"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "dingtalk-connector",
@@ -28048,7 +28167,8 @@
           "line": 451,
           "ref": "plugins/dingtalk-connector/src/onboarding.ts:451"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "dingtalk-doc",
@@ -28384,7 +28504,8 @@
           "line": 7,
           "ref": "plugins/dingtalk-doc/src/tools/helpers.ts:7"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "hapi-openclaw",
@@ -28554,7 +28675,8 @@
         }
       ],
       "sdkImports": [],
-      "sdkImportDetails": []
+      "sdkImportDetails": [],
+      "sdkDeprecations": []
     },
     {
       "id": "mocrane-wecom",
@@ -28967,7 +29089,8 @@
           "line": 14,
           "ref": "plugins/mocrane-wecom/src/ws-adapter.ts:14"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "yuanbao",
@@ -29511,7 +29634,8 @@
           "line": 7,
           "ref": "plugins/yuanbao/.crabpot-package/dist/src/business/utils/media.js:7"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "openclaw-weixin",
@@ -30080,7 +30204,8 @@
           "line": 1,
           "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/send.ts:1"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "lightclawbot",
@@ -30479,7 +30604,8 @@
           "line": 16,
           "ref": "plugins/lightclawbot/.crabpot-package/dist/src/runtime.js:16"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "telnyx-sms",
@@ -30740,7 +30866,8 @@
           "line": 2,
           "ref": "plugins/telnyx-sms/src/setup-wizard.ts:2"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "clawrouter",
@@ -30913,7 +31040,6 @@
         "plugins/clawrouter/src/retry.ts",
         "plugins/clawrouter/src/router/config.ts",
         "plugins/clawrouter/src/router/index.ts",
-        "plugins/clawrouter/src/router/llm-classifier.ts",
         "plugins/clawrouter/src/router/rules.ts",
         "plugins/clawrouter/src/router/selector.ts",
         "plugins/clawrouter/src/router/strategy.ts",
@@ -30977,7 +31103,7 @@
       "package": {
         "path": "plugins/clawrouter/package.json",
         "name": "@blockrun/clawrouter",
-        "version": "0.12.199",
+        "version": "0.12.206",
         "type": "module",
         "main": "dist/index.js",
         "npmPack": {
@@ -30996,6 +31122,7 @@
           "invalidFileSpecs": []
         },
         "dependencies": [
+          "@noble/hashes",
           "@scure/bip32",
           "@scure/bip39",
           "@solana/kit",
@@ -31036,7 +31163,7 @@
         {
           "path": "plugins/clawrouter/package.json",
           "name": "@blockrun/clawrouter",
-          "version": "0.12.199",
+          "version": "0.12.206",
           "type": "module",
           "main": "dist/index.js",
           "npmPack": {
@@ -31055,6 +31182,7 @@
             "invalidFileSpecs": []
           },
           "dependencies": [
+            "@noble/hashes",
             "@scure/bip32",
             "@scure/bip39",
             "@solana/kit",
@@ -31093,7 +31221,8 @@
         }
       ],
       "sdkImports": [],
-      "sdkImportDetails": []
+      "sdkImportDetails": [],
+      "sdkDeprecations": []
     },
     {
       "id": "memu-engine",
@@ -31284,7 +31413,8 @@
           "line": 1,
           "ref": "plugins/memu-engine/index.ts:1"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "secureclaw",
@@ -31498,7 +31628,8 @@
         }
       ],
       "sdkImports": [],
-      "sdkImportDetails": []
+      "sdkImportDetails": [],
+      "sdkDeprecations": []
     },
     {
       "id": "memos-cloud",
@@ -31659,7 +31790,8 @@
         }
       ],
       "sdkImports": [],
-      "sdkImportDetails": []
+      "sdkImportDetails": [],
+      "sdkDeprecations": []
     },
     {
       "id": "clawmetry",
@@ -31963,7 +32095,8 @@
           "line": 1,
           "ref": "plugins/clawmetry/clawhub-plugin/src/service.ts:1"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "codex-app-server",
@@ -32204,7 +32337,8 @@
           "line": 105,
           "ref": "plugins/codex-app-server/src/controller.ts:105"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "web-search-plus",
@@ -32428,7 +32562,8 @@
           "line": 4,
           "ref": "plugins/web-search-plus/index.ts:4"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "apify",
@@ -32634,7 +32769,8 @@
           "line": 4,
           "ref": "plugins/apify/src/tools/apify-scraper-tool.ts:4"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     },
     {
       "id": "inworld-tts",
@@ -32854,7 +32990,8 @@
           "line": 7,
           "ref": "plugins/inworld-tts/tts.ts:7"
         }
-      ]
+      ],
+      "sdkDeprecations": []
     }
   ],
   "breakages": [],
@@ -33338,6 +33475,16 @@
     },
     {
       "fixture": "discord",
+      "code": "sdk-load-session-store",
+      "level": "warning",
+      "message": "loadSessionStore keeps the legacy whole-store session shape; use getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes.",
+      "evidence": [
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/discord/.crabpot-package/dist/message-handler.process-fTJCmd5o.js:32",
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/discord/.crabpot-package/dist/provider-BzydhoOf.js:59"
+      ]
+    },
+    {
+      "fixture": "discord",
       "code": "channel-env-vars",
       "level": "warning",
       "message": "manifest uses channelEnvVars legacy compatibility metadata",
@@ -33373,6 +33520,16 @@
       "evidence": [
         "minHostVersion:>=2026.4.10",
         "buildOpenClawVersion:2026.6.5"
+      ]
+    },
+    {
+      "fixture": "matrix",
+      "code": "sdk-load-session-store",
+      "level": "warning",
+      "message": "loadSessionStore keeps the legacy whole-store session shape; use getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes.",
+      "evidence": [
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:45",
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/matrix/.crabpot-package/src/session-route.ts:10"
       ]
     },
     {
@@ -33580,6 +33737,16 @@
     },
     {
       "fixture": "feishu",
+      "code": "sdk-load-session-store",
+      "level": "warning",
+      "message": "loadSessionStore keeps the legacy whole-store session shape; use getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes.",
+      "evidence": [
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/feishu/.crabpot-package/dist/channel-BEX7iZKr.js:36",
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/feishu/.crabpot-package/dist/runtime-api.js:7"
+      ]
+    },
+    {
+      "fixture": "feishu",
       "code": "channel-env-vars",
       "level": "warning",
       "message": "manifest uses channelEnvVars legacy compatibility metadata",
@@ -33656,6 +33823,16 @@
     },
     {
       "fixture": "mattermost",
+      "code": "sdk-load-session-store",
+      "level": "warning",
+      "message": "loadSessionStore keeps the legacy whole-store session shape; use getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes.",
+      "evidence": [
+        "openclaw/plugin-sdk/session-store-runtime re-export @ plugins/mattermost/.crabpot-package/runtime-api.ts:49",
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/mattermost/.crabpot-package/src/mattermost/model-picker.ts:10"
+      ]
+    },
+    {
+      "fixture": "mattermost",
       "code": "channel-env-vars",
       "level": "warning",
       "message": "manifest uses channelEnvVars legacy compatibility metadata",
@@ -33709,7 +33886,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ]
     },
     {
@@ -33737,7 +33914,16 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
+      ]
+    },
+    {
+      "fixture": "codex",
+      "code": "sdk-load-session-store",
+      "level": "warning",
+      "message": "loadSessionStore keeps the legacy whole-store session shape; use getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes.",
+      "evidence": [
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/codex/.crabpot-package/dist/conversation-binding-CzpvaBs1.js:19"
       ]
     },
     {
@@ -33747,7 +33933,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ]
     },
     {
@@ -33766,7 +33952,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ]
     },
     {
@@ -33785,7 +33971,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ]
     },
     {
@@ -33804,7 +33990,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.5.31",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ]
     },
     {
@@ -33833,7 +34019,7 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ]
     },
     {
@@ -33853,7 +34039,16 @@
       "message": "package openclaw.install.minHostVersion is not a semver floor for the target OpenClaw build version",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
+      ]
+    },
+    {
+      "fixture": "whatsapp",
+      "code": "sdk-load-session-store",
+      "level": "warning",
+      "message": "loadSessionStore keeps the legacy whole-store session shape; use getSessionEntry(...) / listSessionEntries(...) for reads and patchSessionEntry(...) / upsertSessionEntry(...) for writes.",
+      "evidence": [
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/whatsapp/.crabpot-package/dist/monitor-CXuZBVgk.js:32"
       ]
     },
     {
@@ -35739,6 +35934,7 @@
       "level": "suggestion",
       "message": "package declares runtime dependencies that must be installed before cold import",
       "evidence": [
+        "@noble/hashes @ plugins/clawrouter/package.json",
         "@scure/bip32 @ plugins/clawrouter/package.json",
         "@scure/bip39 @ plugins/clawrouter/package.json",
         "@solana/kit @ plugins/clawrouter/package.json",
@@ -35970,7 +36166,11 @@
         "openclaw/plugin-sdk/codex-mcp-projection @ plugins/codex/.crabpot-package/dist/thread-lifecycle-BJsazZ8j.js:11"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Stop importing reserved bundled-plugin SDK compatibility paths.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#reserved-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-4DB969AE",
@@ -36068,7 +36268,11 @@
         "openclaw/plugin-sdk/codex-mcp-projection @ plugins/kitchen-sink/src/generated-sdk-imports.ts:81"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Stop importing reserved bundled-plugin SDK compatibility paths.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#reserved-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-5D9C0F25",
@@ -36281,7 +36485,11 @@
         "openclaw/plugin-sdk @ plugins/a2a-gateway/src/types.ts:14"
       ],
       "compatRecord": "legacy-root-sdk-import",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-892CF14F",
@@ -36300,7 +36508,11 @@
         "defaultConfig @ plugins/a2a-gateway/openclaw.plugin.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move unsupported top-level manifest fields into supported package metadata or remove them.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields"
+      }
     },
     {
       "id": "CRABPOT-F5185BE0",
@@ -36345,7 +36557,11 @@
         "manifest:1.3.0"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Align the plugin version declared in package.json and openclaw.plugin.json.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-manifest-version-drift"
+      }
     },
     {
       "id": "CRABPOT-FDBB1C67",
@@ -36364,7 +36580,11 @@
         "plugins/a2a-gateway/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-96D2E9F4",
@@ -36440,7 +36660,11 @@
         "agentchat"
       ],
       "compatRecord": "channel-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars"
+      }
     },
     {
       "id": "CRABPOT-BEC462A4",
@@ -36461,7 +36685,11 @@
         "icon @ plugins/agentchat/integrations/openclaw-channel/openclaw.plugin.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move unsupported top-level manifest fields into supported package metadata or remove them.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields"
+      }
     },
     {
       "id": "CRABPOT-6A790CB4",
@@ -36524,7 +36752,11 @@
         "required @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move unsupported top-level manifest fields into supported package metadata or remove them.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields"
+      }
     },
     {
       "id": "CRABPOT-DD71F80E",
@@ -36563,7 +36795,11 @@
         "plugins/aiwerk-mcp-bridge/.crabpot-package/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-CD7888F6",
@@ -36683,7 +36919,11 @@
         "plugins/bluebubbles/.crabpot-package/openclaw.plugin.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Add a display name to the plugin manifest.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-name-missing"
+      }
     },
     {
       "id": "CRABPOT-63E8A4F5",
@@ -36702,7 +36942,11 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
       "id": "CRABPOT-49B241A0",
@@ -36722,7 +36966,11 @@
         "buildOpenClawVersion:2026.5.7"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-B15AE8B8",
@@ -36741,10 +36989,14 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
-      "id": "CRABPOT-956179B5",
+      "id": "CRABPOT-4F3F0E79",
       "fixture": "brave-plugin",
       "severity": "P2",
       "owner": "plugin",
@@ -36758,10 +37010,14 @@
       "title": "brave-plugin: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-6F2B8A54",
@@ -36781,7 +37037,11 @@
         "openclaw/plugin-sdk @ plugins/clawmetry/clawhub-plugin/src/service.ts:1"
       ],
       "compatRecord": "legacy-root-sdk-import",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-94721C48",
@@ -36801,7 +37061,11 @@
         "openclaw.release.publishToNpm requires openclaw.install.npmSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
       "id": "CRABPOT-EF6E7134",
@@ -36842,7 +37106,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-5B6D803B",
+      "id": "CRABPOT-78B0D52F",
       "fixture": "clawrouter",
       "severity": "P2",
       "owner": "inspector",
@@ -36855,6 +37119,7 @@
       "compatStatus": "none",
       "title": "clawrouter: cold import requires dependency installation in an isolated workspace",
       "evidence": [
+        "@noble/hashes @ plugins/clawrouter/package.json",
         "@scure/bip32 @ plugins/clawrouter/package.json",
         "@scure/bip39 @ plugins/clawrouter/package.json",
         "@solana/kit @ plugins/clawrouter/package.json",
@@ -36884,7 +37149,11 @@
         "plugins/clawrouter/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-1B80B6ED",
@@ -36952,10 +37221,14 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
-      "id": "CRABPOT-91C1A409",
+      "id": "CRABPOT-7FE5F2DD",
       "fixture": "codex",
       "severity": "P2",
       "owner": "plugin",
@@ -36969,10 +37242,14 @@
       "title": "codex: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-61B2F835",
@@ -36996,6 +37273,29 @@
       "runtimeCoverage": null
     },
     {
+      "id": "CRABPOT-B53ACAAE",
+      "fixture": "codex",
+      "severity": "P2",
+      "owner": "core",
+      "code": "sdk-load-session-store",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "codex: deprecated whole-store session helper is still used",
+      "evidence": [
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/codex/.crabpot-package/dist/conversation-binding-CzpvaBs1.js:19"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Replace deprecated loadSessionStore whole-store access with row-scoped session helpers.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-load-session-store"
+      }
+    },
+    {
       "id": "CRABPOT-A36ECE8E",
       "fixture": "codex-app-server",
       "severity": "P2",
@@ -37015,7 +37315,11 @@
         "openclaw/plugin-sdk @ plugins/codex-app-server/src/types.ts:1"
       ],
       "compatRecord": "legacy-root-sdk-import",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-8654B213",
@@ -37094,7 +37398,11 @@
         "openclaw/plugin-sdk @ plugins/composio/index.ts:1"
       ],
       "compatRecord": "legacy-root-sdk-import",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-9B97C0E4",
@@ -37113,7 +37421,11 @@
         "plugins/composio/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-4701E507",
@@ -37151,7 +37463,11 @@
         "before_agent_start @ plugins/connectclaw/packages/plugin/src/hooks.ts:17"
       ],
       "compatRecord": "legacy-before-agent-start",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Replace the legacy before_agent_start hook with the current prompt/model hooks.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start"
+      }
     },
     {
       "id": "CRABPOT-4320AA30",
@@ -37174,7 +37490,11 @@
         "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:2"
       ],
       "compatRecord": "legacy-root-sdk-import",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-FF258127",
@@ -37271,7 +37591,11 @@
         "plugins/ddingtalk/openclaw.plugin.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Add a display name to the plugin manifest.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-name-missing"
+      }
     },
     {
       "id": "CRABPOT-C5EBD95E",
@@ -37310,7 +37634,11 @@
         "plugins/ddingtalk/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-C5EE2B34",
@@ -37378,7 +37706,11 @@
         "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-4E6403DF",
@@ -37400,7 +37732,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-BFAD7320",
+      "id": "CRABPOT-FCA57E73",
       "fixture": "diagnostics-prometheus",
       "severity": "P2",
       "owner": "plugin",
@@ -37414,10 +37746,14 @@
       "title": "diagnostics-prometheus: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-9E965880",
@@ -37480,10 +37816,14 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
-      "id": "CRABPOT-0A2601B0",
+      "id": "CRABPOT-49BC40F0",
       "fixture": "diffs",
       "severity": "P2",
       "owner": "plugin",
@@ -37497,10 +37837,14 @@
       "title": "diffs: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-07A19B0E",
@@ -37566,7 +37910,11 @@
         "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/utils/agent.ts:8"
       ],
       "compatRecord": "legacy-root-sdk-import",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-F71CDAFE",
@@ -37586,7 +37934,11 @@
         "main @ plugins/dingtalk-connector/openclaw.plugin.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move unsupported top-level manifest fields into supported package metadata or remove them.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields"
+      }
     },
     {
       "id": "CRABPOT-88966F04",
@@ -37648,7 +38000,11 @@
         "plugins/dingtalk-connector/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-4D754140",
@@ -37719,7 +38075,11 @@
         "openclaw/plugin-sdk @ plugins/dingtalk-doc/src/tools/helpers.ts:7"
       ],
       "compatRecord": "legacy-root-sdk-import",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-92F07F79",
@@ -37738,7 +38098,11 @@
         "plugins/dingtalk-doc/openclaw.plugin.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Add a display name to the plugin manifest.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-name-missing"
+      }
     },
     {
       "id": "CRABPOT-DEF9FB25",
@@ -37795,7 +38159,11 @@
         "plugins/dingtalk-doc/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-9C9BB65B",
@@ -37852,7 +38220,11 @@
         "discord"
       ],
       "compatRecord": "channel-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars"
+      }
     },
     {
       "id": "CRABPOT-5720B4E2",
@@ -37895,7 +38267,11 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
       "id": "CRABPOT-F448BE39",
@@ -37915,7 +38291,35 @@
         "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
+    },
+    {
+      "id": "CRABPOT-F5B44AD6",
+      "fixture": "discord",
+      "severity": "P2",
+      "owner": "core",
+      "code": "sdk-load-session-store",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "discord: deprecated whole-store session helper is still used",
+      "evidence": [
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/discord/.crabpot-package/dist/message-handler.process-fTJCmd5o.js:32",
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/discord/.crabpot-package/dist/provider-BzydhoOf.js:59"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Replace deprecated loadSessionStore whole-store access with row-scoped session helpers.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-load-session-store"
+      }
     },
     {
       "id": "CRABPOT-61BA2C3E",
@@ -37953,7 +38357,11 @@
         "feishu"
       ],
       "compatRecord": "channel-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars"
+      }
     },
     {
       "id": "CRABPOT-6D999E11",
@@ -37993,7 +38401,11 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
       "id": "CRABPOT-90D4CE86",
@@ -38013,7 +38425,35 @@
         "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
+    },
+    {
+      "id": "CRABPOT-177E290A",
+      "fixture": "feishu",
+      "severity": "P2",
+      "owner": "core",
+      "code": "sdk-load-session-store",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "feishu: deprecated whole-store session helper is still used",
+      "evidence": [
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/feishu/.crabpot-package/dist/channel-BEX7iZKr.js:36",
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/feishu/.crabpot-package/dist/runtime-api.js:7"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Replace deprecated loadSessionStore whole-store access with row-scoped session helpers.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-load-session-store"
+      }
     },
     {
       "id": "CRABPOT-AF62E437",
@@ -38052,10 +38492,14 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
-      "id": "CRABPOT-29EA80E2",
+      "id": "CRABPOT-3D147775",
       "fixture": "google-meet",
       "severity": "P2",
       "owner": "plugin",
@@ -38069,10 +38513,14 @@
       "title": "google-meet: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-96621D66",
@@ -38182,7 +38630,11 @@
         "hasdata"
       ],
       "compatRecord": "provider-auth-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy provider authentication environment variables into current provider setup metadata.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#provider-auth-env-vars"
+      }
     },
     {
       "id": "CRABPOT-4A5B0532",
@@ -38201,7 +38653,11 @@
         "before_agent_start @ plugins/honcho/hooks/subagent.ts:18"
       ],
       "compatRecord": "legacy-before-agent-start",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Replace the legacy before_agent_start hook with the current prompt/model hooks.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start"
+      }
     },
     {
       "id": "CRABPOT-72D49A8F",
@@ -38231,7 +38687,11 @@
         "openclaw/plugin-sdk @ plugins/honcho/tools/session.ts:3"
       ],
       "compatRecord": "legacy-root-sdk-import",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-4985CD8A",
@@ -38250,7 +38710,11 @@
         "plugins/honcho/openclaw.plugin.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Add a display name to the plugin manifest.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-name-missing"
+      }
     },
     {
       "id": "CRABPOT-DD3A3689",
@@ -38330,7 +38794,11 @@
         "openclaw/plugin-sdk @ plugins/hyperspell/index.ts:1"
       ],
       "compatRecord": "legacy-root-sdk-import",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-989C019E",
@@ -38390,7 +38858,11 @@
         "manifest:0.13.0"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Align the plugin version declared in package.json and openclaw.plugin.json.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-manifest-version-drift"
+      }
     },
     {
       "id": "CRABPOT-649B2F3A",
@@ -38452,7 +38924,11 @@
         "inworld"
       ],
       "compatRecord": "provider-auth-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy provider authentication environment variables into current provider setup metadata.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#provider-auth-env-vars"
+      }
     },
     {
       "id": "CRABPOT-D2EB1C0A",
@@ -38491,7 +38967,11 @@
         "before_agent_start @ plugins/kitchen-sink/src/generated-hooks.js:12"
       ],
       "compatRecord": "legacy-before-agent-start",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Replace the legacy before_agent_start hook with the current prompt/model hooks.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start"
+      }
     },
     {
       "id": "CRABPOT-94CDB25C",
@@ -38510,7 +38990,11 @@
         "openclaw/plugin-sdk @ plugins/kitchen-sink/src/generated-sdk-imports.ts:2"
       ],
       "compatRecord": "legacy-root-sdk-import",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-268E1B08",
@@ -38530,7 +39014,11 @@
         "buildOpenClawVersion:2026.6.1"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-F79FF0AA",
@@ -38646,7 +39134,11 @@
         "plugins/lightclawbot/.crabpot-package/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-4CC6CA25",
@@ -38665,7 +39157,11 @@
         "openclaw/plugin-sdk @ plugins/llm-trace-phoenix/index.ts:12"
       ],
       "compatRecord": "legacy-root-sdk-import",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-15F8300A",
@@ -38723,7 +39219,11 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
       "id": "CRABPOT-D9806355",
@@ -38743,7 +39243,11 @@
         "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-1D5467C3",
@@ -38823,7 +39327,11 @@
         "matrix"
       ],
       "compatRecord": "channel-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars"
+      }
     },
     {
       "id": "CRABPOT-16229F50",
@@ -38869,7 +39377,11 @@
         "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-2B12C0EA",
@@ -38913,6 +39425,30 @@
       "runtimeCoverage": null
     },
     {
+      "id": "CRABPOT-8B3CE20F",
+      "fixture": "matrix",
+      "severity": "P2",
+      "owner": "core",
+      "code": "sdk-load-session-store",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "matrix: deprecated whole-store session helper is still used",
+      "evidence": [
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:45",
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/matrix/.crabpot-package/src/session-route.ts:10"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Replace deprecated loadSessionStore whole-store access with row-scoped session helpers.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-load-session-store"
+      }
+    },
+    {
       "id": "CRABPOT-0F393410",
       "fixture": "mattermost",
       "severity": "P2",
@@ -38948,7 +39484,11 @@
         "mattermost"
       ],
       "compatRecord": "channel-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars"
+      }
     },
     {
       "id": "CRABPOT-4D2B39A6",
@@ -38967,7 +39507,11 @@
         "plugins/mattermost/.crabpot-package/openclaw.plugin.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Add a display name to the plugin manifest.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-name-missing"
+      }
     },
     {
       "id": "CRABPOT-572BA556",
@@ -39006,7 +39550,11 @@
         "plugins/mattermost/.crabpot-package/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-F30D40A7",
@@ -39048,6 +39596,30 @@
       "runtimeCoverage": null
     },
     {
+      "id": "CRABPOT-C1816320",
+      "fixture": "mattermost",
+      "severity": "P2",
+      "owner": "core",
+      "code": "sdk-load-session-store",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "mattermost: deprecated whole-store session helper is still used",
+      "evidence": [
+        "openclaw/plugin-sdk/session-store-runtime re-export @ plugins/mattermost/.crabpot-package/runtime-api.ts:49",
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/mattermost/.crabpot-package/src/mattermost/model-picker.ts:10"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Replace deprecated loadSessionStore whole-store access with row-scoped session helpers.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-load-session-store"
+      }
+    },
+    {
       "id": "CRABPOT-22E35E29",
       "fixture": "mcp-adapter",
       "severity": "P2",
@@ -39083,7 +39655,11 @@
         "plugins/mcp-adapter/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-6515DC5B",
@@ -39181,10 +39757,14 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
-      "id": "CRABPOT-B6D97E5C",
+      "id": "CRABPOT-447B11CE",
       "fixture": "memory-lancedb",
       "severity": "P2",
       "owner": "plugin",
@@ -39198,10 +39778,14 @@
       "title": "memory-lancedb: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.5.31",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-CA869733",
@@ -39241,7 +39825,11 @@
         "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:2190"
       ],
       "compatRecord": "legacy-root-sdk-import",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-B40EE728",
@@ -39291,7 +39879,11 @@
         "openclaw.bundle"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Remove unsupported OpenClaw package metadata fields.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-openclaw-unsupported-metadata"
+      }
     },
     {
       "id": "CRABPOT-C5CE2AD7",
@@ -39351,7 +39943,11 @@
         "before_agent_start @ plugins/memos-cloud/index.js:531"
       ],
       "compatRecord": "legacy-before-agent-start",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Replace the legacy before_agent_start hook with the current prompt/model hooks.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start"
+      }
     },
     {
       "id": "CRABPOT-8063D1D1",
@@ -39370,7 +39966,11 @@
         "main @ plugins/memos-cloud/openclaw.plugin.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move unsupported top-level manifest fields into supported package metadata or remove them.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields"
+      }
     },
     {
       "id": "CRABPOT-66D4DDD2",
@@ -39389,7 +39989,11 @@
         "plugins/memos-cloud/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-54DA9458",
@@ -39427,7 +40031,11 @@
         "openclaw/plugin-sdk @ plugins/memu-engine/index.ts:1"
       ],
       "compatRecord": "legacy-root-sdk-import",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-34908E7A",
@@ -39446,7 +40054,11 @@
         "plugins/memu-engine/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-334C8181",
@@ -39547,7 +40159,11 @@
         "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/ws-adapter.ts:14"
       ],
       "compatRecord": "legacy-root-sdk-import",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-2F7CEAFE",
@@ -39566,7 +40182,11 @@
         "plugins/mocrane-wecom/openclaw.plugin.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Add a display name to the plugin manifest.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-name-missing"
+      }
     },
     {
       "id": "CRABPOT-9D055C89",
@@ -39608,7 +40228,11 @@
         "plugins/mocrane-wecom/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-7AE2275C",
@@ -39704,7 +40328,11 @@
         "msteams"
       ],
       "compatRecord": "channel-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars"
+      }
     },
     {
       "id": "CRABPOT-E4FD7A7E",
@@ -39746,7 +40374,11 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
       "id": "CRABPOT-F4C8B09C",
@@ -39766,7 +40398,11 @@
         "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-8CD3E234",
@@ -39864,7 +40500,11 @@
         "nextcloud-talk"
       ],
       "compatRecord": "channel-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars"
+      }
     },
     {
       "id": "CRABPOT-1FA2566C",
@@ -39902,7 +40542,11 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
       "id": "CRABPOT-46CA74AD",
@@ -39922,7 +40566,11 @@
         "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-5186ACAB",
@@ -39960,7 +40608,11 @@
         "nostr"
       ],
       "compatRecord": "channel-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars"
+      }
     },
     {
       "id": "CRABPOT-18D68943",
@@ -39999,7 +40651,11 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
       "id": "CRABPOT-4594439F",
@@ -40019,7 +40675,11 @@
         "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-355C5105",
@@ -40057,7 +40717,11 @@
         "qqbot"
       ],
       "compatRecord": "channel-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars"
+      }
     },
     {
       "id": "CRABPOT-97D3B902",
@@ -40099,10 +40763,14 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
-      "id": "CRABPOT-858EA2CE",
+      "id": "CRABPOT-B5807D95",
       "fixture": "openclaw-qqbot",
       "severity": "P2",
       "owner": "plugin",
@@ -40116,10 +40784,14 @@
       "title": "openclaw-qqbot: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-CAB94AE5",
@@ -40157,7 +40829,11 @@
         "before_agent_start @ plugins/openclaw-telemetry/index.ts:53"
       ],
       "compatRecord": "legacy-before-agent-start",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Replace the legacy before_agent_start hook with the current prompt/model hooks.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start"
+      }
     },
     {
       "id": "CRABPOT-BCDA5B47",
@@ -40178,7 +40854,11 @@
         "openclaw/plugin-sdk @ plugins/openclaw-telemetry/src/service.ts:2"
       ],
       "compatRecord": "legacy-root-sdk-import",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-A8707FE3",
@@ -40197,7 +40877,11 @@
         "plugins/openclaw-telemetry/openclaw.plugin.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Add a display name to the plugin manifest.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-name-missing"
+      }
     },
     {
       "id": "CRABPOT-A97EA054",
@@ -40216,7 +40900,11 @@
         "plugins/openclaw-telemetry/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-5187C053",
@@ -40293,7 +40981,11 @@
         "plugins/openclaw-weixin/.crabpot-package/openclaw.plugin.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Add a display name to the plugin manifest.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-name-missing"
+      }
     },
     {
       "id": "CRABPOT-D27E96E8",
@@ -40332,7 +41024,11 @@
         "plugins/openclaw-weixin/.crabpot-package/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-330EF0B5",
@@ -40398,7 +41094,11 @@
         "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service/hooks/tool.ts:1"
       ],
       "compatRecord": "legacy-root-sdk-import",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-5D328BF6",
@@ -40522,7 +41222,11 @@
         "openclaw/plugin-sdk @ plugins/qqbot/src/tools/remind.ts:1"
       ],
       "compatRecord": "legacy-root-sdk-import",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import"
+      }
     },
     {
       "id": "CRABPOT-FD77FB14",
@@ -40542,7 +41246,11 @@
         "extensions @ plugins/qqbot/openclaw.plugin.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move unsupported top-level manifest fields into supported package metadata or remove them.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields"
+      }
     },
     {
       "id": "CRABPOT-5D31D688",
@@ -40582,7 +41290,11 @@
         "plugins/qqbot/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-3746416F",
@@ -40679,7 +41391,11 @@
         "plugins/secureclaw/secureclaw/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-7B25E601",
@@ -40738,7 +41454,11 @@
         "synology-chat"
       ],
       "compatRecord": "channel-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars"
+      }
     },
     {
       "id": "CRABPOT-95803CD1",
@@ -40776,7 +41496,11 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
       "id": "CRABPOT-F9327934",
@@ -40796,7 +41520,11 @@
         "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-CB5664FE",
@@ -40834,7 +41562,11 @@
         "telnyx-sms"
       ],
       "compatRecord": "channel-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars"
+      }
     },
     {
       "id": "CRABPOT-2ADE15EA",
@@ -40934,7 +41666,11 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
       "id": "CRABPOT-250AFBD2",
@@ -40954,7 +41690,11 @@
         "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-076EFB09",
@@ -40992,7 +41732,11 @@
         "twitch"
       ],
       "compatRecord": "channel-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars"
+      }
     },
     {
       "id": "CRABPOT-F1025A4F",
@@ -41033,7 +41777,11 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
       "id": "CRABPOT-7CEC7625",
@@ -41053,7 +41801,11 @@
         "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-F597EBE7",
@@ -41072,7 +41824,11 @@
         "voice-call"
       ],
       "compatRecord": "channel-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars"
+      }
     },
     {
       "id": "CRABPOT-23F50EE1",
@@ -41113,7 +41869,11 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
       "id": "CRABPOT-34680304",
@@ -41133,7 +41893,11 @@
         "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-0C1E9671",
@@ -41241,7 +42005,11 @@
         "plugins/wecom/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-2A6DEBCE",
@@ -41304,7 +42072,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-0DDA14A1",
+      "id": "CRABPOT-9773E05F",
       "fixture": "whatsapp",
       "severity": "P2",
       "owner": "plugin",
@@ -41318,10 +42086,37 @@
       "title": "whatsapp: OpenClaw package minimum host version drifts from build target",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
+    },
+    {
+      "id": "CRABPOT-0B44490E",
+      "fixture": "whatsapp",
+      "severity": "P2",
+      "owner": "core",
+      "code": "sdk-load-session-store",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "whatsapp: deprecated whole-store session helper is still used",
+      "evidence": [
+        "openclaw/plugin-sdk/session-store-runtime import @ plugins/whatsapp/.crabpot-package/dist/monitor-CXuZBVgk.js:32"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Replace deprecated loadSessionStore whole-store access with row-scoped session helpers.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-load-session-store"
+      }
     },
     {
       "id": "CRABPOT-6D5BE418",
@@ -41359,7 +42154,11 @@
         "yuanbao"
       ],
       "compatRecord": "channel-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars"
+      }
     },
     {
       "id": "CRABPOT-5392A5C2",
@@ -41399,7 +42198,11 @@
         "openclaw.bundle"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Remove unsupported OpenClaw package metadata fields.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-openclaw-unsupported-metadata"
+      }
     },
     {
       "id": "CRABPOT-F9A99F1E",
@@ -41418,7 +42221,11 @@
         "plugins/yuanbao/.crabpot-package/package.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Declare the OpenClaw plugin API range this package supports.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing"
+      }
     },
     {
       "id": "CRABPOT-4E731C80",
@@ -41498,7 +42305,11 @@
         "zalo"
       ],
       "compatRecord": "channel-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars"
+      }
     },
     {
       "id": "CRABPOT-7CF9FC88",
@@ -41536,7 +42347,11 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
       "id": "CRABPOT-3B640D26",
@@ -41556,7 +42371,11 @@
         "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-25EA9ECC",
@@ -41594,7 +42413,11 @@
         "zalouser"
       ],
       "compatRecord": "channel-env-vars",
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars"
+      }
     },
     {
       "id": "CRABPOT-6E7A6111",
@@ -41634,7 +42457,11 @@
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Complete the OpenClaw install metadata so ClawHub can identify the install target.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete"
+      }
     },
     {
       "id": "CRABPOT-B59876E7",
@@ -41654,7 +42481,11 @@
         "buildOpenClawVersion:2026.6.5"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift"
+      }
     },
     {
       "id": "CRABPOT-CB326D97",
@@ -41673,7 +42504,11 @@
         "plugins/clawrouter/openclaw.security.json:$schema=https://openclaw.ai/schemas/plugin-security.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Remove or update the unsupported security manifest schema reference.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#security-manifest-schema-unavailable"
+      }
     },
     {
       "id": "CRABPOT-0FE0A4E3",
@@ -41692,7 +42527,11 @@
         "plugins/clawrouter/openclaw.security.json"
       ],
       "compatRecord": null,
-      "runtimeCoverage": null
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Remove unsupported security manifest files until OpenClaw documents a versioned security manifest schema.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#unrecognized-security-manifest"
+      }
     }
   ],
   "contractProbes": [
@@ -43892,6 +44731,7 @@
       "target": "package-loader",
       "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
       "evidence": [
+        "@noble/hashes @ plugins/clawrouter/package.json",
         "@scure/bip32 @ plugins/clawrouter/package.json",
         "@scure/bip39 @ plugins/clawrouter/package.json",
         "@solana/kit @ plugins/clawrouter/package.json",
@@ -44526,7 +45366,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ]
     },
     {
@@ -44537,7 +45377,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ]
     },
     {
@@ -44559,7 +45399,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ]
     },
     {
@@ -44570,7 +45410,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ]
     },
     {
@@ -44603,7 +45443,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ]
     },
     {
@@ -44636,7 +45476,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.5.31",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ]
     },
     {
@@ -44680,7 +45520,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ]
     },
     {
@@ -44735,7 +45575,7 @@
       "contract": "Install minimum host version matches the OpenClaw package surface targeted by the plugin.",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ]
     },
     {
@@ -47690,7 +48530,7 @@
       "evidence": [
         "plugins/brave-plugin/.crabpot-package/package.json",
         "@openclaw/brave-plugin",
-        "version:2026.6.5-beta.6"
+        "version:2026.6.5"
       ]
     },
     {
@@ -47762,7 +48602,7 @@
       "evidence": [
         "plugins/codex/.crabpot-package/package.json",
         "@openclaw/codex",
-        "version:2026.6.5-beta.6"
+        "version:2026.6.5"
       ]
     },
     {
@@ -47831,7 +48671,7 @@
       "evidence": [
         "plugins/diagnostics-prometheus/.crabpot-package/package.json",
         "@openclaw/diagnostics-prometheus",
-        "version:2026.6.5-beta.6"
+        "version:2026.6.5"
       ]
     },
     {
@@ -47905,7 +48745,7 @@
       "evidence": [
         "plugins/google-meet/.crabpot-package/package.json",
         "@openclaw/google-meet",
-        "version:2026.6.5-beta.6"
+        "version:2026.6.5"
       ]
     },
     {
@@ -47986,7 +48826,7 @@
       "evidence": [
         "plugins/diffs/.crabpot-package/package.json",
         "@openclaw/diffs",
-        "version:2026.6.5-beta.6"
+        "version:2026.6.5"
       ]
     },
     {
@@ -48074,7 +48914,7 @@
       "evidence": [
         "plugins/memory-lancedb/.crabpot-package/package.json",
         "@openclaw/memory-lancedb",
-        "version:2026.6.5-beta.6"
+        "version:2026.6.5"
       ]
     },
     {
@@ -48181,7 +49021,7 @@
       "evidence": [
         "plugins/openclaw-qqbot/.crabpot-package/package.json",
         "@openclaw/qqbot",
-        "version:2026.6.5-beta.6"
+        "version:2026.6.5"
       ]
     },
     {
@@ -48317,7 +49157,7 @@
       "evidence": [
         "plugins/whatsapp/.crabpot-package/package.json",
         "@openclaw/whatsapp",
-        "version:2026.6.5-beta.6"
+        "version:2026.6.5"
       ]
     },
     {
@@ -49061,7 +49901,7 @@
       "evidence": [
         "plugins/clawrouter/package.json",
         "@blockrun/clawrouter",
-        "version:0.12.199"
+        "version:0.12.206"
       ]
     },
     {
@@ -51516,6 +52356,13 @@
     {
       "fixture": "discord",
       "decision": "core-compat-adapter",
+      "seam": "session-store",
+      "action": "Keep loadSessionStore compatibility active while plugin authors migrate to row-scoped session helpers.",
+      "evidence": "plugins/discord/.crabpot-package/dist/message-handler.process-fTJCmd5o.js:32, plugins/discord/.crabpot-package/dist/provider-BzydhoOf.js:59"
+    },
+    {
+      "fixture": "discord",
+      "decision": "core-compat-adapter",
       "seam": "channel-env",
       "action": "Keep channelEnvVars compatibility active until channel setup metadata has a stable replacement path.",
       "evidence": "discord"
@@ -51582,6 +52429,13 @@
       "seam": "cold-import",
       "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
       "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox, zod"
+    },
+    {
+      "fixture": "matrix",
+      "decision": "core-compat-adapter",
+      "seam": "session-store",
+      "action": "Keep loadSessionStore compatibility active while plugin authors migrate to row-scoped session helpers.",
+      "evidence": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:45, plugins/matrix/.crabpot-package/src/session-route.ts:10"
     },
     {
       "fixture": "matrix",
@@ -51852,6 +52706,13 @@
     {
       "fixture": "feishu",
       "decision": "core-compat-adapter",
+      "seam": "session-store",
+      "action": "Keep loadSessionStore compatibility active while plugin authors migrate to row-scoped session helpers.",
+      "evidence": "plugins/feishu/.crabpot-package/dist/channel-BEX7iZKr.js:36, plugins/feishu/.crabpot-package/dist/runtime-api.js:7"
+    },
+    {
+      "fixture": "feishu",
+      "decision": "core-compat-adapter",
       "seam": "channel-env",
       "action": "Keep channelEnvVars compatibility active until channel setup metadata has a stable replacement path.",
       "evidence": "feishu"
@@ -51964,6 +52825,13 @@
     {
       "fixture": "mattermost",
       "decision": "core-compat-adapter",
+      "seam": "session-store",
+      "action": "Keep loadSessionStore compatibility active while plugin authors migrate to row-scoped session helpers.",
+      "evidence": "plugins/mattermost/.crabpot-package/runtime-api.ts:49, plugins/mattermost/.crabpot-package/src/mattermost/model-picker.ts:10"
+    },
+    {
+      "fixture": "mattermost",
+      "decision": "core-compat-adapter",
       "seam": "channel-env",
       "action": "Keep channelEnvVars compatibility active until channel setup metadata has a stable replacement path.",
       "evidence": "mattermost"
@@ -52065,6 +52933,13 @@
       "seam": "cold-import",
       "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
       "evidence": "@openai/codex, typebox, ws, zod"
+    },
+    {
+      "fixture": "codex",
+      "decision": "core-compat-adapter",
+      "seam": "session-store",
+      "action": "Keep loadSessionStore compatibility active while plugin authors migrate to row-scoped session helpers.",
+      "evidence": "plugins/codex/.crabpot-package/dist/conversation-binding-CzpvaBs1.js:19"
     },
     {
       "fixture": "codex",
@@ -52261,6 +53136,13 @@
       "seam": "cold-import",
       "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
       "evidence": "audio-decode, baileys, typebox"
+    },
+    {
+      "fixture": "whatsapp",
+      "decision": "core-compat-adapter",
+      "seam": "session-store",
+      "action": "Keep loadSessionStore compatibility active while plugin authors migrate to row-scoped session helpers.",
+      "evidence": "plugins/whatsapp/.crabpot-package/dist/monitor-CXuZBVgk.js:32"
     },
     {
       "fixture": "whatsapp",
@@ -52701,7 +53583,7 @@
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
-      "evidence": "@scure/bip32, @scure/bip39, @solana/kit, @x402/core, @x402/evm, @x402/fetch, @x402/svm, viem"
+      "evidence": "@noble/hashes, @scure/bip32, @scure/bip39, @solana/kit, @x402/core, @x402/evm, @x402/fetch, @x402/svm, viem"
     },
     {
       "fixture": "clawrouter",
@@ -53006,9 +53888,14 @@
       "apify",
       "inworld-tts"
     ],
-    "openclawTarget": "explicit",
-    "pluginTrack": "manifest",
+    "openclawTarget": "latest",
+    "pluginTrack": "latest",
     "runtimeEvidence": null,
-    "packageAvailability": null
+    "packageAvailability": {
+      "path": "reports/crabpot-package-availability.json",
+      "failures": 0,
+      "openclawFailures": 0,
+      "fallbacks": 0
+    }
   }
 }

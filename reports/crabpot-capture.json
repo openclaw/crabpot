@@ -39363,6 +39363,7 @@
       "priority": "P3",
       "target": "package-loader",
       "evidence": [
+        "@noble/hashes @ plugins/clawrouter/package.json",
         "@scure/bip32 @ plugins/clawrouter/package.json",
         "@scure/bip39 @ plugins/clawrouter/package.json",
         "@solana/kit @ plugins/clawrouter/package.json",
@@ -40165,7 +40166,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40179,7 +40180,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40207,7 +40208,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40221,7 +40222,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40263,7 +40264,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40305,7 +40306,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.5.31",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40361,7 +40362,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40431,7 +40432,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.6.5-beta.6"
+        "buildOpenClawVersion:2026.6.5"
       ],
       "assertions": [
         "entrypoint metadata resolves",
