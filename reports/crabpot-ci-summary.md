@@ -33,7 +33,7 @@ Status: PASS
 | Windows portability risks   | 16                                                                                                                       |
 | Container portability risks | 16                                                                                                                       |
 | Jiti loader candidates      | 22                                                                                                                       |
-| Import loop                 | p50 2212 ms / p95 2284 ms / plugin delta RSS 6 MB / plugin delta CPU 105 ms / OpenClaw import 112.2 ms / activate 0.3 ms |
+| Import loop                 | p50 2397 ms / p95 2460 ms / plugin delta RSS 2.4 MB / plugin delta CPU 0 ms / OpenClaw import 116.3 ms / activate 0.4 ms |
 
 ## Top Issues
 
@@ -91,8 +91,8 @@ _none_
 
 | Action | ID               | Metric       | Baseline | Current | Message                                                 |
 | ------ | ---------------- | ------------ | -------- | ------- | ------------------------------------------------------- |
-| warn   | profile.wall-p95 | p95WallMs    | 1273     | 2103    | p95WallMs regressed 65.2% over baseline                 |
-| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 333.8   | maxPeakRssMb regressed 268.70000000000005 over baseline |
+| warn   | profile.wall-p95 | p95WallMs    | 1273     | 2160    | p95WallMs regressed 69.7% over baseline                 |
+| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 329.4   | maxPeakRssMb regressed 264.29999999999995 over baseline |
 
 ## Artifacts
 
