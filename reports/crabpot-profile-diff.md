@@ -19,8 +19,8 @@ Strict: false
 
 | Action | ID                              | Metric                 | Baseline | Current | Delta              | Percent | Message                                                        |
 | ------ | ------------------------------- | ---------------------- | -------- | ------- | ------------------ | ------- | -------------------------------------------------------------- |
-| warn   | profile.wall-p95                | p95WallMs              | 1273     | 2230    | 957                | 75.2%   | p95WallMs regressed 75.2% over baseline                        |
-| warn   | profile.peak-rss                | maxPeakRssMb           | 65.1     | 331.8   | 266.70000000000005 | -       | maxPeakRssMb regressed 266.70000000000005 over baseline        |
+| warn   | profile.wall-p95                | p95WallMs              | 1273     | 2128    | 855                | 67.2%   | p95WallMs regressed 67.2% over baseline                        |
+| warn   | profile.peak-rss                | maxPeakRssMb           | 65.1     | 331.9   | 266.79999999999995 | -       | maxPeakRssMb regressed 266.79999999999995 over baseline        |
 | pass   | profile.node-boot               | nodeBootWallMs         | 917      | 33      | -884               | -       | nodeBootWallMs stayed within 500 absolute regression threshold |
 | pass   | registry.compatRecords          | compatRecords          | 19       | 66      | 47                 | -       | registry surface delta is tracked as context                   |
 | pass   | registry.hookNames              | hookNames              | 31       | 39      | 8                  | -       | registry surface delta is tracked as context                   |
