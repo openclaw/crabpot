@@ -10,7 +10,7 @@
     "fixtureCount": 60,
     "registrationCount": 353,
     "hookCount": 125,
-    "sdkImportCount": 2360,
+    "sdkImportCount": 2361,
     "packageEntrypointCount": 108,
     "issueProbeCount": 281,
     "inspectorShimRequiredCount": 203,
@@ -29173,10 +29173,10 @@
       "hooks": [],
       "sdkImports": [
         {
-          "id": "sdk.openclaw/plugin-sdk/access-groups:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DTfz-8KD-js-31",
+          "id": "sdk.openclaw/plugin-sdk/access-groups:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-fUg0QRoq-js-32",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/access-groups",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DTfz_8KD.js:31",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-fUg0QRoq.js:32",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29195,10 +29195,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-auth-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CQdcwOQZ-js-14",
+          "id": "sdk.openclaw/plugin-sdk/approval-auth-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CIb8DUm3-js-14",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-auth-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CQdcwOQZ.js:14",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CIb8DUm3.js:14",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29206,10 +29206,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-auth-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DTfz-8KD-js-13",
+          "id": "sdk.openclaw/plugin-sdk/approval-auth-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-fUg0QRoq-js-13",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-auth-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DTfz_8KD.js:13",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-fUg0QRoq.js:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29217,10 +29217,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-client-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CQdcwOQZ-js-15",
+          "id": "sdk.openclaw/plugin-sdk/approval-client-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CIb8DUm3-js-15",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-client-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CQdcwOQZ.js:15",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CIb8DUm3.js:15",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29228,10 +29228,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-delivery-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CQdcwOQZ-js-10",
+          "id": "sdk.openclaw/plugin-sdk/approval-delivery-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CIb8DUm3-js-10",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-delivery-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CQdcwOQZ.js:10",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CIb8DUm3.js:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29250,10 +29250,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-handler-adapter-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CQdcwOQZ-js-11",
+          "id": "sdk.openclaw/plugin-sdk/approval-handler-adapter-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CIb8DUm3-js-11",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-handler-adapter-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CQdcwOQZ.js:11",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CIb8DUm3.js:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29261,10 +29261,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-handler-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-handler-runtime-CPzQAAn3-js-6",
+          "id": "sdk.openclaw/plugin-sdk/approval-handler-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-handler-runtime-ChANl8Bb-js-6",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-handler-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-CPzQAAn3.js:6",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-ChANl8Bb.js:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29272,10 +29272,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-native-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CQdcwOQZ-js-12",
+          "id": "sdk.openclaw/plugin-sdk/approval-native-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CIb8DUm3-js-12",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-native-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CQdcwOQZ.js:12",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CIb8DUm3.js:12",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29283,10 +29283,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-native-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-handler-runtime-CPzQAAn3-js-5",
+          "id": "sdk.openclaw/plugin-sdk/approval-native-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-handler-runtime-ChANl8Bb-js-5",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-native-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-CPzQAAn3.js:5",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/handler-runtime-ChANl8Bb.js:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29294,10 +29294,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/approval-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CQdcwOQZ-js-7",
+          "id": "sdk.openclaw/plugin-sdk/approval-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CIb8DUm3-js-7",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/approval-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CQdcwOQZ.js:7",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CIb8DUm3.js:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29338,10 +29338,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-inbound:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DTfz-8KD-js-28",
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-fUg0QRoq-js-28",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/channel-inbound",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DTfz_8KD.js:28",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-fUg0QRoq.js:28",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29349,10 +29349,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-ingress-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DTfz-8KD-js-32",
+          "id": "sdk.openclaw/plugin-sdk/channel-ingress-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-fUg0QRoq-js-33",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/channel-ingress-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DTfz_8KD.js:32",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-fUg0QRoq.js:33",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29360,10 +29360,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-mention-gating:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DTfz-8KD-js-33",
+          "id": "sdk.openclaw/plugin-sdk/channel-mention-gating:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-fUg0QRoq-js-34",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/channel-mention-gating",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DTfz_8KD.js:33",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-fUg0QRoq.js:34",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29371,10 +29371,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-outbound:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CQdcwOQZ-js-8",
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CIb8DUm3-js-8",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/channel-outbound",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CQdcwOQZ.js:8",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CIb8DUm3.js:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29382,10 +29382,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-policy:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CQdcwOQZ-js-22",
+          "id": "sdk.openclaw/plugin-sdk/channel-policy:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CIb8DUm3-js-22",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/channel-policy",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CQdcwOQZ.js:22",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CIb8DUm3.js:22",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29404,10 +29404,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/cli-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DTfz-8KD-js-25",
+          "id": "sdk.openclaw/plugin-sdk/cli-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-fUg0QRoq-js-25",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/cli-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DTfz_8KD.js:25",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-fUg0QRoq.js:25",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29426,10 +29426,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/extension-shared:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DTfz-8KD-js-27",
+          "id": "sdk.openclaw/plugin-sdk/extension-shared:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-fUg0QRoq-js-27",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/extension-shared",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DTfz_8KD.js:27",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-fUg0QRoq.js:27",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29437,10 +29437,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/json-store:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CQdcwOQZ-js-20",
+          "id": "sdk.openclaw/plugin-sdk/json-store:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CIb8DUm3-js-20",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/json-store",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CQdcwOQZ.js:20",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CIb8DUm3.js:20",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29459,10 +29459,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/media-mime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DTfz-8KD-js-22",
+          "id": "sdk.openclaw/plugin-sdk/media-mime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-fUg0QRoq-js-22",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/media-mime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DTfz_8KD.js:22",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-fUg0QRoq.js:22",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29503,10 +29503,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DTfz-8KD-js-23",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-fUg0QRoq-js-23",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DTfz_8KD.js:23",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-fUg0QRoq.js:23",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29547,10 +29547,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-history:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DTfz-8KD-js-34",
+          "id": "sdk.openclaw/plugin-sdk/reply-chunking:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-fUg0QRoq-js-29",
+          "fixture": "openclaw-qqbot",
+          "specifier": "openclaw/plugin-sdk/reply-chunking",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-fUg0QRoq.js:29",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/reply-history:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-fUg0QRoq-js-35",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/reply-history",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DTfz_8KD.js:34",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-fUg0QRoq.js:35",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29569,10 +29580,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/routing:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CQdcwOQZ-js-16",
+          "id": "sdk.openclaw/plugin-sdk/routing:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CIb8DUm3-js-16",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/routing",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CQdcwOQZ.js:16",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CIb8DUm3.js:16",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29591,10 +29602,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/runtime-config-snapshot:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DTfz-8KD-js-24",
+          "id": "sdk.openclaw/plugin-sdk/runtime-config-snapshot:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-fUg0QRoq-js-24",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/runtime-config-snapshot",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DTfz_8KD.js:24",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-fUg0QRoq.js:24",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29657,10 +29668,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/security-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DTfz-8KD-js-19",
+          "id": "sdk.openclaw/plugin-sdk/security-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-fUg0QRoq-js-19",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/security-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DTfz_8KD.js:19",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-fUg0QRoq.js:19",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29712,10 +29723,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DTfz-8KD-js-18",
+          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-fUg0QRoq-js-18",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DTfz_8KD.js:18",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-fUg0QRoq.js:18",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29734,10 +29745,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/state-paths:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CQdcwOQZ-js-21",
+          "id": "sdk.openclaw/plugin-sdk/state-paths:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CIb8DUm3-js-21",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/state-paths",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CQdcwOQZ.js:21",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CIb8DUm3.js:21",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29745,10 +29756,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CQdcwOQZ-js-13",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CIb8DUm3-js-13",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CQdcwOQZ.js:13",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CIb8DUm3.js:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29756,10 +29767,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-DTfz-8KD-js-12",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-gateway-fUg0QRoq-js-12",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-DTfz_8KD.js:12",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/gateway-fUg0QRoq.js:12",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -29789,10 +29800,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/text-chunking:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CQdcwOQZ-js-9",
+          "id": "sdk.openclaw/plugin-sdk/text-chunking:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-CIb8DUm3-js-9",
           "fixture": "openclaw-qqbot",
           "specifier": "openclaw/plugin-sdk/text-chunking",
-          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CQdcwOQZ.js:9",
+          "ref": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-CIb8DUm3.js:9",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -40795,7 +40806,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.6.6-beta.1"
+        "buildOpenClawVersion:2026.6.6-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40809,7 +40820,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.6.6-beta.1"
+        "buildOpenClawVersion:2026.6.6-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40837,7 +40848,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.6.6-beta.1"
+        "buildOpenClawVersion:2026.6.6-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40851,7 +40862,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.6.6-beta.1"
+        "buildOpenClawVersion:2026.6.6-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40893,7 +40904,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.6.6-beta.1"
+        "buildOpenClawVersion:2026.6.6-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40935,7 +40946,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.5.31",
-        "buildOpenClawVersion:2026.6.6-beta.1"
+        "buildOpenClawVersion:2026.6.6-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40991,7 +41002,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.6.6-beta.1"
+        "buildOpenClawVersion:2026.6.6-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -41061,7 +41072,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.6.6-beta.1"
+        "buildOpenClawVersion:2026.6.6-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
