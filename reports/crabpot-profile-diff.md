@@ -19,9 +19,9 @@ Strict: false
 
 | Action | ID                              | Metric                 | Baseline | Current | Delta              | Percent | Message                                                        |
 | ------ | ------------------------------- | ---------------------- | -------- | ------- | ------------------ | ------- | -------------------------------------------------------------- |
-| warn   | profile.wall-p95                | p95WallMs              | 1273     | 2269    | 996                | 78.2%   | p95WallMs regressed 78.2% over baseline                        |
-| warn   | profile.peak-rss                | maxPeakRssMb           | 65.1     | 340.9   | 275.79999999999995 | -       | maxPeakRssMb regressed 275.79999999999995 over baseline        |
-| pass   | profile.node-boot               | nodeBootWallMs         | 917      | 37      | -880               | -       | nodeBootWallMs stayed within 500 absolute regression threshold |
+| warn   | profile.wall-p95                | p95WallMs              | 1273     | 2023    | 750                | 58.9%   | p95WallMs regressed 58.9% over baseline                        |
+| warn   | profile.peak-rss                | maxPeakRssMb           | 65.1     | 323.4   | 258.29999999999995 | -       | maxPeakRssMb regressed 258.29999999999995 over baseline        |
+| pass   | profile.node-boot               | nodeBootWallMs         | 917      | 28      | -889               | -       | nodeBootWallMs stayed within 500 absolute regression threshold |
 | pass   | registry.compatRecords          | compatRecords          | 19       | 66      | 47                 | -       | registry surface delta is tracked as context                   |
 | pass   | registry.hookNames              | hookNames              | 31       | 39      | 8                  | -       | registry surface delta is tracked as context                   |
 | pass   | registry.apiRegistrars          | apiRegistrars          | 40       | 55      | 15                 | -       | registry surface delta is tracked as context                   |
