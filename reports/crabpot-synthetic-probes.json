@@ -655,7 +655,7 @@
       "source": "plugins/openclaw-telemetry/index.ts:43"
     },
     {
-      "id": "hook.before_prompt_build:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1450",
+      "id": "hook.before_prompt_build:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1632",
       "fixture": "lossless-claw",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -685,10 +685,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1450"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1632"
     },
     {
-      "id": "hook.before_reset:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1443",
+      "id": "hook.before_reset:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1625",
       "fixture": "lossless-claw",
       "kind": "hook",
       "seam": "before_reset",
@@ -705,10 +705,10 @@
         "hook": "before_reset",
         "fixture": "lossless-claw"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1443"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1625"
     },
     {
-      "id": "hook.gateway_start:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1807",
+      "id": "hook.gateway_start:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2049",
       "fixture": "lossless-claw",
       "kind": "hook",
       "seam": "gateway_start",
@@ -725,10 +725,10 @@
         "hook": "gateway_start",
         "fixture": "lossless-claw"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1807"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:2049"
     },
     {
-      "id": "hook.gateway_stop:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1831",
+      "id": "hook.gateway_stop:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2079",
       "fixture": "lossless-claw",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -745,10 +745,10 @@
         "hook": "gateway_stop",
         "fixture": "lossless-claw"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1831"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:2079"
     },
     {
-      "id": "hook.session_end:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1453",
+      "id": "hook.session_end:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1635",
       "fixture": "lossless-claw",
       "kind": "hook",
       "seam": "session_end",
@@ -765,7 +765,7 @@
         "hook": "session_end",
         "fixture": "lossless-claw"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1453"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1635"
     },
     {
       "id": "hook.before_agent_start:connectclaw:plugins-connectclaw-packages-plugin-src-hooks-ts-17",
@@ -3901,7 +3901,7 @@
       "source": "plugins/openclaw-telemetry/index.ts:10"
     },
     {
-      "id": "registration.registerCommand:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1489",
+      "id": "registration.registerCommand:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1676",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerCommand",
@@ -3925,10 +3925,10 @@
           "execute"
         ]
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1489"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1676"
     },
     {
-      "id": "registration.registerContextEngine:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1464",
+      "id": "registration.registerContextEngine:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1646",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerContextEngine",
@@ -3949,10 +3949,10 @@
         "callableProperties": [],
         "reason": "context engine factories are captured as registration metadata; engine startup remains isolated opt-in"
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1464"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1646"
     },
     {
-      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1466",
+      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1653",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerTool",
@@ -3981,10 +3981,10 @@
           "execute"
         ]
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1466"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1653"
     },
     {
-      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1470",
+      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1657",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerTool",
@@ -4013,10 +4013,10 @@
           "execute"
         ]
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1470"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1657"
     },
     {
-      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1474",
+      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1661",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerTool",
@@ -4045,10 +4045,10 @@
           "execute"
         ]
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1474"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1661"
     },
     {
-      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1478",
+      "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1665",
       "fixture": "lossless-claw",
       "kind": "registration",
       "seam": "registerTool",
@@ -4077,7 +4077,7 @@
           "execute"
         ]
       },
-      "source": "plugins/lossless-claw/src/plugin/index.ts:1478"
+      "source": "plugins/lossless-claw/src/plugin/index.ts:1665"
     },
     {
       "id": "registration.registerCommand:connectclaw:plugins-connectclaw-packages-plugin-src-commands-ts-18",

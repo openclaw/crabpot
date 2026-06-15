@@ -1214,23 +1214,20 @@ _none_
   - **package-build-artifact-entrypoint**: lossless-claw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/dist/index.js)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: lossless-claw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@earendil-works/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/package.json)
-    - [@earendil-works/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/package.json)
-    - [@earendil-works/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/package.json)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:1489](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/src/plugin/index.ts#L1489)
-    - [registerContextEngine @ index.ts:1464](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/src/plugin/index.ts#L1464)
+    - [registerCommand @ index.ts:1676](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1676)
+    - [registerContextEngine @ index.ts:1646](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1646)
 
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: matrix: cold import requires dependency installation in an isolated workspace
@@ -3865,23 +3862,20 @@ _none_
   - **package-build-artifact-entrypoint**: lossless-claw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/dist/index.js)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: lossless-claw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@earendil-works/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/package.json)
-    - [@earendil-works/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/package.json)
-    - [@earendil-works/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/package.json)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:1489](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/src/plugin/index.ts#L1489)
-    - [registerContextEngine @ index.ts:1464](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/src/plugin/index.ts#L1464)
+    - [registerCommand @ index.ts:1676](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1676)
+    - [registerContextEngine @ index.ts:1646](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1646)
 
 - 🟡 P2 **matrix** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: matrix: channelEnvVars legacy manifest metadata must stay covered
@@ -5331,8 +5325,8 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:lossless-claw`
   - evidence:
-    - [registerCommand @ index.ts:1489](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/src/plugin/index.ts#L1489)
-    - [registerContextEngine @ index.ts:1464](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/src/plugin/index.ts#L1464)
+    - [registerCommand @ index.ts:1676](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1676)
+    - [registerContextEngine @ index.ts:1646](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1646)
 
 - 🟡 P2 **mcp-adapter** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -5661,7 +5655,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:lossless-claw`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/dist/index.js)
 
 - 🟡 P2 **memory-tencentdb** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -5746,10 +5740,7 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:lossless-claw`
   - evidence:
-    - [@earendil-works/pi-agent-core @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/package.json)
-    - [@earendil-works/pi-ai @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/package.json)
-    - [@earendil-works/pi-coding-agent @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/88eb29156fa80fa9bf533c9b4f5dd479731b6838/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/package.json)
 
 - 🟡 P2 **mcp-adapter** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
