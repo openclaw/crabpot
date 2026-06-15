@@ -3,7 +3,7 @@
   "targetOpenClaw": {
     "status": "ok",
     "configuredPath": "./openclaw",
-    "sdkExportCount": 317
+    "sdkExportCount": 318
   },
   "summary": {
     "fixtureCount": 60,
@@ -13,7 +13,7 @@
     "tsLoaderRequiredCount": 22,
     "buildRequiredCount": 14,
     "dependencyInstallRequiredCount": 42,
-    "sdkAliasRequiredCount": 2
+    "sdkAliasRequiredCount": 4
   },
   "fixtures": [
     {
@@ -1523,7 +1523,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-exec-review-runtime @ plugins/codex/.crabpot-package/dist/native-hook-relay-CmUUO3Eu.js:11"
+              "evidence": "openclaw/plugin-sdk/message-tool-delivery-hints @ plugins/codex/.crabpot-package/dist/run-attempt-D_q-VrpR.js:33"
             }
           ],
           "assertions": [
@@ -1553,7 +1553,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-exec-review-runtime @ plugins/codex/.crabpot-package/dist/native-hook-relay-CmUUO3Eu.js:11"
+              "evidence": "openclaw/plugin-sdk/message-tool-delivery-hints @ plugins/codex/.crabpot-package/dist/run-attempt-D_q-VrpR.js:33"
             }
           ],
           "assertions": [
@@ -1708,16 +1708,22 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/memory-lancedb/.crabpot-package/index.ts",
-          "status": "missing",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/memory-lancedb/.crabpot-package/index.ts"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/message-tool-delivery-hints @ plugins/memory-lancedb/.crabpot-package/dist/index.js:8"
             }
           ],
           "assertions": [
-            "plugin package metadata points at an existing OpenClaw entrypoint"
+            "plugin package metadata points at an existing OpenClaw entrypoint",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
         {
@@ -1727,16 +1733,22 @@
           "kind": "runtimeExtension",
           "specifier": "./dist/index.js",
           "path": "plugins/memory-lancedb/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@lancedb/lancedb, apache-arrow, openai, typebox"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/message-tool-delivery-hints @ plugins/memory-lancedb/.crabpot-package/dist/index.js:8"
             }
           ],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         }
       ]
