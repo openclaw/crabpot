@@ -9842,7 +9842,7 @@
       "source": "plugins/openclaw-qqbot/.crabpot-package/dist/tools-2d9t-N1b.js:509"
     },
     {
-      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-DyUm8hqs-js-616",
+      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-DhMmokKH-js-616",
       "fixture": "whatsapp",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -9867,7 +9867,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/whatsapp/.crabpot-package/dist/channel-DyUm8hqs.js:616"
+      "source": "plugins/whatsapp/.crabpot-package/dist/channel-DhMmokKH.js:616"
     },
     {
       "id": "registration.defineBundledChannelEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-index-js-3",
