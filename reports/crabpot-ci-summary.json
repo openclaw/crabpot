@@ -2,18 +2,18 @@
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
   "mode": "dependabot",
-  "openclawLabel": "openclaw@latest (2026.6.5, 5181e4f7c82b)",
+  "openclawLabel": "openclaw@latest (2026.6.6, 8c802aa68351)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 142,
+    "warnings": 143,
     "suggestions": 149,
-    "issues": 291,
+    "issues": 292,
     "p0Issues": 1,
-    "p1Issues": 18,
+    "p1Issues": 19,
     "liveIssues": 1,
     "liveP0Issues": 1,
-    "compatGaps": 1,
+    "compatGaps": 2,
     "deprecationWarnings": 46,
     "inspectorGaps": 158,
     "upstreamIssues": 85,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 16,
     "platformContainerRisks": 16,
     "loaderJitiCandidates": 22,
-    "importLoopP50Ms": 2146,
-    "importLoopP95Ms": 2179,
+    "importLoopP50Ms": 2482,
+    "importLoopP95Ms": 2548,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 108.4,
-    "importLoopOpenClawActivationP50Ms": 0.3,
+    "importLoopOpenClawImportP50Ms": 121.8,
+    "importLoopOpenClawActivationP50Ms": 0.4,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 4.7,
-    "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 254,
-    "importLoopCpuSampleCount": 254
+    "importLoopMaxRssMb": 8.2,
+    "importLoopMaxCpuMs": 15,
+    "importLoopRssSampleCount": 294,
+    "importLoopCpuSampleCount": 294
   },
   "topIssues": [
     {
@@ -128,6 +128,14 @@
       "code": "conversation-access-hook",
       "title": "memory-lancedb: conversation-access hooks need privacy-boundary probes",
       "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "memory-lancedb",
+      "code": "sdk-export-missing",
+      "title": "memory-lancedb: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
@@ -428,20 +436,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 67.2% over baseline",
+      "message": "p95WallMs regressed 78.2% over baseline",
       "baseline": 1273,
-      "current": 2128,
-      "delta": 855,
-      "percent": 67.2
+      "current": 2269,
+      "delta": 996,
+      "percent": 78.2
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 266.79999999999995 over baseline",
+      "message": "maxPeakRssMb regressed 275.79999999999995 over baseline",
       "baseline": 65.1,
-      "current": 331.9,
-      "delta": 266.79999999999995
+      "current": 340.9,
+      "delta": 275.79999999999995
     }
   ],
   "artifacts": {
