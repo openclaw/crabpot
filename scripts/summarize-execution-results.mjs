@@ -69,12 +69,24 @@ function parseArgs(argv) {
 }
 
 export async function buildExecutionResultsReport(options = {}) {
-  return pluginInspector.buildExecutionResultsReport({
+  const report = await pluginInspector.buildExecutionResultsReport({
     ...crabpotExecutionResultsOptions,
     ...options,
     rootDir: options.rootDir ?? crabpotExecutionResultsOptions.rootDir,
     resultsDir: options.resultsDir ?? crabpotExecutionResultsOptions.resultsDir,
   });
+  const profileFailureCount = report.artifacts
+    .filter((artifact) => artifact.kind === "profile")
+    .reduce((total, artifact) => total + (artifact.summary?.failCount ?? 0), 0);
+
+  return {
+    ...report,
+    summary: {
+      ...report.summary,
+      failCount: report.summary.failCount + profileFailureCount,
+      profileFailureCount,
+    },
+  };
 }
 
 export async function writeExecutionResultsReport(report, options = {}) {

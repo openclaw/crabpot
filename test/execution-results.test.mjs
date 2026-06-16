@@ -120,6 +120,40 @@ test("execution results count total-only audit metadata", async () => {
   assert.equal(report.artifacts[0].findingCount, 4);
 });
 
+test("execution results count failed workspace profile steps as failures", async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-results-"));
+  const fixtureDir = path.join(dir, "broken-build");
+  await mkdir(fixtureDir);
+  await writeFile(
+    path.join(fixtureDir, "execution-profile.json"),
+    JSON.stringify({
+      summary: {
+        stepCount: 1,
+        failCount: 1,
+        totalWallMs: 25,
+        maxPeakRssMb: 10,
+        maxCpuMsEstimate: 5,
+      },
+      steps: [
+        {
+          kind: "build",
+          exitCode: 2,
+          wallMs: 25,
+          peakRssMb: 10,
+          cpuMsEstimate: 5,
+          command: "npm run build",
+        },
+      ],
+    }),
+    "utf8",
+  );
+
+  const report = await buildExecutionResultsReport({ resultsDir: dir });
+
+  assert.equal(report.summary.profileFailureCount, 1);
+  assert.equal(report.summary.failCount, 1);
+});
+
 test("execution results handle empty result directories", async () => {
   const dir = path.join(os.tmpdir(), `crabpot-missing-results-${Date.now()}`);
 
