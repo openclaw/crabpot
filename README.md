@@ -10,14 +10,14 @@
 ## Reporting Data
 
 `main` follows the latest published npm package and npm `latest` plugin artifacts, with bundled OpenClaw fixtures source-packed from the matching checkout. `crab-beta` follows beta npm dist-tags for externalized packages and source-packs bundled fixtures. `crab-development` checks `openclaw/openclaw` main against source-packed official plugin artifacts from that same OpenClaw checkout.
-- **Last dashboard update:** Jun 15, 2026, 10:21 UTC
+- **Last dashboard update:** Jun 16, 2026, 04:10 UTC
 <!-- crabpot-tracks:start -->
 - **Source:** `npm-latest`
 - **OpenClaw version:** `2026.6.6`
 - **OpenClaw SHA:** `8c802aa68351`
 - **Dashboard target:** `openclaw@latest + @openclaw/*@latest + bundled source fixtures`
 - **Plugin artifacts:** `npm latest fixture set plus bundled source-packed fixtures`
-- **GitHub report run:** [27539109505](https://github.com/openclaw/crabpot/actions/runs/27539109505)
+- **GitHub report run:** [27593166136](https://github.com/openclaw/crabpot/actions/runs/27593166136)
 <!-- crabpot-tracks:end -->
 
 <!-- crabpot-summary:start -->
@@ -48,15 +48,15 @@
 | Workspace plan         | 108 entrypoints / 42 installs / 14 builds                                                                           |
 | Platform risks         | 16 Windows / 16 container                                                                                           |
 | Jiti loader candidates | 22                                                                                                                  |
-| Import loop            | p50 2497ms / p95 2520ms / plugin delta RSS 14.4MB / plugin delta CPU 0ms / OpenClaw import 120.6ms / activate 0.5ms |
-| Runtime profile        | p50 2187ms / command p95 2235ms / max RSS 330.7MB / 3 samples/command                                               |
+| Import loop            | p50 2413ms / p95 2439ms / plugin delta RSS 11.6MB / plugin delta CPU 0ms / OpenClaw import 114.3ms / activate 0.4ms |
+| Runtime profile        | p50 2140ms / command p95 2176ms / max RSS 332.6MB / 3 samples/command                                               |
 
 ### OpenClaw Lifecycle Probe
 
 | Phase                      | p50     | p95     |
 | -------------------------- | ------- | ------- |
-| Import (`full`)            | 120.6ms | 126.7ms |
-| Activate (`full:register`) | 0.5ms   | 0.5ms   |
+| Import (`full`)            | 114.3ms | 114.6ms |
+| Activate (`full:register`) | 0.4ms   | 0.4ms   |
 
 ### Top Discovered Issues
 
