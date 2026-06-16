@@ -14,7 +14,7 @@ Targets: linux, macos, windows, container
 | jitiAlternativeCount           | 22    |
 | lazyImportProbeCount           | 108   |
 | portabilityFindingCount        | 16    |
-| coveredPortabilityFindingCount | 474   |
+| coveredPortabilityFindingCount | 476   |
 | windowsRiskStepCount           | 16    |
 | macosRiskStepCount             | 16    |
 | linuxRiskStepCount             | 16    |
@@ -89,22 +89,22 @@ Targets: linux, macos, windows, container
 | synology-chat          | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/synology-chat/.crabpot-package/setup-entry.ts                   |
 | brave-plugin           | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/brave-plugin/.crabpot-package/index.ts                          |
 | brave-plugin           | ready                       | node    | -            | no          | no            | yes              | yes                | plugins/brave-plugin/.crabpot-package/dist/index.js                     |
-| codex                  | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/codex/.crabpot-package/index.ts                                 |
-| codex                  | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/codex/.crabpot-package/dist/index.js                            |
+| codex                  | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/codex/.crabpot-package/index.ts                                 |
+| codex                  | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/codex/.crabpot-package/dist/index.js                            |
 | diagnostics-prometheus | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/diagnostics-prometheus/.crabpot-package/index.ts                |
 | diagnostics-prometheus | ready                       | node    | -            | no          | no            | yes              | yes                | plugins/diagnostics-prometheus/.crabpot-package/dist/index.js           |
 | google-meet            | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/google-meet/.crabpot-package/index.ts                           |
 | google-meet            | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/google-meet/.crabpot-package/dist/index.js                      |
 | diffs                  | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/diffs/.crabpot-package/index.ts                                 |
 | diffs                  | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/diffs/.crabpot-package/dist/index.js                            |
-| memory-lancedb         | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/memory-lancedb/.crabpot-package/index.ts                        |
-| memory-lancedb         | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/memory-lancedb/.crabpot-package/dist/index.js                   |
+| memory-lancedb         | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/memory-lancedb/.crabpot-package/index.ts                        |
+| memory-lancedb         | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/memory-lancedb/.crabpot-package/dist/index.js                   |
 | openclaw-qqbot         | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/openclaw-qqbot/.crabpot-package/index.ts                        |
 | openclaw-qqbot         | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/openclaw-qqbot/.crabpot-package/dist/index.js                   |
-| openclaw-qqbot         | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/openclaw-qqbot/.crabpot-package/setup-entry.ts                  |
+| openclaw-qqbot         | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/openclaw-qqbot/.crabpot-package/dist/setup-entry.js             |
 | whatsapp               | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/whatsapp/.crabpot-package/index.ts                              |
 | whatsapp               | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/whatsapp/.crabpot-package/dist/index.js                         |
-| whatsapp               | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/whatsapp/.crabpot-package/setup-entry.ts                        |
+| whatsapp               | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/whatsapp/.crabpot-package/dist/setup-entry.js                   |
 | nemoclaw               | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/nemoclaw/nemoclaw/dist/index.js                                 |
 | memory-tencentdb       | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/memory-tencentdb/.crabpot-package/openclaw-plugin/dist/index.js |
 | memory-tencentdb       | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/memory-tencentdb/.crabpot-package/index.ts                      |
@@ -497,6 +497,7 @@ Targets: linux, macos, windows, container
 | openclaw-qqbot         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | openclaw-qqbot         | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | openclaw-qqbot         | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| openclaw-qqbot         | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | openclaw-qqbot         | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | openclaw-qqbot         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | whatsapp               | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
@@ -510,6 +511,7 @@ Targets: linux, macos, windows, container
 | whatsapp               | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | whatsapp               | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | whatsapp               | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| whatsapp               | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | whatsapp               | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | whatsapp               | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | nemoclaw               | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |

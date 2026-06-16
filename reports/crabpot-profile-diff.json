@@ -36,15 +36,15 @@
     "summary": {
       "commandCount": 9,
       "sampleCount": 27,
-      "rssSampleCount": 1815,
-      "cpuSampleCount": 1815,
+      "rssSampleCount": 1818,
+      "cpuSampleCount": 1818,
       "wallTimeBasis": "command-median-p95",
-      "p50WallMs": 2140,
-      "p95WallMs": 2176,
-      "maxPeakRssMb": 332.6,
-      "maxRssDeltaMb": 304.2,
-      "maxCpuMsEstimate": 2351,
-      "maxHarnessHeapDeltaMb": 7.2
+      "p50WallMs": 2128,
+      "p95WallMs": 2208,
+      "maxPeakRssMb": 329.5,
+      "maxRssDeltaMb": 301.1,
+      "maxCpuMsEstimate": 2440,
+      "maxHarnessHeapDeltaMb": 7
     },
     "targetOpenClaw": {
       "status": "ok",
@@ -62,9 +62,9 @@
       "sourceFiles": 1994,
       "observedHooks": 108,
       "observedRegistrations": 206,
-      "observedSdkImports": 1253,
-      "contractProbes": 280,
-      "issueFindings": 290
+      "observedSdkImports": 1256,
+      "contractProbes": 282,
+      "issueFindings": 292
     }
   },
   "thresholds": {
@@ -84,20 +84,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 70.9% over baseline",
+      "message": "p95WallMs regressed 73.4% over baseline",
       "baseline": 1273,
-      "current": 2176,
-      "delta": 903,
-      "percent": 70.9
+      "current": 2208,
+      "delta": 935,
+      "percent": 73.4
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 267.5 over baseline",
+      "message": "maxPeakRssMb regressed 264.4 over baseline",
       "baseline": 65.1,
-      "current": 332.6,
-      "delta": 267.5
+      "current": 329.5,
+      "delta": 264.4
     },
     {
       "id": "profile.node-boot",
@@ -105,8 +105,8 @@
       "metric": "nodeBootWallMs",
       "message": "nodeBootWallMs stayed within 500 absolute regression threshold",
       "baseline": 917,
-      "current": 33,
-      "delta": -884
+      "current": 35,
+      "delta": -882
     },
     {
       "id": "registry.compatRecords",

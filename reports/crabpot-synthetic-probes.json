@@ -2265,7 +2265,7 @@
       "source": "plugins/nemoclaw/nemoclaw/src/runtime-context.ts:80"
     },
     {
-      "id": "hook.before_tool_call:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-383",
+      "id": "hook.before_tool_call:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-385",
       "fixture": "nemoclaw",
       "kind": "hook",
       "seam": "before_tool_call",
@@ -2287,7 +2287,7 @@
         "sessionId": "session-fixture",
         "toolName": "fixture_tool"
       },
-      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:383"
+      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:385"
     },
     {
       "id": "hook.after_tool_call:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1094",
@@ -9842,7 +9842,7 @@
       "source": "plugins/openclaw-qqbot/.crabpot-package/dist/tools-2d9t-N1b.js:509"
     },
     {
-      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-DhMmokKH-js-616",
+      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-DyUm8hqs-js-616",
       "fixture": "whatsapp",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -9867,7 +9867,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/whatsapp/.crabpot-package/dist/channel-DhMmokKH.js:616"
+      "source": "plugins/whatsapp/.crabpot-package/dist/channel-DyUm8hqs.js:616"
     },
     {
       "id": "registration.defineBundledChannelEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-index-js-3",
@@ -9890,7 +9890,7 @@
       "source": "plugins/whatsapp/.crabpot-package/dist/index.js:3"
     },
     {
-      "id": "registration.registerCommand:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-346",
+      "id": "registration.registerCommand:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-348",
       "fixture": "nemoclaw",
       "kind": "registration",
       "seam": "registerCommand",
@@ -9914,10 +9914,10 @@
           "execute"
         ]
       },
-      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:346"
+      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:348"
     },
     {
-      "id": "registration.registerProvider:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-373",
+      "id": "registration.registerProvider:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-375",
       "fixture": "nemoclaw",
       "kind": "registration",
       "seam": "registerProvider",
@@ -9934,7 +9934,7 @@
         "callableProperties": [],
         "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:373"
+      "source": "plugins/nemoclaw/nemoclaw/src/index.ts:375"
     },
     {
       "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21299",

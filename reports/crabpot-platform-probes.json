@@ -14,7 +14,7 @@
     "jitiAlternativeCount": 22,
     "lazyImportProbeCount": 108,
     "portabilityFindingCount": 16,
-    "coveredPortabilityFindingCount": 474,
+    "coveredPortabilityFindingCount": 476,
     "windowsRiskStepCount": 16,
     "macosRiskStepCount": 16,
     "linuxRiskStepCount": 16,
@@ -1220,7 +1220,7 @@
     {
       "fixture": "codex",
       "id": "cold-import.extension:codex:plugins-codex-crabpot-package-index-ts",
-      "status": "missing",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/codex/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1238,7 +1238,7 @@
     {
       "fixture": "codex",
       "id": "cold-import.runtimeExtension:codex:plugins-codex-crabpot-package-dist-index-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/codex/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1364,7 +1364,7 @@
     {
       "fixture": "memory-lancedb",
       "id": "cold-import.extension:memory-lancedb:plugins-memory-lancedb-crabpot-package-index-ts",
-      "status": "missing",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/memory-lancedb/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1382,7 +1382,7 @@
     {
       "fixture": "memory-lancedb",
       "id": "cold-import.runtimeExtension:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/memory-lancedb/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1435,9 +1435,9 @@
     },
     {
       "fixture": "openclaw-qqbot",
-      "id": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-setup-entry-ts",
-      "status": "missing",
-      "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/setup-entry.ts",
+      "id": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -1489,9 +1489,9 @@
     },
     {
       "fixture": "whatsapp",
-      "id": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
-      "status": "missing",
-      "entrypoint": "plugins/whatsapp/.crabpot-package/setup-entry.ts",
+      "id": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-entry-js",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/whatsapp/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -6857,7 +6857,7 @@
     },
     {
       "fixture": "openclaw-qqbot",
-      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/openclaw-qqbot && rsync -a --delete plugins/openclaw-qqbot/.crabpot-package/ .crabpot/workspaces/openclaw-qqbot/",
       "coverage": "covered by Crabpot structured executor",
@@ -6872,7 +6872,7 @@
     },
     {
       "fixture": "openclaw-qqbot",
-      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/openclaw-qqbot",
       "coverage": "covered by Crabpot structured executor",
@@ -6885,9 +6885,23 @@
     },
     {
       "fixture": "openclaw-qqbot",
-      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/openclaw-qqbot/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "openclaw-qqbot",
+      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -6898,9 +6912,9 @@
     },
     {
       "fixture": "openclaw-qqbot",
-      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -7033,7 +7047,7 @@
     },
     {
       "fixture": "whatsapp",
-      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-entry-js",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/whatsapp && rsync -a --delete plugins/whatsapp/.crabpot-package/ .crabpot/workspaces/whatsapp/",
       "coverage": "covered by Crabpot structured executor",
@@ -7048,7 +7062,7 @@
     },
     {
       "fixture": "whatsapp",
-      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-entry-js",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/whatsapp",
       "coverage": "covered by Crabpot structured executor",
@@ -7061,9 +7075,23 @@
     },
     {
       "fixture": "whatsapp",
-      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-entry-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/whatsapp/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "whatsapp",
+      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-entry-js",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-dist-setup-entry-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -7074,9 +7102,9 @@
     },
     {
       "fixture": "whatsapp",
-      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-entry-js",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-dist-setup-entry-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
