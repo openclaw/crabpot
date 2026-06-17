@@ -6907,7 +6907,7 @@
       "source": "plugins/diagnostics-otel/.crabpot-package/dist/index.js:2213"
     },
     {
-      "id": "registration.createChatChannelPlugin:discord:plugins-discord-crabpot-package-dist-channel-D1F1Rd9W-js-422",
+      "id": "registration.createChatChannelPlugin:discord:plugins-discord-crabpot-package-dist-channel-b0hY1EJw-js-422",
       "fixture": "discord",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -6932,7 +6932,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/discord/.crabpot-package/dist/channel-D1F1Rd9W.js:422"
+      "source": "plugins/discord/.crabpot-package/dist/channel-b0hY1EJw.js:422"
     },
     {
       "id": "registration.defineBundledChannelEntry:discord:plugins-discord-crabpot-package-dist-index-js-6",
@@ -6975,7 +6975,7 @@
       "source": "plugins/discord/.crabpot-package/dist/index.js:25"
     },
     {
-      "id": "registration.definePluginEntry:lobster:plugins-lobster-crabpot-package-dist-index-js-662",
+      "id": "registration.definePluginEntry:lobster:plugins-lobster-crabpot-package-dist-index-js-671",
       "fixture": "lobster",
       "kind": "registration",
       "seam": "definePluginEntry",
@@ -6996,10 +6996,10 @@
         "callableProperties": [],
         "reason": "entry wrapper metadata is captured before plugin runtime execution"
       },
-      "source": "plugins/lobster/.crabpot-package/dist/index.js:662"
+      "source": "plugins/lobster/.crabpot-package/dist/index.js:671"
     },
     {
-      "id": "registration.registerTool:lobster:plugins-lobster-crabpot-package-dist-index-js-667",
+      "id": "registration.registerTool:lobster:plugins-lobster-crabpot-package-dist-index-js-676",
       "fixture": "lobster",
       "kind": "registration",
       "seam": "registerTool",
@@ -7028,7 +7028,7 @@
           "execute"
         ]
       },
-      "source": "plugins/lobster/.crabpot-package/dist/index.js:667"
+      "source": "plugins/lobster/.crabpot-package/dist/index.js:676"
     },
     {
       "id": "registration.defineBundledChannelEntry:matrix:plugins-matrix-crabpot-package-index-ts-37",
@@ -7997,7 +7997,7 @@
       "source": "plugins/zalouser/.crabpot-package/dist/index.js:23"
     },
     {
-      "id": "registration.createChatChannelPlugin:feishu:plugins-feishu-crabpot-package-dist-channel-BYCCZN1h-js-2036",
+      "id": "registration.createChatChannelPlugin:feishu:plugins-feishu-crabpot-package-dist-channel-DwygSth-js-2036",
       "fixture": "feishu",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -8022,7 +8022,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/feishu/.crabpot-package/dist/channel-BYCCZN1h.js:2036"
+      "source": "plugins/feishu/.crabpot-package/dist/channel-DwygSth-.js:2036"
     },
     {
       "id": "registration.defineBundledChannelEntry:feishu:plugins-feishu-crabpot-package-dist-channel-entry-js-3",
@@ -9842,7 +9842,7 @@
       "source": "plugins/openclaw-qqbot/.crabpot-package/dist/tools-2d9t-N1b.js:509"
     },
     {
-      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-DhMmokKH-js-616",
+      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-DyUm8hqs-js-616",
       "fixture": "whatsapp",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -9867,7 +9867,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/whatsapp/.crabpot-package/dist/channel-DhMmokKH.js:616"
+      "source": "plugins/whatsapp/.crabpot-package/dist/channel-DyUm8hqs.js:616"
     },
     {
       "id": "registration.defineBundledChannelEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-index-js-3",

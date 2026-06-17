@@ -12,10 +12,10 @@
   "summary": {
     "fixtureCount": 60,
     "entrypointCount": 108,
-    "installStepCount": 42,
-    "auditStepCount": 42,
+    "installStepCount": 68,
+    "auditStepCount": 68,
     "buildStepCount": 14,
-    "pruneDevWorkspaceDependencyStepCount": 7,
+    "pruneDevWorkspaceDependencyStepCount": 8,
     "artifactStepCount": 108,
     "captureStepCount": 108,
     "syntheticProbeStepCount": 108,
@@ -47,6 +47,7 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -75,6 +76,19 @@
               "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/agentchat",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "pnpm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/agentchat",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "pnpm audit --json > ../../results/agentchat/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/agentchat",
+              "artifactPath": ".crabpot/results/agentchat/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "build",
@@ -116,6 +130,7 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -144,6 +159,19 @@
               "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/agentchat",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "pnpm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/agentchat",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "pnpm audit --json > ../../results/agentchat/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/agentchat",
+              "artifactPath": ".crabpot/results/agentchat/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "build",
@@ -846,6 +874,7 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -874,6 +903,19 @@
               "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/opik-openclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/opik-openclaw",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/opik-openclaw/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/opik-openclaw",
+              "artifactPath": ".crabpot/results/opik-openclaw/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "build",
@@ -983,6 +1025,7 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -1011,6 +1054,19 @@
               "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/lossless-claw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/lossless-claw",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/lossless-claw/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/lossless-claw",
+              "artifactPath": ".crabpot/results/lossless-claw/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "build",
@@ -1127,6 +1183,7 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -1155,6 +1212,19 @@
               "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/hyperspell",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/hyperspell",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/hyperspell/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/hyperspell",
+              "artifactPath": ".crabpot/results/hyperspell/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "build",
@@ -1201,6 +1271,7 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -1229,6 +1300,19 @@
               "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/honcho",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "pnpm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/honcho",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "pnpm audit --json > ../../results/honcho/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/honcho",
+              "artifactPath": ".crabpot/results/honcho/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "build",
@@ -1966,12 +2050,12 @@
           ]
         },
         {
-          "id": "cold-import.setupEntry:discord:plugins-discord-crabpot-package-setup-entry-ts",
+          "id": "cold-import.setupEntry:discord:plugins-discord-crabpot-package-dist-setup-entry-js",
           "fixture": "discord",
           "packagePath": "plugins/discord/.crabpot-package/package.json",
           "packageName": "@openclaw/discord",
-          "entrypoint": "plugins/discord/.crabpot-package/setup-entry.ts",
-          "status": "missing",
+          "entrypoint": "plugins/discord/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/discord/package-lock.json",
           "loaderStrategy": {
@@ -1982,14 +2066,15 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
           "blockers": [
             {
-              "code": "missing-entrypoint",
-              "message": "entrypoint path is missing in the fixture checkout",
-              "evidence": "plugins/discord/.crabpot-package/setup-entry.ts"
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@discordjs/voice, discord-api-types, libopus-wasm, typebox, undici, ws"
             }
           ],
           "steps": [
@@ -2012,17 +2097,30 @@
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
-              "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/discord/cold-import-setupEntry-discord-plugins-discord-crabpot-package-setup-entry-ts.capture.json",
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/discord",
-              "artifactPath": ".crabpot/results/discord/cold-import-setupEntry-discord-plugins-discord-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/discord/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/discord",
+              "artifactPath": ".crabpot/results/discord/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/discord/cold-import-setupEntry-discord-plugins-discord-crabpot-package-dist-setup-entry-js.capture.json",
+              "cwd": ".crabpot/workspaces/discord",
+              "artifactPath": ".crabpot/results/discord/cold-import-setupEntry-discord-plugins-discord-crabpot-package-dist-setup-entry-js.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/discord/cold-import-setupEntry-discord-plugins-discord-crabpot-package-setup-entry-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/discord/cold-import-setupEntry-discord-plugins-discord-crabpot-package-dist-setup-entry-js.synthetic.json",
               "cwd": ".crabpot/workspaces/discord",
-              "artifactPath": ".crabpot/results/discord/cold-import-setupEntry-discord-plugins-discord-crabpot-package-setup-entry-ts.synthetic.json",
+              "artifactPath": ".crabpot/results/discord/cold-import-setupEntry-discord-plugins-discord-crabpot-package-dist-setup-entry-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -2238,7 +2336,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/d7db36b0a1f53e6cfe9a80b02cfa317902d68925/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/8beec82d52a3f667f8d3b0d39321214a9be4b41d/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/matrix",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -2328,7 +2426,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/d7db36b0a1f53e6cfe9a80b02cfa317902d68925/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/8beec82d52a3f667f8d3b0d39321214a9be4b41d/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/matrix",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -2505,12 +2603,12 @@
           ]
         },
         {
-          "id": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-setup-entry-ts",
+          "id": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
           "fixture": "msteams",
           "packagePath": "plugins/msteams/.crabpot-package/package.json",
           "packageName": "@openclaw/msteams",
-          "entrypoint": "plugins/msteams/.crabpot-package/setup-entry.ts",
-          "status": "missing",
+          "entrypoint": "plugins/msteams/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/msteams/package-lock.json",
           "loaderStrategy": {
@@ -2521,14 +2619,15 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
           "blockers": [
             {
-              "code": "missing-entrypoint",
-              "message": "entrypoint path is missing in the fixture checkout",
-              "evidence": "plugins/msteams/.crabpot-package/setup-entry.ts"
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, typebox"
             }
           ],
           "steps": [
@@ -2551,17 +2650,30 @@
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
-              "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-setup-entry-ts.capture.json",
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/msteams",
-              "artifactPath": ".crabpot/results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/msteams/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/msteams",
+              "artifactPath": ".crabpot/results/msteams/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-dist-setup-entry-js.capture.json",
+              "cwd": ".crabpot/workspaces/msteams",
+              "artifactPath": ".crabpot/results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-dist-setup-entry-js.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-setup-entry-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-dist-setup-entry-js.synthetic.json",
               "cwd": ".crabpot/workspaces/msteams",
-              "artifactPath": ".crabpot/results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-setup-entry-ts.synthetic.json",
+              "artifactPath": ".crabpot/results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-dist-setup-entry-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -2710,12 +2822,12 @@
           ]
         },
         {
-          "id": "cold-import.setupEntry:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-setup-entry-ts",
+          "id": "cold-import.setupEntry:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-dist-setup-entry-js",
           "fixture": "nextcloud-talk",
           "packagePath": "plugins/nextcloud-talk/.crabpot-package/package.json",
           "packageName": "@openclaw/nextcloud-talk",
-          "entrypoint": "plugins/nextcloud-talk/.crabpot-package/setup-entry.ts",
-          "status": "missing",
+          "entrypoint": "plugins/nextcloud-talk/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/nextcloud-talk/package-lock.json",
           "loaderStrategy": {
@@ -2726,14 +2838,15 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
           "blockers": [
             {
-              "code": "missing-entrypoint",
-              "message": "entrypoint path is missing in the fixture checkout",
-              "evidence": "plugins/nextcloud-talk/.crabpot-package/setup-entry.ts"
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "zod"
             }
           ],
           "steps": [
@@ -2756,17 +2869,30 @@
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
-              "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/nextcloud-talk/cold-import-setupEntry-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-setup-entry-ts.capture.json",
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/nextcloud-talk",
-              "artifactPath": ".crabpot/results/nextcloud-talk/cold-import-setupEntry-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/nextcloud-talk/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/nextcloud-talk",
+              "artifactPath": ".crabpot/results/nextcloud-talk/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/nextcloud-talk/cold-import-setupEntry-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-dist-setup-entry-js.capture.json",
+              "cwd": ".crabpot/workspaces/nextcloud-talk",
+              "artifactPath": ".crabpot/results/nextcloud-talk/cold-import-setupEntry-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-dist-setup-entry-js.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/nextcloud-talk/cold-import-setupEntry-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-setup-entry-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/nextcloud-talk/cold-import-setupEntry-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-dist-setup-entry-js.synthetic.json",
               "cwd": ".crabpot/workspaces/nextcloud-talk",
-              "artifactPath": ".crabpot/results/nextcloud-talk/cold-import-setupEntry-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-setup-entry-ts.synthetic.json",
+              "artifactPath": ".crabpot/results/nextcloud-talk/cold-import-setupEntry-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-dist-setup-entry-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -2915,12 +3041,12 @@
           ]
         },
         {
-          "id": "cold-import.setupEntry:nostr:plugins-nostr-crabpot-package-setup-entry-ts",
+          "id": "cold-import.setupEntry:nostr:plugins-nostr-crabpot-package-dist-setup-entry-js",
           "fixture": "nostr",
           "packagePath": "plugins/nostr/.crabpot-package/package.json",
           "packageName": "@openclaw/nostr",
-          "entrypoint": "plugins/nostr/.crabpot-package/setup-entry.ts",
-          "status": "missing",
+          "entrypoint": "plugins/nostr/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/nostr/package-lock.json",
           "loaderStrategy": {
@@ -2931,14 +3057,15 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
           "blockers": [
             {
-              "code": "missing-entrypoint",
-              "message": "entrypoint path is missing in the fixture checkout",
-              "evidence": "plugins/nostr/.crabpot-package/setup-entry.ts"
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "nostr-tools, zod"
             }
           ],
           "steps": [
@@ -2961,17 +3088,30 @@
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
-              "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/nostr/cold-import-setupEntry-nostr-plugins-nostr-crabpot-package-setup-entry-ts.capture.json",
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/nostr",
-              "artifactPath": ".crabpot/results/nostr/cold-import-setupEntry-nostr-plugins-nostr-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/nostr/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/nostr",
+              "artifactPath": ".crabpot/results/nostr/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/nostr/cold-import-setupEntry-nostr-plugins-nostr-crabpot-package-dist-setup-entry-js.capture.json",
+              "cwd": ".crabpot/workspaces/nostr",
+              "artifactPath": ".crabpot/results/nostr/cold-import-setupEntry-nostr-plugins-nostr-crabpot-package-dist-setup-entry-js.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/nostr/cold-import-setupEntry-nostr-plugins-nostr-crabpot-package-setup-entry-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/nostr/cold-import-setupEntry-nostr-plugins-nostr-crabpot-package-dist-setup-entry-js.synthetic.json",
               "cwd": ".crabpot/workspaces/nostr",
-              "artifactPath": ".crabpot/results/nostr/cold-import-setupEntry-nostr-plugins-nostr-crabpot-package-setup-entry-ts.synthetic.json",
+              "artifactPath": ".crabpot/results/nostr/cold-import-setupEntry-nostr-plugins-nostr-crabpot-package-dist-setup-entry-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -3263,12 +3403,12 @@
           ]
         },
         {
-          "id": "cold-import.setupEntry:zalo:plugins-zalo-crabpot-package-setup-entry-ts",
+          "id": "cold-import.setupEntry:zalo:plugins-zalo-crabpot-package-dist-setup-entry-js",
           "fixture": "zalo",
           "packagePath": "plugins/zalo/.crabpot-package/package.json",
           "packageName": "@openclaw/zalo",
-          "entrypoint": "plugins/zalo/.crabpot-package/setup-entry.ts",
-          "status": "missing",
+          "entrypoint": "plugins/zalo/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/zalo/package-lock.json",
           "loaderStrategy": {
@@ -3279,14 +3419,15 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
           "blockers": [
             {
-              "code": "missing-entrypoint",
-              "message": "entrypoint path is missing in the fixture checkout",
-              "evidence": "plugins/zalo/.crabpot-package/setup-entry.ts"
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "zod"
             }
           ],
           "steps": [
@@ -3309,17 +3450,30 @@
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
-              "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/zalo/cold-import-setupEntry-zalo-plugins-zalo-crabpot-package-setup-entry-ts.capture.json",
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/zalo",
-              "artifactPath": ".crabpot/results/zalo/cold-import-setupEntry-zalo-plugins-zalo-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/zalo/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/zalo",
+              "artifactPath": ".crabpot/results/zalo/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/zalo/cold-import-setupEntry-zalo-plugins-zalo-crabpot-package-dist-setup-entry-js.capture.json",
+              "cwd": ".crabpot/workspaces/zalo",
+              "artifactPath": ".crabpot/results/zalo/cold-import-setupEntry-zalo-plugins-zalo-crabpot-package-dist-setup-entry-js.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/zalo/cold-import-setupEntry-zalo-plugins-zalo-crabpot-package-setup-entry-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/zalo/cold-import-setupEntry-zalo-plugins-zalo-crabpot-package-dist-setup-entry-js.synthetic.json",
               "cwd": ".crabpot/workspaces/zalo",
-              "artifactPath": ".crabpot/results/zalo/cold-import-setupEntry-zalo-plugins-zalo-crabpot-package-setup-entry-ts.synthetic.json",
+              "artifactPath": ".crabpot/results/zalo/cold-import-setupEntry-zalo-plugins-zalo-crabpot-package-dist-setup-entry-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -3468,12 +3622,12 @@
           ]
         },
         {
-          "id": "cold-import.setupEntry:zalouser:plugins-zalouser-crabpot-package-setup-entry-ts",
+          "id": "cold-import.setupEntry:zalouser:plugins-zalouser-crabpot-package-dist-setup-entry-js",
           "fixture": "zalouser",
           "packagePath": "plugins/zalouser/.crabpot-package/package.json",
           "packageName": "@openclaw/zalouser",
-          "entrypoint": "plugins/zalouser/.crabpot-package/setup-entry.ts",
-          "status": "missing",
+          "entrypoint": "plugins/zalouser/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/zalouser/package-lock.json",
           "loaderStrategy": {
@@ -3484,14 +3638,15 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
           "blockers": [
             {
-              "code": "missing-entrypoint",
-              "message": "entrypoint path is missing in the fixture checkout",
-              "evidence": "plugins/zalouser/.crabpot-package/setup-entry.ts"
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "typebox, zca-js, zod"
             }
           ],
           "steps": [
@@ -3514,17 +3669,30 @@
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
-              "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/zalouser/cold-import-setupEntry-zalouser-plugins-zalouser-crabpot-package-setup-entry-ts.capture.json",
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/zalouser",
-              "artifactPath": ".crabpot/results/zalouser/cold-import-setupEntry-zalouser-plugins-zalouser-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/zalouser/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/zalouser",
+              "artifactPath": ".crabpot/results/zalouser/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/zalouser/cold-import-setupEntry-zalouser-plugins-zalouser-crabpot-package-dist-setup-entry-js.capture.json",
+              "cwd": ".crabpot/workspaces/zalouser",
+              "artifactPath": ".crabpot/results/zalouser/cold-import-setupEntry-zalouser-plugins-zalouser-crabpot-package-dist-setup-entry-js.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/zalouser/cold-import-setupEntry-zalouser-plugins-zalouser-crabpot-package-setup-entry-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/zalouser/cold-import-setupEntry-zalouser-plugins-zalouser-crabpot-package-dist-setup-entry-js.synthetic.json",
               "cwd": ".crabpot/workspaces/zalouser",
-              "artifactPath": ".crabpot/results/zalouser/cold-import-setupEntry-zalouser-plugins-zalouser-crabpot-package-setup-entry-ts.synthetic.json",
+              "artifactPath": ".crabpot/results/zalouser/cold-import-setupEntry-zalouser-plugins-zalouser-crabpot-package-dist-setup-entry-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -3673,12 +3841,12 @@
           ]
         },
         {
-          "id": "cold-import.setupEntry:feishu:plugins-feishu-crabpot-package-setup-entry-ts",
+          "id": "cold-import.setupEntry:feishu:plugins-feishu-crabpot-package-dist-setup-entry-js",
           "fixture": "feishu",
           "packagePath": "plugins/feishu/.crabpot-package/package.json",
           "packageName": "@openclaw/feishu",
-          "entrypoint": "plugins/feishu/.crabpot-package/setup-entry.ts",
-          "status": "missing",
+          "entrypoint": "plugins/feishu/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/feishu/package-lock.json",
           "loaderStrategy": {
@@ -3689,14 +3857,15 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
           "blockers": [
             {
-              "code": "missing-entrypoint",
-              "message": "entrypoint path is missing in the fixture checkout",
-              "evidence": "plugins/feishu/.crabpot-package/setup-entry.ts"
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@larksuiteoapi/node-sdk, typebox, zod"
             }
           ],
           "steps": [
@@ -3719,17 +3888,30 @@
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
-              "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/feishu/cold-import-setupEntry-feishu-plugins-feishu-crabpot-package-setup-entry-ts.capture.json",
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/feishu",
-              "artifactPath": ".crabpot/results/feishu/cold-import-setupEntry-feishu-plugins-feishu-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/feishu/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/feishu",
+              "artifactPath": ".crabpot/results/feishu/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/feishu/cold-import-setupEntry-feishu-plugins-feishu-crabpot-package-dist-setup-entry-js.capture.json",
+              "cwd": ".crabpot/workspaces/feishu",
+              "artifactPath": ".crabpot/results/feishu/cold-import-setupEntry-feishu-plugins-feishu-crabpot-package-dist-setup-entry-js.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/feishu/cold-import-setupEntry-feishu-plugins-feishu-crabpot-package-setup-entry-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/feishu/cold-import-setupEntry-feishu-plugins-feishu-crabpot-package-dist-setup-entry-js.synthetic.json",
               "cwd": ".crabpot/workspaces/feishu",
-              "artifactPath": ".crabpot/results/feishu/cold-import-setupEntry-feishu-plugins-feishu-crabpot-package-setup-entry-ts.synthetic.json",
+              "artifactPath": ".crabpot/results/feishu/cold-import-setupEntry-feishu-plugins-feishu-crabpot-package-dist-setup-entry-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -3850,7 +4032,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/d7db36b0a1f53e6cfe9a80b02cfa317902d68925/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/8beec82d52a3f667f8d3b0d39321214a9be4b41d/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/tlon",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -3884,12 +4066,12 @@
           ]
         },
         {
-          "id": "cold-import.setupEntry:tlon:plugins-tlon-crabpot-package-setup-entry-ts",
+          "id": "cold-import.setupEntry:tlon:plugins-tlon-crabpot-package-dist-setup-entry-js",
           "fixture": "tlon",
           "packagePath": "plugins/tlon/.crabpot-package/package.json",
           "packageName": "@openclaw/tlon",
-          "entrypoint": "plugins/tlon/.crabpot-package/setup-entry.ts",
-          "status": "missing",
+          "entrypoint": "plugins/tlon/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/tlon/package-lock.json",
           "loaderStrategy": {
@@ -3900,14 +4082,15 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
           "blockers": [
             {
-              "code": "missing-entrypoint",
-              "message": "entrypoint path is missing in the fixture checkout",
-              "evidence": "plugins/tlon/.crabpot-package/setup-entry.ts"
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@aws-sdk/client-s3, @aws-sdk/s3-request-presigner, @tloncorp/tlon-skill, @urbit/aura, zod"
             }
           ],
           "steps": [
@@ -3930,17 +4113,36 @@
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
-              "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/tlon/cold-import-setupEntry-tlon-plugins-tlon-crabpot-package-setup-entry-ts.capture.json",
+              "kind": "prune-dev-workspace-deps",
+              "command": "node ../../plugin-inspector/8beec82d52a3f667f8d3b0d39321214a9be4b41d/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/tlon",
-              "artifactPath": ".crabpot/results/tlon/cold-import-setupEntry-tlon-plugins-tlon-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/tlon",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/tlon/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/tlon",
+              "artifactPath": ".crabpot/results/tlon/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/tlon/cold-import-setupEntry-tlon-plugins-tlon-crabpot-package-dist-setup-entry-js.capture.json",
+              "cwd": ".crabpot/workspaces/tlon",
+              "artifactPath": ".crabpot/results/tlon/cold-import-setupEntry-tlon-plugins-tlon-crabpot-package-dist-setup-entry-js.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/tlon/cold-import-setupEntry-tlon-plugins-tlon-crabpot-package-setup-entry-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/tlon/cold-import-setupEntry-tlon-plugins-tlon-crabpot-package-dist-setup-entry-js.synthetic.json",
               "cwd": ".crabpot/workspaces/tlon",
-              "artifactPath": ".crabpot/results/tlon/cold-import-setupEntry-tlon-plugins-tlon-crabpot-package-setup-entry-ts.synthetic.json",
+              "artifactPath": ".crabpot/results/tlon/cold-import-setupEntry-tlon-plugins-tlon-crabpot-package-dist-setup-entry-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -4089,12 +4291,12 @@
           ]
         },
         {
-          "id": "cold-import.setupEntry:twitch:plugins-twitch-crabpot-package-setup-entry-ts",
+          "id": "cold-import.setupEntry:twitch:plugins-twitch-crabpot-package-dist-setup-entry-js",
           "fixture": "twitch",
           "packagePath": "plugins/twitch/.crabpot-package/package.json",
           "packageName": "@openclaw/twitch",
-          "entrypoint": "plugins/twitch/.crabpot-package/setup-entry.ts",
-          "status": "missing",
+          "entrypoint": "plugins/twitch/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/twitch/package-lock.json",
           "loaderStrategy": {
@@ -4105,14 +4307,15 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
           "blockers": [
             {
-              "code": "missing-entrypoint",
-              "message": "entrypoint path is missing in the fixture checkout",
-              "evidence": "plugins/twitch/.crabpot-package/setup-entry.ts"
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@twurple/api, @twurple/auth, @twurple/chat, zod"
             }
           ],
           "steps": [
@@ -4135,17 +4338,30 @@
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
-              "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/twitch/cold-import-setupEntry-twitch-plugins-twitch-crabpot-package-setup-entry-ts.capture.json",
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/twitch",
-              "artifactPath": ".crabpot/results/twitch/cold-import-setupEntry-twitch-plugins-twitch-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/twitch/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/twitch",
+              "artifactPath": ".crabpot/results/twitch/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/twitch/cold-import-setupEntry-twitch-plugins-twitch-crabpot-package-dist-setup-entry-js.capture.json",
+              "cwd": ".crabpot/workspaces/twitch",
+              "artifactPath": ".crabpot/results/twitch/cold-import-setupEntry-twitch-plugins-twitch-crabpot-package-dist-setup-entry-js.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/twitch/cold-import-setupEntry-twitch-plugins-twitch-crabpot-package-setup-entry-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/twitch/cold-import-setupEntry-twitch-plugins-twitch-crabpot-package-dist-setup-entry-js.synthetic.json",
               "cwd": ".crabpot/workspaces/twitch",
-              "artifactPath": ".crabpot/results/twitch/cold-import-setupEntry-twitch-plugins-twitch-crabpot-package-setup-entry-ts.synthetic.json",
+              "artifactPath": ".crabpot/results/twitch/cold-import-setupEntry-twitch-plugins-twitch-crabpot-package-dist-setup-entry-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -4212,7 +4428,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/d7db36b0a1f53e6cfe9a80b02cfa317902d68925/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/8beec82d52a3f667f8d3b0d39321214a9be4b41d/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/mattermost",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4302,7 +4518,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/d7db36b0a1f53e6cfe9a80b02cfa317902d68925/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/8beec82d52a3f667f8d3b0d39321214a9be4b41d/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/mattermost",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4479,12 +4695,12 @@
           ]
         },
         {
-          "id": "cold-import.setupEntry:synology-chat:plugins-synology-chat-crabpot-package-setup-entry-ts",
+          "id": "cold-import.setupEntry:synology-chat:plugins-synology-chat-crabpot-package-dist-setup-entry-js",
           "fixture": "synology-chat",
           "packagePath": "plugins/synology-chat/.crabpot-package/package.json",
           "packageName": "@openclaw/synology-chat",
-          "entrypoint": "plugins/synology-chat/.crabpot-package/setup-entry.ts",
-          "status": "missing",
+          "entrypoint": "plugins/synology-chat/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/synology-chat/package-lock.json",
           "loaderStrategy": {
@@ -4495,14 +4711,15 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
           "blockers": [
             {
-              "code": "missing-entrypoint",
-              "message": "entrypoint path is missing in the fixture checkout",
-              "evidence": "plugins/synology-chat/.crabpot-package/setup-entry.ts"
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "zod"
             }
           ],
           "steps": [
@@ -4525,17 +4742,30 @@
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
-              "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/synology-chat/cold-import-setupEntry-synology-chat-plugins-synology-chat-crabpot-package-setup-entry-ts.capture.json",
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/synology-chat",
-              "artifactPath": ".crabpot/results/synology-chat/cold-import-setupEntry-synology-chat-plugins-synology-chat-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/synology-chat/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/synology-chat",
+              "artifactPath": ".crabpot/results/synology-chat/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/synology-chat/cold-import-setupEntry-synology-chat-plugins-synology-chat-crabpot-package-dist-setup-entry-js.capture.json",
+              "cwd": ".crabpot/workspaces/synology-chat",
+              "artifactPath": ".crabpot/results/synology-chat/cold-import-setupEntry-synology-chat-plugins-synology-chat-crabpot-package-dist-setup-entry-js.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/synology-chat/cold-import-setupEntry-synology-chat-plugins-synology-chat-crabpot-package-setup-entry-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/synology-chat/cold-import-setupEntry-synology-chat-plugins-synology-chat-crabpot-package-dist-setup-entry-js.synthetic.json",
               "cwd": ".crabpot/workspaces/synology-chat",
-              "artifactPath": ".crabpot/results/synology-chat/cold-import-setupEntry-synology-chat-plugins-synology-chat-crabpot-package-setup-entry-ts.synthetic.json",
+              "artifactPath": ".crabpot/results/synology-chat/cold-import-setupEntry-synology-chat-plugins-synology-chat-crabpot-package-dist-setup-entry-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -4785,7 +5015,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/d7db36b0a1f53e6cfe9a80b02cfa317902d68925/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/8beec82d52a3f667f8d3b0d39321214a9be4b41d/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/codex",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5349,7 +5579,7 @@
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/d7db36b0a1f53e6cfe9a80b02cfa317902d68925/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/8beec82d52a3f667f8d3b0d39321214a9be4b41d/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/memory-lancedb",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5526,12 +5756,12 @@
           ]
         },
         {
-          "id": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-setup-entry-ts",
+          "id": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js",
           "fixture": "openclaw-qqbot",
           "packagePath": "plugins/openclaw-qqbot/.crabpot-package/package.json",
           "packageName": "@openclaw/qqbot",
-          "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/setup-entry.ts",
-          "status": "missing",
+          "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/openclaw-qqbot/package-lock.json",
           "loaderStrategy": {
@@ -5542,14 +5772,15 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
           "blockers": [
             {
-              "code": "missing-entrypoint",
-              "message": "entrypoint path is missing in the fixture checkout",
-              "evidence": "plugins/openclaw-qqbot/.crabpot-package/setup-entry.ts"
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@tencent-connect/qqbot-connector, mpg123-decoder, silk-wasm, ws, zod"
             }
           ],
           "steps": [
@@ -5572,17 +5803,30 @@
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
-              "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.capture.json",
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
-              "artifactPath": ".crabpot/results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/openclaw-qqbot/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/openclaw-qqbot",
+              "artifactPath": ".crabpot/results/openclaw-qqbot/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js.capture.json",
+              "cwd": ".crabpot/workspaces/openclaw-qqbot",
+              "artifactPath": ".crabpot/results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js.synthetic.json",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
-              "artifactPath": ".crabpot/results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.synthetic.json",
+              "artifactPath": ".crabpot/results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -5731,12 +5975,12 @@
           ]
         },
         {
-          "id": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
+          "id": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-entry-js",
           "fixture": "whatsapp",
           "packagePath": "plugins/whatsapp/.crabpot-package/package.json",
           "packageName": "@openclaw/whatsapp",
-          "entrypoint": "plugins/whatsapp/.crabpot-package/setup-entry.ts",
-          "status": "missing",
+          "entrypoint": "plugins/whatsapp/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/whatsapp/package-lock.json",
           "loaderStrategy": {
@@ -5747,14 +5991,15 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
           "blockers": [
             {
-              "code": "missing-entrypoint",
-              "message": "entrypoint path is missing in the fixture checkout",
-              "evidence": "plugins/whatsapp/.crabpot-package/setup-entry.ts"
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "audio-decode, baileys, typebox"
             }
           ],
           "steps": [
@@ -5777,17 +6022,30 @@
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
-              "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.capture.json",
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
               "cwd": ".crabpot/workspaces/whatsapp",
-              "artifactPath": ".crabpot/results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.capture.json",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/whatsapp/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/whatsapp",
+              "artifactPath": ".crabpot/results/whatsapp/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-dist-setup-entry-js.capture.json",
+              "cwd": ".crabpot/workspaces/whatsapp",
+              "artifactPath": ".crabpot/results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-dist-setup-entry-js.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-dist-setup-entry-js.synthetic.json",
               "cwd": ".crabpot/workspaces/whatsapp",
-              "artifactPath": ".crabpot/results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.synthetic.json",
+              "artifactPath": ".crabpot/results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-dist-setup-entry-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -5815,6 +6073,7 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
+            "dependency-install",
             "synthetic-probes"
           ],
           "blockers": [
@@ -5836,6 +6095,19 @@
               "command": "mkdir -p .crabpot/results/nemoclaw",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/nemoclaw",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/nemoclaw/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/nemoclaw",
+              "artifactPath": ".crabpot/results/nemoclaw/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "build",
@@ -5882,6 +6154,7 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
+            "dependency-install",
             "synthetic-probes"
           ],
           "blockers": [
@@ -5903,6 +6176,19 @@
               "command": "mkdir -p .crabpot/results/memory-tencentdb",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/memory-tencentdb",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/memory-tencentdb/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/memory-tencentdb",
+              "artifactPath": ".crabpot/results/memory-tencentdb/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "build",
@@ -6122,6 +6408,7 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -6150,6 +6437,19 @@
               "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/dingtalk-connector",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/dingtalk-connector",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/dingtalk-connector/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/dingtalk-connector",
+              "artifactPath": ".crabpot/results/dingtalk-connector/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "build",
@@ -6196,6 +6496,7 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -6224,6 +6525,19 @@
               "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/dingtalk-doc",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "pnpm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/dingtalk-doc",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "pnpm audit --json > ../../results/dingtalk-doc/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/dingtalk-doc",
+              "artifactPath": ".crabpot/results/dingtalk-doc/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "build",
@@ -6911,6 +7225,7 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
+            "dependency-install",
             "synthetic-probes"
           ],
           "blockers": [
@@ -6932,6 +7247,19 @@
               "command": "mkdir -p .crabpot/results/telnyx-sms",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/telnyx-sms",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/telnyx-sms/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/telnyx-sms",
+              "artifactPath": ".crabpot/results/telnyx-sms/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "build",
@@ -6973,6 +7301,7 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
+            "dependency-install",
             "synthetic-probes"
           ],
           "blockers": [
@@ -6994,6 +7323,19 @@
               "command": "mkdir -p .crabpot/results/telnyx-sms",
               "cwd": ".",
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/telnyx-sms",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/telnyx-sms/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/telnyx-sms",
+              "artifactPath": ".crabpot/results/telnyx-sms/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "build",
@@ -7196,6 +7538,7 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -7224,6 +7567,19 @@
               "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/secureclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/secureclaw",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/secureclaw/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/secureclaw",
+              "artifactPath": ".crabpot/results/secureclaw/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "build",
@@ -7685,6 +8041,7 @@
           "requiredCapabilities": [
             "build",
             "capture-shim",
+            "dependency-install",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -7713,6 +8070,19 @@
               "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
               "cwd": ".crabpot/workspaces/apify",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
+            },
+            {
+              "kind": "install",
+              "command": "npm install --ignore-scripts",
+              "cwd": ".crabpot/workspaces/apify",
+              "reason": "install runtime dependencies without mutating the pinned submodule"
+            },
+            {
+              "kind": "audit",
+              "command": "npm audit --json > ../../results/apify/package-audit.json || true",
+              "cwd": ".crabpot/workspaces/apify",
+              "artifactPath": ".crabpot/results/apify/package-audit.json",
+              "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
               "kind": "build",

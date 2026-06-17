@@ -13,12 +13,12 @@
     "tsLoaderEntrypointCount": 22,
     "jitiAlternativeCount": 22,
     "lazyImportProbeCount": 108,
-    "portabilityFindingCount": 16,
-    "coveredPortabilityFindingCount": 474,
-    "windowsRiskStepCount": 16,
-    "macosRiskStepCount": 16,
-    "linuxRiskStepCount": 16,
-    "containerRiskStepCount": 16
+    "portabilityFindingCount": 24,
+    "coveredPortabilityFindingCount": 500,
+    "windowsRiskStepCount": 24,
+    "macosRiskStepCount": 24,
+    "linuxRiskStepCount": 24,
+    "containerRiskStepCount": 24
   },
   "entrypoints": [
     {
@@ -527,9 +527,9 @@
     },
     {
       "fixture": "discord",
-      "id": "cold-import.setupEntry:discord:plugins-discord-crabpot-package-setup-entry-ts",
-      "status": "missing",
-      "entrypoint": "plugins/discord/.crabpot-package/setup-entry.ts",
+      "id": "cold-import.setupEntry:discord:plugins-discord-crabpot-package-dist-setup-entry-js",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/discord/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -657,9 +657,9 @@
     },
     {
       "fixture": "msteams",
-      "id": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-setup-entry-ts",
-      "status": "missing",
-      "entrypoint": "plugins/msteams/.crabpot-package/setup-entry.ts",
+      "id": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/msteams/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -711,9 +711,9 @@
     },
     {
       "fixture": "nextcloud-talk",
-      "id": "cold-import.setupEntry:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-setup-entry-ts",
-      "status": "missing",
-      "entrypoint": "plugins/nextcloud-talk/.crabpot-package/setup-entry.ts",
+      "id": "cold-import.setupEntry:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-dist-setup-entry-js",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/nextcloud-talk/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -765,9 +765,9 @@
     },
     {
       "fixture": "nostr",
-      "id": "cold-import.setupEntry:nostr:plugins-nostr-crabpot-package-setup-entry-ts",
-      "status": "missing",
-      "entrypoint": "plugins/nostr/.crabpot-package/setup-entry.ts",
+      "id": "cold-import.setupEntry:nostr:plugins-nostr-crabpot-package-dist-setup-entry-js",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/nostr/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -855,9 +855,9 @@
     },
     {
       "fixture": "zalo",
-      "id": "cold-import.setupEntry:zalo:plugins-zalo-crabpot-package-setup-entry-ts",
-      "status": "missing",
-      "entrypoint": "plugins/zalo/.crabpot-package/setup-entry.ts",
+      "id": "cold-import.setupEntry:zalo:plugins-zalo-crabpot-package-dist-setup-entry-js",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/zalo/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -909,9 +909,9 @@
     },
     {
       "fixture": "zalouser",
-      "id": "cold-import.setupEntry:zalouser:plugins-zalouser-crabpot-package-setup-entry-ts",
-      "status": "missing",
-      "entrypoint": "plugins/zalouser/.crabpot-package/setup-entry.ts",
+      "id": "cold-import.setupEntry:zalouser:plugins-zalouser-crabpot-package-dist-setup-entry-js",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/zalouser/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -963,9 +963,9 @@
     },
     {
       "fixture": "feishu",
-      "id": "cold-import.setupEntry:feishu:plugins-feishu-crabpot-package-setup-entry-ts",
-      "status": "missing",
-      "entrypoint": "plugins/feishu/.crabpot-package/setup-entry.ts",
+      "id": "cold-import.setupEntry:feishu:plugins-feishu-crabpot-package-dist-setup-entry-js",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/feishu/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -1017,9 +1017,9 @@
     },
     {
       "fixture": "tlon",
-      "id": "cold-import.setupEntry:tlon:plugins-tlon-crabpot-package-setup-entry-ts",
-      "status": "missing",
-      "entrypoint": "plugins/tlon/.crabpot-package/setup-entry.ts",
+      "id": "cold-import.setupEntry:tlon:plugins-tlon-crabpot-package-dist-setup-entry-js",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/tlon/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -1071,9 +1071,9 @@
     },
     {
       "fixture": "twitch",
-      "id": "cold-import.setupEntry:twitch:plugins-twitch-crabpot-package-setup-entry-ts",
-      "status": "missing",
-      "entrypoint": "plugins/twitch/.crabpot-package/setup-entry.ts",
+      "id": "cold-import.setupEntry:twitch:plugins-twitch-crabpot-package-dist-setup-entry-js",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/twitch/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -1165,9 +1165,9 @@
     },
     {
       "fixture": "synology-chat",
-      "id": "cold-import.setupEntry:synology-chat:plugins-synology-chat-crabpot-package-setup-entry-ts",
-      "status": "missing",
-      "entrypoint": "plugins/synology-chat/.crabpot-package/setup-entry.ts",
+      "id": "cold-import.setupEntry:synology-chat:plugins-synology-chat-crabpot-package-dist-setup-entry-js",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/synology-chat/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -1435,9 +1435,9 @@
     },
     {
       "fixture": "openclaw-qqbot",
-      "id": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-setup-entry-ts",
-      "status": "missing",
-      "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/setup-entry.ts",
+      "id": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -1489,9 +1489,9 @@
     },
     {
       "fixture": "whatsapp",
-      "id": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
-      "status": "missing",
-      "entrypoint": "plugins/whatsapp/.crabpot-package/setup-entry.ts",
+      "id": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-entry-js",
+      "status": "dependency-install-required",
+      "entrypoint": "plugins/whatsapp/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -2031,6 +2031,43 @@
     {
       "fixture": "agentchat",
       "entrypoint": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
+      "kind": "install",
+      "command": "pnpm install --ignore-scripts",
+      "coveredRiskCodes": [],
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
+      "kind": "audit",
+      "command": "pnpm audit --json > ../../results/agentchat/package-audit.json || true",
+      "coveredRiskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
       "kind": "build",
       "command": "pnpm run build",
       "coveredRiskCodes": [],
@@ -2051,6 +2088,43 @@
       "kind": "link-openclaw",
       "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "coveredRiskCodes": [],
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
+      "kind": "install",
+      "command": "pnpm install --ignore-scripts",
+      "coveredRiskCodes": [],
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
+      "kind": "audit",
+      "command": "pnpm audit --json > ../../results/agentchat/package-audit.json || true",
+      "coveredRiskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
       "platforms": [
         "container",
         "linux",
@@ -2102,6 +2176,43 @@
       "kind": "link-openclaw",
       "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "coveredRiskCodes": [],
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "honcho",
+      "entrypoint": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
+      "kind": "install",
+      "command": "pnpm install --ignore-scripts",
+      "coveredRiskCodes": [],
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "honcho",
+      "entrypoint": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
+      "kind": "audit",
+      "command": "pnpm audit --json > ../../results/honcho/package-audit.json || true",
+      "coveredRiskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
       "platforms": [
         "container",
         "linux",
@@ -2190,6 +2301,43 @@
       "kind": "link-openclaw",
       "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
       "coveredRiskCodes": [],
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "dingtalk-doc",
+      "entrypoint": "cold-import.extension:dingtalk-doc:plugins-dingtalk-doc-dist-index-mjs",
+      "kind": "install",
+      "command": "pnpm install --ignore-scripts",
+      "coveredRiskCodes": [],
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "dingtalk-doc",
+      "entrypoint": "cold-import.extension:dingtalk-doc:plugins-dingtalk-doc-dist-index-mjs",
+      "kind": "audit",
+      "command": "pnpm audit --json > ../../results/dingtalk-doc/package-audit.json || true",
+      "coveredRiskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ],
       "platforms": [
         "container",
         "linux",
@@ -2322,6 +2470,20 @@
     {
       "fixture": "agentchat",
       "entrypoint": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
+      "kind": "audit",
+      "command": "pnpm audit --json > ../../results/agentchat/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
       "kind": "capture",
       "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/agentchat/cold-import-extension-agentchat-plugins-agentchat-integrations-openclaw-channel-dist-index-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
@@ -2371,6 +2533,20 @@
       ],
       "riskCodes": [
         "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "agentchat",
+      "entrypoint": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
+      "kind": "audit",
+      "command": "pnpm audit --json > ../../results/agentchat/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
       ]
     },
     {
@@ -2960,6 +3136,20 @@
     {
       "fixture": "opik-openclaw",
       "entrypoint": "cold-import.runtimeExtension:opik-openclaw:plugins-opik-openclaw-dist-index-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/opik-openclaw/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "opik-openclaw",
+      "entrypoint": "cold-import.runtimeExtension:opik-openclaw:plugins-opik-openclaw-dist-index-js",
       "kind": "capture",
       "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/opik-openclaw/cold-import-runtimeExtension-opik-openclaw-plugins-opik-openclaw-dist-index-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
@@ -3063,6 +3253,20 @@
       ],
       "riskCodes": [
         "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "lossless-claw",
+      "entrypoint": "cold-import.extension:lossless-claw:plugins-lossless-claw-dist-index-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/lossless-claw/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
       ]
     },
     {
@@ -3176,6 +3380,20 @@
     {
       "fixture": "hyperspell",
       "entrypoint": "cold-import.extension:hyperspell:plugins-hyperspell-dist-index-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/hyperspell/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "hyperspell",
+      "entrypoint": "cold-import.extension:hyperspell:plugins-hyperspell-dist-index-js",
       "kind": "capture",
       "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/hyperspell/cold-import-extension-hyperspell-plugins-hyperspell-dist-index-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
@@ -3225,6 +3443,20 @@
       ],
       "riskCodes": [
         "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "honcho",
+      "entrypoint": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
+      "kind": "audit",
+      "command": "pnpm audit --json > ../../results/honcho/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
       ]
     },
     {
@@ -3877,7 +4109,7 @@
     },
     {
       "fixture": "discord",
-      "entrypoint": "cold-import.setupEntry:discord:plugins-discord-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:discord:plugins-discord-crabpot-package-dist-setup-entry-js",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/discord && rsync -a --delete plugins/discord/.crabpot-package/ .crabpot/workspaces/discord/",
       "coverage": "covered by Crabpot structured executor",
@@ -3892,7 +4124,7 @@
     },
     {
       "fixture": "discord",
-      "entrypoint": "cold-import.setupEntry:discord:plugins-discord-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:discord:plugins-discord-crabpot-package-dist-setup-entry-js",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/discord",
       "coverage": "covered by Crabpot structured executor",
@@ -3905,9 +4137,23 @@
     },
     {
       "fixture": "discord",
-      "entrypoint": "cold-import.setupEntry:discord:plugins-discord-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:discord:plugins-discord-crabpot-package-dist-setup-entry-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/discord/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "discord",
+      "entrypoint": "cold-import.setupEntry:discord:plugins-discord-crabpot-package-dist-setup-entry-js",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/discord/cold-import-setupEntry-discord-plugins-discord-crabpot-package-setup-entry-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/discord/cold-import-setupEntry-discord-plugins-discord-crabpot-package-dist-setup-entry-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3918,9 +4164,9 @@
     },
     {
       "fixture": "discord",
-      "entrypoint": "cold-import.setupEntry:discord:plugins-discord-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:discord:plugins-discord-crabpot-package-dist-setup-entry-js",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/discord/cold-import-setupEntry-discord-plugins-discord-crabpot-package-setup-entry-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/discord/cold-import-setupEntry-discord-plugins-discord-crabpot-package-dist-setup-entry-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4311,7 +4557,7 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/msteams && rsync -a --delete plugins/msteams/.crabpot-package/ .crabpot/workspaces/msteams/",
       "coverage": "covered by Crabpot structured executor",
@@ -4326,7 +4572,7 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/msteams",
       "coverage": "covered by Crabpot structured executor",
@@ -4339,9 +4585,23 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/msteams/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "msteams",
+      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-setup-entry-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-dist-setup-entry-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4352,9 +4612,9 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-setup-entry-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-dist-setup-entry-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4487,7 +4747,7 @@
     },
     {
       "fixture": "nextcloud-talk",
-      "entrypoint": "cold-import.setupEntry:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-dist-setup-entry-js",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/nextcloud-talk && rsync -a --delete plugins/nextcloud-talk/.crabpot-package/ .crabpot/workspaces/nextcloud-talk/",
       "coverage": "covered by Crabpot structured executor",
@@ -4502,7 +4762,7 @@
     },
     {
       "fixture": "nextcloud-talk",
-      "entrypoint": "cold-import.setupEntry:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-dist-setup-entry-js",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/nextcloud-talk",
       "coverage": "covered by Crabpot structured executor",
@@ -4515,9 +4775,23 @@
     },
     {
       "fixture": "nextcloud-talk",
-      "entrypoint": "cold-import.setupEntry:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-dist-setup-entry-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/nextcloud-talk/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "nextcloud-talk",
+      "entrypoint": "cold-import.setupEntry:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-dist-setup-entry-js",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/nextcloud-talk/cold-import-setupEntry-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-setup-entry-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/nextcloud-talk/cold-import-setupEntry-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-dist-setup-entry-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4528,9 +4802,9 @@
     },
     {
       "fixture": "nextcloud-talk",
-      "entrypoint": "cold-import.setupEntry:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-dist-setup-entry-js",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/nextcloud-talk/cold-import-setupEntry-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-setup-entry-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/nextcloud-talk/cold-import-setupEntry-nextcloud-talk-plugins-nextcloud-talk-crabpot-package-dist-setup-entry-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4663,7 +4937,7 @@
     },
     {
       "fixture": "nostr",
-      "entrypoint": "cold-import.setupEntry:nostr:plugins-nostr-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:nostr:plugins-nostr-crabpot-package-dist-setup-entry-js",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/nostr && rsync -a --delete plugins/nostr/.crabpot-package/ .crabpot/workspaces/nostr/",
       "coverage": "covered by Crabpot structured executor",
@@ -4678,7 +4952,7 @@
     },
     {
       "fixture": "nostr",
-      "entrypoint": "cold-import.setupEntry:nostr:plugins-nostr-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:nostr:plugins-nostr-crabpot-package-dist-setup-entry-js",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/nostr",
       "coverage": "covered by Crabpot structured executor",
@@ -4691,9 +4965,23 @@
     },
     {
       "fixture": "nostr",
-      "entrypoint": "cold-import.setupEntry:nostr:plugins-nostr-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:nostr:plugins-nostr-crabpot-package-dist-setup-entry-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/nostr/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "nostr",
+      "entrypoint": "cold-import.setupEntry:nostr:plugins-nostr-crabpot-package-dist-setup-entry-js",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/nostr/cold-import-setupEntry-nostr-plugins-nostr-crabpot-package-setup-entry-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/nostr/cold-import-setupEntry-nostr-plugins-nostr-crabpot-package-dist-setup-entry-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4704,9 +4992,9 @@
     },
     {
       "fixture": "nostr",
-      "entrypoint": "cold-import.setupEntry:nostr:plugins-nostr-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:nostr:plugins-nostr-crabpot-package-dist-setup-entry-js",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/nostr/cold-import-setupEntry-nostr-plugins-nostr-crabpot-package-setup-entry-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/nostr/cold-import-setupEntry-nostr-plugins-nostr-crabpot-package-dist-setup-entry-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4961,7 +5249,7 @@
     },
     {
       "fixture": "zalo",
-      "entrypoint": "cold-import.setupEntry:zalo:plugins-zalo-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:zalo:plugins-zalo-crabpot-package-dist-setup-entry-js",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/zalo && rsync -a --delete plugins/zalo/.crabpot-package/ .crabpot/workspaces/zalo/",
       "coverage": "covered by Crabpot structured executor",
@@ -4976,7 +5264,7 @@
     },
     {
       "fixture": "zalo",
-      "entrypoint": "cold-import.setupEntry:zalo:plugins-zalo-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:zalo:plugins-zalo-crabpot-package-dist-setup-entry-js",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/zalo",
       "coverage": "covered by Crabpot structured executor",
@@ -4989,9 +5277,23 @@
     },
     {
       "fixture": "zalo",
-      "entrypoint": "cold-import.setupEntry:zalo:plugins-zalo-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:zalo:plugins-zalo-crabpot-package-dist-setup-entry-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/zalo/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "zalo",
+      "entrypoint": "cold-import.setupEntry:zalo:plugins-zalo-crabpot-package-dist-setup-entry-js",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/zalo/cold-import-setupEntry-zalo-plugins-zalo-crabpot-package-setup-entry-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/zalo/cold-import-setupEntry-zalo-plugins-zalo-crabpot-package-dist-setup-entry-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5002,9 +5304,9 @@
     },
     {
       "fixture": "zalo",
-      "entrypoint": "cold-import.setupEntry:zalo:plugins-zalo-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:zalo:plugins-zalo-crabpot-package-dist-setup-entry-js",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/zalo/cold-import-setupEntry-zalo-plugins-zalo-crabpot-package-setup-entry-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/zalo/cold-import-setupEntry-zalo-plugins-zalo-crabpot-package-dist-setup-entry-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5137,7 +5439,7 @@
     },
     {
       "fixture": "zalouser",
-      "entrypoint": "cold-import.setupEntry:zalouser:plugins-zalouser-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:zalouser:plugins-zalouser-crabpot-package-dist-setup-entry-js",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/zalouser && rsync -a --delete plugins/zalouser/.crabpot-package/ .crabpot/workspaces/zalouser/",
       "coverage": "covered by Crabpot structured executor",
@@ -5152,7 +5454,7 @@
     },
     {
       "fixture": "zalouser",
-      "entrypoint": "cold-import.setupEntry:zalouser:plugins-zalouser-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:zalouser:plugins-zalouser-crabpot-package-dist-setup-entry-js",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/zalouser",
       "coverage": "covered by Crabpot structured executor",
@@ -5165,9 +5467,23 @@
     },
     {
       "fixture": "zalouser",
-      "entrypoint": "cold-import.setupEntry:zalouser:plugins-zalouser-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:zalouser:plugins-zalouser-crabpot-package-dist-setup-entry-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/zalouser/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "zalouser",
+      "entrypoint": "cold-import.setupEntry:zalouser:plugins-zalouser-crabpot-package-dist-setup-entry-js",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/zalouser/cold-import-setupEntry-zalouser-plugins-zalouser-crabpot-package-setup-entry-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/zalouser/cold-import-setupEntry-zalouser-plugins-zalouser-crabpot-package-dist-setup-entry-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5178,9 +5494,9 @@
     },
     {
       "fixture": "zalouser",
-      "entrypoint": "cold-import.setupEntry:zalouser:plugins-zalouser-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:zalouser:plugins-zalouser-crabpot-package-dist-setup-entry-js",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/zalouser/cold-import-setupEntry-zalouser-plugins-zalouser-crabpot-package-setup-entry-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/zalouser/cold-import-setupEntry-zalouser-plugins-zalouser-crabpot-package-dist-setup-entry-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5313,7 +5629,7 @@
     },
     {
       "fixture": "feishu",
-      "entrypoint": "cold-import.setupEntry:feishu:plugins-feishu-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:feishu:plugins-feishu-crabpot-package-dist-setup-entry-js",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/feishu && rsync -a --delete plugins/feishu/.crabpot-package/ .crabpot/workspaces/feishu/",
       "coverage": "covered by Crabpot structured executor",
@@ -5328,7 +5644,7 @@
     },
     {
       "fixture": "feishu",
-      "entrypoint": "cold-import.setupEntry:feishu:plugins-feishu-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:feishu:plugins-feishu-crabpot-package-dist-setup-entry-js",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/feishu",
       "coverage": "covered by Crabpot structured executor",
@@ -5341,9 +5657,23 @@
     },
     {
       "fixture": "feishu",
-      "entrypoint": "cold-import.setupEntry:feishu:plugins-feishu-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:feishu:plugins-feishu-crabpot-package-dist-setup-entry-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/feishu/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "feishu",
+      "entrypoint": "cold-import.setupEntry:feishu:plugins-feishu-crabpot-package-dist-setup-entry-js",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/feishu/cold-import-setupEntry-feishu-plugins-feishu-crabpot-package-setup-entry-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/feishu/cold-import-setupEntry-feishu-plugins-feishu-crabpot-package-dist-setup-entry-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5354,9 +5684,9 @@
     },
     {
       "fixture": "feishu",
-      "entrypoint": "cold-import.setupEntry:feishu:plugins-feishu-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:feishu:plugins-feishu-crabpot-package-dist-setup-entry-js",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/feishu/cold-import-setupEntry-feishu-plugins-feishu-crabpot-package-setup-entry-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/feishu/cold-import-setupEntry-feishu-plugins-feishu-crabpot-package-dist-setup-entry-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5489,7 +5819,7 @@
     },
     {
       "fixture": "tlon",
-      "entrypoint": "cold-import.setupEntry:tlon:plugins-tlon-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:tlon:plugins-tlon-crabpot-package-dist-setup-entry-js",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/tlon && rsync -a --delete plugins/tlon/.crabpot-package/ .crabpot/workspaces/tlon/",
       "coverage": "covered by Crabpot structured executor",
@@ -5504,7 +5834,7 @@
     },
     {
       "fixture": "tlon",
-      "entrypoint": "cold-import.setupEntry:tlon:plugins-tlon-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:tlon:plugins-tlon-crabpot-package-dist-setup-entry-js",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/tlon",
       "coverage": "covered by Crabpot structured executor",
@@ -5517,9 +5847,23 @@
     },
     {
       "fixture": "tlon",
-      "entrypoint": "cold-import.setupEntry:tlon:plugins-tlon-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:tlon:plugins-tlon-crabpot-package-dist-setup-entry-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/tlon/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "tlon",
+      "entrypoint": "cold-import.setupEntry:tlon:plugins-tlon-crabpot-package-dist-setup-entry-js",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/tlon/cold-import-setupEntry-tlon-plugins-tlon-crabpot-package-setup-entry-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/tlon/cold-import-setupEntry-tlon-plugins-tlon-crabpot-package-dist-setup-entry-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5530,9 +5874,9 @@
     },
     {
       "fixture": "tlon",
-      "entrypoint": "cold-import.setupEntry:tlon:plugins-tlon-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:tlon:plugins-tlon-crabpot-package-dist-setup-entry-js",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/tlon/cold-import-setupEntry-tlon-plugins-tlon-crabpot-package-setup-entry-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/tlon/cold-import-setupEntry-tlon-plugins-tlon-crabpot-package-dist-setup-entry-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5665,7 +6009,7 @@
     },
     {
       "fixture": "twitch",
-      "entrypoint": "cold-import.setupEntry:twitch:plugins-twitch-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:twitch:plugins-twitch-crabpot-package-dist-setup-entry-js",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/twitch && rsync -a --delete plugins/twitch/.crabpot-package/ .crabpot/workspaces/twitch/",
       "coverage": "covered by Crabpot structured executor",
@@ -5680,7 +6024,7 @@
     },
     {
       "fixture": "twitch",
-      "entrypoint": "cold-import.setupEntry:twitch:plugins-twitch-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:twitch:plugins-twitch-crabpot-package-dist-setup-entry-js",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/twitch",
       "coverage": "covered by Crabpot structured executor",
@@ -5693,9 +6037,23 @@
     },
     {
       "fixture": "twitch",
-      "entrypoint": "cold-import.setupEntry:twitch:plugins-twitch-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:twitch:plugins-twitch-crabpot-package-dist-setup-entry-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/twitch/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "twitch",
+      "entrypoint": "cold-import.setupEntry:twitch:plugins-twitch-crabpot-package-dist-setup-entry-js",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/twitch/cold-import-setupEntry-twitch-plugins-twitch-crabpot-package-setup-entry-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/twitch/cold-import-setupEntry-twitch-plugins-twitch-crabpot-package-dist-setup-entry-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5706,9 +6064,9 @@
     },
     {
       "fixture": "twitch",
-      "entrypoint": "cold-import.setupEntry:twitch:plugins-twitch-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:twitch:plugins-twitch-crabpot-package-dist-setup-entry-js",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/twitch/cold-import-setupEntry-twitch-plugins-twitch-crabpot-package-setup-entry-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/twitch/cold-import-setupEntry-twitch-plugins-twitch-crabpot-package-dist-setup-entry-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -5977,7 +6335,7 @@
     },
     {
       "fixture": "synology-chat",
-      "entrypoint": "cold-import.setupEntry:synology-chat:plugins-synology-chat-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:synology-chat:plugins-synology-chat-crabpot-package-dist-setup-entry-js",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/synology-chat && rsync -a --delete plugins/synology-chat/.crabpot-package/ .crabpot/workspaces/synology-chat/",
       "coverage": "covered by Crabpot structured executor",
@@ -5992,7 +6350,7 @@
     },
     {
       "fixture": "synology-chat",
-      "entrypoint": "cold-import.setupEntry:synology-chat:plugins-synology-chat-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:synology-chat:plugins-synology-chat-crabpot-package-dist-setup-entry-js",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/synology-chat",
       "coverage": "covered by Crabpot structured executor",
@@ -6005,9 +6363,23 @@
     },
     {
       "fixture": "synology-chat",
-      "entrypoint": "cold-import.setupEntry:synology-chat:plugins-synology-chat-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:synology-chat:plugins-synology-chat-crabpot-package-dist-setup-entry-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/synology-chat/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "synology-chat",
+      "entrypoint": "cold-import.setupEntry:synology-chat:plugins-synology-chat-crabpot-package-dist-setup-entry-js",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/synology-chat/cold-import-setupEntry-synology-chat-plugins-synology-chat-crabpot-package-setup-entry-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/synology-chat/cold-import-setupEntry-synology-chat-plugins-synology-chat-crabpot-package-dist-setup-entry-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -6018,9 +6390,9 @@
     },
     {
       "fixture": "synology-chat",
-      "entrypoint": "cold-import.setupEntry:synology-chat:plugins-synology-chat-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:synology-chat:plugins-synology-chat-crabpot-package-dist-setup-entry-js",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/synology-chat/cold-import-setupEntry-synology-chat-plugins-synology-chat-crabpot-package-setup-entry-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/synology-chat/cold-import-setupEntry-synology-chat-plugins-synology-chat-crabpot-package-dist-setup-entry-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -6857,7 +7229,7 @@
     },
     {
       "fixture": "openclaw-qqbot",
-      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/openclaw-qqbot && rsync -a --delete plugins/openclaw-qqbot/.crabpot-package/ .crabpot/workspaces/openclaw-qqbot/",
       "coverage": "covered by Crabpot structured executor",
@@ -6872,7 +7244,7 @@
     },
     {
       "fixture": "openclaw-qqbot",
-      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/openclaw-qqbot",
       "coverage": "covered by Crabpot structured executor",
@@ -6885,9 +7257,23 @@
     },
     {
       "fixture": "openclaw-qqbot",
-      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/openclaw-qqbot/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "openclaw-qqbot",
+      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -6898,9 +7284,9 @@
     },
     {
       "fixture": "openclaw-qqbot",
-      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-setup-entry-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/openclaw-qqbot/cold-import-setupEntry-openclaw-qqbot-plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -7033,7 +7419,7 @@
     },
     {
       "fixture": "whatsapp",
-      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-entry-js",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/whatsapp && rsync -a --delete plugins/whatsapp/.crabpot-package/ .crabpot/workspaces/whatsapp/",
       "coverage": "covered by Crabpot structured executor",
@@ -7048,7 +7434,7 @@
     },
     {
       "fixture": "whatsapp",
-      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-entry-js",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/whatsapp",
       "coverage": "covered by Crabpot structured executor",
@@ -7061,9 +7447,23 @@
     },
     {
       "fixture": "whatsapp",
-      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-entry-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/whatsapp/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "whatsapp",
+      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-entry-js",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./setup-entry.ts --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-dist-setup-entry-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -7074,9 +7474,9 @@
     },
     {
       "fixture": "whatsapp",
-      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
+      "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-entry-js",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./setup-entry.ts --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-dist-setup-entry-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -7111,6 +7511,20 @@
       ],
       "riskCodes": [
         "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "nemoclaw",
+      "entrypoint": "cold-import.extension:nemoclaw:plugins-nemoclaw-nemoclaw-dist-index-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/nemoclaw/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
       ]
     },
     {
@@ -7165,6 +7579,20 @@
       ],
       "riskCodes": [
         "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "memory-tencentdb",
+      "entrypoint": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-openclaw-plugin-dist-index-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/memory-tencentdb/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
       ]
     },
     {
@@ -7360,6 +7788,20 @@
     {
       "fixture": "dingtalk-connector",
       "entrypoint": "cold-import.extension:dingtalk-connector:plugins-dingtalk-connector-dist-index-mjs",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/dingtalk-connector/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "dingtalk-connector",
+      "entrypoint": "cold-import.extension:dingtalk-connector:plugins-dingtalk-connector-dist-index-mjs",
       "kind": "capture",
       "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.mjs --mock-sdk --output ../../results/dingtalk-connector/cold-import-extension-dingtalk-connector-plugins-dingtalk-connector-dist-index-mjs.capture.json",
       "coverage": "covered by Crabpot structured executor",
@@ -7409,6 +7851,20 @@
       ],
       "riskCodes": [
         "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "dingtalk-doc",
+      "entrypoint": "cold-import.extension:dingtalk-doc:plugins-dingtalk-doc-dist-index-mjs",
+      "kind": "audit",
+      "command": "pnpm audit --json > ../../results/dingtalk-doc/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
       ]
     },
     {
@@ -8012,6 +8468,20 @@
     {
       "fixture": "telnyx-sms",
       "entrypoint": "cold-import.extension:telnyx-sms:plugins-telnyx-sms-dist-index-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/telnyx-sms/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
+      ]
+    },
+    {
+      "fixture": "telnyx-sms",
+      "entrypoint": "cold-import.extension:telnyx-sms:plugins-telnyx-sms-dist-index-js",
       "kind": "capture",
       "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/telnyx-sms/cold-import-extension-telnyx-sms-plugins-telnyx-sms-dist-index-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
@@ -8061,6 +8531,20 @@
       ],
       "riskCodes": [
         "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "telnyx-sms",
+      "entrypoint": "cold-import.setupEntry:telnyx-sms:plugins-telnyx-sms-dist-setup-entry-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/telnyx-sms/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
       ]
     },
     {
@@ -8237,6 +8721,20 @@
       ],
       "riskCodes": [
         "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "secureclaw",
+      "entrypoint": "cold-import.extension:secureclaw:plugins-secureclaw-secureclaw-dist-index-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/secureclaw/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
       ]
     },
     {
@@ -8629,6 +9127,20 @@
       ],
       "riskCodes": [
         "posix-mkdir"
+      ]
+    },
+    {
+      "fixture": "apify",
+      "entrypoint": "cold-import.extension:apify:plugins-apify-dist-index-js",
+      "kind": "audit",
+      "command": "npm audit --json > ../../results/apify/package-audit.json || true",
+      "coverage": "covered by Crabpot structured executor",
+      "platforms": [
+        "windows"
+      ],
+      "riskCodes": [
+        "posix-null-failure",
+        "shell-redirection"
       ]
     },
     {

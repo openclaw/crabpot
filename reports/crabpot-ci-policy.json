@@ -3429,7 +3429,7 @@
     {
       "id": "compatibility-report.deprecation-warnings",
       "action": "pass",
-      "message": "46 deprecated compat seams tracked",
+      "message": "47 deprecated compat seams tracked",
       "evidence": [
         "a2a-gateway:legacy-root-sdk-import",
         "agentchat:channel-env-vars",
@@ -3453,6 +3453,7 @@
         "kitchen-sink:legacy-before-agent-start",
         "kitchen-sink:legacy-root-sdk-import",
         "llm-trace-phoenix:legacy-root-sdk-import",
+        "lossless-claw:sdk-load-session-store",
         "matrix:channel-env-vars",
         "matrix:sdk-load-session-store",
         "mattermost:channel-env-vars",
