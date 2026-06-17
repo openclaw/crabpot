@@ -15,14 +15,16 @@
     "fast-uri": "3.1.2",
     "fast-xml-builder": "1.1.7",
     "fast-xml-parser": "5.7.2",
-    "form-data": "4.0.5",
-    "hono": "4.12.21",
+    "form-data": "4.0.6",
+    "hono": "4.12.25",
     "ip-address": "10.1.1",
-    "protobufjs": "8.2.0",
+    "markdown-it": "14.2.0",
+    "protobufjs": "8.6.0",
     "qs": "6.15.2",
+    "tar": "7.5.16",
     "tough-cookie": "6.0.1",
     "uuid": "14.0.0",
-    "ws": "8.20.1"
+    "ws": "8.21.0"
   },
   "crabpot": {
     "fixture": "yuanbao",
