@@ -1731,10 +1731,10 @@
       "priority": "high",
       "registrations": [
         {
-          "id": "registration.registerCommand:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1676",
+          "id": "registration.registerCommand:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1695",
           "fixture": "lossless-claw",
           "registrar": "registerCommand",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1676",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1695",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -1787,10 +1787,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1657",
+          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1663",
           "fixture": "lossless-claw",
           "registrar": "registerTool",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1657",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1663",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -1809,10 +1809,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1661",
+          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1673",
           "fixture": "lossless-claw",
           "registrar": "registerTool",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1661",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1673",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -1831,10 +1831,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1665",
+          "id": "registration.registerTool:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-1683",
           "fixture": "lossless-claw",
           "registrar": "registerTool",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:1665",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:1683",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -1904,10 +1904,10 @@
           }
         },
         {
-          "id": "hook.gateway_start:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2049",
+          "id": "hook.gateway_start:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2068",
           "fixture": "lossless-claw",
           "hook": "gateway_start",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2049",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2068",
           "support": "synthetic-event-required",
           "assertions": [
             "hook payload and return value are captured"
@@ -1922,10 +1922,10 @@
           }
         },
         {
-          "id": "hook.gateway_stop:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2079",
+          "id": "hook.gateway_stop:lossless-claw:plugins-lossless-claw-src-plugin-index-ts-2098",
           "fixture": "lossless-claw",
           "hook": "gateway_stop",
-          "ref": "plugins/lossless-claw/src/plugin/index.ts:2079",
+          "ref": "plugins/lossless-claw/src/plugin/index.ts:2098",
           "support": "synthetic-event-required",
           "assertions": [
             "hook payload and return value are captured"
@@ -37615,7 +37615,7 @@
       "priority": "P2",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:1676",
+        "registerCommand @ plugins/lossless-claw/src/plugin/index.ts:1695",
         "registerContextEngine @ plugins/lossless-claw/src/plugin/index.ts:1646"
       ],
       "assertions": [
@@ -40845,7 +40845,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.6.8"
+        "buildOpenClawVersion:2026.6.8-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40859,7 +40859,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.6.8"
+        "buildOpenClawVersion:2026.6.8-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40887,7 +40887,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.6.8"
+        "buildOpenClawVersion:2026.6.8-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40901,7 +40901,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.6.8"
+        "buildOpenClawVersion:2026.6.8-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40943,7 +40943,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.6.8"
+        "buildOpenClawVersion:2026.6.8-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -40985,7 +40985,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.5.31",
-        "buildOpenClawVersion:2026.6.8"
+        "buildOpenClawVersion:2026.6.8-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -41041,7 +41041,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.6.8"
+        "buildOpenClawVersion:2026.6.8-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -41111,7 +41111,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.6.8"
+        "buildOpenClawVersion:2026.6.8-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
