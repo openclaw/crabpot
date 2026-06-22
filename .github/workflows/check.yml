@@ -133,6 +133,7 @@ jobs:
         id: refs
         shell: bash
         run: |
+          set -euo pipefail
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             base="${{ github.event.pull_request.base.sha }}"
             head="${{ github.event.pull_request.head.sha }}"
@@ -143,7 +144,12 @@ jobs:
               base="$(git rev-parse HEAD^ 2>/dev/null || true)"
             fi
           fi
-          git fetch --no-tags --depth=1 origin "$base" "$head" || true
+          refs=()
+          if [ -n "$base" ]; then refs+=("$base"); fi
+          if [ -n "$head" ]; then refs+=("$head"); fi
+          if [ "${#refs[@]}" -gt 0 ]; then
+            git fetch --no-tags --depth=1 origin "${refs[@]}"
+          fi
           echo "base=${base}" >> "$GITHUB_OUTPUT"
           echo "head=${head}" >> "$GITHUB_OUTPUT"
       - name: Resolve changed fixture matrix

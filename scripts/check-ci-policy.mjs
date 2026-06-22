@@ -76,22 +76,22 @@ function parseArgs(argv) {
       continue;
     }
     if (arg === "--policy") {
-      args.policyPath = path.resolve(argv[index + 1]);
+      args.policyPath = path.resolve(readOptionValue(argv, index, arg));
       index += 1;
       continue;
     }
     if (arg === "--report") {
-      args.reportPath = path.resolve(argv[index + 1]);
+      args.reportPath = path.resolve(readOptionValue(argv, index, arg));
       index += 1;
       continue;
     }
     if (arg === "--execution-results") {
-      args.executionResultsPath = path.resolve(argv[index + 1]);
+      args.executionResultsPath = path.resolve(readOptionValue(argv, index, arg));
       index += 1;
       continue;
     }
     if (arg === "--ref-diff") {
-      args.refDiffPath = path.resolve(argv[index + 1]);
+      args.refDiffPath = path.resolve(readOptionValue(argv, index, arg));
       index += 1;
       continue;
     }
@@ -105,6 +105,14 @@ function parseArgs(argv) {
   }
 
   return args;
+}
+
+function readOptionValue(argv, index, flagName) {
+  const value = argv[index + 1];
+  if (!value || value.startsWith("--")) {
+    throw new Error(`${flagName} requires a value`);
+  }
+  return value;
 }
 
 export async function buildCiPolicyReport(options = {}) {

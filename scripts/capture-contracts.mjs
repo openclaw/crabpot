@@ -65,7 +65,7 @@ function parseArgs(argv) {
       continue;
     }
     if (arg === "--openclaw") {
-      parsed.openclawPath = argv[index + 1];
+      parsed.openclawPath = readOptionValue(argv, index, arg);
       index += 1;
       continue;
     }
@@ -75,6 +75,14 @@ function parseArgs(argv) {
   }
 
   return parsed;
+}
+
+function readOptionValue(argv, index, flagName) {
+  const value = argv[index + 1];
+  if (!value || value.startsWith("--")) {
+    throw new Error(`${flagName} requires a value`);
+  }
+  return value;
 }
 
 export async function buildContractCapture(options = {}) {

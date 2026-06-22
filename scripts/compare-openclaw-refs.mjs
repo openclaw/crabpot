@@ -62,22 +62,22 @@ function parseArgs(argv) {
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === "--base-openclaw") {
-      args.baseOpenclawPath = argv[index + 1];
+      args.baseOpenclawPath = readOptionValue(argv, index, arg);
       index += 1;
       continue;
     }
     if (arg === "--head-openclaw") {
-      args.headOpenclawPath = argv[index + 1];
+      args.headOpenclawPath = readOptionValue(argv, index, arg);
       index += 1;
       continue;
     }
     if (arg === "--base-label") {
-      args.baseLabel = argv[index + 1];
+      args.baseLabel = readOptionValue(argv, index, arg);
       index += 1;
       continue;
     }
     if (arg === "--head-label") {
-      args.headLabel = argv[index + 1];
+      args.headLabel = readOptionValue(argv, index, arg);
       index += 1;
       continue;
     }
@@ -99,6 +99,14 @@ function parseArgs(argv) {
   }
 
   return args;
+}
+
+function readOptionValue(argv, index, flagName) {
+  const value = argv[index + 1];
+  if (!value || value.startsWith("--")) {
+    throw new Error(`${flagName} requires a value`);
+  }
+  return value;
 }
 
 export async function buildRefDiff(options = {}) {

@@ -270,17 +270,17 @@ export function parsePortableStep(step) {
   };
 }
 
-function parseCommandInvocation(commandText) {
+export function parseCommandInvocation(commandText) {
   const tokens = tokenizeCommand(commandText);
   const env = {};
-  while (tokens[0] && /^[A-Za-z_][A-Za-z0-9_]*=/.test(tokens[0])) {
+  while (tokens[0] && !tokens[0].quoted && /^[A-Za-z_][A-Za-z0-9_]*=/.test(tokens[0].value)) {
     const token = tokens.shift();
-    const separator = token.indexOf("=");
-    env[token.slice(0, separator)] = token.slice(separator + 1);
+    const separator = token.value.indexOf("=");
+    env[token.value.slice(0, separator)] = token.value.slice(separator + 1);
   }
-  const command = tokens.shift();
+  const command = tokens.shift()?.value;
   return {
-    args: tokens,
+    args: tokens.map((token) => token.value),
     command,
     env,
   };
@@ -288,9 +288,12 @@ function parseCommandInvocation(commandText) {
 
 function tokenizeCommand(commandText) {
   const tokens = [];
-  const matcher = /"([^"\\]*(?:\\.[^"\\]*)*)"|'([^'\\]*(?:\\.[^'\\]*)*)'|(\S+)/g;
+  const matcher =
+    /([A-Za-z_][A-Za-z0-9_]*=(?:"[^"\\]*(?:\\.[^"\\]*)*"|'[^'\\]*(?:\\.[^'\\]*)*'))|"([^"\\]*(?:\\.[^"\\]*)*)"|'([^'\\]*(?:\\.[^'\\]*)*)'|(\S+)/g;
   for (const match of commandText.matchAll(matcher)) {
-    tokens.push(normalizeToken((match[1] ?? match[2] ?? match[3]).replaceAll('\\"', '"').replaceAll("\\'", "'")));
+    const quoted = match[1] === undefined && (match[2] !== undefined || match[3] !== undefined);
+    const value = normalizeToken((match[1] ?? match[2] ?? match[3] ?? match[4]).replaceAll('\\"', '"').replaceAll("\\'", "'"));
+    tokens.push({ quoted, value });
   }
   return tokens;
 }

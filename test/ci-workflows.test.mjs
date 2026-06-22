@@ -118,7 +118,9 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.match(workflow, /baseline_args=\(\)/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs "\$\{baseline_args\[@\]\}"/);
   assert.match(workflow, /git push origin HEAD:\$\{\{ matrix\.branch \}\}/);
-  assert.match(workflow, /git push --force-with-lease="refs\/heads\/\$\{\{ matrix\.branch \}\}" origin HEAD:\$\{\{ matrix\.branch \}\}/);
+  assert.match(workflow, /git fetch --no-tags --depth=1 origin "\+refs\/heads\/\$\{\{ matrix\.branch \}\}:refs\/remotes\/origin\/\$\{\{ matrix\.branch \}\}"/);
+  assert.match(workflow, /lease="\$\(git rev-parse "refs\/remotes\/origin\/\$\{\{ matrix\.branch \}\}"\)"/);
+  assert.match(workflow, /git push --force-with-lease="refs\/heads\/\$\{\{ matrix\.branch \}\}:\$\{lease\}" origin HEAD:\$\{\{ matrix\.branch \}\}/);
   assert.match(workflow, /always\(\) && !cancelled\(\) && steps\.select\.outputs\.run == 'true'/);
 });
 
@@ -139,6 +141,9 @@ test("default check workflow resolves changed submodules into an isolated fixtur
   const workflow = await readWorkflow(".github/workflows/check.yml");
 
   assert.match(workflow, /changed-fixture-plan:/);
+  assert.match(workflow, /set -euo pipefail/);
+  assert.match(workflow, /git fetch --no-tags --depth=1 origin "\$\{refs\[@\]\}"/);
+  assert.doesNotMatch(workflow, /git fetch --no-tags --depth=1 origin "\$base" "\$head" \|\| true/);
   assert.match(workflow, /--fixture-set changed-submodules/);
   assert.match(workflow, /--base-ref "\$\{\{ steps\.refs\.outputs\.base \}\}"/);
   assert.match(workflow, /changed-isolated-fixture:/);
@@ -184,6 +189,7 @@ test("dependabot auto-merge refreshes reports after fixture pin updates", async 
   assert.match(workflow, /cancel-in-progress: false/);
   assert.match(workflow, /dependabot\[bot\]/);
   assert.match(workflow, /github\.event\.pull_request\.head\.repo\.full_name == github\.repository/);
+  assert.match(workflow, /Install Crabpot dependencies[\s\S]*npm install --no-package-lock/);
   assert.match(workflow, /Update Dependabot branch with base/);
   assert.match(workflow, /git merge --no-edit "origin\/\$\{\{ github\.event\.pull_request\.base\.ref \}\}"/);
   assert.match(workflow, /Verify Dependabot changed only fixture pins and generated reports/);
@@ -207,6 +213,14 @@ test("dependabot auto-merge refreshes reports after fixture pin updates", async 
   assert.match(workflow, /waiting for mergeability and green checks/);
   assert.match(workflow, /gh pr merge "\$\{PR_NUMBER\}" --squash --delete-branch/);
   assert.doesNotMatch(workflow, /gh pr merge "\$\{PR_NUMBER\}" --squash --auto/);
+});
+
+test("crabbox hydrate validates the job key before writing state", async () => {
+  const workflow = await readWorkflow(".github/workflows/crabbox-hydrate.yml");
+
+  assert.match(workflow, /case "\$job" in/);
+  assert.match(workflow, /Invalid crabbox_job/);
+  assert.match(workflow, /JOB=\$\{job\}/);
 });
 
 test("manual workflow enforces strict runtime profile policy before best-effort summaries", async () => {

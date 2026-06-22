@@ -183,8 +183,9 @@ jobs:
             if [ "${{ matrix.branch }}" = "main" ]; then
               git push origin HEAD:${{ matrix.branch }}
             else
-              git fetch --no-tags --depth=1 origin "${{ matrix.branch }}"
-              git push --force-with-lease="refs/heads/${{ matrix.branch }}" origin HEAD:${{ matrix.branch }}
+              git fetch --no-tags --depth=1 origin "+refs/heads/${{ matrix.branch }}:refs/remotes/origin/${{ matrix.branch }}"
+              lease="$(git rev-parse "refs/remotes/origin/${{ matrix.branch }}")"
+              git push --force-with-lease="refs/heads/${{ matrix.branch }}:${lease}" origin HEAD:${{ matrix.branch }}
             fi
           fi
 

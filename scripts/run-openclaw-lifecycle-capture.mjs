@@ -57,6 +57,7 @@ export async function captureOpenClawLifecycle(entrypoint) {
   const wrapperPath = path.join(pluginRoot, "index.mjs");
   const profileLines = [];
   const originalError = console.error;
+  const originalEnv = snapshotLifecycleEnv();
 
   try {
     writeProbePlugin({
@@ -140,8 +141,35 @@ export async function captureOpenClawLifecycle(entrypoint) {
     };
   } finally {
     console.error = originalError;
+    restoreLifecycleEnv(originalEnv);
     rmSync(pluginRoot, { recursive: true, force: true });
     rmSync(stateRoot, { recursive: true, force: true });
+  }
+}
+
+function snapshotLifecycleEnv() {
+  return Object.fromEntries(
+    [
+      "HOME",
+      "USERPROFILE",
+      "XDG_CONFIG_HOME",
+      "XDG_DATA_HOME",
+      "XDG_CACHE_HOME",
+      "OPENCLAW_STATE_DIR",
+      "OPENCLAW_DISABLE_BUNDLED_PLUGINS",
+      "OPENCLAW_PLUGIN_LOAD_PROFILE",
+      "OPENCLAW_NO_RESPAWN",
+    ].map((key) => [key, process.env[key]]),
+  );
+}
+
+function restoreLifecycleEnv(snapshot) {
+  for (const [key, value] of Object.entries(snapshot)) {
+    if (value === undefined) {
+      delete process.env[key];
+    } else {
+      process.env[key] = value;
+    }
   }
 }
 

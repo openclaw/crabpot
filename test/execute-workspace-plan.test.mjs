@@ -5,6 +5,7 @@ import { test } from "node:test";
 import { repoRoot } from "../scripts/manifest-lib.mjs";
 import {
   executionEnvForStep,
+  parseCommandInvocation,
   parsePortableStep,
   readWorkspaceStepTimeoutMs,
   runStep,
@@ -317,6 +318,19 @@ test("workspace executor parses env-prefixed capture commands without a shell", 
       type: "process",
     },
   );
+});
+
+test("workspace executor treats quoted assignment-shaped tokens as commands", () => {
+  assert.deepEqual(parseCommandInvocation('"NODE_OPTIONS=--inspect" node script.mjs'), {
+    args: ["node", "script.mjs"],
+    command: "NODE_OPTIONS=--inspect",
+    env: {},
+  });
+  assert.deepEqual(parseCommandInvocation('NODE_OPTIONS="--import tsx" node script.mjs'), {
+    args: ["script.mjs"],
+    command: "node",
+    env: { NODE_OPTIONS: "--import tsx" },
+  });
 });
 
 test("workspace executor resolves package manager shims portably", () => {

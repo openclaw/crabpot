@@ -133,7 +133,7 @@ function parseArgs(argv) {
       continue;
     }
     if (arg === "--openclaw") {
-      args.openclawPath = argv[index + 1];
+      args.openclawPath = readOptionValue(argv, index, arg);
       index += 1;
       continue;
     }
@@ -142,7 +142,7 @@ function parseArgs(argv) {
       continue;
     }
     if (arg === "--runs") {
-      args.runs = Number.parseInt(argv[index + 1], 10);
+      args.runs = Number.parseInt(readOptionValue(argv, index, arg), 10);
       index += 1;
       continue;
     }
@@ -156,6 +156,14 @@ function parseArgs(argv) {
   }
 
   return args;
+}
+
+function readOptionValue(argv, index, flagName) {
+  const value = argv[index + 1];
+  if (!value || value.startsWith("--")) {
+    throw new Error(`${flagName} requires a value`);
+  }
+  return value;
 }
 
 export async function buildRuntimeProfile(options = {}) {

@@ -57,22 +57,22 @@ function parseArgs(argv) {
       continue;
     }
     if (arg === "--openclaw") {
-      args.openclawPath = argv[index + 1];
+      args.openclawPath = readOptionValue(argv, index, arg);
       index += 1;
       continue;
     }
     if (arg === "--plugin-root") {
-      args.pluginRoot = path.resolve(repoRoot, argv[index + 1]);
+      args.pluginRoot = resolveGeneratedPluginRoot(readOptionValue(argv, index, arg));
       index += 1;
       continue;
     }
     if (arg === "--report-json") {
-      args.reportJsonPath = path.resolve(repoRoot, argv[index + 1]);
+      args.reportJsonPath = resolveRepoPath(readOptionValue(argv, index, arg), arg);
       index += 1;
       continue;
     }
     if (arg === "--report-md") {
-      args.reportMarkdownPath = path.resolve(repoRoot, argv[index + 1]);
+      args.reportMarkdownPath = resolveRepoPath(readOptionValue(argv, index, arg), arg);
       index += 1;
       continue;
     }
@@ -82,6 +82,36 @@ function parseArgs(argv) {
   }
 
   return args;
+}
+
+function readOptionValue(argv, index, flagName) {
+  const value = argv[index + 1];
+  if (!value || value.startsWith("--")) {
+    throw new Error(`${flagName} requires a value`);
+  }
+  return value;
+}
+
+function resolveRepoPath(value, flagName) {
+  const resolved = path.resolve(repoRoot, value);
+  if (!isPathInside(repoRoot, resolved)) {
+    throw new Error(`${flagName} must stay inside the crabpot repository`);
+  }
+  return resolved;
+}
+
+function resolveGeneratedPluginRoot(value) {
+  const resolved = path.resolve(repoRoot, value);
+  const generatedRoot = path.join(repoRoot, ".crabpot");
+  if (!isPathInside(generatedRoot, resolved)) {
+    throw new Error("--plugin-root must be inside .crabpot");
+  }
+  return resolved;
+}
+
+function isPathInside(parent, child) {
+  const relative = path.relative(parent, child);
+  return relative === "" || (!relative.startsWith("..") && !path.isAbsolute(relative));
 }
 
 export async function buildGeneratedSurfaceReport(options = {}) {

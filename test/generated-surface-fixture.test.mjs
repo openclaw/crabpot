@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
@@ -80,4 +81,18 @@ test("generated surface fixture honors platform-specific CLI shell invocation", 
   const source = await readFile("scripts/check-generated-surface-fixture.mjs", "utf8");
 
   assert.match(source, /shell: invocation\.shell === true/);
+});
+
+test("generated surface fixture refuses plugin roots outside .crabpot", () => {
+  const result = spawnSync(
+    process.execPath,
+    ["scripts/check-generated-surface-fixture.mjs", "--plugin-root", "../outside", "--check"],
+    {
+      cwd: process.cwd(),
+      encoding: "utf8",
+    },
+  );
+
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /--plugin-root must be inside \.crabpot/);
 });

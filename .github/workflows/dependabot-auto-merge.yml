@@ -36,6 +36,9 @@ jobs:
           cache-dependency-path: |
             plugins/**/package-lock.json
 
+      - name: Install Crabpot dependencies
+        run: npm install --no-package-lock
+
       - name: Configure git author
         run: |
           git config user.name "github-actions[bot]"
