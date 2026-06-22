@@ -10,12 +10,6 @@ export const trackMetadataStart = "<!-- crabpot-tracks:start -->";
 export const trackMetadataEnd = "<!-- crabpot-tracks:end -->";
 export const defaultReadmePath = path.join(repoRoot, "README.md");
 
-const branchUrls = {
-  latest: "https://github.com/openclaw/crabpot/tree/main",
-  beta: "https://github.com/openclaw/crabpot/tree/crab-beta",
-  development: "https://github.com/openclaw/crabpot/tree/crab-development",
-};
-
 const trackTargets = {
   beta: "openclaw@beta + @openclaw/*@beta + bundled source fixtures",
   development: "openclaw/openclaw@main + source-packed @openclaw/*",

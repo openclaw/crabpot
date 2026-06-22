@@ -9,7 +9,7 @@ const strict = args.includes("--strict");
 const openclawArgIndex = args.indexOf("--openclaw");
 
 const manifest = await readConfiguredManifest();
-const openclawRoot = resolveOpenClawRoot();
+resolveOpenClawRoot();
 
 const rows = [];
 const missing = [];

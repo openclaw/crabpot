@@ -30,14 +30,6 @@ function testReportOptions() {
   };
 }
 
-function assertHasStatus(readiness, fixtureId, status) {
-  const fixture = readiness.fixtures.find((item) => item.id === fixtureId);
-  assert.ok(
-    fixture?.entrypoints.some((entrypoint) => entrypoint.status === status),
-    `expected ${fixtureId} to have ${status} entrypoint`,
-  );
-}
-
 function assertHasBlocker(readiness, fixtureId, code) {
   const fixture = readiness.fixtures.find((item) => item.id === fixtureId);
   assert.ok(
