@@ -7,16 +7,9 @@ import { fixtureCheckoutPath, fixtureSourceRoot, readConfiguredManifest, repoRoo
 const args = process.argv.slice(2);
 const strict = args.includes("--strict");
 const openclawArgIndex = args.indexOf("--openclaw");
-const openclawPath =
-  openclawArgIndex === -1 ? "../openclaw" : args[openclawArgIndex + 1];
 
 const manifest = await readConfiguredManifest();
-const openclawRoot = path.resolve(repoRoot, openclawPath);
-
-const openclawPackage = path.join(openclawRoot, "package.json");
-if (!existsSync(openclawPackage)) {
-  throw new Error(`OpenClaw checkout not found at ${openclawRoot}`);
-}
+const openclawRoot = resolveOpenClawRoot();
 
 const rows = [];
 const missing = [];
@@ -78,6 +71,29 @@ async function readPluginId(filePath) {
   } catch {
     return "invalid openclaw.plugin.json";
   }
+}
+
+function resolveOpenClawRoot() {
+  if (openclawArgIndex !== -1) {
+    return requireOpenClawRoot(path.resolve(repoRoot, args[openclawArgIndex + 1]));
+  }
+
+  const candidates = [
+    path.resolve(repoRoot, manifest.openclaw?.defaultCheckoutPath ?? "../openclaw"),
+    path.join(repoRoot, ".crabpot", "openclaw-source"),
+  ];
+  const match = candidates.find((candidate) => existsSync(path.join(candidate, "package.json")));
+  if (match) {
+    return match;
+  }
+  throw new Error(`OpenClaw checkout not found at ${candidates.join(" or ")}`);
+}
+
+function requireOpenClawRoot(root) {
+  if (!existsSync(path.join(root, "package.json"))) {
+    throw new Error(`OpenClaw checkout not found at ${root}`);
+  }
+  return root;
 }
 
 async function readPackageName(filePath) {

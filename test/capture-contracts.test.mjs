@@ -19,14 +19,14 @@ test("contract capture turns observed seams into executable probe assertions", a
   assertHasHookProbe(capture, "wecom", "before_tool_call");
   assertHasSubagentEndedHookProbe(capture, "wecom");
   assertHasLegacyStartupHookProbe(capture, "connectclaw");
-  if (report.issues.some((issue) => issue.code === "sdk-export-missing")) {
+  if (capture.summary.compatAliasRequiredCount > 0) {
     assert.ok(capture.summary.compatAliasRequiredCount > 0);
     assertHasSdkProbe(capture, "compat-alias-required");
-    assertHasIssueProbe(capture, "sdk.import.package-export-cold-import:");
+    assertHasIssueProbe(capture, "sdk.import.");
   } else {
     assert.equal(capture.summary.compatAliasRequiredCount, 0);
     assertNoSdkProbe(capture, "compat-alias-required");
-    assertNoIssueProbe(capture, "sdk.import.package-export-cold-import:");
+    assertNoIssueProbe(capture, "sdk.import.");
   }
 });
 

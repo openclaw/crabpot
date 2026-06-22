@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { existsSync } from "node:fs";
+import { existsSync, rmSync } from "node:fs";
 import { mkdir, mkdtemp, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import { spawnSync } from "node:child_process";
@@ -428,10 +428,31 @@ function resolveOpenClawSourceRoot() {
 
   const root = path.resolve(repoRoot, configuredPath);
   const packageJsonPath = path.join(root, "package.json");
-  if (!existsSync(packageJsonPath)) {
+  if (existsSync(packageJsonPath)) {
+    return root;
+  }
+  if (args.openclawPath) {
     throw new Error(`source-pack OpenClaw checkout is missing package.json: ${path.relative(repoRoot, packageJsonPath)}`);
   }
-  return root;
+  return materializedOpenClawSourceRoot(root);
+}
+
+function materializedOpenClawSourceRoot(missingConfiguredRoot) {
+  const cacheRoot = path.join(repoRoot, ".crabpot", "openclaw-source");
+  const packageJsonPath = path.join(cacheRoot, "package.json");
+  if (!existsSync(packageJsonPath)) {
+    rmSync(cacheRoot, { recursive: true, force: true });
+    run("git", ["clone", "--depth", "1", "--filter=blob:none", openclawSourceRepo, cacheRoot]);
+  } else {
+    run("git", ["-C", cacheRoot, "fetch", "--depth", "1", "origin", "main"]);
+    run("git", ["-C", cacheRoot, "checkout", "--detach", "FETCH_HEAD"]);
+  }
+  if (!existsSync(packageJsonPath)) {
+    throw new Error(
+      `source-pack OpenClaw checkout is missing package.json: ${path.relative(repoRoot, missingConfiguredRoot)} and ${path.relative(repoRoot, cacheRoot)}`,
+    );
+  }
+  return cacheRoot;
 }
 
 function extractPackageTarball(tarballPath, payloadDir) {

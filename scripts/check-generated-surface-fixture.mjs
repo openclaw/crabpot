@@ -118,7 +118,10 @@ export async function buildGeneratedSurfaceReport(options = {}) {
   const manifest = await readConfiguredManifest();
   const pluginInspector = await loadPluginInspectorPublicApi();
   const targetOpenClaw = await pluginInspector.reports.readOpenClawTargetSurface({
-    configuredPath: options.openclawPath,
+    configuredPath:
+      options.openclawPath === undefined
+        ? resolveDefaultOpenClawPath(manifest)
+        : options.openclawPath,
     manifest,
     rootDir: repoRoot,
   });
@@ -198,6 +201,16 @@ export async function buildGeneratedSurfaceReport(options = {}) {
     },
     errors,
   };
+}
+
+function resolveDefaultOpenClawPath(manifest) {
+  const candidates = [
+    manifest.openclaw?.defaultCheckoutPath,
+    ".crabpot/openclaw-source",
+  ].filter(Boolean);
+  return candidates.find((candidate) =>
+    existsSync(path.join(path.resolve(repoRoot, candidate), "package.json"))
+  );
 }
 
 function emptyReport({ targetOpenClaw, errors, options }) {
