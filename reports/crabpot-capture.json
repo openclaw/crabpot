@@ -10,7 +10,7 @@
     "fixtureCount": 60,
     "registrationCount": 354,
     "hookCount": 125,
-    "sdkImportCount": 2385,
+    "sdkImportCount": 2379,
     "packageEntrypointCount": 108,
     "issueProbeCount": 280,
     "inspectorShimRequiredCount": 203,
@@ -35345,39 +35345,6 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-src-messaging-batch-session-js-2",
-          "fixture": "openclaw-weixin",
-          "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/batch-session.js:2",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-src-streaming-batch-session-js-2",
-          "fixture": "openclaw-weixin",
-          "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/streaming/batch-session.js:2",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk/agent-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-src-messaging-model-callback-handler-js-10",
-          "fixture": "openclaw-weixin",
-          "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-callback-handler.js:10",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
           "id": "sdk.openclaw/plugin-sdk/channel-config-schema:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-index-js-1",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/channel-config-schema",
@@ -35459,17 +35426,6 @@
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/config-runtime",
           "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/auth/accounts.js:279",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk/config-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-src-messaging-model-callback-handler-js-11",
-          "fixture": "openclaw-weixin",
-          "specifier": "openclaw/plugin-sdk/config-runtime",
-          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-callback-handler.js:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -35675,17 +35631,6 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/models-provider-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-src-messaging-model-callback-handler-js-9",
-          "fixture": "openclaw-weixin",
-          "specifier": "openclaw/plugin-sdk/models-provider-runtime",
-          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-callback-handler.js:9",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
           "id": "sdk.openclaw/plugin-sdk/plugin-entry:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts-1",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/plugin-entry",
@@ -35712,17 +35657,6 @@
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/plugin-runtime",
           "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts:7",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk/reply-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-src-messaging-lane-key-js-1",
-          "fixture": "openclaw-weixin",
-          "specifier": "openclaw/plugin-sdk/reply-runtime",
-          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/lane-key.js:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",

@@ -29830,7 +29830,7 @@
           "path": "plugins/yuanbao/.crabpot-package/openclaw.plugin.json",
           "id": "openclaw-plugin-yuanbao",
           "name": "YuanBao",
-          "version": "2.15.0",
+          "version": "2.16.0",
           "keys": [
             "channelConfigs",
             "channelEnvVars",
@@ -29856,7 +29856,7 @@
       "package": {
         "path": "plugins/yuanbao/.crabpot-package/package.json",
         "name": "openclaw-plugin-yuanbao",
-        "version": "2.15.0",
+        "version": "2.16.0",
         "type": "module",
         "main": "./dist/index.js",
         "npmPack": {
@@ -29890,7 +29890,7 @@
             "clawhubSpec": null,
             "npmSpec": "openclaw-plugin-yuanbao",
             "defaultChoice": "npm",
-            "minHostVersion": ">=2026.4.5"
+            "minHostVersion": ">=2026.5.7"
           },
           "release": null,
           "unsupportedMetadata": [
@@ -29918,7 +29918,7 @@
         {
           "path": "plugins/yuanbao/.crabpot-package/package.json",
           "name": "openclaw-plugin-yuanbao",
-          "version": "2.15.0",
+          "version": "2.16.0",
           "type": "module",
           "main": "./dist/index.js",
           "npmPack": {
@@ -29952,7 +29952,7 @@
               "clawhubSpec": null,
               "npmSpec": "openclaw-plugin-yuanbao",
               "defaultChoice": "npm",
-              "minHostVersion": ">=2026.4.5"
+              "minHostVersion": ">=2026.5.7"
             },
             "release": null,
             "unsupportedMetadata": [
@@ -30240,38 +30240,20 @@
         "plugins/openclaw-weixin/.crabpot-package/dist/src/media/media-download.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/media/mime.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/media/silk-transcode.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/media/voice-outbound.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/abort-fence.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/batch-session.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/buttons.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/debug-mode.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/error-notice.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/inbound.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/lane-key.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/markdown-filter.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/merged-record.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-buttons.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-callback-handler.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/outbound-hooks.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/process-message.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/reply-progress-sender.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/run-context.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/run-report-session.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/send-media.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/send.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/slash-commands.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/monitor/lane-scheduler.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/monitor/monitor.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/runtime.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/storage/state-dir.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/storage/sync-buf.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/streaming/batch-session.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/streaming/stream-piece.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/streaming/stream-pipeline.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/streaming/stream-session.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/streaming/stream.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/util/logger.js",
-        "plugins/openclaw-weixin/.crabpot-package/dist/src/util/markdown-fences.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/util/random.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/util/redact.js",
         "plugins/openclaw-weixin/.crabpot-package/index.ts",
@@ -30316,7 +30298,7 @@
           "path": "plugins/openclaw-weixin/.crabpot-package/openclaw.plugin.json",
           "id": "openclaw-weixin",
           "name": null,
-          "version": "2.4.4",
+          "version": "2.4.6",
           "keys": [
             "channelConfigs",
             "channels",
@@ -30334,7 +30316,7 @@
       "package": {
         "path": "plugins/openclaw-weixin/.crabpot-package/package.json",
         "name": "@tencent-weixin/openclaw-weixin",
-        "version": "2.4.4",
+        "version": "2.4.6",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -30378,7 +30360,7 @@
             "clawhubSpec": null,
             "npmSpec": "@tencent-weixin/openclaw-weixin",
             "defaultChoice": "npm",
-            "minHostVersion": ">=2026.3.22"
+            "minHostVersion": ">=2026.5.12"
           },
           "release": null,
           "unsupportedMetadata": [],
@@ -30404,7 +30386,7 @@
         {
           "path": "plugins/openclaw-weixin/.crabpot-package/package.json",
           "name": "@tencent-weixin/openclaw-weixin",
-          "version": "2.4.4",
+          "version": "2.4.6",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -30448,7 +30430,7 @@
               "clawhubSpec": null,
               "npmSpec": "@tencent-weixin/openclaw-weixin",
               "defaultChoice": "npm",
-              "minHostVersion": ">=2026.3.22"
+              "minHostVersion": ">=2026.5.12"
             },
             "release": null,
             "unsupportedMetadata": [],
@@ -30493,8 +30475,6 @@
       ],
       "sdkImports": [
         "openclaw/plugin-sdk/account-id",
-        "openclaw/plugin-sdk/agent-harness-runtime",
-        "openclaw/plugin-sdk/agent-runtime",
         "openclaw/plugin-sdk/channel-config-schema",
         "openclaw/plugin-sdk/channel-contract",
         "openclaw/plugin-sdk/channel-runtime",
@@ -30503,7 +30483,6 @@
         "openclaw/plugin-sdk/core",
         "openclaw/plugin-sdk/hook-runtime",
         "openclaw/plugin-sdk/infra-runtime",
-        "openclaw/plugin-sdk/models-provider-runtime",
         "openclaw/plugin-sdk/plugin-entry",
         "openclaw/plugin-sdk/plugin-runtime",
         "openclaw/plugin-sdk/reply-runtime"
@@ -30532,24 +30511,6 @@
           "file": "plugins/openclaw-weixin/.crabpot-package/src/channel.ts",
           "line": 4,
           "ref": "plugins/openclaw-weixin/.crabpot-package/src/channel.ts:4"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "file": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/batch-session.js",
-          "line": 2,
-          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/batch-session.js:2"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "file": "plugins/openclaw-weixin/.crabpot-package/dist/src/streaming/batch-session.js",
-          "line": 2,
-          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/streaming/batch-session.js:2"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "file": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-callback-handler.js",
-          "line": 10,
-          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-callback-handler.js:10"
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-config-schema",
@@ -30598,12 +30559,6 @@
           "file": "plugins/openclaw-weixin/.crabpot-package/dist/src/auth/accounts.js",
           "line": 279,
           "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/auth/accounts.js:279"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/config-runtime",
-          "file": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-callback-handler.js",
-          "line": 11,
-          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-callback-handler.js:11"
         },
         {
           "specifier": "openclaw/plugin-sdk/config-runtime",
@@ -30714,12 +30669,6 @@
           "ref": "plugins/openclaw-weixin/.crabpot-package/src/util/logger.ts:5"
         },
         {
-          "specifier": "openclaw/plugin-sdk/models-provider-runtime",
-          "file": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-callback-handler.js",
-          "line": 9,
-          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/model-callback-handler.js:9"
-        },
-        {
           "specifier": "openclaw/plugin-sdk/plugin-entry",
           "file": "plugins/openclaw-weixin/.crabpot-package/index.ts",
           "line": 1,
@@ -30736,12 +30685,6 @@
           "file": "plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts",
           "line": 7,
           "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts:7"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/reply-runtime",
-          "file": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/lane-key.js",
-          "line": 1,
-          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/lane-key.js:1"
         },
         {
           "specifier": "openclaw/plugin-sdk/reply-runtime",
@@ -50230,7 +50173,7 @@
       "evidence": [
         "plugins/yuanbao/.crabpot-package/package.json",
         "openclaw-plugin-yuanbao",
-        "version:2.15.0"
+        "version:2.16.0"
       ]
     },
     {
@@ -50265,8 +50208,6 @@
       "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
       "evidence": [
         "openclaw/plugin-sdk/account-id",
-        "openclaw/plugin-sdk/agent-harness-runtime",
-        "openclaw/plugin-sdk/agent-runtime",
         "openclaw/plugin-sdk/channel-config-schema",
         "openclaw/plugin-sdk/channel-contract",
         "openclaw/plugin-sdk/channel-runtime",
@@ -50275,7 +50216,6 @@
         "openclaw/plugin-sdk/core",
         "openclaw/plugin-sdk/hook-runtime",
         "openclaw/plugin-sdk/infra-runtime",
-        "openclaw/plugin-sdk/models-provider-runtime",
         "openclaw/plugin-sdk/plugin-entry",
         "openclaw/plugin-sdk/plugin-runtime",
         "openclaw/plugin-sdk/reply-runtime"
@@ -50298,7 +50238,7 @@
       "evidence": [
         "plugins/openclaw-weixin/.crabpot-package/package.json",
         "@tencent-weixin/openclaw-weixin",
-        "version:2.4.4"
+        "version:2.4.6"
       ]
     },
     {
