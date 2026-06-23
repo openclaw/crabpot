@@ -19,14 +19,13 @@ test("contract capture turns observed seams into executable probe assertions", a
   assertHasHookProbe(capture, "wecom", "before_tool_call");
   assertHasSubagentEndedHookProbe(capture, "wecom");
   assertHasLegacyStartupHookProbe(capture, "connectclaw");
+  assertHasIssueProbe(capture, "sdk.import.");
   if (capture.summary.compatAliasRequiredCount > 0) {
     assert.ok(capture.summary.compatAliasRequiredCount > 0);
     assertHasSdkProbe(capture, "compat-alias-required");
-    assertHasIssueProbe(capture, "sdk.import.");
   } else {
     assert.equal(capture.summary.compatAliasRequiredCount, 0);
     assertNoSdkProbe(capture, "compat-alias-required");
-    assertNoIssueProbe(capture, "sdk.import.");
   }
 });
 
@@ -103,12 +102,5 @@ function assertHasIssueProbe(capture, idPrefix) {
   assert.ok(
     capture.issueProbes.some((probe) => probe.id.startsWith(idPrefix) && probe.assertions.length > 0),
     `expected issue probe ${idPrefix}`,
-  );
-}
-
-function assertNoIssueProbe(capture, idPrefix) {
-  assert.ok(
-    capture.issueProbes.every((probe) => !probe.id.startsWith(idPrefix)),
-    `expected no issue probe ${idPrefix}`,
   );
 }
