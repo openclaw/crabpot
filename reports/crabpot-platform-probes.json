@@ -2015,7 +2015,7 @@
       "fixture": "agentchat",
       "entrypoint": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -2086,7 +2086,7 @@
       "fixture": "agentchat",
       "entrypoint": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -2157,7 +2157,7 @@
       "fixture": "connectclaw",
       "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -2174,7 +2174,7 @@
       "fixture": "honcho",
       "entrypoint": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -2245,7 +2245,7 @@
       "fixture": "ddingtalk",
       "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -2299,7 +2299,7 @@
       "fixture": "dingtalk-doc",
       "entrypoint": "cold-import.extension:dingtalk-doc:plugins-dingtalk-doc-dist-index-mjs",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -2370,7 +2370,7 @@
       "fixture": "codex-app-server",
       "entrypoint": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -2424,7 +2424,7 @@
       "fixture": "inworld-tts",
       "entrypoint": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
       "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+      "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
       "coveredRiskCodes": [],
       "platforms": [
         "container",

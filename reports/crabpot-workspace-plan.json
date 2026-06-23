@@ -73,7 +73,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/agentchat",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -156,7 +156,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/agentchat",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -243,7 +243,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/wecom",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -324,7 +324,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/qqbot",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -501,7 +501,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/hasdata",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -823,7 +823,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/opik-openclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -900,7 +900,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/opik-openclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1051,7 +1051,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/lossless-claw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1140,7 +1140,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/connectclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1209,7 +1209,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/hyperspell",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1297,7 +1297,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/honcho",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1440,7 +1440,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/kitchen-sink",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1496,7 +1496,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/kitchen-sink",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1552,7 +1552,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/kitchen-sink",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1619,7 +1619,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/bluebubbles",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1675,7 +1675,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/bluebubbles",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1737,7 +1737,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/bluebubbles",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1804,7 +1804,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/diagnostics-otel",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1873,7 +1873,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/diagnostics-otel",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1953,7 +1953,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/discord",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2016,7 +2016,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/discord",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2092,7 +2092,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/discord",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2172,7 +2172,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/lobster",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2241,7 +2241,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/lobster",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2330,13 +2330,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/matrix",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8beec82d52a3f667f8d3b0d39321214a9be4b41d/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/041c421457ec0627ca2336b1b2f483dacc9b2ee0/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/matrix",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -2420,13 +2420,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/matrix",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8beec82d52a3f667f8d3b0d39321214a9be4b41d/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/041c421457ec0627ca2336b1b2f483dacc9b2ee0/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/matrix",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -2506,7 +2506,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/msteams",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2569,7 +2569,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/msteams",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2645,7 +2645,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/msteams",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2725,7 +2725,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/nextcloud-talk",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2788,7 +2788,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/nextcloud-talk",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2864,7 +2864,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/nextcloud-talk",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2944,7 +2944,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/nostr",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3007,7 +3007,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/nostr",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3083,7 +3083,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/nostr",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3163,7 +3163,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/voice-call",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3226,7 +3226,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/voice-call",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3306,7 +3306,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/zalo",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3369,7 +3369,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/zalo",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3445,7 +3445,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/zalo",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3525,7 +3525,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/zalouser",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3588,7 +3588,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/zalouser",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3664,7 +3664,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/zalouser",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3744,7 +3744,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/feishu",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3807,7 +3807,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/feishu",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3883,7 +3883,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/feishu",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3963,7 +3963,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/tlon",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4026,13 +4026,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/tlon",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8beec82d52a3f667f8d3b0d39321214a9be4b41d/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/041c421457ec0627ca2336b1b2f483dacc9b2ee0/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/tlon",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4108,13 +4108,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/tlon",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8beec82d52a3f667f8d3b0d39321214a9be4b41d/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/041c421457ec0627ca2336b1b2f483dacc9b2ee0/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/tlon",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4194,7 +4194,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/twitch",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4257,7 +4257,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/twitch",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4333,7 +4333,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/twitch",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4422,13 +4422,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/mattermost",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8beec82d52a3f667f8d3b0d39321214a9be4b41d/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/041c421457ec0627ca2336b1b2f483dacc9b2ee0/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/mattermost",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4512,13 +4512,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/mattermost",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8beec82d52a3f667f8d3b0d39321214a9be4b41d/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/041c421457ec0627ca2336b1b2f483dacc9b2ee0/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/mattermost",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -4598,7 +4598,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/synology-chat",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4661,7 +4661,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/synology-chat",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4737,7 +4737,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/synology-chat",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4817,7 +4817,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/brave-plugin",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4873,7 +4873,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/brave-plugin",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4940,7 +4940,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/codex",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5009,13 +5009,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/codex",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8beec82d52a3f667f8d3b0d39321214a9be4b41d/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/041c421457ec0627ca2336b1b2f483dacc9b2ee0/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/codex",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5095,7 +5095,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/diagnostics-prometheus",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5151,7 +5151,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/diagnostics-prometheus",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5218,7 +5218,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/google-meet",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5287,7 +5287,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/google-meet",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5367,7 +5367,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/diffs",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5430,7 +5430,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/diffs",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5510,7 +5510,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/memory-lancedb",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5573,13 +5573,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/memory-lancedb",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8beec82d52a3f667f8d3b0d39321214a9be4b41d/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/041c421457ec0627ca2336b1b2f483dacc9b2ee0/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/memory-lancedb",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5659,7 +5659,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5722,7 +5722,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5798,7 +5798,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5878,7 +5878,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/whatsapp",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5941,7 +5941,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/whatsapp",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6017,7 +6017,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/whatsapp",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6263,7 +6263,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/memory-tencentdb",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6352,7 +6352,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/ddingtalk",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6434,7 +6434,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/dingtalk-connector",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6522,7 +6522,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/dingtalk-doc",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6615,7 +6615,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/hapi-openclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6704,7 +6704,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/mocrane-wecom",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6936,7 +6936,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/openclaw-weixin",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7012,7 +7012,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/openclaw-weixin",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7093,7 +7093,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/lightclawbot",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7169,7 +7169,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/lightclawbot",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7413,7 +7413,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/clawrouter",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7564,7 +7564,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/secureclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7714,7 +7714,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/clawmetry",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7770,7 +7770,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/clawmetry",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7846,7 +7846,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/codex-app-server",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7935,7 +7935,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/web-search-plus",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7998,7 +7998,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/web-search-plus",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -8067,7 +8067,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "npm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "npm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/apify",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -8156,7 +8156,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "pnpm pkg set dependencies.openclaw=\"file:../../../openclaw\"",
+              "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
               "cwd": ".crabpot/workspaces/inworld-tts",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
