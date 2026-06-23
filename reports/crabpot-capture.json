@@ -26690,10 +26690,10 @@
       ],
       "sdkImports": [
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness:codex:plugins-codex-crabpot-package-dist-provider-capabilities-ByR82ytL-js-1182",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness:codex:plugins-codex-crabpot-package-dist-provider-capabilities-D-8g7Lb2-js-1182",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness",
-          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-ByR82ytL.js:1182",
+          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-D-8g7Lb2.js:1182",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26701,10 +26701,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness:codex:plugins-codex-crabpot-package-dist-side-question-h01W1aCe-js-438",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness:codex:plugins-codex-crabpot-package-dist-side-question-Di5YsbLx-js-438",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness",
-          "ref": "plugins/codex/.crabpot-package/dist/side-question-h01W1aCe.js:438",
+          "ref": "plugins/codex/.crabpot-package/dist/side-question-Di5YsbLx.js:438",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26712,10 +26712,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-exec-review-runtime:codex:plugins-codex-crabpot-package-dist-provider-capabilities-ByR82ytL-js-15",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness-exec-review-runtime:codex:plugins-codex-crabpot-package-dist-provider-capabilities-D-8g7Lb2-js-15",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness-exec-review-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-ByR82ytL.js:15",
+          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-D-8g7Lb2.js:15",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26745,10 +26745,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-DbG2ZJQY-js-19",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-t0XMLz-j-js-19",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-DbG2ZJQY.js:19",
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-t0XMLz-j.js:19",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26756,10 +26756,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-provider-capabilities-ByR82ytL-js-12",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-provider-capabilities-D-8g7Lb2-js-12",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-ByR82ytL.js:12",
+          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-D-8g7Lb2.js:12",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26767,10 +26767,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DYt00Jxz-js-24",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DafK4VP9-js-24",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DYt00Jxz.js:24",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DafK4VP9.js:24",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26789,10 +26789,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-side-question-h01W1aCe-js-14",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-side-question-Di5YsbLx-js-14",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/side-question-h01W1aCe.js:14",
+          "ref": "plugins/codex/.crabpot-package/dist/side-question-Di5YsbLx.js:14",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26800,10 +26800,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-DQyii5vp-js-13",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-DtT3-ehU-js-13",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DQyii5vp.js:13",
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DtT3-ehU.js:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26811,10 +26811,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-harness-task-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DYt00Jxz-js-38",
+          "id": "sdk.openclaw/plugin-sdk/agent-harness-task-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DafK4VP9-js-38",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-harness-task-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DYt00Jxz.js:38",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DafK4VP9.js:38",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26822,10 +26822,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-command-handlers-BaqM9s9b-js-16",
+          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-command-handlers-DEPTJYk0-js-16",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/command-handlers-BaqM9s9b.js:16",
+          "ref": "plugins/codex/.crabpot-package/dist/command-handlers-DEPTJYk0.js:16",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26844,10 +26844,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-DbG2ZJQY-js-16",
+          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-t0XMLz-j-js-16",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-DbG2ZJQY.js:16",
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-t0XMLz-j.js:16",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26866,10 +26866,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-provider-capabilities-ByR82ytL-js-10",
+          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-provider-capabilities-D-8g7Lb2-js-10",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-ByR82ytL.js:10",
+          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-D-8g7Lb2.js:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26877,10 +26877,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DYt00Jxz-js-22",
+          "id": "sdk.openclaw/plugin-sdk/agent-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DafK4VP9-js-22",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DYt00Jxz.js:22",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DafK4VP9.js:22",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26910,10 +26910,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-sessions:codex:plugins-codex-crabpot-package-dist-run-attempt-DYt00Jxz-js-33",
+          "id": "sdk.openclaw/plugin-sdk/agent-sessions:codex:plugins-codex-crabpot-package-dist-run-attempt-DafK4VP9-js-33",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/agent-sessions",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DYt00Jxz.js:33",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DafK4VP9.js:33",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26921,10 +26921,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/codex-mcp-projection:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-DQyii5vp-js-14",
+          "id": "sdk.openclaw/plugin-sdk/codex-mcp-projection:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-DtT3-ehU-js-14",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/codex-mcp-projection",
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DQyii5vp.js:14",
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DtT3-ehU.js:14",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26954,10 +26954,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/core:codex:plugins-codex-crabpot-package-dist-run-attempt-DYt00Jxz-js-25",
+          "id": "sdk.openclaw/plugin-sdk/core:codex:plugins-codex-crabpot-package-dist-run-attempt-DafK4VP9-js-25",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DYt00Jxz.js:25",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DafK4VP9.js:25",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26965,10 +26965,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/diagnostic-runtime:codex:plugins-codex-crabpot-package-dist-provider-capabilities-ByR82ytL-js-13",
+          "id": "sdk.openclaw/plugin-sdk/diagnostic-runtime:codex:plugins-codex-crabpot-package-dist-provider-capabilities-D-8g7Lb2-js-13",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/diagnostic-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-ByR82ytL.js:13",
+          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-D-8g7Lb2.js:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26976,10 +26976,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/diagnostic-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DYt00Jxz-js-30",
+          "id": "sdk.openclaw/plugin-sdk/diagnostic-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DafK4VP9-js-30",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/diagnostic-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DYt00Jxz.js:30",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DafK4VP9.js:30",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -26987,10 +26987,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/diagnostic-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-DQyii5vp-js-18",
+          "id": "sdk.openclaw/plugin-sdk/diagnostic-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-DtT3-ehU-js-18",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/diagnostic-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DQyii5vp.js:18",
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DtT3-ehU.js:18",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27009,10 +27009,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/exec-approvals-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-DbG2ZJQY-js-17",
+          "id": "sdk.openclaw/plugin-sdk/exec-approvals-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-t0XMLz-j-js-17",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/exec-approvals-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-DbG2ZJQY.js:17",
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-t0XMLz-j.js:17",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27020,10 +27020,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/exec-approvals-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DYt00Jxz-js-23",
+          "id": "sdk.openclaw/plugin-sdk/exec-approvals-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DafK4VP9-js-23",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/exec-approvals-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DYt00Jxz.js:23",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DafK4VP9.js:23",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27031,10 +27031,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/exec-approvals-runtime:codex:plugins-codex-crabpot-package-dist-side-question-h01W1aCe-js-13",
+          "id": "sdk.openclaw/plugin-sdk/exec-approvals-runtime:codex:plugins-codex-crabpot-package-dist-side-question-Di5YsbLx-js-13",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/exec-approvals-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/side-question-h01W1aCe.js:13",
+          "ref": "plugins/codex/.crabpot-package/dist/side-question-Di5YsbLx.js:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27053,10 +27053,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/image-generation:codex:plugins-codex-crabpot-package-dist-run-attempt-DYt00Jxz-js-36",
+          "id": "sdk.openclaw/plugin-sdk/image-generation:codex:plugins-codex-crabpot-package-dist-run-attempt-DafK4VP9-js-36",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/image-generation",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DYt00Jxz.js:36",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DafK4VP9.js:36",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27064,10 +27064,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/inline-image-data-url-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-DQyii5vp-js-17",
+          "id": "sdk.openclaw/plugin-sdk/inline-image-data-url-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-DtT3-ehU-js-17",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/inline-image-data-url-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DQyii5vp.js:17",
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DtT3-ehU.js:17",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27075,10 +27075,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/json-schema-runtime:codex:plugins-codex-crabpot-package-dist-media-understanding-provider-Dmfg4tH-js-8",
+          "id": "sdk.openclaw/plugin-sdk/json-schema-runtime:codex:plugins-codex-crabpot-package-dist-media-understanding-provider-ZUQHN7gT-js-8",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/json-schema-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/media-understanding-provider-Dmfg4tH_.js:8",
+          "ref": "plugins/codex/.crabpot-package/dist/media-understanding-provider-ZUQHN7gT.js:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27097,10 +27097,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/logging-core:codex:plugins-codex-crabpot-package-dist-run-attempt-DYt00Jxz-js-29",
+          "id": "sdk.openclaw/plugin-sdk/logging-core:codex:plugins-codex-crabpot-package-dist-run-attempt-DafK4VP9-js-29",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/logging-core",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DYt00Jxz.js:29",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DafK4VP9.js:29",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27108,10 +27108,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/logging-core:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-DQyii5vp-js-16",
+          "id": "sdk.openclaw/plugin-sdk/logging-core:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-DtT3-ehU-js-16",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/logging-core",
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DQyii5vp.js:16",
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DtT3-ehU.js:16",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27119,10 +27119,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/media-store:codex:plugins-codex-crabpot-package-dist-run-attempt-DYt00Jxz-js-37",
+          "id": "sdk.openclaw/plugin-sdk/media-store:codex:plugins-codex-crabpot-package-dist-run-attempt-DafK4VP9-js-37",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/media-store",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DYt00Jxz.js:37",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DafK4VP9.js:37",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27130,10 +27130,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/message-tool-delivery-hints:codex:plugins-codex-crabpot-package-dist-run-attempt-DYt00Jxz-js-32",
+          "id": "sdk.openclaw/plugin-sdk/message-tool-delivery-hints:codex:plugins-codex-crabpot-package-dist-run-attempt-DafK4VP9-js-32",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/message-tool-delivery-hints",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DYt00Jxz.js:32",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DafK4VP9.js:32",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27163,10 +27163,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-command-handlers-BaqM9s9b-js-13",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-command-handlers-DEPTJYk0-js-13",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/command-handlers-BaqM9s9b.js:13",
+          "ref": "plugins/codex/.crabpot-package/dist/command-handlers-DEPTJYk0.js:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27185,10 +27185,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-DbG2ZJQY-js-12",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-t0XMLz-j-js-12",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-DbG2ZJQY.js:12",
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-t0XMLz-j.js:12",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27207,10 +27207,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-media-understanding-provider-Dmfg4tH-js-11",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-media-understanding-provider-ZUQHN7gT-js-11",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/media-understanding-provider-Dmfg4tH_.js:11",
+          "ref": "plugins/codex/.crabpot-package/dist/media-understanding-provider-ZUQHN7gT.js:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27229,10 +27229,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-provider-capabilities-ByR82ytL-js-7",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-provider-capabilities-D-8g7Lb2-js-7",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-ByR82ytL.js:7",
+          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-D-8g7Lb2.js:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27240,10 +27240,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DYt00Jxz-js-18",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DafK4VP9-js-18",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DYt00Jxz.js:18",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DafK4VP9.js:18",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27251,10 +27251,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-DQyii5vp-js-10",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-DtT3-ehU-js-10",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DQyii5vp.js:10",
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DtT3-ehU.js:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27295,10 +27295,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/plugin-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-DQyii5vp-js-15",
+          "id": "sdk.openclaw/plugin-sdk/plugin-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-DtT3-ehU-js-15",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/plugin-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DQyii5vp.js:15",
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DtT3-ehU.js:15",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27361,10 +27361,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/provider-web-search:codex:plugins-codex-crabpot-package-dist-web-search-provider-runtime-BWG-oqLf-js-4",
+          "id": "sdk.openclaw/plugin-sdk/provider-web-search:codex:plugins-codex-crabpot-package-dist-web-search-provider-runtime-CkwxrXQj-js-4",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/provider-web-search",
-          "ref": "plugins/codex/.crabpot-package/dist/web-search-provider.runtime-BWG_oqLf.js:4",
+          "ref": "plugins/codex/.crabpot-package/dist/web-search-provider.runtime-CkwxrXQj.js:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27394,10 +27394,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/routing:codex:plugins-codex-crabpot-package-dist-provider-capabilities-ByR82ytL-js-11",
+          "id": "sdk.openclaw/plugin-sdk/routing:codex:plugins-codex-crabpot-package-dist-provider-capabilities-D-8g7Lb2-js-11",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/routing",
-          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-ByR82ytL.js:11",
+          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-D-8g7Lb2.js:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27405,10 +27405,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/sandbox:codex:plugins-codex-crabpot-package-dist-provider-capabilities-ByR82ytL-js-14",
+          "id": "sdk.openclaw/plugin-sdk/sandbox:codex:plugins-codex-crabpot-package-dist-provider-capabilities-D-8g7Lb2-js-14",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/sandbox",
-          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-ByR82ytL.js:14",
+          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-D-8g7Lb2.js:14",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27449,10 +27449,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/security-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DYt00Jxz-js-31",
+          "id": "sdk.openclaw/plugin-sdk/security-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DafK4VP9-js-31",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/security-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DYt00Jxz.js:31",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DafK4VP9.js:31",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27471,10 +27471,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/session-store-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-DbG2ZJQY-js-21",
+          "id": "sdk.openclaw/plugin-sdk/session-store-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-t0XMLz-j-js-21",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/session-store-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-DbG2ZJQY.js:21",
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-t0XMLz-j.js:21",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27493,10 +27493,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DYt00Jxz-js-35",
+          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DafK4VP9-js-35",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DYt00Jxz.js:35",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DafK4VP9.js:35",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27504,10 +27504,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-attempt-notifications-7oZeRa71-js-3",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-attempt-notifications-BYnndyFl-js-3",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/attempt-notifications-7oZeRa71.js:3",
+          "ref": "plugins/codex/.crabpot-package/dist/attempt-notifications-BYnndyFl.js:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27515,10 +27515,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-command-handlers-BaqM9s9b-js-14",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-command-handlers-DEPTJYk0-js-14",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/command-handlers-BaqM9s9b.js:14",
+          "ref": "plugins/codex/.crabpot-package/dist/command-handlers-DEPTJYk0.js:14",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27537,10 +27537,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-DbG2ZJQY-js-14",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-conversation-binding-t0XMLz-j-js-14",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-DbG2ZJQY.js:14",
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-t0XMLz-j.js:14",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27581,10 +27581,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-provider-capabilities-ByR82ytL-js-8",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-provider-capabilities-D-8g7Lb2-js-8",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-ByR82ytL.js:8",
+          "ref": "plugins/codex/.crabpot-package/dist/provider-capabilities-D-8g7Lb2.js:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27592,10 +27592,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DYt00Jxz-js-19",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-run-attempt-DafK4VP9-js-19",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DYt00Jxz.js:19",
+          "ref": "plugins/codex/.crabpot-package/dist/run-attempt-DafK4VP9.js:19",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27603,10 +27603,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-DQyii5vp-js-11",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:codex:plugins-codex-crabpot-package-dist-thread-lifecycle-DtT3-ehU-js-11",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DQyii5vp.js:11",
+          "ref": "plugins/codex/.crabpot-package/dist/thread-lifecycle-DtT3-ehU.js:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27614,10 +27614,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/temp-path:codex:plugins-codex-crabpot-package-dist-conversation-binding-DbG2ZJQY-js-13",
+          "id": "sdk.openclaw/plugin-sdk/temp-path:codex:plugins-codex-crabpot-package-dist-conversation-binding-t0XMLz-j-js-13",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/temp-path",
-          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-DbG2ZJQY.js:13",
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-t0XMLz-j.js:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27625,10 +27625,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/temp-path:codex:plugins-codex-crabpot-package-dist-media-understanding-provider-Dmfg4tH-js-12",
+          "id": "sdk.openclaw/plugin-sdk/temp-path:codex:plugins-codex-crabpot-package-dist-media-understanding-provider-ZUQHN7gT-js-12",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/temp-path",
-          "ref": "plugins/codex/.crabpot-package/dist/media-understanding-provider-Dmfg4tH_.js:12",
+          "ref": "plugins/codex/.crabpot-package/dist/media-understanding-provider-ZUQHN7gT.js:12",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -27658,10 +27658,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/windows-spawn:codex:plugins-codex-crabpot-package-dist-conversation-binding-DbG2ZJQY-js-18",
+          "id": "sdk.openclaw/plugin-sdk/windows-spawn:codex:plugins-codex-crabpot-package-dist-conversation-binding-t0XMLz-j-js-18",
           "fixture": "codex",
           "specifier": "openclaw/plugin-sdk/windows-spawn",
-          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-DbG2ZJQY.js:18",
+          "ref": "plugins/codex/.crabpot-package/dist/conversation-binding-t0XMLz-j.js:18",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -41001,7 +41001,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.6.9"
+        "buildOpenClawVersion:2026.6.10-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -41015,7 +41015,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.6.9"
+        "buildOpenClawVersion:2026.6.10-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -41043,7 +41043,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.6.9"
+        "buildOpenClawVersion:2026.6.10-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -41057,7 +41057,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.6.9"
+        "buildOpenClawVersion:2026.6.10-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -41099,7 +41099,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.6.9"
+        "buildOpenClawVersion:2026.6.10-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -41141,7 +41141,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.5.31",
-        "buildOpenClawVersion:2026.6.9"
+        "buildOpenClawVersion:2026.6.10-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -41197,7 +41197,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.6.9"
+        "buildOpenClawVersion:2026.6.10-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -41267,7 +41267,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.6.9"
+        "buildOpenClawVersion:2026.6.10-beta.2"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -41308,7 +41308,7 @@
       "priority": "P3",
       "target": "sdk-import",
       "evidence": [
-        "openclaw/plugin-sdk/codex-mcp-projection @ plugins/codex/.crabpot-package/dist/thread-lifecycle-DQyii5vp.js:14"
+        "openclaw/plugin-sdk/codex-mcp-projection @ plugins/codex/.crabpot-package/dist/thread-lifecycle-DtT3-ehU.js:14"
       ],
       "assertions": [
         "probe has fixture evidence and a target contract"
