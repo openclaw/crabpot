@@ -2156,10 +2156,10 @@
       "priority": "high",
       "registrations": [
         {
-          "id": "registration.registerCli:hyperspell:plugins-hyperspell-index-ts-39",
+          "id": "registration.registerCli:hyperspell:plugins-hyperspell-index-ts-35",
           "fixture": "hyperspell",
           "registrar": "registerCli",
-          "ref": "plugins/hyperspell/index.ts:39",
+          "ref": "plugins/hyperspell/index.ts:35",
           "support": "target-captured",
           "assertions": [
             "command name is stable",
@@ -2229,10 +2229,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-55",
+          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-51",
           "fixture": "hyperspell",
           "registrar": "registerCommand",
-          "ref": "plugins/hyperspell/index.ts:55",
+          "ref": "plugins/hyperspell/index.ts:51",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -2246,10 +2246,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-66",
+          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-62",
           "fixture": "hyperspell",
           "registrar": "registerCommand",
-          "ref": "plugins/hyperspell/index.ts:66",
+          "ref": "plugins/hyperspell/index.ts:62",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -2263,10 +2263,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-77",
+          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-73",
           "fixture": "hyperspell",
           "registrar": "registerCommand",
-          "ref": "plugins/hyperspell/index.ts:77",
+          "ref": "plugins/hyperspell/index.ts:73",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -37704,9 +37704,9 @@
         "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
         "registerCommand @ plugins/hyperspell/commands/slash.ts:43",
         "registerCommand @ plugins/hyperspell/commands/slash.ts:98",
-        "registerCommand @ plugins/hyperspell/index.ts:55",
-        "registerCommand @ plugins/hyperspell/index.ts:66",
-        "registerCommand @ plugins/hyperspell/index.ts:77"
+        "registerCommand @ plugins/hyperspell/index.ts:51",
+        "registerCommand @ plugins/hyperspell/index.ts:62",
+        "registerCommand @ plugins/hyperspell/index.ts:73"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -38945,7 +38945,7 @@
       "priority": "P2",
       "target": "package-loader",
       "evidence": [
-        "package:0.15.0",
+        "package:0.14.1",
         "manifest:0.13.0"
       ],
       "assertions": [
