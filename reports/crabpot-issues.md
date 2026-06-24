@@ -1125,9 +1125,9 @@ _none_
     - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/commands/slash.ts#L166)
     - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/commands/slash.ts#L43)
     - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:51](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L51)
-    - [registerCommand @ index.ts:62](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L62)
-    - [registerCommand @ index.ts:73](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L73)
+    - [registerCommand @ index.ts:55](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L55)
+    - [registerCommand @ index.ts:66](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L66)
+    - [registerCommand @ index.ts:77](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L77)
 
 - 🟡 P2 **inworld-tts** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: inworld-tts: cold import needs TypeScript source entrypoint support
@@ -2124,7 +2124,7 @@ _none_
   - **package-manifest-version-drift**: hyperspell: package and manifest versions drift
   - state: open · compat:none
   - evidence:
-    - package:0.14.1
+    - package:0.15.0
     - manifest:0.13.0
   - author remediation:
     - Align the plugin version declared in package.json and openclaw.plugin.json.
@@ -3674,7 +3674,7 @@ _none_
   - **package-manifest-version-drift**: hyperspell: package and manifest versions drift
   - state: open · compat:none
   - evidence:
-    - package:0.14.1
+    - package:0.15.0
     - manifest:0.13.0
   - author remediation:
     - Align the plugin version declared in package.json and openclaw.plugin.json.
@@ -3687,9 +3687,9 @@ _none_
     - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/commands/slash.ts#L166)
     - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/commands/slash.ts#L43)
     - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:51](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L51)
-    - [registerCommand @ index.ts:62](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L62)
-    - [registerCommand @ index.ts:73](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L73)
+    - [registerCommand @ index.ts:55](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L55)
+    - [registerCommand @ index.ts:66](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L66)
+    - [registerCommand @ index.ts:77](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L77)
 
 - 🟡 P2 **inworld-tts** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: inworld-tts: cold import needs TypeScript source entrypoint support
@@ -5264,9 +5264,9 @@ _none_
     - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/commands/slash.ts#L166)
     - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/commands/slash.ts#L43)
     - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:51](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L51)
-    - [registerCommand @ index.ts:62](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L62)
-    - [registerCommand @ index.ts:73](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L73)
+    - [registerCommand @ index.ts:55](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L55)
+    - [registerCommand @ index.ts:66](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L66)
+    - [registerCommand @ index.ts:77](https://github.com/hyperspell/hyperspell-openclaw/blob/db5880ef87492198a0a8da20bfbbd002f9e4a0b7/index.ts#L77)
 
 - 🟡 P2 **kitchen-sink** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -5889,7 +5889,7 @@ _none_
   - contract: Package and OpenClaw manifest versions stay aligned for release compatibility reporting.
   - id: `package.metadata.version-alignment:hyperspell`
   - evidence:
-    - package:0.14.1
+    - package:0.15.0
     - manifest:0.13.0
 
 - 🟡 P2 **kitchen-sink** `sdk-import`

@@ -3914,8 +3914,8 @@
         {
           "name": "registerCli",
           "file": "plugins/hyperspell/index.ts",
-          "line": 35,
-          "ref": "plugins/hyperspell/index.ts:35"
+          "line": 39,
+          "ref": "plugins/hyperspell/index.ts:39"
         },
         {
           "name": "registerCommand",
@@ -3938,20 +3938,20 @@
         {
           "name": "registerCommand",
           "file": "plugins/hyperspell/index.ts",
-          "line": 51,
-          "ref": "plugins/hyperspell/index.ts:51"
+          "line": 55,
+          "ref": "plugins/hyperspell/index.ts:55"
         },
         {
           "name": "registerCommand",
           "file": "plugins/hyperspell/index.ts",
-          "line": 62,
-          "ref": "plugins/hyperspell/index.ts:62"
+          "line": 66,
+          "ref": "plugins/hyperspell/index.ts:66"
         },
         {
           "name": "registerCommand",
           "file": "plugins/hyperspell/index.ts",
-          "line": 73,
-          "ref": "plugins/hyperspell/index.ts:73"
+          "line": 77,
+          "ref": "plugins/hyperspell/index.ts:77"
         },
         {
           "name": "registerTool",
@@ -3983,6 +3983,8 @@
         "plugins/hyperspell/commands/setup.ts",
         "plugins/hyperspell/commands/slash.ts",
         "plugins/hyperspell/config.ts",
+        "plugins/hyperspell/docs/filter-dialect-test.mjs",
+        "plugins/hyperspell/docs/hotbuffer-verify.mjs",
         "plugins/hyperspell/graph/cron.ts",
         "plugins/hyperspell/graph/index.ts",
         "plugins/hyperspell/graph/ops.ts",
@@ -3991,10 +3993,12 @@
         "plugins/hyperspell/hooks/auto-context.ts",
         "plugins/hyperspell/hooks/auto-trace.ts",
         "plugins/hyperspell/hooks/emotional-state.ts",
+        "plugins/hyperspell/hooks/hot-buffer.ts",
         "plugins/hyperspell/hooks/memory-sync.ts",
         "plugins/hyperspell/hooks/startup-orientation.ts",
         "plugins/hyperspell/index.ts",
         "plugins/hyperspell/lib/browser.ts",
+        "plugins/hyperspell/lib/filters.ts",
         "plugins/hyperspell/lib/sender.ts",
         "plugins/hyperspell/lib/voice-id.ts",
         "plugins/hyperspell/logger.ts",
@@ -4030,7 +4034,7 @@
       "package": {
         "path": "plugins/hyperspell/package.json",
         "name": "@hyperspell/openclaw-hyperspell",
-        "version": "0.14.1",
+        "version": "0.15.0",
         "type": "module",
         "main": "./dist/index.js",
         "npmPack": {
@@ -4080,7 +4084,7 @@
         {
           "path": "plugins/hyperspell/package.json",
           "name": "@hyperspell/openclaw-hyperspell",
-          "version": "0.14.1",
+          "version": "0.15.0",
           "type": "module",
           "main": "./dist/index.js",
           "npmPack": {
@@ -33777,7 +33781,7 @@
       "level": "warning",
       "message": "package.json and openclaw.plugin.json publish different versions",
       "evidence": [
-        "package:0.14.1",
+        "package:0.15.0",
         "manifest:0.13.0"
       ]
     },
@@ -35378,9 +35382,9 @@
         "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
         "registerCommand @ plugins/hyperspell/commands/slash.ts:43",
         "registerCommand @ plugins/hyperspell/commands/slash.ts:98",
-        "registerCommand @ plugins/hyperspell/index.ts:51",
-        "registerCommand @ plugins/hyperspell/index.ts:62",
-        "registerCommand @ plugins/hyperspell/index.ts:73"
+        "registerCommand @ plugins/hyperspell/index.ts:55",
+        "registerCommand @ plugins/hyperspell/index.ts:66",
+        "registerCommand @ plugins/hyperspell/index.ts:77"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -39343,7 +39347,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-AEED220F",
+      "id": "CRABPOT-239AB3EA",
       "fixture": "hyperspell",
       "severity": "P2",
       "owner": "plugin",
@@ -39356,7 +39360,7 @@
       "compatStatus": "none",
       "title": "hyperspell: package and manifest versions drift",
       "evidence": [
-        "package:0.14.1",
+        "package:0.15.0",
         "manifest:0.13.0"
       ],
       "compatRecord": null,
@@ -39367,7 +39371,7 @@
       }
     },
     {
-      "id": "CRABPOT-649B2F3A",
+      "id": "CRABPOT-27B51420",
       "fixture": "hyperspell",
       "severity": "P2",
       "owner": "inspector",
@@ -39383,9 +39387,9 @@
         "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
         "registerCommand @ plugins/hyperspell/commands/slash.ts:43",
         "registerCommand @ plugins/hyperspell/commands/slash.ts:98",
-        "registerCommand @ plugins/hyperspell/index.ts:51",
-        "registerCommand @ plugins/hyperspell/index.ts:62",
-        "registerCommand @ plugins/hyperspell/index.ts:73"
+        "registerCommand @ plugins/hyperspell/index.ts:55",
+        "registerCommand @ plugins/hyperspell/index.ts:66",
+        "registerCommand @ plugins/hyperspell/index.ts:77"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -43278,9 +43282,9 @@
         "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
         "registerCommand @ plugins/hyperspell/commands/slash.ts:43",
         "registerCommand @ plugins/hyperspell/commands/slash.ts:98",
-        "registerCommand @ plugins/hyperspell/index.ts:51",
-        "registerCommand @ plugins/hyperspell/index.ts:62",
-        "registerCommand @ plugins/hyperspell/index.ts:73"
+        "registerCommand @ plugins/hyperspell/index.ts:55",
+        "registerCommand @ plugins/hyperspell/index.ts:66",
+        "registerCommand @ plugins/hyperspell/index.ts:77"
       ]
     },
     {
@@ -44255,7 +44259,7 @@
       "target": "package-loader",
       "contract": "Package and OpenClaw manifest versions stay aligned for release compatibility reporting.",
       "evidence": [
-        "package:0.14.1",
+        "package:0.15.0",
         "manifest:0.13.0"
       ]
     },
@@ -47026,7 +47030,7 @@
       "evidence": [
         "plugins/hyperspell/package.json",
         "@hyperspell/openclaw-hyperspell",
-        "version:0.14.1"
+        "version:0.15.0"
       ]
     },
     {
@@ -52641,7 +52645,7 @@
       "decision": "plugin-upstream-fix",
       "seam": "package-metadata",
       "action": "Ask the plugin to keep package and manifest versions aligned before relying on release compatibility signals.",
-      "evidence": "0.14.1 != 0.13.0"
+      "evidence": "0.15.0 != 0.13.0"
     },
     {
       "fixture": "hyperspell",
