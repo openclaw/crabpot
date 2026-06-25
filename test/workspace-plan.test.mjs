@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { buildColdImportReadiness } from "../scripts/cold-import-readiness.mjs";
 import { buildReport } from "../scripts/report-lib.mjs";
-import { buildWorkspacePlan, validateWorkspacePlan } from "../scripts/workspace-plan.mjs";
+import { buildWorkspacePlan, normalizeWorkspaceInstallSteps, validateWorkspacePlan } from "../scripts/workspace-plan.mjs";
 
 test("workspace plan maps blocked entrypoints to opt-in install/build/capture steps", async () => {
   const report = await buildReport({ generatedAt: "test" });
@@ -28,7 +28,11 @@ test("workspace plan maps blocked entrypoints to opt-in install/build/capture st
   assert.equal(wecom.lockfile, "plugins/wecom/package-lock.json");
   assert.ok(wecom.requiredCapabilities.includes("target-openclaw-link"));
   assert.ok(wecom.steps.some((step) => step.kind === "link-openclaw" && step.command.includes("dependencies.openclaw")));
-  assert.ok(wecom.steps.some((step) => step.kind === "install" && step.command === "npm install --ignore-scripts"));
+  assert.ok(
+    wecom.steps.some(
+      (step) => step.kind === "install" && step.command === "npm install --ignore-scripts --legacy-peer-deps",
+    ),
+  );
   assert.ok(
     wecom.steps.some(
       (step) => step.kind === "audit" && step.command.includes("npm audit --json") && step.artifactPath,
@@ -117,6 +121,39 @@ test("workspace plan validation keeps execution opt-in and explicit", () => {
   plan.fixtures[0].entrypoints[0].steps = [{ kind: "prepare", command: "", cwd: ".", reason: "" }];
   const stepErrors = validateWorkspacePlan(plan);
   assert.ok(stepErrors.some((error) => error.includes("prepare step missing command, cwd, or reason")));
+});
+
+test("workspace plan npm install steps tolerate peer drift in isolated probes", () => {
+  const plan = normalizeWorkspaceInstallSteps({
+    fixtures: [
+      {
+        id: "fixture",
+        entrypoints: [
+          {
+            steps: [
+              {
+                kind: "install",
+                command: "npm install --ignore-scripts",
+                reason: "install runtime dependencies without mutating the pinned submodule",
+              },
+              {
+                kind: "install",
+                command: "pnpm install --ignore-scripts",
+                reason: "install runtime dependencies without mutating the pinned submodule",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  });
+
+  assert.equal(
+    plan.fixtures[0].entrypoints[0].steps[0].command,
+    "npm install --ignore-scripts --legacy-peer-deps",
+  );
+  assert.match(plan.fixtures[0].entrypoints[0].steps[0].reason, /peer-range drift/);
+  assert.equal(plan.fixtures[0].entrypoints[0].steps[1].command, "pnpm install --ignore-scripts");
 });
 
 function entrypointFor(plan, fixtureId) {

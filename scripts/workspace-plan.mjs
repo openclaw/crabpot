@@ -86,12 +86,13 @@ export async function buildWorkspacePlan(options = {}) {
         ...(await readConfiguredManifest()),
         rootDir: repoRoot,
       };
-  return pluginInspector.buildFixtureSetWorkspacePlan({
+  const plan = await pluginInspector.buildFixtureSetWorkspacePlan({
     ...crabpotWorkspacePlanOptions,
     ...options,
     config,
     rootDir: options.rootDir ?? repoRoot,
   });
+  return normalizeWorkspaceInstallSteps(plan);
 }
 
 export function validateWorkspacePlan(plan) {
@@ -111,4 +112,29 @@ export function renderWorkspacePlanMarkdown(plan, options = {}) {
     ...options,
     title: options.title ?? "Crabpot Isolated Workspace Plan",
   });
+}
+
+export function normalizeWorkspaceInstallSteps(plan) {
+  return {
+    ...plan,
+    fixtures: (plan.fixtures ?? []).map((fixture) => ({
+      ...fixture,
+      entrypoints: (fixture.entrypoints ?? []).map((entrypoint) => ({
+        ...entrypoint,
+        steps: (entrypoint.steps ?? []).map(normalizeWorkspaceStep),
+      })),
+    })),
+  };
+}
+
+function normalizeWorkspaceStep(step) {
+  if (step.kind !== "install" || step.command !== "npm install --ignore-scripts") {
+    return step;
+  }
+
+  return {
+    ...step,
+    command: "npm install --ignore-scripts --legacy-peer-deps",
+    reason: `${step.reason}; allow peer-range drift in isolated compatibility probes`,
+  };
 }
