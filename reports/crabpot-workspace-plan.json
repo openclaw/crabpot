@@ -249,9 +249,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/wecom",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -330,9 +330,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/qqbot",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -412,9 +412,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/a2a-gateway",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -507,9 +507,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/hasdata",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -589,9 +589,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/mcp-adapter",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -671,9 +671,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/aiwerk-mcp-bridge",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -829,9 +829,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/opik-openclaw",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -906,9 +906,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/opik-openclaw",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -1057,9 +1057,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/lossless-claw",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -1215,9 +1215,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/hyperspell",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -1879,9 +1879,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/diagnostics-otel",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -2022,9 +2022,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/discord",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -2098,9 +2098,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/discord",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -2247,9 +2247,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/lobster",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -2342,9 +2342,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/matrix",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -2432,9 +2432,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/matrix",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -2575,9 +2575,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/msteams",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -2651,9 +2651,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/msteams",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -2794,9 +2794,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/nextcloud-talk",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -2870,9 +2870,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/nextcloud-talk",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -3013,9 +3013,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/nostr",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -3089,9 +3089,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/nostr",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -3232,9 +3232,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/voice-call",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -3375,9 +3375,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/zalo",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -3451,9 +3451,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/zalo",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -3594,9 +3594,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/zalouser",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -3670,9 +3670,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/zalouser",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -3813,9 +3813,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/feishu",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -3889,9 +3889,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/feishu",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -4038,9 +4038,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/tlon",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -4120,9 +4120,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/tlon",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -4263,9 +4263,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/twitch",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -4339,9 +4339,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/twitch",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -4434,9 +4434,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/mattermost",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -4524,9 +4524,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/mattermost",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -4667,9 +4667,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/synology-chat",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -4743,9 +4743,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/synology-chat",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -5021,9 +5021,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/codex",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -5293,9 +5293,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/google-meet",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -5436,9 +5436,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/diffs",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -5585,9 +5585,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/memory-lancedb",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -5728,9 +5728,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -5804,9 +5804,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/openclaw-qqbot",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -5947,9 +5947,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/whatsapp",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -6023,9 +6023,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/whatsapp",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -6098,9 +6098,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/nemoclaw",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -6179,9 +6179,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/memory-tencentdb",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -6269,9 +6269,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/memory-tencentdb",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -6440,9 +6440,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/dingtalk-connector",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -6621,9 +6621,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/hapi-openclaw",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -6710,9 +6710,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/mocrane-wecom",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -6784,9 +6784,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/yuanbao",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -6853,9 +6853,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/yuanbao",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -6942,9 +6942,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/openclaw-weixin",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -7018,9 +7018,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/openclaw-weixin",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -7099,9 +7099,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/lightclawbot",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -7175,9 +7175,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/lightclawbot",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -7250,9 +7250,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/telnyx-sms",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -7326,9 +7326,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/telnyx-sms",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -7419,9 +7419,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/clawrouter",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -7570,9 +7570,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/secureclaw",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
@@ -8073,9 +8073,9 @@
             },
             {
               "kind": "install",
-              "command": "npm install --ignore-scripts",
+              "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/apify",
-              "reason": "install runtime dependencies without mutating the pinned submodule"
+              "reason": "install runtime dependencies without mutating the pinned submodule; allow peer-range drift in isolated compatibility probes"
             },
             {
               "kind": "audit",
