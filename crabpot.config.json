@@ -1082,6 +1082,16 @@
           "registerTool"
         ]
       },
+      "execution": {
+        "blockedFailures": [
+          {
+            "id": "openclaw-qqbot-command-channel-config-runtime",
+            "seam": "registerCommand",
+            "errorIncludes": "reading 'channels'",
+            "reason": "captured QQ Bot command probe requires host channel configuration"
+          }
+        ]
+      },
       "why": "Official OpenClaw QQ Bot npm package covering command/tool registration, channel manifest metadata, media-capable messaging, and monorepo source mapping without replacing the external QQBot fixture."
     },
     {
