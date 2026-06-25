@@ -113,6 +113,13 @@
       "reasonIncludes": "captured memory write hook requires host message content",
       "decision": "allowed-blocked",
       "until": "memory write synthetic probes can inject host message content"
+    },
+    {
+      "id": "openclaw-qqbot-command-channel-config-runtime",
+      "seam": "registerCommand",
+      "reasonIncludes": "captured QQ Bot command probe requires host channel configuration",
+      "decision": "allowed-blocked",
+      "until": "command synthetic probes can inject host channel config"
     }
   ],
   "expectedWarnings": [
