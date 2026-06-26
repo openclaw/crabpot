@@ -3999,7 +3999,10 @@
         "plugins/hyperspell/index.ts",
         "plugins/hyperspell/lib/browser.ts",
         "plugins/hyperspell/lib/filters.ts",
+        "plugins/hyperspell/lib/ranking.ts",
+        "plugins/hyperspell/lib/search-error.ts",
         "plugins/hyperspell/lib/sender.ts",
+        "plugins/hyperspell/lib/session.ts",
         "plugins/hyperspell/lib/voice-id.ts",
         "plugins/hyperspell/logger.ts",
         "plugins/hyperspell/sync/markdown.ts",
@@ -4034,7 +4037,7 @@
       "package": {
         "path": "plugins/hyperspell/package.json",
         "name": "@hyperspell/openclaw-hyperspell",
-        "version": "0.15.0",
+        "version": "0.17.1",
         "type": "module",
         "main": "./dist/index.js",
         "npmPack": {
@@ -4084,7 +4087,7 @@
         {
           "path": "plugins/hyperspell/package.json",
           "name": "@hyperspell/openclaw-hyperspell",
-          "version": "0.15.0",
+          "version": "0.17.1",
           "type": "module",
           "main": "./dist/index.js",
           "npmPack": {
@@ -33782,7 +33785,7 @@
       "level": "warning",
       "message": "package.json and openclaw.plugin.json publish different versions",
       "evidence": [
-        "package:0.15.0",
+        "package:0.17.1",
         "manifest:0.13.0"
       ]
     },
@@ -39348,7 +39351,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-239AB3EA",
+      "id": "CRABPOT-C055C769",
       "fixture": "hyperspell",
       "severity": "P2",
       "owner": "plugin",
@@ -39361,7 +39364,7 @@
       "compatStatus": "none",
       "title": "hyperspell: package and manifest versions drift",
       "evidence": [
-        "package:0.15.0",
+        "package:0.17.1",
         "manifest:0.13.0"
       ],
       "compatRecord": null,
@@ -44260,7 +44263,7 @@
       "target": "package-loader",
       "contract": "Package and OpenClaw manifest versions stay aligned for release compatibility reporting.",
       "evidence": [
-        "package:0.15.0",
+        "package:0.17.1",
         "manifest:0.13.0"
       ]
     },
@@ -47031,7 +47034,7 @@
       "evidence": [
         "plugins/hyperspell/package.json",
         "@hyperspell/openclaw-hyperspell",
-        "version:0.15.0"
+        "version:0.17.1"
       ]
     },
     {
@@ -52646,7 +52649,7 @@
       "decision": "plugin-upstream-fix",
       "seam": "package-metadata",
       "action": "Ask the plugin to keep package and manifest versions aligned before relying on release compatibility signals.",
-      "evidence": "0.15.0 != 0.13.0"
+      "evidence": "0.17.1 != 0.13.0"
     },
     {
       "fixture": "hyperspell",
