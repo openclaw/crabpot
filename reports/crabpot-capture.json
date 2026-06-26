@@ -8,12 +8,12 @@
   },
   "summary": {
     "fixtureCount": 60,
-    "registrationCount": 354,
+    "registrationCount": 356,
     "hookCount": 125,
-    "sdkImportCount": 2379,
+    "sdkImportCount": 2382,
     "packageEntrypointCount": 108,
     "issueProbeCount": 280,
-    "inspectorShimRequiredCount": 203,
+    "inspectorShimRequiredCount": 205,
     "compatAliasRequiredCount": 0
   },
   "fixtures": [
@@ -33421,10 +33421,10 @@
           ]
         },
         {
-          "id": "registration.registerChannel:dingtalk-connector:plugins-dingtalk-connector-index-ts-75",
+          "id": "registration.registerChannel:dingtalk-connector:plugins-dingtalk-connector-index-ts-76",
           "fixture": "dingtalk-connector",
           "registrar": "registerChannel",
-          "ref": "plugins/dingtalk-connector/index.ts:75",
+          "ref": "plugins/dingtalk-connector/index.ts:76",
           "support": "inspector-shim-required",
           "assertions": [
             "channel id is stable",
@@ -33698,6 +33698,46 @@
               "handler": "function"
             }
           ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-services-card-bridge-ts-337",
+          "fixture": "dingtalk-connector",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/dingtalk-connector/src/services/card-bridge.ts:337",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-services-card-bridge-ts-362",
+          "fixture": "dingtalk-connector",
+          "registrar": "registerGatewayMethod",
+          "ref": "plugins/dingtalk-connector/src/services/card-bridge.ts:362",
+          "support": "inspector-shim-required",
+          "assertions": [
+            "method name is stable",
+            "request and response schema are captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture.gateway.method",
+              "inputSchema": {
+                "type": "object"
+              },
+              "handler": "function"
+            }
+          ]
         }
       ],
       "hooks": [],
@@ -33795,6 +33835,17 @@
           "fixture": "dingtalk-connector",
           "specifier": "openclaw/plugin-sdk",
           "ref": "plugins/dingtalk-connector/src/runtime.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk:dingtalk-connector:plugins-dingtalk-connector-src-services-card-bridge-ts-1",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk",
+          "ref": "plugins/dingtalk-connector/src/services/card-bridge.ts:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -33971,6 +34022,28 @@
           "fixture": "dingtalk-connector",
           "specifier": "openclaw/plugin-sdk/config-runtime",
           "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:720",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:dingtalk-connector:plugins-dingtalk-connector-src-services-card-bridge-ts-186",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "ref": "plugins/dingtalk-connector/src/services/card-bridge.ts:186",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:dingtalk-connector:plugins-dingtalk-connector-src-services-card-bridge-ts-339",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "ref": "plugins/dingtalk-connector/src/services/card-bridge.ts:339",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -37661,7 +37734,7 @@
       "priority": "P2",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerChannel @ plugins/dingtalk-connector/index.ts:75",
+        "registerChannel @ plugins/dingtalk-connector/index.ts:76",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:130",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:190",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:258",
@@ -37674,7 +37747,9 @@
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:593",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:60",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:652",
-        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719"
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/services/card-bridge.ts:337",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/services/card-bridge.ts:362"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -37951,7 +38026,7 @@
       "priority": "P2",
       "target": "channel-runtime",
       "evidence": [
-        "registerChannel @ plugins/dingtalk-connector/index.ts:75"
+        "registerChannel @ plugins/dingtalk-connector/index.ts:76"
       ],
       "assertions": [
         "message envelope is stable",
@@ -38945,7 +39020,7 @@
       "priority": "P2",
       "target": "package-loader",
       "evidence": [
-        "package:0.17.1",
+        "package:0.15.0",
         "manifest:0.13.0"
       ],
       "assertions": [
@@ -39023,6 +39098,7 @@
         "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/gateway-methods.ts:7",
         "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/onboarding.ts:5",
         "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/services/card-bridge.ts:1",
         "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/utils/agent.ts:8"
       ],
       "assertions": [

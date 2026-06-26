@@ -3999,10 +3999,7 @@
         "plugins/hyperspell/index.ts",
         "plugins/hyperspell/lib/browser.ts",
         "plugins/hyperspell/lib/filters.ts",
-        "plugins/hyperspell/lib/ranking.ts",
-        "plugins/hyperspell/lib/search-error.ts",
         "plugins/hyperspell/lib/sender.ts",
-        "plugins/hyperspell/lib/session.ts",
         "plugins/hyperspell/lib/voice-id.ts",
         "plugins/hyperspell/logger.ts",
         "plugins/hyperspell/sync/markdown.ts",
@@ -4037,7 +4034,7 @@
       "package": {
         "path": "plugins/hyperspell/package.json",
         "name": "@hyperspell/openclaw-hyperspell",
-        "version": "0.17.1",
+        "version": "0.15.0",
         "type": "module",
         "main": "./dist/index.js",
         "npmPack": {
@@ -4087,7 +4084,7 @@
         {
           "path": "plugins/hyperspell/package.json",
           "name": "@hyperspell/openclaw-hyperspell",
-          "version": "0.17.1",
+          "version": "0.15.0",
           "type": "module",
           "main": "./dist/index.js",
           "npmPack": {
@@ -28233,8 +28230,8 @@
         {
           "name": "registerChannel",
           "file": "plugins/dingtalk-connector/index.ts",
-          "line": 75,
-          "ref": "plugins/dingtalk-connector/index.ts:75"
+          "line": 76,
+          "ref": "plugins/dingtalk-connector/index.ts:76"
         },
         {
           "name": "registerGatewayMethod",
@@ -28313,6 +28310,18 @@
           "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
           "line": 719,
           "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:719"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/dingtalk-connector/src/services/card-bridge.ts",
+          "line": 337,
+          "ref": "plugins/dingtalk-connector/src/services/card-bridge.ts:337"
+        },
+        {
+          "name": "registerGatewayMethod",
+          "file": "plugins/dingtalk-connector/src/services/card-bridge.ts",
+          "line": 362,
+          "ref": "plugins/dingtalk-connector/src/services/card-bridge.ts:362"
         }
       ],
       "manifestContracts": [],
@@ -28360,6 +28369,7 @@
         "plugins/dingtalk-connector/src/sdk/helpers.ts",
         "plugins/dingtalk-connector/src/sdk/types.ts",
         "plugins/dingtalk-connector/src/secret-input.ts",
+        "plugins/dingtalk-connector/src/services/card-bridge.ts",
         "plugins/dingtalk-connector/src/services/media.ts",
         "plugins/dingtalk-connector/src/services/media/audio.ts",
         "plugins/dingtalk-connector/src/services/media/chunk-upload.ts",
@@ -28393,7 +28403,7 @@
           "path": "plugins/dingtalk-connector/openclaw.plugin.json",
           "id": "dingtalk-connector",
           "name": "DingTalk Channel",
-          "version": "0.8.22",
+          "version": "0.8.23",
           "keys": [
             "author",
             "channelConfigs",
@@ -28416,7 +28426,7 @@
       "package": {
         "path": "plugins/dingtalk-connector/package.json",
         "name": "@dingtalk-real-ai/dingtalk-connector",
-        "version": "0.8.22",
+        "version": "0.8.23",
         "type": "module",
         "main": "./dist/index.mjs",
         "npmPack": {
@@ -28484,7 +28494,7 @@
         {
           "path": "plugins/dingtalk-connector/package.json",
           "name": "@dingtalk-real-ai/dingtalk-connector",
-          "version": "0.8.22",
+          "version": "0.8.23",
           "type": "module",
           "main": "./dist/index.mjs",
           "npmPack": {
@@ -28613,6 +28623,12 @@
         },
         {
           "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/dingtalk-connector/src/services/card-bridge.ts",
+          "line": 1,
+          "ref": "plugins/dingtalk-connector/src/services/card-bridge.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
           "file": "plugins/dingtalk-connector/src/utils/agent.ts",
           "line": 8,
           "ref": "plugins/dingtalk-connector/src/utils/agent.ts:8"
@@ -28706,6 +28722,18 @@
           "file": "plugins/dingtalk-connector/src/gateway-methods.ts",
           "line": 720,
           "ref": "plugins/dingtalk-connector/src/gateway-methods.ts:720"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/dingtalk-connector/src/services/card-bridge.ts",
+          "line": 186,
+          "ref": "plugins/dingtalk-connector/src/services/card-bridge.ts:186"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/dingtalk-connector/src/services/card-bridge.ts",
+          "line": 339,
+          "ref": "plugins/dingtalk-connector/src/services/card-bridge.ts:339"
         },
         {
           "specifier": "openclaw/plugin-sdk/setup",
@@ -33785,7 +33813,7 @@
       "level": "warning",
       "message": "package.json and openclaw.plugin.json publish different versions",
       "evidence": [
-        "package:0.17.1",
+        "package:0.15.0",
         "manifest:0.13.0"
       ]
     },
@@ -34653,6 +34681,7 @@
         "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/gateway-methods.ts:7",
         "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/onboarding.ts:5",
         "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/services/card-bridge.ts:1",
         "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/utils/agent.ts:8"
       ],
       "compatRecord": "legacy-root-sdk-import"
@@ -36174,7 +36203,7 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerChannel @ plugins/dingtalk-connector/index.ts:75",
+        "registerChannel @ plugins/dingtalk-connector/index.ts:76",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:130",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:190",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:258",
@@ -36187,7 +36216,9 @@
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:593",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:60",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:652",
-        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719"
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/services/card-bridge.ts:337",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/services/card-bridge.ts:362"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -36197,7 +36228,7 @@
       "level": "suggestion",
       "message": "add channel envelope, config-schema, and runtime metadata probes",
       "evidence": [
-        "registerChannel @ plugins/dingtalk-connector/index.ts:75"
+        "registerChannel @ plugins/dingtalk-connector/index.ts:76"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata"
     },
@@ -38376,7 +38407,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-8D7DB701",
+      "id": "CRABPOT-EB0AF773",
       "fixture": "dingtalk-connector",
       "severity": "P2",
       "owner": "inspector",
@@ -38389,13 +38420,13 @@
       "compatStatus": "active",
       "title": "dingtalk-connector: channel runtime needs envelope/config probes",
       "evidence": [
-        "registerChannel @ plugins/dingtalk-connector/index.ts:75"
+        "registerChannel @ plugins/dingtalk-connector/index.ts:76"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata",
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-47B2894E",
+      "id": "CRABPOT-C2116D79",
       "fixture": "dingtalk-connector",
       "severity": "P2",
       "owner": "core",
@@ -38417,6 +38448,7 @@
         "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/gateway-methods.ts:7",
         "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/onboarding.ts:5",
         "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/services/card-bridge.ts:1",
         "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/utils/agent.ts:8"
       ],
       "compatRecord": "legacy-root-sdk-import",
@@ -38517,7 +38549,7 @@
       }
     },
     {
-      "id": "CRABPOT-4D754140",
+      "id": "CRABPOT-99C620E2",
       "fixture": "dingtalk-connector",
       "severity": "P2",
       "owner": "inspector",
@@ -38530,7 +38562,7 @@
       "compatStatus": "active",
       "title": "dingtalk-connector: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerChannel @ plugins/dingtalk-connector/index.ts:75",
+        "registerChannel @ plugins/dingtalk-connector/index.ts:76",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:130",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:190",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:258",
@@ -38543,7 +38575,9 @@
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:593",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:60",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:652",
-        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719"
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/services/card-bridge.ts:337",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/services/card-bridge.ts:362"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -39351,7 +39385,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-C055C769",
+      "id": "CRABPOT-239AB3EA",
       "fixture": "hyperspell",
       "severity": "P2",
       "owner": "plugin",
@@ -39364,7 +39398,7 @@
       "compatStatus": "none",
       "title": "hyperspell: package and manifest versions drift",
       "evidence": [
-        "package:0.17.1",
+        "package:0.15.0",
         "manifest:0.13.0"
       ],
       "compatRecord": null,
@@ -43249,7 +43283,7 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerChannel @ plugins/dingtalk-connector/index.ts:75",
+        "registerChannel @ plugins/dingtalk-connector/index.ts:76",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:130",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:190",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:258",
@@ -43262,7 +43296,9 @@
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:593",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:60",
         "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:652",
-        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719"
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/gateway-methods.ts:719",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/services/card-bridge.ts:337",
+        "registerGatewayMethod @ plugins/dingtalk-connector/src/services/card-bridge.ts:362"
       ]
     },
     {
@@ -43488,7 +43524,7 @@
       "target": "channel-runtime",
       "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
       "evidence": [
-        "registerChannel @ plugins/dingtalk-connector/index.ts:75"
+        "registerChannel @ plugins/dingtalk-connector/index.ts:76"
       ]
     },
     {
@@ -44263,7 +44299,7 @@
       "target": "package-loader",
       "contract": "Package and OpenClaw manifest versions stay aligned for release compatibility reporting.",
       "evidence": [
-        "package:0.17.1",
+        "package:0.15.0",
         "manifest:0.13.0"
       ]
     },
@@ -44327,6 +44363,7 @@
         "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/gateway-methods.ts:7",
         "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/onboarding.ts:5",
         "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/services/card-bridge.ts:1",
         "openclaw/plugin-sdk @ plugins/dingtalk-connector/src/utils/agent.ts:8"
       ]
     },
@@ -47034,7 +47071,7 @@
       "evidence": [
         "plugins/hyperspell/package.json",
         "@hyperspell/openclaw-hyperspell",
-        "version:0.17.1"
+        "version:0.15.0"
       ]
     },
     {
@@ -49946,7 +49983,7 @@
       "evidence": [
         "plugins/dingtalk-connector/package.json",
         "@dingtalk-real-ai/dingtalk-connector",
-        "version:0.8.22"
+        "version:0.8.23"
       ]
     },
     {
@@ -52649,7 +52686,7 @@
       "decision": "plugin-upstream-fix",
       "seam": "package-metadata",
       "action": "Ask the plugin to keep package and manifest versions aligned before relying on release compatibility signals.",
-      "evidence": "0.17.1 != 0.13.0"
+      "evidence": "0.15.0 != 0.13.0"
     },
     {
       "fixture": "hyperspell",

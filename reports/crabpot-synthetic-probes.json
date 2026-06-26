@@ -2,12 +2,12 @@
   "generatedAt": "deterministic",
   "summary": {
     "fixtureCount": 60,
-    "probeCount": 479,
+    "probeCount": 481,
     "hookProbeCount": 125,
-    "registrationProbeCount": 354,
-    "readyCount": 470,
+    "registrationProbeCount": 356,
+    "readyCount": 472,
     "blockedCount": 9,
-    "directExecutionCount": 177,
+    "directExecutionCount": 179,
     "optInExecutionCount": 29,
     "metadataOnlyCount": 148
   },
@@ -10659,7 +10659,7 @@
       "source": "plugins/dingtalk-connector/entry-bundled.ts:13"
     },
     {
-      "id": "registration.registerChannel:dingtalk-connector:plugins-dingtalk-connector-index-ts-75",
+      "id": "registration.registerChannel:dingtalk-connector:plugins-dingtalk-connector-index-ts-76",
       "fixture": "dingtalk-connector",
       "kind": "registration",
       "seam": "registerChannel",
@@ -10687,7 +10687,7 @@
         ],
         "option": "includeChannelRuntime"
       },
-      "source": "plugins/dingtalk-connector/index.ts:75"
+      "source": "plugins/dingtalk-connector/index.ts:76"
     },
     {
       "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-130",
@@ -11091,6 +11091,68 @@
         ]
       },
       "source": "plugins/dingtalk-connector/src/gateway-methods.ts:719"
+    },
+    {
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-services-card-bridge-ts-337",
+      "fixture": "dingtalk-connector",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/dingtalk-connector/src/services/card-bridge.ts:337"
+    },
+    {
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-services-card-bridge-ts-362",
+      "fixture": "dingtalk-connector",
+      "kind": "registration",
+      "seam": "registerGatewayMethod",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "method name is stable",
+        "request and response schema are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture.gateway.method",
+          "inputSchema": {
+            "type": "object"
+          },
+          "handler": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "handler",
+          "run",
+          "execute",
+          "invoke"
+        ]
+      },
+      "source": "plugins/dingtalk-connector/src/services/card-bridge.ts:362"
     },
     {
       "id": "registration.registerTool:dingtalk-doc:plugins-dingtalk-doc-src-tools-helpers-ts-93",

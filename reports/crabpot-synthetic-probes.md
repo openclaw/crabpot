@@ -7,12 +7,12 @@ Generated: deterministic
 | Metric              | Value |
 | ------------------- | ----- |
 | Fixtures            | 60    |
-| Probes              | 479   |
+| Probes              | 481   |
 | Hook probes         | 125   |
-| Registration probes | 354   |
-| Ready               | 470   |
+| Registration probes | 356   |
+| Ready               | 472   |
 | Blocked             | 9     |
-| Direct execution    | 177   |
+| Direct execution    | 179   |
 | Opt-in execution    | 29    |
 | Metadata-only       | 148   |
 
@@ -427,7 +427,7 @@ Generated: deterministic
 | memory-tencentdb       | registration | registerTool                           | ready   | direct           | plugins/memory-tencentdb/.crabpot-package/openclaw-plugin/index.ts:96          | tool name is stable; input schema is captured; result shape metadata is captured                |
 | ddingtalk              | registration | defineChannelPluginEntry               | ready   | metadata-only    | plugins/ddingtalk/index.ts:8                                                   | channel id is stable; setup/config schema can be read; message envelope metadata is preserved   |
 | dingtalk-connector     | registration | defineBundledChannelEntry              | ready   | metadata-only    | plugins/dingtalk-connector/entry-bundled.ts:13                                 | registration arguments are captured                                                             |
-| dingtalk-connector     | registration | registerChannel                        | ready   | channel-opt-in   | plugins/dingtalk-connector/index.ts:75                                         | channel id is stable; inbound/outbound envelope shape is captured; sender metadata is preserved |
+| dingtalk-connector     | registration | registerChannel                        | ready   | channel-opt-in   | plugins/dingtalk-connector/index.ts:76                                         | channel id is stable; inbound/outbound envelope shape is captured; sender metadata is preserved |
 | dingtalk-connector     | registration | registerGatewayMethod                  | ready   | direct           | plugins/dingtalk-connector/src/gateway-methods.ts:130                          | method name is stable; request and response schema are captured                                 |
 | dingtalk-connector     | registration | registerGatewayMethod                  | ready   | direct           | plugins/dingtalk-connector/src/gateway-methods.ts:190                          | method name is stable; request and response schema are captured                                 |
 | dingtalk-connector     | registration | registerGatewayMethod                  | ready   | direct           | plugins/dingtalk-connector/src/gateway-methods.ts:258                          | method name is stable; request and response schema are captured                                 |
@@ -441,6 +441,8 @@ Generated: deterministic
 | dingtalk-connector     | registration | registerGatewayMethod                  | ready   | direct           | plugins/dingtalk-connector/src/gateway-methods.ts:60                           | method name is stable; request and response schema are captured                                 |
 | dingtalk-connector     | registration | registerGatewayMethod                  | ready   | direct           | plugins/dingtalk-connector/src/gateway-methods.ts:652                          | method name is stable; request and response schema are captured                                 |
 | dingtalk-connector     | registration | registerGatewayMethod                  | ready   | direct           | plugins/dingtalk-connector/src/gateway-methods.ts:719                          | method name is stable; request and response schema are captured                                 |
+| dingtalk-connector     | registration | registerGatewayMethod                  | ready   | direct           | plugins/dingtalk-connector/src/services/card-bridge.ts:337                     | method name is stable; request and response schema are captured                                 |
+| dingtalk-connector     | registration | registerGatewayMethod                  | ready   | direct           | plugins/dingtalk-connector/src/services/card-bridge.ts:362                     | method name is stable; request and response schema are captured                                 |
 | dingtalk-doc           | registration | registerTool                           | ready   | direct           | plugins/dingtalk-doc/src/tools/helpers.ts:93                                   | tool name is stable; input schema is captured; result shape metadata is captured                |
 | hapi-openclaw          | registration | definePluginEntry                      | ready   | metadata-only    | plugins/hapi-openclaw/.crabpot-package/dist/index.js:48                        | entrypoint register function is callable; entrypoint metadata is preserved                      |
 | mocrane-wecom          | registration | registerChannel                        | ready   | channel-opt-in   | plugins/mocrane-wecom/index.ts:31                                              | channel id is stable; inbound/outbound envelope shape is captured; sender metadata is preserved |
