@@ -36,15 +36,15 @@
     "summary": {
       "commandCount": 9,
       "sampleCount": 27,
-      "rssSampleCount": 2142,
-      "cpuSampleCount": 2142,
+      "rssSampleCount": 2205,
+      "cpuSampleCount": 2205,
       "wallTimeBasis": "command-median-p95",
-      "p50WallMs": 2522,
-      "p95WallMs": 2550,
-      "maxPeakRssMb": 342.8,
-      "maxRssDeltaMb": 314.6,
-      "maxCpuMsEstimate": 2900,
-      "maxHarnessHeapDeltaMb": 8.2
+      "p50WallMs": 2581,
+      "p95WallMs": 2696,
+      "maxPeakRssMb": 344.1,
+      "maxRssDeltaMb": 315.8,
+      "maxCpuMsEstimate": 3075,
+      "maxHarnessHeapDeltaMb": 8.1
     },
     "targetOpenClaw": {
       "status": "ok",
@@ -62,9 +62,9 @@
       "sourceFiles": 1993,
       "observedHooks": 108,
       "observedRegistrations": 207,
-      "observedSdkImports": 1261,
-      "contractProbes": 280,
-      "issueFindings": 291
+      "observedSdkImports": 1262,
+      "contractProbes": 284,
+      "issueFindings": 295
     }
   },
   "thresholds": {
@@ -84,20 +84,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 100.3% over baseline",
+      "message": "p95WallMs regressed 111.8% over baseline",
       "baseline": 1273,
-      "current": 2550,
-      "delta": 1277,
-      "percent": 100.3
+      "current": 2696,
+      "delta": 1423,
+      "percent": 111.8
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 277.70000000000005 over baseline",
+      "message": "maxPeakRssMb regressed 279 over baseline",
       "baseline": 65.1,
-      "current": 342.8,
-      "delta": 277.70000000000005
+      "current": 344.1,
+      "delta": 279
     },
     {
       "id": "profile.node-boot",
@@ -105,8 +105,8 @@
       "metric": "nodeBootWallMs",
       "message": "nodeBootWallMs stayed within 500 absolute regression threshold",
       "baseline": 917,
-      "current": 34,
-      "delta": -883
+      "current": 35,
+      "delta": -882
     },
     {
       "id": "registry.compatRecords",
