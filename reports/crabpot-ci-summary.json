@@ -6,9 +6,9 @@
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 142,
+    "warnings": 146,
     "suggestions": 149,
-    "issues": 291,
+    "issues": 295,
     "p0Issues": 1,
     "p1Issues": 17,
     "liveIssues": 1,
@@ -16,7 +16,7 @@
     "compatGaps": 0,
     "deprecationWarnings": 47,
     "inspectorGaps": 158,
-    "upstreamIssues": 85,
+    "upstreamIssues": 89,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 24,
     "platformContainerRisks": 24,
     "loaderJitiCandidates": 22,
-    "importLoopP50Ms": 2450,
-    "importLoopP95Ms": 2465,
+    "importLoopP50Ms": 2414,
+    "importLoopP95Ms": 2457,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 117,
+    "importLoopOpenClawImportP50Ms": 116.8,
     "importLoopOpenClawActivationP50Ms": 0.4,
     "importLoopMetricBasis": "baseline-adjusted",
     "importLoopMaxRssMb": 0,
-    "importLoopMaxCpuMs": 81,
-    "importLoopRssSampleCount": 288,
-    "importLoopCpuSampleCount": 288
+    "importLoopMaxCpuMs": 129,
+    "importLoopRssSampleCount": 284,
+    "importLoopCpuSampleCount": 284
   },
   "topIssues": [
     {
@@ -420,20 +420,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 100.3% over baseline",
+      "message": "p95WallMs regressed 111.8% over baseline",
       "baseline": 1273,
-      "current": 2550,
-      "delta": 1277,
-      "percent": 100.3
+      "current": 2696,
+      "delta": 1423,
+      "percent": 111.8
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 277.70000000000005 over baseline",
+      "message": "maxPeakRssMb regressed 279 over baseline",
       "baseline": 65.1,
-      "current": 342.8,
-      "delta": 277.70000000000005
+      "current": 344.1,
+      "delta": 279
     }
   ],
   "artifacts": {
