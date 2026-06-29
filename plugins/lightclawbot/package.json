@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for LightClawBot.",
   "dependencies": {
-    "lightclawbot": "1.2.9"
+    "lightclawbot": "1.2.10"
   },
   "overrides": {
     "@anthropic-ai/sdk": "0.91.1",
