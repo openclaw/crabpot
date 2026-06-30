@@ -40269,6 +40269,7 @@
         "@x402/evm @ plugins/clawrouter/package.json",
         "@x402/fetch @ plugins/clawrouter/package.json",
         "@x402/svm @ plugins/clawrouter/package.json",
+        "undici @ plugins/clawrouter/package.json",
         "viem @ plugins/clawrouter/package.json"
       ],
       "assertions": [
