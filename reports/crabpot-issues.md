@@ -794,29 +794,30 @@ _none_
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
+    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [undici @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawrouter: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L1792)
-    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L1842)
-    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L1896)
-    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L1954)
-    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L2031)
-    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L2036)
-    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L2040)
-    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L2041)
-    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L2050)
+    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1792)
+    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1842)
+    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1896)
+    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1954)
+    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2031)
+    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2036)
+    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2040)
+    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2041)
+    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2050)
 
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: codex: cold import requires dependency installation in an isolated workspace
@@ -1936,7 +1937,7 @@ _none_
   - **package-plugin-api-compat-missing**: clawrouter: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
+    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -2609,7 +2610,7 @@ _none_
   - **security-manifest-schema-unavailable**: clawrouter: plugin security manifest references an unavailable schema
   - state: open · compat:none
   - evidence:
-    - [plugin-security.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/openclaw.security.json%3A%24schema%3Dhttps%3A/openclaw.ai/schemas/plugin-security.json)
+    - [plugin-security.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/openclaw.security.json%3A%24schema%3Dhttps%3A/openclaw.ai/schemas/plugin-security.json)
   - author remediation:
     - Remove or update the unsupported security manifest schema reference.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#security-manifest-schema-unavailable
@@ -2618,7 +2619,7 @@ _none_
   - **unrecognized-security-manifest**: clawrouter: plugin ships an unsupported security manifest
   - state: open · compat:none
   - evidence:
-    - [openclaw.security.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/openclaw.security.json)
+    - [openclaw.security.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/openclaw.security.json)
   - author remediation:
     - Remove unsupported security manifest files until OpenClaw documents a versioned security manifest schema.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#unrecognized-security-manifest
@@ -3008,21 +3009,22 @@ _none_
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
+    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [undici @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
 
 - 🟡 P2 **clawrouter** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: clawrouter: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
+    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -3031,15 +3033,15 @@ _none_
   - **registration-capture-gap**: clawrouter: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L1792)
-    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L1842)
-    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L1896)
-    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L1954)
-    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L2031)
-    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L2036)
-    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L2040)
-    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L2041)
-    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L2050)
+    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1792)
+    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1842)
+    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1896)
+    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1954)
+    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2031)
+    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2036)
+    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2040)
+    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2041)
+    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2050)
 
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: codex: cold import requires dependency installation in an isolated workspace
@@ -5172,7 +5174,7 @@ _none_
   - **security-manifest-schema-unavailable**: clawrouter: plugin security manifest references an unavailable schema
   - state: open · compat:none
   - evidence:
-    - [plugin-security.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/openclaw.security.json%3A%24schema%3Dhttps%3A/openclaw.ai/schemas/plugin-security.json)
+    - [plugin-security.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/openclaw.security.json%3A%24schema%3Dhttps%3A/openclaw.ai/schemas/plugin-security.json)
   - author remediation:
     - Remove or update the unsupported security manifest schema reference.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#security-manifest-schema-unavailable
@@ -5181,7 +5183,7 @@ _none_
   - **unrecognized-security-manifest**: clawrouter: plugin ships an unsupported security manifest
   - state: open · compat:none
   - evidence:
-    - [openclaw.security.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/openclaw.security.json)
+    - [openclaw.security.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/openclaw.security.json)
   - author remediation:
     - Remove unsupported security manifest files until OpenClaw documents a versioned security manifest schema.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#unrecognized-security-manifest
@@ -6161,15 +6163,15 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:clawrouter`
   - evidence:
-    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L1792)
-    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L1842)
-    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L1896)
-    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L1954)
-    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L2031)
-    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L2036)
-    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L2040)
-    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L2041)
-    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/src/index.ts#L2050)
+    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1792)
+    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1842)
+    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1896)
+    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1954)
+    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2031)
+    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2036)
+    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2040)
+    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2041)
+    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2050)
 
 - 🟢 P3 **codex** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -6549,7 +6551,7 @@ _none_
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:clawrouter`
   - evidence:
-    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
+    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
 
 - 🟢 P3 **dingtalk-doc** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -6630,15 +6632,16 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:clawrouter`
   - evidence:
-    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
-    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/5e6cc2e8db0b9022a7d4933e296586db43247488/package.json)
+    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [undici @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
 
 - 🟢 P3 **codex** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
