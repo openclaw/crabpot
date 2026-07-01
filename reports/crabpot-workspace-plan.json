@@ -14,14 +14,14 @@
     "entrypointCount": 108,
     "installStepCount": 68,
     "auditStepCount": 68,
-    "buildStepCount": 14,
+    "buildStepCount": 15,
     "pruneDevWorkspaceDependencyStepCount": 8,
     "artifactStepCount": 108,
     "captureStepCount": 108,
     "syntheticProbeStepCount": 108,
     "targetOpenClawLinkStepCount": 94,
-    "tsLoaderEntrypointCount": 22,
-    "jitiAlternativeCount": 22,
+    "tsLoaderEntrypointCount": 20,
+    "jitiAlternativeCount": 20,
     "missingBuildScriptCount": 0,
     "sdkAliasRequiredCount": 0
   },
@@ -704,38 +704,30 @@
       "id": "llm-trace-phoenix",
       "entrypoints": [
         {
-          "id": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
+          "id": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-dist-index-js",
           "fixture": "llm-trace-phoenix",
           "packagePath": "plugins/llm-trace-phoenix/package.json",
           "packageName": "llm-trace-phoenix",
-          "entrypoint": "plugins/llm-trace-phoenix/index.ts",
-          "status": "ts-loader-required",
+          "entrypoint": "plugins/llm-trace-phoenix/dist/index.js",
+          "status": "review-required",
           "packageManager": "npm",
-          "lockfile": null,
+          "lockfile": "plugins/llm-trace-phoenix/package-lock.json",
           "loaderStrategy": {
-            "source": "typescript-source",
-            "primary": "tsx",
-            "alternatives": [
-              "jiti"
-            ],
-            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
           },
           "requiredCapabilities": [
             "capture-shim",
             "side-effect-sandbox",
-            "synthetic-probes",
-            "ts-loader"
+            "synthetic-probes"
           ],
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
-              "evidence": "plugins/llm-trace-phoenix/index.ts"
-            },
-            {
               "code": "top-level-side-effect-review",
               "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
-              "evidence": "plugins/llm-trace-phoenix/index.ts"
+              "evidence": "plugins/llm-trace-phoenix/dist/index.js"
             }
           ],
           "steps": [
@@ -753,16 +745,16 @@
             },
             {
               "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.capture.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-dist-index-js.capture.json",
               "cwd": ".crabpot/workspaces/llm-trace-phoenix",
-              "artifactPath": ".crabpot/results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.capture.json",
+              "artifactPath": ".crabpot/results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-dist-index-js.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-dist-index-js.synthetic.json",
               "cwd": ".crabpot/workspaces/llm-trace-phoenix",
-              "artifactPath": ".crabpot/results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.synthetic.json",
+              "artifactPath": ".crabpot/results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-dist-index-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]
@@ -6302,39 +6294,32 @@
       "id": "ddingtalk",
       "entrypoints": [
         {
-          "id": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
+          "id": "cold-import.extension:ddingtalk:plugins-ddingtalk-dist-index-js",
           "fixture": "ddingtalk",
           "packagePath": "plugins/ddingtalk/package.json",
           "packageName": "@largezhou/ddingtalk",
-          "entrypoint": "plugins/ddingtalk/index.ts",
-          "status": "ts-loader-required",
+          "entrypoint": "plugins/ddingtalk/dist/index.js",
+          "status": "build-required",
           "packageManager": "pnpm",
           "lockfile": "plugins/ddingtalk/pnpm-lock.yaml",
           "loaderStrategy": {
-            "source": "typescript-source",
-            "primary": "tsx",
-            "alternatives": [
-              "jiti"
-            ],
-            "reason": "TypeScript entrypoints are currently planned with tsx and tracked with a Jiti-compatible fallback for OpenClaw loader parity."
+            "source": "native-node",
+            "primary": "node",
+            "alternatives": [],
+            "reason": "entrypoint extension can be loaded by Node without a TypeScript source loader"
           },
           "requiredCapabilities": [
+            "build",
             "capture-shim",
             "dependency-install",
             "synthetic-probes",
-            "target-openclaw-link",
-            "ts-loader"
+            "target-openclaw-link"
           ],
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
-              "evidence": "plugins/ddingtalk/index.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "dingtalk-stream, zod"
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/ddingtalk/dist/index.js"
             }
           ],
           "steps": [
@@ -6370,17 +6355,23 @@
               "reason": "capture package-manager dependency audit metadata as warning-only plugin upstream risk"
             },
             {
-              "kind": "capture",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.capture.json",
+              "kind": "build",
+              "command": "pnpm run build",
               "cwd": ".crabpot/workspaces/ddingtalk",
-              "artifactPath": ".crabpot/results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.capture.json",
+              "reason": "produce missing OpenClaw build entrypoint"
+            },
+            {
+              "kind": "capture",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-dist-index-js.capture.json",
+              "cwd": ".crabpot/workspaces/ddingtalk",
+              "artifactPath": ".crabpot/results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-dist-index-js.capture.json",
               "reason": "cold import the entrypoint against the capture shim"
             },
             {
               "kind": "synthetic-probe",
-              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.synthetic.json",
+              "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-dist-index-js.synthetic.json",
               "cwd": ".crabpot/workspaces/ddingtalk",
-              "artifactPath": ".crabpot/results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.synthetic.json",
+              "artifactPath": ".crabpot/results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-dist-index-js.synthetic.json",
               "reason": "invoke retained hook and registration handlers with synthetic payloads"
             }
           ]

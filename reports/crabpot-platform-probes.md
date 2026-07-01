@@ -10,15 +10,15 @@ Targets: linux, macos, windows, container
 | ------------------------------ | ----- |
 | fixtureCount                   | 60    |
 | entrypointCount                | 108   |
-| tsLoaderEntrypointCount        | 22    |
-| jitiAlternativeCount           | 22    |
+| tsLoaderEntrypointCount        | 20    |
+| jitiAlternativeCount           | 20    |
 | lazyImportProbeCount           | 108   |
-| portabilityFindingCount        | 24    |
+| portabilityFindingCount        | 25    |
 | coveredPortabilityFindingCount | 500   |
-| windowsRiskStepCount           | 24    |
-| macosRiskStepCount             | 24    |
-| linuxRiskStepCount             | 24    |
-| containerRiskStepCount         | 24    |
+| windowsRiskStepCount           | 25    |
+| macosRiskStepCount             | 25    |
+| linuxRiskStepCount             | 25    |
+| containerRiskStepCount         | 25    |
 
 ## Loader Probes
 
@@ -32,7 +32,7 @@ Targets: linux, macos, windows, container
 | hasdata                | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/hasdata/src/index.ts                                            |
 | mcp-adapter            | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/mcp-adapter/index.ts                                            |
 | aiwerk-mcp-bridge      | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts                     |
-| llm-trace-phoenix      | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/llm-trace-phoenix/index.ts                                      |
+| llm-trace-phoenix      | review-required             | node    | -            | no          | no            | yes              | yes                | plugins/llm-trace-phoenix/dist/index.js                                 |
 | opik-openclaw          | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/opik-openclaw/index.ts                                          |
 | opik-openclaw          | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/opik-openclaw/dist/index.js                                     |
 | openclaw-telemetry     | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/openclaw-telemetry/index.ts                                     |
@@ -108,7 +108,7 @@ Targets: linux, macos, windows, container
 | nemoclaw               | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/nemoclaw/nemoclaw/dist/index.js                                 |
 | memory-tencentdb       | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/memory-tencentdb/.crabpot-package/openclaw-plugin/dist/index.js |
 | memory-tencentdb       | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/memory-tencentdb/.crabpot-package/index.ts                      |
-| ddingtalk              | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/ddingtalk/index.ts                                              |
+| ddingtalk              | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/ddingtalk/dist/index.js                                         |
 | dingtalk-connector     | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/dingtalk-connector/dist/index.mjs                               |
 | dingtalk-doc           | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/dingtalk-doc/dist/index.mjs                                     |
 | hapi-openclaw          | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/hapi-openclaw/.crabpot-package/dist/index.js                    |
@@ -153,6 +153,7 @@ Targets: linux, macos, windows, container
 | ddingtalk        | link-openclaw | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
 | ddingtalk        | install       | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
 | ddingtalk        | audit         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| ddingtalk        | build         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
 | dingtalk-doc     | link-openclaw | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
 | dingtalk-doc     | install       | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
 | dingtalk-doc     | audit         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |

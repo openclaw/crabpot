@@ -13,8 +13,8 @@ Status: PASS
 
 | Metric                     | Value |
 | -------------------------- | ----- |
-| Issue findings             | 295   |
-| Open issue findings        | 295   |
+| Issue findings             | 290   |
+| Open issue findings        | 290   |
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
 | 🔴 P0                      | 1     |
@@ -25,11 +25,11 @@ Status: PASS
 | Live P0 issues             | 1     |
 | Compat gaps                | 0     |
 | Deprecation warnings       | 47    |
-| Inspector gaps             | 158   |
-| Open inspector gaps        | 158   |
+| Inspector gaps             | 157   |
+| Open inspector gaps        | 157   |
 | Runtime coverage artifacts | 0     |
-| Upstream metadata          | 89    |
-| Contract probes            | 284   |
+| Upstream metadata          | 85    |
+| Contract probes            | 279   |
 
 ## Triage Overview
 
@@ -38,8 +38,8 @@ Status: PASS
 | live-issue          | 1     | 1  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.                                          |
 | compat-gap          | 0     | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
 | deprecation-warning | 47    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
-| inspector-gap       | 158   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
-| upstream-metadata   | 89    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
+| inspector-gap       | 157   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
+| upstream-metadata   | 85    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                                                                    |
 
 ## P0 Live Issues
@@ -82,8 +82,8 @@ _none_
   - **legacy-root-sdk-import**: clawmetry: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/975fe9e2ab66ef0d3bca4ba45faf1c9250badc84/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/975fe9e2ab66ef0d3bca4ba45faf1c9250badc84/clawhub-plugin/src/service.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/e96d75f9471d986f28a3d634f82e86d1805d385a/clawhub-plugin/index.ts#L1)
+    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/e96d75f9471d986f28a3d634f82e86d1805d385a/clawhub-plugin/src/service.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -140,20 +140,30 @@ _none_
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
 
+- 🟡 P2 **ddingtalk** `deprecation-warning` `core-compat-adapter`
+  - **channel-env-vars**: ddingtalk: channelEnvVars legacy manifest metadata must stay covered
+  - state: open · compat:deprecated · deprecated
+  - evidence:
+    - ddingtalk
+  - author remediation:
+    - Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars
+
 - 🟡 P2 **dingtalk-connector** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: dingtalk-connector: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/index.ts#L17)
-    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/channel.ts#L5)
-    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/config/accounts.ts#L2)
-    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/core/connection.ts#L16)
-    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/core/provider.ts#L14)
-    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/directory.ts#L1)
-    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L7)
-    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/onboarding.ts#L5)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/utils/agent.ts#L8)
+    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L17)
+    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/channel.ts#L5)
+    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/config/accounts.ts#L2)
+    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/connection.ts#L16)
+    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/provider.ts#L14)
+    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/directory.ts#L1)
+    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L7)
+    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/onboarding.ts#L5)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ card-bridge.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L1)
+    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/utils/agent.ts#L8)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -200,8 +210,7 @@ _none_
   - **sdk-load-session-store**: discord: deprecated whole-store session helper is still used
   - state: open · compat:none
   - evidence:
-    - [openclaw/plugin-sdk/session-store-runtime import @ message-handler.process-DoynJ51o.js:32](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/dist/message-handler.process-DoynJ51o.js#L32)
-    - [openclaw/plugin-sdk/session-store-runtime import @ provider-Cqe8M2zT.js:59](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/dist/provider-Cqe8M2zT.js#L59)
+    - [openclaw/plugin-sdk/session-store-runtime import @ provider-BJaJ20MY.js:59](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/dist/provider-BJaJ20MY.js#L59)
   - author remediation:
     - Replace deprecated loadSessionStore whole-store access with row-scoped session helpers.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-load-session-store
@@ -219,8 +228,8 @@ _none_
   - **sdk-load-session-store**: feishu: deprecated whole-store session helper is still used
   - state: open · compat:none
   - evidence:
-    - [openclaw/plugin-sdk/session-store-runtime import @ channel-uEJPBCR9.js:36](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/feishu/dist/channel-uEJPBCR9.js#L36)
-    - [openclaw/plugin-sdk/session-store-runtime import @ runtime-api.js:7](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/feishu/dist/runtime-api.js#L7)
+    - [openclaw/plugin-sdk/session-store-runtime import @ channel-C1MthXp0.js:36](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/feishu/dist/channel-C1MthXp0.js#L36)
+    - [openclaw/plugin-sdk/session-store-runtime import @ runtime-api.js:7](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/feishu/dist/runtime-api.js#L7)
   - author remediation:
     - Replace deprecated loadSessionStore whole-store access with row-scoped session helpers.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-load-session-store
@@ -238,7 +247,7 @@ _none_
   - **legacy-before-agent-start**: honcho: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L18)
+    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/subagent.ts#L18)
   - author remediation:
     - Replace the legacy before_agent_start hook with the current prompt/model hooks.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start
@@ -247,18 +256,18 @@ _none_
   - **legacy-root-sdk-import**: honcho: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/commands/cli.ts#L8)
-    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/capture.ts#L2)
-    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/context.ts#L2)
-    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/gateway.ts#L2)
-    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L2)
-    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/state.ts#L9)
-    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/ask.ts#L3)
-    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/context.ts#L3)
-    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/memory-passthrough.ts#L3)
-    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/message-search.ts#L3)
-    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/search.ts#L3)
-    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/session.ts#L3)
+    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/commands/cli.ts#L8)
+    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/capture.ts#L2)
+    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/context.ts#L2)
+    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/gateway.ts#L2)
+    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/subagent.ts#L2)
+    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/state.ts#L9)
+    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/ask.ts#L3)
+    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/context.ts#L3)
+    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/memory-passthrough.ts#L3)
+    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/message-search.ts#L3)
+    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/search.ts#L3)
+    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/session.ts#L3)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -267,9 +276,9 @@ _none_
   - **legacy-root-sdk-import**: hyperspell: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/commands/slash.ts#L1)
-    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/graph/tools.ts#L2)
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/index.ts#L1)
+    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/commands/slash.ts#L1)
+    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/graph/tools.ts#L2)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/index.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -301,24 +310,15 @@ _none_
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
 
-- 🟡 P2 **llm-trace-phoenix** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: llm-trace-phoenix: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:12](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L12)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
-
 - 🟡 P2 **lossless-claw** `deprecation-warning` `core-compat-adapter`
   - **sdk-load-session-store**: lossless-claw: deprecated whole-store session helper is still used
   - state: open · compat:none
   - evidence:
-    - [api.runtime.agent.session alias @ index.ts:1487](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1487)
-    - [api.runtime.agent.session alias @ index.ts:1516](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1516)
-    - [api.runtime.agent.session alias @ index.ts:1562](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1562)
-    - [api.runtime.agent.session alias @ index.ts:1773](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1773)
-    - [api.runtime.agent.session alias @ index.ts:1819](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1819)
+    - [api.runtime.agent.session alias @ index.ts:1487](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/src/plugin/index.ts#L1487)
+    - [api.runtime.agent.session alias @ index.ts:1516](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/src/plugin/index.ts#L1516)
+    - [api.runtime.agent.session alias @ index.ts:1562](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/src/plugin/index.ts#L1562)
+    - [api.runtime.agent.session alias @ index.ts:1794](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/src/plugin/index.ts#L1794)
+    - [api.runtime.agent.session alias @ index.ts:1840](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/src/plugin/index.ts#L1840)
   - author remediation:
     - Replace deprecated loadSessionStore whole-store access with row-scoped session helpers.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-load-session-store
@@ -336,8 +336,8 @@ _none_
   - **sdk-load-session-store**: matrix: deprecated whole-store session helper is still used
   - state: open · compat:none
   - evidence:
-    - [openclaw/plugin-sdk/session-store-runtime import @ handler.ts:44](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/src/matrix/monitor/handler.ts#L44)
-    - [openclaw/plugin-sdk/session-store-runtime import @ session-route.ts:10](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/src/session-route.ts#L10)
+    - [openclaw/plugin-sdk/session-store-runtime import @ handler.ts:44](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/src/matrix/monitor/handler.ts#L44)
+    - [openclaw/plugin-sdk/session-store-runtime import @ session-route.ts:10](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/src/session-route.ts#L10)
   - author remediation:
     - Replace deprecated loadSessionStore whole-store access with row-scoped session helpers.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-load-session-store
@@ -355,8 +355,8 @@ _none_
   - **sdk-load-session-store**: mattermost: deprecated whole-store session helper is still used
   - state: open · compat:none
   - evidence:
-    - [openclaw/plugin-sdk/session-store-runtime re-export @ runtime-api.ts:49](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/runtime-api.ts#L49)
-    - [openclaw/plugin-sdk/session-store-runtime import @ model-picker.ts:10](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/src/mattermost/model-picker.ts#L10)
+    - [openclaw/plugin-sdk/session-store-runtime re-export @ runtime-api.ts:49](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/runtime-api.ts#L49)
+    - [openclaw/plugin-sdk/session-store-runtime import @ model-picker.ts:10](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/src/mattermost/model-picker.ts#L10)
   - author remediation:
     - Replace deprecated loadSessionStore whole-store access with row-scoped session helpers.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-load-session-store
@@ -375,7 +375,7 @@ _none_
   - **legacy-before-agent-start**: memos-cloud: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ index.js:531](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L531)
+    - [before_agent_start @ index.js:788](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/9b9e4ab2f3c28bbd4d178c0544879d434d5b30f6/index.js#L788)
   - author remediation:
     - Replace the legacy before_agent_start hook with the current prompt/model hooks.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start
@@ -500,15 +500,16 @@ _none_
   - **legacy-root-sdk-import**: qqbot: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L1)
-    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L2)
-    - [openclaw/plugin-sdk @ approval-handler.ts:12](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/approval-handler.ts#L12)
-    - [openclaw/plugin-sdk @ config.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/config.ts#L2)
-    - [openclaw/plugin-sdk @ onboarding.ts:13](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/onboarding.ts#L13)
-    - [openclaw/plugin-sdk @ proactive.ts:67](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/proactive.ts#L67)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/channel.ts#L1)
-    - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/remind.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L2)
+    - [openclaw/plugin-sdk @ api.ts:7](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/api.ts#L7)
+    - [openclaw/plugin-sdk @ approval-handler.ts:12](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/approval-handler.ts#L12)
+    - [openclaw/plugin-sdk @ config.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/config.ts#L2)
+    - [openclaw/plugin-sdk @ onboarding.ts:13](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/onboarding.ts#L13)
+    - [openclaw/plugin-sdk @ proactive.ts:67](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/proactive.ts#L67)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/channel.ts#L1)
+    - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/remind.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -591,7 +592,7 @@ _none_
   - **conversation-access-hook**: clawmetry: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/975fe9e2ab66ef0d3bca4ba45faf1c9250badc84/clawhub-plugin/src/service.ts#L117)
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/e96d75f9471d986f28a3d634f82e86d1805d385a/clawhub-plugin/src/service.ts#L117)
 
 - 🟠 P1 **dingtalk-doc** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: dingtalk-doc: before_tool_call needs terminal/block/approval probes
@@ -603,8 +604,8 @@ _none_
   - **conversation-access-hook**: honcho: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ capture.ts:164](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/capture.ts#L164)
-    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L34)
+    - [agent_end @ capture.ts:164](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/capture.ts#L164)
+    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/subagent.ts#L34)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
@@ -624,8 +625,8 @@ _none_
   - **conversation-access-hook**: llm-trace-phoenix: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [llm_input @ index.ts:154](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L154)
-    - [llm_output @ index.ts:168](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L168)
+    - [llm_input @ index.ts:202](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/index.ts#L202)
+    - [llm_output @ index.ts:216](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/index.ts#L216)
 
 - 🟠 P1 **memory-lancedb** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: memory-lancedb: conversation-access hooks need privacy-boundary probes
@@ -648,13 +649,13 @@ _none_
   - **conversation-access-hook**: memos-cloud: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ index.js:565](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L565)
+    - [agent_end @ index.js:791](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/9b9e4ab2f3c28bbd4d178c0544879d434d5b30f6/index.js#L791)
 
 - 🟠 P1 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ index.ts:383](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/src/index.ts#L383)
+    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/src/index.ts#L385)
 
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
@@ -763,14 +764,14 @@ _none_
   - **package-build-artifact-entrypoint**: apify: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/apify/apify-openclaw-plugin/blob/2684fdceccb992c3a1c1c84d5c9291d90953cc0a/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/dist/index.js)
 
 - 🟡 P2 **apify** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: apify: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/2684fdceccb992c3a1c1c84d5c9291d90953cc0a/package.json)
-    - [typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/2684fdceccb992c3a1c1c84d5c9291d90953cc0a/package.json)
+    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/package.json)
+    - [typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/package.json)
 
 - 🟡 P2 **bluebubbles** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: bluebubbles: channel runtime needs envelope/config probes
@@ -782,42 +783,42 @@ _none_
   - **package-typescript-source-entrypoint**: clawmetry: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/975fe9e2ab66ef0d3bca4ba45faf1c9250badc84/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/e96d75f9471d986f28a3d634f82e86d1805d385a/clawhub-plugin/index.ts)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/975fe9e2ab66ef0d3bca4ba45faf1c9250badc84/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/e96d75f9471d986f28a3d634f82e86d1805d385a/clawhub-plugin/index.ts#L20)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [undici @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [undici @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawrouter: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1792)
-    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1842)
-    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1896)
-    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1954)
-    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2031)
-    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2036)
-    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2040)
-    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2041)
-    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2050)
+    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L1792)
+    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L1842)
+    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L1896)
+    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L1954)
+    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L2031)
+    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L2036)
+    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L2040)
+    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L2041)
+    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L2050)
 
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: codex: cold import requires dependency installation in an isolated workspace
@@ -887,42 +888,42 @@ _none_
   - **channel-contract-probe**: ddingtalk: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [defineChannelPluginEntry @ index.ts:8](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts#L8)
+    - [defineChannelPluginEntry @ index.ts:8](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/index.ts#L8)
+
+- 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
+  - **package-build-artifact-entrypoint**: ddingtalk: cold import requires package build output
+  - state: open · compat:none
+  - evidence:
+    - [extension:./dist/index.js @ index.js](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/dist/index.js)
 
 - 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: ddingtalk: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [dingtalk-stream @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
-    - [zod @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
-
-- 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
-  - **package-typescript-source-entrypoint**: ddingtalk: cold import needs TypeScript source entrypoint support
-  - state: open · compat:none
-  - evidence:
-    - [extension @ index.ts](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts)
+    - [dingtalk-stream @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/package.json)
+    - [zod @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/package.json)
 
 - 🟡 P2 **diagnostics-otel** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: diagnostics-otel: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@opentelemetry/api @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/api-logs @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/exporter-logs-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/exporter-metrics-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/exporter-trace-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/resources @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/sdk-logs @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/sdk-metrics @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/sdk-node @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/sdk-trace-base @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/semantic-conventions @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/api @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/api-logs @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/exporter-logs-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/exporter-metrics-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/exporter-trace-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/resources @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/sdk-logs @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/sdk-metrics @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/sdk-node @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/sdk-trace-base @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/semantic-conventions @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
 
 - 🟡 P2 **diagnostics-otel** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: diagnostics-otel: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.js:2367](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/dist/index.js#L2367)
+    - [registerService @ index.js:2367](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/dist/index.js#L2367)
 
 - 🟡 P2 **diagnostics-prometheus** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: diagnostics-prometheus: runtime registrations need capture evidence before final contract judgment
@@ -952,43 +953,45 @@ _none_
   - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/index.ts#L75)
+    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L76)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: dingtalk-connector: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/dist/index.mjs)
+    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/dist/index.mjs)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: dingtalk-connector: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
-    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
-    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
-    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
-    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
-    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
+    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/index.ts#L75)
-    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L130)
-    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L190)
-    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L258)
-    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L311)
-    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L351)
-    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L388)
-    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L425)
-    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L452)
-    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L506)
-    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L593)
-    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L60)
-    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L652)
-    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L719)
+    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L76)
+    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L130)
+    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L190)
+    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L258)
+    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L311)
+    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L351)
+    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L388)
+    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L425)
+    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L452)
+    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L506)
+    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L593)
+    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L60)
+    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L652)
+    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L719)
+    - [registerGatewayMethod @ card-bridge.ts:337](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L337)
+    - [registerGatewayMethod @ card-bridge.ts:362](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L362)
 
 - 🟡 P2 **dingtalk-doc** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: dingtalk-doc: cold import requires package build output
@@ -1012,32 +1015,32 @@ _none_
   - **channel-contract-probe**: discord: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-BZ3NznY_.js:423](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/dist/channel-BZ3NznY_.js#L423)
+    - [createChatChannelPlugin @ channel-YA7AbYP3.js:423](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/dist/channel-YA7AbYP3.js#L423)
 
 - 🟡 P2 **discord** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: discord: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@discordjs/voice @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
-    - [discord-api-types @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
-    - [libopus-wasm @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
-    - [undici @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
+    - [@discordjs/voice @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
+    - [discord-api-types @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
+    - [libopus-wasm @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
+    - [undici @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
+    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
 
 - 🟡 P2 **feishu** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: feishu: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-uEJPBCR9.js:2036](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/feishu/dist/channel-uEJPBCR9.js#L2036)
+    - [createChatChannelPlugin @ channel-C1MthXp0.js:2036](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/feishu/dist/channel-C1MthXp0.js#L2036)
 
 - 🟡 P2 **feishu** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: feishu: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@larksuiteoapi/node-sdk @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/feishu/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/feishu/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/feishu/package.json)
+    - [@larksuiteoapi/node-sdk @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/feishu/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/feishu/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/feishu/package.json)
 
 - 🟡 P2 **google-meet** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: google-meet: cold import requires dependency installation in an isolated workspace
@@ -1077,58 +1080,58 @@ _none_
   - **package-dependency-install-required**: hasdata: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/HasData/hasdata-openclaw-plugin/blob/bed32d8a0359392b7c4628f12b909b6e204c8426/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/HasData/hasdata-openclaw-plugin/blob/83e4a20da5f2b9331a7efff46aa622e2a6ea9c05/package.json)
 
 - 🟡 P2 **hasdata** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: hasdata: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/HasData/hasdata-openclaw-plugin/blob/bed32d8a0359392b7c4628f12b909b6e204c8426/src/index.ts)
+    - [extension @ index.ts](https://github.com/HasData/hasdata-openclaw-plugin/blob/83e4a20da5f2b9331a7efff46aa622e2a6ea9c05/src/index.ts)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: honcho: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/dist/index.js)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: honcho: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/package.json)
+    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/package.json)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: honcho: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/index.ts#L97)
-    - [registerMemoryRuntime @ runtime.ts:261](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/runtime.ts#L261)
+    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/index.ts#L97)
+    - [registerMemoryRuntime @ runtime.ts:261](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/runtime.ts#L261)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: hyperspell: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/dist/index.js)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hyperspell: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/package.json)
-    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/package.json)
+    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/package.json)
+    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/package.json)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: hyperspell: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/commands/slash.ts#L166)
-    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/commands/slash.ts#L43)
-    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:55](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/index.ts#L55)
-    - [registerCommand @ index.ts:66](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/index.ts#L66)
-    - [registerCommand @ index.ts:77](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/index.ts#L77)
+    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/commands/slash.ts#L166)
+    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/commands/slash.ts#L43)
+    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/commands/slash.ts#L98)
+    - [registerCommand @ index.ts:55](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/index.ts#L55)
+    - [registerCommand @ index.ts:66](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/index.ts#L66)
+    - [registerCommand @ index.ts:77](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/index.ts#L77)
 
 - 🟡 P2 **inworld-tts** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: inworld-tts: cold import needs TypeScript source entrypoint support
@@ -1201,91 +1204,85 @@ _none_
   - evidence:
     - ws @ plugins/lightclawbot/.crabpot-package/package.json
 
-- 🟡 P2 **llm-trace-phoenix** `inspector-gap` `inspector-follow-up`
-  - **package-typescript-source-entrypoint**: llm-trace-phoenix: cold import needs TypeScript source entrypoint support
-  - state: open · compat:none
-  - evidence:
-    - [extension @ index.ts](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts)
-
 - 🟡 P2 **lobster** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: lobster: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@clawdbot/lobster @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/lobster/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/lobster/package.json)
+    - [@clawdbot/lobster @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/lobster/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/lobster/package.json)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: lossless-claw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/dist/index.js)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: lossless-claw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/package.json)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:1676](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1676)
-    - [registerContextEngine @ index.ts:1646](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1646)
+    - [registerCommand @ index.ts:1696](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/src/plugin/index.ts#L1696)
+    - [registerContextEngine @ index.ts:1647](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/src/plugin/index.ts#L1647)
 
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: matrix: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
 
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: matrix: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/setup-entry.ts)
 
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: matrix: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerGatewayMethod @ index.ts:19](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/index.ts#L19)
-    - [registerGatewayMethod @ index.ts:24](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/index.ts#L24)
-    - [registerGatewayMethod @ index.ts:29](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/index.ts#L29)
+    - [registerGatewayMethod @ index.ts:19](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/index.ts#L19)
+    - [registerGatewayMethod @ index.ts:24](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/index.ts#L24)
+    - [registerGatewayMethod @ index.ts:29](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/index.ts#L29)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: mattermost: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel.ts:755](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/src/channel.ts#L755)
+    - [createChatChannelPlugin @ channel.ts:755](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/src/channel.ts#L755)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: mattermost: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/package.json)
+    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/package.json)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: mattermost: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/setup-entry.ts)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: mattermost: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerHttpRoute @ slash-state.ts:417](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/src/mattermost/slash-state.ts#L417)
+    - [registerHttpRoute @ slash-state.ts:417](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/src/mattermost/slash-state.ts#L417)
 
 - 🟡 P2 **mcp-adapter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: mcp-adapter: cold import requires dependency installation in an isolated workspace
@@ -1354,7 +1351,7 @@ _none_
   - **registration-capture-gap**: memos-cloud: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerHook @ index.js:517](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L517)
+    - [registerHook @ index.js:719](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/9b9e4ab2f3c28bbd4d178c0544879d434d5b30f6/index.js#L719)
 
 - 🟡 P2 **memu-engine** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: memu-engine: cold import needs TypeScript source entrypoint support
@@ -1407,69 +1404,69 @@ _none_
   - **channel-contract-probe**: msteams: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-Dg0iJjJY.js:576](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/dist/channel-Dg0iJjJY.js#L576)
+    - [createChatChannelPlugin @ channel-D6Se2irO.js:576](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/dist/channel-D6Se2irO.js#L576)
 
 - 🟡 P2 **msteams** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: msteams: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@azure/identity @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/package.json)
-    - [@microsoft/teams.api @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/package.json)
-    - [@microsoft/teams.apps @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/package.json)
-    - [express @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/package.json)
+    - [@azure/identity @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/package.json)
+    - [@microsoft/teams.api @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/package.json)
+    - [@microsoft/teams.apps @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/package.json)
+    - [express @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/package.json)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: nemoclaw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/dist/index.js)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nemoclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/package.json)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:346](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/src/index.ts#L346)
+    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/src/index.ts#L348)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-Cg-iYKsC.js:2015](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nextcloud-talk/dist/channel-Cg-iYKsC.js#L2015)
+    - [createChatChannelPlugin @ channel-Ue-gORdw.js:2025](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nextcloud-talk/dist/channel-Ue-gORdw.js#L2025)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nextcloud-talk: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nextcloud-talk/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nextcloud-talk/package.json)
 
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nostr: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-CFiNISWq.js:1338](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nostr/dist/channel-CFiNISWq.js#L1338)
+    - [createChatChannelPlugin @ channel-CFiNISWq.js:1338](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nostr/dist/channel-CFiNISWq.js#L1338)
 
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nostr: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [nostr-tools @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nostr/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nostr/package.json)
+    - [nostr-tools @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nostr/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nostr/package.json)
 
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nostr: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerHttpRoute @ index.js:71](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nostr/dist/index.js#L71)
+    - [registerHttpRoute @ index.js:71](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nostr/dist/index.js#L71)
 
 - 🟡 P2 **openclaw-qqbot** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: openclaw-qqbot: cold import requires dependency installation in an isolated workspace
@@ -1556,28 +1553,28 @@ _none_
   - **channel-contract-probe**: qqbot: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L16)
+    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L16)
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: qqbot: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [mpg123-decoder @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
-    - [silk-wasm @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
-    - [ws @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
+    - [mpg123-decoder @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
+    - [silk-wasm @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
+    - [ws @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: qqbot: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L16)
+    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L16)
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: qqbot: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - [registerTool @ channel.ts:138](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/channel.ts#L138)
-    - [registerTool @ remind.ts:222](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/remind.ts#L222)
+    - [registerTool @ channel.ts:134](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/channel.ts#L134)
+    - [registerTool @ remind.ts:222](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/remind.ts#L222)
 
 - 🟡 P2 **secureclaw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: secureclaw: cold import requires package build output
@@ -1604,94 +1601,94 @@ _none_
   - **channel-contract-probe**: synology-chat: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-D8xW77Og.js:1111](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/synology-chat/dist/channel-D8xW77Og.js#L1111)
+    - [createChatChannelPlugin @ channel-BpZt8_If.js:1107](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/synology-chat/dist/channel-BpZt8_If.js#L1107)
 
 - 🟡 P2 **synology-chat** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: synology-chat: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/synology-chat/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/synology-chat/package.json)
 
 - 🟡 P2 **telnyx-sms** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: telnyx-sms: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [defineChannelPluginEntry @ index.ts:207](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/index.ts#L207)
+    - [defineChannelPluginEntry @ index.ts:207](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/index.ts#L207)
 
 - 🟡 P2 **telnyx-sms** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: telnyx-sms: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/dist/index.js)
-    - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/dist/setup-entry.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/dist/index.js)
+    - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/dist/setup-entry.js)
 
 - 🟡 P2 **telnyx-sms** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: telnyx-sms: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerHttpRoute @ index.ts:259](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/index.ts#L259)
+    - [registerHttpRoute @ index.ts:259](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/index.ts#L259)
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: tlon: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-CKKTYJLK.js:136](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/dist/channel-CKKTYJLK.js#L136)
+    - [createChatChannelPlugin @ channel-colVGWsG.js:136](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/dist/channel-colVGWsG.js#L136)
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: tlon: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@aws-sdk/client-s3 @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/package.json)
-    - [@aws-sdk/s3-request-presigner @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/package.json)
-    - [@tloncorp/tlon-skill @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/package.json)
-    - [@urbit/aura @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/package.json)
+    - [@aws-sdk/client-s3 @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/package.json)
+    - [@aws-sdk/s3-request-presigner @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/package.json)
+    - [@tloncorp/tlon-skill @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/package.json)
+    - [@urbit/aura @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/package.json)
 
 - 🟡 P2 **twitch** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: twitch: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ plugin-BqKCtREI.js:1251](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/twitch/dist/plugin-BqKCtREI.js#L1251)
+    - [createChatChannelPlugin @ plugin-BqKCtREI.js:1251](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/twitch/dist/plugin-BqKCtREI.js#L1251)
 
 - 🟡 P2 **twitch** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: twitch: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@twurple/api @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/twitch/package.json)
-    - [@twurple/auth @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/twitch/package.json)
-    - [@twurple/chat @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/twitch/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/twitch/package.json)
+    - [@twurple/api @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/twitch/package.json)
+    - [@twurple/auth @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/twitch/package.json)
+    - [@twurple/chat @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/twitch/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/twitch/package.json)
 
 - 🟡 P2 **voice-call** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: voice-call: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [commander @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/package.json)
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/package.json)
+    - [commander @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/package.json)
+    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/package.json)
 
 - 🟡 P2 **voice-call** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: voice-call: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerConfigMigration @ setup-api.js:35](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/setup-api.js#L35)
-    - [registerGatewayMethod @ index.js:1045](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1045)
-    - [registerGatewayMethod @ index.js:1071](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1071)
-    - [registerGatewayMethod @ index.js:1084](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1084)
-    - [registerGatewayMethod @ index.js:1096](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1096)
-    - [registerGatewayMethod @ index.js:1113](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1113)
-    - [registerGatewayMethod @ index.js:1144](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1144)
-    - [registerGatewayMethod @ index.js:1162](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1162)
-    - [registerGatewayMethod @ index.js:1179](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1179)
-    - [registerGatewayMethod @ index.js:1203](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1203)
-    - [registerService @ index.js:1339](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1339)
+    - [registerConfigMigration @ setup-api.js:35](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/setup-api.js#L35)
+    - [registerGatewayMethod @ index.js:1045](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1045)
+    - [registerGatewayMethod @ index.js:1071](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1071)
+    - [registerGatewayMethod @ index.js:1084](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1084)
+    - [registerGatewayMethod @ index.js:1096](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1096)
+    - [registerGatewayMethod @ index.js:1113](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1113)
+    - [registerGatewayMethod @ index.js:1144](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1144)
+    - [registerGatewayMethod @ index.js:1162](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1162)
+    - [registerGatewayMethod @ index.js:1179](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1179)
+    - [registerGatewayMethod @ index.js:1203](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1203)
+    - [registerService @ index.js:1339](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1339)
 
 - 🟡 P2 **web-search-plus** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: web-search-plus: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/21dd15b8d24c71491fb32f270e2f6c13b25fde90/index.ts)
+    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/314f6502936bb203be6254f93a52b64888b8fcbe/index.ts)
 
 - 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: wecom: channel runtime needs envelope/config probes
@@ -1763,27 +1760,27 @@ _none_
   - **channel-contract-probe**: zalo: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-BulSjBML.js:261](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalo/dist/channel-BulSjBML.js#L261)
+    - [createChatChannelPlugin @ channel-BulSjBML.js:261](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalo/dist/channel-BulSjBML.js#L261)
 
 - 🟡 P2 **zalo** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: zalo: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalo/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalo/package.json)
 
 - 🟡 P2 **zalouser** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: zalouser: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-BFn5MZCm.js:557](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalouser/dist/channel-BFn5MZCm.js#L557)
+    - [createChatChannelPlugin @ channel-BFn5MZCm.js:557](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalouser/dist/channel-BFn5MZCm.js#L557)
 
 - 🟡 P2 **zalouser** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: zalouser: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalouser/package.json)
-    - [zca-js @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalouser/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalouser/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalouser/package.json)
+    - [zca-js @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalouser/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalouser/package.json)
 
 ## Runtime-Covered Inspector Gaps
 
@@ -1843,7 +1840,6 @@ _none_
   - evidence:
     - [displayName @ openclaw.plugin.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/openclaw.plugin.json)
     - [homepage @ openclaw.plugin.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/openclaw.plugin.json)
-    - [icon @ openclaw.plugin.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -1896,15 +1892,6 @@ _none_
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **brave-plugin** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: brave-plugin: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [icon @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/4f9d5864f09f60a6eb9da6ad6317148bbf89e134/extensions/brave/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
-- 🟡 P2 **brave-plugin** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: brave-plugin: OpenClaw package install metadata is incomplete
   - state: open · compat:none
   - evidence:
@@ -1937,7 +1924,7 @@ _none_
   - **package-plugin-api-compat-missing**: clawrouter: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -1974,7 +1961,7 @@ _none_
   - **manifest-name-missing**: ddingtalk: manifest display name is missing
   - state: open · compat:none
   - evidence:
-    - [openclaw.plugin.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/openclaw.plugin.json)
+    - [openclaw.plugin.json](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/openclaw.plugin.json)
   - author remediation:
     - Add a display name to the plugin manifest.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-name-missing
@@ -1983,7 +1970,7 @@ _none_
   - **package-plugin-api-compat-missing**: ddingtalk: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
+    - [package.json](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -1993,7 +1980,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -2031,8 +2018,8 @@ _none_
   - **manifest-unknown-fields**: dingtalk-connector: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/openclaw.plugin.json)
-    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/openclaw.plugin.json)
+    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -2041,7 +2028,7 @@ _none_
   - **package-plugin-api-compat-missing**: dingtalk-connector: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
+    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -2078,7 +2065,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.5.26
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -2097,19 +2084,10 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.5.29
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
-- 🟡 P2 **google-meet** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: google-meet: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [icon @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/4f9d5864f09f60a6eb9da6ad6317148bbf89e134/extensions/google-meet/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **google-meet** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: google-meet: OpenClaw package install metadata is incomplete
@@ -2129,15 +2107,6 @@ _none_
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
-- 🟡 P2 **honcho** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-name-missing**: honcho: manifest display name is missing
-  - state: open · compat:none
-  - evidence:
-    - [openclaw.plugin.json](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/openclaw.plugin.json)
-  - author remediation:
-    - Add a display name to the plugin manifest.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-name-missing
 
 - 🟡 P2 **hyperspell** `upstream-metadata` `plugin-upstream-fix`
   - **package-manifest-version-drift**: hyperspell: package and manifest versions drift
@@ -2168,6 +2137,16 @@ _none_
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
 
+- 🟡 P2 **llm-trace-phoenix** `upstream-metadata` `plugin-upstream-fix`
+  - **package-manifest-version-drift**: llm-trace-phoenix: package and manifest versions drift
+  - state: open · compat:none
+  - evidence:
+    - package:1.0.3
+    - manifest:1.0.1
+  - author remediation:
+    - Align the plugin version declared in package.json and openclaw.plugin.json.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-manifest-version-drift
+
 - 🟡 P2 **lobster** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: lobster: OpenClaw package install metadata is incomplete
   - state: open · compat:none
@@ -2182,7 +2161,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -2192,7 +2171,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -2201,19 +2180,20 @@ _none_
   - **manifest-name-missing**: mattermost: manifest display name is missing
   - state: open · compat:none
   - evidence:
-    - [openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/openclaw.plugin.json)
+    - [openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/openclaw.plugin.json)
   - author remediation:
     - Add a display name to the plugin manifest.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-name-missing
 
 - 🟡 P2 **mattermost** `upstream-metadata` `plugin-upstream-fix`
-  - **package-plugin-api-compat-missing**: mattermost: plugin API compatibility range is missing
+  - **package-min-host-version-drift**: mattermost: OpenClaw package minimum host version drifts from build target
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/package.json)
+    - minHostVersion:>=2026.6.9
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
-    - Declare the OpenClaw plugin API range this package supports.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
+    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **mcp-adapter** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: mcp-adapter: plugin API compatibility range is missing
@@ -2256,7 +2236,7 @@ _none_
   - **manifest-unknown-fields**: memos-cloud: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [main @ openclaw.plugin.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/9b9e4ab2f3c28bbd4d178c0544879d434d5b30f6/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -2265,7 +2245,7 @@ _none_
   - **package-plugin-api-compat-missing**: memos-cloud: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/package.json)
+    - [package.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/9b9e4ab2f3c28bbd4d178c0544879d434d5b30f6/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -2311,7 +2291,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -2330,7 +2310,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -2349,19 +2329,10 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
-- 🟡 P2 **openclaw-qqbot** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: openclaw-qqbot: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [icon @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/4f9d5864f09f60a6eb9da6ad6317148bbf89e134/extensions/qqbot/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **openclaw-qqbot** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: openclaw-qqbot: OpenClaw package install metadata is incomplete
@@ -2422,8 +2393,8 @@ _none_
   - **manifest-unknown-fields**: qqbot: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [capabilities @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/openclaw.plugin.json)
-    - [extensions @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/openclaw.plugin.json)
+    - [capabilities @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/openclaw.plugin.json)
+    - [extensions @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -2432,7 +2403,7 @@ _none_
   - **package-plugin-api-compat-missing**: qqbot: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
+    - [package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -2460,7 +2431,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -2479,7 +2450,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -2498,7 +2469,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -2517,7 +2488,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -2530,15 +2501,6 @@ _none_
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
-
-- 🟡 P2 **whatsapp** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: whatsapp: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [icon @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/4f9d5864f09f60a6eb9da6ad6317148bbf89e134/extensions/whatsapp/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **whatsapp** `upstream-metadata` `plugin-upstream-fix`
   - **package-min-host-version-drift**: whatsapp: OpenClaw package minimum host version drifts from build target
@@ -2582,7 +2544,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -2601,7 +2563,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -2610,7 +2572,7 @@ _none_
   - **security-manifest-schema-unavailable**: clawrouter: plugin security manifest references an unavailable schema
   - state: open · compat:none
   - evidence:
-    - [plugin-security.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/openclaw.security.json%3A%24schema%3Dhttps%3A/openclaw.ai/schemas/plugin-security.json)
+    - [plugin-security.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/openclaw.security.json%3A%24schema%3Dhttps%3A/openclaw.ai/schemas/plugin-security.json)
   - author remediation:
     - Remove or update the unsupported security manifest schema reference.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#security-manifest-schema-unavailable
@@ -2619,7 +2581,7 @@ _none_
   - **unrecognized-security-manifest**: clawrouter: plugin ships an unsupported security manifest
   - state: open · compat:none
   - evidence:
-    - [openclaw.security.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/openclaw.security.json)
+    - [openclaw.security.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/openclaw.security.json)
   - author remediation:
     - Remove unsupported security manifest files until OpenClaw documents a versioned security manifest schema.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#unrecognized-security-manifest
@@ -2636,7 +2598,7 @@ _none_
   - **conversation-access-hook**: clawmetry: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/975fe9e2ab66ef0d3bca4ba45faf1c9250badc84/clawhub-plugin/src/service.ts#L117)
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/e96d75f9471d986f28a3d634f82e86d1805d385a/clawhub-plugin/src/service.ts#L117)
 
 - 🟠 P1 **codex** `upstream-metadata` `plugin-upstream-fix`
   - **reserved-sdk-import**: codex: plugin imports reserved bundled-plugin SDK compatibility subpaths
@@ -2657,8 +2619,8 @@ _none_
   - **conversation-access-hook**: honcho: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ capture.ts:164](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/capture.ts#L164)
-    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L34)
+    - [agent_end @ capture.ts:164](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/capture.ts#L164)
+    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/subagent.ts#L34)
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
@@ -2687,8 +2649,8 @@ _none_
   - **conversation-access-hook**: llm-trace-phoenix: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [llm_input @ index.ts:154](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L154)
-    - [llm_output @ index.ts:168](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L168)
+    - [llm_input @ index.ts:202](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/index.ts#L202)
+    - [llm_output @ index.ts:216](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/index.ts#L216)
 
 - 🟠 P1 **memory-lancedb** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: memory-lancedb: conversation-access hooks need privacy-boundary probes
@@ -2711,13 +2673,13 @@ _none_
   - **conversation-access-hook**: memos-cloud: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ index.js:565](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L565)
+    - [agent_end @ index.js:791](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/9b9e4ab2f3c28bbd4d178c0544879d434d5b30f6/index.js#L791)
 
 - 🟠 P1 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ index.ts:383](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/src/index.ts#L383)
+    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/src/index.ts#L385)
 
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
@@ -2833,7 +2795,6 @@ _none_
   - evidence:
     - [displayName @ openclaw.plugin.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/openclaw.plugin.json)
     - [homepage @ openclaw.plugin.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/openclaw.plugin.json)
-    - [icon @ openclaw.plugin.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -2902,14 +2863,14 @@ _none_
   - **package-build-artifact-entrypoint**: apify: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/apify/apify-openclaw-plugin/blob/2684fdceccb992c3a1c1c84d5c9291d90953cc0a/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/dist/index.js)
 
 - 🟡 P2 **apify** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: apify: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/2684fdceccb992c3a1c1c84d5c9291d90953cc0a/package.json)
-    - [typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/2684fdceccb992c3a1c1c84d5c9291d90953cc0a/package.json)
+    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/package.json)
+    - [typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/package.json)
 
 - 🟡 P2 **bluebubbles** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: bluebubbles: channel runtime needs envelope/config probes
@@ -2946,15 +2907,6 @@ _none_
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **brave-plugin** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: brave-plugin: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [icon @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/4f9d5864f09f60a6eb9da6ad6317148bbf89e134/extensions/brave/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
-- 🟡 P2 **brave-plugin** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: brave-plugin: OpenClaw package install metadata is incomplete
   - state: open · compat:none
   - evidence:
@@ -2977,8 +2929,8 @@ _none_
   - **legacy-root-sdk-import**: clawmetry: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/975fe9e2ab66ef0d3bca4ba45faf1c9250badc84/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/975fe9e2ab66ef0d3bca4ba45faf1c9250badc84/clawhub-plugin/src/service.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/e96d75f9471d986f28a3d634f82e86d1805d385a/clawhub-plugin/index.ts#L1)
+    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/e96d75f9471d986f28a3d634f82e86d1805d385a/clawhub-plugin/src/service.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -2997,34 +2949,34 @@ _none_
   - **package-typescript-source-entrypoint**: clawmetry: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/975fe9e2ab66ef0d3bca4ba45faf1c9250badc84/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/e96d75f9471d986f28a3d634f82e86d1805d385a/clawhub-plugin/index.ts)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/975fe9e2ab66ef0d3bca4ba45faf1c9250badc84/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/e96d75f9471d986f28a3d634f82e86d1805d385a/clawhub-plugin/index.ts#L20)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [undici @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [undici @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
 
 - 🟡 P2 **clawrouter** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: clawrouter: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -3033,15 +2985,15 @@ _none_
   - **registration-capture-gap**: clawrouter: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1792)
-    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1842)
-    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1896)
-    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1954)
-    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2031)
-    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2036)
-    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2040)
-    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2041)
-    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2050)
+    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L1792)
+    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L1842)
+    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L1896)
+    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L1954)
+    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L2031)
+    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L2036)
+    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L2040)
+    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L2041)
+    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L2050)
 
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: codex: cold import requires dependency installation in an isolated workspace
@@ -3191,61 +3143,70 @@ _none_
   - **channel-contract-probe**: ddingtalk: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [defineChannelPluginEntry @ index.ts:8](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts#L8)
+    - [defineChannelPluginEntry @ index.ts:8](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/index.ts#L8)
+
+- 🟡 P2 **ddingtalk** `deprecation-warning` `core-compat-adapter`
+  - **channel-env-vars**: ddingtalk: channelEnvVars legacy manifest metadata must stay covered
+  - state: open · compat:deprecated · deprecated
+  - evidence:
+    - ddingtalk
+  - author remediation:
+    - Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars
 
 - 🟡 P2 **ddingtalk** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-name-missing**: ddingtalk: manifest display name is missing
   - state: open · compat:none
   - evidence:
-    - [openclaw.plugin.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/openclaw.plugin.json)
+    - [openclaw.plugin.json](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/openclaw.plugin.json)
   - author remediation:
     - Add a display name to the plugin manifest.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-name-missing
 
 - 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
+  - **package-build-artifact-entrypoint**: ddingtalk: cold import requires package build output
+  - state: open · compat:none
+  - evidence:
+    - [extension:./dist/index.js @ index.js](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/dist/index.js)
+
+- 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: ddingtalk: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [dingtalk-stream @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
-    - [zod @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
+    - [dingtalk-stream @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/package.json)
+    - [zod @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/package.json)
 
 - 🟡 P2 **ddingtalk** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: ddingtalk: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
+    - [package.json](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
-
-- 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
-  - **package-typescript-source-entrypoint**: ddingtalk: cold import needs TypeScript source entrypoint support
-  - state: open · compat:none
-  - evidence:
-    - [extension @ index.ts](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts)
 
 - 🟡 P2 **diagnostics-otel** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: diagnostics-otel: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@opentelemetry/api @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/api-logs @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/exporter-logs-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/exporter-metrics-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/exporter-trace-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/resources @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/sdk-logs @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/sdk-metrics @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/sdk-node @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/sdk-trace-base @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/semantic-conventions @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/api @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/api-logs @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/exporter-logs-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/exporter-metrics-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/exporter-trace-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/resources @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/sdk-logs @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/sdk-metrics @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/sdk-node @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/sdk-trace-base @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/semantic-conventions @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
 
 - 🟡 P2 **diagnostics-otel** `upstream-metadata` `plugin-upstream-fix`
   - **package-min-host-version-drift**: diagnostics-otel: OpenClaw package minimum host version drifts from build target
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -3254,7 +3215,7 @@ _none_
   - **registration-capture-gap**: diagnostics-otel: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.js:2367](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/dist/index.js#L2367)
+    - [registerService @ index.js:2367](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/dist/index.js#L2367)
 
 - 🟡 P2 **diagnostics-prometheus** `upstream-metadata` `plugin-upstream-fix`
   - **package-min-host-version-drift**: diagnostics-prometheus: OpenClaw package minimum host version drifts from build target
@@ -3313,22 +3274,23 @@ _none_
   - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/index.ts#L75)
+    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L76)
 
 - 🟡 P2 **dingtalk-connector** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: dingtalk-connector: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/index.ts#L17)
-    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/channel.ts#L5)
-    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/config/accounts.ts#L2)
-    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/core/connection.ts#L16)
-    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/core/provider.ts#L14)
-    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/directory.ts#L1)
-    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L7)
-    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/onboarding.ts#L5)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/utils/agent.ts#L8)
+    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L17)
+    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/channel.ts#L5)
+    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/config/accounts.ts#L2)
+    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/connection.ts#L16)
+    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/provider.ts#L14)
+    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/directory.ts#L1)
+    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L7)
+    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/onboarding.ts#L5)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ card-bridge.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L1)
+    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/utils/agent.ts#L8)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -3337,8 +3299,8 @@ _none_
   - **manifest-unknown-fields**: dingtalk-connector: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/openclaw.plugin.json)
-    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/openclaw.plugin.json)
+    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -3347,24 +3309,24 @@ _none_
   - **package-build-artifact-entrypoint**: dingtalk-connector: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/dist/index.mjs)
+    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/dist/index.mjs)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: dingtalk-connector: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
-    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
-    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
-    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
-    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
-    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
+    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
 
 - 🟡 P2 **dingtalk-connector** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: dingtalk-connector: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
+    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -3373,20 +3335,22 @@ _none_
   - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/index.ts#L75)
-    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L130)
-    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L190)
-    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L258)
-    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L311)
-    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L351)
-    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L388)
-    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L425)
-    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L452)
-    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L506)
-    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L593)
-    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L60)
-    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L652)
-    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L719)
+    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L76)
+    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L130)
+    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L190)
+    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L258)
+    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L311)
+    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L351)
+    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L388)
+    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L425)
+    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L452)
+    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L506)
+    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L593)
+    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L60)
+    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L652)
+    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L719)
+    - [registerGatewayMethod @ card-bridge.ts:337](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L337)
+    - [registerGatewayMethod @ card-bridge.ts:362](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L362)
 
 - 🟡 P2 **dingtalk-doc** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: dingtalk-doc: root plugin SDK barrel is still used by fixtures
@@ -3457,7 +3421,7 @@ _none_
   - **channel-contract-probe**: discord: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-BZ3NznY_.js:423](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/dist/channel-BZ3NznY_.js#L423)
+    - [createChatChannelPlugin @ channel-YA7AbYP3.js:423](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/dist/channel-YA7AbYP3.js#L423)
 
 - 🟡 P2 **discord** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: discord: channelEnvVars legacy manifest metadata must stay covered
@@ -3472,12 +3436,12 @@ _none_
   - **package-dependency-install-required**: discord: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@discordjs/voice @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
-    - [discord-api-types @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
-    - [libopus-wasm @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
-    - [undici @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
+    - [@discordjs/voice @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
+    - [discord-api-types @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
+    - [libopus-wasm @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
+    - [undici @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
+    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
 
 - 🟡 P2 **discord** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: discord: OpenClaw package install metadata is incomplete
@@ -3493,7 +3457,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.5.26
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -3502,8 +3466,7 @@ _none_
   - **sdk-load-session-store**: discord: deprecated whole-store session helper is still used
   - state: open · compat:none
   - evidence:
-    - [openclaw/plugin-sdk/session-store-runtime import @ message-handler.process-DoynJ51o.js:32](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/dist/message-handler.process-DoynJ51o.js#L32)
-    - [openclaw/plugin-sdk/session-store-runtime import @ provider-Cqe8M2zT.js:59](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/dist/provider-Cqe8M2zT.js#L59)
+    - [openclaw/plugin-sdk/session-store-runtime import @ provider-BJaJ20MY.js:59](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/dist/provider-BJaJ20MY.js#L59)
   - author remediation:
     - Replace deprecated loadSessionStore whole-store access with row-scoped session helpers.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-load-session-store
@@ -3512,7 +3475,7 @@ _none_
   - **channel-contract-probe**: feishu: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-uEJPBCR9.js:2036](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/feishu/dist/channel-uEJPBCR9.js#L2036)
+    - [createChatChannelPlugin @ channel-C1MthXp0.js:2036](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/feishu/dist/channel-C1MthXp0.js#L2036)
 
 - 🟡 P2 **feishu** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: feishu: channelEnvVars legacy manifest metadata must stay covered
@@ -3527,9 +3490,9 @@ _none_
   - **package-dependency-install-required**: feishu: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@larksuiteoapi/node-sdk @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/feishu/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/feishu/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/feishu/package.json)
+    - [@larksuiteoapi/node-sdk @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/feishu/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/feishu/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/feishu/package.json)
 
 - 🟡 P2 **feishu** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: feishu: OpenClaw package install metadata is incomplete
@@ -3545,7 +3508,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.5.29
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -3554,20 +3517,11 @@ _none_
   - **sdk-load-session-store**: feishu: deprecated whole-store session helper is still used
   - state: open · compat:none
   - evidence:
-    - [openclaw/plugin-sdk/session-store-runtime import @ channel-uEJPBCR9.js:36](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/feishu/dist/channel-uEJPBCR9.js#L36)
-    - [openclaw/plugin-sdk/session-store-runtime import @ runtime-api.js:7](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/feishu/dist/runtime-api.js#L7)
+    - [openclaw/plugin-sdk/session-store-runtime import @ channel-C1MthXp0.js:36](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/feishu/dist/channel-C1MthXp0.js#L36)
+    - [openclaw/plugin-sdk/session-store-runtime import @ runtime-api.js:7](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/feishu/dist/runtime-api.js#L7)
   - author remediation:
     - Replace deprecated loadSessionStore whole-store access with row-scoped session helpers.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-load-session-store
-
-- 🟡 P2 **google-meet** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: google-meet: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [icon @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/4f9d5864f09f60a6eb9da6ad6317148bbf89e134/extensions/google-meet/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **google-meet** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: google-meet: cold import requires dependency installation in an isolated workspace
@@ -3626,13 +3580,13 @@ _none_
   - **package-dependency-install-required**: hasdata: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/HasData/hasdata-openclaw-plugin/blob/bed32d8a0359392b7c4628f12b909b6e204c8426/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/HasData/hasdata-openclaw-plugin/blob/83e4a20da5f2b9331a7efff46aa622e2a6ea9c05/package.json)
 
 - 🟡 P2 **hasdata** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: hasdata: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/HasData/hasdata-openclaw-plugin/blob/bed32d8a0359392b7c4628f12b909b6e204c8426/src/index.ts)
+    - [extension @ index.ts](https://github.com/HasData/hasdata-openclaw-plugin/blob/83e4a20da5f2b9331a7efff46aa622e2a6ea9c05/src/index.ts)
 
 - 🟡 P2 **hasdata** `deprecation-warning` `core-compat-adapter`
   - **provider-auth-env-vars**: hasdata: providerAuthEnvVars legacy manifest metadata must stay covered
@@ -3647,7 +3601,7 @@ _none_
   - **legacy-before-agent-start**: honcho: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L18)
+    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/subagent.ts#L18)
   - author remediation:
     - Replace the legacy before_agent_start hook with the current prompt/model hooks.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start
@@ -3656,58 +3610,49 @@ _none_
   - **legacy-root-sdk-import**: honcho: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/commands/cli.ts#L8)
-    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/capture.ts#L2)
-    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/context.ts#L2)
-    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/gateway.ts#L2)
-    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L2)
-    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/state.ts#L9)
-    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/ask.ts#L3)
-    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/context.ts#L3)
-    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/memory-passthrough.ts#L3)
-    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/message-search.ts#L3)
-    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/search.ts#L3)
-    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/session.ts#L3)
+    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/commands/cli.ts#L8)
+    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/capture.ts#L2)
+    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/context.ts#L2)
+    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/gateway.ts#L2)
+    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/subagent.ts#L2)
+    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/state.ts#L9)
+    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/ask.ts#L3)
+    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/context.ts#L3)
+    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/memory-passthrough.ts#L3)
+    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/message-search.ts#L3)
+    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/search.ts#L3)
+    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/session.ts#L3)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
-
-- 🟡 P2 **honcho** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-name-missing**: honcho: manifest display name is missing
-  - state: open · compat:none
-  - evidence:
-    - [openclaw.plugin.json](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/openclaw.plugin.json)
-  - author remediation:
-    - Add a display name to the plugin manifest.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-name-missing
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: honcho: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/dist/index.js)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: honcho: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/package.json)
+    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/package.json)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: honcho: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/index.ts#L97)
-    - [registerMemoryRuntime @ runtime.ts:261](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/runtime.ts#L261)
+    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/index.ts#L97)
+    - [registerMemoryRuntime @ runtime.ts:261](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/runtime.ts#L261)
 
 - 🟡 P2 **hyperspell** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: hyperspell: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/commands/slash.ts#L1)
-    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/graph/tools.ts#L2)
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/index.ts#L1)
+    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/commands/slash.ts#L1)
+    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/graph/tools.ts#L2)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/index.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -3716,15 +3661,15 @@ _none_
   - **package-build-artifact-entrypoint**: hyperspell: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/dist/index.js)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hyperspell: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/package.json)
-    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/package.json)
+    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/package.json)
+    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/package.json)
 
 - 🟡 P2 **hyperspell** `upstream-metadata` `plugin-upstream-fix`
   - **package-manifest-version-drift**: hyperspell: package and manifest versions drift
@@ -3740,12 +3685,12 @@ _none_
   - **registration-capture-gap**: hyperspell: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/commands/slash.ts#L166)
-    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/commands/slash.ts#L43)
-    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:55](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/index.ts#L55)
-    - [registerCommand @ index.ts:66](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/index.ts#L66)
-    - [registerCommand @ index.ts:77](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/index.ts#L77)
+    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/commands/slash.ts#L166)
+    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/commands/slash.ts#L43)
+    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/commands/slash.ts#L98)
+    - [registerCommand @ index.ts:55](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/index.ts#L55)
+    - [registerCommand @ index.ts:66](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/index.ts#L66)
+    - [registerCommand @ index.ts:77](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/index.ts#L77)
 
 - 🟡 P2 **inworld-tts** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: inworld-tts: cold import needs TypeScript source entrypoint support
@@ -3864,27 +3809,22 @@ _none_
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
 
-- 🟡 P2 **llm-trace-phoenix** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: llm-trace-phoenix: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:12](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L12)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
-
-- 🟡 P2 **llm-trace-phoenix** `inspector-gap` `inspector-follow-up`
-  - **package-typescript-source-entrypoint**: llm-trace-phoenix: cold import needs TypeScript source entrypoint support
+- 🟡 P2 **llm-trace-phoenix** `upstream-metadata` `plugin-upstream-fix`
+  - **package-manifest-version-drift**: llm-trace-phoenix: package and manifest versions drift
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts)
+    - package:1.0.3
+    - manifest:1.0.1
+  - author remediation:
+    - Align the plugin version declared in package.json and openclaw.plugin.json.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-manifest-version-drift
 
 - 🟡 P2 **lobster** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: lobster: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@clawdbot/lobster @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/lobster/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/lobster/package.json)
+    - [@clawdbot/lobster @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/lobster/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/lobster/package.json)
 
 - 🟡 P2 **lobster** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: lobster: OpenClaw package install metadata is incomplete
@@ -3900,7 +3840,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -3909,30 +3849,30 @@ _none_
   - **package-build-artifact-entrypoint**: lossless-claw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/dist/index.js)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: lossless-claw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/package.json)
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:1676](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1676)
-    - [registerContextEngine @ index.ts:1646](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1646)
+    - [registerCommand @ index.ts:1696](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/src/plugin/index.ts#L1696)
+    - [registerContextEngine @ index.ts:1647](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/src/plugin/index.ts#L1647)
 
 - 🟡 P2 **lossless-claw** `deprecation-warning` `core-compat-adapter`
   - **sdk-load-session-store**: lossless-claw: deprecated whole-store session helper is still used
   - state: open · compat:none
   - evidence:
-    - [api.runtime.agent.session alias @ index.ts:1487](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1487)
-    - [api.runtime.agent.session alias @ index.ts:1516](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1516)
-    - [api.runtime.agent.session alias @ index.ts:1562](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1562)
-    - [api.runtime.agent.session alias @ index.ts:1773](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1773)
-    - [api.runtime.agent.session alias @ index.ts:1819](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1819)
+    - [api.runtime.agent.session alias @ index.ts:1487](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/src/plugin/index.ts#L1487)
+    - [api.runtime.agent.session alias @ index.ts:1516](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/src/plugin/index.ts#L1516)
+    - [api.runtime.agent.session alias @ index.ts:1562](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/src/plugin/index.ts#L1562)
+    - [api.runtime.agent.session alias @ index.ts:1794](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/src/plugin/index.ts#L1794)
+    - [api.runtime.agent.session alias @ index.ts:1840](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/src/plugin/index.ts#L1840)
   - author remediation:
     - Replace deprecated loadSessionStore whole-store access with row-scoped session helpers.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-load-session-store
@@ -3950,21 +3890,21 @@ _none_
   - **package-dependency-install-required**: matrix: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
 
 - 🟡 P2 **matrix** `upstream-metadata` `plugin-upstream-fix`
   - **package-min-host-version-drift**: matrix: OpenClaw package minimum host version drifts from build target
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -3973,23 +3913,23 @@ _none_
   - **package-typescript-source-entrypoint**: matrix: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/setup-entry.ts)
 
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: matrix: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerGatewayMethod @ index.ts:19](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/index.ts#L19)
-    - [registerGatewayMethod @ index.ts:24](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/index.ts#L24)
-    - [registerGatewayMethod @ index.ts:29](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/index.ts#L29)
+    - [registerGatewayMethod @ index.ts:19](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/index.ts#L19)
+    - [registerGatewayMethod @ index.ts:24](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/index.ts#L24)
+    - [registerGatewayMethod @ index.ts:29](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/index.ts#L29)
 
 - 🟡 P2 **matrix** `deprecation-warning` `core-compat-adapter`
   - **sdk-load-session-store**: matrix: deprecated whole-store session helper is still used
   - state: open · compat:none
   - evidence:
-    - [openclaw/plugin-sdk/session-store-runtime import @ handler.ts:44](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/src/matrix/monitor/handler.ts#L44)
-    - [openclaw/plugin-sdk/session-store-runtime import @ session-route.ts:10](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/src/session-route.ts#L10)
+    - [openclaw/plugin-sdk/session-store-runtime import @ handler.ts:44](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/src/matrix/monitor/handler.ts#L44)
+    - [openclaw/plugin-sdk/session-store-runtime import @ session-route.ts:10](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/src/session-route.ts#L10)
   - author remediation:
     - Replace deprecated loadSessionStore whole-store access with row-scoped session helpers.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-load-session-store
@@ -3998,7 +3938,7 @@ _none_
   - **channel-contract-probe**: mattermost: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel.ts:755](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/src/channel.ts#L755)
+    - [createChatChannelPlugin @ channel.ts:755](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/src/channel.ts#L755)
 
 - 🟡 P2 **mattermost** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: mattermost: channelEnvVars legacy manifest metadata must stay covered
@@ -4013,7 +3953,7 @@ _none_
   - **manifest-name-missing**: mattermost: manifest display name is missing
   - state: open · compat:none
   - evidence:
-    - [openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/openclaw.plugin.json)
+    - [openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/openclaw.plugin.json)
   - author remediation:
     - Add a display name to the plugin manifest.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-name-missing
@@ -4022,37 +3962,38 @@ _none_
   - **package-dependency-install-required**: mattermost: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/package.json)
+    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/package.json)
 
 - 🟡 P2 **mattermost** `upstream-metadata` `plugin-upstream-fix`
-  - **package-plugin-api-compat-missing**: mattermost: plugin API compatibility range is missing
+  - **package-min-host-version-drift**: mattermost: OpenClaw package minimum host version drifts from build target
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/package.json)
+    - minHostVersion:>=2026.6.9
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
-    - Declare the OpenClaw plugin API range this package supports.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
+    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: mattermost: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/setup-entry.ts)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: mattermost: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerHttpRoute @ slash-state.ts:417](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/src/mattermost/slash-state.ts#L417)
+    - [registerHttpRoute @ slash-state.ts:417](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/src/mattermost/slash-state.ts#L417)
 
 - 🟡 P2 **mattermost** `deprecation-warning` `core-compat-adapter`
   - **sdk-load-session-store**: mattermost: deprecated whole-store session helper is still used
   - state: open · compat:none
   - evidence:
-    - [openclaw/plugin-sdk/session-store-runtime re-export @ runtime-api.ts:49](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/runtime-api.ts#L49)
-    - [openclaw/plugin-sdk/session-store-runtime import @ model-picker.ts:10](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/src/mattermost/model-picker.ts#L10)
+    - [openclaw/plugin-sdk/session-store-runtime re-export @ runtime-api.ts:49](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/runtime-api.ts#L49)
+    - [openclaw/plugin-sdk/session-store-runtime import @ model-picker.ts:10](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/src/mattermost/model-picker.ts#L10)
   - author remediation:
     - Replace deprecated loadSessionStore whole-store access with row-scoped session helpers.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-load-session-store
@@ -4171,7 +4112,7 @@ _none_
   - **legacy-before-agent-start**: memos-cloud: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ index.js:531](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L531)
+    - [before_agent_start @ index.js:788](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/9b9e4ab2f3c28bbd4d178c0544879d434d5b30f6/index.js#L788)
   - author remediation:
     - Replace the legacy before_agent_start hook with the current prompt/model hooks.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start
@@ -4180,7 +4121,7 @@ _none_
   - **manifest-unknown-fields**: memos-cloud: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [main @ openclaw.plugin.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/9b9e4ab2f3c28bbd4d178c0544879d434d5b30f6/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -4189,7 +4130,7 @@ _none_
   - **package-plugin-api-compat-missing**: memos-cloud: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/package.json)
+    - [package.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/9b9e4ab2f3c28bbd4d178c0544879d434d5b30f6/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -4198,7 +4139,7 @@ _none_
   - **registration-capture-gap**: memos-cloud: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerHook @ index.js:517](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L517)
+    - [registerHook @ index.js:719](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/9b9e4ab2f3c28bbd4d178c0544879d434d5b30f6/index.js#L719)
 
 - 🟡 P2 **memu-engine** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: memu-engine: root plugin SDK barrel is still used by fixtures
@@ -4321,7 +4262,7 @@ _none_
   - **channel-contract-probe**: msteams: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-Dg0iJjJY.js:576](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/dist/channel-Dg0iJjJY.js#L576)
+    - [createChatChannelPlugin @ channel-D6Se2irO.js:576](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/dist/channel-D6Se2irO.js#L576)
 
 - 🟡 P2 **msteams** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: msteams: channelEnvVars legacy manifest metadata must stay covered
@@ -4336,11 +4277,11 @@ _none_
   - **package-dependency-install-required**: msteams: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@azure/identity @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/package.json)
-    - [@microsoft/teams.api @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/package.json)
-    - [@microsoft/teams.apps @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/package.json)
-    - [express @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/package.json)
+    - [@azure/identity @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/package.json)
+    - [@microsoft/teams.api @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/package.json)
+    - [@microsoft/teams.apps @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/package.json)
+    - [express @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/package.json)
 
 - 🟡 P2 **msteams** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: msteams: OpenClaw package install metadata is incomplete
@@ -4356,7 +4297,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -4365,28 +4306,28 @@ _none_
   - **package-build-artifact-entrypoint**: nemoclaw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/dist/index.js)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nemoclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/package.json)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:346](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/src/index.ts#L346)
+    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/src/index.ts#L348)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-Cg-iYKsC.js:2015](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nextcloud-talk/dist/channel-Cg-iYKsC.js#L2015)
+    - [createChatChannelPlugin @ channel-Ue-gORdw.js:2025](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nextcloud-talk/dist/channel-Ue-gORdw.js#L2025)
 
 - 🟡 P2 **nextcloud-talk** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: nextcloud-talk: channelEnvVars legacy manifest metadata must stay covered
@@ -4401,7 +4342,7 @@ _none_
   - **package-dependency-install-required**: nextcloud-talk: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nextcloud-talk/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nextcloud-talk/package.json)
 
 - 🟡 P2 **nextcloud-talk** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: nextcloud-talk: OpenClaw package install metadata is incomplete
@@ -4417,7 +4358,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -4426,7 +4367,7 @@ _none_
   - **channel-contract-probe**: nostr: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-CFiNISWq.js:1338](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nostr/dist/channel-CFiNISWq.js#L1338)
+    - [createChatChannelPlugin @ channel-CFiNISWq.js:1338](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nostr/dist/channel-CFiNISWq.js#L1338)
 
 - 🟡 P2 **nostr** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: nostr: channelEnvVars legacy manifest metadata must stay covered
@@ -4441,8 +4382,8 @@ _none_
   - **package-dependency-install-required**: nostr: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [nostr-tools @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nostr/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nostr/package.json)
+    - [nostr-tools @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nostr/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nostr/package.json)
 
 - 🟡 P2 **nostr** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: nostr: OpenClaw package install metadata is incomplete
@@ -4458,7 +4399,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -4467,7 +4408,7 @@ _none_
   - **registration-capture-gap**: nostr: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerHttpRoute @ index.js:71](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nostr/dist/index.js#L71)
+    - [registerHttpRoute @ index.js:71](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nostr/dist/index.js#L71)
 
 - 🟡 P2 **openclaw-qqbot** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: openclaw-qqbot: channelEnvVars legacy manifest metadata must stay covered
@@ -4477,15 +4418,6 @@ _none_
   - author remediation:
     - Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars
-
-- 🟡 P2 **openclaw-qqbot** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: openclaw-qqbot: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [icon @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/4f9d5864f09f60a6eb9da6ad6317148bbf89e134/extensions/qqbot/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **openclaw-qqbot** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: openclaw-qqbot: cold import requires dependency installation in an isolated workspace
@@ -4664,21 +4596,22 @@ _none_
   - **channel-contract-probe**: qqbot: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L16)
+    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L16)
 
 - 🟡 P2 **qqbot** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: qqbot: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L1)
-    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L2)
-    - [openclaw/plugin-sdk @ approval-handler.ts:12](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/approval-handler.ts#L12)
-    - [openclaw/plugin-sdk @ config.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/config.ts#L2)
-    - [openclaw/plugin-sdk @ onboarding.ts:13](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/onboarding.ts#L13)
-    - [openclaw/plugin-sdk @ proactive.ts:67](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/proactive.ts#L67)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/channel.ts#L1)
-    - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/remind.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L2)
+    - [openclaw/plugin-sdk @ api.ts:7](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/api.ts#L7)
+    - [openclaw/plugin-sdk @ approval-handler.ts:12](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/approval-handler.ts#L12)
+    - [openclaw/plugin-sdk @ config.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/config.ts#L2)
+    - [openclaw/plugin-sdk @ onboarding.ts:13](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/onboarding.ts#L13)
+    - [openclaw/plugin-sdk @ proactive.ts:67](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/proactive.ts#L67)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/channel.ts#L1)
+    - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/remind.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -4687,8 +4620,8 @@ _none_
   - **manifest-unknown-fields**: qqbot: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [capabilities @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/openclaw.plugin.json)
-    - [extensions @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/openclaw.plugin.json)
+    - [capabilities @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/openclaw.plugin.json)
+    - [extensions @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -4697,15 +4630,15 @@ _none_
   - **package-dependency-install-required**: qqbot: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [mpg123-decoder @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
-    - [silk-wasm @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
-    - [ws @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
+    - [mpg123-decoder @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
+    - [silk-wasm @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
+    - [ws @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
 
 - 🟡 P2 **qqbot** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: qqbot: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
+    - [package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -4714,14 +4647,14 @@ _none_
   - **registration-capture-gap**: qqbot: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L16)
+    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L16)
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: qqbot: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - [registerTool @ channel.ts:138](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/channel.ts#L138)
-    - [registerTool @ remind.ts:222](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/remind.ts#L222)
+    - [registerTool @ channel.ts:134](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/channel.ts#L134)
+    - [registerTool @ remind.ts:222](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/remind.ts#L222)
 
 - 🟡 P2 **secureclaw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: secureclaw: cold import requires package build output
@@ -4757,7 +4690,7 @@ _none_
   - **channel-contract-probe**: synology-chat: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-D8xW77Og.js:1111](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/synology-chat/dist/channel-D8xW77Og.js#L1111)
+    - [createChatChannelPlugin @ channel-BpZt8_If.js:1107](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/synology-chat/dist/channel-BpZt8_If.js#L1107)
 
 - 🟡 P2 **synology-chat** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: synology-chat: channelEnvVars legacy manifest metadata must stay covered
@@ -4772,7 +4705,7 @@ _none_
   - **package-dependency-install-required**: synology-chat: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/synology-chat/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/synology-chat/package.json)
 
 - 🟡 P2 **synology-chat** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: synology-chat: OpenClaw package install metadata is incomplete
@@ -4788,7 +4721,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -4797,7 +4730,7 @@ _none_
   - **channel-contract-probe**: telnyx-sms: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [defineChannelPluginEntry @ index.ts:207](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/index.ts#L207)
+    - [defineChannelPluginEntry @ index.ts:207](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/index.ts#L207)
 
 - 🟡 P2 **telnyx-sms** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: telnyx-sms: channelEnvVars legacy manifest metadata must stay covered
@@ -4812,30 +4745,30 @@ _none_
   - **package-build-artifact-entrypoint**: telnyx-sms: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/dist/index.js)
-    - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/dist/setup-entry.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/dist/index.js)
+    - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/dist/setup-entry.js)
 
 - 🟡 P2 **telnyx-sms** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: telnyx-sms: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerHttpRoute @ index.ts:259](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/index.ts#L259)
+    - [registerHttpRoute @ index.ts:259](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/index.ts#L259)
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: tlon: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-CKKTYJLK.js:136](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/dist/channel-CKKTYJLK.js#L136)
+    - [createChatChannelPlugin @ channel-colVGWsG.js:136](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/dist/channel-colVGWsG.js#L136)
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: tlon: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@aws-sdk/client-s3 @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/package.json)
-    - [@aws-sdk/s3-request-presigner @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/package.json)
-    - [@tloncorp/tlon-skill @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/package.json)
-    - [@urbit/aura @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/package.json)
+    - [@aws-sdk/client-s3 @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/package.json)
+    - [@aws-sdk/s3-request-presigner @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/package.json)
+    - [@tloncorp/tlon-skill @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/package.json)
+    - [@urbit/aura @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/package.json)
 
 - 🟡 P2 **tlon** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: tlon: OpenClaw package install metadata is incomplete
@@ -4851,7 +4784,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -4860,7 +4793,7 @@ _none_
   - **channel-contract-probe**: twitch: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ plugin-BqKCtREI.js:1251](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/twitch/dist/plugin-BqKCtREI.js#L1251)
+    - [createChatChannelPlugin @ plugin-BqKCtREI.js:1251](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/twitch/dist/plugin-BqKCtREI.js#L1251)
 
 - 🟡 P2 **twitch** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: twitch: channelEnvVars legacy manifest metadata must stay covered
@@ -4875,10 +4808,10 @@ _none_
   - **package-dependency-install-required**: twitch: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@twurple/api @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/twitch/package.json)
-    - [@twurple/auth @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/twitch/package.json)
-    - [@twurple/chat @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/twitch/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/twitch/package.json)
+    - [@twurple/api @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/twitch/package.json)
+    - [@twurple/auth @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/twitch/package.json)
+    - [@twurple/chat @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/twitch/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/twitch/package.json)
 
 - 🟡 P2 **twitch** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: twitch: OpenClaw package install metadata is incomplete
@@ -4894,7 +4827,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -4912,10 +4845,10 @@ _none_
   - **package-dependency-install-required**: voice-call: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [commander @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/package.json)
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/package.json)
+    - [commander @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/package.json)
+    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/package.json)
 
 - 🟡 P2 **voice-call** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: voice-call: OpenClaw package install metadata is incomplete
@@ -4931,7 +4864,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -4940,23 +4873,23 @@ _none_
   - **registration-capture-gap**: voice-call: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerConfigMigration @ setup-api.js:35](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/setup-api.js#L35)
-    - [registerGatewayMethod @ index.js:1045](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1045)
-    - [registerGatewayMethod @ index.js:1071](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1071)
-    - [registerGatewayMethod @ index.js:1084](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1084)
-    - [registerGatewayMethod @ index.js:1096](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1096)
-    - [registerGatewayMethod @ index.js:1113](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1113)
-    - [registerGatewayMethod @ index.js:1144](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1144)
-    - [registerGatewayMethod @ index.js:1162](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1162)
-    - [registerGatewayMethod @ index.js:1179](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1179)
-    - [registerGatewayMethod @ index.js:1203](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1203)
-    - [registerService @ index.js:1339](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1339)
+    - [registerConfigMigration @ setup-api.js:35](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/setup-api.js#L35)
+    - [registerGatewayMethod @ index.js:1045](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1045)
+    - [registerGatewayMethod @ index.js:1071](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1071)
+    - [registerGatewayMethod @ index.js:1084](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1084)
+    - [registerGatewayMethod @ index.js:1096](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1096)
+    - [registerGatewayMethod @ index.js:1113](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1113)
+    - [registerGatewayMethod @ index.js:1144](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1144)
+    - [registerGatewayMethod @ index.js:1162](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1162)
+    - [registerGatewayMethod @ index.js:1179](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1179)
+    - [registerGatewayMethod @ index.js:1203](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1203)
+    - [registerService @ index.js:1339](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1339)
 
 - 🟡 P2 **web-search-plus** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: web-search-plus: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/21dd15b8d24c71491fb32f270e2f6c13b25fde90/index.ts)
+    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/314f6502936bb203be6254f93a52b64888b8fcbe/index.ts)
 
 - 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: wecom: channel runtime needs envelope/config probes
@@ -4994,15 +4927,6 @@ _none_
   - state: open · compat:active
   - evidence:
     - [createChatChannelPlugin @ channel-C9zebxrw.js:613](https://github.com/openclaw/openclaw/blob/4f9d5864f09f60a6eb9da6ad6317148bbf89e134/extensions/whatsapp/dist/channel-C9zebxrw.js#L613)
-
-- 🟡 P2 **whatsapp** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: whatsapp: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [icon @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/4f9d5864f09f60a6eb9da6ad6317148bbf89e134/extensions/whatsapp/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **whatsapp** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: whatsapp: cold import requires dependency installation in an isolated workspace
@@ -5092,7 +5016,7 @@ _none_
   - **channel-contract-probe**: zalo: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-BulSjBML.js:261](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalo/dist/channel-BulSjBML.js#L261)
+    - [createChatChannelPlugin @ channel-BulSjBML.js:261](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalo/dist/channel-BulSjBML.js#L261)
 
 - 🟡 P2 **zalo** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: zalo: channelEnvVars legacy manifest metadata must stay covered
@@ -5107,7 +5031,7 @@ _none_
   - **package-dependency-install-required**: zalo: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalo/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalo/package.json)
 
 - 🟡 P2 **zalo** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: zalo: OpenClaw package install metadata is incomplete
@@ -5123,7 +5047,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -5132,7 +5056,7 @@ _none_
   - **channel-contract-probe**: zalouser: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel-BFn5MZCm.js:557](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalouser/dist/channel-BFn5MZCm.js#L557)
+    - [createChatChannelPlugin @ channel-BFn5MZCm.js:557](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalouser/dist/channel-BFn5MZCm.js#L557)
 
 - 🟡 P2 **zalouser** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: zalouser: channelEnvVars legacy manifest metadata must stay covered
@@ -5147,9 +5071,9 @@ _none_
   - **package-dependency-install-required**: zalouser: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalouser/package.json)
-    - [zca-js @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalouser/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalouser/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalouser/package.json)
+    - [zca-js @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalouser/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalouser/package.json)
 
 - 🟡 P2 **zalouser** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: zalouser: OpenClaw package install metadata is incomplete
@@ -5165,7 +5089,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
   - author remediation:
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
@@ -5174,7 +5098,7 @@ _none_
   - **security-manifest-schema-unavailable**: clawrouter: plugin security manifest references an unavailable schema
   - state: open · compat:none
   - evidence:
-    - [plugin-security.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/openclaw.security.json%3A%24schema%3Dhttps%3A/openclaw.ai/schemas/plugin-security.json)
+    - [plugin-security.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/openclaw.security.json%3A%24schema%3Dhttps%3A/openclaw.ai/schemas/plugin-security.json)
   - author remediation:
     - Remove or update the unsupported security manifest schema reference.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#security-manifest-schema-unavailable
@@ -5183,7 +5107,7 @@ _none_
   - **unrecognized-security-manifest**: clawrouter: plugin ships an unsupported security manifest
   - state: open · compat:none
   - evidence:
-    - [openclaw.security.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/openclaw.security.json)
+    - [openclaw.security.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/openclaw.security.json)
   - author remediation:
     - Remove unsupported security manifest files until OpenClaw documents a versioned security manifest schema.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#unrecognized-security-manifest
@@ -5206,7 +5130,7 @@ _none_
   - contract: Hook returns preserve terminal, block, and approval semantics.
   - id: `hook.before_tool_call.terminal-block-approval:nemoclaw`
   - evidence:
-    - [before_tool_call @ index.ts:383](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/src/index.ts#L383)
+    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/src/index.ts#L385)
 
 - 🟠 P1 **openclaw-telemetry** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
@@ -5230,14 +5154,14 @@ _none_
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:clawmetry`
   - evidence:
-    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/975fe9e2ab66ef0d3bca4ba45faf1c9250badc84/clawhub-plugin/src/service.ts#L117)
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/e96d75f9471d986f28a3d634f82e86d1805d385a/clawhub-plugin/src/service.ts#L117)
 
 - 🟠 P1 **honcho** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:honcho`
   - evidence:
-    - [agent_end @ capture.ts:164](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/capture.ts#L164)
-    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L34)
+    - [agent_end @ capture.ts:164](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/capture.ts#L164)
+    - [agent_end @ subagent.ts:34](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/subagent.ts#L34)
 
 - 🟠 P1 **kitchen-sink** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
@@ -5251,8 +5175,8 @@ _none_
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:llm-trace-phoenix`
   - evidence:
-    - [llm_input @ index.ts:154](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L154)
-    - [llm_output @ index.ts:168](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L168)
+    - [llm_input @ index.ts:202](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/index.ts#L202)
+    - [llm_output @ index.ts:216](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/index.ts#L216)
 
 - 🟠 P1 **memory-lancedb** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
@@ -5275,7 +5199,7 @@ _none_
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:memos-cloud`
   - evidence:
-    - [agent_end @ index.js:565](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L565)
+    - [agent_end @ index.js:791](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/9b9e4ab2f3c28bbd4d178c0544879d434d5b30f6/index.js#L791)
 
 - 🟠 P1 **openclaw-telemetry** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
@@ -5309,38 +5233,40 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:dingtalk-connector`
   - evidence:
-    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/index.ts#L75)
-    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L130)
-    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L190)
-    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L258)
-    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L311)
-    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L351)
-    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L388)
-    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L425)
-    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L452)
-    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L506)
-    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L593)
-    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L60)
-    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L652)
-    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L719)
+    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L76)
+    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L130)
+    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L190)
+    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L258)
+    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L311)
+    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L351)
+    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L388)
+    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L425)
+    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L452)
+    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L506)
+    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L593)
+    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L60)
+    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L652)
+    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L719)
+    - [registerGatewayMethod @ card-bridge.ts:337](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L337)
+    - [registerGatewayMethod @ card-bridge.ts:362](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L362)
 
 - 🟡 P2 **honcho** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:honcho`
   - evidence:
-    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/index.ts#L97)
-    - [registerMemoryRuntime @ runtime.ts:261](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/runtime.ts#L261)
+    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/index.ts#L97)
+    - [registerMemoryRuntime @ runtime.ts:261](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/runtime.ts#L261)
 
 - 🟡 P2 **hyperspell** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:hyperspell`
   - evidence:
-    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/commands/slash.ts#L166)
-    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/commands/slash.ts#L43)
-    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:55](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/index.ts#L55)
-    - [registerCommand @ index.ts:66](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/index.ts#L66)
-    - [registerCommand @ index.ts:77](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/index.ts#L77)
+    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/commands/slash.ts#L166)
+    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/commands/slash.ts#L43)
+    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/commands/slash.ts#L98)
+    - [registerCommand @ index.ts:55](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/index.ts#L55)
+    - [registerCommand @ index.ts:66](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/index.ts#L66)
+    - [registerCommand @ index.ts:77](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/index.ts#L77)
 
 - 🟡 P2 **kitchen-sink** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -5391,8 +5317,8 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:lossless-claw`
   - evidence:
-    - [registerCommand @ index.ts:1676](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1676)
-    - [registerContextEngine @ index.ts:1646](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/src/plugin/index.ts#L1646)
+    - [registerCommand @ index.ts:1696](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/src/plugin/index.ts#L1696)
+    - [registerContextEngine @ index.ts:1647](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/src/plugin/index.ts#L1647)
 
 - 🟡 P2 **mcp-adapter** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -5422,7 +5348,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:nemoclaw`
   - evidence:
-    - [registerCommand @ index.ts:346](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/src/index.ts#L346)
+    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/src/index.ts#L348)
 
 - 🟡 P2 **openclaw-telemetry** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -5447,7 +5373,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:qqbot`
   - evidence:
-    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L16)
+    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L16)
 
 - 🟡 P2 **wecom** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -5474,13 +5400,13 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:ddingtalk`
   - evidence:
-    - [defineChannelPluginEntry @ index.ts:8](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts#L8)
+    - [defineChannelPluginEntry @ index.ts:8](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/index.ts#L8)
 
 - 🟡 P2 **dingtalk-connector** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:dingtalk-connector`
   - evidence:
-    - [registerChannel @ index.ts:75](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/index.ts#L75)
+    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L76)
 
 - 🟡 P2 **kitchen-sink** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -5506,7 +5432,7 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:qqbot`
   - evidence:
-    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L16)
+    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L16)
 
 - 🟡 P2 **wecom** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -5530,7 +5456,7 @@ _none_
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
   - id: `hook.compat.before-agent-start-migration:honcho`
   - evidence:
-    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L18)
+    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/subagent.ts#L18)
 
 - 🟡 P2 **kitchen-sink** `hook-runner`
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
@@ -5550,6 +5476,12 @@ _none_
   - evidence:
     - agentchat
 
+- 🟡 P2 **ddingtalk** `manifest-loader`
+  - contract: Legacy channel env metadata continues to map into channel setup/help surfaces.
+  - id: `manifest.compat.channel-env-vars:ddingtalk`
+  - evidence:
+    - ddingtalk
+
 - 🟡 P2 **yuanbao** `manifest-loader`
   - contract: Legacy channel env metadata continues to map into channel setup/help surfaces.
   - id: `manifest.compat.channel-env-vars:yuanbao`
@@ -5566,13 +5498,7 @@ _none_
   - contract: OpenClaw plugin manifests declare a human-readable display name for registry and tooling metadata.
   - id: `manifest.metadata.name:ddingtalk`
   - evidence:
-    - [openclaw.plugin.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/openclaw.plugin.json)
-
-- 🟡 P2 **honcho** `manifest-loader`
-  - contract: OpenClaw plugin manifests declare a human-readable display name for registry and tooling metadata.
-  - id: `manifest.metadata.name:honcho`
-  - evidence:
-    - [openclaw.plugin.json](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/openclaw.plugin.json)
+    - [openclaw.plugin.json](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/openclaw.plugin.json)
 
 - 🟡 P2 **mocrane-wecom** `manifest-loader`
   - contract: OpenClaw plugin manifests declare a human-readable display name for registry and tooling metadata.
@@ -5604,21 +5530,20 @@ _none_
   - evidence:
     - [displayName @ openclaw.plugin.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/openclaw.plugin.json)
     - [homepage @ openclaw.plugin.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/openclaw.plugin.json)
-    - [icon @ openclaw.plugin.json](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/openclaw.plugin.json)
 
 - 🟡 P2 **dingtalk-connector** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
   - id: `manifest.schema.top-level-fields:dingtalk-connector`
   - evidence:
-    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/openclaw.plugin.json)
-    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/openclaw.plugin.json)
+    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/openclaw.plugin.json)
 
 - 🟡 P2 **qqbot** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
   - id: `manifest.schema.top-level-fields:qqbot`
   - evidence:
-    - [capabilities @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/openclaw.plugin.json)
-    - [extensions @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/openclaw.plugin.json)
+    - [capabilities @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/openclaw.plugin.json)
+    - [extensions @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/openclaw.plugin.json)
 
 - 🟡 P2 **a2a-gateway** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -5636,13 +5561,13 @@ _none_
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:ddingtalk`
   - evidence:
-    - [package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
+    - [package.json](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/package.json)
 
 - 🟡 P2 **dingtalk-connector** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:dingtalk-connector`
   - evidence:
-    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
+    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
 
 - 🟡 P2 **mcp-adapter** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -5678,7 +5603,7 @@ _none_
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:qqbot`
   - evidence:
-    - [package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
+    - [package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
 
 - 🟡 P2 **wecom** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -5699,29 +5624,35 @@ _none_
     - [extension:./dist/index.js @ index.js](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/dist/index.js)
     - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/agentchatme/agentchat/blob/1460cece00ebd3829fb39d5db5ee23050937ed02/integrations/openclaw-channel/dist/setup-entry.js)
 
+- 🟡 P2 **ddingtalk** `package-loader`
+  - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
+  - id: `package.entrypoint.build-before-cold-import:ddingtalk`
+  - evidence:
+    - [extension:./dist/index.js @ index.js](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/dist/index.js)
+
 - 🟡 P2 **dingtalk-connector** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:dingtalk-connector`
   - evidence:
-    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/dist/index.mjs)
+    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/dist/index.mjs)
 
 - 🟡 P2 **honcho** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:honcho`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/dist/index.js)
 
 - 🟡 P2 **hyperspell** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:hyperspell`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/dist/index.js)
 
 - 🟡 P2 **lossless-claw** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:lossless-claw`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/dist/index.js)
 
 - 🟡 P2 **memory-tencentdb** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -5733,7 +5664,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:nemoclaw`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/dist/index.js)
 
 - 🟡 P2 **opik-openclaw** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -5767,46 +5698,46 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:ddingtalk`
   - evidence:
-    - [dingtalk-stream @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
-    - [zod @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/package.json)
+    - [dingtalk-stream @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/package.json)
+    - [zod @ package.json](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/package.json)
 
 - 🟡 P2 **dingtalk-connector** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:dingtalk-connector`
   - evidence:
-    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
-    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
-    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
-    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
-    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
-    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/package.json)
+    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
 
 - 🟡 P2 **hasdata** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:hasdata`
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/HasData/hasdata-openclaw-plugin/blob/bed32d8a0359392b7c4628f12b909b6e204c8426/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/HasData/hasdata-openclaw-plugin/blob/83e4a20da5f2b9331a7efff46aa622e2a6ea9c05/package.json)
 
 - 🟡 P2 **honcho** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:honcho`
   - evidence:
-    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/package.json)
+    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/package.json)
 
 - 🟡 P2 **hyperspell** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:hyperspell`
   - evidence:
-    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/package.json)
-    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/package.json)
+    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/package.json)
+    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/package.json)
 
 - 🟡 P2 **lossless-claw** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:lossless-claw`
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/d404eba6c71df4fa387560ab1188a58c3bda6f4f/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/Martian-Engineering/lossless-claw/blob/a97c65888838dad9ac665ce10c6f54d0a370a02b/package.json)
 
 - 🟡 P2 **mcp-adapter** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -5834,10 +5765,10 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:nemoclaw`
   - evidence:
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/b3500bf7b46b4235b6c49fa76355f7b364808002/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/acacf931ee8983817f38e6791b343795bf04e661/nemoclaw/package.json)
 
 - 🟡 P2 **openclaw-weixin** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -5858,9 +5789,9 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:qqbot`
   - evidence:
-    - [mpg123-decoder @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
-    - [silk-wasm @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
-    - [ws @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/package.json)
+    - [mpg123-decoder @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
+    - [silk-wasm @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
+    - [ws @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
 
 - 🟡 P2 **wecom** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -5897,23 +5828,11 @@ _none_
   - evidence:
     - [extension @ index.ts](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/index.ts)
 
-- 🟡 P2 **ddingtalk** `package-loader`
-  - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
-  - id: `package.entrypoint.typescript-loader:ddingtalk`
-  - evidence:
-    - [extension @ index.ts](https://github.com/largezhou/openclaw-dingtalk/blob/74d22da7335f261ec5febe2663bed6b81068b7ec/index.ts)
-
 - 🟡 P2 **hasdata** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:hasdata`
   - evidence:
-    - [extension @ index.ts](https://github.com/HasData/hasdata-openclaw-plugin/blob/bed32d8a0359392b7c4628f12b909b6e204c8426/src/index.ts)
-
-- 🟡 P2 **llm-trace-phoenix** `package-loader`
-  - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
-  - id: `package.entrypoint.typescript-loader:llm-trace-phoenix`
-  - evidence:
-    - [extension @ index.ts](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts)
+    - [extension @ index.ts](https://github.com/HasData/hasdata-openclaw-plugin/blob/83e4a20da5f2b9331a7efff46aa622e2a6ea9c05/src/index.ts)
 
 - 🟡 P2 **mcp-adapter** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -5966,6 +5885,13 @@ _none_
     - package:0.17.1
     - manifest:0.13.0
 
+- 🟡 P2 **llm-trace-phoenix** `package-loader`
+  - contract: Package and OpenClaw manifest versions stay aligned for release compatibility reporting.
+  - id: `package.metadata.version-alignment:llm-trace-phoenix`
+  - evidence:
+    - package:1.0.3
+    - manifest:1.0.1
+
 - 🟡 P2 **kitchen-sink** `sdk-import`
   - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
   - id: `sdk.import.reserved-bundled-plugin-boundary:kitchen-sink`
@@ -5998,53 +5924,48 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:dingtalk-connector`
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/index.ts#L17)
-    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/channel.ts#L5)
-    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/config/accounts.ts#L2)
-    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/core/connection.ts#L16)
-    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/core/provider.ts#L14)
-    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/directory.ts#L1)
-    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/gateway-methods.ts#L7)
-    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/onboarding.ts#L5)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/fac1bca985e4fba8de07228a208f7720ec7476cc/src/utils/agent.ts#L8)
+    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L17)
+    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/channel.ts#L5)
+    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/config/accounts.ts#L2)
+    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/connection.ts#L16)
+    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/provider.ts#L14)
+    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/directory.ts#L1)
+    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L7)
+    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/onboarding.ts#L5)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ card-bridge.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L1)
+    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/utils/agent.ts#L8)
 
 - 🟡 P2 **honcho** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:honcho`
   - evidence:
-    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/commands/cli.ts#L8)
-    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/capture.ts#L2)
-    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/context.ts#L2)
-    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/gateway.ts#L2)
-    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/hooks/subagent.ts#L2)
-    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/state.ts#L9)
-    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/ask.ts#L3)
-    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/context.ts#L3)
-    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/memory-passthrough.ts#L3)
-    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/message-search.ts#L3)
-    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/search.ts#L3)
-    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/bb546c2db495c886e84f1f6de99f30a5b7271ae4/tools/session.ts#L3)
+    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/commands/cli.ts#L8)
+    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/capture.ts#L2)
+    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/context.ts#L2)
+    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/gateway.ts#L2)
+    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/hooks/subagent.ts#L2)
+    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/state.ts#L9)
+    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/ask.ts#L3)
+    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/context.ts#L3)
+    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/memory-passthrough.ts#L3)
+    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/message-search.ts#L3)
+    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/search.ts#L3)
+    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/f35f9d474b977f2c43e6dbace1eb9323123347bc/tools/session.ts#L3)
 
 - 🟡 P2 **hyperspell** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:hyperspell`
   - evidence:
-    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/commands/slash.ts#L1)
-    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/graph/tools.ts#L2)
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/715a583ebbf03a5d3e10517dfeede1ce3ce435ad/index.ts#L1)
+    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/commands/slash.ts#L1)
+    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/graph/tools.ts#L2)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/dc6a24171d8939e96d226c7f80516c64d34669fd/index.ts#L1)
 
 - 🟡 P2 **kitchen-sink** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:kitchen-sink`
   - evidence:
     - [openclaw/plugin-sdk @ generated-sdk-imports.ts:2](https://github.com/openclaw/kitchen-sink/blob/148fc81e76954080969ae306234a2731b8b3aec8/src/generated-sdk-imports.ts#L2)
-
-- 🟡 P2 **llm-trace-phoenix** `sdk-alias`
-  - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
-  - id: `sdk.import.root-barrel-cold-import:llm-trace-phoenix`
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:12](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/05bc0f4ba67281c10fad7be356d32a54b00c59fd/index.ts#L12)
 
 - 🟡 P2 **memory-tencentdb** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
@@ -6110,15 +6031,16 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:qqbot`
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L1)
-    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/index.ts#L2)
-    - [openclaw/plugin-sdk @ approval-handler.ts:12](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/approval-handler.ts#L12)
-    - [openclaw/plugin-sdk @ config.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/config.ts#L2)
-    - [openclaw/plugin-sdk @ onboarding.ts:13](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/onboarding.ts#L13)
-    - [openclaw/plugin-sdk @ proactive.ts:67](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/proactive.ts#L67)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/channel.ts#L1)
-    - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/remind.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L2)
+    - [openclaw/plugin-sdk @ api.ts:7](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/api.ts#L7)
+    - [openclaw/plugin-sdk @ approval-handler.ts:12](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/approval-handler.ts#L12)
+    - [openclaw/plugin-sdk @ config.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/config.ts#L2)
+    - [openclaw/plugin-sdk @ onboarding.ts:13](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/onboarding.ts#L13)
+    - [openclaw/plugin-sdk @ proactive.ts:67](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/proactive.ts#L67)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/channel.ts#L1)
+    - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/remind.ts#L1)
 
 - 🟡 P2 **connectclaw** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
@@ -6142,8 +6064,8 @@ _none_
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
   - id: `tool.registration.schema-capture:qqbot`
   - evidence:
-    - [registerTool @ channel.ts:138](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/channel.ts#L138)
-    - [registerTool @ remind.ts:222](https://github.com/tencent-connect/openclaw-qqbot/blob/3eee78922ed0b19af5c4c55f1dfe7d1c848e31f5/src/tools/remind.ts#L222)
+    - [registerTool @ channel.ts:134](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/channel.ts#L134)
+    - [registerTool @ remind.ts:222](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/remind.ts#L222)
 
 - 🟡 P2 **yuanbao** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
@@ -6157,21 +6079,21 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:clawmetry`
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/975fe9e2ab66ef0d3bca4ba45faf1c9250badc84/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/e96d75f9471d986f28a3d634f82e86d1805d385a/clawhub-plugin/index.ts#L20)
 
 - 🟢 P3 **clawrouter** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:clawrouter`
   - evidence:
-    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1792)
-    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1842)
-    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1896)
-    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L1954)
-    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2031)
-    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2036)
-    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2040)
-    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2041)
-    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/src/index.ts#L2050)
+    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L1792)
+    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L1842)
+    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L1896)
+    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L1954)
+    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L2031)
+    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L2036)
+    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L2040)
+    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L2041)
+    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/src/index.ts#L2050)
 
 - 🟢 P3 **codex** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -6194,7 +6116,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:diagnostics-otel`
   - evidence:
-    - [registerService @ index.js:2367](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/dist/index.js#L2367)
+    - [registerService @ index.js:2367](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/dist/index.js#L2367)
 
 - 🟢 P3 **diagnostics-prometheus** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -6234,15 +6156,15 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:matrix`
   - evidence:
-    - [registerGatewayMethod @ index.ts:19](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/index.ts#L19)
-    - [registerGatewayMethod @ index.ts:24](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/index.ts#L24)
-    - [registerGatewayMethod @ index.ts:29](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/index.ts#L29)
+    - [registerGatewayMethod @ index.ts:19](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/index.ts#L19)
+    - [registerGatewayMethod @ index.ts:24](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/index.ts#L24)
+    - [registerGatewayMethod @ index.ts:29](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/index.ts#L29)
 
 - 🟢 P3 **mattermost** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:mattermost`
   - evidence:
-    - [registerHttpRoute @ slash-state.ts:417](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/src/mattermost/slash-state.ts#L417)
+    - [registerHttpRoute @ slash-state.ts:417](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/src/mattermost/slash-state.ts#L417)
 
 - 🟢 P3 **memory-lancedb** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -6255,13 +6177,13 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:memos-cloud`
   - evidence:
-    - [registerHook @ index.js:517](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L517)
+    - [registerHook @ index.js:719](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/9b9e4ab2f3c28bbd4d178c0544879d434d5b30f6/index.js#L719)
 
 - 🟢 P3 **nostr** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:nostr`
   - evidence:
-    - [registerHttpRoute @ index.js:71](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nostr/dist/index.js#L71)
+    - [registerHttpRoute @ index.js:71](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nostr/dist/index.js#L71)
 
 - 🟢 P3 **openclaw-qqbot** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -6281,23 +6203,23 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:telnyx-sms`
   - evidence:
-    - [registerHttpRoute @ index.ts:259](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/index.ts#L259)
+    - [registerHttpRoute @ index.ts:259](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/index.ts#L259)
 
 - 🟢 P3 **voice-call** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:voice-call`
   - evidence:
-    - [registerConfigMigration @ setup-api.js:35](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/setup-api.js#L35)
-    - [registerGatewayMethod @ index.js:1045](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1045)
-    - [registerGatewayMethod @ index.js:1071](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1071)
-    - [registerGatewayMethod @ index.js:1084](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1084)
-    - [registerGatewayMethod @ index.js:1096](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1096)
-    - [registerGatewayMethod @ index.js:1113](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1113)
-    - [registerGatewayMethod @ index.js:1144](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1144)
-    - [registerGatewayMethod @ index.js:1162](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1162)
-    - [registerGatewayMethod @ index.js:1179](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1179)
-    - [registerGatewayMethod @ index.js:1203](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1203)
-    - [registerService @ index.js:1339](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/dist/index.js#L1339)
+    - [registerConfigMigration @ setup-api.js:35](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/setup-api.js#L35)
+    - [registerGatewayMethod @ index.js:1045](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1045)
+    - [registerGatewayMethod @ index.js:1071](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1071)
+    - [registerGatewayMethod @ index.js:1084](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1084)
+    - [registerGatewayMethod @ index.js:1096](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1096)
+    - [registerGatewayMethod @ index.js:1113](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1113)
+    - [registerGatewayMethod @ index.js:1144](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1144)
+    - [registerGatewayMethod @ index.js:1162](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1162)
+    - [registerGatewayMethod @ index.js:1179](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1179)
+    - [registerGatewayMethod @ index.js:1203](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1203)
+    - [registerService @ index.js:1339](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/dist/index.js#L1339)
 
 - 🟢 P3 **bluebubbles** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -6309,13 +6231,13 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:discord`
   - evidence:
-    - [createChatChannelPlugin @ channel-BZ3NznY_.js:423](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/dist/channel-BZ3NznY_.js#L423)
+    - [createChatChannelPlugin @ channel-YA7AbYP3.js:423](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/dist/channel-YA7AbYP3.js#L423)
 
 - 🟢 P3 **feishu** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:feishu`
   - evidence:
-    - [createChatChannelPlugin @ channel-uEJPBCR9.js:2036](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/feishu/dist/channel-uEJPBCR9.js#L2036)
+    - [createChatChannelPlugin @ channel-C1MthXp0.js:2036](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/feishu/dist/channel-C1MthXp0.js#L2036)
 
 - 🟢 P3 **lightclawbot** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -6328,49 +6250,49 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:mattermost`
   - evidence:
-    - [createChatChannelPlugin @ channel.ts:755](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/src/channel.ts#L755)
+    - [createChatChannelPlugin @ channel.ts:755](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/src/channel.ts#L755)
 
 - 🟢 P3 **msteams** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:msteams`
   - evidence:
-    - [createChatChannelPlugin @ channel-Dg0iJjJY.js:576](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/dist/channel-Dg0iJjJY.js#L576)
+    - [createChatChannelPlugin @ channel-D6Se2irO.js:576](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/dist/channel-D6Se2irO.js#L576)
 
 - 🟢 P3 **nextcloud-talk** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:nextcloud-talk`
   - evidence:
-    - [createChatChannelPlugin @ channel-Cg-iYKsC.js:2015](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nextcloud-talk/dist/channel-Cg-iYKsC.js#L2015)
+    - [createChatChannelPlugin @ channel-Ue-gORdw.js:2025](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nextcloud-talk/dist/channel-Ue-gORdw.js#L2025)
 
 - 🟢 P3 **nostr** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:nostr`
   - evidence:
-    - [createChatChannelPlugin @ channel-CFiNISWq.js:1338](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nostr/dist/channel-CFiNISWq.js#L1338)
+    - [createChatChannelPlugin @ channel-CFiNISWq.js:1338](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nostr/dist/channel-CFiNISWq.js#L1338)
 
 - 🟢 P3 **synology-chat** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:synology-chat`
   - evidence:
-    - [createChatChannelPlugin @ channel-D8xW77Og.js:1111](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/synology-chat/dist/channel-D8xW77Og.js#L1111)
+    - [createChatChannelPlugin @ channel-BpZt8_If.js:1107](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/synology-chat/dist/channel-BpZt8_If.js#L1107)
 
 - 🟢 P3 **telnyx-sms** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:telnyx-sms`
   - evidence:
-    - [defineChannelPluginEntry @ index.ts:207](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/index.ts#L207)
+    - [defineChannelPluginEntry @ index.ts:207](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/index.ts#L207)
 
 - 🟢 P3 **tlon** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:tlon`
   - evidence:
-    - [createChatChannelPlugin @ channel-CKKTYJLK.js:136](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/dist/channel-CKKTYJLK.js#L136)
+    - [createChatChannelPlugin @ channel-colVGWsG.js:136](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/dist/channel-colVGWsG.js#L136)
 
 - 🟢 P3 **twitch** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:twitch`
   - evidence:
-    - [createChatChannelPlugin @ plugin-BqKCtREI.js:1251](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/twitch/dist/plugin-BqKCtREI.js#L1251)
+    - [createChatChannelPlugin @ plugin-BqKCtREI.js:1251](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/twitch/dist/plugin-BqKCtREI.js#L1251)
 
 - 🟢 P3 **whatsapp** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -6382,19 +6304,19 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:zalo`
   - evidence:
-    - [createChatChannelPlugin @ channel-BulSjBML.js:261](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalo/dist/channel-BulSjBML.js#L261)
+    - [createChatChannelPlugin @ channel-BulSjBML.js:261](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalo/dist/channel-BulSjBML.js#L261)
 
 - 🟢 P3 **zalouser** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:zalouser`
   - evidence:
-    - [createChatChannelPlugin @ channel-BFn5MZCm.js:557](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalouser/dist/channel-BFn5MZCm.js#L557)
+    - [createChatChannelPlugin @ channel-BFn5MZCm.js:557](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalouser/dist/channel-BFn5MZCm.js#L557)
 
 - 🟢 P3 **memos-cloud** `hook-runner`
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
   - id: `hook.compat.before-agent-start-migration:memos-cloud`
   - evidence:
-    - [before_agent_start @ index.js:531](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/index.js#L531)
+    - [before_agent_start @ index.js:788](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/9b9e4ab2f3c28bbd4d178c0544879d434d5b30f6/index.js#L788)
 
 - 🟢 P3 **discord** `manifest-loader`
   - contract: Legacy channel env metadata continues to map into channel setup/help surfaces.
@@ -6502,7 +6424,7 @@ _none_
   - contract: OpenClaw plugin manifests declare a human-readable display name for registry and tooling metadata.
   - id: `manifest.metadata.name:mattermost`
   - evidence:
-    - [openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/openclaw.plugin.json)
+    - [openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/openclaw.plugin.json)
 
 - 🟢 P3 **aiwerk-mcp-bridge** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
@@ -6511,35 +6433,11 @@ _none_
     - entryPoint @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json
     - required @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json
 
-- 🟢 P3 **brave-plugin** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:brave-plugin`
-  - evidence:
-    - [icon @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/4f9d5864f09f60a6eb9da6ad6317148bbf89e134/extensions/brave/openclaw.plugin.json)
-
-- 🟢 P3 **google-meet** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:google-meet`
-  - evidence:
-    - [icon @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/4f9d5864f09f60a6eb9da6ad6317148bbf89e134/extensions/google-meet/openclaw.plugin.json)
-
 - 🟢 P3 **memos-cloud** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
   - id: `manifest.schema.top-level-fields:memos-cloud`
   - evidence:
-    - [main @ openclaw.plugin.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/openclaw.plugin.json)
-
-- 🟢 P3 **openclaw-qqbot** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:openclaw-qqbot`
-  - evidence:
-    - [icon @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/4f9d5864f09f60a6eb9da6ad6317148bbf89e134/extensions/qqbot/openclaw.plugin.json)
-
-- 🟢 P3 **whatsapp** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:whatsapp`
-  - evidence:
-    - [icon @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/4f9d5864f09f60a6eb9da6ad6317148bbf89e134/extensions/whatsapp/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/9b9e4ab2f3c28bbd4d178c0544879d434d5b30f6/openclaw.plugin.json)
 
 - 🟢 P3 **aiwerk-mcp-bridge** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -6551,7 +6449,7 @@ _none_
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:clawrouter`
   - evidence:
-    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
 
 - 🟢 P3 **dingtalk-doc** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -6565,17 +6463,11 @@ _none_
   - evidence:
     - plugins/lightclawbot/.crabpot-package/package.json
 
-- 🟢 P3 **mattermost** `package-loader`
-  - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
-  - id: `package.compat.plugin-api-range:mattermost`
-  - evidence:
-    - [package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/package.json)
-
 - 🟢 P3 **memos-cloud** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:memos-cloud`
   - evidence:
-    - [package.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/e931499a2589af06ee543ce07df2bdda29ac8085/package.json)
+    - [package.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/9b9e4ab2f3c28bbd4d178c0544879d434d5b30f6/package.json)
 
 - 🟢 P3 **memu-engine** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -6593,7 +6485,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:apify`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/apify/apify-openclaw-plugin/blob/2684fdceccb992c3a1c1c84d5c9291d90953cc0a/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/dist/index.js)
 
 - 🟢 P3 **dingtalk-doc** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -6611,8 +6503,8 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:telnyx-sms`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/dist/index.js)
-    - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/dee567716ca56d49464bf6354393f3656d92a2b3/dist/setup-entry.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/dist/index.js)
+    - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/dist/setup-entry.js)
 
 - 🟢 P3 **aiwerk-mcp-bridge** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -6625,23 +6517,23 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:apify`
   - evidence:
-    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/2684fdceccb992c3a1c1c84d5c9291d90953cc0a/package.json)
-    - [typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/2684fdceccb992c3a1c1c84d5c9291d90953cc0a/package.json)
+    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/package.json)
+    - [typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/package.json)
 
 - 🟢 P3 **clawrouter** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:clawrouter`
   - evidence:
-    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [undici @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
-    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/60caaf0152da0c098907b7d41f17cd3b9bd2d679/package.json)
+    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [undici @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
+    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/9706b018c621cc13f87282ddb061d3f7380becd7/package.json)
 
 - 🟢 P3 **codex** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -6662,17 +6554,17 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:diagnostics-otel`
   - evidence:
-    - [@opentelemetry/api @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/api-logs @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/exporter-logs-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/exporter-metrics-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/exporter-trace-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/resources @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/sdk-logs @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/sdk-metrics @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/sdk-node @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/sdk-trace-base @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
-    - [@opentelemetry/semantic-conventions @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/api @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/api-logs @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/exporter-logs-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/exporter-metrics-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/exporter-trace-otlp-proto @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/resources @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/sdk-logs @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/sdk-metrics @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/sdk-node @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/sdk-trace-base @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
+    - [@opentelemetry/semantic-conventions @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/diagnostics-otel/package.json)
 
 - 🟢 P3 **diffs** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -6695,20 +6587,20 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:discord`
   - evidence:
-    - [@discordjs/voice @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
-    - [discord-api-types @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
-    - [libopus-wasm @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
-    - [undici @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/discord/package.json)
+    - [@discordjs/voice @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
+    - [discord-api-types @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
+    - [libopus-wasm @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
+    - [undici @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
+    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/discord/package.json)
 
 - 🟢 P3 **feishu** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:feishu`
   - evidence:
-    - [@larksuiteoapi/node-sdk @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/feishu/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/feishu/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/feishu/package.json)
+    - [@larksuiteoapi/node-sdk @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/feishu/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/feishu/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/feishu/package.json)
 
 - 🟢 P3 **google-meet** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -6733,28 +6625,28 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:lobster`
   - evidence:
-    - [@clawdbot/lobster @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/lobster/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/lobster/package.json)
+    - [@clawdbot/lobster @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/lobster/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/lobster/package.json)
 
 - 🟢 P3 **matrix** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:matrix`
   - evidence:
-    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/package.json)
 
 - 🟢 P3 **mattermost** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:mattermost`
   - evidence:
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/package.json)
+    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/package.json)
 
 - 🟢 P3 **memory-lancedb** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -6769,24 +6661,24 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:msteams`
   - evidence:
-    - [@azure/identity @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/package.json)
-    - [@microsoft/teams.api @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/package.json)
-    - [@microsoft/teams.apps @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/package.json)
-    - [express @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/msteams/package.json)
+    - [@azure/identity @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/package.json)
+    - [@microsoft/teams.api @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/package.json)
+    - [@microsoft/teams.apps @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/package.json)
+    - [express @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/msteams/package.json)
 
 - 🟢 P3 **nextcloud-talk** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:nextcloud-talk`
   - evidence:
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nextcloud-talk/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nextcloud-talk/package.json)
 
 - 🟢 P3 **nostr** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:nostr`
   - evidence:
-    - [nostr-tools @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nostr/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/nostr/package.json)
+    - [nostr-tools @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nostr/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/nostr/package.json)
 
 - 🟢 P3 **openclaw-qqbot** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -6809,35 +6701,35 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:synology-chat`
   - evidence:
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/synology-chat/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/synology-chat/package.json)
 
 - 🟢 P3 **tlon** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:tlon`
   - evidence:
-    - [@aws-sdk/client-s3 @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/package.json)
-    - [@aws-sdk/s3-request-presigner @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/package.json)
-    - [@tloncorp/tlon-skill @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/package.json)
-    - [@urbit/aura @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/tlon/package.json)
+    - [@aws-sdk/client-s3 @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/package.json)
+    - [@aws-sdk/s3-request-presigner @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/package.json)
+    - [@tloncorp/tlon-skill @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/package.json)
+    - [@urbit/aura @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/tlon/package.json)
 
 - 🟢 P3 **twitch** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:twitch`
   - evidence:
-    - [@twurple/api @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/twitch/package.json)
-    - [@twurple/auth @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/twitch/package.json)
-    - [@twurple/chat @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/twitch/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/twitch/package.json)
+    - [@twurple/api @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/twitch/package.json)
+    - [@twurple/auth @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/twitch/package.json)
+    - [@twurple/chat @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/twitch/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/twitch/package.json)
 
 - 🟢 P3 **voice-call** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:voice-call`
   - evidence:
-    - [commander @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/package.json)
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/voice-call/package.json)
+    - [commander @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/package.json)
+    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/voice-call/package.json)
 
 - 🟢 P3 **whatsapp** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -6851,15 +6743,15 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:zalo`
   - evidence:
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalo/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalo/package.json)
 
 - 🟢 P3 **zalouser** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:zalouser`
   - evidence:
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalouser/package.json)
-    - [zca-js @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalouser/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/zalouser/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalouser/package.json)
+    - [zca-js @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalouser/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/zalouser/package.json)
 
 - 🟢 P3 **aiwerk-mcp-bridge** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -6871,7 +6763,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:clawmetry`
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/975fe9e2ab66ef0d3bca4ba45faf1c9250badc84/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/e96d75f9471d986f28a3d634f82e86d1805d385a/clawhub-plugin/index.ts)
 
 - 🟢 P3 **codex-app-server** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -6889,15 +6781,15 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:matrix`
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/matrix/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/matrix/setup-entry.ts)
 
 - 🟢 P3 **mattermost** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:mattermost`
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/aa69b12d0086b631b139c1435c9621a5783e3a40/extensions/mattermost/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/e085fa1a3ffd32d0ea6917e1e6fb4ecbffbb77d2/extensions/mattermost/setup-entry.ts)
 
 - 🟢 P3 **memu-engine** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -6909,7 +6801,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:web-search-plus`
   - evidence:
-    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/21dd15b8d24c71491fb32f270e2f6c13b25fde90/index.ts)
+    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/314f6502936bb203be6254f93a52b64888b8fcbe/index.ts)
 
 - 🟢 P3 **bluebubbles** `package-loader`
   - contract: Release publishing metadata declares canonical ClawHub and npm install specs.
@@ -7058,7 +6950,7 @@ _none_
   - id: `package.metadata.min-host-version:diagnostics-otel`
   - evidence:
     - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
 
 - 🟢 P3 **diagnostics-prometheus** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
@@ -7079,14 +6971,14 @@ _none_
   - id: `package.metadata.min-host-version:discord`
   - evidence:
     - minHostVersion:>=2026.5.26
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
 
 - 🟢 P3 **feishu** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
   - id: `package.metadata.min-host-version:feishu`
   - evidence:
     - minHostVersion:>=2026.5.29
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
 
 - 🟢 P3 **google-meet** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
@@ -7100,14 +6992,21 @@ _none_
   - id: `package.metadata.min-host-version:lobster`
   - evidence:
     - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
 
 - 🟢 P3 **matrix** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
   - id: `package.metadata.min-host-version:matrix`
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
+
+- 🟢 P3 **mattermost** `package-loader`
+  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
+  - id: `package.metadata.min-host-version:mattermost`
+  - evidence:
+    - minHostVersion:>=2026.6.9
+    - buildOpenClawVersion:2026.6.11
 
 - 🟢 P3 **memory-lancedb** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
@@ -7121,21 +7020,21 @@ _none_
   - id: `package.metadata.min-host-version:msteams`
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
 
 - 🟢 P3 **nextcloud-talk** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
   - id: `package.metadata.min-host-version:nextcloud-talk`
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
 
 - 🟢 P3 **nostr** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
   - id: `package.metadata.min-host-version:nostr`
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
 
 - 🟢 P3 **openclaw-qqbot** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
@@ -7149,28 +7048,28 @@ _none_
   - id: `package.metadata.min-host-version:synology-chat`
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
 
 - 🟢 P3 **tlon** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
   - id: `package.metadata.min-host-version:tlon`
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
 
 - 🟢 P3 **twitch** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
   - id: `package.metadata.min-host-version:twitch`
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
 
 - 🟢 P3 **voice-call** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
   - id: `package.metadata.min-host-version:voice-call`
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
 
 - 🟢 P3 **whatsapp** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
@@ -7184,14 +7083,14 @@ _none_
   - id: `package.metadata.min-host-version:zalo`
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
 
 - 🟢 P3 **zalouser** `package-loader`
   - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
   - id: `package.metadata.min-host-version:zalouser`
   - evidence:
     - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.6.10
+    - buildOpenClawVersion:2026.6.11
 
 - 🟢 P3 **codex** `sdk-import`
   - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
@@ -7203,8 +7102,8 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:clawmetry`
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/975fe9e2ab66ef0d3bca4ba45faf1c9250badc84/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/975fe9e2ab66ef0d3bca4ba45faf1c9250badc84/clawhub-plugin/src/service.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/e96d75f9471d986f28a3d634f82e86d1805d385a/clawhub-plugin/index.ts#L1)
+    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/e96d75f9471d986f28a3d634f82e86d1805d385a/clawhub-plugin/src/service.ts#L1)
 
 - 🟢 P3 **codex-app-server** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.

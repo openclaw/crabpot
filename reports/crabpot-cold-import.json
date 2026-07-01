@@ -3,16 +3,16 @@
   "targetOpenClaw": {
     "status": "ok",
     "configuredPath": "./openclaw",
-    "sdkExportCount": 321
+    "sdkExportCount": 322
   },
   "summary": {
     "fixtureCount": 60,
     "entrypointCount": 108,
     "readyCount": 7,
     "blockedCount": 101,
-    "tsLoaderRequiredCount": 22,
-    "buildRequiredCount": 14,
-    "dependencyInstallRequiredCount": 54,
+    "tsLoaderRequiredCount": 20,
+    "buildRequiredCount": 15,
+    "dependencyInstallRequiredCount": 53,
     "sdkAliasRequiredCount": 0
   },
   "fixtures": [
@@ -245,27 +245,21 @@
       "priority": "high",
       "entrypoints": [
         {
-          "id": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
+          "id": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-dist-index-js",
           "fixture": "llm-trace-phoenix",
           "packagePath": "plugins/llm-trace-phoenix/package.json",
           "kind": "extension",
-          "specifier": "./index.ts",
-          "path": "plugins/llm-trace-phoenix/index.ts",
-          "status": "ts-loader-required",
+          "specifier": "./dist/index.js",
+          "path": "plugins/llm-trace-phoenix/dist/index.js",
+          "status": "review-required",
           "blockers": [
-            {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
-              "evidence": "plugins/llm-trace-phoenix/index.ts"
-            },
             {
               "code": "top-level-side-effect-review",
               "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
-              "evidence": "plugins/llm-trace-phoenix/index.ts"
+              "evidence": "plugins/llm-trace-phoenix/dist/index.js"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
             "cold import sandbox blocks network/process side effects before register capture"
           ]
         }
@@ -1935,28 +1929,22 @@
       "priority": "high",
       "entrypoints": [
         {
-          "id": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
+          "id": "cold-import.extension:ddingtalk:plugins-ddingtalk-dist-index-js",
           "fixture": "ddingtalk",
           "packagePath": "plugins/ddingtalk/package.json",
           "kind": "extension",
-          "specifier": "./index.ts",
-          "path": "plugins/ddingtalk/index.ts",
-          "status": "ts-loader-required",
+          "specifier": "./dist/index.js",
+          "path": "plugins/ddingtalk/dist/index.js",
+          "status": "build-required",
           "blockers": [
             {
-              "code": "ts-loader-required",
-              "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
-              "evidence": "plugins/ddingtalk/index.ts"
-            },
-            {
-              "code": "dependency-install-required",
-              "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "dingtalk-stream, zod"
+              "code": "build-required",
+              "message": "entrypoint points at build output that is absent in the fixture checkout",
+              "evidence": "plugins/ddingtalk/dist/index.js"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "plugin build or source alias resolution runs before cold import"
           ]
         }
       ]
