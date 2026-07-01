@@ -10,15 +10,15 @@
   "summary": {
     "fixtureCount": 60,
     "entrypointCount": 108,
-    "tsLoaderEntrypointCount": 22,
-    "jitiAlternativeCount": 22,
+    "tsLoaderEntrypointCount": 20,
+    "jitiAlternativeCount": 20,
     "lazyImportProbeCount": 108,
-    "portabilityFindingCount": 24,
+    "portabilityFindingCount": 25,
     "coveredPortabilityFindingCount": 500,
-    "windowsRiskStepCount": 24,
-    "macosRiskStepCount": 24,
-    "linuxRiskStepCount": 24,
-    "containerRiskStepCount": 24
+    "windowsRiskStepCount": 25,
+    "macosRiskStepCount": 25,
+    "linuxRiskStepCount": 25,
+    "containerRiskStepCount": 25
   },
   "entrypoints": [
     {
@@ -175,15 +175,13 @@
     },
     {
       "fixture": "llm-trace-phoenix",
-      "id": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
-      "status": "ts-loader-required",
-      "entrypoint": "plugins/llm-trace-phoenix/index.ts",
+      "id": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-dist-index-js",
+      "status": "review-required",
+      "entrypoint": "plugins/llm-trace-phoenix/dist/index.js",
       "packageManager": "npm",
-      "loaderSource": "typescript-source",
-      "loaderPrimary": "tsx",
-      "loaderAlternatives": [
-        "jiti"
-      ],
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
@@ -1563,15 +1561,13 @@
     },
     {
       "fixture": "ddingtalk",
-      "id": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
-      "status": "ts-loader-required",
-      "entrypoint": "plugins/ddingtalk/index.ts",
+      "id": "cold-import.extension:ddingtalk:plugins-ddingtalk-dist-index-js",
+      "status": "build-required",
+      "entrypoint": "plugins/ddingtalk/dist/index.js",
       "packageManager": "pnpm",
-      "loaderSource": "typescript-source",
-      "loaderPrimary": "tsx",
-      "loaderAlternatives": [
-        "jiti"
-      ],
+      "loaderSource": "native-node",
+      "loaderPrimary": "node",
+      "loaderAlternatives": [],
       "capturePlanned": true,
       "syntheticProbePlanned": true,
       "captureUsesTsx": false,
@@ -2243,7 +2239,7 @@
     },
     {
       "fixture": "ddingtalk",
-      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
+      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-dist-index-js",
       "kind": "link-openclaw",
       "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
       "coveredRiskCodes": [],
@@ -2260,7 +2256,7 @@
     },
     {
       "fixture": "ddingtalk",
-      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
+      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-dist-index-js",
       "kind": "install",
       "command": "pnpm install --ignore-scripts",
       "coveredRiskCodes": [],
@@ -2277,13 +2273,30 @@
     },
     {
       "fixture": "ddingtalk",
-      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
+      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-dist-index-js",
       "kind": "audit",
       "command": "pnpm audit --json > ../../results/ddingtalk/package-audit.json || true",
       "coveredRiskCodes": [
         "posix-null-failure",
         "shell-redirection"
       ],
+      "platforms": [
+        "container",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "riskCodes": [
+        "package-manager-availability"
+      ],
+      "mitigation": "install the declared package manager before isolated execution"
+    },
+    {
+      "fixture": "ddingtalk",
+      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-dist-index-js",
+      "kind": "build",
+      "command": "pnpm run build",
+      "coveredRiskCodes": [],
       "platforms": [
         "container",
         "linux",
@@ -2985,7 +2998,7 @@
     },
     {
       "fixture": "llm-trace-phoenix",
-      "entrypoint": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
+      "entrypoint": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-dist-index-js",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/llm-trace-phoenix && rsync -a --delete plugins/llm-trace-phoenix/ .crabpot/workspaces/llm-trace-phoenix/",
       "coverage": "covered by Crabpot structured executor",
@@ -3000,7 +3013,7 @@
     },
     {
       "fixture": "llm-trace-phoenix",
-      "entrypoint": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
+      "entrypoint": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-dist-index-js",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/llm-trace-phoenix",
       "coverage": "covered by Crabpot structured executor",
@@ -3013,9 +3026,9 @@
     },
     {
       "fixture": "llm-trace-phoenix",
-      "entrypoint": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
+      "entrypoint": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-dist-index-js",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-dist-index-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -3026,9 +3039,9 @@
     },
     {
       "fixture": "llm-trace-phoenix",
-      "entrypoint": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-index-ts",
+      "entrypoint": "cold-import.extension:llm-trace-phoenix:plugins-llm-trace-phoenix-dist-index-js",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/llm-trace-phoenix/cold-import-extension-llm-trace-phoenix-plugins-llm-trace-phoenix-dist-index-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -7691,7 +7704,7 @@
     },
     {
       "fixture": "ddingtalk",
-      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
+      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-dist-index-js",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/ddingtalk && rsync -a --delete plugins/ddingtalk/ .crabpot/workspaces/ddingtalk/",
       "coverage": "covered by Crabpot structured executor",
@@ -7706,7 +7719,7 @@
     },
     {
       "fixture": "ddingtalk",
-      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
+      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-dist-index-js",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/ddingtalk",
       "coverage": "covered by Crabpot structured executor",
@@ -7719,7 +7732,7 @@
     },
     {
       "fixture": "ddingtalk",
-      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
+      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-dist-index-js",
       "kind": "audit",
       "command": "pnpm audit --json > ../../results/ddingtalk/package-audit.json || true",
       "coverage": "covered by Crabpot structured executor",
@@ -7733,9 +7746,9 @@
     },
     {
       "fixture": "ddingtalk",
-      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
+      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-dist-index-js",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./index.ts --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-dist-index-js.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -7746,9 +7759,9 @@
     },
     {
       "fixture": "ddingtalk",
-      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-index-ts",
+      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-dist-index-js",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./index.ts --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-index-ts.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/ddingtalk/cold-import-extension-ddingtalk-plugins-ddingtalk-dist-index-js.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
