@@ -36,15 +36,15 @@
     "summary": {
       "commandCount": 9,
       "sampleCount": 27,
-      "rssSampleCount": 2172,
-      "cpuSampleCount": 2172,
+      "rssSampleCount": 2165,
+      "cpuSampleCount": 2165,
       "wallTimeBasis": "command-median-p95",
-      "p50WallMs": 2553,
-      "p95WallMs": 2627,
-      "maxPeakRssMb": 343.4,
-      "maxRssDeltaMb": 315.2,
-      "maxCpuMsEstimate": 2964,
-      "maxHarnessHeapDeltaMb": 8
+      "p50WallMs": 2537,
+      "p95WallMs": 2602,
+      "maxPeakRssMb": 346.1,
+      "maxRssDeltaMb": 317.8,
+      "maxCpuMsEstimate": 2944,
+      "maxHarnessHeapDeltaMb": 8.1
     },
     "targetOpenClaw": {
       "status": "ok",
@@ -59,12 +59,12 @@
     },
     "fixtureInventory": {
       "fixtures": 60,
-      "sourceFiles": 2006,
+      "sourceFiles": 2007,
       "observedHooks": 109,
-      "observedRegistrations": 207,
-      "observedSdkImports": 1265,
+      "observedRegistrations": 208,
+      "observedSdkImports": 1267,
       "contractProbes": 279,
-      "issueFindings": 290
+      "issueFindings": 288
     }
   },
   "thresholds": {
@@ -84,20 +84,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 106.4% over baseline",
+      "message": "p95WallMs regressed 104.4% over baseline",
       "baseline": 1273,
-      "current": 2627,
-      "delta": 1354,
-      "percent": 106.4
+      "current": 2602,
+      "delta": 1329,
+      "percent": 104.4
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 278.29999999999995 over baseline",
+      "message": "maxPeakRssMb regressed 281 over baseline",
       "baseline": 65.1,
-      "current": 343.4,
-      "delta": 278.29999999999995
+      "current": 346.1,
+      "delta": 281
     },
     {
       "id": "profile.node-boot",
@@ -105,8 +105,8 @@
       "metric": "nodeBootWallMs",
       "message": "nodeBootWallMs stayed within 500 absolute regression threshold",
       "baseline": 917,
-      "current": 35,
-      "delta": -882
+      "current": 33,
+      "delta": -884
     },
     {
       "id": "registry.compatRecords",
