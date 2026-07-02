@@ -2,14 +2,14 @@
   "generatedAt": "deterministic",
   "summary": {
     "fixtureCount": 60,
-    "probeCount": 482,
+    "probeCount": 483,
     "hookProbeCount": 126,
-    "registrationProbeCount": 356,
-    "readyCount": 473,
+    "registrationProbeCount": 357,
+    "readyCount": 474,
     "blockedCount": 9,
     "directExecutionCount": 179,
     "optInExecutionCount": 29,
-    "metadataOnlyCount": 148
+    "metadataOnlyCount": 149
   },
   "probes": [
     {
@@ -2078,7 +2078,7 @@
       "source": "plugins/feishu/.crabpot-package/dist/subagent-hooks-api.js:12"
     },
     {
-      "id": "hook.inbound_claim:codex:plugins-codex-crabpot-package-dist-index-js-1643",
+      "id": "hook.inbound_claim:codex:plugins-codex-crabpot-package-dist-index-js-1651",
       "fixture": "codex",
       "kind": "hook",
       "seam": "inbound_claim",
@@ -2103,7 +2103,7 @@
         "channelId": "fixture-channel",
         "accountId": "fixture-account"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1643"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1651"
     },
     {
       "id": "hook.before_prompt_build:diffs:plugins-diffs-crabpot-package-dist-index-js-2427",
@@ -8587,7 +8587,7 @@
       "source": "plugins/brave-plugin/.crabpot-package/dist/index.js:14"
     },
     {
-      "id": "registration.definePluginEntry:codex:plugins-codex-crabpot-package-dist-index-js-1579",
+      "id": "registration.definePluginEntry:codex:plugins-codex-crabpot-package-dist-index-js-1587",
       "fixture": "codex",
       "kind": "registration",
       "seam": "definePluginEntry",
@@ -8608,10 +8608,10 @@
         "callableProperties": [],
         "reason": "entry wrapper metadata is captured before plugin runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1579"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1587"
     },
     {
-      "id": "registration.registerAgentHarness:codex:plugins-codex-crabpot-package-dist-index-js-1586",
+      "id": "registration.registerAgentHarness:codex:plugins-codex-crabpot-package-dist-index-js-1594",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerAgentHarness",
@@ -8628,10 +8628,10 @@
         "callableProperties": [],
         "reason": "agent harness factories are captured as registration metadata; agent runtime execution remains isolated opt-in"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1586"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1594"
     },
     {
-      "id": "registration.registerCommand:codex:plugins-codex-crabpot-package-dist-index-js-1593",
+      "id": "registration.registerCommand:codex:plugins-codex-crabpot-package-dist-index-js-1601",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerCommand",
@@ -8655,10 +8655,10 @@
           "execute"
         ]
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1593"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1601"
     },
     {
-      "id": "registration.registerMediaUnderstandingProvider:codex:plugins-codex-crabpot-package-dist-index-js-1588",
+      "id": "registration.registerMediaUnderstandingProvider:codex:plugins-codex-crabpot-package-dist-index-js-1596",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerMediaUnderstandingProvider",
@@ -8675,10 +8675,10 @@
         "callableProperties": [],
         "reason": "media understanding providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1588"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1596"
     },
     {
-      "id": "registration.registerMigrationProvider:codex:plugins-codex-crabpot-package-dist-index-js-1590",
+      "id": "registration.registerMigrationProvider:codex:plugins-codex-crabpot-package-dist-index-js-1598",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerMigrationProvider",
@@ -8695,10 +8695,10 @@
         "callableProperties": [],
         "reason": "migration providers are captured as registration metadata before migration runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1590"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1598"
     },
     {
-      "id": "registration.registerNodeHostCommand:codex:plugins-codex-crabpot-package-dist-index-js-1591",
+      "id": "registration.registerNodeHostCommand:codex:plugins-codex-crabpot-package-dist-index-js-1599",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerNodeHostCommand",
@@ -8715,10 +8715,10 @@
         "callableProperties": [],
         "reason": "node host commands are captured as registration metadata before host process execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1591"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1599"
     },
     {
-      "id": "registration.registerNodeInvokePolicy:codex:plugins-codex-crabpot-package-dist-index-js-1592",
+      "id": "registration.registerNodeInvokePolicy:codex:plugins-codex-crabpot-package-dist-index-js-1600",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerNodeInvokePolicy",
@@ -8735,10 +8735,10 @@
         "callableProperties": [],
         "reason": "node invoke policies are captured as registration metadata before host authorization checks"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1592"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1600"
     },
     {
-      "id": "registration.registerProvider:codex:plugins-codex-crabpot-package-dist-index-js-1587",
+      "id": "registration.registerProvider:codex:plugins-codex-crabpot-package-dist-index-js-1595",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerProvider",
@@ -8755,10 +8755,10 @@
         "callableProperties": [],
         "reason": "provider descriptors are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1587"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1595"
     },
     {
-      "id": "registration.registerWebSearchProvider:codex:plugins-codex-crabpot-package-dist-index-js-1589",
+      "id": "registration.registerWebSearchProvider:codex:plugins-codex-crabpot-package-dist-index-js-1597",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerWebSearchProvider",
@@ -8775,7 +8775,7 @@
         "callableProperties": [],
         "reason": "web search providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1589"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1597"
     },
     {
       "id": "registration.definePluginEntry:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-dist-index-js-626",
@@ -8860,7 +8860,7 @@
       "source": "plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:631"
     },
     {
-      "id": "registration.definePluginEntry:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4239",
+      "id": "registration.definePluginEntry:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4384",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "definePluginEntry",
@@ -8881,10 +8881,10 @@
         "callableProperties": [],
         "reason": "entry wrapper metadata is captured before plugin runtime execution"
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4239"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4384"
     },
     {
-      "id": "registration.registerCli:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4609",
+      "id": "registration.registerCli:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4756",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerCli",
@@ -8913,10 +8913,10 @@
           "execute"
         ]
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4609"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4756"
     },
     {
-      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4262",
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4407",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -8944,10 +8944,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4262"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4407"
     },
     {
-      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4278",
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4423",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -8975,10 +8975,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4278"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4423"
     },
     {
-      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4295",
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4440",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -9006,10 +9006,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4295"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4440"
     },
     {
-      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4302",
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4447",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -9037,10 +9037,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4302"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4447"
     },
     {
-      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4312",
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4457",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -9068,10 +9068,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4312"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4457"
     },
     {
-      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4323",
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4468",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -9099,10 +9099,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4323"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4468"
     },
     {
-      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4343",
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4488",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -9130,10 +9130,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4343"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4488"
     },
     {
-      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4358",
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4503",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -9161,10 +9161,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4358"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4503"
     },
     {
-      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4374",
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4519",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -9192,10 +9192,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4374"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4519"
     },
     {
-      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4391",
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4536",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -9223,10 +9223,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4391"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4536"
     },
     {
-      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4398",
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4543",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -9254,10 +9254,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4398"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4543"
     },
     {
-      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4410",
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4555",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -9285,10 +9285,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4410"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4555"
     },
     {
-      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4421",
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4566",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -9316,10 +9316,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4421"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4566"
     },
     {
-      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4433",
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4578",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -9347,10 +9347,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4433"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4578"
     },
     {
-      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4449",
+      "id": "registration.registerGatewayMethod:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4594",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -9378,10 +9378,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4449"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4594"
     },
     {
-      "id": "registration.registerNodeHostCommand:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4604",
+      "id": "registration.registerNodeHostCommand:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4749",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerNodeHostCommand",
@@ -9398,10 +9398,30 @@
         "callableProperties": [],
         "reason": "node host commands are captured as registration metadata before host process execution"
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4604"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4749"
     },
     {
-      "id": "registration.registerTool:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4461",
+      "id": "registration.registerNodeInvokePolicy:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4755",
+      "fixture": "google-meet",
+      "kind": "registration",
+      "seam": "registerNodeInvokePolicy",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "node invoke policies are captured as registration metadata before host authorization checks"
+      },
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4755"
+    },
+    {
+      "id": "registration.registerTool:google-meet:plugins-google-meet-crabpot-package-dist-index-js-4606",
       "fixture": "google-meet",
       "kind": "registration",
       "seam": "registerTool",
@@ -9430,7 +9450,7 @@
           "execute"
         ]
       },
-      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4461"
+      "source": "plugins/google-meet/.crabpot-package/dist/index.js:4606"
     },
     {
       "id": "registration.definePluginEntry:diffs:plugins-diffs-crabpot-package-dist-index-js-2445",
@@ -9804,7 +9824,7 @@
       "source": "plugins/openclaw-qqbot/.crabpot-package/dist/index.js:16"
     },
     {
-      "id": "registration.registerCommand:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-entry-BGXFRmbg-js-111",
+      "id": "registration.registerCommand:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-channel-entry-LMtNY-J6-js-111",
       "fixture": "openclaw-qqbot",
       "kind": "registration",
       "seam": "registerCommand",
@@ -9828,10 +9848,10 @@
           "execute"
         ]
       },
-      "source": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-entry-BGXFRmbg.js:111"
+      "source": "plugins/openclaw-qqbot/.crabpot-package/dist/channel-entry-LMtNY-J6.js:111"
     },
     {
-      "id": "registration.registerTool:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-tools-CeUI9pG-js-227",
+      "id": "registration.registerTool:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-tools-BvXe7bTq-js-271",
       "fixture": "openclaw-qqbot",
       "kind": "registration",
       "seam": "registerTool",
@@ -9860,10 +9880,10 @@
           "execute"
         ]
       },
-      "source": "plugins/openclaw-qqbot/.crabpot-package/dist/tools-CeUI9pG-.js:227"
+      "source": "plugins/openclaw-qqbot/.crabpot-package/dist/tools-BvXe7bTq.js:271"
     },
     {
-      "id": "registration.registerTool:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-tools-CeUI9pG-js-530",
+      "id": "registration.registerTool:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-tools-BvXe7bTq-js-575",
       "fixture": "openclaw-qqbot",
       "kind": "registration",
       "seam": "registerTool",
@@ -9892,10 +9912,10 @@
           "execute"
         ]
       },
-      "source": "plugins/openclaw-qqbot/.crabpot-package/dist/tools-CeUI9pG-.js:530"
+      "source": "plugins/openclaw-qqbot/.crabpot-package/dist/tools-BvXe7bTq.js:575"
     },
     {
-      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-C9zebxrw-js-613",
+      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BAj2xDFM-js-613",
       "fixture": "whatsapp",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -9920,7 +9940,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/whatsapp/.crabpot-package/dist/channel-C9zebxrw.js:613"
+      "source": "plugins/whatsapp/.crabpot-package/dist/channel-BAj2xDFM.js:613"
     },
     {
       "id": "registration.defineBundledChannelEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-index-js-3",
@@ -11336,7 +11356,7 @@
       "source": "plugins/mocrane-wecom/index.ts:43"
     },
     {
-      "id": "registration.createChatChannelPlugin:yuanbao:plugins-yuanbao-crabpot-package-dist-src-channel-js-18",
+      "id": "registration.createChatChannelPlugin:yuanbao:plugins-yuanbao-crabpot-package-dist-src-channel-js-19",
       "fixture": "yuanbao",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -11361,7 +11381,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/yuanbao/.crabpot-package/dist/src/channel.js:18"
+      "source": "plugins/yuanbao/.crabpot-package/dist/src/channel.js:19"
     },
     {
       "id": "registration.defineBundledChannelEntry:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js-44",
