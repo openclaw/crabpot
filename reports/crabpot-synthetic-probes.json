@@ -4228,7 +4228,7 @@
       "source": "plugins/connectclaw/packages/plugin/src/tools.ts:6"
     },
     {
-      "id": "registration.registerCli:hyperspell:plugins-hyperspell-index-ts-40",
+      "id": "registration.registerCli:hyperspell:plugins-hyperspell-index-ts-39",
       "fixture": "hyperspell",
       "kind": "registration",
       "seam": "registerCli",
@@ -4257,7 +4257,7 @@
           "execute"
         ]
       },
-      "source": "plugins/hyperspell/index.ts:40"
+      "source": "plugins/hyperspell/index.ts:39"
     },
     {
       "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-166",
@@ -4341,7 +4341,7 @@
       "source": "plugins/hyperspell/commands/slash.ts:98"
     },
     {
-      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-56",
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-55",
       "fixture": "hyperspell",
       "kind": "registration",
       "seam": "registerCommand",
@@ -4365,10 +4365,10 @@
           "execute"
         ]
       },
-      "source": "plugins/hyperspell/index.ts:56"
+      "source": "plugins/hyperspell/index.ts:55"
     },
     {
-      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-67",
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-66",
       "fixture": "hyperspell",
       "kind": "registration",
       "seam": "registerCommand",
@@ -4392,10 +4392,10 @@
           "execute"
         ]
       },
-      "source": "plugins/hyperspell/index.ts:67"
+      "source": "plugins/hyperspell/index.ts:66"
     },
     {
-      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-78",
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-77",
       "fixture": "hyperspell",
       "kind": "registration",
       "seam": "registerCommand",
@@ -4419,7 +4419,7 @@
           "execute"
         ]
       },
-      "source": "plugins/hyperspell/index.ts:78"
+      "source": "plugins/hyperspell/index.ts:77"
     },
     {
       "id": "registration.registerTool:hyperspell:plugins-hyperspell-graph-tools-ts-21",
