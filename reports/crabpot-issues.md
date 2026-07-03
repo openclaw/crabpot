@@ -64,7 +64,7 @@ _none_
   - **legacy-root-sdk-import**: a2a-gateway: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ types.ts:14](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/src/types.ts#L14)
+    - [openclaw/plugin-sdk @ types.ts:14](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/src/types.ts#L14)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -675,25 +675,25 @@ _none_
   - **package-dependency-install-required**: a2a-gateway: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@a2a-js/sdk @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [@bufbuild/protobuf @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [@grpc/grpc-js @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [express @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [multicast-dns @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [uuid @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [ws @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
+    - [@a2a-js/sdk @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [@bufbuild/protobuf @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [@grpc/grpc-js @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [express @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [multicast-dns @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [uuid @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [ws @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
 
 - 🟡 P2 **a2a-gateway** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: a2a-gateway: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/index.ts)
+    - [extension @ index.ts](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/index.ts)
 
 - 🟡 P2 **a2a-gateway** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: a2a-gateway: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:897](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/index.ts#L897)
+    - [registerService @ index.ts:897](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/index.ts#L897)
 
 - 🟡 P2 **agentchat** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: agentchat: channel runtime needs envelope/config probes
@@ -1112,9 +1112,9 @@ _none_
     - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L166)
     - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L43)
     - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:55](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L55)
-    - [registerCommand @ index.ts:66](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L66)
-    - [registerCommand @ index.ts:77](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L77)
+    - [registerCommand @ index.ts:56](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L56)
+    - [registerCommand @ index.ts:67](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L67)
+    - [registerCommand @ index.ts:78](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L78)
 
 - 🟡 P2 **inworld-tts** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: inworld-tts: cold import needs TypeScript source entrypoint support
@@ -1793,7 +1793,7 @@ _none_
   - **manifest-unknown-fields**: a2a-gateway: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [defaultConfig @ openclaw.plugin.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/openclaw.plugin.json)
+    - [defaultConfig @ openclaw.plugin.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -1812,7 +1812,7 @@ _none_
   - **package-plugin-api-compat-missing**: a2a-gateway: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
+    - [package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -2095,7 +2095,7 @@ _none_
   - **package-manifest-version-drift**: hyperspell: package and manifest versions drift
   - state: open · compat:none
   - evidence:
-    - package:0.17.1
+    - package:0.18.1
     - manifest:0.13.0
   - author remediation:
     - Align the plugin version declared in package.json and openclaw.plugin.json.
@@ -2700,7 +2700,7 @@ _none_
   - **legacy-root-sdk-import**: a2a-gateway: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ types.ts:14](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/src/types.ts#L14)
+    - [openclaw/plugin-sdk @ types.ts:14](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/src/types.ts#L14)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -2709,7 +2709,7 @@ _none_
   - **manifest-unknown-fields**: a2a-gateway: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [defaultConfig @ openclaw.plugin.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/openclaw.plugin.json)
+    - [defaultConfig @ openclaw.plugin.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -2718,13 +2718,13 @@ _none_
   - **package-dependency-install-required**: a2a-gateway: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@a2a-js/sdk @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [@bufbuild/protobuf @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [@grpc/grpc-js @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [express @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [multicast-dns @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [uuid @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [ws @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
+    - [@a2a-js/sdk @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [@bufbuild/protobuf @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [@grpc/grpc-js @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [express @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [multicast-dns @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [uuid @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [ws @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
 
 - 🟡 P2 **a2a-gateway** `upstream-metadata` `plugin-upstream-fix`
   - **package-manifest-version-drift**: a2a-gateway: package and manifest versions drift
@@ -2740,7 +2740,7 @@ _none_
   - **package-plugin-api-compat-missing**: a2a-gateway: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
+    - [package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -2749,13 +2749,13 @@ _none_
   - **package-typescript-source-entrypoint**: a2a-gateway: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/index.ts)
+    - [extension @ index.ts](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/index.ts)
 
 - 🟡 P2 **a2a-gateway** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: a2a-gateway: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:897](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/index.ts#L897)
+    - [registerService @ index.ts:897](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/index.ts#L897)
 
 - 🟡 P2 **agentchat** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: agentchat: channel runtime needs envelope/config probes
@@ -3650,7 +3650,7 @@ _none_
   - **package-manifest-version-drift**: hyperspell: package and manifest versions drift
   - state: open · compat:none
   - evidence:
-    - package:0.17.1
+    - package:0.18.1
     - manifest:0.13.0
   - author remediation:
     - Align the plugin version declared in package.json and openclaw.plugin.json.
@@ -3663,9 +3663,9 @@ _none_
     - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L166)
     - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L43)
     - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:55](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L55)
-    - [registerCommand @ index.ts:66](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L66)
-    - [registerCommand @ index.ts:77](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L77)
+    - [registerCommand @ index.ts:56](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L56)
+    - [registerCommand @ index.ts:67](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L67)
+    - [registerCommand @ index.ts:78](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L78)
 
 - 🟡 P2 **inworld-tts** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: inworld-tts: cold import needs TypeScript source entrypoint support
@@ -5185,7 +5185,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:a2a-gateway`
   - evidence:
-    - [registerService @ index.ts:897](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/index.ts#L897)
+    - [registerService @ index.ts:897](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/index.ts#L897)
 
 - 🟡 P2 **connectclaw** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -5230,9 +5230,9 @@ _none_
     - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L166)
     - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L43)
     - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:55](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L55)
-    - [registerCommand @ index.ts:66](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L66)
-    - [registerCommand @ index.ts:77](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L77)
+    - [registerCommand @ index.ts:56](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L56)
+    - [registerCommand @ index.ts:67](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L67)
+    - [registerCommand @ index.ts:78](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L78)
 
 - 🟡 P2 **kitchen-sink** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -5488,7 +5488,7 @@ _none_
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
   - id: `manifest.schema.top-level-fields:a2a-gateway`
   - evidence:
-    - [defaultConfig @ openclaw.plugin.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/openclaw.plugin.json)
+    - [defaultConfig @ openclaw.plugin.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/openclaw.plugin.json)
 
 - 🟡 P2 **agentchat** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
@@ -5515,7 +5515,7 @@ _none_
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:a2a-gateway`
   - evidence:
-    - [package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
+    - [package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
 
 - 🟡 P2 **composio** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -5642,13 +5642,13 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:a2a-gateway`
   - evidence:
-    - [@a2a-js/sdk @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [@bufbuild/protobuf @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [@grpc/grpc-js @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [express @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [multicast-dns @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [uuid @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
-    - [ws @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/package.json)
+    - [@a2a-js/sdk @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [@bufbuild/protobuf @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [@grpc/grpc-js @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [express @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [multicast-dns @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [uuid @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
+    - [ws @ package.json](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/package.json)
 
 - 🟡 P2 **agentchat** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -5780,7 +5780,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:a2a-gateway`
   - evidence:
-    - [extension @ index.ts](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/index.ts)
+    - [extension @ index.ts](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/index.ts)
 
 - 🟡 P2 **composio** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -5848,7 +5848,7 @@ _none_
   - contract: Package and OpenClaw manifest versions stay aligned for release compatibility reporting.
   - id: `package.metadata.version-alignment:hyperspell`
   - evidence:
-    - package:0.17.1
+    - package:0.18.1
     - manifest:0.13.0
 
 - 🟡 P2 **llm-trace-phoenix** `package-loader`
@@ -5868,7 +5868,7 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:a2a-gateway`
   - evidence:
-    - [openclaw/plugin-sdk @ types.ts:14](https://github.com/win4r/openclaw-a2a-gateway/blob/18615c2935694ece4d2f9f0e9a57b53c310f3c9a/src/types.ts#L14)
+    - [openclaw/plugin-sdk @ types.ts:14](https://github.com/win4r/openclaw-a2a-gateway/blob/27621e23eb46aefe9a506e2d110f9784890c6712/src/types.ts#L14)
 
 - 🟡 P2 **composio** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
