@@ -1,8 +1,14 @@
 # Changelog
 
-## 0.2.1 - Unreleased
+## 0.2.1 - 2026-07-06
 
-- Updated synthetic plugin probes to honor gateway startup and teardown order, preventing teardown from invalidating later compatibility checks.
+- Fixed synthetic gateway probes to start services before compatibility checks and stop them afterward, eliminating false failures for lifecycle-sensitive plugins.
+- Hardened sweep, generated-surface, isolated-checkout, workspace-profile, and runtime-evidence validation across local, container, and cross-platform CI lanes.
+- Kept isolated fixture execution running through known peer-range drift and classified QQBot's missing host context as an expected blocked probe.
+- Remediated fixture dependency security alerts and refreshed the Feishu lockfile after exact install and compatibility verification.
+- Updated A2A Gateway, Clawmetry, ClawRouter, Hyperspell, Kitchen Sink, LightClawBot, Lossless Claw, NemoClaw, Weixin, and Web Search Plus fixture coverage.
+- Updated plugin-inspector to v0.3.16 and pinned its gateway lifecycle ordering fix for both source-mode and package-mode validation.
+- Thanks @vincentkoc for the fixture security, Feishu, QQBot, and workspace peer-drift improvements.
 
 ## 0.2.0 - 2026-06-11
 
