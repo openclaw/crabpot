@@ -56,7 +56,7 @@ async function main() {
         }
         result = failedStepResult(step, error);
       }
-      if (args.continueOnError && result.exitCode !== 0) {
+      if (result.exitCode !== 0) {
         const blockedRule = blockedExecutionFailureForStep(item.fixture, step, result, blockedRulesByFixture);
         if (blockedRule) {
           result = {
