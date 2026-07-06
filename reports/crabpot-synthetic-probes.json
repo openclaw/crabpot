@@ -12583,7 +12583,7 @@
       "source": "plugins/codex-app-server/index.ts:12"
     },
     {
-      "id": "registration.definePluginEntry:web-search-plus:plugins-web-search-plus-index-ts-1532",
+      "id": "registration.definePluginEntry:web-search-plus:plugins-web-search-plus-index-ts-1824",
       "fixture": "web-search-plus",
       "kind": "registration",
       "seam": "definePluginEntry",
@@ -12604,10 +12604,10 @@
         "callableProperties": [],
         "reason": "entry wrapper metadata is captured before plugin runtime execution"
       },
-      "source": "plugins/web-search-plus/index.ts:1532"
+      "source": "plugins/web-search-plus/index.ts:1824"
     },
     {
-      "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1457",
+      "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1748",
       "fixture": "web-search-plus",
       "kind": "registration",
       "seam": "registerTool",
@@ -12636,10 +12636,10 @@
           "execute"
         ]
       },
-      "source": "plugins/web-search-plus/index.ts:1457"
+      "source": "plugins/web-search-plus/index.ts:1748"
     },
     {
-      "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1481",
+      "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1772",
       "fixture": "web-search-plus",
       "kind": "registration",
       "seam": "registerTool",
@@ -12668,10 +12668,10 @@
           "execute"
         ]
       },
-      "source": "plugins/web-search-plus/index.ts:1481"
+      "source": "plugins/web-search-plus/index.ts:1772"
     },
     {
-      "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1499",
+      "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1790",
       "fixture": "web-search-plus",
       "kind": "registration",
       "seam": "registerTool",
@@ -12700,7 +12700,7 @@
           "execute"
         ]
       },
-      "source": "plugins/web-search-plus/index.ts:1499"
+      "source": "plugins/web-search-plus/index.ts:1790"
     },
     {
       "id": "registration.registerCli:apify:plugins-apify-src-cli-ts-35",

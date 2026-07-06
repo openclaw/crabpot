@@ -37485,10 +37485,10 @@
       "priority": "medium",
       "registrations": [
         {
-          "id": "registration.definePluginEntry:web-search-plus:plugins-web-search-plus-index-ts-1532",
+          "id": "registration.definePluginEntry:web-search-plus:plugins-web-search-plus-index-ts-1824",
           "fixture": "web-search-plus",
           "registrar": "definePluginEntry",
-          "ref": "plugins/web-search-plus/index.ts:1532",
+          "ref": "plugins/web-search-plus/index.ts:1824",
           "support": "inspector-shim-required",
           "assertions": [
             "entrypoint register function is callable",
@@ -37502,10 +37502,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1457",
+          "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1748",
           "fixture": "web-search-plus",
           "registrar": "registerTool",
-          "ref": "plugins/web-search-plus/index.ts:1457",
+          "ref": "plugins/web-search-plus/index.ts:1748",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -37524,10 +37524,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1481",
+          "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1772",
           "fixture": "web-search-plus",
           "registrar": "registerTool",
-          "ref": "plugins/web-search-plus/index.ts:1481",
+          "ref": "plugins/web-search-plus/index.ts:1772",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
@@ -37546,10 +37546,10 @@
           ]
         },
         {
-          "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1499",
+          "id": "registration.registerTool:web-search-plus:plugins-web-search-plus-index-ts-1790",
           "fixture": "web-search-plus",
           "registrar": "registerTool",
-          "ref": "plugins/web-search-plus/index.ts:1499",
+          "ref": "plugins/web-search-plus/index.ts:1790",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
