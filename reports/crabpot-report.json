@@ -27287,26 +27287,6 @@
           }
         },
         {
-          "path": "plugins/nemoclaw/agents/openclaw/mcporter-runtime/package.json",
-          "name": "nemoclaw-mcporter-runtime",
-          "version": "0.0.0",
-          "type": null,
-          "main": null,
-          "npmPack": {
-            "advertised": false,
-            "private": true,
-            "filesMode": "implicit",
-            "files": [],
-            "invalidFileSpecs": []
-          },
-          "dependencies": [
-            "mcporter"
-          ],
-          "peerDependencies": [],
-          "optionalDependencies": [],
-          "openclaw": null
-        },
-        {
           "path": "plugins/nemoclaw/package.json",
           "name": "nemoclaw",
           "version": "0.1.0",
@@ -27320,7 +27300,6 @@
               ".version",
               "bin",
               "dist",
-              "src/lib/messaging/channels/**/policy/*.{yaml,yml}",
               "nemoclaw/dist",
               "nemoclaw/openclaw.plugin.json",
               "nemoclaw/package.json",
@@ -27334,7 +27313,6 @@
           "dependencies": [
             "@aws-sdk/client-bedrock-runtime",
             "@oclif/core",
-            "execa",
             "js-yaml",
             "p-retry",
             "qrcode-terminal",
