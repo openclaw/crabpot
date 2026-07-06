@@ -1,20 +1,20 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "check",
+  "mode": "dependabot",
   "openclawLabel": "openclaw@latest (2026.6.11, e085fa1a3ffd)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 138,
+    "warnings": 136,
     "suggestions": 148,
-    "issues": 286,
+    "issues": 284,
     "p0Issues": 1,
     "p1Issues": 16,
     "liveIssues": 1,
     "liveP0Issues": 1,
     "compatGaps": 0,
-    "deprecationWarnings": 45,
+    "deprecationWarnings": 43,
     "inspectorGaps": 157,
     "upstreamIssues": 83,
     "refDiffFailures": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 25,
     "platformContainerRisks": 25,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 2246,
-    "importLoopP95Ms": 2295,
+    "importLoopP50Ms": 2447,
+    "importLoopP95Ms": 2455,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 118.2,
-    "importLoopOpenClawActivationP50Ms": 0.3,
+    "importLoopOpenClawImportP50Ms": 117.8,
+    "importLoopOpenClawActivationP50Ms": 0.4,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 0,
-    "importLoopMaxCpuMs": 13,
-    "importLoopRssSampleCount": 266,
-    "importLoopCpuSampleCount": 266
+    "importLoopMaxRssMb": 13.6,
+    "importLoopMaxCpuMs": 33,
+    "importLoopRssSampleCount": 288,
+    "importLoopCpuSampleCount": 288
   },
   "topIssues": [
     {
@@ -412,20 +412,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 111.1% over baseline",
+      "message": "p95WallMs regressed 106.9% over baseline",
       "baseline": 1273,
-      "current": 2687,
-      "delta": 1414,
-      "percent": 111.1
+      "current": 2634,
+      "delta": 1361,
+      "percent": 106.9
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 281.9 over baseline",
+      "message": "maxPeakRssMb regressed 280.6 over baseline",
       "baseline": 65.1,
-      "current": 347,
-      "delta": 281.9
+      "current": 345.7,
+      "delta": 280.6
     }
   ],
   "artifacts": {
