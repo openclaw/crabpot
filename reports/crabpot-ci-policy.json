@@ -3434,6 +3434,7 @@
         "a2a-gateway:legacy-root-sdk-import",
         "agentchat:channel-env-vars",
         "clawmetry:legacy-root-sdk-import",
+        "codex:sdk-load-session-store",
         "codex-app-server:legacy-root-sdk-import",
         "composio:legacy-root-sdk-import",
         "connectclaw:legacy-before-agent-start",
@@ -3450,8 +3451,6 @@
         "honcho:legacy-root-sdk-import",
         "hyperspell:legacy-root-sdk-import",
         "inworld-tts:provider-auth-env-vars",
-        "kitchen-sink:legacy-before-agent-start",
-        "kitchen-sink:legacy-root-sdk-import",
         "lossless-claw:sdk-load-session-store",
         "matrix:channel-env-vars",
         "matrix:sdk-load-session-store",
@@ -3473,6 +3472,7 @@
         "telnyx-sms:channel-env-vars",
         "twitch:channel-env-vars",
         "voice-call:channel-env-vars",
+        "whatsapp:sdk-load-session-store",
         "yuanbao:channel-env-vars",
         "zalo:channel-env-vars",
         "zalouser:channel-env-vars"
@@ -3645,7 +3645,7 @@
     {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "17 P1 issues tracked",
+      "message": "16 P1 issues tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "codex:reserved-sdk-import",
@@ -3653,7 +3653,6 @@
         "honcho:conversation-access-hook",
         "kitchen-sink:before-tool-call-probe",
         "kitchen-sink:conversation-access-hook",
-        "kitchen-sink:reserved-sdk-import",
         "llm-trace-phoenix:conversation-access-hook",
         "memory-lancedb:conversation-access-hook",
         "memory-tencentdb:conversation-access-hook",
