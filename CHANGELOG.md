@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2 - Unreleased
+
+_No changes yet._
+
 ## 0.2.1 - 2026-07-06
 
 - Fixed synthetic gateway probes to start services before compatibility checks and stop them afterward, eliminating false failures for lifecycle-sensitive plugins.
