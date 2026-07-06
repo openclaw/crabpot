@@ -2,7 +2,7 @@
 
 ## 0.2.1 - Unreleased
 
-_No changes yet._
+- Updated synthetic plugin probes to honor gateway startup and teardown order, preventing teardown from invalidating later compatibility checks.
 
 ## 0.2.0 - 2026-06-11
 
