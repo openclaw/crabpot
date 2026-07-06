@@ -100,7 +100,7 @@ async function readBlockedExecutionRulesByFixture() {
 
 export function blockedExecutionFailureForStep(fixtureId, step, result, rulesByFixture) {
   const rules = rulesByFixture.get(fixtureId) ?? [];
-  const haystack = [step.command, result.error, result.stderr, result.stdout].filter(Boolean).join("\n");
+  const haystack = [result.error, result.stderr, result.stdout].filter(Boolean).join("\n");
   return rules.find((rule) => haystack.includes(rule.errorIncludes));
 }
 
@@ -366,7 +366,7 @@ function measureProcessStep(step, operation) {
       detached: process.platform !== "win32",
       env,
       shell: false,
-      stdio: operation.captureStdoutPath ? ["ignore", "pipe", "inherit"] : "inherit",
+      stdio: ["ignore", "pipe", "pipe"],
     });
     if (timeoutMs > 0) {
       terminateTimer = setTimeout(() => {
@@ -376,9 +376,20 @@ function measureProcessStep(step, operation) {
       terminateTimer.unref?.();
     }
     const stdoutChunks = [];
-    if (operation.captureStdoutPath) {
-      child.stdout.on("data", (chunk) => stdoutChunks.push(chunk));
-    }
+    const stdoutCapture = createBoundedOutputCapture();
+    const stderrCapture = createBoundedOutputCapture();
+    child.stdout.on("data", (chunk) => {
+      if (operation.captureStdoutPath) {
+        stdoutChunks.push(chunk);
+      } else {
+        stdoutCapture.append(chunk);
+        process.stdout.write(chunk);
+      }
+    });
+    child.stderr.on("data", (chunk) => {
+      stderrCapture.append(chunk);
+      process.stderr.write(chunk);
+    });
     const recordStats = (stats) => {
       peakRssKb = Math.max(peakRssKb, stats.rssKb);
       peakCpuPercent = Math.max(peakCpuPercent, stats.cpuPercent);
@@ -417,13 +428,16 @@ function measureProcessStep(step, operation) {
         await writeFile(operation.captureStdoutPath, Buffer.concat(stdoutChunks));
       }
       const exitCode = timedOut ? 124 : code ?? 1;
+      const failureOutput = operation.ignoreExitCode ? 0 : exitCode;
       resolve({
         kind: step.kind,
         command: step.command,
         cwd: step.cwd,
         artifactPath: step.artifactPath ?? null,
-        exitCode: operation.ignoreExitCode ? 0 : exitCode,
+        exitCode: failureOutput,
         rawExitCode: operation.ignoreExitCode ? exitCode : undefined,
+        stderr: failureOutput !== 0 ? stderrCapture.text() : undefined,
+        stdout: failureOutput !== 0 && !operation.captureStdoutPath ? stdoutCapture.text() : undefined,
         timeoutMs: timeoutMs > 0 ? timeoutMs : undefined,
         timedOut,
         wallMs,
@@ -439,6 +453,31 @@ function measureProcessStep(step, operation) {
       reject(error);
     });
   });
+}
+
+function createBoundedOutputCapture(limit = 64_000) {
+  let text = "";
+  let truncated = false;
+  return {
+    append(chunk) {
+      if (text.length >= limit) {
+        truncated = true;
+        return;
+      }
+      const next = chunk.toString("utf8");
+      const available = limit - text.length;
+      text += next.slice(0, available);
+      if (next.length > available) {
+        truncated = true;
+      }
+    },
+    text() {
+      if (!text) {
+        return undefined;
+      }
+      return truncated ? `${text}\n[truncated]` : text;
+    },
+  };
 }
 
 export function readWorkspaceStepTimeoutMs(env = process.env) {

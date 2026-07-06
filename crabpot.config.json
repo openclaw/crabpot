@@ -1163,7 +1163,7 @@
           {
             "id": "memory-tencentdb-openclaw-plugin-offload-payload",
             "seam": "memory-runtime",
-            "errorIncludes": "plugins-memory-tencentdb-crabpot-package-openclaw-plugin-dist-index-js",
+            "errorIncludes": "src/offload-client/index.js",
             "reason": "published openclaw-plugin build imports an offload client file omitted from the npm payload"
           }
         ]

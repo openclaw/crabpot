@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import {
+  buildPluginInspectorCliInvocation,
   pluginInspectorPackage,
   resolvePluginInspectorCliInvocation,
   resolvePluginInspectorCliPath,
@@ -12,8 +13,24 @@ test("plugin inspector smoke defaults to the published npm package", () => {
     const invocation = resolvePluginInspectorCliInvocation();
 
     assert.equal(invocation.command, "npm");
-    assert.deepEqual(invocation.args, ["exec", "--yes", "--package", pluginInspectorPackage, "--", "plugin-inspector"]);
+    assert.deepEqual(invocation.args, ["exec", "--yes", `--package=${pluginInspectorPackage}`]);
+    assert.equal(invocation.callCommand, "plugin-inspector");
     assert.equal(invocation.shell, process.platform === "win32");
+  });
+});
+
+test("plugin inspector npm invocation uses call syntax for scoped packages", () => {
+  withEnv({}, () => {
+    const invocation = buildPluginInspectorCliInvocation(["check", "--config", "plugin-inspector.config.json"]);
+
+    assert.equal(invocation.command, "npm");
+    assert.deepEqual(invocation.args, [
+      "exec",
+      "--yes",
+      `--package=${pluginInspectorPackage}`,
+      "--call",
+      "plugin-inspector check --config plugin-inspector.config.json",
+    ]);
   });
 });
 

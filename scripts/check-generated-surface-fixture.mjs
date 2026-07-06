@@ -5,7 +5,7 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
-import { loadPluginInspectorPublicApi, resolvePluginInspectorCliInvocation } from "./plugin-inspector-source.mjs";
+import { buildPluginInspectorCliInvocation, loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 
 const defaultPluginRoot = path.join(repoRoot, ".crabpot/generated-surface-plugin");
 const defaultReportJsonPath = path.join(repoRoot, "reports/crabpot-generated-surface.json");
@@ -459,9 +459,7 @@ ${sdkExports.map((_, index) => `  | typeof sdk${index}`).join("\n")};
 }
 
 function runPluginInspector(pluginRoot, { runtime }) {
-  const invocation = resolvePluginInspectorCliInvocation();
-  const commandArgs = [
-    ...invocation.args,
+  const invocation = buildPluginInspectorCliInvocation([
     "check",
     "--config",
     "plugin-inspector.config.json",
@@ -469,8 +467,8 @@ function runPluginInspector(pluginRoot, { runtime }) {
     "--out",
     "reports",
     ...(runtime ? ["--runtime", "--mock-sdk"] : ["--no-runtime"]),
-  ];
-  const result = spawnSync(invocation.command, commandArgs, {
+  ]);
+  const result = spawnSync(invocation.command, invocation.args, {
     cwd: pluginRoot,
     encoding: "utf8",
     env: {
@@ -481,7 +479,7 @@ function runPluginInspector(pluginRoot, { runtime }) {
   });
 
   return {
-    command: displayCommand(invocation.command, commandArgs),
+    command: displayCommand(invocation.command, invocation.args),
     status: result.status,
     stdout: normalizeOutputPaths(result.stdout),
     stderr: normalizeOutputPaths(result.stderr),

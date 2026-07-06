@@ -33,7 +33,8 @@ export function resolvePluginInspectorCliInvocation(options = {}) {
   if (!useSource) {
     return {
       command: npmCommand(),
-      args: ["exec", "--yes", "--package", pluginInspectorPackage, "--", "plugin-inspector"],
+      args: ["exec", "--yes", `--package=${pluginInspectorPackage}`],
+      callCommand: "plugin-inspector",
       shell: process.platform === "win32",
     };
   }
@@ -41,6 +42,25 @@ export function resolvePluginInspectorCliInvocation(options = {}) {
   return {
     command: process.execPath,
     args: [resolvePluginInspectorCliPath()],
+  };
+}
+
+export function buildPluginInspectorCliInvocation(commandArgs, options = {}) {
+  const invocation = resolvePluginInspectorCliInvocation(options);
+  if (!invocation.callCommand) {
+    return {
+      ...invocation,
+      args: [...invocation.args, ...commandArgs],
+    };
+  }
+
+  return {
+    ...invocation,
+    args: [
+      ...invocation.args,
+      "--call",
+      [invocation.callCommand, ...commandArgs].map(shellQuote).join(" "),
+    ],
   };
 }
 
@@ -137,6 +157,13 @@ function sleep(ms) {
 
 function npmCommand() {
   return "npm";
+}
+
+function shellQuote(value) {
+  if (/^[A-Za-z0-9_./:=@-]+$/u.test(value)) {
+    return value;
+  }
+  return `'${value.replaceAll("'", "'\\''")}'`;
 }
 
 function readGitHead(checkoutDir) {

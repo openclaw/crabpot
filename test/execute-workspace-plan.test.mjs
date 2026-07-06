@@ -206,13 +206,19 @@ test("workspace executor classifies configured profile failures as blocked", () 
       [
         {
           id: "memory-tencentdb-openclaw-plugin-offload-payload",
-          errorIncludes: "plugins-memory-tencentdb-crabpot-package-openclaw-plugin-dist-index-js",
+          errorIncludes: "src/offload-client/index.js",
           reason: "published payload omits offload client",
         },
       ],
     ],
   ]);
-  const blockedRule = blockedExecutionFailureForStep("memory-tencentdb", step, { exitCode: 1 }, rules);
+  const commandOnlyRule = blockedExecutionFailureForStep("memory-tencentdb", step, { exitCode: 1 }, rules);
+  const blockedRule = blockedExecutionFailureForStep(
+    "memory-tencentdb",
+    step,
+    { exitCode: 1, stderr: "Cannot find module 'src/offload-client/index.js'" },
+    rules,
+  );
   const summary = summarizeExecutionProfileSteps([
     {
       exitCode: 1,
@@ -223,6 +229,7 @@ test("workspace executor classifies configured profile failures as blocked", () 
     },
   ]);
 
+  assert.equal(commandOnlyRule, undefined);
   assert.equal(blockedRule.id, "memory-tencentdb-openclaw-plugin-offload-payload");
   assert.equal(summary.failCount, 0);
   assert.equal(summary.blockedCount, 1);
