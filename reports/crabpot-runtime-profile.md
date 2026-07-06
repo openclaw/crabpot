@@ -8,16 +8,16 @@ Samples per command: 3
 | Metric                 | Value              |
 | ---------------------- | ------------------ |
 | Commands               | 9                  |
-| P50 wall time          | 6567 ms            |
-| Command P95 wall time  | 6678 ms            |
+| P50 wall time          | 6316 ms            |
+| Command P95 wall time  | 6423 ms            |
 | Wall time basis        | command-median-p95 |
 | Profile samples        | 27                 |
-| RSS samples            | 5544               |
-| CPU samples            | 5544               |
-| Max peak RSS           | 421.1 MB           |
-| Max RSS delta          | 392.8 MB           |
-| Max CPU estimate       | 7262 ms            |
-| Max harness heap delta | 9.4 MB             |
+| RSS samples            | 5324               |
+| CPU samples            | 5324               |
+| Max peak RSS           | 464.7 MB           |
+| Max RSS delta          | 435.6 MB           |
+| Max CPU estimate       | 6969 ms            |
+| Max harness heap delta | 8.8 MB             |
 
 ## Target OpenClaw Registry Surface
 
@@ -49,26 +49,26 @@ Samples per command: 3
 
 | ID                     | Label                                           | Median wall | Max wall | Max peak RSS | Max RSS delta | CPU estimate | Heap delta | RSS/CPU samples | Exit codes |
 | ---------------------- | ----------------------------------------------- | ----------- | -------- | ------------ | ------------- | ------------ | ---------- | --------------- | ---------- |
-| node-boot              | Node boot                                       | 39 ms       | 40 ms    | 32.1 MB      | 0 MB          | 0 ms         | 0.4 MB     | 3/3             | 0          |
-| fixture-inspection     | Fixture inspection                              | 6429 ms     | 6436 ms  | 416.1 MB     | 386.4 MB      | 6989 ms      | 8.5 MB     | 764/764         | 0          |
-| compat-report-registry | Compatibility report plus target registry parse | 6603 ms     | 6644 ms  | 420.2 MB     | 390.6 MB      | 7210 ms      | 9.3 MB     | 787/787         | 0          |
-| contract-capture       | Contract capture inventory                      | 6567 ms     | 6630 ms  | 417.8 MB     | 387.8 MB      | 7194 ms      | 9.4 MB     | 785/785         | 0          |
-| synthetic-probe-plan   | Synthetic probe plan                            | 6584 ms     | 6610 ms  | 420.6 MB     | 391.6 MB      | 7170 ms      | 9.3 MB     | 786/786         | 0          |
-| cold-import-readiness  | Cold import readiness                           | 6554 ms     | 6607 ms  | 416.9 MB     | 387.5 MB      | 7188 ms      | 8.8 MB     | 783/783         | 0          |
-| workspace-plan         | Workspace execution plan                        | 6602 ms     | 6614 ms  | 418.9 MB     | 389.3 MB      | 7216 ms      | 2.1 MB     | 786/786         | 0          |
-| platform-probes        | Platform and loader probes                      | 6678 ms     | 6718 ms  | 421.1 MB     | 392.8 MB      | 7262 ms      | 0.5 MB     | 797/797         | 0          |
-| import-loop-profile    | Repeated cold import capture loop               | 463 ms      | 463 ms   | 60.7 MB      | 32.5 MB       | 225 ms       | 1.6 MB     | 53/53           | 0          |
+| node-boot              | Node boot                                       | 36 ms       | 37 ms    | 32.1 MB      | 0 MB          | 0 ms         | 0.4 MB     | 3/3             | 0          |
+| fixture-inspection     | Fixture inspection                              | 6252 ms     | 6275 ms  | 401.7 MB     | 372.1 MB      | 6815 ms      | 8.2 MB     | 746/746         | 0          |
+| compat-report-registry | Compatibility report plus target registry parse | 6423 ms     | 6427 ms  | 403.7 MB     | 374.2 MB      | 6969 ms      | 8.8 MB     | 763/763         | 0          |
+| contract-capture       | Contract capture inventory                      | 6323 ms     | 6327 ms  | 417.8 MB     | 389.6 MB      | 6871 ms      | 2.4 MB     | 755/755         | 0          |
+| synthetic-probe-plan   | Synthetic probe plan                            | 6316 ms     | 6317 ms  | 464.7 MB     | 435.6 MB      | 6873 ms      | 2.2 MB     | 753/753         | 0          |
+| cold-import-readiness  | Cold import readiness                           | 6240 ms     | 6258 ms  | 416.5 MB     | 388.3 MB      | 6807 ms      | 1.8 MB     | 745/745         | 0          |
+| workspace-plan         | Workspace execution plan                        | 6343 ms     | 6343 ms  | 417.9 MB     | 389.7 MB      | 6895 ms      | 2.2 MB     | 754/754         | 0          |
+| platform-probes        | Platform and loader probes                      | 6320 ms     | 6335 ms  | 408.8 MB     | 380.2 MB      | 6845 ms      | 3.5 MB     | 753/753         | 0          |
+| import-loop-profile    | Repeated cold import capture loop               | 438 ms      | 448 ms   | 60.6 MB      | 32.4 MB       | 207 ms       | 1.6 MB     | 52/52           | 0          |
 
 ## Category Rollups
 
 | Category         | Commands | P50 wall | P95 wall | Max peak RSS | CPU estimate | RSS/CPU samples | Command IDs            |
 | ---------------- | -------- | -------- | -------- | ------------ | ------------ | --------------- | ---------------------- |
-| baseline         | 1        | 39 ms    | 40 ms    | 32.1 MB      | 0 ms         | 3/3             | node-boot              |
-| fixture-scan     | 1        | 6429 ms  | 6436 ms  | 416.1 MB     | 6989 ms      | 764/764         | fixture-inspection     |
-| target-registry  | 1        | 6603 ms  | 6644 ms  | 420.2 MB     | 7210 ms      | 787/787         | compat-report-registry |
-| contract-capture | 1        | 6567 ms  | 6630 ms  | 417.8 MB     | 7194 ms      | 785/785         | contract-capture       |
-| synthetic-probes | 1        | 6584 ms  | 6610 ms  | 420.6 MB     | 7170 ms      | 786/786         | synthetic-probe-plan   |
-| cold-import      | 1        | 6554 ms  | 6607 ms  | 416.9 MB     | 7188 ms      | 783/783         | cold-import-readiness  |
-| workspace-plan   | 1        | 6602 ms  | 6614 ms  | 418.9 MB     | 7216 ms      | 786/786         | workspace-plan         |
-| platform-probes  | 1        | 6678 ms  | 6718 ms  | 421.1 MB     | 7262 ms      | 797/797         | platform-probes        |
-| import-loop      | 1        | 463 ms   | 463 ms   | 60.7 MB      | 225 ms       | 53/53           | import-loop-profile    |
+| baseline         | 1        | 36 ms    | 37 ms    | 32.1 MB      | 0 ms         | 3/3             | node-boot              |
+| fixture-scan     | 1        | 6252 ms  | 6275 ms  | 401.7 MB     | 6815 ms      | 746/746         | fixture-inspection     |
+| target-registry  | 1        | 6423 ms  | 6427 ms  | 403.7 MB     | 6969 ms      | 763/763         | compat-report-registry |
+| contract-capture | 1        | 6323 ms  | 6327 ms  | 417.8 MB     | 6871 ms      | 755/755         | contract-capture       |
+| synthetic-probes | 1        | 6316 ms  | 6317 ms  | 464.7 MB     | 6873 ms      | 753/753         | synthetic-probe-plan   |
+| cold-import      | 1        | 6240 ms  | 6258 ms  | 416.5 MB     | 6807 ms      | 745/745         | cold-import-readiness  |
+| workspace-plan   | 1        | 6343 ms  | 6343 ms  | 417.9 MB     | 6895 ms      | 754/754         | workspace-plan         |
+| platform-probes  | 1        | 6320 ms  | 6335 ms  | 408.8 MB     | 6845 ms      | 753/753         | platform-probes        |
+| import-loop      | 1        | 438 ms   | 448 ms   | 60.6 MB      | 207 ms       | 52/52           | import-loop-profile    |
