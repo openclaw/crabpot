@@ -1159,6 +1159,12 @@
             "seam": "before_message_write",
             "errorIncludes": "reading 'content'",
             "reason": "captured memory write hook requires host message content"
+          },
+          {
+            "id": "memory-tencentdb-openclaw-plugin-offload-payload",
+            "seam": "memory-runtime",
+            "errorIncludes": "plugins-memory-tencentdb-crabpot-package-openclaw-plugin-dist-index-js",
+            "reason": "published openclaw-plugin build imports an offload client file omitted from the npm payload"
           }
         ]
       },

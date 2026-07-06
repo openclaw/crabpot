@@ -6170,6 +6170,12 @@
               "reason": "create a stable result directory for capture and synthetic probe artifacts"
             },
             {
+              "kind": "ensure-node-types",
+              "command": "npm pkg set 'devDependencies.@types/node=^22.0.0'",
+              "cwd": ".crabpot/workspaces/memory-tencentdb",
+              "reason": "satisfy tsconfig Node type declarations before isolated TypeScript build"
+            },
+            {
               "kind": "install",
               "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/memory-tencentdb",

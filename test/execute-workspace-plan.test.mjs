@@ -4,6 +4,7 @@ import path from "node:path";
 import { test } from "node:test";
 import { repoRoot } from "../scripts/manifest-lib.mjs";
 import {
+  blockedExecutionFailureForStep,
   executionEnvForStep,
   parseCommandInvocation,
   parsePortableStep,
@@ -11,6 +12,7 @@ import {
   runStep,
   validateExecutionRequest,
   selectWorkspaceSteps,
+  summarizeExecutionProfileSteps,
 } from "../scripts/execute-workspace-plan.mjs";
 import { portableCommand } from "../scripts/portable-command.mjs";
 
@@ -190,6 +192,40 @@ test("workspace executor allows explicit empty fixture lanes", () => {
     }),
     [],
   );
+});
+
+test("workspace executor classifies configured profile failures as blocked", () => {
+  const step = {
+    kind: "capture",
+    command:
+      "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --output ../../results/memory-tencentdb/cold-import-extension-memory-tencentdb-plugins-memory-tencentdb-crabpot-package-openclaw-plugin-dist-index-js.capture.json",
+  };
+  const rules = new Map([
+    [
+      "memory-tencentdb",
+      [
+        {
+          id: "memory-tencentdb-openclaw-plugin-offload-payload",
+          errorIncludes: "plugins-memory-tencentdb-crabpot-package-openclaw-plugin-dist-index-js",
+          reason: "published payload omits offload client",
+        },
+      ],
+    ],
+  ]);
+  const blockedRule = blockedExecutionFailureForStep("memory-tencentdb", step, { exitCode: 1 }, rules);
+  const summary = summarizeExecutionProfileSteps([
+    {
+      exitCode: 1,
+      blockedBy: blockedRule.id,
+      wallMs: 10,
+      peakRssMb: 2,
+      cpuMsEstimate: 3,
+    },
+  ]);
+
+  assert.equal(blockedRule.id, "memory-tencentdb-openclaw-plugin-offload-payload");
+  assert.equal(summary.failCount, 0);
+  assert.equal(summary.blockedCount, 1);
 });
 
 test("workspace executor refuses broad or unguarded execution", () => {

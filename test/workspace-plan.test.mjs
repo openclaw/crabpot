@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { mkdir, rm, writeFile } from "node:fs/promises";
 import { test } from "node:test";
 import { buildColdImportReadiness } from "../scripts/cold-import-readiness.mjs";
 import { buildReport } from "../scripts/report-lib.mjs";
@@ -154,6 +155,63 @@ test("workspace plan npm install steps tolerate peer drift in isolated probes", 
   );
   assert.match(plan.fixtures[0].entrypoints[0].steps[0].reason, /peer-range drift/);
   assert.equal(plan.fixtures[0].entrypoints[0].steps[1].command, "pnpm install --ignore-scripts");
+});
+
+test("workspace plan supplies missing Node types for isolated TypeScript builds", async (t) => {
+  const fixtureDir = new URL("../.crabpot/test-fixtures/node-types-build/", import.meta.url);
+  await rm(fixtureDir, { recursive: true, force: true });
+  await mkdir(fixtureDir, { recursive: true });
+  t.after(() => rm(fixtureDir, { recursive: true, force: true }));
+
+  await writeFile(
+    new URL("package.json", fixtureDir),
+    `${JSON.stringify({
+      name: "node-types-build",
+      version: "0.0.0",
+      devDependencies: {
+        typescript: "^5.5.0",
+      },
+    })}\n`,
+    "utf8",
+  );
+  await writeFile(
+    new URL("tsconfig.json", fixtureDir),
+    `${JSON.stringify({
+      compilerOptions: {
+        types: ["node"],
+      },
+    })}\n`,
+    "utf8",
+  );
+
+  const packagePath = ".crabpot/test-fixtures/node-types-build/package.json";
+  const plan = normalizeWorkspaceInstallSteps({
+    fixtures: [
+      {
+        id: "fixture",
+        entrypoints: [
+          {
+            packagePath,
+            requiredCapabilities: ["build", "dependency-install"],
+            steps: [
+              {
+                kind: "install",
+                command: "npm install --ignore-scripts",
+                cwd: ".crabpot/workspaces/fixture",
+                reason: "install runtime dependencies without mutating the pinned submodule",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  });
+  const steps = plan.fixtures[0].entrypoints[0].steps;
+
+  assert.equal(steps[0].kind, "ensure-node-types");
+  assert.equal(steps[0].command, "npm pkg set 'devDependencies.@types/node=^22.0.0'");
+  assert.equal(steps[0].cwd, ".crabpot/workspaces/fixture");
+  assert.equal(steps[1].command, "npm install --ignore-scripts --legacy-peer-deps");
 });
 
 function entrypointFor(plan, fixtureId) {

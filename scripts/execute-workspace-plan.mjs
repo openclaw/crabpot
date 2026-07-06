@@ -6,7 +6,7 @@ import path from "node:path";
 import { performance } from "node:perf_hooks";
 import { pathToFileURL } from "node:url";
 import { buildWorkspacePlan } from "./workspace-plan.mjs";
-import { repoRoot } from "./manifest-lib.mjs";
+import { readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
 import { portableCommand } from "./portable-command.mjs";
 import { resolveFixtureSet } from "./resolve-fixture-set.mjs";
 
@@ -44,6 +44,7 @@ async function main() {
   const profiles = [];
   const failures = [];
   const profileId = args.fixture ?? args.fixtureSet;
+  const blockedRulesByFixture = await readBlockedExecutionRulesByFixture();
   for (const item of selected) {
     for (const step of item.steps) {
       let result;
@@ -55,6 +56,16 @@ async function main() {
         }
         result = failedStepResult(step, error);
       }
+      if (args.continueOnError && result.exitCode !== 0) {
+        const blockedRule = blockedExecutionFailureForStep(item.fixture, step, result, blockedRulesByFixture);
+        if (blockedRule) {
+          result = {
+            ...result,
+            blockedBy: blockedRule.id,
+            blockedReason: blockedRule.reason,
+          };
+        }
+      }
       profiles.push({
         fixture: item.fixture,
         entrypoint: item.entrypoint,
@@ -64,6 +75,9 @@ async function main() {
       });
       await writeExecutionProfile(profileId, profiles);
       if (result.exitCode !== 0) {
+        if (result.blockedBy) {
+          continue;
+        }
         const failure = `${step.kind} failed with exit code ${result.exitCode}: ${step.command}`;
         if (!args.continueOnError) {
           throw new Error(failure);
@@ -75,6 +89,19 @@ async function main() {
   if (failures.length > 0) {
     console.warn(`workspace execution completed with ${failures.length} failed step(s)`);
   }
+}
+
+async function readBlockedExecutionRulesByFixture() {
+  const manifest = await readConfiguredManifest();
+  return new Map(
+    (manifest.fixtures ?? []).map((fixture) => [fixture.id, fixture.execution?.blockedFailures ?? []]),
+  );
+}
+
+export function blockedExecutionFailureForStep(fixtureId, step, result, rulesByFixture) {
+  const rules = rulesByFixture.get(fixtureId) ?? [];
+  const haystack = [step.command, result.error, result.stderr, result.stdout].filter(Boolean).join("\n");
+  return rules.find((rule) => haystack.includes(rule.errorIncludes));
 }
 
 function failedStepResult(step, error) {
@@ -482,17 +509,22 @@ async function writeExecutionProfile(fixtureId, steps) {
   const profile = {
     generatedAt: "deterministic",
     fixture: fixtureId,
-    summary: {
-      stepCount: steps.length,
-      failCount: steps.filter((step) => step.exitCode !== 0).length,
-      totalWallMs: steps.reduce((sum, step) => sum + step.wallMs, 0),
-      maxPeakRssMb: Math.max(0, ...steps.map((step) => step.peakRssMb)),
-      maxCpuMsEstimate: Math.max(0, ...steps.map((step) => step.cpuMsEstimate)),
-    },
+    summary: summarizeExecutionProfileSteps(steps),
     steps,
   };
   await mkdir(path.dirname(jsonPath), { recursive: true });
   await writeFile(jsonPath, `${JSON.stringify(profile, null, 2)}\n`, "utf8");
+}
+
+export function summarizeExecutionProfileSteps(steps) {
+  return {
+    stepCount: steps.length,
+    failCount: steps.filter((step) => step.exitCode !== 0 && !step.blockedBy).length,
+    blockedCount: steps.filter((step) => step.exitCode !== 0 && step.blockedBy).length,
+    totalWallMs: steps.reduce((sum, step) => sum + step.wallMs, 0),
+    maxPeakRssMb: Math.max(0, ...steps.map((step) => step.peakRssMb)),
+    maxCpuMsEstimate: Math.max(0, ...steps.map((step) => step.cpuMsEstimate)),
+  };
 }
 
 async function readProcessStats(pid) {

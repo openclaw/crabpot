@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
@@ -18,6 +19,7 @@ const crabpotWorkspacePlanOptions = {
   syntheticProbeScript: "../../../scripts/synthetic-probes.mjs",
   workspaceRoot: ".crabpot/workspaces",
 };
+const nodeTypesDevDependency = "^22.0.0";
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   await main();
@@ -121,10 +123,15 @@ export function normalizeWorkspaceInstallSteps(plan) {
       ...fixture,
       entrypoints: (fixture.entrypoints ?? []).map((entrypoint) => ({
         ...entrypoint,
-        steps: (entrypoint.steps ?? []).map(normalizeWorkspaceStep),
+        steps: normalizeWorkspaceEntrypointSteps(entrypoint),
       })),
     })),
   };
+}
+
+function normalizeWorkspaceEntrypointSteps(entrypoint) {
+  const steps = (entrypoint.steps ?? []).map(normalizeWorkspaceStep);
+  return ensureNodeTypesBuildDependency(entrypoint, steps);
 }
 
 function normalizeWorkspaceStep(step) {
@@ -137,4 +144,65 @@ function normalizeWorkspaceStep(step) {
     command: "npm install --ignore-scripts --legacy-peer-deps",
     reason: `${step.reason}; allow peer-range drift in isolated compatibility probes`,
   };
+}
+
+function ensureNodeTypesBuildDependency(entrypoint, steps) {
+  if (!entrypoint.requiredCapabilities?.includes("build") || !packageRequiresNodeTypes(entrypoint.packagePath)) {
+    return steps;
+  }
+
+  const installIndex = steps.findIndex((step) => step.kind === "install" && step.command.startsWith("npm install "));
+  if (installIndex === -1 || steps.some((step) => step.kind === "ensure-node-types")) {
+    return steps;
+  }
+
+  const ensureStep = {
+    kind: "ensure-node-types",
+    command: `npm pkg set 'devDependencies.@types/node=${nodeTypesDevDependency}'`,
+    cwd: steps[installIndex].cwd,
+    reason: "satisfy tsconfig Node type declarations before isolated TypeScript build",
+  };
+  return [...steps.slice(0, installIndex), ensureStep, ...steps.slice(installIndex)];
+}
+
+function packageRequiresNodeTypes(packagePath) {
+  if (!packagePath) {
+    return false;
+  }
+
+  const packageJsonPath = repoPath(packagePath);
+  const packageDir = path.dirname(packageJsonPath);
+  const tsconfigPath = path.join(packageDir, "tsconfig.json");
+  if (!existsSync(packageJsonPath) || !existsSync(tsconfigPath)) {
+    return false;
+  }
+
+  const packageJson = readJsonFile(packageJsonPath);
+  if (!packageJson || declaresNodeTypesDependency(packageJson)) {
+    return false;
+  }
+
+  const tsconfig = readJsonFile(tsconfigPath);
+  return Array.isArray(tsconfig?.compilerOptions?.types) && tsconfig.compilerOptions.types.includes("node");
+}
+
+function declaresNodeTypesDependency(packageJson) {
+  return [
+    packageJson.dependencies,
+    packageJson.devDependencies,
+    packageJson.optionalDependencies,
+    packageJson.peerDependencies,
+  ].some((dependencies) => dependencies?.["@types/node"]);
+}
+
+function readJsonFile(filePath) {
+  try {
+    return JSON.parse(readFileSync(filePath, "utf8"));
+  } catch {
+    return null;
+  }
+}
+
+function repoPath(relativePath) {
+  return path.join(repoRoot, ...relativePath.split("/"));
 }
