@@ -1653,7 +1653,7 @@ _none_
   - **package-typescript-source-entrypoint**: web-search-plus: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/314f6502936bb203be6254f93a52b64888b8fcbe/index.ts)
+    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/1b44c44e5495ad65fd37e8376c9fd752a97662c0/index.ts)
 
 - 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: wecom: channel runtime needs envelope/config probes
@@ -4790,7 +4790,7 @@ _none_
   - **package-typescript-source-entrypoint**: web-search-plus: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/314f6502936bb203be6254f93a52b64888b8fcbe/index.ts)
+    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/1b44c44e5495ad65fd37e8376c9fd752a97662c0/index.ts)
 
 - 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: wecom: channel runtime needs envelope/config probes
@@ -6669,7 +6669,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:web-search-plus`
   - evidence:
-    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/314f6502936bb203be6254f93a52b64888b8fcbe/index.ts)
+    - [extension @ index.ts](https://github.com/robbyczgw-cla/web-search-plus-plugin/blob/1b44c44e5495ad65fd37e8376c9fd752a97662c0/index.ts)
 
 - 🟢 P3 **bluebubbles** `package-loader`
   - contract: Release publishing metadata declares canonical ClawHub and npm install specs.

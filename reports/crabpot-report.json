@@ -33168,26 +33168,26 @@
         {
           "name": "definePluginEntry",
           "file": "plugins/web-search-plus/index.ts",
-          "line": 1532,
-          "ref": "plugins/web-search-plus/index.ts:1532"
+          "line": 1824,
+          "ref": "plugins/web-search-plus/index.ts:1824"
         },
         {
           "name": "registerTool",
           "file": "plugins/web-search-plus/index.ts",
-          "line": 1457,
-          "ref": "plugins/web-search-plus/index.ts:1457"
+          "line": 1748,
+          "ref": "plugins/web-search-plus/index.ts:1748"
         },
         {
           "name": "registerTool",
           "file": "plugins/web-search-plus/index.ts",
-          "line": 1481,
-          "ref": "plugins/web-search-plus/index.ts:1481"
+          "line": 1772,
+          "ref": "plugins/web-search-plus/index.ts:1772"
         },
         {
           "name": "registerTool",
           "file": "plugins/web-search-plus/index.ts",
-          "line": 1499,
-          "ref": "plugins/web-search-plus/index.ts:1499"
+          "line": 1790,
+          "ref": "plugins/web-search-plus/index.ts:1790"
         }
       ],
       "manifestContracts": [
@@ -33201,10 +33201,12 @@
         "plugins/web-search-plus/extract.ts",
         "plugins/web-search-plus/index.ts",
         "plugins/web-search-plus/paths.ts",
+        "plugins/web-search-plus/provider-stats.ts",
         "plugins/web-search-plus/quality.ts",
         "plugins/web-search-plus/research.ts",
         "plugins/web-search-plus/routing-config.ts",
         "plugins/web-search-plus/runtime-config.ts",
+        "plugins/web-search-plus/search-locale.ts",
         "plugins/web-search-plus/storage.ts"
       ],
       "pluginManifests": [
@@ -33212,7 +33214,7 @@
           "path": "plugins/web-search-plus/openclaw.plugin.json",
           "id": "web-search-plus-plugin-v2",
           "name": "Web Search Plus",
-          "version": "3.1.0",
+          "version": "3.2.0",
           "keys": [
             "activation",
             "configSchema",
@@ -33238,7 +33240,7 @@
       "package": {
         "path": "plugins/web-search-plus/package.json",
         "name": "web-search-plus-plugin-v2",
-        "version": "3.1.0",
+        "version": "3.2.0",
         "type": "module",
         "main": "index.ts",
         "npmPack": {
@@ -33250,6 +33252,8 @@
             "extract.ts",
             "research.ts",
             "quality.ts",
+            "provider-stats.ts",
+            "search-locale.ts",
             "routing-config.ts",
             "runtime-config.ts",
             "openclaw.plugin.json",
@@ -33302,7 +33306,7 @@
         {
           "path": "plugins/web-search-plus/package.json",
           "name": "web-search-plus-plugin-v2",
-          "version": "3.1.0",
+          "version": "3.2.0",
           "type": "module",
           "main": "index.ts",
           "npmPack": {
@@ -33314,6 +33318,8 @@
               "extract.ts",
               "research.ts",
               "quality.ts",
+              "provider-stats.ts",
+              "search-locale.ts",
               "routing-config.ts",
               "runtime-config.ts",
               "openclaw.plugin.json",
@@ -51160,7 +51166,7 @@
       "evidence": [
         "plugins/web-search-plus/package.json",
         "web-search-plus-plugin-v2",
-        "version:3.1.0"
+        "version:3.2.0"
       ]
     },
     {

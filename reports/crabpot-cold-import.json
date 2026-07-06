@@ -2442,16 +2442,10 @@
               "code": "ts-loader-required",
               "message": "entrypoint is TypeScript source and needs a loader or build step before Node cold import",
               "evidence": "plugins/web-search-plus/index.ts"
-            },
-            {
-              "code": "top-level-side-effect-review",
-              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
-              "evidence": "plugins/web-search-plus/index.ts"
             }
           ],
           "assertions": [
-            "TypeScript source entrypoint is compiled or loaded before cold import",
-            "cold import sandbox blocks network/process side effects before register capture"
+            "TypeScript source entrypoint is compiled or loaded before cold import"
           ]
         },
         {
