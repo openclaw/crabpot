@@ -82,8 +82,8 @@ _none_
   - **legacy-root-sdk-import**: clawmetry: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/dfe6e89ad4c10a5bfbd622e3be4f6bd13cea6461/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/dfe6e89ad4c10a5bfbd622e3be4f6bd13cea6461/clawhub-plugin/src/service.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/8af470d1886d523bf143403f96a586c138db33b2/clawhub-plugin/index.ts#L1)
+    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/8af470d1886d523bf143403f96a586c138db33b2/clawhub-plugin/src/service.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -620,7 +620,7 @@ _none_
   - **conversation-access-hook**: clawmetry: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/dfe6e89ad4c10a5bfbd622e3be4f6bd13cea6461/clawhub-plugin/src/service.ts#L117)
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/8af470d1886d523bf143403f96a586c138db33b2/clawhub-plugin/src/service.ts#L117)
 
 - 🟠 P1 **dingtalk-doc** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: dingtalk-doc: before_tool_call needs terminal/block/approval probes
@@ -813,13 +813,13 @@ _none_
   - **package-typescript-source-entrypoint**: clawmetry: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/dfe6e89ad4c10a5bfbd622e3be4f6bd13cea6461/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/8af470d1886d523bf143403f96a586c138db33b2/clawhub-plugin/index.ts)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/dfe6e89ad4c10a5bfbd622e3be4f6bd13cea6461/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/8af470d1886d523bf143403f96a586c138db33b2/clawhub-plugin/index.ts#L20)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
@@ -2626,7 +2626,7 @@ _none_
   - **conversation-access-hook**: clawmetry: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/dfe6e89ad4c10a5bfbd622e3be4f6bd13cea6461/clawhub-plugin/src/service.ts#L117)
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/8af470d1886d523bf143403f96a586c138db33b2/clawhub-plugin/src/service.ts#L117)
 
 - 🟠 P1 **codex** `upstream-metadata` `plugin-upstream-fix`
   - **reserved-sdk-import**: codex: plugin imports reserved bundled-plugin SDK compatibility subpaths
@@ -2950,8 +2950,8 @@ _none_
   - **legacy-root-sdk-import**: clawmetry: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/dfe6e89ad4c10a5bfbd622e3be4f6bd13cea6461/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/dfe6e89ad4c10a5bfbd622e3be4f6bd13cea6461/clawhub-plugin/src/service.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/8af470d1886d523bf143403f96a586c138db33b2/clawhub-plugin/index.ts#L1)
+    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/8af470d1886d523bf143403f96a586c138db33b2/clawhub-plugin/src/service.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -2970,13 +2970,13 @@ _none_
   - **package-typescript-source-entrypoint**: clawmetry: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/dfe6e89ad4c10a5bfbd622e3be4f6bd13cea6461/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/8af470d1886d523bf143403f96a586c138db33b2/clawhub-plugin/index.ts)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/dfe6e89ad4c10a5bfbd622e3be4f6bd13cea6461/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/8af470d1886d523bf143403f96a586c138db33b2/clawhub-plugin/index.ts#L20)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
@@ -5210,7 +5210,7 @@ _none_
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:clawmetry`
   - evidence:
-    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/dfe6e89ad4c10a5bfbd622e3be4f6bd13cea6461/clawhub-plugin/src/service.ts#L117)
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/8af470d1886d523bf143403f96a586c138db33b2/clawhub-plugin/src/service.ts#L117)
 
 - 🟠 P1 **honcho** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
@@ -6112,7 +6112,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:clawmetry`
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/dfe6e89ad4c10a5bfbd622e3be4f6bd13cea6461/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/8af470d1886d523bf143403f96a586c138db33b2/clawhub-plugin/index.ts#L20)
 
 - 🟢 P3 **clawrouter** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -6813,7 +6813,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:clawmetry`
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/dfe6e89ad4c10a5bfbd622e3be4f6bd13cea6461/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/8af470d1886d523bf143403f96a586c138db33b2/clawhub-plugin/index.ts)
 
 - 🟢 P3 **codex-app-server** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -7152,8 +7152,8 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:clawmetry`
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/dfe6e89ad4c10a5bfbd622e3be4f6bd13cea6461/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/dfe6e89ad4c10a5bfbd622e3be4f6bd13cea6461/clawhub-plugin/src/service.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/8af470d1886d523bf143403f96a586c138db33b2/clawhub-plugin/index.ts#L1)
+    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/8af470d1886d523bf143403f96a586c138db33b2/clawhub-plugin/src/service.ts#L1)
 
 - 🟢 P3 **codex-app-server** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
