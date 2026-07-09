@@ -27392,6 +27392,7 @@
               "nemoclaw/package.json",
               "nemoclaw-blueprint",
               "scripts",
+              "docs/resources/local-credential-form.html",
               "Dockerfile",
               ".dockerignore"
             ],
