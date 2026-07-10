@@ -36561,10 +36561,10 @@
       "priority": "medium",
       "registrations": [
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89313",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89376",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/dist/cli.js:89313",
+          "ref": "plugins/clawrouter/dist/cli.js:89376",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -36578,10 +36578,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89365",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89428",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/dist/cli.js:89365",
+          "ref": "plugins/clawrouter/dist/cli.js:89428",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -36595,10 +36595,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89414",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89477",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/dist/cli.js:89414",
+          "ref": "plugins/clawrouter/dist/cli.js:89477",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -36612,10 +36612,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89480",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89543",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/dist/cli.js:89480",
+          "ref": "plugins/clawrouter/dist/cli.js:89543",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -36629,10 +36629,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89484",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89547",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/dist/cli.js:89484",
+          "ref": "plugins/clawrouter/dist/cli.js:89547",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -36646,10 +36646,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89487",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89550",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/dist/cli.js:89487",
+          "ref": "plugins/clawrouter/dist/cli.js:89550",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -36663,10 +36663,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89488",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89551",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/dist/cli.js:89488",
+          "ref": "plugins/clawrouter/dist/cli.js:89551",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -36680,10 +36680,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87356",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87412",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/dist/index.js:87356",
+          "ref": "plugins/clawrouter/dist/index.js:87412",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -36697,10 +36697,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87408",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87464",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/dist/index.js:87408",
+          "ref": "plugins/clawrouter/dist/index.js:87464",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -36714,10 +36714,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87457",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87513",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/dist/index.js:87457",
+          "ref": "plugins/clawrouter/dist/index.js:87513",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -36731,10 +36731,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87523",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87579",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/dist/index.js:87523",
+          "ref": "plugins/clawrouter/dist/index.js:87579",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -36748,10 +36748,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87527",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87583",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/dist/index.js:87527",
+          "ref": "plugins/clawrouter/dist/index.js:87583",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -36765,10 +36765,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87530",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87586",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/dist/index.js:87530",
+          "ref": "plugins/clawrouter/dist/index.js:87586",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -36782,10 +36782,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87531",
+          "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87587",
           "fixture": "clawrouter",
           "registrar": "registerCommand",
-          "ref": "plugins/clawrouter/dist/index.js:87531",
+          "ref": "plugins/clawrouter/dist/index.js:87587",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -36987,10 +36987,10 @@
           ]
         },
         {
-          "id": "registration.registerService:clawrouter:plugins-clawrouter-dist-cli-js-89494",
+          "id": "registration.registerService:clawrouter:plugins-clawrouter-dist-cli-js-89557",
           "fixture": "clawrouter",
           "registrar": "registerService",
-          "ref": "plugins/clawrouter/dist/cli.js:89494",
+          "ref": "plugins/clawrouter/dist/cli.js:89557",
           "support": "inspector-shim-required",
           "assertions": [
             "service id is stable",
@@ -37005,10 +37005,10 @@
           ]
         },
         {
-          "id": "registration.registerService:clawrouter:plugins-clawrouter-dist-index-js-87537",
+          "id": "registration.registerService:clawrouter:plugins-clawrouter-dist-index-js-87593",
           "fixture": "clawrouter",
           "registrar": "registerService",
-          "ref": "plugins/clawrouter/dist/index.js:87537",
+          "ref": "plugins/clawrouter/dist/index.js:87593",
           "support": "inspector-shim-required",
           "assertions": [
             "service id is stable",
@@ -40069,20 +40069,20 @@
       "priority": "P3",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89313",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89365",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89414",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89480",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89484",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89487",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89488",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87356",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87408",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87457",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87523",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87527",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87530",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87531",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89376",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89428",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89477",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89543",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89547",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89550",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89551",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87412",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87464",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87513",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87579",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87583",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87586",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87587",
         "registerCommand @ plugins/clawrouter/src/index.ts:1792",
         "registerCommand @ plugins/clawrouter/src/index.ts:1842",
         "registerCommand @ plugins/clawrouter/src/index.ts:1896",
@@ -40091,8 +40091,8 @@
         "registerCommand @ plugins/clawrouter/src/index.ts:2036",
         "registerCommand @ plugins/clawrouter/src/index.ts:2040",
         "registerCommand @ plugins/clawrouter/src/index.ts:2041",
-        "registerService @ plugins/clawrouter/dist/cli.js:89494",
-        "registerService @ plugins/clawrouter/dist/index.js:87537",
+        "registerService @ plugins/clawrouter/dist/cli.js:89557",
+        "registerService @ plugins/clawrouter/dist/index.js:87593",
         "registerService @ plugins/clawrouter/src/index.ts:2050"
       ],
       "assertions": [
