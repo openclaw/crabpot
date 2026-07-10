@@ -27405,6 +27405,7 @@
             "js-yaml",
             "p-retry",
             "qrcode-terminal",
+            "smol-toml",
             "yaml"
           ],
           "peerDependencies": [],
@@ -31777,86 +31778,86 @@
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/dist/cli.js",
-          "line": 89376,
-          "ref": "plugins/clawrouter/dist/cli.js:89376"
+          "line": 89313,
+          "ref": "plugins/clawrouter/dist/cli.js:89313"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/dist/cli.js",
-          "line": 89428,
-          "ref": "plugins/clawrouter/dist/cli.js:89428"
+          "line": 89365,
+          "ref": "plugins/clawrouter/dist/cli.js:89365"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/dist/cli.js",
-          "line": 89477,
-          "ref": "plugins/clawrouter/dist/cli.js:89477"
+          "line": 89414,
+          "ref": "plugins/clawrouter/dist/cli.js:89414"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/dist/cli.js",
-          "line": 89543,
-          "ref": "plugins/clawrouter/dist/cli.js:89543"
+          "line": 89480,
+          "ref": "plugins/clawrouter/dist/cli.js:89480"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/dist/cli.js",
-          "line": 89547,
-          "ref": "plugins/clawrouter/dist/cli.js:89547"
+          "line": 89484,
+          "ref": "plugins/clawrouter/dist/cli.js:89484"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/dist/cli.js",
-          "line": 89550,
-          "ref": "plugins/clawrouter/dist/cli.js:89550"
+          "line": 89487,
+          "ref": "plugins/clawrouter/dist/cli.js:89487"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/dist/cli.js",
-          "line": 89551,
-          "ref": "plugins/clawrouter/dist/cli.js:89551"
+          "line": 89488,
+          "ref": "plugins/clawrouter/dist/cli.js:89488"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/dist/index.js",
-          "line": 87412,
-          "ref": "plugins/clawrouter/dist/index.js:87412"
+          "line": 87356,
+          "ref": "plugins/clawrouter/dist/index.js:87356"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/dist/index.js",
-          "line": 87464,
-          "ref": "plugins/clawrouter/dist/index.js:87464"
+          "line": 87408,
+          "ref": "plugins/clawrouter/dist/index.js:87408"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/dist/index.js",
-          "line": 87513,
-          "ref": "plugins/clawrouter/dist/index.js:87513"
+          "line": 87457,
+          "ref": "plugins/clawrouter/dist/index.js:87457"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/dist/index.js",
-          "line": 87579,
-          "ref": "plugins/clawrouter/dist/index.js:87579"
+          "line": 87523,
+          "ref": "plugins/clawrouter/dist/index.js:87523"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/dist/index.js",
-          "line": 87583,
-          "ref": "plugins/clawrouter/dist/index.js:87583"
+          "line": 87527,
+          "ref": "plugins/clawrouter/dist/index.js:87527"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/dist/index.js",
-          "line": 87586,
-          "ref": "plugins/clawrouter/dist/index.js:87586"
+          "line": 87530,
+          "ref": "plugins/clawrouter/dist/index.js:87530"
         },
         {
           "name": "registerCommand",
           "file": "plugins/clawrouter/dist/index.js",
-          "line": 87587,
-          "ref": "plugins/clawrouter/dist/index.js:87587"
+          "line": 87531,
+          "ref": "plugins/clawrouter/dist/index.js:87531"
         },
         {
           "name": "registerCommand",
@@ -31933,14 +31934,14 @@
         {
           "name": "registerService",
           "file": "plugins/clawrouter/dist/cli.js",
-          "line": 89557,
-          "ref": "plugins/clawrouter/dist/cli.js:89557"
+          "line": 89494,
+          "ref": "plugins/clawrouter/dist/cli.js:89494"
         },
         {
           "name": "registerService",
           "file": "plugins/clawrouter/dist/index.js",
-          "line": 87593,
-          "ref": "plugins/clawrouter/dist/index.js:87593"
+          "line": 87537,
+          "ref": "plugins/clawrouter/dist/index.js:87537"
         },
         {
           "name": "registerService",
@@ -31981,7 +31982,6 @@
         "plugins/clawrouter/scripts/e2e-multiturn.mjs",
         "plugins/clawrouter/src/auth.ts",
         "plugins/clawrouter/src/balance.ts",
-        "plugins/clawrouter/src/builder-code.ts",
         "plugins/clawrouter/src/cli.ts",
         "plugins/clawrouter/src/commands/exclude.ts",
         "plugins/clawrouter/src/commands/stats.ts",
@@ -32081,7 +32081,7 @@
       "package": {
         "path": "plugins/clawrouter/package.json",
         "name": "@blockrun/clawrouter",
-        "version": "0.12.218",
+        "version": "0.12.216",
         "type": "module",
         "main": "dist/index.js",
         "npmPack": {
@@ -32142,7 +32142,7 @@
         {
           "path": "plugins/clawrouter/package.json",
           "name": "@blockrun/clawrouter",
-          "version": "0.12.218",
+          "version": "0.12.216",
           "type": "module",
           "main": "dist/index.js",
           "npmPack": {
@@ -37000,20 +37000,20 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89376",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89428",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89477",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89543",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89547",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89550",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89551",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87412",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87464",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87513",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87579",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87583",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87586",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87587",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89313",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89365",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89414",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89480",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89484",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89487",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89488",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87356",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87408",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87457",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87523",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87527",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87530",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87531",
         "registerCommand @ plugins/clawrouter/src/index.ts:1792",
         "registerCommand @ plugins/clawrouter/src/index.ts:1842",
         "registerCommand @ plugins/clawrouter/src/index.ts:1896",
@@ -37022,8 +37022,8 @@
         "registerCommand @ plugins/clawrouter/src/index.ts:2036",
         "registerCommand @ plugins/clawrouter/src/index.ts:2040",
         "registerCommand @ plugins/clawrouter/src/index.ts:2041",
-        "registerService @ plugins/clawrouter/dist/cli.js:89557",
-        "registerService @ plugins/clawrouter/dist/index.js:87593",
+        "registerService @ plugins/clawrouter/dist/cli.js:89494",
+        "registerService @ plugins/clawrouter/dist/index.js:87537",
         "registerService @ plugins/clawrouter/src/index.ts:2050"
       ],
       "compatRecord": "api.capture.runtime-registrars"
@@ -38204,7 +38204,7 @@
       }
     },
     {
-      "id": "CRABPOT-B7E9335C",
+      "id": "CRABPOT-3A890189",
       "fixture": "clawrouter",
       "severity": "P2",
       "owner": "inspector",
@@ -38217,20 +38217,20 @@
       "compatStatus": "active",
       "title": "clawrouter: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89376",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89428",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89477",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89543",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89547",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89550",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89551",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87412",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87464",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87513",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87579",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87583",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87586",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87587",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89313",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89365",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89414",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89480",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89484",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89487",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89488",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87356",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87408",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87457",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87523",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87527",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87530",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87531",
         "registerCommand @ plugins/clawrouter/src/index.ts:1792",
         "registerCommand @ plugins/clawrouter/src/index.ts:1842",
         "registerCommand @ plugins/clawrouter/src/index.ts:1896",
@@ -38239,8 +38239,8 @@
         "registerCommand @ plugins/clawrouter/src/index.ts:2036",
         "registerCommand @ plugins/clawrouter/src/index.ts:2040",
         "registerCommand @ plugins/clawrouter/src/index.ts:2041",
-        "registerService @ plugins/clawrouter/dist/cli.js:89557",
-        "registerService @ plugins/clawrouter/dist/index.js:87593",
+        "registerService @ plugins/clawrouter/dist/cli.js:89494",
+        "registerService @ plugins/clawrouter/dist/index.js:87537",
         "registerService @ plugins/clawrouter/src/index.ts:2050"
       ],
       "compatRecord": "api.capture.runtime-registrars",
@@ -45089,20 +45089,20 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89376",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89428",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89477",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89543",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89547",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89550",
-        "registerCommand @ plugins/clawrouter/dist/cli.js:89551",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87412",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87464",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87513",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87579",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87583",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87586",
-        "registerCommand @ plugins/clawrouter/dist/index.js:87587",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89313",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89365",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89414",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89480",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89484",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89487",
+        "registerCommand @ plugins/clawrouter/dist/cli.js:89488",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87356",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87408",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87457",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87523",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87527",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87530",
+        "registerCommand @ plugins/clawrouter/dist/index.js:87531",
         "registerCommand @ plugins/clawrouter/src/index.ts:1792",
         "registerCommand @ plugins/clawrouter/src/index.ts:1842",
         "registerCommand @ plugins/clawrouter/src/index.ts:1896",
@@ -45111,8 +45111,8 @@
         "registerCommand @ plugins/clawrouter/src/index.ts:2036",
         "registerCommand @ plugins/clawrouter/src/index.ts:2040",
         "registerCommand @ plugins/clawrouter/src/index.ts:2041",
-        "registerService @ plugins/clawrouter/dist/cli.js:89557",
-        "registerService @ plugins/clawrouter/dist/index.js:87593",
+        "registerService @ plugins/clawrouter/dist/cli.js:89494",
+        "registerService @ plugins/clawrouter/dist/index.js:87537",
         "registerService @ plugins/clawrouter/src/index.ts:2050"
       ]
     },
@@ -51325,7 +51325,7 @@
       "evidence": [
         "plugins/clawrouter/package.json",
         "@blockrun/clawrouter",
-        "version:0.12.218"
+        "version:0.12.216"
       ]
     },
     {
