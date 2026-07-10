@@ -11928,7 +11928,7 @@
       "source": "plugins/telnyx-sms/index.ts:259"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89376",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89313",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -11952,10 +11952,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/dist/cli.js:89376"
+      "source": "plugins/clawrouter/dist/cli.js:89313"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89428",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89365",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -11979,10 +11979,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/dist/cli.js:89428"
+      "source": "plugins/clawrouter/dist/cli.js:89365"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89477",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89414",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -12006,10 +12006,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/dist/cli.js:89477"
+      "source": "plugins/clawrouter/dist/cli.js:89414"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89543",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89480",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -12033,10 +12033,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/dist/cli.js:89543"
+      "source": "plugins/clawrouter/dist/cli.js:89480"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89547",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89484",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -12060,10 +12060,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/dist/cli.js:89547"
+      "source": "plugins/clawrouter/dist/cli.js:89484"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89550",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89487",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -12087,10 +12087,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/dist/cli.js:89550"
+      "source": "plugins/clawrouter/dist/cli.js:89487"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89551",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-cli-js-89488",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -12114,10 +12114,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/dist/cli.js:89551"
+      "source": "plugins/clawrouter/dist/cli.js:89488"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87412",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87356",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -12141,10 +12141,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/dist/index.js:87412"
+      "source": "plugins/clawrouter/dist/index.js:87356"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87464",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87408",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -12168,10 +12168,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/dist/index.js:87464"
+      "source": "plugins/clawrouter/dist/index.js:87408"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87513",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87457",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -12195,10 +12195,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/dist/index.js:87513"
+      "source": "plugins/clawrouter/dist/index.js:87457"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87579",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87523",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -12222,10 +12222,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/dist/index.js:87579"
+      "source": "plugins/clawrouter/dist/index.js:87523"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87583",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87527",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -12249,10 +12249,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/dist/index.js:87583"
+      "source": "plugins/clawrouter/dist/index.js:87527"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87586",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87530",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -12276,10 +12276,10 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/dist/index.js:87586"
+      "source": "plugins/clawrouter/dist/index.js:87530"
     },
     {
-      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87587",
+      "id": "registration.registerCommand:clawrouter:plugins-clawrouter-dist-index-js-87531",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerCommand",
@@ -12303,7 +12303,7 @@
           "execute"
         ]
       },
-      "source": "plugins/clawrouter/dist/index.js:87587"
+      "source": "plugins/clawrouter/dist/index.js:87531"
     },
     {
       "id": "registration.registerCommand:clawrouter:plugins-clawrouter-src-index-ts-1792",
@@ -12602,7 +12602,7 @@
       "source": "plugins/clawrouter/src/index.ts:1689"
     },
     {
-      "id": "registration.registerService:clawrouter:plugins-clawrouter-dist-cli-js-89557",
+      "id": "registration.registerService:clawrouter:plugins-clawrouter-dist-cli-js-89494",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerService",
@@ -12628,10 +12628,10 @@
         ],
         "option": "includeLifecycle"
       },
-      "source": "plugins/clawrouter/dist/cli.js:89557"
+      "source": "plugins/clawrouter/dist/cli.js:89494"
     },
     {
-      "id": "registration.registerService:clawrouter:plugins-clawrouter-dist-index-js-87593",
+      "id": "registration.registerService:clawrouter:plugins-clawrouter-dist-index-js-87537",
       "fixture": "clawrouter",
       "kind": "registration",
       "seam": "registerService",
@@ -12657,7 +12657,7 @@
         ],
         "option": "includeLifecycle"
       },
-      "source": "plugins/clawrouter/dist/index.js:87593"
+      "source": "plugins/clawrouter/dist/index.js:87537"
     },
     {
       "id": "registration.registerService:clawrouter:plugins-clawrouter-src-index-ts-2050",

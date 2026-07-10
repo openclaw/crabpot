@@ -685,7 +685,7 @@ _none_
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/src/index.ts#L385)
+    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/src/index.ts#L385)
 
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
@@ -840,20 +840,20 @@ _none_
   - **registration-capture-gap**: clawrouter: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ cli.js:89376](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89376)
-    - [registerCommand @ cli.js:89428](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89428)
-    - [registerCommand @ cli.js:89477](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89477)
-    - [registerCommand @ cli.js:89543](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89543)
-    - [registerCommand @ cli.js:89547](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89547)
-    - [registerCommand @ cli.js:89550](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89550)
-    - [registerCommand @ cli.js:89551](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89551)
-    - [registerCommand @ index.js:87412](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87412)
-    - [registerCommand @ index.js:87464](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87464)
-    - [registerCommand @ index.js:87513](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87513)
-    - [registerCommand @ index.js:87579](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87579)
-    - [registerCommand @ index.js:87583](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87583)
-    - [registerCommand @ index.js:87586](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87586)
-    - [registerCommand @ index.js:87587](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87587)
+    - [registerCommand @ cli.js:89313](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89313)
+    - [registerCommand @ cli.js:89365](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89365)
+    - [registerCommand @ cli.js:89414](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89414)
+    - [registerCommand @ cli.js:89480](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89480)
+    - [registerCommand @ cli.js:89484](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89484)
+    - [registerCommand @ cli.js:89487](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89487)
+    - [registerCommand @ cli.js:89488](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89488)
+    - [registerCommand @ index.js:87356](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87356)
+    - [registerCommand @ index.js:87408](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87408)
+    - [registerCommand @ index.js:87457](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87457)
+    - [registerCommand @ index.js:87523](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87523)
+    - [registerCommand @ index.js:87527](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87527)
+    - [registerCommand @ index.js:87530](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87530)
+    - [registerCommand @ index.js:87531](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87531)
     - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1792)
     - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1842)
     - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1896)
@@ -862,8 +862,8 @@ _none_
     - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2036)
     - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2040)
     - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2041)
-    - [registerService @ cli.js:89557](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89557)
-    - [registerService @ index.js:87593](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87593)
+    - [registerService @ cli.js:89494](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89494)
+    - [registerService @ index.js:87537](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87537)
     - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2050)
 
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
@@ -1467,22 +1467,22 @@ _none_
   - **package-build-artifact-entrypoint**: nemoclaw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/dist/index.js)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nemoclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/package.json)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/src/index.ts#L348)
+    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/src/index.ts#L348)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
@@ -2700,7 +2700,7 @@ _none_
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/src/index.ts#L385)
+    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/src/index.ts#L385)
 
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
@@ -3006,20 +3006,20 @@ _none_
   - **registration-capture-gap**: clawrouter: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ cli.js:89376](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89376)
-    - [registerCommand @ cli.js:89428](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89428)
-    - [registerCommand @ cli.js:89477](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89477)
-    - [registerCommand @ cli.js:89543](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89543)
-    - [registerCommand @ cli.js:89547](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89547)
-    - [registerCommand @ cli.js:89550](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89550)
-    - [registerCommand @ cli.js:89551](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89551)
-    - [registerCommand @ index.js:87412](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87412)
-    - [registerCommand @ index.js:87464](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87464)
-    - [registerCommand @ index.js:87513](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87513)
-    - [registerCommand @ index.js:87579](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87579)
-    - [registerCommand @ index.js:87583](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87583)
-    - [registerCommand @ index.js:87586](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87586)
-    - [registerCommand @ index.js:87587](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87587)
+    - [registerCommand @ cli.js:89313](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89313)
+    - [registerCommand @ cli.js:89365](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89365)
+    - [registerCommand @ cli.js:89414](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89414)
+    - [registerCommand @ cli.js:89480](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89480)
+    - [registerCommand @ cli.js:89484](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89484)
+    - [registerCommand @ cli.js:89487](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89487)
+    - [registerCommand @ cli.js:89488](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89488)
+    - [registerCommand @ index.js:87356](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87356)
+    - [registerCommand @ index.js:87408](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87408)
+    - [registerCommand @ index.js:87457](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87457)
+    - [registerCommand @ index.js:87523](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87523)
+    - [registerCommand @ index.js:87527](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87527)
+    - [registerCommand @ index.js:87530](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87530)
+    - [registerCommand @ index.js:87531](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87531)
     - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1792)
     - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1842)
     - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1896)
@@ -3028,8 +3028,8 @@ _none_
     - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2036)
     - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2040)
     - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2041)
-    - [registerService @ cli.js:89557](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89557)
-    - [registerService @ index.js:87593](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87593)
+    - [registerService @ cli.js:89494](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89494)
+    - [registerService @ index.js:87537](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87537)
     - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2050)
 
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
@@ -4362,22 +4362,22 @@ _none_
   - **package-build-artifact-entrypoint**: nemoclaw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/dist/index.js)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nemoclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/package.json)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/src/index.ts#L348)
+    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/src/index.ts#L348)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
@@ -5186,7 +5186,7 @@ _none_
   - contract: Hook returns preserve terminal, block, and approval semantics.
   - id: `hook.before_tool_call.terminal-block-approval:nemoclaw`
   - evidence:
-    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/src/index.ts#L385)
+    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/src/index.ts#L385)
 
 - 🟠 P1 **openclaw-telemetry** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
@@ -5406,7 +5406,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:nemoclaw`
   - evidence:
-    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/src/index.ts#L348)
+    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/src/index.ts#L348)
 
 - 🟡 P2 **openclaw-telemetry** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -5716,7 +5716,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:nemoclaw`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/dist/index.js)
 
 - 🟡 P2 **opik-openclaw** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -5817,10 +5817,10 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:nemoclaw`
   - evidence:
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/e962d05b01bde57773ac3b6009f00abd4e753294/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/4b58fee5fffaaccbe2d8210357ef0b77881b5f42/nemoclaw/package.json)
 
 - 🟡 P2 **openclaw-weixin** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -6118,20 +6118,20 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:clawrouter`
   - evidence:
-    - [registerCommand @ cli.js:89376](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89376)
-    - [registerCommand @ cli.js:89428](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89428)
-    - [registerCommand @ cli.js:89477](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89477)
-    - [registerCommand @ cli.js:89543](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89543)
-    - [registerCommand @ cli.js:89547](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89547)
-    - [registerCommand @ cli.js:89550](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89550)
-    - [registerCommand @ cli.js:89551](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89551)
-    - [registerCommand @ index.js:87412](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87412)
-    - [registerCommand @ index.js:87464](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87464)
-    - [registerCommand @ index.js:87513](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87513)
-    - [registerCommand @ index.js:87579](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87579)
-    - [registerCommand @ index.js:87583](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87583)
-    - [registerCommand @ index.js:87586](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87586)
-    - [registerCommand @ index.js:87587](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87587)
+    - [registerCommand @ cli.js:89313](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89313)
+    - [registerCommand @ cli.js:89365](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89365)
+    - [registerCommand @ cli.js:89414](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89414)
+    - [registerCommand @ cli.js:89480](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89480)
+    - [registerCommand @ cli.js:89484](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89484)
+    - [registerCommand @ cli.js:89487](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89487)
+    - [registerCommand @ cli.js:89488](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89488)
+    - [registerCommand @ index.js:87356](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87356)
+    - [registerCommand @ index.js:87408](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87408)
+    - [registerCommand @ index.js:87457](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87457)
+    - [registerCommand @ index.js:87523](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87523)
+    - [registerCommand @ index.js:87527](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87527)
+    - [registerCommand @ index.js:87530](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87530)
+    - [registerCommand @ index.js:87531](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87531)
     - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1792)
     - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1842)
     - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1896)
@@ -6140,8 +6140,8 @@ _none_
     - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2036)
     - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2040)
     - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2041)
-    - [registerService @ cli.js:89557](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89557)
-    - [registerService @ index.js:87593](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87593)
+    - [registerService @ cli.js:89494](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89494)
+    - [registerService @ index.js:87537](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87537)
     - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2050)
 
 - 🟢 P3 **codex** `inspector-capture-api`
