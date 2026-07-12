@@ -39,6 +39,10 @@ const crabpotMetadataOnlyRegistrars = new Map([
     "session actions are captured as registration metadata before session runtime execution",
   ],
   [
+    "registerSessionCatalog",
+    "session catalogs are captured as registration metadata before catalog runtime execution",
+  ],
+  [
     "registerTranscriptSourceProvider",
     "transcript source providers are captured as registration metadata before transcript provider runtime execution",
   ],
