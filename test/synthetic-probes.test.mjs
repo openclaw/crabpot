@@ -102,7 +102,6 @@ test("synthetic probe plan treats descriptor registrars as metadata-only", async
     "registerModelCatalogProvider",
     "registerNodeCliFeature",
     "registerSessionAction",
-    "registerSessionCatalog",
     "registerTranscriptSourceProvider",
   ];
   const plan = await buildSyntheticProbePlan({
