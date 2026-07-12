@@ -13,12 +13,12 @@ Targets: linux, macos, windows, container
 | tsLoaderEntrypointCount        | 20    |
 | jitiAlternativeCount           | 20    |
 | lazyImportProbeCount           | 108   |
-| portabilityFindingCount        | 25    |
+| portabilityFindingCount        | 17    |
 | coveredPortabilityFindingCount | 500   |
-| windowsRiskStepCount           | 25    |
-| macosRiskStepCount             | 25    |
-| linuxRiskStepCount             | 25    |
-| containerRiskStepCount         | 25    |
+| windowsRiskStepCount           | 17    |
+| macosRiskStepCount             | 17    |
+| linuxRiskStepCount             | 17    |
+| containerRiskStepCount         | 17    |
 
 ## Loader Probes
 
@@ -135,33 +135,25 @@ Targets: linux, macos, windows, container
 
 ## Portability Findings
 
-| Fixture          | Step          | Platforms                        | Risks                        | Mitigation                                                     |
-| ---------------- | ------------- | -------------------------------- | ---------------------------- | -------------------------------------------------------------- |
-| agentchat        | link-openclaw | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| agentchat        | install       | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| agentchat        | audit         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| agentchat        | build         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| agentchat        | link-openclaw | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| agentchat        | install       | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| agentchat        | audit         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| agentchat        | build         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| connectclaw      | link-openclaw | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| honcho           | link-openclaw | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| honcho           | install       | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| honcho           | audit         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| honcho           | build         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| ddingtalk        | link-openclaw | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| ddingtalk        | install       | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| ddingtalk        | audit         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| ddingtalk        | build         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| dingtalk-doc     | link-openclaw | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| dingtalk-doc     | install       | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| dingtalk-doc     | audit         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| dingtalk-doc     | build         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| codex-app-server | link-openclaw | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| codex-app-server | install       | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| codex-app-server | audit         | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
-| inworld-tts      | link-openclaw | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| Fixture          | Step    | Platforms                        | Risks                        | Mitigation                                                     |
+| ---------------- | ------- | -------------------------------- | ---------------------------- | -------------------------------------------------------------- |
+| agentchat        | install | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| agentchat        | audit   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| agentchat        | build   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| agentchat        | install | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| agentchat        | audit   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| agentchat        | build   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| honcho           | install | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| honcho           | audit   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| honcho           | build   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| ddingtalk        | install | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| ddingtalk        | audit   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| ddingtalk        | build   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| dingtalk-doc     | install | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| dingtalk-doc     | audit   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| dingtalk-doc     | build   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| codex-app-server | install | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
+| codex-app-server | audit   | container, linux, macos, windows | package-manager-availability | install the declared package manager before isolated execution |
 
 ## Covered Portability Findings
 

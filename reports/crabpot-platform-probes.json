@@ -13,12 +13,12 @@
     "tsLoaderEntrypointCount": 20,
     "jitiAlternativeCount": 20,
     "lazyImportProbeCount": 108,
-    "portabilityFindingCount": 25,
+    "portabilityFindingCount": 17,
     "coveredPortabilityFindingCount": 500,
-    "windowsRiskStepCount": 25,
-    "macosRiskStepCount": 25,
-    "linuxRiskStepCount": 25,
-    "containerRiskStepCount": 25
+    "windowsRiskStepCount": 17,
+    "macosRiskStepCount": 17,
+    "linuxRiskStepCount": 17,
+    "containerRiskStepCount": 17
   },
   "entrypoints": [
     {
@@ -2010,23 +2010,6 @@
     {
       "fixture": "agentchat",
       "entrypoint": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
-      "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
-      "coveredRiskCodes": [],
-      "platforms": [
-        "container",
-        "linux",
-        "macos",
-        "windows"
-      ],
-      "riskCodes": [
-        "package-manager-availability"
-      ],
-      "mitigation": "install the declared package manager before isolated execution"
-    },
-    {
-      "fixture": "agentchat",
-      "entrypoint": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
       "kind": "install",
       "command": "pnpm install --ignore-scripts",
       "coveredRiskCodes": [],
@@ -2081,23 +2064,6 @@
     {
       "fixture": "agentchat",
       "entrypoint": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
-      "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
-      "coveredRiskCodes": [],
-      "platforms": [
-        "container",
-        "linux",
-        "macos",
-        "windows"
-      ],
-      "riskCodes": [
-        "package-manager-availability"
-      ],
-      "mitigation": "install the declared package manager before isolated execution"
-    },
-    {
-      "fixture": "agentchat",
-      "entrypoint": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
       "kind": "install",
       "command": "pnpm install --ignore-scripts",
       "coveredRiskCodes": [],
@@ -2137,40 +2103,6 @@
       "entrypoint": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
       "kind": "build",
       "command": "pnpm run build",
-      "coveredRiskCodes": [],
-      "platforms": [
-        "container",
-        "linux",
-        "macos",
-        "windows"
-      ],
-      "riskCodes": [
-        "package-manager-availability"
-      ],
-      "mitigation": "install the declared package manager before isolated execution"
-    },
-    {
-      "fixture": "connectclaw",
-      "entrypoint": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
-      "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
-      "coveredRiskCodes": [],
-      "platforms": [
-        "container",
-        "linux",
-        "macos",
-        "windows"
-      ],
-      "riskCodes": [
-        "package-manager-availability"
-      ],
-      "mitigation": "install the declared package manager before isolated execution"
-    },
-    {
-      "fixture": "honcho",
-      "entrypoint": "cold-import.extension:honcho:plugins-honcho-dist-index-js",
-      "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -2240,23 +2172,6 @@
     {
       "fixture": "ddingtalk",
       "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-dist-index-js",
-      "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
-      "coveredRiskCodes": [],
-      "platforms": [
-        "container",
-        "linux",
-        "macos",
-        "windows"
-      ],
-      "riskCodes": [
-        "package-manager-availability"
-      ],
-      "mitigation": "install the declared package manager before isolated execution"
-    },
-    {
-      "fixture": "ddingtalk",
-      "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-dist-index-js",
       "kind": "install",
       "command": "pnpm install --ignore-scripts",
       "coveredRiskCodes": [],
@@ -2296,23 +2211,6 @@
       "entrypoint": "cold-import.extension:ddingtalk:plugins-ddingtalk-dist-index-js",
       "kind": "build",
       "command": "pnpm run build",
-      "coveredRiskCodes": [],
-      "platforms": [
-        "container",
-        "linux",
-        "macos",
-        "windows"
-      ],
-      "riskCodes": [
-        "package-manager-availability"
-      ],
-      "mitigation": "install the declared package manager before isolated execution"
-    },
-    {
-      "fixture": "dingtalk-doc",
-      "entrypoint": "cold-import.extension:dingtalk-doc:plugins-dingtalk-doc-dist-index-mjs",
-      "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
       "coveredRiskCodes": [],
       "platforms": [
         "container",
@@ -2382,23 +2280,6 @@
     {
       "fixture": "codex-app-server",
       "entrypoint": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
-      "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
-      "coveredRiskCodes": [],
-      "platforms": [
-        "container",
-        "linux",
-        "macos",
-        "windows"
-      ],
-      "riskCodes": [
-        "package-manager-availability"
-      ],
-      "mitigation": "install the declared package manager before isolated execution"
-    },
-    {
-      "fixture": "codex-app-server",
-      "entrypoint": "cold-import.extension:codex-app-server:plugins-codex-app-server-index-ts",
       "kind": "install",
       "command": "pnpm install --ignore-scripts",
       "coveredRiskCodes": [],
@@ -2422,23 +2303,6 @@
         "posix-null-failure",
         "shell-redirection"
       ],
-      "platforms": [
-        "container",
-        "linux",
-        "macos",
-        "windows"
-      ],
-      "riskCodes": [
-        "package-manager-availability"
-      ],
-      "mitigation": "install the declared package manager before isolated execution"
-    },
-    {
-      "fixture": "inworld-tts",
-      "entrypoint": "cold-import.extension:inworld-tts:plugins-inworld-tts-index-ts",
-      "kind": "link-openclaw",
-      "command": "pnpm pkg set dependencies.openclaw=file:../../../openclaw",
-      "coveredRiskCodes": [],
       "platforms": [
         "container",
         "linux",

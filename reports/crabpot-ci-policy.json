@@ -3429,11 +3429,12 @@
     {
       "id": "compatibility-report.deprecation-warnings",
       "action": "pass",
-      "message": "50 deprecated compat seams tracked",
+      "message": "53 deprecated compat seams tracked",
       "evidence": [
         "a2a-gateway:legacy-root-sdk-import",
         "agentchat:channel-env-vars",
         "clawmetry:legacy-root-sdk-import",
+        "codex:sdk-load-session-store",
         "codex-app-server:legacy-root-sdk-import",
         "composio:legacy-root-sdk-import",
         "connectclaw:legacy-before-agent-start",
@@ -3478,6 +3479,8 @@
         "twitch:channel-env-vars",
         "voice-call:channel-env-vars",
         "voice-call:sdk-session-file-helper",
+        "whatsapp:sdk-load-session-store",
+        "whatsapp:sdk-session-store-write",
         "yuanbao:channel-env-vars",
         "zalo:channel-env-vars",
         "zalouser:channel-env-vars"
