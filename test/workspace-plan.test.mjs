@@ -27,7 +27,14 @@ test("workspace plan maps blocked entrypoints to opt-in install/build/capture st
   assert.equal(wecom.packageManager, "npm");
   assert.equal(wecom.lockfile, "plugins/wecom/package-lock.json");
   assert.ok(wecom.requiredCapabilities.includes("target-openclaw-link"));
-  assert.ok(wecom.steps.some((step) => step.kind === "link-openclaw" && step.command.includes("dependencies.openclaw")));
+  assert.ok(
+    wecom.steps.some(
+      (step) =>
+        step.kind === "link-openclaw" &&
+        step.command.includes("link-openclaw-workspace-cli.js") &&
+        /\bfile:\S*openclaw\b/.test(step.command),
+    ),
+  );
   assert.ok(
     wecom.steps.some(
       (step) => step.kind === "install" && step.command === "npm install --ignore-scripts --legacy-peer-deps",
