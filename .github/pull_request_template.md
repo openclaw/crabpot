@@ -63,3 +63,21 @@ changes when it clarifies the result.
 Reviewers will inspect the code, tests, and CI. Use this section to make the
 validation easy to understand, not to restate the diff.
 -->
+
+## Fixture Impact
+
+- [ ] Adds or updates fixture manifest entries
+- [ ] Updates submodule pins
+- [ ] Changes contract or smoke logic
+- [ ] Docs only
+
+## Fixture Verification
+
+- [ ] `npm test`
+- [ ] `node scripts/sync-fixtures.mjs --check`
+- [ ] `node scripts/run-contract-smoke.mjs`
+- [ ] Strict fixture smoke, if submodules were materialized
+
+## Notes
+
+<!-- List any external services, secrets, or live checks intentionally skipped. -->
