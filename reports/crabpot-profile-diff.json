@@ -36,35 +36,35 @@
     "summary": {
       "commandCount": 9,
       "sampleCount": 27,
-      "rssSampleCount": 5461,
-      "cpuSampleCount": 5461,
+      "rssSampleCount": 5507,
+      "cpuSampleCount": 5507,
       "wallTimeBasis": "command-median-p95",
-      "p50WallMs": 6486,
-      "p95WallMs": 6538,
-      "maxPeakRssMb": 420.2,
-      "maxRssDeltaMb": 392,
-      "maxCpuMsEstimate": 7122,
-      "maxHarnessHeapDeltaMb": 8.9
+      "p50WallMs": 6527,
+      "p95WallMs": 6667,
+      "maxPeakRssMb": 443.2,
+      "maxRssDeltaMb": 414.2,
+      "maxCpuMsEstimate": 7232,
+      "maxHarnessHeapDeltaMb": 9.3
     },
     "targetOpenClaw": {
       "status": "ok",
       "configuredPath": "./openclaw",
       "compatRecords": 68,
-      "hookNames": 39,
+      "hookNames": 40,
       "apiRegistrars": 55,
       "capturedRegistrars": 30,
-      "sdkExports": 322,
-      "manifestFields": 43,
-      "manifestContractFields": 21
+      "sdkExports": 324,
+      "manifestFields": 44,
+      "manifestContractFields": 22
     },
     "fixtureInventory": {
       "fixtures": 60,
-      "sourceFiles": 2018,
-      "observedHooks": 108,
-      "observedRegistrations": 207,
-      "observedSdkImports": 1267,
+      "sourceFiles": 2025,
+      "observedHooks": 110,
+      "observedRegistrations": 211,
+      "observedSdkImports": 1318,
       "contractProbes": 275,
-      "issueFindings": 294
+      "issueFindings": 289
     }
   },
   "thresholds": {
@@ -84,20 +84,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 413.6% over baseline",
+      "message": "p95WallMs regressed 423.7% over baseline",
       "baseline": 1273,
-      "current": 6538,
-      "delta": 5265,
-      "percent": 413.6
+      "current": 6667,
+      "delta": 5394,
+      "percent": 423.7
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 355.1 over baseline",
+      "message": "maxPeakRssMb regressed 378.1 over baseline",
       "baseline": 65.1,
-      "current": 420.2,
-      "delta": 355.1
+      "current": 443.2,
+      "delta": 378.1
     },
     {
       "id": "profile.node-boot",
@@ -105,8 +105,8 @@
       "metric": "nodeBootWallMs",
       "message": "nodeBootWallMs stayed within 500 absolute regression threshold",
       "baseline": 917,
-      "current": 37,
-      "delta": -880
+      "current": 36,
+      "delta": -881
     },
     {
       "id": "registry.compatRecords",
@@ -123,8 +123,8 @@
       "metric": "hookNames",
       "message": "registry surface delta is tracked as context",
       "baseline": 31,
-      "current": 39,
-      "delta": 8
+      "current": 40,
+      "delta": 9
     },
     {
       "id": "registry.apiRegistrars",
@@ -150,8 +150,8 @@
       "metric": "sdkExports",
       "message": "registry surface delta is tracked as context",
       "baseline": 307,
-      "current": 322,
-      "delta": 15
+      "current": 324,
+      "delta": 17
     },
     {
       "id": "registry.manifestFields",
@@ -159,8 +159,8 @@
       "metric": "manifestFields",
       "message": "registry surface delta is tracked as context",
       "baseline": 32,
-      "current": 43,
-      "delta": 11
+      "current": 44,
+      "delta": 12
     },
     {
       "id": "registry.manifestContractFields",
@@ -168,8 +168,8 @@
       "metric": "manifestContractFields",
       "message": "registry surface delta is tracked as context",
       "baseline": 16,
-      "current": 21,
-      "delta": 5
+      "current": 22,
+      "delta": 6
     }
   ]
 }

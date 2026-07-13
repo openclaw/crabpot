@@ -1834,16 +1834,10 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "side-effect-sandbox",
             "synthetic-probes",
             "target-openclaw-link"
           ],
           "blockers": [
-            {
-              "code": "top-level-side-effect-review",
-              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
-              "evidence": "plugins/diagnostics-otel/.crabpot-package/dist/index.js"
-            },
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -4970,16 +4964,10 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "side-effect-sandbox",
             "synthetic-probes",
             "target-openclaw-link"
           ],
           "blockers": [
-            {
-              "code": "top-level-side-effect-review",
-              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
-              "evidence": "plugins/codex/.crabpot-package/dist/index.js"
-            },
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
@@ -5404,7 +5392,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@pierre/diffs, @pierre/theme, @shikijs/langs, playwright-core, typebox, zod"
+              "evidence": "@pierre/diffs, @shikijs/langs, playwright-core, typebox, zod"
             }
           ],
           "steps": [
