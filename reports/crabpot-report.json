@@ -737,12 +737,12 @@
     "fixtureCount": 60,
     "highPriorityFixtures": 22,
     "breakageCount": 0,
-    "warningCount": 141,
+    "warningCount": 140,
     "suggestionCount": 148,
-    "decisionCount": 313,
+    "decisionCount": 312,
     "logCount": 483,
-    "issueCount": 289,
-    "openIssueCount": 289,
+    "issueCount": 288,
+    "openIssueCount": 288,
     "p0IssueCount": 1,
     "p1IssueCount": 16,
     "openP0IssueCount": 1,
@@ -752,13 +752,13 @@
     "compatGapCount": 0,
     "deprecationWarningCount": 48,
     "inspectorGapCount": 157,
-    "upstreamIssueCount": 83,
+    "upstreamIssueCount": 82,
     "fixtureRegressionCount": 0,
     "openInspectorGapCount": 157,
     "runtimeCoveredIssueCount": 0,
     "runtimePartiallyCoveredIssueCount": 0,
     "runtimeCoverageArtifactCount": 0,
-    "contractProbeCount": 275
+    "contractProbeCount": 274
   },
   "fixtures": [
     {
@@ -3975,44 +3975,44 @@
         {
           "name": "registerCli",
           "file": "plugins/hyperspell/index.ts",
-          "line": 40,
-          "ref": "plugins/hyperspell/index.ts:40"
+          "line": 41,
+          "ref": "plugins/hyperspell/index.ts:41"
         },
         {
           "name": "registerCommand",
           "file": "plugins/hyperspell/commands/slash.ts",
-          "line": 166,
-          "ref": "plugins/hyperspell/commands/slash.ts:166"
+          "line": 101,
+          "ref": "plugins/hyperspell/commands/slash.ts:101"
         },
         {
           "name": "registerCommand",
           "file": "plugins/hyperspell/commands/slash.ts",
-          "line": 43,
-          "ref": "plugins/hyperspell/commands/slash.ts:43"
+          "line": 169,
+          "ref": "plugins/hyperspell/commands/slash.ts:169"
         },
         {
           "name": "registerCommand",
           "file": "plugins/hyperspell/commands/slash.ts",
-          "line": 98,
-          "ref": "plugins/hyperspell/commands/slash.ts:98"
+          "line": 46,
+          "ref": "plugins/hyperspell/commands/slash.ts:46"
         },
         {
           "name": "registerCommand",
           "file": "plugins/hyperspell/index.ts",
-          "line": 56,
-          "ref": "plugins/hyperspell/index.ts:56"
+          "line": 57,
+          "ref": "plugins/hyperspell/index.ts:57"
         },
         {
           "name": "registerCommand",
           "file": "plugins/hyperspell/index.ts",
-          "line": 67,
-          "ref": "plugins/hyperspell/index.ts:67"
+          "line": 68,
+          "ref": "plugins/hyperspell/index.ts:68"
         },
         {
           "name": "registerCommand",
           "file": "plugins/hyperspell/index.ts",
-          "line": 78,
-          "ref": "plugins/hyperspell/index.ts:78"
+          "line": 79,
+          "ref": "plugins/hyperspell/index.ts:79"
         },
         {
           "name": "registerTool",
@@ -4041,11 +4041,20 @@
       ],
       "sourceFiles": [
         "plugins/hyperspell/client.ts",
+        "plugins/hyperspell/commands/preview.ts",
+        "plugins/hyperspell/commands/purge-channel.ts",
         "plugins/hyperspell/commands/setup.ts",
         "plugins/hyperspell/commands/slash.ts",
         "plugins/hyperspell/config.ts",
+        "plugins/hyperspell/docs/elbow-scan.mjs",
         "plugins/hyperspell/docs/filter-dialect-test.mjs",
         "plugins/hyperspell/docs/hotbuffer-verify.mjs",
+        "plugins/hyperspell/docs/kg-eval.mjs",
+        "plugins/hyperspell/docs/score-analyze.mjs",
+        "plugins/hyperspell/docs/score-review.mjs",
+        "plugins/hyperspell/eval/fixtures.ts",
+        "plugins/hyperspell/eval/harness.ts",
+        "plugins/hyperspell/eval/run.ts",
         "plugins/hyperspell/graph/cron.ts",
         "plugins/hyperspell/graph/index.ts",
         "plugins/hyperspell/graph/ops.ts",
@@ -4060,8 +4069,12 @@
         "plugins/hyperspell/hooks/startup-orientation.ts",
         "plugins/hyperspell/index.ts",
         "plugins/hyperspell/lib/browser.ts",
+        "plugins/hyperspell/lib/coverage-log.ts",
+        "plugins/hyperspell/lib/eval-matchers.ts",
         "plugins/hyperspell/lib/exclude-channels.ts",
         "plugins/hyperspell/lib/filters.ts",
+        "plugins/hyperspell/lib/loops-audit.ts",
+        "plugins/hyperspell/lib/mood-skew-audit.ts",
         "plugins/hyperspell/lib/ranking.ts",
         "plugins/hyperspell/lib/search-error.ts",
         "plugins/hyperspell/lib/sender.ts",
@@ -4069,7 +4082,12 @@
         "plugins/hyperspell/lib/speaker-tracker.ts",
         "plugins/hyperspell/lib/voice-id.ts",
         "plugins/hyperspell/logger.ts",
+        "plugins/hyperspell/scripts/audit-loops.ts",
+        "plugins/hyperspell/scripts/audit-mood-skew.ts",
+        "plugins/hyperspell/scripts/eval-retrieval.ts",
+        "plugins/hyperspell/scripts/fetch-day-registers.mjs",
         "plugins/hyperspell/sync/markdown.ts",
+        "plugins/hyperspell/tools/emotional-arc.ts",
         "plugins/hyperspell/tools/remember.ts",
         "plugins/hyperspell/tools/search.ts"
       ],
@@ -4078,7 +4096,7 @@
           "path": "plugins/hyperspell/openclaw.plugin.json",
           "id": "openclaw-hyperspell",
           "name": "Hyperspell",
-          "version": "0.13.0",
+          "version": "0.21.0",
           "keys": [
             "configSchema",
             "contracts",
@@ -4101,7 +4119,7 @@
       "package": {
         "path": "plugins/hyperspell/package.json",
         "name": "@hyperspell/openclaw-hyperspell",
-        "version": "0.18.1",
+        "version": "0.21.0",
         "type": "module",
         "main": "./dist/index.js",
         "npmPack": {
@@ -4151,7 +4169,7 @@
         {
           "path": "plugins/hyperspell/package.json",
           "name": "@hyperspell/openclaw-hyperspell",
-          "version": "0.18.1",
+          "version": "0.21.0",
           "type": "module",
           "main": "./dist/index.js",
           "npmPack": {
@@ -33416,20 +33434,20 @@
         {
           "name": "agent_end",
           "file": "plugins/memos-cloud/index.js",
-          "line": 805,
-          "ref": "plugins/memos-cloud/index.js:805"
+          "line": 791,
+          "ref": "plugins/memos-cloud/index.js:791"
         },
         {
           "name": "before_agent_start",
           "file": "plugins/memos-cloud/index.js",
-          "line": 802,
-          "ref": "plugins/memos-cloud/index.js:802"
+          "line": 788,
+          "ref": "plugins/memos-cloud/index.js:788"
         },
         {
           "name": "before_prompt_build",
           "file": "plugins/memos-cloud/index.js",
-          "line": 800,
-          "ref": "plugins/memos-cloud/index.js:800"
+          "line": 786,
+          "ref": "plugins/memos-cloud/index.js:786"
         }
       ],
       "registrations": [
@@ -33439,8 +33457,8 @@
         {
           "name": "registerHook",
           "file": "plugins/memos-cloud/index.js",
-          "line": 732,
-          "ref": "plugins/memos-cloud/index.js:732"
+          "line": 719,
+          "ref": "plugins/memos-cloud/index.js:719"
         }
       ],
       "manifestContracts": [],
@@ -33462,7 +33480,7 @@
           "path": "plugins/memos-cloud/openclaw.plugin.json",
           "id": "memos-cloud-openclaw-plugin",
           "name": "MemOS Cloud OpenClaw Plugin",
-          "version": "0.1.19",
+          "version": "0.1.17",
           "keys": [
             "activation",
             "configSchema",
@@ -33487,7 +33505,7 @@
       "package": {
         "path": "plugins/memos-cloud/package.json",
         "name": "@memtensor/memos-cloud-openclaw-plugin",
-        "version": "0.1.19",
+        "version": "0.1.17",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -33527,7 +33545,7 @@
         {
           "path": "plugins/memos-cloud/package.json",
           "name": "@memtensor/memos-cloud-openclaw-plugin",
-          "version": "0.1.19",
+          "version": "0.1.17",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -35113,16 +35131,6 @@
     },
     {
       "fixture": "hyperspell",
-      "code": "package-manifest-version-drift",
-      "level": "warning",
-      "message": "package.json and openclaw.plugin.json publish different versions",
-      "evidence": [
-        "package:0.18.1",
-        "manifest:0.13.0"
-      ]
-    },
-    {
-      "fixture": "hyperspell",
       "code": "legacy-root-sdk-import",
       "level": "warning",
       "message": "fixture imports the root plugin SDK barrel",
@@ -36213,7 +36221,7 @@
       "level": "warning",
       "message": "fixture observes raw model or conversation content and needs privacy-boundary contract probes",
       "evidence": [
-        "agent_end @ plugins/memos-cloud/index.js:805"
+        "agent_end @ plugins/memos-cloud/index.js:791"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload"
     },
@@ -36223,7 +36231,7 @@
       "level": "warning",
       "message": "fixture uses deprecated before_agent_start hook compatibility",
       "evidence": [
-        "before_agent_start @ plugins/memos-cloud/index.js:802"
+        "before_agent_start @ plugins/memos-cloud/index.js:788"
       ],
       "compatRecord": "legacy-before-agent-start"
     },
@@ -36685,12 +36693,12 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:43",
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:98",
-        "registerCommand @ plugins/hyperspell/index.ts:56",
-        "registerCommand @ plugins/hyperspell/index.ts:67",
-        "registerCommand @ plugins/hyperspell/index.ts:78"
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:101",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:169",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:46",
+        "registerCommand @ plugins/hyperspell/index.ts:57",
+        "registerCommand @ plugins/hyperspell/index.ts:68",
+        "registerCommand @ plugins/hyperspell/index.ts:79"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -37845,7 +37853,7 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerHook @ plugins/memos-cloud/index.js:732"
+        "registerHook @ plugins/memos-cloud/index.js:719"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -38144,7 +38152,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-877C93A6",
+      "id": "CRABPOT-665E4FC9",
       "fixture": "memos-cloud",
       "severity": "P1",
       "owner": "core",
@@ -38157,7 +38165,7 @@
       "compatStatus": "active",
       "title": "memos-cloud: conversation-access hooks need privacy-boundary probes",
       "evidence": [
-        "agent_end @ plugins/memos-cloud/index.js:805"
+        "agent_end @ plugins/memos-cloud/index.js:791"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload",
       "runtimeCoverage": null
@@ -40784,31 +40792,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-06A687DB",
-      "fixture": "hyperspell",
-      "severity": "P2",
-      "owner": "plugin",
-      "code": "package-manifest-version-drift",
-      "decision": "plugin-upstream-fix",
-      "status": "open",
-      "issueClass": "upstream-metadata",
-      "live": false,
-      "deprecated": false,
-      "compatStatus": "none",
-      "title": "hyperspell: package and manifest versions drift",
-      "evidence": [
-        "package:0.18.1",
-        "manifest:0.13.0"
-      ],
-      "compatRecord": null,
-      "runtimeCoverage": null,
-      "authorRemediation": {
-        "summary": "Align the plugin version declared in package.json and openclaw.plugin.json.",
-        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-manifest-version-drift"
-      }
-    },
-    {
-      "id": "CRABPOT-C2B2C23C",
+      "id": "CRABPOT-200F29F8",
       "fixture": "hyperspell",
       "severity": "P2",
       "owner": "inspector",
@@ -40821,12 +40805,12 @@
       "compatStatus": "active",
       "title": "hyperspell: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:43",
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:98",
-        "registerCommand @ plugins/hyperspell/index.ts:56",
-        "registerCommand @ plugins/hyperspell/index.ts:67",
-        "registerCommand @ plugins/hyperspell/index.ts:78"
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:101",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:169",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:46",
+        "registerCommand @ plugins/hyperspell/index.ts:57",
+        "registerCommand @ plugins/hyperspell/index.ts:68",
+        "registerCommand @ plugins/hyperspell/index.ts:79"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -41773,7 +41757,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-B065B36C",
+      "id": "CRABPOT-059E45D9",
       "fixture": "memos-cloud",
       "severity": "P2",
       "owner": "core",
@@ -41786,7 +41770,7 @@
       "compatStatus": "deprecated",
       "title": "memos-cloud: legacy before_agent_start hook compatibility is still used",
       "evidence": [
-        "before_agent_start @ plugins/memos-cloud/index.js:802"
+        "before_agent_start @ plugins/memos-cloud/index.js:788"
       ],
       "compatRecord": "legacy-before-agent-start",
       "runtimeCoverage": null,
@@ -41842,7 +41826,7 @@
       }
     },
     {
-      "id": "CRABPOT-CF79ABF1",
+      "id": "CRABPOT-56B4EC43",
       "fixture": "memos-cloud",
       "severity": "P2",
       "owner": "inspector",
@@ -41855,7 +41839,7 @@
       "compatStatus": "active",
       "title": "memos-cloud: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerHook @ plugins/memos-cloud/index.js:732"
+        "registerHook @ plugins/memos-cloud/index.js:719"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -44497,7 +44481,7 @@
       "target": "hook-runner",
       "contract": "LLM observer hooks receive documented prompt/output fields with expected redaction behavior.",
       "evidence": [
-        "agent_end @ plugins/memos-cloud/index.js:805"
+        "agent_end @ plugins/memos-cloud/index.js:791"
       ]
     },
     {
@@ -44587,12 +44571,12 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:43",
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:98",
-        "registerCommand @ plugins/hyperspell/index.ts:56",
-        "registerCommand @ plugins/hyperspell/index.ts:67",
-        "registerCommand @ plugins/hyperspell/index.ts:78"
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:101",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:169",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:46",
+        "registerCommand @ plugins/hyperspell/index.ts:57",
+        "registerCommand @ plugins/hyperspell/index.ts:68",
+        "registerCommand @ plugins/hyperspell/index.ts:79"
       ]
     },
     {
@@ -45529,17 +45513,6 @@
       ]
     },
     {
-      "id": "package.metadata.version-alignment:hyperspell",
-      "fixture": "hyperspell",
-      "priority": "P2",
-      "target": "package-loader",
-      "contract": "Package and OpenClaw manifest versions stay aligned for release compatibility reporting.",
-      "evidence": [
-        "package:0.18.1",
-        "manifest:0.13.0"
-      ]
-    },
-    {
       "id": "package.metadata.version-alignment:llm-trace-phoenix",
       "fixture": "llm-trace-phoenix",
       "priority": "P2",
@@ -45951,7 +45924,7 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerHook @ plugins/memos-cloud/index.js:732"
+        "registerHook @ plugins/memos-cloud/index.js:719"
       ]
     },
     {
@@ -46174,7 +46147,7 @@
       "target": "hook-runner",
       "contract": "Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.",
       "evidence": [
-        "before_agent_start @ plugins/memos-cloud/index.js:802"
+        "before_agent_start @ plugins/memos-cloud/index.js:788"
       ]
     },
     {
@@ -48299,7 +48272,7 @@
       "evidence": [
         "plugins/hyperspell/package.json",
         "@hyperspell/openclaw-hyperspell",
-        "version:0.18.1"
+        "version:0.21.0"
       ]
     },
     {
@@ -52264,7 +52237,7 @@
       "evidence": [
         "plugins/memos-cloud/package.json",
         "@memtensor/memos-cloud-openclaw-plugin",
-        "version:0.1.19"
+        "version:0.1.17"
       ]
     },
     {
@@ -54287,13 +54260,6 @@
     },
     {
       "fixture": "hyperspell",
-      "decision": "plugin-upstream-fix",
-      "seam": "package-metadata",
-      "action": "Ask the plugin to keep package and manifest versions aligned before relying on release compatibility signals.",
-      "evidence": "0.18.1 != 0.13.0"
-    },
-    {
-      "fixture": "hyperspell",
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Run the plugin build or resolve source entrypoint aliases before cold-importing this fixture.",
@@ -55872,7 +55838,7 @@
       "decision": "core-compat-adapter",
       "seam": "hook-compat",
       "action": "Keep before_agent_start wired while plugin authors migrate to before_model_resolve and before_prompt_build.",
-      "evidence": "before_agent_start @ plugins/memos-cloud/index.js:802"
+      "evidence": "before_agent_start @ plugins/memos-cloud/index.js:788"
     },
     {
       "fixture": "memos-cloud",

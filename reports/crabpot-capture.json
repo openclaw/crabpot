@@ -12,7 +12,7 @@
     "hookCount": 129,
     "sdkImportCount": 2531,
     "packageEntrypointCount": 108,
-    "issueProbeCount": 275,
+    "issueProbeCount": 274,
     "inspectorShimRequiredCount": 224,
     "compatAliasRequiredCount": 0
   },
@@ -2216,10 +2216,10 @@
       "priority": "high",
       "registrations": [
         {
-          "id": "registration.registerCli:hyperspell:plugins-hyperspell-index-ts-40",
+          "id": "registration.registerCli:hyperspell:plugins-hyperspell-index-ts-41",
           "fixture": "hyperspell",
           "registrar": "registerCli",
-          "ref": "plugins/hyperspell/index.ts:40",
+          "ref": "plugins/hyperspell/index.ts:41",
           "support": "target-captured",
           "assertions": [
             "command name is stable",
@@ -2238,10 +2238,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-166",
+          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-101",
           "fixture": "hyperspell",
           "registrar": "registerCommand",
-          "ref": "plugins/hyperspell/commands/slash.ts:166",
+          "ref": "plugins/hyperspell/commands/slash.ts:101",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -2255,10 +2255,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-43",
+          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-169",
           "fixture": "hyperspell",
           "registrar": "registerCommand",
-          "ref": "plugins/hyperspell/commands/slash.ts:43",
+          "ref": "plugins/hyperspell/commands/slash.ts:169",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -2272,10 +2272,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-98",
+          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-46",
           "fixture": "hyperspell",
           "registrar": "registerCommand",
-          "ref": "plugins/hyperspell/commands/slash.ts:98",
+          "ref": "plugins/hyperspell/commands/slash.ts:46",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -2289,10 +2289,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-56",
+          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-57",
           "fixture": "hyperspell",
           "registrar": "registerCommand",
-          "ref": "plugins/hyperspell/index.ts:56",
+          "ref": "plugins/hyperspell/index.ts:57",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -2306,10 +2306,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-67",
+          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-68",
           "fixture": "hyperspell",
           "registrar": "registerCommand",
-          "ref": "plugins/hyperspell/index.ts:67",
+          "ref": "plugins/hyperspell/index.ts:68",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -2323,10 +2323,10 @@
           ]
         },
         {
-          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-78",
+          "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-79",
           "fixture": "hyperspell",
           "registrar": "registerCommand",
-          "ref": "plugins/hyperspell/index.ts:78",
+          "ref": "plugins/hyperspell/index.ts:79",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -38708,10 +38708,10 @@
       "priority": "medium",
       "registrations": [
         {
-          "id": "registration.registerHook:memos-cloud:plugins-memos-cloud-index-js-732",
+          "id": "registration.registerHook:memos-cloud:plugins-memos-cloud-index-js-719",
           "fixture": "memos-cloud",
           "registrar": "registerHook",
-          "ref": "plugins/memos-cloud/index.js:732",
+          "ref": "plugins/memos-cloud/index.js:719",
           "support": "inspector-shim-required",
           "assertions": [
             "legacy hook name is stable",
@@ -38725,10 +38725,10 @@
       ],
       "hooks": [
         {
-          "id": "hook.agent_end:memos-cloud:plugins-memos-cloud-index-js-805",
+          "id": "hook.agent_end:memos-cloud:plugins-memos-cloud-index-js-791",
           "fixture": "memos-cloud",
           "hook": "agent_end",
-          "ref": "plugins/memos-cloud/index.js:805",
+          "ref": "plugins/memos-cloud/index.js:791",
           "support": "synthetic-event-required",
           "assertions": [
             "final conversation payload is redacted as expected",
@@ -38763,10 +38763,10 @@
           }
         },
         {
-          "id": "hook.before_agent_start:memos-cloud:plugins-memos-cloud-index-js-802",
+          "id": "hook.before_agent_start:memos-cloud:plugins-memos-cloud-index-js-788",
           "fixture": "memos-cloud",
           "hook": "before_agent_start",
-          "ref": "plugins/memos-cloud/index.js:802",
+          "ref": "plugins/memos-cloud/index.js:788",
           "support": "synthetic-event-required",
           "assertions": [
             "legacy startup hook payload is accepted",
@@ -38787,10 +38787,10 @@
           }
         },
         {
-          "id": "hook.before_prompt_build:memos-cloud:plugins-memos-cloud-index-js-800",
+          "id": "hook.before_prompt_build:memos-cloud:plugins-memos-cloud-index-js-786",
           "fixture": "memos-cloud",
           "hook": "before_prompt_build",
-          "ref": "plugins/memos-cloud/index.js:800",
+          "ref": "plugins/memos-cloud/index.js:786",
           "support": "synthetic-event-required",
           "assertions": [
             "prompt mutation result is preserved",
@@ -39855,7 +39855,7 @@
       "priority": "P1",
       "target": "hook-runner",
       "evidence": [
-        "agent_end @ plugins/memos-cloud/index.js:805"
+        "agent_end @ plugins/memos-cloud/index.js:791"
       ],
       "assertions": [
         "synthetic event payload is accepted",
@@ -39966,12 +39966,12 @@
       "priority": "P2",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:43",
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:98",
-        "registerCommand @ plugins/hyperspell/index.ts:56",
-        "registerCommand @ plugins/hyperspell/index.ts:67",
-        "registerCommand @ plugins/hyperspell/index.ts:78"
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:101",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:169",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:46",
+        "registerCommand @ plugins/hyperspell/index.ts:57",
+        "registerCommand @ plugins/hyperspell/index.ts:68",
+        "registerCommand @ plugins/hyperspell/index.ts:79"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -41164,20 +41164,6 @@
       ]
     },
     {
-      "id": "package.metadata.version-alignment:hyperspell",
-      "fixture": "hyperspell",
-      "priority": "P2",
-      "target": "package-loader",
-      "evidence": [
-        "package:0.18.1",
-        "manifest:0.13.0"
-      ],
-      "assertions": [
-        "entrypoint metadata resolves",
-        "cold import failure mode is classified"
-      ]
-    },
-    {
       "id": "package.metadata.version-alignment:llm-trace-phoenix",
       "fixture": "llm-trace-phoenix",
       "priority": "P2",
@@ -41672,7 +41658,7 @@
       "priority": "P3",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerHook @ plugins/memos-cloud/index.js:732"
+        "registerHook @ plugins/memos-cloud/index.js:719"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -41958,7 +41944,7 @@
       "priority": "P3",
       "target": "hook-runner",
       "evidence": [
-        "before_agent_start @ plugins/memos-cloud/index.js:802"
+        "before_agent_start @ plugins/memos-cloud/index.js:788"
       ],
       "assertions": [
         "synthetic event payload is accepted",
