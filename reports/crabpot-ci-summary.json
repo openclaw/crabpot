@@ -6,9 +6,9 @@
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 141,
+    "warnings": 140,
     "suggestions": 148,
-    "issues": 289,
+    "issues": 288,
     "p0Issues": 1,
     "p1Issues": 16,
     "liveIssues": 1,
@@ -16,7 +16,7 @@
     "compatGaps": 0,
     "deprecationWarnings": 48,
     "inspectorGaps": 157,
-    "upstreamIssues": 83,
+    "upstreamIssues": 82,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 2374,
-    "importLoopP95Ms": 2402,
+    "importLoopP50Ms": 1844,
+    "importLoopP95Ms": 1898,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 123.6,
-    "importLoopOpenClawActivationP50Ms": 0.3,
+    "importLoopOpenClawImportP50Ms": 105.4,
+    "importLoopOpenClawActivationP50Ms": 0.4,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 0,
-    "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 280,
-    "importLoopCpuSampleCount": 280
+    "importLoopMaxRssMb": 12,
+    "importLoopMaxCpuMs": 90,
+    "importLoopRssSampleCount": 220,
+    "importLoopCpuSampleCount": 220
   },
   "topIssues": [
     {
@@ -412,20 +412,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 428.4% over baseline",
+      "message": "p95WallMs regressed 407.5% over baseline",
       "baseline": 1273,
-      "current": 6727,
-      "delta": 5454,
-      "percent": 428.4
+      "current": 6460,
+      "delta": 5187,
+      "percent": 407.5
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 378.1 over baseline",
+      "message": "maxPeakRssMb regressed 379.20000000000005 over baseline",
       "baseline": 65.1,
-      "current": 443.2,
-      "delta": 378.1
+      "current": 444.3,
+      "delta": 379.20000000000005
     }
   ],
   "artifacts": {

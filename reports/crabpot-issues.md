@@ -13,8 +13,8 @@ Status: PASS
 
 | Metric                     | Value |
 | -------------------------- | ----- |
-| Issue findings             | 289   |
-| Open issue findings        | 289   |
+| Issue findings             | 288   |
+| Open issue findings        | 288   |
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
 | 🔴 P0                      | 1     |
@@ -28,8 +28,8 @@ Status: PASS
 | Inspector gaps             | 157   |
 | Open inspector gaps        | 157   |
 | Runtime coverage artifacts | 0     |
-| Upstream metadata          | 83    |
-| Contract probes            | 275   |
+| Upstream metadata          | 82    |
+| Contract probes            | 274   |
 
 ## Triage Overview
 
@@ -39,7 +39,7 @@ Status: PASS
 | compat-gap          | 0     | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
 | deprecation-warning | 48    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
 | inspector-gap       | 157   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
-| upstream-metadata   | 83    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
+| upstream-metadata   | 82    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                                                                    |
 
 ## P0 Live Issues
@@ -321,9 +321,9 @@ _none_
   - **legacy-root-sdk-import**: hyperspell: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L1)
-    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/graph/tools.ts#L2)
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L1)
+    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/commands/slash.ts#L1)
+    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/graph/tools.ts#L2)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/index.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -392,7 +392,7 @@ _none_
   - **legacy-before-agent-start**: memos-cloud: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ index.js:802](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L802)
+    - [before_agent_start @ index.js:788](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L788)
   - author remediation:
     - Replace the legacy before_agent_start hook with the current prompt/model hooks.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start
@@ -659,7 +659,7 @@ _none_
   - **conversation-access-hook**: memos-cloud: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ index.js:805](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L805)
+    - [agent_end @ index.js:791](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L791)
 
 - 🟠 P1 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
@@ -1138,26 +1138,26 @@ _none_
   - **package-build-artifact-entrypoint**: hyperspell: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/dist/index.js)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hyperspell: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
-    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
+    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/package.json)
+    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/package.json)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: hyperspell: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L166)
-    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L43)
-    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:56](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L56)
-    - [registerCommand @ index.ts:67](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L67)
-    - [registerCommand @ index.ts:78](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L78)
+    - [registerCommand @ slash.ts:101](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/commands/slash.ts#L101)
+    - [registerCommand @ slash.ts:169](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/commands/slash.ts#L169)
+    - [registerCommand @ slash.ts:46](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/commands/slash.ts#L46)
+    - [registerCommand @ index.ts:57](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/index.ts#L57)
+    - [registerCommand @ index.ts:68](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/index.ts#L68)
+    - [registerCommand @ index.ts:79](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/index.ts#L79)
 
 - 🟡 P2 **inworld-tts** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: inworld-tts: cold import needs TypeScript source entrypoint support
@@ -1377,7 +1377,7 @@ _none_
   - **registration-capture-gap**: memos-cloud: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerHook @ index.js:732](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L732)
+    - [registerHook @ index.js:719](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L719)
 
 - 🟡 P2 **memu-engine** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: memu-engine: cold import needs TypeScript source entrypoint support
@@ -2125,16 +2125,6 @@ _none_
     - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
-- 🟡 P2 **hyperspell** `upstream-metadata` `plugin-upstream-fix`
-  - **package-manifest-version-drift**: hyperspell: package and manifest versions drift
-  - state: open · compat:none
-  - evidence:
-    - package:0.18.1
-    - manifest:0.13.0
-  - author remediation:
-    - Align the plugin version declared in package.json and openclaw.plugin.json.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-manifest-version-drift
-
 - 🟡 P2 **lightclawbot** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: lightclawbot: plugin API compatibility range is missing
   - state: open · compat:none
@@ -2673,7 +2663,7 @@ _none_
   - **conversation-access-hook**: memos-cloud: conversation-access hooks need privacy-boundary probes
   - state: open · compat:active
   - evidence:
-    - [agent_end @ index.js:805](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L805)
+    - [agent_end @ index.js:791](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L791)
 
 - 🟠 P1 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
@@ -3711,9 +3701,9 @@ _none_
   - **legacy-root-sdk-import**: hyperspell: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L1)
-    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/graph/tools.ts#L2)
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L1)
+    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/commands/slash.ts#L1)
+    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/graph/tools.ts#L2)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/index.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -3722,36 +3712,26 @@ _none_
   - **package-build-artifact-entrypoint**: hyperspell: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/dist/index.js)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hyperspell: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
-    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
-
-- 🟡 P2 **hyperspell** `upstream-metadata` `plugin-upstream-fix`
-  - **package-manifest-version-drift**: hyperspell: package and manifest versions drift
-  - state: open · compat:none
-  - evidence:
-    - package:0.18.1
-    - manifest:0.13.0
-  - author remediation:
-    - Align the plugin version declared in package.json and openclaw.plugin.json.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-manifest-version-drift
+    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/package.json)
+    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/package.json)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: hyperspell: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L166)
-    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L43)
-    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:56](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L56)
-    - [registerCommand @ index.ts:67](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L67)
-    - [registerCommand @ index.ts:78](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L78)
+    - [registerCommand @ slash.ts:101](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/commands/slash.ts#L101)
+    - [registerCommand @ slash.ts:169](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/commands/slash.ts#L169)
+    - [registerCommand @ slash.ts:46](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/commands/slash.ts#L46)
+    - [registerCommand @ index.ts:57](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/index.ts#L57)
+    - [registerCommand @ index.ts:68](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/index.ts#L68)
+    - [registerCommand @ index.ts:79](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/index.ts#L79)
 
 - 🟡 P2 **inworld-tts** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: inworld-tts: cold import needs TypeScript source entrypoint support
@@ -4135,7 +4115,7 @@ _none_
   - **legacy-before-agent-start**: memos-cloud: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ index.js:802](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L802)
+    - [before_agent_start @ index.js:788](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L788)
   - author remediation:
     - Replace the legacy before_agent_start hook with the current prompt/model hooks.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start
@@ -4162,7 +4142,7 @@ _none_
   - **registration-capture-gap**: memos-cloud: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerHook @ index.js:732](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L732)
+    - [registerHook @ index.js:719](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L719)
 
 - 🟡 P2 **memu-engine** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: memu-engine: root plugin SDK barrel is still used by fixtures
@@ -5215,7 +5195,7 @@ _none_
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:memos-cloud`
   - evidence:
-    - [agent_end @ index.js:805](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L805)
+    - [agent_end @ index.js:791](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L791)
 
 - 🟠 P1 **openclaw-telemetry** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
@@ -5277,12 +5257,12 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:hyperspell`
   - evidence:
-    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L166)
-    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L43)
-    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:56](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L56)
-    - [registerCommand @ index.ts:67](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L67)
-    - [registerCommand @ index.ts:78](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L78)
+    - [registerCommand @ slash.ts:101](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/commands/slash.ts#L101)
+    - [registerCommand @ slash.ts:169](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/commands/slash.ts#L169)
+    - [registerCommand @ slash.ts:46](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/commands/slash.ts#L46)
+    - [registerCommand @ index.ts:57](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/index.ts#L57)
+    - [registerCommand @ index.ts:68](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/index.ts#L68)
+    - [registerCommand @ index.ts:79](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/index.ts#L79)
 
 - 🟡 P2 **kitchen-sink** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -5656,7 +5636,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:hyperspell`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/dist/index.js)
 
 - 🟡 P2 **lossless-claw** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -5739,9 +5719,9 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:hyperspell`
   - evidence:
-    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
-    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
+    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/package.json)
+    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/package.json)
 
 - 🟡 P2 **lossless-claw** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -5881,13 +5861,6 @@ _none_
     - package:1.4.0
     - manifest:1.3.0
 
-- 🟡 P2 **hyperspell** `package-loader`
-  - contract: Package and OpenClaw manifest versions stay aligned for release compatibility reporting.
-  - id: `package.metadata.version-alignment:hyperspell`
-  - evidence:
-    - package:0.18.1
-    - manifest:0.13.0
-
 - 🟡 P2 **llm-trace-phoenix** `package-loader`
   - contract: Package and OpenClaw manifest versions stay aligned for release compatibility reporting.
   - id: `package.metadata.version-alignment:llm-trace-phoenix`
@@ -5954,9 +5927,9 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:hyperspell`
   - evidence:
-    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L1)
-    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/graph/tools.ts#L2)
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L1)
+    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/commands/slash.ts#L1)
+    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/graph/tools.ts#L2)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/f994920418639ae30fdbda8b85c4a8229a5a7b59/index.ts#L1)
 
 - 🟡 P2 **memory-tencentdb** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
@@ -6185,7 +6158,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:memos-cloud`
   - evidence:
-    - [registerHook @ index.js:732](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L732)
+    - [registerHook @ index.js:719](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L719)
 
 - 🟢 P3 **nostr** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -6324,7 +6297,7 @@ _none_
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
   - id: `hook.compat.before-agent-start-migration:memos-cloud`
   - evidence:
-    - [before_agent_start @ index.js:802](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L802)
+    - [before_agent_start @ index.js:788](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/18cb8c7f9317d1348629d9f4cbd9507978de0b81/index.js#L788)
 
 - 🟢 P3 **discord** `manifest-loader`
   - contract: Legacy channel env metadata continues to map into channel setup/help surfaces.
