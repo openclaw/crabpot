@@ -38708,10 +38708,10 @@
       "priority": "medium",
       "registrations": [
         {
-          "id": "registration.registerHook:memos-cloud:plugins-memos-cloud-index-js-719",
+          "id": "registration.registerHook:memos-cloud:plugins-memos-cloud-index-js-732",
           "fixture": "memos-cloud",
           "registrar": "registerHook",
-          "ref": "plugins/memos-cloud/index.js:719",
+          "ref": "plugins/memos-cloud/index.js:732",
           "support": "inspector-shim-required",
           "assertions": [
             "legacy hook name is stable",
@@ -38725,10 +38725,10 @@
       ],
       "hooks": [
         {
-          "id": "hook.agent_end:memos-cloud:plugins-memos-cloud-index-js-791",
+          "id": "hook.agent_end:memos-cloud:plugins-memos-cloud-index-js-805",
           "fixture": "memos-cloud",
           "hook": "agent_end",
-          "ref": "plugins/memos-cloud/index.js:791",
+          "ref": "plugins/memos-cloud/index.js:805",
           "support": "synthetic-event-required",
           "assertions": [
             "final conversation payload is redacted as expected",
@@ -38763,10 +38763,10 @@
           }
         },
         {
-          "id": "hook.before_agent_start:memos-cloud:plugins-memos-cloud-index-js-788",
+          "id": "hook.before_agent_start:memos-cloud:plugins-memos-cloud-index-js-802",
           "fixture": "memos-cloud",
           "hook": "before_agent_start",
-          "ref": "plugins/memos-cloud/index.js:788",
+          "ref": "plugins/memos-cloud/index.js:802",
           "support": "synthetic-event-required",
           "assertions": [
             "legacy startup hook payload is accepted",
@@ -38787,10 +38787,10 @@
           }
         },
         {
-          "id": "hook.before_prompt_build:memos-cloud:plugins-memos-cloud-index-js-786",
+          "id": "hook.before_prompt_build:memos-cloud:plugins-memos-cloud-index-js-800",
           "fixture": "memos-cloud",
           "hook": "before_prompt_build",
-          "ref": "plugins/memos-cloud/index.js:786",
+          "ref": "plugins/memos-cloud/index.js:800",
           "support": "synthetic-event-required",
           "assertions": [
             "prompt mutation result is preserved",
@@ -39855,7 +39855,7 @@
       "priority": "P1",
       "target": "hook-runner",
       "evidence": [
-        "agent_end @ plugins/memos-cloud/index.js:791"
+        "agent_end @ plugins/memos-cloud/index.js:805"
       ],
       "assertions": [
         "synthetic event payload is accepted",
@@ -41672,7 +41672,7 @@
       "priority": "P3",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerHook @ plugins/memos-cloud/index.js:719"
+        "registerHook @ plugins/memos-cloud/index.js:732"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -41958,7 +41958,7 @@
       "priority": "P3",
       "target": "hook-runner",
       "evidence": [
-        "before_agent_start @ plugins/memos-cloud/index.js:788"
+        "before_agent_start @ plugins/memos-cloud/index.js:802"
       ],
       "assertions": [
         "synthetic event payload is accepted",
@@ -43207,7 +43207,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.7.1"
+        "buildOpenClawVersion:2026.7.1-beta.6"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -43221,7 +43221,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.5.1-beta.1",
-        "buildOpenClawVersion:2026.7.1"
+        "buildOpenClawVersion:2026.7.1-beta.6"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -43249,7 +43249,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.7.1"
+        "buildOpenClawVersion:2026.7.1-beta.6"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -43263,7 +43263,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.30",
-        "buildOpenClawVersion:2026.7.1"
+        "buildOpenClawVersion:2026.7.1-beta.6"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -43305,7 +43305,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.20",
-        "buildOpenClawVersion:2026.7.1"
+        "buildOpenClawVersion:2026.7.1-beta.6"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -43361,7 +43361,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.5.31",
-        "buildOpenClawVersion:2026.7.1"
+        "buildOpenClawVersion:2026.7.1-beta.6"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -43417,7 +43417,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.10",
-        "buildOpenClawVersion:2026.7.1"
+        "buildOpenClawVersion:2026.7.1-beta.6"
       ],
       "assertions": [
         "entrypoint metadata resolves",
@@ -43487,7 +43487,7 @@
       "target": "package-loader",
       "evidence": [
         "minHostVersion:>=2026.4.25",
-        "buildOpenClawVersion:2026.7.1"
+        "buildOpenClawVersion:2026.7.1-beta.6"
       ],
       "assertions": [
         "entrypoint metadata resolves",
