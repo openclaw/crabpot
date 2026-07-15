@@ -27997,7 +27997,11 @@
         "plugins/nemoclaw/commitlint.config.js",
         "plugins/nemoclaw/nemoclaw/src/banner.ts",
         "plugins/nemoclaw/nemoclaw/src/blueprint/private-networks.ts",
+        "plugins/nemoclaw/nemoclaw/src/blueprint/runner-test-fixtures.ts",
         "plugins/nemoclaw/nemoclaw/src/blueprint/runner.ts",
+        "plugins/nemoclaw/nemoclaw/src/blueprint/snapshot-command.ts",
+        "plugins/nemoclaw/nemoclaw/src/blueprint/snapshot-delete-helper.ts",
+        "plugins/nemoclaw/nemoclaw/src/blueprint/snapshot-management.ts",
         "plugins/nemoclaw/nemoclaw/src/blueprint/snapshot.ts",
         "plugins/nemoclaw/nemoclaw/src/blueprint/ssrf.ts",
         "plugins/nemoclaw/nemoclaw/src/blueprint/state.ts",
@@ -28012,7 +28016,9 @@
         "plugins/nemoclaw/nemoclaw/src/runtime-context.ts",
         "plugins/nemoclaw/nemoclaw/src/security/safe-resolve-path.ts",
         "plugins/nemoclaw/nemoclaw/src/security/secret-scanner.ts",
+        "plugins/nemoclaw/nemoclaw/src/shared/object-record.ts",
         "plugins/nemoclaw/nemoclaw/vitest.config.ts",
+        "plugins/nemoclaw/nemoclaw/vitest.project.ts",
         "plugins/nemoclaw/vitest.config.ts"
       ],
       "pluginManifests": [
@@ -28149,6 +28155,26 @@
           },
           "dependencies": [
             "mcporter"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": null
+        },
+        {
+          "path": "plugins/nemoclaw/agents/openclaw/wechat-runtime/package.json",
+          "name": "nemoclaw-wechat-runtime",
+          "version": "0.0.0",
+          "type": null,
+          "main": null,
+          "npmPack": {
+            "advertised": false,
+            "private": true,
+            "filesMode": "implicit",
+            "files": [],
+            "invalidFileSpecs": []
+          },
+          "dependencies": [
+            "@tencent-weixin/openclaw-weixin"
           ],
           "peerDependencies": [],
           "optionalDependencies": [],
@@ -28640,6 +28666,7 @@
         "plugins/memory-tencentdb/.crabpot-package/src/gateway/generated/schemas.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/gateway/generated/types.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/gateway/server.ts",
+        "plugins/memory-tencentdb/.crabpot-package/src/gateway/timer-routing.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/gateway/types.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/gateway/v2-router.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/gateway/v2-schemas.ts",
@@ -28848,7 +28875,7 @@
         {
           "path": "plugins/memory-tencentdb/.crabpot-package/package.json",
           "name": "@tencentdb-agent-memory/memory-tencentdb",
-          "version": "1.0.0",
+          "version": "1.0.1",
           "type": "module",
           "main": "./dist/index.mjs",
           "npmPack": {
