@@ -6,17 +6,17 @@
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 141,
+    "warnings": 143,
     "suggestions": 148,
-    "issues": 289,
+    "issues": 291,
     "p0Issues": 1,
-    "p1Issues": 16,
+    "p1Issues": 17,
     "liveIssues": 1,
     "liveP0Issues": 1,
-    "compatGaps": 0,
+    "compatGaps": 1,
     "deprecationWarnings": 48,
     "inspectorGaps": 157,
-    "upstreamIssues": 83,
+    "upstreamIssues": 84,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 2586,
-    "importLoopP95Ms": 2588,
+    "importLoopP50Ms": 2571,
+    "importLoopP95Ms": 2592,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 122.4,
-    "importLoopOpenClawActivationP50Ms": 0.3,
+    "importLoopOpenClawImportP50Ms": 124.6,
+    "importLoopOpenClawActivationP50Ms": 0.4,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 14,
-    "importLoopMaxCpuMs": 203,
-    "importLoopRssSampleCount": 300,
-    "importLoopCpuSampleCount": 300
+    "importLoopMaxRssMb": 0,
+    "importLoopMaxCpuMs": 79,
+    "importLoopRssSampleCount": 302,
+    "importLoopCpuSampleCount": 302
   },
   "topIssues": [
     {
@@ -112,6 +112,14 @@
       "code": "conversation-access-hook",
       "title": "memory-lancedb: conversation-access hooks need privacy-boundary probes",
       "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "memory-lancedb",
+      "code": "sdk-export-missing",
+      "title": "memory-lancedb: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
@@ -412,20 +420,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 405.4% over baseline",
+      "message": "p95WallMs regressed 408.6% over baseline",
       "baseline": 1273,
-      "current": 6434,
-      "delta": 5161,
-      "percent": 405.4
+      "current": 6475,
+      "delta": 5202,
+      "percent": 408.6
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 380.29999999999995 over baseline",
+      "message": "maxPeakRssMb regressed 376.29999999999995 over baseline",
       "baseline": 65.1,
-      "current": 445.4,
-      "delta": 380.29999999999995
+      "current": 441.4,
+      "delta": 376.29999999999995
     }
   ],
   "artifacts": {

@@ -3648,7 +3648,7 @@
     {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "16 P1 issues tracked",
+      "message": "17 P1 issues tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "codex:reserved-sdk-import",
@@ -3658,6 +3658,7 @@
         "kitchen-sink:conversation-access-hook",
         "llm-trace-phoenix:conversation-access-hook",
         "memory-lancedb:conversation-access-hook",
+        "memory-lancedb:sdk-export-missing",
         "memory-tencentdb:conversation-access-hook",
         "memos-cloud:conversation-access-hook",
         "nemoclaw:before-tool-call-probe",
