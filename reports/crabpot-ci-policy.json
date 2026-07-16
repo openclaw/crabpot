@@ -29,8 +29,9 @@
     {
       "id": "compatibility-report.live-p0-issues",
       "action": "warn",
-      "message": "1 live P0 issues tracked",
+      "message": "2 live P0 issues tracked",
       "evidence": [
+        "codex:unknown-registration-name:none",
         "kitchen-sink:unknown-registration-name:none"
       ]
     },
@@ -3429,13 +3430,11 @@
     {
       "id": "compatibility-report.deprecation-warnings",
       "action": "pass",
-      "message": "48 deprecated compat seams tracked",
+      "message": "46 deprecated compat seams tracked",
       "evidence": [
         "a2a-gateway:legacy-root-sdk-import",
         "agentchat:channel-env-vars",
         "clawmetry:legacy-root-sdk-import",
-        "codex:sdk-load-session-store",
-        "codex:sdk-session-file-helper",
         "codex-app-server:legacy-root-sdk-import",
         "composio:legacy-root-sdk-import",
         "connectclaw:legacy-before-agent-start",
@@ -3648,19 +3647,22 @@
     {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "16 P1 issues tracked",
+      "message": "19 P1 issues tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "codex:reserved-sdk-import",
+        "codex:sdk-export-missing",
         "dingtalk-doc:before-tool-call-probe",
         "honcho:conversation-access-hook",
         "kitchen-sink:before-tool-call-probe",
         "kitchen-sink:conversation-access-hook",
         "llm-trace-phoenix:conversation-access-hook",
         "memory-lancedb:conversation-access-hook",
+        "memory-lancedb:sdk-export-missing",
         "memory-tencentdb:conversation-access-hook",
         "memos-cloud:conversation-access-hook",
         "nemoclaw:before-tool-call-probe",
+        "openclaw-qqbot:sdk-export-missing",
         "openclaw-telemetry:before-tool-call-probe",
         "openclaw-telemetry:conversation-access-hook",
         "opik-openclaw:before-tool-call-probe",
