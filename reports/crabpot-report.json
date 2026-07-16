@@ -32323,6 +32323,12 @@
         },
         {
           "name": "registerTool",
+          "file": "plugins/lightclawbot/.crabpot-package/dist/src/tools/group-add-agent-tool.js",
+          "line": 365,
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/tools/group-add-agent-tool.js:365"
+        },
+        {
+          "name": "registerTool",
           "file": "plugins/lightclawbot/.crabpot-package/dist/src/tools/group-history-tool.js",
           "line": 128,
           "ref": "plugins/lightclawbot/.crabpot-package/dist/src/tools/group-history-tool.js:128"
@@ -32370,6 +32376,7 @@
         "plugins/lightclawbot/.crabpot-package/dist/src/group/orchestrator/planning/summarizer-runner.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/group/orchestrator/routes/index.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/group/orchestrator/routes/leader-dispatch.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/group/orchestrator/routes/leader-navigator.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/group/orchestrator/routes/leader-orchestration-route.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/group/orchestrator/routes/leader-planning.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/group/orchestrator/routes/leader-self-answer.js",
@@ -32400,6 +32407,7 @@
         "plugins/lightclawbot/.crabpot-package/dist/src/group/utils/mime.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/group/utils/normalize.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/group/utils/run-helpers.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/group/utils/title.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/history/cron-utils.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/history/index.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/history/message-parser.js",
@@ -32455,6 +32463,7 @@
         "plugins/lightclawbot/.crabpot-package/dist/src/streaming/types.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/tools.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/tools/download-tool.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/tools/group-add-agent-tool.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/tools/group-history-tool.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/tools/upload-tool.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/types.js",
@@ -32495,7 +32504,7 @@
       "package": {
         "path": "plugins/lightclawbot/.crabpot-package/package.json",
         "name": "lightclawbot",
-        "version": "1.2.11",
+        "version": "1.2.12",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -32555,7 +32564,7 @@
         {
           "path": "plugins/lightclawbot/.crabpot-package/package.json",
           "name": "lightclawbot",
-          "version": "1.2.11",
+          "version": "1.2.12",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -52509,7 +52518,7 @@
       "evidence": [
         "plugins/lightclawbot/.crabpot-package/package.json",
         "lightclawbot",
-        "version:1.2.11"
+        "version:1.2.12"
       ]
     },
     {

@@ -8,7 +8,7 @@
   },
   "summary": {
     "fixtureCount": 60,
-    "registrationCount": 389,
+    "registrationCount": 390,
     "hookCount": 129,
     "sdkImportCount": 2585,
     "packageEntrypointCount": 108,
@@ -38321,6 +38321,28 @@
           "fixture": "lightclawbot",
           "registrar": "registerTool",
           "ref": "plugins/lightclawbot/.crabpot-package/dist/src/tools/download-tool.js:49",
+          "support": "target-captured",
+          "assertions": [
+            "tool name is stable",
+            "input schema is captured",
+            "result shape metadata is captured"
+          ],
+          "syntheticArguments": [
+            {
+              "name": "fixture_tool",
+              "inputSchema": {
+                "type": "object",
+                "properties": {}
+              },
+              "run": "function"
+            }
+          ]
+        },
+        {
+          "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-tools-group-add-agent-tool-js-365",
+          "fixture": "lightclawbot",
+          "registrar": "registerTool",
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/tools/group-add-agent-tool.js:365",
           "support": "target-captured",
           "assertions": [
             "tool name is stable",
