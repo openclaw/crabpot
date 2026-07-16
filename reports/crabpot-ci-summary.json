@@ -6,17 +6,17 @@
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 141,
+    "warnings": 145,
     "suggestions": 148,
-    "issues": 289,
-    "p0Issues": 1,
-    "p1Issues": 16,
-    "liveIssues": 1,
-    "liveP0Issues": 1,
-    "compatGaps": 0,
-    "deprecationWarnings": 48,
+    "issues": 293,
+    "p0Issues": 2,
+    "p1Issues": 19,
+    "liveIssues": 2,
+    "liveP0Issues": 2,
+    "compatGaps": 3,
+    "deprecationWarnings": 46,
     "inspectorGaps": 157,
-    "upstreamIssues": 83,
+    "upstreamIssues": 85,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -29,18 +29,26 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 2586,
-    "importLoopP95Ms": 2588,
+    "importLoopP50Ms": 1853,
+    "importLoopP95Ms": 1873,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 122.4,
+    "importLoopOpenClawImportP50Ms": 95.7,
     "importLoopOpenClawActivationP50Ms": 0.3,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 14,
-    "importLoopMaxCpuMs": 203,
-    "importLoopRssSampleCount": 300,
-    "importLoopCpuSampleCount": 300
+    "importLoopMaxRssMb": 0,
+    "importLoopMaxCpuMs": 0,
+    "importLoopRssSampleCount": 219,
+    "importLoopCpuSampleCount": 219
   },
   "topIssues": [
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "codex",
+      "code": "unknown-registration-name",
+      "title": "codex: fixture calls a registrar missing from target OpenClaw",
+      "decision": "core-compat-adapter"
+    },
     {
       "severity": "P0",
       "issueClass": "live-issue",
@@ -64,6 +72,14 @@
       "code": "reserved-sdk-import",
       "title": "codex: plugin imports reserved bundled-plugin SDK compatibility subpaths",
       "decision": "plugin-upstream-fix"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "codex",
+      "code": "sdk-export-missing",
+      "title": "codex: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
@@ -115,6 +131,14 @@
     },
     {
       "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "memory-lancedb",
+      "code": "sdk-export-missing",
+      "title": "memory-lancedb: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
       "issueClass": "inspector-gap",
       "fixture": "memory-tencentdb",
       "code": "conversation-access-hook",
@@ -136,6 +160,14 @@
       "code": "before-tool-call-probe",
       "title": "nemoclaw: before_tool_call needs terminal/block/approval probes",
       "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "openclaw-qqbot",
+      "code": "sdk-export-missing",
+      "title": "openclaw-qqbot: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
@@ -168,14 +200,6 @@
       "code": "conversation-access-hook",
       "title": "opik-openclaw: conversation-access hooks need privacy-boundary probes",
       "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "wecom",
-      "code": "before-tool-call-probe",
-      "title": "wecom: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
     }
   ],
   "refRegressions": [],
@@ -183,8 +207,9 @@
     {
       "id": "compatibility-report.live-p0-issues",
       "action": "warn",
-      "message": "1 live P0 issues tracked",
+      "message": "2 live P0 issues tracked",
       "evidence": [
+        "codex:unknown-registration-name:none",
         "kitchen-sink:unknown-registration-name:none"
       ]
     },
@@ -412,20 +437,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 405.4% over baseline",
+      "message": "p95WallMs regressed 309.3% over baseline",
       "baseline": 1273,
-      "current": 6434,
-      "delta": 5161,
-      "percent": 405.4
+      "current": 5210,
+      "delta": 3937,
+      "percent": 309.3
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 380.29999999999995 over baseline",
+      "message": "maxPeakRssMb regressed 381.6 over baseline",
       "baseline": 65.1,
-      "current": 445.4,
-      "delta": 380.29999999999995
+      "current": 446.7,
+      "delta": 381.6
     }
   ],
   "artifacts": {
