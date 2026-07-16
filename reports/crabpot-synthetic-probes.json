@@ -2,12 +2,12 @@
   "generatedAt": "deterministic",
   "summary": {
     "fixtureCount": 60,
-    "probeCount": 518,
+    "probeCount": 519,
     "hookProbeCount": 129,
-    "registrationProbeCount": 389,
-    "readyCount": 509,
+    "registrationProbeCount": 390,
+    "readyCount": 510,
     "blockedCount": 9,
-    "directExecutionCount": 201,
+    "directExecutionCount": 202,
     "optInExecutionCount": 31,
     "metadataOnlyCount": 157
   },
@@ -12078,6 +12078,38 @@
         ]
       },
       "source": "plugins/lightclawbot/.crabpot-package/dist/src/tools/download-tool.js:49"
+    },
+    {
+      "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-tools-group-add-agent-tool-js-365",
+      "fixture": "lightclawbot",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/lightclawbot/.crabpot-package/dist/src/tools/group-add-agent-tool.js:365"
     },
     {
       "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-tools-group-history-tool-js-128",
