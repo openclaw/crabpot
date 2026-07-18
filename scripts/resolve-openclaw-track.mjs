@@ -15,6 +15,14 @@ const branchTracks = new Map([
   ["crab-development", "development"],
 ]);
 
+export class MissingOpenClawTagError extends Error {
+  constructor(version) {
+    super(`OpenClaw GitHub tag v${version} is missing`);
+    this.name = "MissingOpenClawTagError";
+    this.version = version;
+  }
+}
+
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   await main();
 }
@@ -22,7 +30,16 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const track = normalizeTrack(args.track, args.branch);
-  const result = await resolveOpenClawTrack(track);
+  let result;
+  try {
+    result = await resolveOpenClawTrack(track);
+  } catch (error) {
+    if (args.warnMissingTag && error instanceof MissingOpenClawTagError) {
+      console.log(`::warning::OpenClaw npm ${track} resolves to ${error.version}, but GitHub tag v${error.version} is missing; HEAD canary continues.`);
+      return;
+    }
+    throw error;
+  }
 
   if (args.githubOutput) {
     await writeGithubOutput(result);
@@ -41,6 +58,7 @@ function parseArgs(argv) {
     githubOutput: false,
     json: false,
     track: process.env.CRABPOT_OPENCLAW_TRACK || "auto",
+    warnMissingTag: false,
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -61,6 +79,10 @@ function parseArgs(argv) {
     if (arg === "--track") {
       args.track = argv[index + 1];
       index += 1;
+      continue;
+    }
+    if (arg === "--warn-missing-tag") {
+      args.warnMissingTag = true;
     }
   }
 
@@ -130,7 +152,11 @@ async function tagSha(version) {
   if (peeled) {
     return peeled;
   }
-  return lsRemote(`refs/tags/v${version}`);
+  const direct = await optionalLsRemote(`refs/tags/v${version}`);
+  if (direct) {
+    return direct;
+  }
+  throw new MissingOpenClawTagError(version);
 }
 
 async function optionalLsRemote(ref) {

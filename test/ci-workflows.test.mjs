@@ -51,6 +51,7 @@ test("default check workflow uploads policy and summary reports", async () => {
   assert.match(workflow, /node scripts\/run-static-suite\.mjs[\s\S]*--openclaw \.\/openclaw[\s\S]*--plugin-inspector-smoke/);
   assert.match(workflow, /node scripts\/check-ci-policy\.mjs/);
   assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
+  assert.match(workflow, /node scripts\/update-track-metadata\.mjs --default-pin-openclaw \.\/openclaw/);
   const dashboardBlock = workflow.slice(workflow.indexOf("  dashboard:"));
   assert.match(dashboardBlock, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
   assert.match(dashboardBlock, /node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
@@ -127,14 +128,50 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
 test("default check workflow runs OS and container static lanes", async () => {
   const workflow = await readWorkflow(".github/workflows/check.yml");
 
-  assert.match(workflow, /name: Static checks \(\$\{\{ matrix\.os \}\}\)/);
+  assert.match(workflow, /name: Default Track \/ Static checks \(\$\{\{ matrix\.os \}\}\)/);
   assert.match(workflow, /os: \[ubuntu-latest, macos-15, windows-latest\]/);
   assert.match(workflow, /container-smoke:/);
   assert.match(workflow, /image: node:22-bookworm/);
+  assert.match(workflow, /node scripts\/openclaw-pin\.mjs --github-output/);
+  assert.doesNotMatch(workflow, /node scripts\/resolve-openclaw-track\.mjs --github-output/);
+  assert.doesNotMatch(workflow, /node scripts\/update-track-metadata\.mjs\n/);
   assert.match(workflow, /node scripts\/run-static-suite\.mjs[\s\S]*--openclaw \.\/openclaw[\s\S]*--plugin-inspector-smoke/);
   assert.match(workflow, /--plugin-track "\$\{plugin_track\}"/);
   assert.match(workflow, /--fixture-set openclaw-beta --plugin-track source-pack/);
-  assert.match(workflow, /crabpot-check-reports-\$\{\{ matrix\.os \}\}/);
+  assert.match(workflow, /crabpot-default-track-reports-\$\{\{ matrix\.os \}\}/);
+  assert.match(workflow, /name: Default Track \(pinned OpenClaw\)/);
+  assert.match(workflow, /needs: \[manifest, container-smoke, changed-fixture-plan, changed-isolated-fixture\]/);
+});
+
+test("HEAD canary is advisory, runs the Default Track suite on main, and uploads reports", async () => {
+  const workflow = await readWorkflow(".github/workflows/openclaw-head-canary.yml");
+
+  assert.match(workflow, /name: OpenClaw HEAD Canary \(Advisory\)/);
+  assert.match(workflow, /name: HEAD Canary \/ Resolve OpenClaw HEAD/);
+  assert.match(workflow, /sha: \$\{\{ steps\.openclaw-head\.outputs\.sha \}\}/);
+  assert.match(workflow, /name: HEAD Canary \(advisory, \$\{\{ matrix\.os \}\}\)/);
+  assert.match(workflow, /needs: resolve-head/);
+  assert.match(workflow, /continue-on-error: true/);
+  assert.match(workflow, /repository: openclaw\/openclaw\n\s+ref: main/);
+  assert.match(workflow, /repository: openclaw\/openclaw\n\s+ref: \$\{\{ needs\.resolve-head\.outputs\.sha \}\}/);
+  assert.match(workflow, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
+  assert.match(workflow, /Check npm latest metadata[\s\S]*continue-on-error: true[\s\S]*node scripts\/resolve-openclaw-track\.mjs --track latest --warn-missing-tag/);
+  assert.match(workflow, /Run Default Track suite against HEAD/);
+  assert.match(workflow, /--openclaw-track latest/);
+  assert.match(workflow, /--plugin-track latest/);
+  assert.match(workflow, /run_report\(\)[\s\S]*report_failed=1/);
+  assert.match(workflow, /node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
+  assert.match(workflow, /exit "\$\{report_failed\}"/);
+  assert.match(workflow, /Upload HEAD canary reports/);
+  assert.match(workflow, /crabpot-openclaw-head-canary-\$\{\{ matrix\.os \}\}/);
+});
+
+test("scheduled Default Track pin age gate enforces the 14-day SLA", async () => {
+  const workflow = await readWorkflow(".github/workflows/openclaw-pin-age.yml");
+
+  assert.match(workflow, /schedule:/);
+  assert.match(workflow, /name: Default Track pin age \(14-day SLA\)/);
+  assert.match(workflow, /node scripts\/openclaw-pin\.mjs --check-age --max-age-days 14/);
 });
 
 test("default check workflow resolves changed submodules into an isolated fixture matrix", async () => {
@@ -164,6 +201,8 @@ test("workflows use current action majors and dependency caches", async () => {
     await readWorkflow(".github/workflows/check.yml"),
     await readWorkflow(".github/workflows/openclaw-ref-compat.yml"),
     await readWorkflow(".github/workflows/dependabot-auto-merge.yml"),
+    await readWorkflow(".github/workflows/openclaw-head-canary.yml"),
+    await readWorkflow(".github/workflows/openclaw-pin-age.yml"),
     await readWorkflow(".github/workflows/track-dashboard.yml"),
   ].join("\n");
   const actionRefs = [

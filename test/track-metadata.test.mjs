@@ -1,7 +1,11 @@
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
+import { mkdtemp, rm, writeFile } from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
 import { test } from "node:test";
 import { normalizeTrack } from "../scripts/resolve-openclaw-track.mjs";
-import { applyTrackMetadata, renderTrackMetadata } from "../scripts/update-track-metadata.mjs";
+import { applyTrackMetadata, renderTrackMetadata, resolveDefaultPinMetadata } from "../scripts/update-track-metadata.mjs";
 
 const tracks = [
   {
@@ -63,4 +67,48 @@ test("track metadata inserts before dashboard summary and replaces stale block",
   assert.doesNotMatch(replaced, /\ncontent\n/);
   assert.match(replaced, /new content/);
   assert.match(replaced, /<!-- crabpot-summary:start -->/);
+});
+
+test("pinned Default Track metadata names the immutable dashboard target", () => {
+  const markdown = renderTrackMetadata([
+    {
+      branch: "main",
+      label: "openclaw/openclaw@e3eb1121adfb",
+      ref: "e3eb1121adfb3eef87200d2964f01396e2b6acbc",
+      repository: "openclaw/openclaw",
+      sha: "e3eb1121adfb3eef87200d2964f01396e2b6acbc",
+      source: "github-default-pin",
+      track: "latest",
+      version: "2026.7.2",
+    },
+  ], { branch: "main" });
+
+  assert.match(markdown, /Source:\*\* `github-default-pin`/);
+  assert.match(markdown, /Dashboard target:\*\* `openclaw\/openclaw@e3eb1121adfb \+ npm latest plugin artifacts`/);
+});
+
+test("pinned metadata is derived from the exact local checkout", async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), "crabpot-pin-metadata-"));
+  try {
+    const openclawPath = path.join(root, "openclaw");
+    const pinPath = path.join(root, "pin.json");
+    execFileSync("git", ["init", "-q", openclawPath]);
+    await writeFile(path.join(openclawPath, "package.json"), '{"version":"2026.7.2"}\n', "utf8");
+    execFileSync("git", ["-C", openclawPath, "add", "package.json"]);
+    execFileSync("git", [
+      "-C", openclawPath,
+      "-c", "user.name=Crabpot Test",
+      "-c", "user.email=crabpot@example.invalid",
+      "commit", "-q", "-m", "fixture",
+    ]);
+    const sha = execFileSync("git", ["-C", openclawPath, "rev-parse", "HEAD"], { encoding: "utf8" }).trim();
+    await writeFile(pinPath, `${JSON.stringify({ repository: "openclaw/openclaw", sha, pinnedAt: "2026-07-18" })}\n`, "utf8");
+
+    const metadata = await resolveDefaultPinMetadata(openclawPath, { pinPath });
+    assert.equal(metadata.sha, sha);
+    assert.equal(metadata.version, "2026.7.2");
+    assert.equal(metadata.source, "github-default-pin");
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
 });

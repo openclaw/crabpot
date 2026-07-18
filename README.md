@@ -256,6 +256,26 @@ the generated reports. The optional isolated job runs one fixture lane when
 `run_isolated_fixture` is enabled and `fixture` is set, then uploads
 `.crabpot/results/` plus the execution summary report.
 
+## Default Track and HEAD canary
+
+Required CI runs the Default Track suite against the immutable OpenClaw SHA in
+`.github/openclaw-default-track.json`. The separately labeled `OpenClaw HEAD
+Canary (Advisory)` workflow runs the same suite against OpenClaw `main`, uploads
+reports for every platform, and never blocks merges. A missing GitHub tag for
+the npm `latest` version is a canary warning, not a required-lane failure. The
+required dashboard records metadata from the pinned checkout and never resolves
+OpenClaw HEAD or requires a matching upstream release tag.
+
+Promote a green canary SHA with one command, then open the resulting focused PR:
+
+```bash
+npm run openclaw:promote -- <40-character-openclaw-sha>
+```
+
+The command validates the OpenClaw commit and updates both the SHA and promotion
+date. The daily `OpenClaw Default Track Pin Age` workflow fails once that date is
+more than 14 days old, prompting another deliberate canary-to-pin promotion.
+
 ## Fixture policy
 
 Fixtures should earn their spot by covering a distinct seam. Popularity is a

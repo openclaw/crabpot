@@ -1,0 +1,114 @@
+name: OpenClaw HEAD Canary (Advisory)
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  resolve-head:
+    name: HEAD Canary / Resolve OpenClaw HEAD
+    runs-on: ubuntu-latest
+    outputs:
+      sha: ${{ steps.openclaw-head.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          repository: openclaw/openclaw
+          ref: main
+      - name: Record OpenClaw HEAD revision
+        id: openclaw-head
+        shell: bash
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  head-canary:
+    name: HEAD Canary (advisory, ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    needs: resolve-head
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-15, windows-latest]
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: recursive
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            plugins/**/package-lock.json
+      - uses: actions/checkout@v6
+        with:
+          repository: openclaw/openclaw
+          ref: ${{ needs.resolve-head.outputs.sha }}
+          path: openclaw
+      - name: Show OpenClaw HEAD revision
+        shell: bash
+        run: |
+          sha="$(git -C openclaw rev-parse HEAD)"
+          test "${sha}" = "${{ needs.resolve-head.outputs.sha }}"
+          echo "OpenClaw HEAD: ${sha}"
+      - name: Install OpenClaw lifecycle dependencies
+        shell: bash
+        run: |
+          corepack enable
+          corepack prepare "$(node -p "require('./openclaw/package.json').packageManager.split('+')[0]")" --activate
+          pnpm --dir openclaw install --frozen-lockfile --ignore-scripts
+      - name: Check npm latest metadata
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        continue-on-error: true
+        run: node scripts/resolve-openclaw-track.mjs --track latest --warn-missing-tag
+      - name: Run Default Track suite against HEAD
+        shell: bash
+        timeout-minutes: 30
+        run: |
+          node scripts/run-static-suite.mjs \
+            --openclaw ./openclaw \
+            --policy dashboard \
+            --profile-runs 3 \
+            --plugin-inspector-smoke \
+            --openclaw-track latest \
+            --plugin-track latest
+      - name: Write canary reports
+        if: always()
+        continue-on-error: true
+        shell: bash
+        env:
+          CRABPOT_OPENCLAW_TRACK: latest
+          CRABPOT_PLUGIN_TRACK: latest
+        run: |
+          report_failed=0
+          run_report() {
+            if "$@"; then
+              return
+            fi
+            echo "::warning::Canary report command failed: $*"
+            report_failed=1
+          }
+          run_report node scripts/generate-report.mjs --openclaw ./openclaw
+          run_report node scripts/capture-contracts.mjs --openclaw ./openclaw
+          run_report node scripts/synthetic-probes.mjs --openclaw ./openclaw
+          run_report node scripts/cold-import-readiness.mjs --openclaw ./openclaw
+          run_report node scripts/workspace-plan.mjs --openclaw ./openclaw
+          run_report node scripts/platform-probes.mjs --openclaw ./openclaw
+          run_report node scripts/check-generated-surface-fixture.mjs --openclaw ./openclaw
+          run_report node scripts/import-loop-profile.mjs --openclaw ./openclaw --runs 3
+          run_report node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs 3
+          run_report node scripts/compare-runtime-profile.mjs
+          run_report node scripts/check-ci-policy.mjs
+          run_report node scripts/write-ci-summary.mjs --mode head-canary --openclaw-label "openclaw/openclaw@${{ needs.resolve-head.outputs.sha }}" --github-step-summary
+          exit "${report_failed}"
+      - name: Upload HEAD canary reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: crabpot-openclaw-head-canary-${{ matrix.os }}
+          path: reports/
+          if-no-files-found: warn
