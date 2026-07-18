@@ -268,6 +268,7 @@ jobs:
     if: ${{ !cancelled() && github.event_name != 'pull_request' && github.actor != 'github-actions[bot]' && needs.default-track.result == 'success' }}
     permissions:
       contents: write
+      statuses: write
     steps:
       - uses: actions/checkout@v6
         with:
@@ -307,6 +308,7 @@ jobs:
           CRABPOT_OPENCLAW_TRACK: ${{ steps.openclaw-track.outputs.track }}
           CRABPOT_PLUGIN_TRACK: ${{ steps.openclaw-track.outputs.track == 'development' && 'source-pack' || steps.openclaw-track.outputs.track }}
           CRABPOT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
           export CRABPOT_SUMMARY_GENERATED_AT
@@ -374,5 +376,17 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git commit -m "chore(readme): update crabpot dashboard [skip ci]"
-            git push || echo "::notice::Skipped stale dashboard push because ${GITHUB_REF_NAME} moved; a newer check run will refresh it."
+            dashboard_sha="$(git rev-parse HEAD)"
+            staging_branch="dashboard-staging-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+            cleanup_staging() {
+              git push origin --delete "${staging_branch}" >/dev/null 2>&1 || true
+            }
+            trap cleanup_staging EXIT
+            git push origin "HEAD:refs/heads/${staging_branch}"
+            gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${dashboard_sha}" \
+              -f state=success \
+              -f context="Default Track (pinned OpenClaw)" \
+              -f description="Pinned Default Track passed before dashboard generation" \
+              -f target_url="${CRABPOT_RUN_URL}"
+            git push origin "HEAD:refs/heads/${GITHUB_REF_NAME}" || echo "::notice::Skipped stale dashboard push because ${GITHUB_REF_NAME} moved; a newer check run will refresh it."
           fi
