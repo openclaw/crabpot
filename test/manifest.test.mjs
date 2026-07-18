@@ -51,6 +51,16 @@ test("openclaw beta fixture set narrows to beta npm packages", async () => {
   assert.ok(manifest.fixtures.every((fixture) => fixture.package?.tag === "beta"));
 });
 
+test("Codex fixture follows current provider ownership", async () => {
+  const manifest = await readManifest();
+  const codex = manifest.fixtures.find((fixture) => fixture.id === "codex");
+
+  assert.ok(codex);
+  assert.ok(codex.expect.registrations.includes("registerWebSearchProvider"));
+  assert.equal(codex.expect.registrations.includes("registerProvider"), false);
+  assert.ok(codex.expect.manifestContracts.includes("webSearchProviders"));
+});
+
 test("bundled OpenClaw channels source-pack from the monorepo", async () => {
   const manifest = await readManifest();
   const bundled = manifest.fixtures.filter((fixture) => ["matrix", "mattermost"].includes(fixture.id));

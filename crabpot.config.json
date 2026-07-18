@@ -870,7 +870,7 @@
     },
     {
       "id": "codex",
-      "name": "OpenClaw Codex harness and model provider plugin",
+      "name": "OpenClaw Codex harness plugin",
       "package": {
         "name": "@openclaw/codex",
         "tag": "beta"
@@ -878,7 +878,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/codex",
-        "ref": "a22f06504376e7203a2bec8fde094b7cdcb06c02"
+        "ref": "d45e024dcabfd01abec24bf195fc2a6f0984cfef"
       },
       "path": "plugins/codex",
       "priority": "medium",
@@ -899,14 +899,15 @@
           "registerCommand",
           "registerMediaUnderstandingProvider",
           "registerMigrationProvider",
-          "registerProvider"
+          "registerWebSearchProvider"
         ],
         "manifestContracts": [
           "mediaUnderstandingProviders",
-          "migrationProviders"
+          "migrationProviders",
+          "webSearchProviders"
         ]
       },
-      "why": "Official Codex package covering agent harness registration, model provider wiring, media understanding, migrations, inbound claims, and npm artifact packaging."
+      "why": "Official Codex package covering agent harness registration, hosted web search, media understanding, migrations, inbound claims, and npm artifact packaging."
     },
     {
       "id": "diagnostics-prometheus",
