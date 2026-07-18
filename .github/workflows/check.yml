@@ -265,7 +265,7 @@ jobs:
   dashboard:
     runs-on: ubuntu-latest
     needs: [default-track]
-    if: ${{ github.event_name != 'pull_request' && github.actor != 'github-actions[bot]' && needs.default-track.result == 'success' }}
+    if: ${{ always() && github.event_name != 'pull_request' && github.actor != 'github-actions[bot]' && needs.default-track.result == 'success' }}
     permissions:
       contents: write
     steps:
