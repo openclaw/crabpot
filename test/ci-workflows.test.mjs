@@ -55,7 +55,13 @@ test("default check workflow uploads policy and summary reports", async () => {
   const dashboardBlock = workflow.slice(workflow.indexOf("  dashboard:"));
   assert.match(dashboardBlock, /if: \$\{\{ !cancelled\(\) && github\.event_name != 'pull_request'/);
   assert.match(dashboardBlock, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
-  assert.match(dashboardBlock, /node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
+  assert.match(dashboardBlock, /run_profile_step 180 "OpenClaw lifecycle import-loop profile failed or timed out; falling back to fixture-only import-loop profile" node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
+  assert.match(dashboardBlock, /local profile_json="reports\/crabpot-import-loop-profile\.json"[\s\S]*local profile_markdown="reports\/crabpot-import-loop-profile\.md"[\s\S]*rm -f "\$\{profile_json\}" "\$\{profile_markdown\}"/);
+  assert.match(dashboardBlock, /if ! run_profile_step 90 "fixture-only import-loop profile failed or timed out; continuing without refreshed import-loop metrics" node scripts\/import-loop-profile\.mjs --runs 3; then[\s\S]*rm -f "\$\{profile_json\}" "\$\{profile_markdown\}"/);
+  assert.match(dashboardBlock, /run_profile_step 240 "OpenClaw runtime profile failed or timed out; falling back to fixture-only runtime profile" node scripts\/profile-contract-runtime\.mjs --openclaw \.\/openclaw --runs 3/);
+  assert.match(dashboardBlock, /local profile_json="reports\/crabpot-runtime-profile\.json"[\s\S]*local profile_markdown="reports\/crabpot-runtime-profile\.md"[\s\S]*runtime_profile_refreshed=0[\s\S]*rm -f "\$\{profile_json\}" "\$\{profile_markdown\}"/);
+  assert.match(dashboardBlock, /if run_profile_step 120 "fixture-only runtime profile failed or timed out; continuing without refreshed runtime metrics" node scripts\/profile-contract-runtime\.mjs --runs 3; then[\s\S]*runtime_profile_refreshed=1[\s\S]*else[\s\S]*rm -f "\$\{profile_json\}" "\$\{profile_markdown\}"/);
+  assert.match(dashboardBlock, /if \[ "\$\{runtime_profile_refreshed\}" = 1 \]; then[\s\S]*node scripts\/compare-runtime-profile\.mjs[\s\S]*Runtime profile was not refreshed; skipping runtime profile diff/);
   assert.match(workflow, /--baseline-data \.crabpot\/baseline\/main-dashboard-data\.json/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs "\$\{baseline_arg\[@\]\}"/);
   assert.match(workflow, /chore\(readme\): update crabpot dashboard \[skip ci\]/);

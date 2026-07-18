@@ -310,15 +310,57 @@ jobs:
         run: |
           CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
           export CRABPOT_SUMMARY_GENERATED_AT
+          run_profile_step() {
+            local timeout_seconds="$1"
+            local warning="$2"
+            shift 2
+            if timeout "${timeout_seconds}s" "$@"; then
+              return 0
+            fi
+            echo "::warning::${warning}"
+            return 1
+          }
+          run_openclaw_import_loop_profile() {
+            local profile_json="reports/crabpot-import-loop-profile.json"
+            local profile_markdown="reports/crabpot-import-loop-profile.md"
+            rm -f "${profile_json}" "${profile_markdown}"
+            if run_profile_step 180 "OpenClaw lifecycle import-loop profile failed or timed out; falling back to fixture-only import-loop profile" node scripts/import-loop-profile.mjs --openclaw ./openclaw --runs 3; then
+              return 0
+            fi
+            rm -f "${profile_json}" "${profile_markdown}"
+            if ! run_profile_step 90 "fixture-only import-loop profile failed or timed out; continuing without refreshed import-loop metrics" node scripts/import-loop-profile.mjs --runs 3; then
+              rm -f "${profile_json}" "${profile_markdown}"
+            fi
+          }
+          run_openclaw_runtime_profile() {
+            local profile_json="reports/crabpot-runtime-profile.json"
+            local profile_markdown="reports/crabpot-runtime-profile.md"
+            runtime_profile_refreshed=0
+            rm -f "${profile_json}" "${profile_markdown}"
+            if run_profile_step 240 "OpenClaw runtime profile failed or timed out; falling back to fixture-only runtime profile" node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs 3; then
+              runtime_profile_refreshed=1
+              return 0
+            fi
+            rm -f "${profile_json}" "${profile_markdown}"
+            if run_profile_step 120 "fixture-only runtime profile failed or timed out; continuing without refreshed runtime metrics" node scripts/profile-contract-runtime.mjs --runs 3; then
+              runtime_profile_refreshed=1
+            else
+              rm -f "${profile_json}" "${profile_markdown}"
+            fi
+          }
           node scripts/generate-report.mjs --openclaw ./openclaw
           node scripts/capture-contracts.mjs --openclaw ./openclaw
           node scripts/synthetic-probes.mjs --openclaw ./openclaw
           node scripts/cold-import-readiness.mjs --openclaw ./openclaw
           node scripts/workspace-plan.mjs --openclaw ./openclaw
           node scripts/platform-probes.mjs --openclaw ./openclaw
-          node scripts/import-loop-profile.mjs --openclaw ./openclaw --runs 3
-          node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs 3
-          node scripts/compare-runtime-profile.mjs
+          run_openclaw_import_loop_profile
+          run_openclaw_runtime_profile
+          if [ "${runtime_profile_refreshed}" = 1 ]; then
+            node scripts/compare-runtime-profile.mjs
+          else
+            echo "::warning::Runtime profile was not refreshed; skipping runtime profile diff"
+          fi
           node scripts/check-ci-policy.mjs
           node scripts/write-ci-summary.mjs --mode check --openclaw-label "${{ steps.openclaw-track.outputs.label }}"
           node scripts/update-track-metadata.mjs --default-pin-openclaw ./openclaw
