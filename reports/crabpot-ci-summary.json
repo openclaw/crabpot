@@ -1,22 +1,22 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "dependabot",
-  "openclawLabel": "openclaw@latest (2026.7.1, 2d2ddc43d0dc)",
+  "mode": "check",
+  "openclawLabel": "openclaw/openclaw@e3eb1121adfb (Default Track pin 2026-07-18)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 145,
-    "suggestions": 148,
-    "issues": 293,
-    "p0Issues": 2,
-    "p1Issues": 19,
-    "liveIssues": 2,
-    "liveP0Issues": 2,
-    "compatGaps": 3,
-    "deprecationWarnings": 46,
+    "warnings": 142,
+    "suggestions": 259,
+    "issues": 401,
+    "p0Issues": 1,
+    "p1Issues": 128,
+    "liveIssues": 1,
+    "liveP0Issues": 1,
+    "compatGaps": 112,
+    "deprecationWarnings": 48,
     "inspectorGaps": 157,
-    "upstreamIssues": 85,
+    "upstreamIssues": 83,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -29,32 +29,64 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 2060,
-    "importLoopP95Ms": 2147,
-    "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 101.9,
-    "importLoopOpenClawActivationP50Ms": 0.3,
+    "importLoopP50Ms": 65,
+    "importLoopP95Ms": 65,
+    "importLoopOpenClawLifecycleCount": 0,
+    "importLoopOpenClawImportP50Ms": 0,
+    "importLoopOpenClawActivationP50Ms": 0,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 0,
-    "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 248,
-    "importLoopCpuSampleCount": 248
+    "importLoopMaxRssMb": 0.6,
+    "importLoopMaxCpuMs": 11,
+    "importLoopRssSampleCount": 6,
+    "importLoopCpuSampleCount": 6
   },
   "topIssues": [
-    {
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "codex",
-      "code": "unknown-registration-name",
-      "title": "codex: fixture calls a registrar missing from target OpenClaw",
-      "decision": "core-compat-adapter"
-    },
     {
       "severity": "P0",
       "issueClass": "live-issue",
       "fixture": "kitchen-sink",
       "code": "unknown-registration-name",
       "title": "kitchen-sink: fixture calls a registrar missing from target OpenClaw",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "a2a-gateway",
+      "code": "missing-compat-record",
+      "title": "a2a-gateway: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "a2a-gateway",
+      "code": "missing-compat-record",
+      "title": "a2a-gateway: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "agentchat",
+      "code": "missing-compat-record",
+      "title": "agentchat: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "agentchat",
+      "code": "missing-compat-record",
+      "title": "agentchat: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "bluebubbles",
+      "code": "missing-compat-record",
+      "title": "bluebubbles: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
     },
     {
@@ -67,6 +99,46 @@
     },
     {
       "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "clawmetry",
+      "code": "missing-compat-record",
+      "title": "clawmetry: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "clawmetry",
+      "code": "missing-compat-record",
+      "title": "clawmetry: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "clawmetry",
+      "code": "missing-compat-record",
+      "title": "clawmetry: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "clawrouter",
+      "code": "missing-compat-record",
+      "title": "clawrouter: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "codex",
+      "code": "missing-compat-record",
+      "title": "codex: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
       "issueClass": "upstream-metadata",
       "fixture": "codex",
       "code": "reserved-sdk-import",
@@ -76,130 +148,58 @@
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "codex",
-      "code": "sdk-export-missing",
-      "title": "codex: plugin SDK import aliases are missing from target package exports",
+      "fixture": "codex-app-server",
+      "code": "missing-compat-record",
+      "title": "codex-app-server: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "dingtalk-doc",
-      "code": "before-tool-call-probe",
-      "title": "dingtalk-doc: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "honcho",
-      "code": "conversation-access-hook",
-      "title": "honcho: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "kitchen-sink",
-      "code": "before-tool-call-probe",
-      "title": "kitchen-sink: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "kitchen-sink",
-      "code": "conversation-access-hook",
-      "title": "kitchen-sink: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "llm-trace-phoenix",
-      "code": "conversation-access-hook",
-      "title": "llm-trace-phoenix: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "memory-lancedb",
-      "code": "conversation-access-hook",
-      "title": "memory-lancedb: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
     },
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "memory-lancedb",
-      "code": "sdk-export-missing",
-      "title": "memory-lancedb: plugin SDK import aliases are missing from target package exports",
+      "fixture": "codex-app-server",
+      "code": "missing-compat-record",
+      "title": "codex-app-server: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "memory-tencentdb",
-      "code": "conversation-access-hook",
-      "title": "memory-tencentdb: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "memos-cloud",
-      "code": "conversation-access-hook",
-      "title": "memos-cloud: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "nemoclaw",
-      "code": "before-tool-call-probe",
-      "title": "nemoclaw: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
     },
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "openclaw-qqbot",
-      "code": "sdk-export-missing",
-      "title": "openclaw-qqbot: plugin SDK import aliases are missing from target package exports",
+      "fixture": "composio",
+      "code": "missing-compat-record",
+      "title": "composio: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "openclaw-telemetry",
-      "code": "before-tool-call-probe",
-      "title": "openclaw-telemetry: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
+      "issueClass": "compat-gap",
+      "fixture": "connectclaw",
+      "code": "missing-compat-record",
+      "title": "connectclaw: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "openclaw-telemetry",
-      "code": "conversation-access-hook",
-      "title": "openclaw-telemetry: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
+      "issueClass": "compat-gap",
+      "fixture": "connectclaw",
+      "code": "missing-compat-record",
+      "title": "connectclaw: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "opik-openclaw",
-      "code": "before-tool-call-probe",
-      "title": "opik-openclaw: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
+      "issueClass": "compat-gap",
+      "fixture": "connectclaw",
+      "code": "missing-compat-record",
+      "title": "connectclaw: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "opik-openclaw",
-      "code": "conversation-access-hook",
-      "title": "opik-openclaw: conversation-access hooks need privacy-boundary probes",
-      "decision": "inspector-follow-up"
+      "issueClass": "compat-gap",
+      "fixture": "ddingtalk",
+      "code": "missing-compat-record",
+      "title": "ddingtalk: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
     }
   ],
   "refRegressions": [],
@@ -207,9 +207,8 @@
     {
       "id": "compatibility-report.live-p0-issues",
       "action": "warn",
-      "message": "2 live P0 issues tracked",
+      "message": "1 live P0 issues tracked",
       "evidence": [
-        "codex:unknown-registration-name:none",
         "kitchen-sink:unknown-registration-name:none"
       ]
     },
@@ -437,20 +436,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 386.8% over baseline",
+      "message": "p95WallMs regressed 310.3% over baseline",
       "baseline": 1273,
-      "current": 6197,
-      "delta": 4924,
-      "percent": 386.8
+      "current": 5223,
+      "delta": 3950,
+      "percent": 310.3
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 395.5 over baseline",
+      "message": "maxPeakRssMb regressed 393.4 over baseline",
       "baseline": 65.1,
-      "current": 460.6,
-      "delta": 395.5
+      "current": 458.5,
+      "delta": 393.4
     }
   ],
   "artifacts": {
