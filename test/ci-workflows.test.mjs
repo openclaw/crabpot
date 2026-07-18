@@ -54,6 +54,7 @@ test("default check workflow uploads policy and summary reports", async () => {
   assert.match(workflow, /node scripts\/update-track-metadata\.mjs --default-pin-openclaw \.\/openclaw/);
   const dashboardBlock = workflow.slice(workflow.indexOf("  dashboard:"));
   assert.match(dashboardBlock, /if: \$\{\{ !cancelled\(\) && github\.event_name != 'pull_request'/);
+  assert.match(dashboardBlock, /permissions:[\s\S]*contents: write[\s\S]*statuses: write/);
   assert.match(dashboardBlock, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
   assert.match(dashboardBlock, /run_profile_step 180 "OpenClaw lifecycle import-loop profile failed or timed out; falling back to fixture-only import-loop profile" node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
   assert.match(dashboardBlock, /local profile_json="reports\/crabpot-import-loop-profile\.json"[\s\S]*local profile_markdown="reports\/crabpot-import-loop-profile\.md"[\s\S]*rm -f "\$\{profile_json\}" "\$\{profile_markdown\}"/);
@@ -65,6 +66,11 @@ test("default check workflow uploads policy and summary reports", async () => {
   assert.match(workflow, /--baseline-data \.crabpot\/baseline\/main-dashboard-data\.json/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs "\$\{baseline_arg\[@\]\}"/);
   assert.match(workflow, /chore\(readme\): update crabpot dashboard \[skip ci\]/);
+  assert.match(dashboardBlock, /staging_branch="dashboard-staging-\$\{GITHUB_RUN_ID\}-\$\{GITHUB_RUN_ATTEMPT\}"/);
+  assert.match(dashboardBlock, /git push origin "HEAD:refs\/heads\/\$\{staging_branch\}"/);
+  assert.match(dashboardBlock, /gh api --method POST "repos\/\$\{GITHUB_REPOSITORY\}\/statuses\/\$\{dashboard_sha\}"[\s\S]*context="Default Track \(pinned OpenClaw\)"/);
+  assert.match(dashboardBlock, /git push origin --delete "\$\{staging_branch\}"/);
+  assert.match(dashboardBlock, /git push origin "HEAD:refs\/heads\/\$\{GITHUB_REF_NAME\}"/);
   assert.match(workflow, /Skipped stale dashboard push/);
   assert.match(workflow, /actions\/upload-artifact@v7/);
 });
