@@ -2,7 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
-_No changes yet._
+- Split CI into a required pinned OpenClaw Default Track, an advisory artifact-producing HEAD canary, and a 14-day pin-promotion SLA.
 
 ## 0.2.1 - 2026-07-06
 
