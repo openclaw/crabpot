@@ -43,7 +43,7 @@
 | Ref diff failures      | 0                                                                                                                  |
 | Profile failures       | 0                                                                                                                  |
 | Execution probes       | 120 pass / 0 fail / 306 blocked                                                                                    |
-| Synthetic probes       | 516 ready / 9 blocked / 525 total                                                                                  |
+| Synthetic probes       | 515 ready / 9 blocked / 524 total                                                                                  |
 | Cold import            | 4 ready / 104 blocked / 108 entrypoints                                                                            |
 | Workspace plan         | 108 entrypoints / 68 installs / 15 builds                                                                          |
 | Platform risks         | 17 Windows / 17 container                                                                                          |
@@ -53,10 +53,10 @@
 
 ### OpenClaw Lifecycle Probe
 
-| Phase                      | p50    | p95   |
-| -------------------------- | ------ | ----- |
-| Import (`full`)            | 60.6ms | 61ms  |
-| Activate (`full:register`) | 0.1ms  | 0.1ms |
+| Phase                      | p50    | p95    |
+| -------------------------- | ------ | ------ |
+| Import (`full`)            | 60.9ms | 62.2ms |
+| Activate (`full:register`) | 0.1ms  | 0.1ms  |
 
 ### Top Discovered Issues
 

@@ -7415,14 +7415,20 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "side-effect-sandbox",
             "synthetic-probes",
             "target-openclaw-link"
           ],
           "blockers": [
             {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/clawrouter/dist/index.js"
+            },
+            {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@blockrun/llm, @noble/hashes, @polymarket/builder-relayer-client, @polymarket/builder-signing-sdk, @polymarket/clob-client-v2, @scure/bip32, @scure/bip39, @solana/kit, @x402/core, @x402/evm, @x402/fetch, @x402/svm, axios, https-proxy-agent, undici, viem"
+              "evidence": "@noble/hashes, @scure/bip32, @scure/bip39, @solana/kit, @x402/core, @x402/evm, @x402/fetch, @x402/svm, undici, viem"
             }
           ],
           "steps": [

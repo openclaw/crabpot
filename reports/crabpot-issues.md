@@ -815,17 +815,17 @@ _none_
   - **legacy-root-sdk-import**: dingtalk-connector: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/index.ts#L17)
-    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/channel.ts#L5)
-    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/config/accounts.ts#L2)
-    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/core/connection.ts#L16)
-    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/core/provider.ts#L14)
-    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/directory.ts#L1)
-    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L7)
-    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/onboarding.ts#L5)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ card-bridge.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/services/card-bridge.ts#L1)
-    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/utils/agent.ts#L8)
+    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L17)
+    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/channel.ts#L5)
+    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/config/accounts.ts#L2)
+    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/connection.ts#L16)
+    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/provider.ts#L14)
+    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/directory.ts#L1)
+    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L7)
+    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/onboarding.ts#L5)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ card-bridge.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L1)
+    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/utils/agent.ts#L8)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -1448,52 +1448,46 @@ _none_
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@blockrun/llm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@polymarket/builder-relayer-client @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@polymarket/builder-signing-sdk @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@polymarket/clob-client-v2 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [axios @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [https-proxy-agent @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [undici @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
+    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [undici @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawrouter: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - [registerCommand @ cli.js:219248](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219248)
-    - [registerCommand @ cli.js:219300](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219300)
-    - [registerCommand @ cli.js:219349](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219349)
-    - [registerCommand @ cli.js:219415](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219415)
-    - [registerCommand @ cli.js:219419](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219419)
-    - [registerCommand @ cli.js:219422](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219422)
-    - [registerCommand @ cli.js:219423](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219423)
-    - [registerCommand @ index.js:219002](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219002)
-    - [registerCommand @ index.js:219054](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219054)
-    - [registerCommand @ index.js:219103](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219103)
-    - [registerCommand @ index.js:219169](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219169)
-    - [registerCommand @ index.js:219173](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219173)
-    - [registerCommand @ index.js:219176](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219176)
-    - [registerCommand @ index.js:219177](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219177)
-    - [registerCommand @ index.ts:1883](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L1883)
-    - [registerCommand @ index.ts:1933](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L1933)
-    - [registerCommand @ index.ts:1987](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L1987)
-    - [registerCommand @ index.ts:2045](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2045)
-    - [registerCommand @ index.ts:2122](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2122)
-    - [registerCommand @ index.ts:2127](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2127)
-    - [registerCommand @ index.ts:2131](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2131)
-    - [registerCommand @ index.ts:2132](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2132)
-    - [registerService @ cli.js:219429](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219429)
-    - [registerService @ index.js:219183](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219183)
-    - [registerService @ index.ts:2141](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2141)
+    - [registerCommand @ cli.js:89376](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89376)
+    - [registerCommand @ cli.js:89428](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89428)
+    - [registerCommand @ cli.js:89477](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89477)
+    - [registerCommand @ cli.js:89543](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89543)
+    - [registerCommand @ cli.js:89547](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89547)
+    - [registerCommand @ cli.js:89550](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89550)
+    - [registerCommand @ cli.js:89551](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89551)
+    - [registerCommand @ index.js:87412](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87412)
+    - [registerCommand @ index.js:87464](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87464)
+    - [registerCommand @ index.js:87513](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87513)
+    - [registerCommand @ index.js:87579](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87579)
+    - [registerCommand @ index.js:87583](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87583)
+    - [registerCommand @ index.js:87586](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87586)
+    - [registerCommand @ index.js:87587](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87587)
+    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1792)
+    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1842)
+    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1896)
+    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1954)
+    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2031)
+    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2036)
+    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2040)
+    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2041)
+    - [registerService @ cli.js:89557](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89557)
+    - [registerService @ index.js:87593](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87593)
+    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2050)
 
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: codex: cold import requires dependency installation in an isolated workspace
@@ -1631,45 +1625,45 @@ _none_
   - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/index.ts#L76)
+    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L76)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: dingtalk-connector: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/dist/index.mjs)
+    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/dist/index.mjs)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: dingtalk-connector: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
-    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
-    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
-    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
-    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
-    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
+    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/index.ts#L76)
-    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L130)
-    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L190)
-    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L258)
-    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L311)
-    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L351)
-    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L388)
-    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L425)
-    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L452)
-    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L506)
-    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L593)
-    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L60)
-    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L652)
-    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L719)
-    - [registerGatewayMethod @ card-bridge.ts:337](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/services/card-bridge.ts#L337)
-    - [registerGatewayMethod @ card-bridge.ts:362](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/services/card-bridge.ts#L362)
+    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L76)
+    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L130)
+    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L190)
+    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L258)
+    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L311)
+    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L351)
+    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L388)
+    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L425)
+    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L452)
+    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L506)
+    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L593)
+    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L60)
+    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L652)
+    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L719)
+    - [registerGatewayMethod @ card-bridge.ts:337](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L337)
+    - [registerGatewayMethod @ card-bridge.ts:362](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L362)
 
 - 🟡 P2 **dingtalk-doc** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: dingtalk-doc: cold import requires package build output
@@ -2588,7 +2582,7 @@ _none_
   - **package-plugin-api-compat-missing**: clawrouter: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
+    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -2682,8 +2676,8 @@ _none_
   - **manifest-unknown-fields**: dingtalk-connector: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/openclaw.plugin.json)
-    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/openclaw.plugin.json)
+    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -2692,7 +2686,7 @@ _none_
   - **package-plugin-api-compat-missing**: dingtalk-connector: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
+    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -3226,7 +3220,7 @@ _none_
   - **security-manifest-schema-unavailable**: clawrouter: plugin security manifest references an unavailable schema
   - state: open · compat:none
   - evidence:
-    - [plugin-security.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/openclaw.security.json%3A%24schema%3Dhttps%3A/openclaw.ai/schemas/plugin-security.json)
+    - [plugin-security.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/openclaw.security.json%3A%24schema%3Dhttps%3A/openclaw.ai/schemas/plugin-security.json)
   - author remediation:
     - Remove or update the unsupported security manifest schema reference.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#security-manifest-schema-unavailable
@@ -3235,7 +3229,7 @@ _none_
   - **unrecognized-security-manifest**: clawrouter: plugin ships an unsupported security manifest
   - state: open · compat:none
   - evidence:
-    - [openclaw.security.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/openclaw.security.json)
+    - [openclaw.security.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/openclaw.security.json)
   - author remediation:
     - Remove unsupported security manifest files until OpenClaw documents a versioned security manifest schema.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#unrecognized-security-manifest
@@ -4271,28 +4265,22 @@ _none_
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@blockrun/llm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@polymarket/builder-relayer-client @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@polymarket/builder-signing-sdk @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@polymarket/clob-client-v2 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [axios @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [https-proxy-agent @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [undici @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
+    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [undici @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
 
 - 🟡 P2 **clawrouter** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: clawrouter: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
+    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -4301,31 +4289,31 @@ _none_
   - **registration-capture-gap**: clawrouter: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - [registerCommand @ cli.js:219248](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219248)
-    - [registerCommand @ cli.js:219300](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219300)
-    - [registerCommand @ cli.js:219349](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219349)
-    - [registerCommand @ cli.js:219415](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219415)
-    - [registerCommand @ cli.js:219419](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219419)
-    - [registerCommand @ cli.js:219422](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219422)
-    - [registerCommand @ cli.js:219423](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219423)
-    - [registerCommand @ index.js:219002](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219002)
-    - [registerCommand @ index.js:219054](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219054)
-    - [registerCommand @ index.js:219103](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219103)
-    - [registerCommand @ index.js:219169](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219169)
-    - [registerCommand @ index.js:219173](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219173)
-    - [registerCommand @ index.js:219176](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219176)
-    - [registerCommand @ index.js:219177](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219177)
-    - [registerCommand @ index.ts:1883](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L1883)
-    - [registerCommand @ index.ts:1933](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L1933)
-    - [registerCommand @ index.ts:1987](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L1987)
-    - [registerCommand @ index.ts:2045](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2045)
-    - [registerCommand @ index.ts:2122](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2122)
-    - [registerCommand @ index.ts:2127](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2127)
-    - [registerCommand @ index.ts:2131](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2131)
-    - [registerCommand @ index.ts:2132](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2132)
-    - [registerService @ cli.js:219429](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219429)
-    - [registerService @ index.js:219183](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219183)
-    - [registerService @ index.ts:2141](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2141)
+    - [registerCommand @ cli.js:89376](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89376)
+    - [registerCommand @ cli.js:89428](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89428)
+    - [registerCommand @ cli.js:89477](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89477)
+    - [registerCommand @ cli.js:89543](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89543)
+    - [registerCommand @ cli.js:89547](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89547)
+    - [registerCommand @ cli.js:89550](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89550)
+    - [registerCommand @ cli.js:89551](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89551)
+    - [registerCommand @ index.js:87412](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87412)
+    - [registerCommand @ index.js:87464](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87464)
+    - [registerCommand @ index.js:87513](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87513)
+    - [registerCommand @ index.js:87579](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87579)
+    - [registerCommand @ index.js:87583](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87583)
+    - [registerCommand @ index.js:87586](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87586)
+    - [registerCommand @ index.js:87587](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87587)
+    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1792)
+    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1842)
+    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1896)
+    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1954)
+    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2031)
+    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2036)
+    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2040)
+    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2041)
+    - [registerService @ cli.js:89557](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89557)
+    - [registerService @ index.js:87593](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87593)
+    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2050)
 
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: codex: cold import requires dependency installation in an isolated workspace
@@ -4600,23 +4588,23 @@ _none_
   - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/index.ts#L76)
+    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L76)
 
 - 🟡 P2 **dingtalk-connector** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: dingtalk-connector: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/index.ts#L17)
-    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/channel.ts#L5)
-    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/config/accounts.ts#L2)
-    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/core/connection.ts#L16)
-    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/core/provider.ts#L14)
-    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/directory.ts#L1)
-    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L7)
-    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/onboarding.ts#L5)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ card-bridge.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/services/card-bridge.ts#L1)
-    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/utils/agent.ts#L8)
+    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L17)
+    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/channel.ts#L5)
+    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/config/accounts.ts#L2)
+    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/connection.ts#L16)
+    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/provider.ts#L14)
+    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/directory.ts#L1)
+    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L7)
+    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/onboarding.ts#L5)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ card-bridge.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L1)
+    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/utils/agent.ts#L8)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -4625,8 +4613,8 @@ _none_
   - **manifest-unknown-fields**: dingtalk-connector: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/openclaw.plugin.json)
-    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/openclaw.plugin.json)
+    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -4635,24 +4623,24 @@ _none_
   - **package-build-artifact-entrypoint**: dingtalk-connector: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/dist/index.mjs)
+    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/dist/index.mjs)
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: dingtalk-connector: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
-    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
-    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
-    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
-    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
-    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
+    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
 
 - 🟡 P2 **dingtalk-connector** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: dingtalk-connector: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
+    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -4661,22 +4649,22 @@ _none_
   - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/index.ts#L76)
-    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L130)
-    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L190)
-    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L258)
-    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L311)
-    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L351)
-    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L388)
-    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L425)
-    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L452)
-    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L506)
-    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L593)
-    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L60)
-    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L652)
-    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L719)
-    - [registerGatewayMethod @ card-bridge.ts:337](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/services/card-bridge.ts#L337)
-    - [registerGatewayMethod @ card-bridge.ts:362](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/services/card-bridge.ts#L362)
+    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L76)
+    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L130)
+    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L190)
+    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L258)
+    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L311)
+    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L351)
+    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L388)
+    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L425)
+    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L452)
+    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L506)
+    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L593)
+    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L60)
+    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L652)
+    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L719)
+    - [registerGatewayMethod @ card-bridge.ts:337](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L337)
+    - [registerGatewayMethod @ card-bridge.ts:362](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L362)
 
 - 🟡 P2 **dingtalk-doc** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: dingtalk-doc: root plugin SDK barrel is still used by fixtures
@@ -6408,7 +6396,7 @@ _none_
   - **security-manifest-schema-unavailable**: clawrouter: plugin security manifest references an unavailable schema
   - state: open · compat:none
   - evidence:
-    - [plugin-security.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/openclaw.security.json%3A%24schema%3Dhttps%3A/openclaw.ai/schemas/plugin-security.json)
+    - [plugin-security.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/openclaw.security.json%3A%24schema%3Dhttps%3A/openclaw.ai/schemas/plugin-security.json)
   - author remediation:
     - Remove or update the unsupported security manifest schema reference.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#security-manifest-schema-unavailable
@@ -6417,7 +6405,7 @@ _none_
   - **unrecognized-security-manifest**: clawrouter: plugin ships an unsupported security manifest
   - state: open · compat:none
   - evidence:
-    - [openclaw.security.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/openclaw.security.json)
+    - [openclaw.security.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/openclaw.security.json)
   - author remediation:
     - Remove unsupported security manifest files until OpenClaw documents a versioned security manifest schema.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#unrecognized-security-manifest
@@ -6558,22 +6546,22 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:dingtalk-connector`
   - evidence:
-    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/index.ts#L76)
-    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L130)
-    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L190)
-    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L258)
-    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L311)
-    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L351)
-    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L388)
-    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L425)
-    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L452)
-    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L506)
-    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L593)
-    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L60)
-    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L652)
-    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L719)
-    - [registerGatewayMethod @ card-bridge.ts:337](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/services/card-bridge.ts#L337)
-    - [registerGatewayMethod @ card-bridge.ts:362](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/services/card-bridge.ts#L362)
+    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L76)
+    - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L130)
+    - [registerGatewayMethod @ gateway-methods.ts:190](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L190)
+    - [registerGatewayMethod @ gateway-methods.ts:258](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L258)
+    - [registerGatewayMethod @ gateway-methods.ts:311](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L311)
+    - [registerGatewayMethod @ gateway-methods.ts:351](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L351)
+    - [registerGatewayMethod @ gateway-methods.ts:388](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L388)
+    - [registerGatewayMethod @ gateway-methods.ts:425](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L425)
+    - [registerGatewayMethod @ gateway-methods.ts:452](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L452)
+    - [registerGatewayMethod @ gateway-methods.ts:506](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L506)
+    - [registerGatewayMethod @ gateway-methods.ts:593](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L593)
+    - [registerGatewayMethod @ gateway-methods.ts:60](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L60)
+    - [registerGatewayMethod @ gateway-methods.ts:652](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L652)
+    - [registerGatewayMethod @ gateway-methods.ts:719](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L719)
+    - [registerGatewayMethod @ card-bridge.ts:337](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L337)
+    - [registerGatewayMethod @ card-bridge.ts:362](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L362)
 
 - 🟡 P2 **honcho** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -6731,7 +6719,7 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:dingtalk-connector`
   - evidence:
-    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/index.ts#L76)
+    - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L76)
 
 - 🟡 P2 **kitchen-sink** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -6847,8 +6835,8 @@ _none_
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
   - id: `manifest.schema.top-level-fields:dingtalk-connector`
   - evidence:
-    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/openclaw.plugin.json)
-    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/openclaw.plugin.json)
+    - [author @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/openclaw.plugin.json)
 
 - 🟡 P2 **qqbot** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
@@ -6879,7 +6867,7 @@ _none_
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:dingtalk-connector`
   - evidence:
-    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
+    - [package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
 
 - 🟡 P2 **mcp-adapter** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -6946,7 +6934,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:dingtalk-connector`
   - evidence:
-    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/dist/index.mjs)
+    - [extension:./dist/index.mjs @ index.mjs](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/dist/index.mjs)
 
 - 🟡 P2 **honcho** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -7017,12 +7005,12 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:dingtalk-connector`
   - evidence:
-    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
-    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
-    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
-    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
-    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
-    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/package.json)
+    - [axios @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [dingtalk-stream @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [form-data @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [qrcode-terminal @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [zod @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
+    - [mammoth @ package.json](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/package.json)
 
 - 🟡 P2 **hasdata** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -7223,17 +7211,17 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:dingtalk-connector`
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/index.ts#L17)
-    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/channel.ts#L5)
-    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/config/accounts.ts#L2)
-    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/core/connection.ts#L16)
-    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/core/provider.ts#L14)
-    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/directory.ts#L1)
-    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/gateway-methods.ts#L7)
-    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/onboarding.ts#L5)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ card-bridge.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/services/card-bridge.ts#L1)
-    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/5e2b4d9356ee8f80c4617142d823d2ca7de0f3d9/src/utils/agent.ts#L8)
+    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L17)
+    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/channel.ts#L5)
+    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/config/accounts.ts#L2)
+    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/connection.ts#L16)
+    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/provider.ts#L14)
+    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/directory.ts#L1)
+    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L7)
+    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/onboarding.ts#L5)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ card-bridge.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L1)
+    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/utils/agent.ts#L8)
 
 - 🟡 P2 **honcho** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
@@ -7378,31 +7366,31 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:clawrouter`
   - evidence:
-    - [registerCommand @ cli.js:219248](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219248)
-    - [registerCommand @ cli.js:219300](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219300)
-    - [registerCommand @ cli.js:219349](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219349)
-    - [registerCommand @ cli.js:219415](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219415)
-    - [registerCommand @ cli.js:219419](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219419)
-    - [registerCommand @ cli.js:219422](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219422)
-    - [registerCommand @ cli.js:219423](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219423)
-    - [registerCommand @ index.js:219002](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219002)
-    - [registerCommand @ index.js:219054](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219054)
-    - [registerCommand @ index.js:219103](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219103)
-    - [registerCommand @ index.js:219169](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219169)
-    - [registerCommand @ index.js:219173](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219173)
-    - [registerCommand @ index.js:219176](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219176)
-    - [registerCommand @ index.js:219177](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219177)
-    - [registerCommand @ index.ts:1883](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L1883)
-    - [registerCommand @ index.ts:1933](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L1933)
-    - [registerCommand @ index.ts:1987](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L1987)
-    - [registerCommand @ index.ts:2045](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2045)
-    - [registerCommand @ index.ts:2122](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2122)
-    - [registerCommand @ index.ts:2127](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2127)
-    - [registerCommand @ index.ts:2131](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2131)
-    - [registerCommand @ index.ts:2132](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2132)
-    - [registerService @ cli.js:219429](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/cli.js#L219429)
-    - [registerService @ index.js:219183](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/dist/index.js#L219183)
-    - [registerService @ index.ts:2141](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/src/index.ts#L2141)
+    - [registerCommand @ cli.js:89376](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89376)
+    - [registerCommand @ cli.js:89428](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89428)
+    - [registerCommand @ cli.js:89477](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89477)
+    - [registerCommand @ cli.js:89543](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89543)
+    - [registerCommand @ cli.js:89547](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89547)
+    - [registerCommand @ cli.js:89550](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89550)
+    - [registerCommand @ cli.js:89551](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89551)
+    - [registerCommand @ index.js:87412](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87412)
+    - [registerCommand @ index.js:87464](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87464)
+    - [registerCommand @ index.js:87513](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87513)
+    - [registerCommand @ index.js:87579](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87579)
+    - [registerCommand @ index.js:87583](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87583)
+    - [registerCommand @ index.js:87586](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87586)
+    - [registerCommand @ index.js:87587](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87587)
+    - [registerCommand @ index.ts:1792](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1792)
+    - [registerCommand @ index.ts:1842](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1842)
+    - [registerCommand @ index.ts:1896](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1896)
+    - [registerCommand @ index.ts:1954](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1954)
+    - [registerCommand @ index.ts:2031](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2031)
+    - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2036)
+    - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2040)
+    - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2041)
+    - [registerService @ cli.js:89557](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89557)
+    - [registerService @ index.js:87593](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87593)
+    - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2050)
 
 - 🟢 P3 **codex** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -7756,7 +7744,7 @@ _none_
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:clawrouter`
   - evidence:
-    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
+    - [package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
 
 - 🟢 P3 **dingtalk-doc** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -7831,22 +7819,16 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:clawrouter`
   - evidence:
-    - [@blockrun/llm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@polymarket/builder-relayer-client @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@polymarket/builder-signing-sdk @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@polymarket/clob-client-v2 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [axios @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [https-proxy-agent @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [undici @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
-    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/a4e57ba81b7bc514c416bd66617c47dabc8e6f6d/package.json)
+    - [@noble/hashes @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@scure/bip32 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@scure/bip39 @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@solana/kit @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@x402/core @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@x402/evm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@x402/fetch @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [@x402/svm @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [undici @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
+    - [viem @ package.json](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/package.json)
 
 - 🟢 P3 **codex** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
