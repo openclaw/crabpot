@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Twitch channel plugin.",
   "dependencies": {
-    "@openclaw/twitch": "2026.5.26"
+    "@openclaw/twitch": "2026.7.1"
   },
   "crabpot": {
     "fixture": "twitch",

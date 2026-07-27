@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw voice-call plugin.",
   "dependencies": {
-    "@openclaw/voice-call": "2026.5.26"
+    "@openclaw/voice-call": "2026.7.1"
   },
   "crabpot": {
     "fixture": "voice-call",

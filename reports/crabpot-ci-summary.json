@@ -6,17 +6,17 @@
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 142,
-    "suggestions": 259,
-    "issues": 401,
+    "warnings": 139,
+    "suggestions": 258,
+    "issues": 397,
     "p0Issues": 1,
     "p1Issues": 128,
     "liveIssues": 1,
     "liveP0Issues": 1,
     "compatGaps": 112,
-    "deprecationWarnings": 48,
+    "deprecationWarnings": 45,
     "inspectorGaps": 157,
-    "upstreamIssues": 83,
+    "upstreamIssues": 82,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 78,
-    "importLoopP95Ms": 79,
-    "importLoopOpenClawLifecycleCount": 0,
-    "importLoopOpenClawImportP50Ms": 0,
-    "importLoopOpenClawActivationP50Ms": 0,
+    "importLoopP50Ms": 1241,
+    "importLoopP95Ms": 1244,
+    "importLoopOpenClawLifecycleCount": 3,
+    "importLoopOpenClawImportP50Ms": 60.9,
+    "importLoopOpenClawActivationP50Ms": 0.1,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 0.2,
+    "importLoopMaxRssMb": 2.3,
     "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 9,
-    "importLoopCpuSampleCount": 9
+    "importLoopRssSampleCount": 140,
+    "importLoopCpuSampleCount": 140
   },
   "topIssues": [
     {
@@ -436,20 +436,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 436.4% over baseline",
+      "message": "p95WallMs regressed 155.2% over baseline",
       "baseline": 1273,
-      "current": 6828,
-      "delta": 5555,
-      "percent": 436.4
+      "current": 3249,
+      "delta": 1976,
+      "percent": 155.2
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 373.5 over baseline",
+      "message": "maxPeakRssMb regressed 528 over baseline",
       "baseline": 65.1,
-      "current": 438.6,
-      "delta": 373.5
+      "current": 593.1,
+      "delta": 528
     }
   ],
   "artifacts": {

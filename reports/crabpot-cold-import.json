@@ -13,7 +13,7 @@
     "tsLoaderRequiredCount": 20,
     "buildRequiredCount": 15,
     "dependencyInstallRequiredCount": 53,
-    "sdkAliasRequiredCount": 3
+    "sdkAliasRequiredCount": 6
   },
   "fixtures": [
     {
@@ -21,18 +21,18 @@
       "priority": "high",
       "entrypoints": [
         {
-          "id": "cold-import.extension:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-index-js",
+          "id": "cold-import.extension:agentchat:plugins-agentchat-dist-index-js",
           "fixture": "agentchat",
-          "packagePath": "plugins/agentchat/integrations/openclaw-channel/package.json",
+          "packagePath": "plugins/agentchat/package.json",
           "kind": "extension",
           "specifier": "./dist/index.js",
-          "path": "plugins/agentchat/integrations/openclaw-channel/dist/index.js",
+          "path": "plugins/agentchat/dist/index.js",
           "status": "build-required",
           "blockers": [
             {
               "code": "build-required",
               "message": "entrypoint points at build output that is absent in the fixture checkout",
-              "evidence": "plugins/agentchat/integrations/openclaw-channel/dist/index.js"
+              "evidence": "plugins/agentchat/dist/index.js"
             }
           ],
           "assertions": [
@@ -40,18 +40,18 @@
           ]
         },
         {
-          "id": "cold-import.setupEntry:agentchat:plugins-agentchat-integrations-openclaw-channel-dist-setup-entry-js",
+          "id": "cold-import.setupEntry:agentchat:plugins-agentchat-dist-setup-entry-js",
           "fixture": "agentchat",
-          "packagePath": "plugins/agentchat/integrations/openclaw-channel/package.json",
+          "packagePath": "plugins/agentchat/package.json",
           "kind": "setupEntry",
           "specifier": "./dist/setup-entry.js",
-          "path": "plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js",
+          "path": "plugins/agentchat/dist/setup-entry.js",
           "status": "build-required",
           "blockers": [
             {
               "code": "build-required",
               "message": "entrypoint points at build output that is absent in the fixture checkout",
-              "evidence": "plugins/agentchat/integrations/openclaw-channel/dist/setup-entry.js"
+              "evidence": "plugins/agentchat/dist/setup-entry.js"
             }
           ],
           "assertions": [
@@ -481,12 +481,12 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-ingress @ plugins/kitchen-sink/src/generated-sdk-imports.ts:52"
+              "evidence": "openclaw/plugin-sdk/channel-ingress @ plugins/kitchen-sink/src/generated-sdk-imports.ts:53"
             },
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/qa-live-transport-scenarios @ plugins/kitchen-sink/src/generated-sdk-imports.ts:228"
+              "evidence": "openclaw/plugin-sdk/qa-live-transport-scenarios @ plugins/kitchen-sink/src/generated-sdk-imports.ts:230"
             }
           ],
           "assertions": [
@@ -506,12 +506,12 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-ingress @ plugins/kitchen-sink/src/generated-sdk-imports.ts:52"
+              "evidence": "openclaw/plugin-sdk/channel-ingress @ plugins/kitchen-sink/src/generated-sdk-imports.ts:53"
             },
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/qa-live-transport-scenarios @ plugins/kitchen-sink/src/generated-sdk-imports.ts:228"
+              "evidence": "openclaw/plugin-sdk/qa-live-transport-scenarios @ plugins/kitchen-sink/src/generated-sdk-imports.ts:230"
             }
           ],
           "assertions": [
@@ -531,12 +531,12 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-ingress @ plugins/kitchen-sink/src/generated-sdk-imports.ts:52"
+              "evidence": "openclaw/plugin-sdk/channel-ingress @ plugins/kitchen-sink/src/generated-sdk-imports.ts:53"
             },
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/qa-live-transport-scenarios @ plugins/kitchen-sink/src/generated-sdk-imports.ts:228"
+              "evidence": "openclaw/plugin-sdk/qa-live-transport-scenarios @ plugins/kitchen-sink/src/generated-sdk-imports.ts:230"
             }
           ],
           "assertions": [
@@ -1558,7 +1558,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@openai/codex, typebox, ws, zod"
+              "evidence": "@openai/codex, semver, smol-toml, typebox, ws, zod"
             }
           ],
           "assertions": [
@@ -1639,18 +1639,12 @@
           "status": "dependency-install-required",
           "blockers": [
             {
-              "code": "top-level-side-effect-review",
-              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
-              "evidence": "plugins/google-meet/.crabpot-package/dist/index.js"
-            },
-            {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "commander, typebox"
+              "evidence": "jszip, pretty-ms, typebox"
             }
           ],
           "assertions": [
-            "cold import sandbox blocks network/process side effects before register capture",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
@@ -1733,12 +1727,18 @@
           "status": "dependency-install-required",
           "blockers": [
             {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/memory-lancedb/.crabpot-package/dist/index.js"
+            },
+            {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@lancedb/lancedb, apache-arrow, openai, typebox"
             }
           ],
           "assertions": [
+            "cold import sandbox blocks network/process side effects before register capture",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
@@ -1755,16 +1755,22 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/openclaw-qqbot/.crabpot-package/index.ts",
-          "status": "missing",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/openclaw-qqbot/.crabpot-package/index.ts"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/ingress-effect-once @ plugins/openclaw-qqbot/.crabpot-package/dist/gateway-ZFx1nj-e.js:32"
             }
           ],
           "assertions": [
-            "plugin package metadata points at an existing OpenClaw entrypoint"
+            "plugin package metadata points at an existing OpenClaw entrypoint",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
         {
@@ -1774,16 +1780,22 @@
           "kind": "runtimeExtension",
           "specifier": "./dist/index.js",
           "path": "plugins/openclaw-qqbot/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@tencent-connect/qqbot-connector, mpg123-decoder, silk-wasm, ws, zod"
+              "evidence": "@tencent-connect/qqbot-connector, mpg123-decoder, p-map, pretty-ms, silk-wasm, ws, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/ingress-effect-once @ plugins/openclaw-qqbot/.crabpot-package/dist/gateway-ZFx1nj-e.js:32"
             }
           ],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
         {
@@ -1793,16 +1805,22 @@
           "kind": "setupEntry",
           "specifier": "./dist/setup-entry.js",
           "path": "plugins/openclaw-qqbot/.crabpot-package/dist/setup-entry.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@tencent-connect/qqbot-connector, mpg123-decoder, silk-wasm, ws, zod"
+              "evidence": "@tencent-connect/qqbot-connector, mpg123-decoder, p-map, pretty-ms, silk-wasm, ws, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/ingress-effect-once @ plugins/openclaw-qqbot/.crabpot-package/dist/gateway-ZFx1nj-e.js:32"
             }
           ],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         }
       ]

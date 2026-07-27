@@ -36,15 +36,15 @@
     "summary": {
       "commandCount": 9,
       "sampleCount": 27,
-      "rssSampleCount": 5687,
-      "cpuSampleCount": 5687,
+      "rssSampleCount": 2535,
+      "cpuSampleCount": 2535,
       "wallTimeBasis": "command-median-p95",
-      "p50WallMs": 6747,
-      "p95WallMs": 6828,
-      "maxPeakRssMb": 438.6,
-      "maxRssDeltaMb": 409.6,
-      "maxCpuMsEstimate": 7491,
-      "maxHarnessHeapDeltaMb": 11
+      "p50WallMs": 3077,
+      "p95WallMs": 3249,
+      "maxPeakRssMb": 593.1,
+      "maxRssDeltaMb": 592.5,
+      "maxCpuMsEstimate": 3133,
+      "maxHarnessHeapDeltaMb": 10.8
     },
     "targetOpenClaw": {
       "status": "ok",
@@ -59,12 +59,12 @@
     },
     "fixtureInventory": {
       "fixtures": 60,
-      "sourceFiles": 2031,
-      "observedHooks": 110,
-      "observedRegistrations": 211,
-      "observedSdkImports": 1325,
-      "contractProbes": 276,
-      "issueFindings": 401
+      "sourceFiles": 2075,
+      "observedHooks": 111,
+      "observedRegistrations": 213,
+      "observedSdkImports": 1367,
+      "contractProbes": 275,
+      "issueFindings": 397
     }
   },
   "thresholds": {
@@ -84,20 +84,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 436.4% over baseline",
+      "message": "p95WallMs regressed 155.2% over baseline",
       "baseline": 1273,
-      "current": 6828,
-      "delta": 5555,
-      "percent": 436.4
+      "current": 3249,
+      "delta": 1976,
+      "percent": 155.2
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 373.5 over baseline",
+      "message": "maxPeakRssMb regressed 528 over baseline",
       "baseline": 65.1,
-      "current": 438.6,
-      "delta": 373.5
+      "current": 593.1,
+      "delta": 528
     },
     {
       "id": "profile.node-boot",
@@ -105,8 +105,8 @@
       "metric": "nodeBootWallMs",
       "message": "nodeBootWallMs stayed within 500 absolute regression threshold",
       "baseline": 917,
-      "current": 40,
-      "delta": -877
+      "current": 28,
+      "delta": -889
     },
     {
       "id": "registry.compatRecords",

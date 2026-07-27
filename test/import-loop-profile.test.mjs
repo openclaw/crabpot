@@ -116,8 +116,16 @@ test("OpenClaw lifecycle capture CLI exits after writing output when loader leav
   await writeFile(
     path.join(openclawRoot, "src", "plugins", "loader.ts"),
     [
-      "export function clearPluginLoaderCache() {}",
-      "export function loadOpenClawPlugins() {",
+      "export function clearPluginRegistryLoadCache() {}",
+      "export function clearActivatedPluginRuntimeState() {}",
+      "export function loadOpenClawPlugins(options) {",
+      "  if (process.env.OPENCLAW_DIAGNOSTICS !== 'plugin.load-profile') {",
+      "    throw new Error('plugin load profiling diagnostics are disabled');",
+      "  }",
+      "  const source = options.config.plugins.load.paths[0];",
+      "  const windowsSource = 'C:\\\\Users\\\\runner\\\\AppData\\\\Local\\\\Temp\\\\crabpot-openclaw-plugin-AbCd\\\\index.mjs';",
+      "  console.error(`[plugin-load-profile] phase=full plugin=crabpot-lifecycle-probe elapsedMs=2.0 source=${source}`);",
+      "  console.error(`[plugin-load-profile] phase=full:register plugin=crabpot-lifecycle-probe elapsedMs=1.0 source=${windowsSource}`);",
       "  setInterval(() => undefined, 1000);",
       "  return { plugins: [{ id: 'crabpot-lifecycle-probe', status: 'loaded' }] };",
       "}",
@@ -162,5 +170,10 @@ test("OpenClaw lifecycle capture CLI exits after writing output when loader leav
   assert.equal(result.error?.code, undefined, result.error?.message);
   assert.equal(result.status, 0, result.stderr);
   const capture = JSON.parse(result.stdout);
+  assert.equal(capture.status, "captured");
   assert.equal(capture.openClawLifecycle.status, "loaded");
+  assert.equal(capture.openClawLifecycle.importMs, 2);
+  assert.equal(capture.openClawLifecycle.activationMs, 1);
+  assert.equal(capture.openClawLifecycle.phases[0].source, "crabpot-lifecycle-probe/index.mjs");
+  assert.equal(capture.openClawLifecycle.phases[1].source, "crabpot-lifecycle-probe/index.mjs");
 });

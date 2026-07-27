@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw diagnostics Prometheus exporter.",
   "dependencies": {
-    "@openclaw/diagnostics-prometheus": "2026.5.1-beta.2"
+    "@openclaw/diagnostics-prometheus": "2026.7.2-beta.4"
   },
   "crabpot": {
     "fixture": "diagnostics-prometheus",
