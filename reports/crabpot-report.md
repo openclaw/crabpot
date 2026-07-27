@@ -760,8 +760,8 @@ _none_
   - **legacy-root-sdk-import**: clawmetry: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/08ee58663803820db5e6837011785e2ed988c2da/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/08ee58663803820db5e6837011785e2ed988c2da/clawhub-plugin/src/service.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts#L1)
+    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/src/service.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -1278,7 +1278,7 @@ _none_
   - **conversation-access-hook**: clawmetry: conversation-access hooks need privacy-boundary probes
   - state: open · compat:untracked
   - evidence:
-    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/08ee58663803820db5e6837011785e2ed988c2da/clawhub-plugin/src/service.ts#L117)
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/src/service.ts#L117)
 
 - 🟠 P1 **dingtalk-doc** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: dingtalk-doc: before_tool_call needs terminal/block/approval probes
@@ -1343,7 +1343,7 @@ _none_
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:untracked
   - evidence:
-    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/src/index.ts#L385)
+    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/src/index.ts#L385)
 
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
@@ -1471,13 +1471,13 @@ _none_
   - **package-typescript-source-entrypoint**: clawmetry: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/08ee58663803820db5e6837011785e2ed988c2da/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/08ee58663803820db5e6837011785e2ed988c2da/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts#L20)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
@@ -2124,22 +2124,22 @@ _none_
   - **package-build-artifact-entrypoint**: nemoclaw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/dist/index.js)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nemoclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/src/index.ts#L348)
+    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/src/index.ts#L348)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
@@ -3739,7 +3739,7 @@ _none_
   - **conversation-access-hook**: clawmetry: conversation-access hooks need privacy-boundary probes
   - state: open · compat:untracked
   - evidence:
-    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/08ee58663803820db5e6837011785e2ed988c2da/clawhub-plugin/src/service.ts#L117)
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/src/service.ts#L117)
 
 - 🟠 P1 **clawmetry** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: clawmetry: compat-dependent behavior lacks registry coverage
@@ -4186,7 +4186,7 @@ _none_
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:untracked
   - evidence:
-    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/src/index.ts#L385)
+    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/src/index.ts#L385)
 
 - 🟠 P1 **nemoclaw** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: nemoclaw: compat-dependent behavior lacks registry coverage
@@ -4696,8 +4696,8 @@ _none_
   - **legacy-root-sdk-import**: clawmetry: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/08ee58663803820db5e6837011785e2ed988c2da/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/08ee58663803820db5e6837011785e2ed988c2da/clawhub-plugin/src/service.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts#L1)
+    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/src/service.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -4716,13 +4716,13 @@ _none_
   - **package-typescript-source-entrypoint**: clawmetry: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/08ee58663803820db5e6837011785e2ed988c2da/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/08ee58663803820db5e6837011785e2ed988c2da/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts#L20)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
@@ -6096,22 +6096,22 @@ _none_
   - **package-build-artifact-entrypoint**: nemoclaw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/dist/index.js)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nemoclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/src/index.ts#L348)
+    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/src/index.ts#L348)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
@@ -6911,7 +6911,7 @@ _none_
   - contract: Hook returns preserve terminal, block, and approval semantics.
   - id: `hook.before_tool_call.terminal-block-approval:nemoclaw`
   - evidence:
-    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/src/index.ts#L385)
+    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/src/index.ts#L385)
 
 - 🟠 P1 **openclaw-telemetry** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
@@ -6935,7 +6935,7 @@ _none_
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:clawmetry`
   - evidence:
-    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/08ee58663803820db5e6837011785e2ed988c2da/clawhub-plugin/src/service.ts#L117)
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/src/service.ts#L117)
 
 - 🟠 P1 **honcho** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
@@ -7138,7 +7138,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:nemoclaw`
   - evidence:
-    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/src/index.ts#L348)
+    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/src/index.ts#L348)
 
 - 🟡 P2 **openclaw-telemetry** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -7441,7 +7441,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:nemoclaw`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/dist/index.js)
 
 - 🟡 P2 **opik-openclaw** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -7542,10 +7542,10 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:nemoclaw`
   - evidence:
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/ec9abd9ace61e50555cd051ca61434d95dffaf0c/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
 
 - 🟡 P2 **openclaw-weixin** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -7837,7 +7837,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:clawmetry`
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/08ee58663803820db5e6837011785e2ed988c2da/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts#L20)
 
 - 🟢 P3 **clawrouter** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -8537,7 +8537,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:clawmetry`
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/08ee58663803820db5e6837011785e2ed988c2da/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts)
 
 - 🟢 P3 **codex-app-server** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -8876,8 +8876,8 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:clawmetry`
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/08ee58663803820db5e6837011785e2ed988c2da/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/08ee58663803820db5e6837011785e2ed988c2da/clawhub-plugin/src/service.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts#L1)
+    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/src/service.ts#L1)
 
 - 🟢 P3 **codex-app-server** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
