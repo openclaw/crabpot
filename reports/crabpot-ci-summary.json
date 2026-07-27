@@ -6,15 +6,15 @@
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 139,
-    "suggestions": 258,
-    "issues": 397,
+    "warnings": 141,
+    "suggestions": 259,
+    "issues": 400,
     "p0Issues": 1,
     "p1Issues": 128,
     "liveIssues": 1,
     "liveP0Issues": 1,
     "compatGaps": 112,
-    "deprecationWarnings": 45,
+    "deprecationWarnings": 48,
     "inspectorGaps": 157,
     "upstreamIssues": 82,
     "refDiffFailures": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 1241,
-    "importLoopP95Ms": 1244,
+    "importLoopP50Ms": 1987,
+    "importLoopP95Ms": 1989,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 60.9,
-    "importLoopOpenClawActivationP50Ms": 0.1,
+    "importLoopOpenClawImportP50Ms": 91,
+    "importLoopOpenClawActivationP50Ms": 0.2,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 2.3,
-    "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 140,
-    "importLoopCpuSampleCount": 140
+    "importLoopMaxRssMb": 0,
+    "importLoopMaxCpuMs": 27,
+    "importLoopRssSampleCount": 236,
+    "importLoopCpuSampleCount": 236
   },
   "topIssues": [
     {
@@ -436,20 +436,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 155.2% over baseline",
+      "message": "p95WallMs regressed 363.8% over baseline",
       "baseline": 1273,
-      "current": 3249,
-      "delta": 1976,
-      "percent": 155.2
+      "current": 5904,
+      "delta": 4631,
+      "percent": 363.8
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 528 over baseline",
+      "message": "maxPeakRssMb regressed 460.1 over baseline",
       "baseline": 65.1,
-      "current": 593.1,
-      "delta": 528
+      "current": 525.2,
+      "delta": 460.1
     }
   ],
   "artifacts": {

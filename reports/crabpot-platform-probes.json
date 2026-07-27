@@ -1398,7 +1398,7 @@
     {
       "fixture": "openclaw-qqbot",
       "id": "cold-import.extension:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-index-ts",
-      "status": "sdk-alias-required",
+      "status": "missing",
       "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1416,7 +1416,7 @@
     {
       "fixture": "openclaw-qqbot",
       "id": "cold-import.runtimeExtension:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1434,7 +1434,7 @@
     {
       "fixture": "openclaw-qqbot",
       "id": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
