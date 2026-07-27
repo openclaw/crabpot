@@ -53,10 +53,10 @@
 
 ### OpenClaw Lifecycle Probe
 
-| Phase                      | p50    | p95    |
-| -------------------------- | ------ | ------ |
-| Import (`full`)            | 61.9ms | 64.3ms |
-| Activate (`full:register`) | 0.1ms  | 0.1ms  |
+| Phase                      | p50    | p95   |
+| -------------------------- | ------ | ----- |
+| Import (`full`)            | 60.6ms | 61ms  |
+| Activate (`full:register`) | 0.1ms  | 0.1ms |
 
 ### Top Discovered Issues
 

@@ -973,9 +973,9 @@ _none_
   - **legacy-root-sdk-import**: hyperspell: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/commands/slash.ts#L1)
-    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/graph/tools.ts#L2)
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/index.ts#L1)
+    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L1)
+    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/graph/tools.ts#L2)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -1160,16 +1160,16 @@ _none_
   - **legacy-root-sdk-import**: qqbot: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/index.ts#L1)
-    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/index.ts#L2)
-    - [openclaw/plugin-sdk @ api.ts:7](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/api.ts#L7)
-    - [openclaw/plugin-sdk @ approval-handler.ts:12](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/approval-handler.ts#L12)
-    - [openclaw/plugin-sdk @ config.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/config.ts#L2)
-    - [openclaw/plugin-sdk @ onboarding.ts:13](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/onboarding.ts#L13)
-    - [openclaw/plugin-sdk @ proactive.ts:67](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/proactive.ts#L67)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/tools/channel.ts#L1)
-    - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/tools/remind.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L2)
+    - [openclaw/plugin-sdk @ api.ts:7](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/api.ts#L7)
+    - [openclaw/plugin-sdk @ approval-handler.ts:12](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/approval-handler.ts#L12)
+    - [openclaw/plugin-sdk @ config.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/config.ts#L2)
+    - [openclaw/plugin-sdk @ onboarding.ts:13](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/onboarding.ts#L13)
+    - [openclaw/plugin-sdk @ proactive.ts:67](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/proactive.ts#L67)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/channel.ts#L1)
+    - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/remind.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -1793,26 +1793,26 @@ _none_
   - **package-build-artifact-entrypoint**: hyperspell: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/dist/index.js)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hyperspell: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/package.json)
-    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/package.json)
+    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
+    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: hyperspell: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/commands/slash.ts#L166)
-    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/commands/slash.ts#L43)
-    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:56](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/index.ts#L56)
-    - [registerCommand @ index.ts:67](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/index.ts#L67)
-    - [registerCommand @ index.ts:78](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/index.ts#L78)
+    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L166)
+    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L43)
+    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L98)
+    - [registerCommand @ index.ts:56](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L56)
+    - [registerCommand @ index.ts:67](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L67)
+    - [registerCommand @ index.ts:78](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L78)
 
 - 🟡 P2 **inworld-tts** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: inworld-tts: cold import needs TypeScript source entrypoint support
@@ -2236,28 +2236,28 @@ _none_
   - **channel-contract-probe**: qqbot: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/index.ts#L16)
+    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L16)
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: qqbot: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [mpg123-decoder @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/package.json)
-    - [silk-wasm @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/package.json)
-    - [ws @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/package.json)
+    - [mpg123-decoder @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
+    - [silk-wasm @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
+    - [ws @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: qqbot: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/index.ts#L16)
+    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L16)
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: qqbot: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - [registerTool @ channel.ts:134](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/tools/channel.ts#L134)
-    - [registerTool @ remind.ts:222](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/tools/remind.ts#L222)
+    - [registerTool @ channel.ts:134](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/channel.ts#L134)
+    - [registerTool @ remind.ts:222](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/remind.ts#L222)
 
 - 🟡 P2 **secureclaw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: secureclaw: cold import requires package build output
@@ -3047,8 +3047,8 @@ _none_
   - **manifest-unknown-fields**: qqbot: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [capabilities @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/openclaw.plugin.json)
-    - [extensions @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/openclaw.plugin.json)
+    - [capabilities @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/openclaw.plugin.json)
+    - [extensions @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -3057,7 +3057,7 @@ _none_
   - **package-plugin-api-compat-missing**: qqbot: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/package.json)
+    - [package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -5014,9 +5014,9 @@ _none_
   - **legacy-root-sdk-import**: hyperspell: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/commands/slash.ts#L1)
-    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/graph/tools.ts#L2)
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/index.ts#L1)
+    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L1)
+    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/graph/tools.ts#L2)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -5025,15 +5025,15 @@ _none_
   - **package-build-artifact-entrypoint**: hyperspell: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/dist/index.js)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hyperspell: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/package.json)
-    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/package.json)
+    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
+    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
 
 - 🟡 P2 **hyperspell** `upstream-metadata` `plugin-upstream-fix`
   - **package-manifest-version-drift**: hyperspell: package and manifest versions drift
@@ -5049,12 +5049,12 @@ _none_
   - **registration-capture-gap**: hyperspell: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/commands/slash.ts#L166)
-    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/commands/slash.ts#L43)
-    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:56](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/index.ts#L56)
-    - [registerCommand @ index.ts:67](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/index.ts#L67)
-    - [registerCommand @ index.ts:78](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/index.ts#L78)
+    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L166)
+    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L43)
+    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L98)
+    - [registerCommand @ index.ts:56](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L56)
+    - [registerCommand @ index.ts:67](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L67)
+    - [registerCommand @ index.ts:78](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L78)
 
 - 🟡 P2 **inworld-tts** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: inworld-tts: cold import needs TypeScript source entrypoint support
@@ -5915,22 +5915,22 @@ _none_
   - **channel-contract-probe**: qqbot: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/index.ts#L16)
+    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L16)
 
 - 🟡 P2 **qqbot** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: qqbot: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/index.ts#L1)
-    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/index.ts#L2)
-    - [openclaw/plugin-sdk @ api.ts:7](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/api.ts#L7)
-    - [openclaw/plugin-sdk @ approval-handler.ts:12](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/approval-handler.ts#L12)
-    - [openclaw/plugin-sdk @ config.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/config.ts#L2)
-    - [openclaw/plugin-sdk @ onboarding.ts:13](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/onboarding.ts#L13)
-    - [openclaw/plugin-sdk @ proactive.ts:67](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/proactive.ts#L67)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/tools/channel.ts#L1)
-    - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/tools/remind.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L2)
+    - [openclaw/plugin-sdk @ api.ts:7](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/api.ts#L7)
+    - [openclaw/plugin-sdk @ approval-handler.ts:12](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/approval-handler.ts#L12)
+    - [openclaw/plugin-sdk @ config.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/config.ts#L2)
+    - [openclaw/plugin-sdk @ onboarding.ts:13](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/onboarding.ts#L13)
+    - [openclaw/plugin-sdk @ proactive.ts:67](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/proactive.ts#L67)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/channel.ts#L1)
+    - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/remind.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -5939,8 +5939,8 @@ _none_
   - **manifest-unknown-fields**: qqbot: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [capabilities @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/openclaw.plugin.json)
-    - [extensions @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/openclaw.plugin.json)
+    - [capabilities @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/openclaw.plugin.json)
+    - [extensions @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -5949,15 +5949,15 @@ _none_
   - **package-dependency-install-required**: qqbot: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [mpg123-decoder @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/package.json)
-    - [silk-wasm @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/package.json)
-    - [ws @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/package.json)
+    - [mpg123-decoder @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
+    - [silk-wasm @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
+    - [ws @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
 
 - 🟡 P2 **qqbot** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: qqbot: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/package.json)
+    - [package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -5966,14 +5966,14 @@ _none_
   - **registration-capture-gap**: qqbot: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/index.ts#L16)
+    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L16)
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **runtime-tool-capture**: qqbot: runtime tool schema needs registration capture
   - state: open · compat:none
   - evidence:
-    - [registerTool @ channel.ts:134](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/tools/channel.ts#L134)
-    - [registerTool @ remind.ts:222](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/tools/remind.ts#L222)
+    - [registerTool @ channel.ts:134](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/channel.ts#L134)
+    - [registerTool @ remind.ts:222](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/remind.ts#L222)
 
 - 🟡 P2 **secureclaw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: secureclaw: cold import requires package build output
@@ -6586,12 +6586,12 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:hyperspell`
   - evidence:
-    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/commands/slash.ts#L166)
-    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/commands/slash.ts#L43)
-    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/commands/slash.ts#L98)
-    - [registerCommand @ index.ts:56](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/index.ts#L56)
-    - [registerCommand @ index.ts:67](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/index.ts#L67)
-    - [registerCommand @ index.ts:78](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/index.ts#L78)
+    - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L166)
+    - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L43)
+    - [registerCommand @ slash.ts:98](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L98)
+    - [registerCommand @ index.ts:56](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L56)
+    - [registerCommand @ index.ts:67](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L67)
+    - [registerCommand @ index.ts:78](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L78)
 
 - 🟡 P2 **kitchen-sink** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -6698,7 +6698,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:qqbot`
   - evidence:
-    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/index.ts#L16)
+    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L16)
 
 - 🟡 P2 **wecom** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -6757,7 +6757,7 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:qqbot`
   - evidence:
-    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/index.ts#L16)
+    - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L16)
 
 - 🟡 P2 **wecom** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -6854,8 +6854,8 @@ _none_
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
   - id: `manifest.schema.top-level-fields:qqbot`
   - evidence:
-    - [capabilities @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/openclaw.plugin.json)
-    - [extensions @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/openclaw.plugin.json)
+    - [capabilities @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/openclaw.plugin.json)
+    - [extensions @ openclaw.plugin.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/openclaw.plugin.json)
 
 - 🟡 P2 **a2a-gateway** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -6915,7 +6915,7 @@ _none_
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:qqbot`
   - evidence:
-    - [package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/package.json)
+    - [package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
 
 - 🟡 P2 **wecom** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -6958,7 +6958,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:hyperspell`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/dist/index.js)
 
 - 🟡 P2 **lossless-claw** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -7041,9 +7041,9 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:hyperspell`
   - evidence:
-    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/package.json)
-    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/package.json)
+    - [@clack/prompts @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
+    - [hyperspell @ package.json](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/package.json)
 
 - 🟡 P2 **lossless-claw** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -7101,9 +7101,9 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:qqbot`
   - evidence:
-    - [mpg123-decoder @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/package.json)
-    - [silk-wasm @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/package.json)
-    - [ws @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/package.json)
+    - [mpg123-decoder @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
+    - [silk-wasm @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
+    - [ws @ package.json](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/package.json)
 
 - 🟡 P2 **wecom** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -7256,9 +7256,9 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:hyperspell`
   - evidence:
-    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/commands/slash.ts#L1)
-    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/graph/tools.ts#L2)
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/ab1e5a927d3f2c7cb313d4b8267060db2a86c39b/index.ts#L1)
+    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L1)
+    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/graph/tools.ts#L2)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L1)
 
 - 🟡 P2 **memory-tencentdb** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
@@ -7324,16 +7324,16 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:qqbot`
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/index.ts#L1)
-    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/index.ts#L2)
-    - [openclaw/plugin-sdk @ api.ts:7](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/api.ts#L7)
-    - [openclaw/plugin-sdk @ approval-handler.ts:12](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/approval-handler.ts#L12)
-    - [openclaw/plugin-sdk @ config.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/config.ts#L2)
-    - [openclaw/plugin-sdk @ onboarding.ts:13](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/onboarding.ts#L13)
-    - [openclaw/plugin-sdk @ proactive.ts:67](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/proactive.ts#L67)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/tools/channel.ts#L1)
-    - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/tools/remind.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L1)
+    - [openclaw/plugin-sdk @ index.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L2)
+    - [openclaw/plugin-sdk @ api.ts:7](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/api.ts#L7)
+    - [openclaw/plugin-sdk @ approval-handler.ts:12](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/approval-handler.ts#L12)
+    - [openclaw/plugin-sdk @ config.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/config.ts#L2)
+    - [openclaw/plugin-sdk @ onboarding.ts:13](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/onboarding.ts#L13)
+    - [openclaw/plugin-sdk @ proactive.ts:67](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/proactive.ts#L67)
+    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/runtime.ts#L1)
+    - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/channel.ts#L1)
+    - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/remind.ts#L1)
 
 - 🟡 P2 **connectclaw** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
@@ -7357,8 +7357,8 @@ _none_
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
   - id: `tool.registration.schema-capture:qqbot`
   - evidence:
-    - [registerTool @ channel.ts:134](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/tools/channel.ts#L134)
-    - [registerTool @ remind.ts:222](https://github.com/tencent-connect/openclaw-qqbot/blob/47142c997bdbc9e72d92b817ff378941b3be7d4c/src/tools/remind.ts#L222)
+    - [registerTool @ channel.ts:134](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/channel.ts#L134)
+    - [registerTool @ remind.ts:222](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/remind.ts#L222)
 
 - 🟡 P2 **yuanbao** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.

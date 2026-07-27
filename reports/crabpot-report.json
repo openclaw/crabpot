@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic",
   "targetOpenClaw": {
-    "configuredPath": "/tmp/crabpot-openclaw.thovuw/openclaw",
+    "configuredPath": "./openclaw",
     "searchedPaths": [
-      "/tmp/crabpot-openclaw.thovuw/openclaw"
+      "./openclaw"
     ],
     "status": "ok",
-    "compatRegistryPath": "../../../../tmp/crabpot-openclaw.thovuw/openclaw/src/plugins/compat/registry.ts",
+    "compatRegistryPath": "openclaw/src/plugins/compat/registry.ts",
     "compatRecordCount": 0,
     "compatRecords": [],
     "compatRecordStatuses": {},
-    "hookTypesPath": "../../../../tmp/crabpot-openclaw.thovuw/openclaw/src/plugins/hook-types.ts",
+    "hookTypesPath": "openclaw/src/plugins/hook-types.ts",
     "hookNameCount": 42,
     "hookNames": [
       "after_compaction",
@@ -56,7 +56,7 @@
       "subagent_spawning",
       "tool_result_persist"
     ],
-    "apiBuilderPath": "../../../../tmp/crabpot-openclaw.thovuw/openclaw/src/plugins/api-builder.ts",
+    "apiBuilderPath": "openclaw/src/plugins/api-builder.ts",
     "apiRegistrarCount": 59,
     "apiRegistrars": [
       "registerAgentEventSubscription",
@@ -119,7 +119,7 @@
       "registerWebSearchProvider",
       "registerWorkerProvider"
     ],
-    "capturedRegistrationPath": "../../../../tmp/crabpot-openclaw.thovuw/openclaw/src/plugins/captured-registration.ts",
+    "capturedRegistrationPath": "openclaw/src/plugins/captured-registration.ts",
     "capturedRegistrarCount": 32,
     "capturedRegistrars": [
       "registerAgentEventSubscription",
@@ -155,7 +155,7 @@
       "registerWebSearchProvider",
       "registerWorkerProvider"
     ],
-    "packagePath": "../../../../tmp/crabpot-openclaw.thovuw/openclaw/package.json",
+    "packagePath": "openclaw/package.json",
     "sdkExportCount": 331,
     "sdkExports": [
       "openclaw/plugin-sdk",
@@ -490,7 +490,7 @@
       "openclaw/plugin-sdk/zalouser",
       "openclaw/plugin-sdk/zod"
     ],
-    "pluginSdkEntrypointsPath": "../../../../tmp/crabpot-openclaw.thovuw/openclaw/src/plugin-sdk/entrypoints.ts",
+    "pluginSdkEntrypointsPath": "openclaw/src/plugin-sdk/entrypoints.ts",
     "reservedSdkExportCount": 1,
     "reservedSdkExports": [
       "openclaw/plugin-sdk/codex-mcp-projection"
@@ -535,7 +535,7 @@
       "openclaw/plugin-sdk/telegram-command-config",
       "openclaw/plugin-sdk/video-generation-core"
     ],
-    "manifestTypesPath": "../../../../tmp/crabpot-openclaw.thovuw/openclaw/src/plugins/manifest.ts",
+    "manifestTypesPath": "openclaw/src/plugins/manifest.ts",
     "manifestFieldCount": 45,
     "manifestFields": [
       "activation",
