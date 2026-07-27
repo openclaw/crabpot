@@ -123,8 +123,9 @@ test("OpenClaw lifecycle capture CLI exits after writing output when loader leav
       "    throw new Error('plugin load profiling diagnostics are disabled');",
       "  }",
       "  const source = options.config.plugins.load.paths[0];",
+      "  const windowsSource = 'C:\\\\Users\\\\runner\\\\AppData\\\\Local\\\\Temp\\\\crabpot-openclaw-plugin-AbCd\\\\index.mjs';",
       "  console.error(`[plugin-load-profile] phase=full plugin=crabpot-lifecycle-probe elapsedMs=2.0 source=${source}`);",
-      "  console.error(`[plugin-load-profile] phase=full:register plugin=crabpot-lifecycle-probe elapsedMs=1.0 source=${source}`);",
+      "  console.error(`[plugin-load-profile] phase=full:register plugin=crabpot-lifecycle-probe elapsedMs=1.0 source=${windowsSource}`);",
       "  setInterval(() => undefined, 1000);",
       "  return { plugins: [{ id: 'crabpot-lifecycle-probe', status: 'loaded' }] };",
       "}",
@@ -174,4 +175,5 @@ test("OpenClaw lifecycle capture CLI exits after writing output when loader leav
   assert.equal(capture.openClawLifecycle.importMs, 2);
   assert.equal(capture.openClawLifecycle.activationMs, 1);
   assert.equal(capture.openClawLifecycle.phases[0].source, "crabpot-lifecycle-probe/index.mjs");
+  assert.equal(capture.openClawLifecycle.phases[1].source, "crabpot-lifecycle-probe/index.mjs");
 });

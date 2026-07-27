@@ -244,7 +244,7 @@ function parseProfileLine(line) {
 }
 
 function lifecyclePathLabel(filePath) {
-  const normalized = filePath.replace(/^\/private\/tmp\//u, "/tmp/");
+  const normalized = filePath.replaceAll("\\", "/").replace(/^\/private\/tmp\//u, "/tmp/");
   const tempProbeMatch = /(?:^|\/)crabpot-openclaw-plugin-[^/]+\/(.+)$/u.exec(normalized);
   if (tempProbeMatch) {
     return `crabpot-lifecycle-probe/${tempProbeMatch[1]}`;
