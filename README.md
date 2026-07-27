@@ -10,14 +10,14 @@
 ## Reporting Data
 
 `main` follows the latest published npm package and npm `latest` plugin artifacts, with bundled OpenClaw fixtures source-packed from the matching checkout. `crab-beta` follows beta npm dist-tags for externalized packages and source-packs bundled fixtures. `crab-development` checks `openclaw/openclaw` main against source-packed official plugin artifacts from that same OpenClaw checkout.
-- **Last dashboard update:** Jul 21, 2026, 06:56 UTC
+- **Last dashboard update:** Jul 27, 2026, 02:30 UTC
 <!-- crabpot-tracks:start -->
 - **Source:** `github-default-pin`
 - **OpenClaw version:** `2026.7.2`
 - **OpenClaw SHA:** `e3eb1121adfb`
 - **Dashboard target:** `openclaw/openclaw@e3eb1121adfb + npm latest plugin artifacts`
 - **Plugin artifacts:** `npm latest fixture set plus bundled source-packed fixtures`
-- **GitHub report run:** [29807543651](https://github.com/openclaw/crabpot/actions/runs/29807543651)
+- **GitHub report run:** [30231676591](https://github.com/openclaw/crabpot/actions/runs/30231676591)
 <!-- crabpot-tracks:end -->
 
 <!-- crabpot-summary:start -->
@@ -48,8 +48,8 @@
 | Workspace plan         | 108 entrypoints / 68 installs / 15 builds                             |
 | Platform risks         | 17 Windows / 17 container                                             |
 | Jiti loader candidates | 20                                                                    |
-| Import loop            | p50 80ms / p95 80ms / plugin delta RSS 0MB / plugin delta CPU 15ms    |
-| Runtime profile        | p50 6383ms / command p95 6443ms / max RSS 439.7MB / 3 samples/command |
+| Import loop            | p50 78ms / p95 79ms / plugin delta RSS 0.2MB / plugin delta CPU 0ms   |
+| Runtime profile        | p50 6747ms / command p95 6828ms / max RSS 438.6MB / 3 samples/command |
 
 ### Top Discovered Issues
 
