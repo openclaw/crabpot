@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw BlueBubbles channel plugin.",
   "dependencies": {
-    "@openclaw/bluebubbles": "2026.3.13"
+    "@openclaw/bluebubbles": "2026.5.7"
   },
   "crabpot": {
     "fixture": "bluebubbles",

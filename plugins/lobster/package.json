@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for Lobster workflow tool plugin (typed pipelines + resumable approvals).",
   "dependencies": {
-    "@openclaw/lobster": "2026.3.13"
+    "@openclaw/lobster": "2026.7.1"
   },
   "crabpot": {
     "fixture": "lobster",

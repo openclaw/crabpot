@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Nextcloud Talk channel plugin.",
   "dependencies": {
-    "@openclaw/nextcloud-talk": "2026.3.13"
+    "@openclaw/nextcloud-talk": "2026.7.1"
   },
   "crabpot": {
     "fixture": "nextcloud-talk",

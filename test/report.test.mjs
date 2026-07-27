@@ -87,13 +87,13 @@ test("compatibility report classifies current fixture seams", async () => {
     assertHasIssueClass(report.issues, "live-issue", "unknown-registration-name");
   }
   if (hasTargetOpenClaw) {
-    assertHasFinding(report.warnings, "agentchat", "manifest-unknown-fields");
+    assertMissingFixtureFinding(report.warnings, "agentchat", "manifest-unknown-fields");
     if (hasSdkExportGap) {
       assertHasIssue(report.issues, "P1", "sdk-export-missing");
       assertHasIssueClass(report.issues, "compat-gap", "sdk-export-missing");
     }
     assertHasIssue(report.issues, "P2", "manifest-unknown-fields");
-    assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:agentchat");
+    assertMissingProbePrefix(report.contractProbes, "manifest.schema.top-level-fields:agentchat");
     assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:memos-cloud");
   }
   assertHasProbe(report.contractProbes, "api.capture.runtime-registrars:wecom");
@@ -440,6 +440,13 @@ function assertMissingFinding(findings, code) {
   assert.ok(
     findings.every((finding) => finding.code !== code),
     `expected no ${code} finding`,
+  );
+}
+
+function assertMissingFixtureFinding(findings, fixture, code) {
+  assert.ok(
+    findings.every((finding) => finding.fixture !== fixture || finding.code !== code),
+    `expected no ${fixture} ${code} finding`,
   );
 }
 

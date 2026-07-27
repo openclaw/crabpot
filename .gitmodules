@@ -1,6 +1,6 @@
 [submodule "plugins/agentchat"]
 	path = plugins/agentchat
-	url = https://github.com/agentchatme/agentchat.git
+	url = https://github.com/agentchatme/agentchat-openclaw.git
 	shallow = true
 [submodule "plugins/wecom"]
 	path = plugins/wecom
