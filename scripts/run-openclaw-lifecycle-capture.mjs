@@ -74,7 +74,7 @@ export async function captureOpenClawLifecycle(entrypoint) {
     process.env.XDG_CACHE_HOME = path.join(stateRoot, ".cache");
     process.env.OPENCLAW_STATE_DIR = stateRoot;
     process.env.OPENCLAW_DISABLE_BUNDLED_PLUGINS = "1";
-    process.env.OPENCLAW_PLUGIN_LOAD_PROFILE = "1";
+    process.env.OPENCLAW_DIAGNOSTICS = "plugin.load-profile";
     process.env.OPENCLAW_NO_RESPAWN = "1";
 
     console.error = (...args) => {
@@ -86,14 +86,19 @@ export async function captureOpenClawLifecycle(entrypoint) {
       originalError(...args);
     };
 
-    const { clearPluginLoaderCache, loadOpenClawPlugins } = await import(
+    const {
+      clearActivatedPluginRuntimeState,
+      clearPluginRegistryLoadCache,
+      loadOpenClawPlugins,
+    } = await import(
       pathToFileURL(path.join(openclawRoot, "src", "plugins", "loader.ts")).href
     );
     const { resetPluginRuntimeStateForTest } = await import(
       pathToFileURL(path.join(openclawRoot, "src", "plugins", "runtime.ts")).href
     );
 
-    clearPluginLoaderCache();
+    clearPluginRegistryLoadCache();
+    clearActivatedPluginRuntimeState();
     resetPluginRuntimeStateForTest();
 
     const registry = loadOpenClawPlugins({
@@ -157,7 +162,7 @@ function snapshotLifecycleEnv() {
       "XDG_CACHE_HOME",
       "OPENCLAW_STATE_DIR",
       "OPENCLAW_DISABLE_BUNDLED_PLUGINS",
-      "OPENCLAW_PLUGIN_LOAD_PROFILE",
+      "OPENCLAW_DIAGNOSTICS",
       "OPENCLAW_NO_RESPAWN",
     ].map((key) => [key, process.env[key]]),
   );

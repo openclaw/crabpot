@@ -116,8 +116,14 @@ test("OpenClaw lifecycle capture CLI exits after writing output when loader leav
   await writeFile(
     path.join(openclawRoot, "src", "plugins", "loader.ts"),
     [
-      "export function clearPluginLoaderCache() {}",
+      "export function clearPluginRegistryLoadCache() {}",
+      "export function clearActivatedPluginRuntimeState() {}",
       "export function loadOpenClawPlugins() {",
+      "  if (process.env.OPENCLAW_DIAGNOSTICS !== 'plugin.load-profile') {",
+      "    throw new Error('plugin load profiling diagnostics are disabled');",
+      "  }",
+      "  console.error('[plugin-load-profile] phase=full plugin=crabpot-lifecycle-probe elapsedMs=2.0 source=fake');",
+      "  console.error('[plugin-load-profile] phase=full:register plugin=crabpot-lifecycle-probe elapsedMs=1.0 source=fake');",
       "  setInterval(() => undefined, 1000);",
       "  return { plugins: [{ id: 'crabpot-lifecycle-probe', status: 'loaded' }] };",
       "}",
@@ -162,5 +168,8 @@ test("OpenClaw lifecycle capture CLI exits after writing output when loader leav
   assert.equal(result.error?.code, undefined, result.error?.message);
   assert.equal(result.status, 0, result.stderr);
   const capture = JSON.parse(result.stdout);
+  assert.equal(capture.status, "captured");
   assert.equal(capture.openClawLifecycle.status, "loaded");
+  assert.equal(capture.openClawLifecycle.importMs, 2);
+  assert.equal(capture.openClawLifecycle.activationMs, 1);
 });
