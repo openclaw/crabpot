@@ -306,7 +306,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@tencent-connect/qqbot-connector, @tencent-connect/qqbot-nodejs"
+              "evidence": "mpg123-decoder, silk-wasm, ws"
             }
           ],
           "steps": [

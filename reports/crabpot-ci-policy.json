@@ -3481,7 +3481,7 @@
     {
       "id": "compatibility-report.inspector-gaps",
       "action": "pass",
-      "message": "156 inspector proof gaps tracked",
+      "message": "157 inspector proof gaps tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "dingtalk-doc:before-tool-call-probe",
@@ -3611,6 +3611,7 @@
         "qqbot:channel-contract-probe",
         "qqbot:package-dependency-install-required",
         "qqbot:registration-capture-gap",
+        "qqbot:runtime-tool-capture",
         "secureclaw:package-build-artifact-entrypoint",
         "secureclaw:package-dependency-install-required",
         "secureclaw:registration-capture-gap",

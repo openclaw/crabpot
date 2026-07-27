@@ -3491,7 +3491,7 @@
       "source": "plugins/wecom/index.js:44"
     },
     {
-      "id": "registration.registerChannel:qqbot:plugins-qqbot-index-ts-41",
+      "id": "registration.registerChannel:qqbot:plugins-qqbot-index-ts-16",
       "fixture": "qqbot",
       "kind": "registration",
       "seam": "registerChannel",
@@ -3519,10 +3519,10 @@
         ],
         "option": "includeChannelRuntime"
       },
-      "source": "plugins/qqbot/index.ts:41"
+      "source": "plugins/qqbot/index.ts:16"
     },
     {
-      "id": "registration.registerTool:qqbot:plugins-qqbot-src-tools-platform-ts-76",
+      "id": "registration.registerTool:qqbot:plugins-qqbot-src-tools-channel-ts-134",
       "fixture": "qqbot",
       "kind": "registration",
       "seam": "registerTool",
@@ -3551,7 +3551,7 @@
           "execute"
         ]
       },
-      "source": "plugins/qqbot/src/tools/platform.ts:76"
+      "source": "plugins/qqbot/src/tools/channel.ts:134"
     },
     {
       "id": "registration.registerTool:qqbot:plugins-qqbot-src-tools-remind-ts-222",
@@ -4316,7 +4316,7 @@
       "source": "plugins/connectclaw/packages/plugin/src/tools.ts:6"
     },
     {
-      "id": "registration.registerCli:hyperspell:plugins-hyperspell-index-ts-45",
+      "id": "registration.registerCli:hyperspell:plugins-hyperspell-index-ts-40",
       "fixture": "hyperspell",
       "kind": "registration",
       "seam": "registerCli",
@@ -4345,10 +4345,10 @@
           "execute"
         ]
       },
-      "source": "plugins/hyperspell/index.ts:45"
+      "source": "plugins/hyperspell/index.ts:40"
     },
     {
-      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-101",
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-166",
       "fixture": "hyperspell",
       "kind": "registration",
       "seam": "registerCommand",
@@ -4372,10 +4372,10 @@
           "execute"
         ]
       },
-      "source": "plugins/hyperspell/commands/slash.ts:101"
+      "source": "plugins/hyperspell/commands/slash.ts:166"
     },
     {
-      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-169",
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-43",
       "fixture": "hyperspell",
       "kind": "registration",
       "seam": "registerCommand",
@@ -4399,10 +4399,10 @@
           "execute"
         ]
       },
-      "source": "plugins/hyperspell/commands/slash.ts:169"
+      "source": "plugins/hyperspell/commands/slash.ts:43"
     },
     {
-      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-46",
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-commands-slash-ts-98",
       "fixture": "hyperspell",
       "kind": "registration",
       "seam": "registerCommand",
@@ -4426,10 +4426,10 @@
           "execute"
         ]
       },
-      "source": "plugins/hyperspell/commands/slash.ts:46"
+      "source": "plugins/hyperspell/commands/slash.ts:98"
     },
     {
-      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-61",
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-56",
       "fixture": "hyperspell",
       "kind": "registration",
       "seam": "registerCommand",
@@ -4453,10 +4453,10 @@
           "execute"
         ]
       },
-      "source": "plugins/hyperspell/index.ts:61"
+      "source": "plugins/hyperspell/index.ts:56"
     },
     {
-      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-72",
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-67",
       "fixture": "hyperspell",
       "kind": "registration",
       "seam": "registerCommand",
@@ -4480,10 +4480,10 @@
           "execute"
         ]
       },
-      "source": "plugins/hyperspell/index.ts:72"
+      "source": "plugins/hyperspell/index.ts:67"
     },
     {
-      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-83",
+      "id": "registration.registerCommand:hyperspell:plugins-hyperspell-index-ts-78",
       "fixture": "hyperspell",
       "kind": "registration",
       "seam": "registerCommand",
@@ -4507,7 +4507,7 @@
           "execute"
         ]
       },
-      "source": "plugins/hyperspell/index.ts:83"
+      "source": "plugins/hyperspell/index.ts:78"
     },
     {
       "id": "registration.registerTool:hyperspell:plugins-hyperspell-graph-tools-ts-21",

@@ -617,11 +617,11 @@
     "highPriorityFixtures": 22,
     "breakageCount": 0,
     "warningCount": 139,
-    "suggestionCount": 257,
+    "suggestionCount": 258,
     "decisionCount": 421,
-    "logCount": 371,
-    "issueCount": 396,
-    "openIssueCount": 396,
+    "logCount": 370,
+    "issueCount": 397,
+    "openIssueCount": 397,
     "p0IssueCount": 1,
     "p1IssueCount": 128,
     "openP0IssueCount": 1,
@@ -630,14 +630,14 @@
     "liveP0IssueCount": 1,
     "compatGapCount": 112,
     "deprecationWarningCount": 45,
-    "inspectorGapCount": 156,
+    "inspectorGapCount": 157,
     "upstreamIssueCount": 82,
     "fixtureRegressionCount": 0,
-    "openInspectorGapCount": 156,
+    "openInspectorGapCount": 157,
     "runtimeCoveredIssueCount": 0,
     "runtimePartiallyCoveredIssueCount": 0,
     "runtimeCoverageArtifactCount": 0,
-    "contractProbeCount": 274
+    "contractProbeCount": 275
   },
   "fixtures": [
     {
@@ -1319,14 +1319,14 @@
         {
           "name": "registerChannel",
           "file": "plugins/qqbot/index.ts",
-          "line": 41,
-          "ref": "plugins/qqbot/index.ts:41"
+          "line": 16,
+          "ref": "plugins/qqbot/index.ts:16"
         },
         {
           "name": "registerTool",
-          "file": "plugins/qqbot/src/tools/platform.ts",
-          "line": 76,
-          "ref": "plugins/qqbot/src/tools/platform.ts:76"
+          "file": "plugins/qqbot/src/tools/channel.ts",
+          "line": 134,
+          "ref": "plugins/qqbot/src/tools/channel.ts:134"
         },
         {
           "name": "registerTool",
@@ -1335,9 +1335,7 @@
           "ref": "plugins/qqbot/src/tools/remind.ts:222"
         }
       ],
-      "manifestContracts": [
-        "tools"
-      ],
+      "manifestContracts": [],
       "manifestFiles": [
         "plugins/qqbot/openclaw.plugin.json"
       ],
@@ -1346,87 +1344,57 @@
         "plugins/qqbot/index.ts",
         "plugins/qqbot/preload.cjs",
         "plugins/qqbot/scripts/link-sdk-core.cjs",
+        "plugins/qqbot/scripts/postinstall-link-sdk.js",
         "plugins/qqbot/scripts/proactive-api-server.ts",
         "plugins/qqbot/scripts/send-proactive.ts",
         "plugins/qqbot/scripts/test-sendmedia.ts",
-        "plugins/qqbot/src/adapter/contract.ts",
-        "plugins/qqbot/src/adapter/gateway.ts",
-        "plugins/qqbot/src/adapter/index.ts",
-        "plugins/qqbot/src/adapter/lint.ts",
-        "plugins/qqbot/src/adapter/media.ts",
-        "plugins/qqbot/src/adapter/pairing.ts",
-        "plugins/qqbot/src/adapter/resolve.ts",
-        "plugins/qqbot/src/adapter/setup.ts",
-        "plugins/qqbot/src/adapter/webhook.ts",
-        "plugins/qqbot/src/adapter/workspace.ts",
-        "plugins/qqbot/src/bot-instance.ts",
+        "plugins/qqbot/src/admin-resolver.ts",
+        "plugins/qqbot/src/api.ts",
+        "plugins/qqbot/src/approval-handler.ts",
         "plugins/qqbot/src/channel.ts",
-        "plugins/qqbot/src/commands/bot-approve.ts",
-        "plugins/qqbot/src/commands/bot-clear-storage.ts",
-        "plugins/qqbot/src/commands/bot-group-always.ts",
-        "plugins/qqbot/src/commands/bot-help.ts",
-        "plugins/qqbot/src/commands/bot-logs.ts",
-        "plugins/qqbot/src/commands/bot-me.ts",
-        "plugins/qqbot/src/commands/bot-pairing.ts",
-        "plugins/qqbot/src/commands/bot-ping.ts",
-        "plugins/qqbot/src/commands/bot-streaming.ts",
-        "plugins/qqbot/src/commands/bot-upgrade.ts",
-        "plugins/qqbot/src/commands/bot-version.ts",
-        "plugins/qqbot/src/commands/config-util.ts",
-        "plugins/qqbot/src/commands/index.ts",
         "plugins/qqbot/src/config.ts",
-        "plugins/qqbot/src/dispatch/body-assembler.ts",
-        "plugins/qqbot/src/dispatch/ctx-builder.ts",
-        "plugins/qqbot/src/dispatch/dispatch.ts",
-        "plugins/qqbot/src/dispatch/envelope-builder.ts",
-        "plugins/qqbot/src/dispatch/index.ts",
-        "plugins/qqbot/src/features/approval-handler.ts",
-        "plugins/qqbot/src/features/approval-utils.ts",
-        "plugins/qqbot/src/features/credential-backup.ts",
-        "plugins/qqbot/src/features/history-store.ts",
-        "plugins/qqbot/src/features/msgid-cache.ts",
-        "plugins/qqbot/src/features/onboarding.ts",
-        "plugins/qqbot/src/features/proactive.ts",
-        "plugins/qqbot/src/features/ref-index-store.ts",
-        "plugins/qqbot/src/features/update-checker.ts",
-        "plugins/qqbot/src/gateway/event-handlers.ts",
-        "plugins/qqbot/src/gateway/index.ts",
-        "plugins/qqbot/src/gateway/lifecycle.ts",
-        "plugins/qqbot/src/gateway/middleware-setup.ts",
-        "plugins/qqbot/src/gateway/qqbot-gateway.ts",
-        "plugins/qqbot/src/middleware/access-control.ts",
-        "plugins/qqbot/src/middleware/attachment.ts",
-        "plugins/qqbot/src/middleware/policy-injector.ts",
-        "plugins/qqbot/src/outbound/cron-scheduler.ts",
-        "plugins/qqbot/src/outbound/debounce.ts",
-        "plugins/qqbot/src/outbound/deliver-pipeline.ts",
-        "plugins/qqbot/src/outbound/image-size.ts",
-        "plugins/qqbot/src/outbound/index.ts",
-        "plugins/qqbot/src/outbound/local-file-router.ts",
-        "plugins/qqbot/src/outbound/media-send.ts",
-        "plugins/qqbot/src/outbound/outbound-service.ts",
-        "plugins/qqbot/src/outbound/reply-limiter.ts",
-        "plugins/qqbot/src/outbound/sanitize.ts",
-        "plugins/qqbot/src/outbound/streaming-controller.ts",
-        "plugins/qqbot/src/outbound/target.ts",
-        "plugins/qqbot/src/outbound/tts-provider.ts",
+        "plugins/qqbot/src/credential-backup.ts",
+        "plugins/qqbot/src/deliver-debounce.ts",
+        "plugins/qqbot/src/gateway.ts",
+        "plugins/qqbot/src/group-history.ts",
+        "plugins/qqbot/src/image-server.ts",
+        "plugins/qqbot/src/inbound-attachments.ts",
+        "plugins/qqbot/src/known-users.ts",
+        "plugins/qqbot/src/message-gating.ts",
+        "plugins/qqbot/src/message-queue.ts",
+        "plugins/qqbot/src/onboarding.ts",
+        "plugins/qqbot/src/outbound-deliver.ts",
+        "plugins/qqbot/src/outbound.ts",
+        "plugins/qqbot/src/proactive.ts",
+        "plugins/qqbot/src/ref-index-store.ts",
+        "plugins/qqbot/src/reply-dispatcher.ts",
         "plugins/qqbot/src/request-context.ts",
         "plugins/qqbot/src/runtime.ts",
-        "plugins/qqbot/src/setup/account-key.ts",
-        "plugins/qqbot/src/setup/finalize.ts",
-        "plugins/qqbot/src/setup/login.ts",
-        "plugins/qqbot/src/setup/surface.ts",
-        "plugins/qqbot/src/tools/platform.ts",
+        "plugins/qqbot/src/session-store.ts",
+        "plugins/qqbot/src/slash-commands.ts",
+        "plugins/qqbot/src/startup-greeting.ts",
+        "plugins/qqbot/src/streaming.ts",
+        "plugins/qqbot/src/stt.ts",
+        "plugins/qqbot/src/tools/channel.ts",
         "plugins/qqbot/src/tools/remind.ts",
+        "plugins/qqbot/src/transport/index.ts",
+        "plugins/qqbot/src/transport/webhook-transport.ts",
+        "plugins/qqbot/src/transport/webhook-verify.ts",
         "plugins/qqbot/src/types.ts",
-        "plugins/qqbot/src/utils/mention.ts",
+        "plugins/qqbot/src/typing-keepalive.ts",
+        "plugins/qqbot/src/update-checker.ts",
+        "plugins/qqbot/src/utils/audio-convert.ts",
+        "plugins/qqbot/src/utils/chunked-upload.ts",
+        "plugins/qqbot/src/utils/file-utils.ts",
+        "plugins/qqbot/src/utils/image-size.ts",
+        "plugins/qqbot/src/utils/media-send.ts",
+        "plugins/qqbot/src/utils/media-tags.ts",
+        "plugins/qqbot/src/utils/payload.ts",
         "plugins/qqbot/src/utils/pkg-version.ts",
         "plugins/qqbot/src/utils/platform.ts",
-        "plugins/qqbot/src/utils/plugin-logger.ts",
         "plugins/qqbot/src/utils/ssrf-guard.ts",
-        "plugins/qqbot/src/utils/stt.ts",
-        "plugins/qqbot/src/utils/voice-text.ts",
-        "plugins/qqbot/tsup.config.ts"
+        "plugins/qqbot/src/utils/text-parsing.ts",
+        "plugins/qqbot/src/utils/upload-cache.ts"
       ],
       "pluginManifests": [
         {
@@ -1439,16 +1407,13 @@
             "channelConfigs",
             "channels",
             "configSchema",
-            "contracts",
             "description",
             "extensions",
             "id",
             "name",
             "skills"
           ],
-          "contracts": [
-            "tools"
-          ],
+          "contracts": [],
           "providerAuthEnvVars": {},
           "channelEnvVars": {},
           "activation": null
@@ -1458,9 +1423,9 @@
       "package": {
         "path": "plugins/qqbot/package.json",
         "name": "@tencent-connect/openclaw-qqbot",
-        "version": "2.0.0-alpha.1",
+        "version": "1.7.2",
         "type": "module",
-        "main": "dist/index.cjs",
+        "main": "dist/index.js",
         "npmPack": {
           "advertised": false,
           "private": false,
@@ -1474,17 +1439,16 @@
             "index.ts",
             "preload.cjs",
             "tsconfig.json",
-            "tsup.config.ts",
             "openclaw.plugin.json"
           ],
           "invalidFileSpecs": []
         },
         "dependencies": [
-          "@tencent-connect/qqbot-connector",
-          "@tencent-connect/qqbot-nodejs"
+          "mpg123-decoder",
+          "silk-wasm",
+          "ws"
         ],
         "peerDependencies": [
-          "@tencent-connect/qqbot-connector",
           "openclaw"
         ],
         "optionalDependencies": [],
@@ -1515,9 +1479,9 @@
         {
           "path": "plugins/qqbot/package.json",
           "name": "@tencent-connect/openclaw-qqbot",
-          "version": "2.0.0-alpha.1",
+          "version": "1.7.2",
           "type": "module",
-          "main": "dist/index.cjs",
+          "main": "dist/index.js",
           "npmPack": {
             "advertised": false,
             "private": false,
@@ -1531,17 +1495,16 @@
               "index.ts",
               "preload.cjs",
               "tsconfig.json",
-              "tsup.config.ts",
               "openclaw.plugin.json"
             ],
             "invalidFileSpecs": []
           },
           "dependencies": [
-            "@tencent-connect/qqbot-connector",
-            "@tencent-connect/qqbot-nodejs"
+            "mpg123-decoder",
+            "silk-wasm",
+            "ws"
           ],
           "peerDependencies": [
-            "@tencent-connect/qqbot-connector",
             "openclaw"
           ],
           "optionalDependencies": [],
@@ -1572,76 +1535,32 @@
       "sdkImports": [
         "openclaw/plugin-sdk",
         "openclaw/plugin-sdk/core",
-        "openclaw/plugin-sdk/setup",
-        "openclaw/plugin-sdk/setup-tools",
         "openclaw/plugin-sdk/webhook-ingress"
       ],
       "sdkImportDetails": [
         {
           "specifier": "openclaw/plugin-sdk",
           "file": "plugins/qqbot/index.ts",
-          "line": 10,
-          "ref": "plugins/qqbot/index.ts:10"
+          "line": 1,
+          "ref": "plugins/qqbot/index.ts:1"
         },
         {
           "specifier": "openclaw/plugin-sdk",
           "file": "plugins/qqbot/index.ts",
-          "line": 11,
-          "ref": "plugins/qqbot/index.ts:11"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/adapter/contract.ts",
-          "line": 8,
-          "ref": "plugins/qqbot/src/adapter/contract.ts:8"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/adapter/resolve.ts",
-          "line": 11,
-          "ref": "plugins/qqbot/src/adapter/resolve.ts:11"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/commands/bot-approve.ts",
           "line": 2,
-          "ref": "plugins/qqbot/src/commands/bot-approve.ts:2"
+          "ref": "plugins/qqbot/index.ts:2"
         },
         {
           "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/commands/bot-group-always.ts",
-          "line": 2,
-          "ref": "plugins/qqbot/src/commands/bot-group-always.ts:2"
+          "file": "plugins/qqbot/src/api.ts",
+          "line": 7,
+          "ref": "plugins/qqbot/src/api.ts:7"
         },
         {
           "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/commands/bot-logs.ts",
-          "line": 8,
-          "ref": "plugins/qqbot/src/commands/bot-logs.ts:8"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/commands/bot-pairing.ts",
-          "line": 2,
-          "ref": "plugins/qqbot/src/commands/bot-pairing.ts:2"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/commands/bot-streaming.ts",
-          "line": 2,
-          "ref": "plugins/qqbot/src/commands/bot-streaming.ts:2"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/commands/config-util.ts",
-          "line": 3,
-          "ref": "plugins/qqbot/src/commands/config-util.ts:3"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/commands/index.ts",
-          "line": 8,
-          "ref": "plugins/qqbot/src/commands/index.ts:8"
+          "file": "plugins/qqbot/src/approval-handler.ts",
+          "line": 12,
+          "ref": "plugins/qqbot/src/approval-handler.ts:12"
         },
         {
           "specifier": "openclaw/plugin-sdk",
@@ -1651,63 +1570,27 @@
         },
         {
           "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/dispatch/dispatch.ts",
+          "file": "plugins/qqbot/src/onboarding.ts",
           "line": 13,
-          "ref": "plugins/qqbot/src/dispatch/dispatch.ts:13"
+          "ref": "plugins/qqbot/src/onboarding.ts:13"
         },
         {
           "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/features/approval-handler.ts",
-          "line": 12,
-          "ref": "plugins/qqbot/src/features/approval-handler.ts:12"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/features/onboarding.ts",
-          "line": 10,
-          "ref": "plugins/qqbot/src/features/onboarding.ts:10"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/features/proactive.ts",
-          "line": 66,
-          "ref": "plugins/qqbot/src/features/proactive.ts:66"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/gateway/event-handlers.ts",
-          "line": 10,
-          "ref": "plugins/qqbot/src/gateway/event-handlers.ts:10"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/gateway/qqbot-gateway.ts",
-          "line": 17,
-          "ref": "plugins/qqbot/src/gateway/qqbot-gateway.ts:17"
+          "file": "plugins/qqbot/src/proactive.ts",
+          "line": 67,
+          "ref": "plugins/qqbot/src/proactive.ts:67"
         },
         {
           "specifier": "openclaw/plugin-sdk",
           "file": "plugins/qqbot/src/runtime.ts",
-          "line": 7,
-          "ref": "plugins/qqbot/src/runtime.ts:7"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/setup/account-key.ts",
-          "line": 7,
-          "ref": "plugins/qqbot/src/setup/account-key.ts:7"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/setup/finalize.ts",
-          "line": 4,
-          "ref": "plugins/qqbot/src/setup/finalize.ts:4"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk",
-          "file": "plugins/qqbot/src/tools/platform.ts",
           "line": 1,
-          "ref": "plugins/qqbot/src/tools/platform.ts:1"
+          "ref": "plugins/qqbot/src/runtime.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk",
+          "file": "plugins/qqbot/src/tools/channel.ts",
+          "line": 1,
+          "ref": "plugins/qqbot/src/tools/channel.ts:1"
         },
         {
           "specifier": "openclaw/plugin-sdk",
@@ -1718,44 +1601,14 @@
         {
           "specifier": "openclaw/plugin-sdk/core",
           "file": "plugins/qqbot/src/channel.ts",
-          "line": 13,
-          "ref": "plugins/qqbot/src/channel.ts:13"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/qqbot/src/gateway/lifecycle.ts",
-          "line": 10,
-          "ref": "plugins/qqbot/src/gateway/lifecycle.ts:10"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/setup",
-          "file": "plugins/qqbot/src/adapter/setup.ts",
-          "line": 11,
-          "ref": "plugins/qqbot/src/adapter/setup.ts:11"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/setup",
-          "file": "plugins/qqbot/src/adapter/setup.ts",
-          "line": 26,
-          "ref": "plugins/qqbot/src/adapter/setup.ts:26"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/setup-tools",
-          "file": "plugins/qqbot/src/adapter/setup.ts",
-          "line": 12,
-          "ref": "plugins/qqbot/src/adapter/setup.ts:12"
+          "line": 7,
+          "ref": "plugins/qqbot/src/channel.ts:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/webhook-ingress",
-          "file": "plugins/qqbot/src/adapter/webhook.ts",
-          "line": 100,
-          "ref": "plugins/qqbot/src/adapter/webhook.ts:100"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/webhook-ingress",
-          "file": "plugins/qqbot/src/adapter/webhook.ts",
-          "line": 36,
-          "ref": "plugins/qqbot/src/adapter/webhook.ts:36"
+          "file": "plugins/qqbot/src/transport/webhook-transport.ts",
+          "line": 37,
+          "ref": "plugins/qqbot/src/transport/webhook-transport.ts:37"
         }
       ],
       "sdkDeprecations": []
@@ -3992,44 +3845,44 @@
         {
           "name": "registerCli",
           "file": "plugins/hyperspell/index.ts",
-          "line": 45,
-          "ref": "plugins/hyperspell/index.ts:45"
+          "line": 40,
+          "ref": "plugins/hyperspell/index.ts:40"
         },
         {
           "name": "registerCommand",
           "file": "plugins/hyperspell/commands/slash.ts",
-          "line": 101,
-          "ref": "plugins/hyperspell/commands/slash.ts:101"
+          "line": 166,
+          "ref": "plugins/hyperspell/commands/slash.ts:166"
         },
         {
           "name": "registerCommand",
           "file": "plugins/hyperspell/commands/slash.ts",
-          "line": 169,
-          "ref": "plugins/hyperspell/commands/slash.ts:169"
+          "line": 43,
+          "ref": "plugins/hyperspell/commands/slash.ts:43"
         },
         {
           "name": "registerCommand",
           "file": "plugins/hyperspell/commands/slash.ts",
-          "line": 46,
-          "ref": "plugins/hyperspell/commands/slash.ts:46"
+          "line": 98,
+          "ref": "plugins/hyperspell/commands/slash.ts:98"
         },
         {
           "name": "registerCommand",
           "file": "plugins/hyperspell/index.ts",
-          "line": 61,
-          "ref": "plugins/hyperspell/index.ts:61"
+          "line": 56,
+          "ref": "plugins/hyperspell/index.ts:56"
         },
         {
           "name": "registerCommand",
           "file": "plugins/hyperspell/index.ts",
-          "line": 72,
-          "ref": "plugins/hyperspell/index.ts:72"
+          "line": 67,
+          "ref": "plugins/hyperspell/index.ts:67"
         },
         {
           "name": "registerCommand",
           "file": "plugins/hyperspell/index.ts",
-          "line": 83,
-          "ref": "plugins/hyperspell/index.ts:83"
+          "line": 78,
+          "ref": "plugins/hyperspell/index.ts:78"
         },
         {
           "name": "registerTool",
@@ -4058,20 +3911,11 @@
       ],
       "sourceFiles": [
         "plugins/hyperspell/client.ts",
-        "plugins/hyperspell/commands/preview.ts",
-        "plugins/hyperspell/commands/purge-channel.ts",
         "plugins/hyperspell/commands/setup.ts",
         "plugins/hyperspell/commands/slash.ts",
         "plugins/hyperspell/config.ts",
-        "plugins/hyperspell/docs/elbow-scan.mjs",
         "plugins/hyperspell/docs/filter-dialect-test.mjs",
         "plugins/hyperspell/docs/hotbuffer-verify.mjs",
-        "plugins/hyperspell/docs/kg-eval.mjs",
-        "plugins/hyperspell/docs/score-analyze.mjs",
-        "plugins/hyperspell/docs/score-review.mjs",
-        "plugins/hyperspell/eval/fixtures.ts",
-        "plugins/hyperspell/eval/harness.ts",
-        "plugins/hyperspell/eval/run.ts",
         "plugins/hyperspell/graph/cron.ts",
         "plugins/hyperspell/graph/index.ts",
         "plugins/hyperspell/graph/ops.ts",
@@ -4086,12 +3930,8 @@
         "plugins/hyperspell/hooks/startup-orientation.ts",
         "plugins/hyperspell/index.ts",
         "plugins/hyperspell/lib/browser.ts",
-        "plugins/hyperspell/lib/coverage-log.ts",
-        "plugins/hyperspell/lib/eval-matchers.ts",
         "plugins/hyperspell/lib/exclude-channels.ts",
         "plugins/hyperspell/lib/filters.ts",
-        "plugins/hyperspell/lib/loops-audit.ts",
-        "plugins/hyperspell/lib/mood-skew-audit.ts",
         "plugins/hyperspell/lib/ranking.ts",
         "plugins/hyperspell/lib/search-error.ts",
         "plugins/hyperspell/lib/sender.ts",
@@ -4099,12 +3939,7 @@
         "plugins/hyperspell/lib/speaker-tracker.ts",
         "plugins/hyperspell/lib/voice-id.ts",
         "plugins/hyperspell/logger.ts",
-        "plugins/hyperspell/scripts/audit-loops.ts",
-        "plugins/hyperspell/scripts/audit-mood-skew.ts",
-        "plugins/hyperspell/scripts/eval-retrieval.ts",
-        "plugins/hyperspell/scripts/fetch-day-registers.mjs",
         "plugins/hyperspell/sync/markdown.ts",
-        "plugins/hyperspell/tools/emotional-arc.ts",
         "plugins/hyperspell/tools/remember.ts",
         "plugins/hyperspell/tools/search.ts"
       ],
@@ -4113,7 +3948,7 @@
           "path": "plugins/hyperspell/openclaw.plugin.json",
           "id": "openclaw-hyperspell",
           "name": "Hyperspell",
-          "version": "0.21.0",
+          "version": "0.13.0",
           "keys": [
             "configSchema",
             "contracts",
@@ -4136,7 +3971,7 @@
       "package": {
         "path": "plugins/hyperspell/package.json",
         "name": "@hyperspell/openclaw-hyperspell",
-        "version": "0.21.1",
+        "version": "0.18.1",
         "type": "module",
         "main": "./dist/index.js",
         "npmPack": {
@@ -4186,7 +4021,7 @@
         {
           "path": "plugins/hyperspell/package.json",
           "name": "@hyperspell/openclaw-hyperspell",
-          "version": "0.21.1",
+          "version": "0.18.1",
           "type": "module",
           "main": "./dist/index.js",
           "npmPack": {
@@ -35823,28 +35658,15 @@
       "level": "warning",
       "message": "fixture imports the root plugin SDK barrel",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:10",
-        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:11",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/adapter/contract.ts:8",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/adapter/resolve.ts:11",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/bot-approve.ts:2",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/bot-group-always.ts:2",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/bot-logs.ts:8",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/bot-pairing.ts:2",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/bot-streaming.ts:2",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/config-util.ts:3",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/index.ts:8",
+        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:2",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/api.ts:7",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/approval-handler.ts:12",
         "openclaw/plugin-sdk @ plugins/qqbot/src/config.ts:2",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/dispatch/dispatch.ts:13",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/features/approval-handler.ts:12",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/features/onboarding.ts:10",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/features/proactive.ts:66",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/gateway/event-handlers.ts:10",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/gateway/qqbot-gateway.ts:17",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/runtime.ts:7",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/setup/account-key.ts:7",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/setup/finalize.ts:4",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/tools/platform.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/onboarding.ts:13",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/proactive.ts:67",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/tools/channel.ts:1",
         "openclaw/plugin-sdk @ plugins/qqbot/src/tools/remind.ts:1"
       ],
       "compatRecord": "legacy-root-sdk-import"
@@ -36081,8 +35903,8 @@
       "level": "warning",
       "message": "package.json and openclaw.plugin.json publish different versions",
       "evidence": [
-        "package:0.21.1",
-        "manifest:0.21.0"
+        "package:0.18.1",
+        "manifest:0.13.0"
       ]
     },
     {
@@ -37321,8 +37143,9 @@
       "level": "suggestion",
       "message": "package declares runtime dependencies that must be installed before cold import",
       "evidence": [
-        "@tencent-connect/qqbot-connector @ plugins/qqbot/package.json",
-        "@tencent-connect/qqbot-nodejs @ plugins/qqbot/package.json"
+        "mpg123-decoder @ plugins/qqbot/package.json",
+        "silk-wasm @ plugins/qqbot/package.json",
+        "ws @ plugins/qqbot/package.json"
       ]
     },
     {
@@ -37331,7 +37154,7 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerChannel @ plugins/qqbot/index.ts:41"
+        "registerChannel @ plugins/qqbot/index.ts:16"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -37341,9 +37164,19 @@
       "level": "suggestion",
       "message": "add channel envelope, config-schema, and runtime metadata probes",
       "evidence": [
-        "registerChannel @ plugins/qqbot/index.ts:41"
+        "registerChannel @ plugins/qqbot/index.ts:16"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata"
+    },
+    {
+      "fixture": "qqbot",
+      "code": "runtime-tool-capture",
+      "level": "suggestion",
+      "message": "tool shape is only visible after runtime registration capture",
+      "evidence": [
+        "registerTool @ plugins/qqbot/src/tools/channel.ts:134",
+        "registerTool @ plugins/qqbot/src/tools/remind.ts:222"
+      ]
     },
     {
       "fixture": "a2a-gateway",
@@ -37630,12 +37463,12 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:101",
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:169",
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:46",
-        "registerCommand @ plugins/hyperspell/index.ts:61",
-        "registerCommand @ plugins/hyperspell/index.ts:72",
-        "registerCommand @ plugins/hyperspell/index.ts:83"
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:43",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:98",
+        "registerCommand @ plugins/hyperspell/index.ts:56",
+        "registerCommand @ plugins/hyperspell/index.ts:67",
+        "registerCommand @ plugins/hyperspell/index.ts:78"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -44913,7 +44746,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-C4037E57",
+      "id": "CRABPOT-06A687DB",
       "fixture": "hyperspell",
       "severity": "P2",
       "owner": "plugin",
@@ -44926,8 +44759,8 @@
       "compatStatus": "none",
       "title": "hyperspell: package and manifest versions drift",
       "evidence": [
-        "package:0.21.1",
-        "manifest:0.21.0"
+        "package:0.18.1",
+        "manifest:0.13.0"
       ],
       "compatRecord": null,
       "runtimeCoverage": null,
@@ -44937,7 +44770,7 @@
       }
     },
     {
-      "id": "CRABPOT-C217969E",
+      "id": "CRABPOT-C2B2C23C",
       "fixture": "hyperspell",
       "severity": "P2",
       "owner": "inspector",
@@ -44950,12 +44783,12 @@
       "compatStatus": "untracked",
       "title": "hyperspell: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:101",
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:169",
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:46",
-        "registerCommand @ plugins/hyperspell/index.ts:61",
-        "registerCommand @ plugins/hyperspell/index.ts:72",
-        "registerCommand @ plugins/hyperspell/index.ts:83"
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:43",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:98",
+        "registerCommand @ plugins/hyperspell/index.ts:56",
+        "registerCommand @ plugins/hyperspell/index.ts:67",
+        "registerCommand @ plugins/hyperspell/index.ts:78"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -47133,7 +46966,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-A5BCC1A0",
+      "id": "CRABPOT-176DFA85",
       "fixture": "qqbot",
       "severity": "P2",
       "owner": "inspector",
@@ -47146,13 +46979,13 @@
       "compatStatus": "untracked",
       "title": "qqbot: channel runtime needs envelope/config probes",
       "evidence": [
-        "registerChannel @ plugins/qqbot/index.ts:41"
+        "registerChannel @ plugins/qqbot/index.ts:16"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata",
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-06334828",
+      "id": "CRABPOT-D519B84D",
       "fixture": "qqbot",
       "severity": "P2",
       "owner": "core",
@@ -47165,28 +46998,15 @@
       "compatStatus": "deprecated",
       "title": "qqbot: root plugin SDK barrel is still used by fixtures",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:10",
-        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:11",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/adapter/contract.ts:8",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/adapter/resolve.ts:11",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/bot-approve.ts:2",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/bot-group-always.ts:2",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/bot-logs.ts:8",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/bot-pairing.ts:2",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/bot-streaming.ts:2",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/config-util.ts:3",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/index.ts:8",
+        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:2",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/api.ts:7",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/approval-handler.ts:12",
         "openclaw/plugin-sdk @ plugins/qqbot/src/config.ts:2",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/dispatch/dispatch.ts:13",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/features/approval-handler.ts:12",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/features/onboarding.ts:10",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/features/proactive.ts:66",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/gateway/event-handlers.ts:10",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/gateway/qqbot-gateway.ts:17",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/runtime.ts:7",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/setup/account-key.ts:7",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/setup/finalize.ts:4",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/tools/platform.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/onboarding.ts:13",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/proactive.ts:67",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/tools/channel.ts:1",
         "openclaw/plugin-sdk @ plugins/qqbot/src/tools/remind.ts:1"
       ],
       "compatRecord": "legacy-root-sdk-import",
@@ -47221,7 +47041,7 @@
       }
     },
     {
-      "id": "CRABPOT-78FE1102",
+      "id": "CRABPOT-5D31D688",
       "fixture": "qqbot",
       "severity": "P2",
       "owner": "inspector",
@@ -47234,8 +47054,9 @@
       "compatStatus": "none",
       "title": "qqbot: cold import requires dependency installation in an isolated workspace",
       "evidence": [
-        "@tencent-connect/qqbot-connector @ plugins/qqbot/package.json",
-        "@tencent-connect/qqbot-nodejs @ plugins/qqbot/package.json"
+        "mpg123-decoder @ plugins/qqbot/package.json",
+        "silk-wasm @ plugins/qqbot/package.json",
+        "ws @ plugins/qqbot/package.json"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -47264,7 +47085,7 @@
       }
     },
     {
-      "id": "CRABPOT-C45B44D3",
+      "id": "CRABPOT-3746416F",
       "fixture": "qqbot",
       "severity": "P2",
       "owner": "inspector",
@@ -47277,9 +47098,29 @@
       "compatStatus": "untracked",
       "title": "qqbot: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerChannel @ plugins/qqbot/index.ts:41"
+        "registerChannel @ plugins/qqbot/index.ts:16"
       ],
       "compatRecord": "api.capture.runtime-registrars",
+      "runtimeCoverage": null
+    },
+    {
+      "id": "CRABPOT-9B0838F7",
+      "fixture": "qqbot",
+      "severity": "P2",
+      "owner": "inspector",
+      "code": "runtime-tool-capture",
+      "decision": "inspector-follow-up",
+      "status": "open",
+      "issueClass": "inspector-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "qqbot: runtime tool schema needs registration capture",
+      "evidence": [
+        "registerTool @ plugins/qqbot/src/tools/channel.ts:134",
+        "registerTool @ plugins/qqbot/src/tools/remind.ts:222"
+      ],
+      "compatRecord": null,
       "runtimeCoverage": null
     },
     {
@@ -48708,12 +48549,12 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:101",
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:169",
-        "registerCommand @ plugins/hyperspell/commands/slash.ts:46",
-        "registerCommand @ plugins/hyperspell/index.ts:61",
-        "registerCommand @ plugins/hyperspell/index.ts:72",
-        "registerCommand @ plugins/hyperspell/index.ts:83"
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:166",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:43",
+        "registerCommand @ plugins/hyperspell/commands/slash.ts:98",
+        "registerCommand @ plugins/hyperspell/index.ts:56",
+        "registerCommand @ plugins/hyperspell/index.ts:67",
+        "registerCommand @ plugins/hyperspell/index.ts:78"
       ]
     },
     {
@@ -48860,7 +48701,7 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerChannel @ plugins/qqbot/index.ts:41"
+        "registerChannel @ plugins/qqbot/index.ts:16"
       ]
     },
     {
@@ -48955,7 +48796,7 @@
       "target": "channel-runtime",
       "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
       "evidence": [
-        "registerChannel @ plugins/qqbot/index.ts:41"
+        "registerChannel @ plugins/qqbot/index.ts:16"
       ]
     },
     {
@@ -49507,8 +49348,9 @@
       "target": "package-loader",
       "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
       "evidence": [
-        "@tencent-connect/qqbot-connector @ plugins/qqbot/package.json",
-        "@tencent-connect/qqbot-nodejs @ plugins/qqbot/package.json"
+        "mpg123-decoder @ plugins/qqbot/package.json",
+        "silk-wasm @ plugins/qqbot/package.json",
+        "ws @ plugins/qqbot/package.json"
       ]
     },
     {
@@ -49644,8 +49486,8 @@
       "target": "package-loader",
       "contract": "Package and OpenClaw manifest versions stay aligned for release compatibility reporting.",
       "evidence": [
-        "package:0.21.1",
-        "manifest:0.21.0"
+        "package:0.18.1",
+        "manifest:0.13.0"
       ]
     },
     {
@@ -49829,28 +49671,15 @@
       "target": "sdk-alias",
       "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:10",
-        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:11",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/adapter/contract.ts:8",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/adapter/resolve.ts:11",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/bot-approve.ts:2",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/bot-group-always.ts:2",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/bot-logs.ts:8",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/bot-pairing.ts:2",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/bot-streaming.ts:2",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/config-util.ts:3",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/commands/index.ts:8",
+        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:2",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/api.ts:7",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/approval-handler.ts:12",
         "openclaw/plugin-sdk @ plugins/qqbot/src/config.ts:2",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/dispatch/dispatch.ts:13",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/features/approval-handler.ts:12",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/features/onboarding.ts:10",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/features/proactive.ts:66",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/gateway/event-handlers.ts:10",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/gateway/qqbot-gateway.ts:17",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/runtime.ts:7",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/setup/account-key.ts:7",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/setup/finalize.ts:4",
-        "openclaw/plugin-sdk @ plugins/qqbot/src/tools/platform.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/onboarding.ts:13",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/proactive.ts:67",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/runtime.ts:1",
+        "openclaw/plugin-sdk @ plugins/qqbot/src/tools/channel.ts:1",
         "openclaw/plugin-sdk @ plugins/qqbot/src/tools/remind.ts:1"
       ]
     },
@@ -49882,6 +49711,17 @@
       "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
       "evidence": [
         "registerTool @ plugins/mocrane-wecom/index.ts:43"
+      ]
+    },
+    {
+      "id": "tool.registration.schema-capture:qqbot",
+      "fixture": "qqbot",
+      "priority": "P2",
+      "target": "tool-runtime",
+      "contract": "Registered runtime tools expose stable names, input schemas, and result metadata.",
+      "evidence": [
+        "registerTool @ plugins/qqbot/src/tools/channel.ts:134",
+        "registerTool @ plugins/qqbot/src/tools/remind.ts:222"
       ]
     },
     {
@@ -51768,11 +51608,10 @@
       "fixture": "qqbot",
       "code": "seam-inventory",
       "level": "log",
-      "message": "observed 0 hooks, 2 registrations, and 1 manifest contracts",
+      "message": "observed 0 hooks, 2 registrations, and 0 manifest contracts",
       "evidence": [
         "registration:registerChannel",
-        "registration:registerTool",
-        "manifestContract:tools"
+        "registration:registerTool"
       ]
     },
     {
@@ -51800,8 +51639,6 @@
       "evidence": [
         "openclaw/plugin-sdk",
         "openclaw/plugin-sdk/core",
-        "openclaw/plugin-sdk/setup",
-        "openclaw/plugin-sdk/setup-tools",
         "openclaw/plugin-sdk/webhook-ingress"
       ]
     },
@@ -51822,16 +51659,7 @@
       "evidence": [
         "plugins/qqbot/package.json",
         "@tencent-connect/openclaw-qqbot",
-        "version:2.0.0-alpha.1"
-      ]
-    },
-    {
-      "fixture": "qqbot",
-      "code": "declarative-contracts",
-      "level": "log",
-      "message": "fixture declares manifest contracts that can be checked without executing plugin code",
-      "evidence": [
-        "tools"
+        "version:1.7.2"
       ]
     },
     {
@@ -52430,7 +52258,7 @@
       "evidence": [
         "plugins/hyperspell/package.json",
         "@hyperspell/openclaw-hyperspell",
-        "version:0.21.1"
+        "version:0.18.1"
       ]
     },
     {
@@ -56461,7 +56289,7 @@
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
-      "evidence": "@tencent-connect/qqbot-connector, @tencent-connect/qqbot-nodejs"
+      "evidence": "mpg123-decoder, silk-wasm, ws"
     },
     {
       "fixture": "qqbot",
@@ -56486,10 +56314,10 @@
     },
     {
       "fixture": "qqbot",
-      "decision": "no-action",
-      "seam": "manifest-contract",
-      "action": "Keep checking this declarative contract in default offline CI.",
-      "evidence": "tools"
+      "decision": "inspector-follow-up",
+      "seam": "tool-schema",
+      "action": "Capture registered tool schemas from plugin register() before judging tool compatibility.",
+      "evidence": "registerTool without manifest contracts.tools"
     },
     {
       "fixture": "a2a-gateway",
@@ -56846,7 +56674,7 @@
       "decision": "plugin-upstream-fix",
       "seam": "package-metadata",
       "action": "Ask the plugin to keep package and manifest versions aligned before relying on release compatibility signals.",
-      "evidence": "0.21.1 != 0.21.0"
+      "evidence": "0.18.1 != 0.13.0"
     },
     {
       "fixture": "hyperspell",

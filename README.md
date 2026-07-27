@@ -28,16 +28,16 @@
 | Fixtures               | 60                                                                                                                 |
 | Hard breakages         | 0                                                                                                                  |
 | Warnings               | 139                                                                                                                |
-| Suggestions            | 257                                                                                                                |
-| Issues                 | 396                                                                                                                |
+| Suggestions            | 258                                                                                                                |
+| Issues                 | 397                                                                                                                |
 | P0 issues              | [🔴 P0 1](reports/crabpot-issues.md#p0-live-issues)                                                                |
 | P1 issues              | [🟠 P1 128](reports/crabpot-issues.md#triage-summary)                                                              |
 | Live issues            | 1 total / 1 P0                                                                                                     |
 | Compat gaps            | 112                                                                                                                |
 | Deprecation warnings   | 45                                                                                                                 |
-| Inspector gaps         | 156                                                                                                                |
+| Inspector gaps         | 157                                                                                                                |
 | Upstream metadata      | 82                                                                                                                 |
-| Contract probes        | 274                                                                                                                |
+| Contract probes        | 275                                                                                                                |
 | Policy failures        | 0                                                                                                                  |
 | Policy warnings        | 308                                                                                                                |
 | Ref diff failures      | 0                                                                                                                  |
@@ -55,8 +55,8 @@
 
 | Phase                      | p50    | p95    |
 | -------------------------- | ------ | ------ |
-| Import (`full`)            | 68.6ms | 70.7ms |
-| Activate (`full:register`) | 0.1ms  | 0.2ms  |
+| Import (`full`)            | 61.9ms | 64.3ms |
+| Activate (`full:register`) | 0.1ms  | 0.1ms  |
 
 ### Top Discovered Issues
 
