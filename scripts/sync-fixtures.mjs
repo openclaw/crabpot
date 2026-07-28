@@ -5,6 +5,7 @@ import os from "node:os";
 import { spawnSync } from "node:child_process";
 import path from "node:path";
 import { fixtureSourceRoot, readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
+import { parseNpmPackResult, parseNpmViewResult } from "./npm-pack-result.mjs";
 import { writePackageAvailabilityReport } from "./package-availability.mjs";
 
 const openclawSourceRepo = "https://github.com/openclaw/openclaw.git";
@@ -122,7 +123,7 @@ async function materializeNpmFixture(fixture, target) {
       }
       return;
     }
-    const packed = JSON.parse(pack.stdout)[0];
+    const packed = parseNpmPackResult(pack.stdout);
     if (!packed?.filename) {
       throw new Error(`npm pack ${spec} did not return a tarball filename`);
     }
@@ -171,7 +172,7 @@ async function materializeSourcePackFixture(fixture, target) {
       const detail = pack.error ? `: ${pack.error.message}` : "";
       throw new Error(`npm pack ${sourceDir} failed with ${pack.status}${detail}`);
     }
-    const packed = JSON.parse(pack.stdout)[0];
+    const packed = parseNpmPackResult(pack.stdout);
     if (!packed?.filename) {
       throw new Error(`npm pack ${sourceDir} did not return a tarball filename`);
     }
@@ -302,7 +303,7 @@ async function npmDistTag(name, tag) {
     const detail = spawnFailureDetail(result);
     throw new Error(`${name}: npm dist-tag ${tag} could not be resolved${detail}`);
   }
-  const tags = JSON.parse(result.stdout || "{}");
+  const tags = parseNpmViewResult(result.stdout || "{}") ?? {};
   const version = tags[tag];
   if (typeof version !== "string" || !/^\d+\.\d+\.\d+/.test(version)) {
     throw new Error(`${name}: npm dist-tag ${tag} resolved to invalid version ${JSON.stringify(version)}`);
@@ -330,7 +331,7 @@ async function npmPackageGitHead(name, version) {
   if (result.status !== 0 || !result.stdout.trim()) {
     return "";
   }
-  const gitHead = JSON.parse(result.stdout);
+  const gitHead = parseNpmViewResult(result.stdout);
   return /^[0-9a-f]{40}$/i.test(gitHead ?? "") ? gitHead : "";
 }
 
