@@ -161,6 +161,20 @@ export function validateManifest(manifest) {
         if (typeof rule.reason !== "string" || rule.reason.length === 0) {
           errors.push(`${fixture.id}: execution.blockedFailures[].reason must be set`);
         }
+        if (rule.exitCode !== undefined && (!Number.isInteger(rule.exitCode) || rule.exitCode <= 0)) {
+          errors.push(`${fixture.id}: execution.blockedFailures[].exitCode must be a positive integer when present`);
+        }
+        if (rule.outputPattern !== undefined) {
+          if (typeof rule.outputPattern !== "string" || rule.outputPattern.length === 0) {
+            errors.push(`${fixture.id}: execution.blockedFailures[].outputPattern must be a non-empty string when present`);
+          } else {
+            try {
+              new RegExp(rule.outputPattern, "u");
+            } catch {
+              errors.push(`${fixture.id}: execution.blockedFailures[].outputPattern must be a valid regular expression`);
+            }
+          }
+        }
       }
     }
   }

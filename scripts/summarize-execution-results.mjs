@@ -78,13 +78,18 @@ export async function buildExecutionResultsReport(options = {}) {
   const profileFailureCount = report.artifacts
     .filter((artifact) => artifact.kind === "profile")
     .reduce((total, artifact) => total + (artifact.summary?.failCount ?? 0), 0);
+  const profileBlockedCount = report.artifacts
+    .filter((artifact) => artifact.kind === "profile")
+    .reduce((total, artifact) => total + (artifact.summary?.blockedCount ?? 0), 0);
 
   return {
     ...report,
     summary: {
       ...report.summary,
       failCount: report.summary.failCount + profileFailureCount,
+      blockedCount: report.summary.blockedCount + profileBlockedCount,
       profileFailureCount,
+      profileBlockedCount,
     },
   };
 }

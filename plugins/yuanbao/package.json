@@ -20,7 +20,7 @@
     "ip-address": "10.1.1",
     "linkify-it": "5.0.2",
     "markdown-it": "14.2.0",
-    "protobufjs": "8.6.0",
+    "protobufjs": "8.6.6",
     "qs": "6.15.2",
     "tar": "7.5.22",
     "tough-cookie": "6.0.1",
