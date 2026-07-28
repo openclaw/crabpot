@@ -32158,6 +32158,7 @@
         "plugins/lightclawbot/.crabpot-package/dist/src/history/types.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/history/usage-aggregator.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/inbound.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/media-reference.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/media.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/messaging.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/outbound.js",
@@ -32245,7 +32246,7 @@
       "package": {
         "path": "plugins/lightclawbot/.crabpot-package/package.json",
         "name": "lightclawbot",
-        "version": "1.2.13",
+        "version": "1.2.14",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -32305,7 +32306,7 @@
         {
           "path": "plugins/lightclawbot/.crabpot-package/package.json",
           "name": "lightclawbot",
-          "version": "1.2.13",
+          "version": "1.2.14",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -55106,7 +55107,7 @@
       "evidence": [
         "plugins/lightclawbot/.crabpot-package/package.json",
         "lightclawbot",
-        "version:1.2.13"
+        "version:1.2.14"
       ]
     },
     {
