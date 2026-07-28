@@ -13,11 +13,11 @@
   },
   "overrides": {
     "@twsxtd/hapi-openclaw": {
-      "hono": "4.12.32"
+      "hono": "4.12.32",
+      "openclaw": "2026.7.1-2"
     },
     "@anthropic-ai/sdk": "0.91.1",
     "axios": "1.15.2",
-    "openclaw": "2026.5.26",
     "qs": "6.15.2",
     "tar": "7.5.11",
     "uuid": "11.1.1",
