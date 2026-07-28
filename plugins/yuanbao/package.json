@@ -4,25 +4,28 @@
   "private": true,
   "description": "Crabpot npm fixture shim for Tencent Yuanbao Bot.",
   "dependencies": {
-    "openclaw-plugin-yuanbao": "3.0.1"
+    "openclaw-plugin-yuanbao": "2.17.0"
   },
   "overrides": {
     "@anthropic-ai/sdk": "0.91.1",
     "basic-ftp": "5.3.1",
-    "brace-expansion": "5.0.6",
+    "brace-expansion": "5.0.8",
     "conf": "10.2.0",
     "cos-nodejs-sdk-v5": "2.16.0-beta.8",
-    "fast-uri": "3.1.2",
+    "fast-uri": "3.1.4",
     "fast-xml-builder": "1.1.7",
     "fast-xml-parser": "5.7.2",
     "form-data": "4.0.6",
     "hono": "4.12.25",
     "ip-address": "10.1.1",
+    "linkify-it": "5.0.2",
     "markdown-it": "14.2.0",
     "protobufjs": "8.6.0",
     "qs": "6.15.2",
-    "tar": "7.5.16",
+    "tar": "7.5.22",
     "tough-cookie": "6.0.1",
+    "undici@^7": "7.29.0",
+    "undici@^8": "8.9.0",
     "uuid": "14.0.0",
     "ws": "8.21.0"
   },

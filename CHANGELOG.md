@@ -4,6 +4,7 @@
 
 - Refreshed plugin fixtures and restored real OpenClaw lifecycle profiling against current diagnostics APIs.
 - Split CI into a required pinned OpenClaw Default Track, an advisory artifact-producing HEAD canary, and a 14-day pin-promotion SLA.
+- Refreshed vulnerable fixture locks, repaired npm latest fallback resolution, and added a gate for lock-refreshable critical and high advisories.
 
 ## 0.2.1 - 2026-07-06
 

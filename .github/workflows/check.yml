@@ -12,6 +12,16 @@ permissions:
   contents: read
 
 jobs:
+  fixture-security:
+    name: Fixture lock security
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - run: npm run check:fixture-security
+
   manifest:
     name: Default Track / Static checks (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
@@ -242,17 +252,19 @@ jobs:
   default-track:
     name: Default Track (pinned OpenClaw)
     runs-on: ubuntu-latest
-    needs: [manifest, container-smoke, changed-fixture-plan, changed-isolated-fixture]
+    needs: [fixture-security, manifest, container-smoke, changed-fixture-plan, changed-isolated-fixture]
     if: always()
     steps:
       - name: Require every pinned lane
         env:
+          FIXTURE_SECURITY_RESULT: ${{ needs.fixture-security.result }}
           MANIFEST_RESULT: ${{ needs.manifest.result }}
           CONTAINER_RESULT: ${{ needs.container-smoke.result }}
           PLAN_RESULT: ${{ needs.changed-fixture-plan.result }}
           ISOLATED_RESULT: ${{ needs.changed-isolated-fixture.result }}
         shell: bash
         run: |
+          test "${FIXTURE_SECURITY_RESULT}" = success
           test "${MANIFEST_RESULT}" = success
           test "${CONTAINER_RESULT}" = success
           if [ "${PLAN_RESULT}" != success ] && [ "${PLAN_RESULT}" != skipped ]; then

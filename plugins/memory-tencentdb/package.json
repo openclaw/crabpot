@@ -12,6 +12,7 @@
     "package": "@tencentdb-agent-memory/memory-tencentdb"
   },
   "overrides": {
-    "qs": "6.15.2"
+    "qs": "6.15.2",
+    "undici@^8": "8.9.0"
   }
 }

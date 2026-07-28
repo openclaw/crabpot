@@ -5,7 +5,11 @@ import os from "node:os";
 import { spawnSync } from "node:child_process";
 import path from "node:path";
 import { fixtureSourceRoot, readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
-import { parseNpmPackResult, parseNpmViewResult } from "./npm-pack-result.mjs";
+import {
+  parseNpmPackResult,
+  parseNpmViewResult,
+  resolveNpmViewVersion,
+} from "./npm-pack-result.mjs";
 import { writePackageAvailabilityReport } from "./package-availability.mjs";
 
 const openclawSourceRepo = "https://github.com/openclaw/openclaw.git";
@@ -298,14 +302,14 @@ function packageArtifactSource(fixture) {
 }
 
 async function npmDistTag(name, tag) {
-  const result = npmSpawnSync(["view", name, "dist-tags", "--json"]);
+  const result = npmSpawnSync(["view", name, "dist-tags", "version", "--json"]);
   if (result.status !== 0) {
     const detail = spawnFailureDetail(result);
     throw new Error(`${name}: npm dist-tag ${tag} could not be resolved${detail}`);
   }
-  const tags = parseNpmViewResult(result.stdout || "{}") ?? {};
-  const version = tags[tag];
-  if (typeof version !== "string" || !/^\d+\.\d+\.\d+/.test(version)) {
+  const metadata = parseNpmViewResult(result.stdout || "{}") ?? {};
+  const version = resolveNpmViewVersion(metadata, tag);
+  if (!version) {
     throw new Error(`${name}: npm dist-tag ${tag} resolved to invalid version ${JSON.stringify(version)}`);
   }
   return version;
