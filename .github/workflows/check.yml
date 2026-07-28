@@ -12,6 +12,55 @@ permissions:
   contents: read
 
 jobs:
+  fixture-security:
+    name: Fixture lock security
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+      - name: Resolve fixture security scope
+        id: scope
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          set -euo pipefail
+          if [ "${EVENT_NAME}" = "workflow_dispatch" ]; then
+            echo "audit=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          base="${BASE_SHA}"
+          head="${HEAD_SHA}"
+          if [ -z "${base}" ] || [[ "${base}" =~ ^0+$ ]]; then
+            echo "audit=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git fetch --no-tags --depth=1 origin "${base}" "${head}"
+          audit=false
+          while IFS= read -r changed_path; do
+            if [[ "${changed_path}" =~ ^plugins/[^/]+/package(-lock)?\.json$ ]] ||
+              [ "${changed_path}" = "scripts/check-fixture-security.mjs" ] ||
+              [ "${changed_path}" = "package.json" ]; then
+              audit=true
+            fi
+          done < <(git diff --name-only "${base}" "${head}" --)
+          echo "audit=${audit}" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-node@v6
+        if: ${{ steps.scope.outputs.audit == 'true' }}
+        with:
+          node-version: 22
+      - name: Audit fixture locks
+        if: ${{ steps.scope.outputs.audit == 'true' }}
+        run: npm run check:fixture-security
+      - name: Skip unchanged fixture locks
+        if: ${{ steps.scope.outputs.audit != 'true' }}
+        run: echo "No fixture lock or security-checker changes; scheduled audit owns drift detection."
+
   manifest:
     name: Default Track / Static checks (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
@@ -242,17 +291,19 @@ jobs:
   default-track:
     name: Default Track (pinned OpenClaw)
     runs-on: ubuntu-latest
-    needs: [manifest, container-smoke, changed-fixture-plan, changed-isolated-fixture]
+    needs: [fixture-security, manifest, container-smoke, changed-fixture-plan, changed-isolated-fixture]
     if: always()
     steps:
       - name: Require every pinned lane
         env:
+          FIXTURE_SECURITY_RESULT: ${{ needs.fixture-security.result }}
           MANIFEST_RESULT: ${{ needs.manifest.result }}
           CONTAINER_RESULT: ${{ needs.container-smoke.result }}
           PLAN_RESULT: ${{ needs.changed-fixture-plan.result }}
           ISOLATED_RESULT: ${{ needs.changed-isolated-fixture.result }}
         shell: bash
         run: |
+          test "${FIXTURE_SECURITY_RESULT}" = success
           test "${MANIFEST_RESULT}" = success
           test "${CONTAINER_RESULT}" = success
           if [ "${PLAN_RESULT}" != success ] && [ "${PLAN_RESULT}" != skipped ]; then

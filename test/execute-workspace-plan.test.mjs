@@ -1,9 +1,11 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
+import { mkdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { test } from "node:test";
 import { repoRoot } from "../scripts/manifest-lib.mjs";
 import {
+  classifyWorkspaceStepResult,
   executionEnvForStep,
   parseCommandInvocation,
   parsePortableStep,
@@ -58,13 +60,17 @@ test("workspace executor can narrow to one entrypoint inside a fixture", () => {
             id: "cold-import.extension:wecom:index",
             packagePath: "plugins/wecom/package.json",
             status: "dependency-install-required",
-            steps: [{ kind: "capture", command: "node capture-index.js", cwd: ".", reason: "capture" }],
+            steps: [
+              { kind: "capture", command: "node capture-index.js", cwd: ".", reason: "capture" },
+            ],
           },
           {
             id: "cold-import.extension:wecom:admin",
             packagePath: "plugins/wecom/package.json",
             status: "dependency-install-required",
-            steps: [{ kind: "capture", command: "node capture-admin.js", cwd: ".", reason: "capture" }],
+            steps: [
+              { kind: "capture", command: "node capture-admin.js", cwd: ".", reason: "capture" },
+            ],
           },
         ],
       },
@@ -110,8 +116,13 @@ test("workspace executor skips missing entrypoints unless explicitly selected", 
     ["cold-import.runtimeExtension:memory-lancedb:dist-index"],
   );
   assert.deepEqual(
-    selectWorkspaceSteps(plan, { dryRun: true, fixture: "memory-lancedb" }).map((item) => item.entrypoint),
-    ["cold-import.extension:memory-lancedb:index", "cold-import.runtimeExtension:memory-lancedb:dist-index"],
+    selectWorkspaceSteps(plan, { dryRun: true, fixture: "memory-lancedb" }).map(
+      (item) => item.entrypoint,
+    ),
+    [
+      "cold-import.extension:memory-lancedb:index",
+      "cold-import.runtimeExtension:memory-lancedb:dist-index",
+    ],
   );
   assert.deepEqual(
     selectWorkspaceSteps(plan, {
@@ -202,8 +213,8 @@ test("workspace executor refuses broad or unguarded execution", () => {
   ];
 
   assert.ok(
-    validateExecutionRequest({ args: { dryRun: false, fixture: null }, selected, env: {} }).some((error) =>
-      error.includes("--fixture or --fixture-set"),
+    validateExecutionRequest({ args: { dryRun: false, fixture: null }, selected, env: {} }).some(
+      (error) => error.includes("--fixture or --fixture-set"),
     ),
   );
   assert.ok(
@@ -214,11 +225,14 @@ test("workspace executor refuses broad or unguarded execution", () => {
     }).some((error) => error.includes("only one")),
   );
   assert.ok(
-    validateExecutionRequest({ args: { dryRun: false, fixture: "wecom" }, selected, env: {} }).some((error) =>
-      error.includes("CRABPOT_EXECUTE_ISOLATED"),
+    validateExecutionRequest({ args: { dryRun: false, fixture: "wecom" }, selected, env: {} }).some(
+      (error) => error.includes("CRABPOT_EXECUTE_ISOLATED"),
     ),
   );
-  assert.deepEqual(validateExecutionRequest({ args: { dryRun: true, fixture: "wecom" }, selected, env: {} }), []);
+  assert.deepEqual(
+    validateExecutionRequest({ args: { dryRun: true, fixture: "wecom" }, selected, env: {} }),
+    [],
+  );
   assert.deepEqual(
     validateExecutionRequest({
       args: { dryRun: false, fixture: "wecom" },
@@ -241,7 +255,8 @@ test("workspace executor converts known shell-shaped steps to portable operation
   assert.deepEqual(
     parsePortableStep({
       kind: "prepare",
-      command: "mkdir -p .crabpot/workspaces/wecom && rsync -a --delete plugins/wecom/ .crabpot/workspaces/wecom/",
+      command:
+        "mkdir -p .crabpot/workspaces/wecom && rsync -a --delete plugins/wecom/ .crabpot/workspaces/wecom/",
       cwd: ".",
     }),
     {
@@ -370,7 +385,10 @@ test("workspace executor bounds hung process steps", async () => {
     assert.equal(result.exitCode, 124);
     assert.equal(result.timedOut, true);
     assert.equal(result.timeoutMs, 50);
-    assert.ok(result.wallMs < 1000, `expected timeout before sleep completed, got ${result.wallMs}ms`);
+    assert.ok(
+      result.wallMs < 1000,
+      `expected timeout before sleep completed, got ${result.wallMs}ms`,
+    );
   } finally {
     if (previous === undefined) {
       delete process.env.CRABPOT_WORKSPACE_STEP_TIMEOUT_MS;
@@ -378,6 +396,101 @@ test("workspace executor bounds hung process steps", async () => {
       process.env.CRABPOT_WORKSPACE_STEP_TIMEOUT_MS = previous;
     }
   }
+});
+
+test("workspace executor captures bounded output from failed process steps", async () => {
+  const result = await runStep({
+    kind: "build",
+    command: `${process.execPath} -e "process.stderr.write('known upstream failure'); process.exit(7)"`,
+    cwd: ".",
+  });
+
+  assert.equal(result.exitCode, 7);
+  assert.match(result.failureOutput, /known upstream failure/);
+});
+
+test("workspace executor reports audit output stream errors", async () => {
+  const relativeDir = path.join(".crabpot", `audit-output-error-${process.pid}-${Date.now()}`);
+  const absoluteDir = path.join(repoRoot, relativeDir);
+  await mkdir(path.join(absoluteDir, "audit.json"), { recursive: true });
+  await writeFile(
+    path.join(absoluteDir, "audit"),
+    'for (;;) process.stdout.write("x".repeat(65_536));\n',
+    "utf8",
+  );
+  const previousTimeout = process.env.CRABPOT_WORKSPACE_STEP_TIMEOUT_MS;
+  process.env.CRABPOT_WORKSPACE_STEP_TIMEOUT_MS = "2000";
+  const startedAt = Date.now();
+
+  try {
+    await assert.rejects(
+      runStep({
+        kind: "audit",
+        command: "node audit --json > audit.json || true",
+        cwd: relativeDir,
+      }),
+      /EISDIR|EPERM|is a directory|illegal operation/i,
+    );
+    assert.ok(
+      Date.now() - startedAt < 1000,
+      "capture failure should stop the child before timeout",
+    );
+  } finally {
+    if (previousTimeout === undefined) {
+      delete process.env.CRABPOT_WORKSPACE_STEP_TIMEOUT_MS;
+    } else {
+      process.env.CRABPOT_WORKSPACE_STEP_TIMEOUT_MS = previousTimeout;
+    }
+    await rm(absoluteDir, { force: true, recursive: true });
+  }
+});
+
+test("workspace executor classifies only exact documented upstream failures", () => {
+  const failed = {
+    exitCode: 2,
+    failureOutput: "error TS2688: Cannot find type definition file for 'node'",
+  };
+  const step = { kind: "build" };
+  const rules = [
+    {
+      id: "published-node-types",
+      seam: "build",
+      errorIncludes: "Cannot find type definition file for 'node'",
+      exitCode: 2,
+      outputPattern: "^error TS2688: Cannot find type definition file for 'node'$",
+      reason: "published package omits its Node type dependency",
+    },
+  ];
+
+  assert.deepEqual(classifyWorkspaceStepResult(failed, step, rules), {
+    ...failed,
+    exitCode: 0,
+    rawExitCode: 2,
+    blockedBy: "published-node-types",
+    blockedReason: "published package omits its Node type dependency",
+  });
+  assert.equal(classifyWorkspaceStepResult(failed, { kind: "capture" }, rules), failed);
+  assert.equal(classifyWorkspaceStepResult({ ...failed, timedOut: true }, step, rules).exitCode, 2);
+  assert.equal(classifyWorkspaceStepResult({ ...failed, exitCode: 1 }, step, rules).exitCode, 1);
+  assert.equal(
+    classifyWorkspaceStepResult(
+      { ...failed, failureOutput: "different build failure" },
+      step,
+      rules,
+    ).exitCode,
+    2,
+  );
+  assert.equal(
+    classifyWorkspaceStepResult(
+      {
+        ...failed,
+        failureOutput: `${failed.failureOutput}\nerror TS2304: Cannot find name 'other'`,
+      },
+      step,
+      rules,
+    ).exitCode,
+    2,
+  );
 });
 
 test("workspace executor validates process step timeout configuration", () => {
@@ -404,14 +517,20 @@ test("workspace executor CLI emits a narrow dry-run plan", () => {
   assert.equal(parsed.mode, "dry-run");
   assert.ok(parsed.selected.length > 0);
   assert.ok(parsed.selected.every((item) => item.fixture === "wecom"));
-  assert.ok(parsed.selected.every((item) => item.steps.every((step) => step.command && step.reason)));
+  assert.ok(
+    parsed.selected.every((item) => item.steps.every((step) => step.command && step.reason)),
+  );
 });
 
 test("workspace executor CLI rejects broad dry-runs before materializing work", () => {
-  const result = spawnSync(process.execPath, ["scripts/execute-workspace-plan.mjs", "--dry-run", "--no-openclaw"], {
-    cwd: repoRoot,
-    encoding: "utf8",
-  });
+  const result = spawnSync(
+    process.execPath,
+    ["scripts/execute-workspace-plan.mjs", "--dry-run", "--no-openclaw"],
+    {
+      cwd: repoRoot,
+      encoding: "utf8",
+    },
+  );
 
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /workspace execution requires --fixture/);

@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { parseNpmPackResult, parseNpmViewResult } from "../scripts/npm-pack-result.mjs";
+import {
+  parseNpmPackResult,
+  parseNpmViewResult,
+  resolveNpmViewVersion,
+} from "../scripts/npm-pack-result.mjs";
 
 test("npm pack results accept array and keyed npm JSON shapes", () => {
   const packed = { filename: "fixture-1.0.0.tgz", version: "1.0.0" };
@@ -28,4 +32,15 @@ test("npm view results accept direct and npm 11 array JSON shapes", () => {
   assert.deepEqual(parseNpmViewResult(JSON.stringify(tags)), tags);
   assert.deepEqual(parseNpmViewResult(JSON.stringify([tags])), tags);
   assert.equal(parseNpmViewResult(JSON.stringify(["a".repeat(40)])), "a".repeat(40));
+});
+
+test("npm latest resolution falls back to version when the dist-tag is absent", () => {
+  const metadata = {
+    "dist-tags": { beta: "2026.7.2-beta.5" },
+    version: "2026.7.1-2",
+  };
+
+  assert.equal(resolveNpmViewVersion(metadata, "latest"), "2026.7.1-2");
+  assert.equal(resolveNpmViewVersion(metadata, "beta"), "2026.7.2-beta.5");
+  assert.equal(resolveNpmViewVersion({ version: "2026.7.1-2" }, "beta"), undefined);
 });

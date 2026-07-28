@@ -1159,6 +1159,46 @@
             "seam": "before_message_write",
             "errorIncludes": "reading 'content'",
             "reason": "captured memory write hook requires host message content"
+          },
+          {
+            "id": "memory-tencentdb-published-node-types",
+            "seam": "build",
+            "errorIncludes": "Cannot find type definition file for 'node'",
+            "exitCode": 2,
+            "outputPattern": "^\\s*> @tencentdb-agent-memory/openclaw-plugin@[^\\s]+ build\\s*> tsc\\s*error TS2688: Cannot find type definition file for 'node'\\.\\s*The file is in the program because:\\s*Entry point of type library 'node' specified in compilerOptions\\s*$",
+            "reason": "published TencentDB plugin build metadata omits its required Node type dependency"
+          },
+          {
+            "id": "memory-tencentdb-published-missing-offload-module",
+            "seam": "capture",
+            "errorIncludes": "src/offload-client/index.js",
+            "exitCode": 1,
+            "outputPattern": "^file:\\/\\/\\/[^\\n]+inspector\\.js:\\d+\\n[\\s\\S]*Error: Error \\[ERR_MODULE_NOT_FOUND\\]: Cannot find module '[^'\\n]+/src/offload-client/index\\.js' imported from [^\\n]+/dist/index\\.js[\\s\\S]*failureClass: 'entrypoint-import-error',[\\s\\S]*\\[plugin-inspector:entrypoint-import-error\\]\\n\\s*Error \\[ERR_MODULE_NOT_FOUND\\]: Cannot find module '[^'\\n]+/src/offload-client/index\\.js' imported from [^\\n]+/dist/index\\.js[\\s\\S]*code: 1,[\\s\\S]*killed: false,[\\s\\S]*signal: null,[\\s\\S]*stdout: '',[\\s\\S]*Node\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
+            "reason": "published TencentDB plugin dist imports an offload source module omitted from the package"
+          },
+          {
+            "id": "memory-tencentdb-published-missing-offload-synthetic",
+            "seam": "synthetic-probe",
+            "errorIncludes": "src/offload-client/index.js",
+            "exitCode": 1,
+            "outputPattern": "^file:\\/\\/\\/[^\\n]+inspector\\.js:\\d+\\n[\\s\\S]*Error: Cannot find module '[^'\\n]+/src/offload-client/index\\.js' imported from [^\\n]+/dist/index\\.js[\\s\\S]*failureClass: 'entrypoint-import-error',[\\s\\S]*code: 'ERR_MODULE_NOT_FOUND',[\\s\\S]*url: 'file:\\/\\/\\/[^'\\n]+/src/offload-client/index\\.js'[\\s\\S]*Node\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
+            "reason": "published TencentDB plugin synthetic probe reaches the same omitted offload source module"
+          },
+          {
+            "id": "memory-tencentdb-source-typescript-capture",
+            "seam": "capture",
+            "errorIncludes": "ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX",
+            "exitCode": 1,
+            "outputPattern": "^file:\\/\\/\\/[^\\n]+inspector\\.js:\\d+\\n[\\s\\S]*failureClass: 'entrypoint-import-error',[\\s\\S]*\\[plugin-inspector:entrypoint-import-error\\][\\s\\S]*SyntaxError \\[ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX\\]: TypeScript parameter property is not supported in strip-only mode[\\s\\S]*code: 1,[\\s\\S]*killed: false,[\\s\\S]*signal: null,[\\s\\S]*stdout: '',[\\s\\S]*Node\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
+            "reason": "published TencentDB source entrypoint uses TypeScript parameter properties unsupported by the isolated strip-only loader"
+          },
+          {
+            "id": "memory-tencentdb-source-typescript-synthetic",
+            "seam": "synthetic-probe",
+            "errorIncludes": "ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX",
+            "exitCode": 1,
+            "outputPattern": "^file:\\/\\/\\/[^\\n]+inspector\\.js:\\d+\\n[\\s\\S]*Error: TypeScript parameter property is not supported in strip-only mode[\\s\\S]*failureClass: 'entrypoint-import-error',[\\s\\S]*SyntaxError \\[ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX\\]: TypeScript parameter property is not supported in strip-only mode[\\s\\S]*code: 'ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX'[\\s\\S]*Node\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
+            "reason": "published TencentDB source synthetic probe reaches the same unsupported TypeScript parameter property"
           }
         ]
       },
@@ -1213,6 +1253,26 @@
       "seams": ["gateway-service", "http-routes", "service-lifecycle", "transcript-bridge", "config-schema"],
       "expect": {
         "registrations": ["definePluginEntry"]
+      },
+      "execution": {
+        "blockedFailures": [
+          {
+            "id": "hapi-openclaw-required-config",
+            "seam": "capture",
+            "errorIncludes": "hapiBaseUrl must be a non-empty string",
+            "exitCode": 1,
+            "outputPattern": "^file:\\/\\/\\/[^\\n]+inspector\\.js:\\d+\\n[\\s\\S]*Error: Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string[\\s\\S]*failureClass: 'registration-execution-error',[\\s\\S]*\\[plugin-inspector:registration-execution-error\\]\\n\\s*Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string[\\s\\S]*code: 1,[\\s\\S]*killed: false,[\\s\\S]*signal: null,[\\s\\S]*stdout: '',[\\s\\S]*Node\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
+            "reason": "published HAPI plugin requires operator config before full registration capture"
+          },
+          {
+            "id": "hapi-openclaw-required-config-synthetic",
+            "seam": "synthetic-probe",
+            "errorIncludes": "hapiBaseUrl must be a non-empty string",
+            "exitCode": 1,
+            "outputPattern": "^(?:\\(node:\\d+\\) \\[DEP0205\\][^\\n]+\\n\\(Use `node --trace-deprecation \\.\\.\\.` to show where the warning was created\\)\\n)?file:\\/\\/\\/[^\\n]+inspector\\.js:\\d+\\n[\\s\\S]*Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string[\\s\\S]*failureClass: 'registration-execution-error',[\\s\\S]*\\[cause\\]: Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string[\\s\\S]*Node\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
+            "reason": "published HAPI plugin synthetic probe requires the same operator configuration"
+          }
+        ]
       },
       "why": "NPM-pinned HAPI adapter fixture covering a native /hapi gateway route surface, plugin-auth HTTP handlers, and transcript bridge/capture services backed by OpenClaw runtime events; this is a plugin-owned gateway surface rather than another channel or sidecar."
     },

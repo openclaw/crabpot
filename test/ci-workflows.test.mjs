@@ -141,6 +141,15 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
 test("default check workflow runs OS and container static lanes", async () => {
   const workflow = await readWorkflow(".github/workflows/check.yml");
 
+  assert.match(workflow, /fixture-security:/);
+  assert.match(workflow, /id: scope/);
+  assert.match(workflow, /steps\.scope\.outputs\.audit == 'true'/);
+  assert.match(workflow, /while IFS= read -r changed_path/);
+  assert.match(workflow, /plugins\/\[\^\/\]\+\/package\(-lock\)\?\\\.json\$/);
+  assert.doesNotMatch(workflow, /git diff[^\n]*\|[^\n]*grep/);
+  assert.match(workflow, /npm run check:fixture-security/);
+  assert.match(workflow, /FIXTURE_SECURITY_RESULT: \$\{\{ needs\.fixture-security\.result \}\}/);
+  assert.match(workflow, /test "\$\{FIXTURE_SECURITY_RESULT\}" = success/);
   assert.match(workflow, /name: Default Track \/ Static checks \(\$\{\{ matrix\.os \}\}\)/);
   assert.match(workflow, /os: \[ubuntu-latest, macos-15, windows-latest\]/);
   assert.match(workflow, /container-smoke:/);
@@ -153,7 +162,17 @@ test("default check workflow runs OS and container static lanes", async () => {
   assert.match(workflow, /--fixture-set openclaw-beta --plugin-track source-pack/);
   assert.match(workflow, /crabpot-default-track-reports-\$\{\{ matrix\.os \}\}/);
   assert.match(workflow, /name: Default Track \(pinned OpenClaw\)/);
-  assert.match(workflow, /needs: \[manifest, container-smoke, changed-fixture-plan, changed-isolated-fixture\]/);
+  assert.match(workflow, /needs: \[fixture-security, manifest, container-smoke, changed-fixture-plan, changed-isolated-fixture\]/);
+});
+
+test("fixture security runs on relevant changes and a daily schedule", async () => {
+  const workflow = await readWorkflow(".github/workflows/fixture-security.yml");
+
+  assert.match(workflow, /schedule:/);
+  assert.match(workflow, /cron: "17 5 \* \* \*"/);
+  assert.match(workflow, /workflow_dispatch:/);
+  assert.match(workflow, /name: Audit committed fixture locks/);
+  assert.match(workflow, /npm run check:fixture-security/);
 });
 
 test("HEAD canary is advisory, runs the Default Track suite on main, and uploads reports", async () => {

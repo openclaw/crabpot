@@ -14,3 +14,18 @@ export function parseNpmViewResult(output) {
   const parsed = JSON.parse(output);
   return Array.isArray(parsed) ? parsed[0] : parsed;
 }
+
+export function resolveNpmViewVersion(metadata, tag) {
+  const taggedVersion = metadata?.["dist-tags"]?.[tag];
+  if (isVersion(taggedVersion)) {
+    return taggedVersion;
+  }
+  if (tag === "latest" && isVersion(metadata?.version)) {
+    return metadata.version;
+  }
+  return undefined;
+}
+
+function isVersion(value) {
+  return typeof value === "string" && /^\d+\.\d+\.\d+/.test(value);
+}

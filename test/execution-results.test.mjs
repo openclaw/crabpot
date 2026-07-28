@@ -64,6 +64,7 @@ test("execution results summarize capture and synthetic artifacts", async () => 
       summary: {
         stepCount: 2,
         failCount: 0,
+        blockedCount: 0,
         totalWallMs: 123,
         maxPeakRssMb: 42.5,
         maxCpuMsEstimate: 80,
@@ -130,6 +131,7 @@ test("execution results count failed workspace profile steps as failures", async
       summary: {
         stepCount: 1,
         failCount: 1,
+        blockedCount: 0,
         totalWallMs: 25,
         maxPeakRssMb: 10,
         maxCpuMsEstimate: 5,
@@ -151,7 +153,47 @@ test("execution results count failed workspace profile steps as failures", async
   const report = await buildExecutionResultsReport({ resultsDir: dir });
 
   assert.equal(report.summary.profileFailureCount, 1);
+  assert.equal(report.summary.profileBlockedCount, 0);
   assert.equal(report.summary.failCount, 1);
+});
+
+test("execution results count blocked workspace profile steps as blocked", async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-results-"));
+  const fixtureDir = path.join(dir, "upstream-blocked");
+  await mkdir(fixtureDir);
+  await writeFile(
+    path.join(fixtureDir, "execution-profile.json"),
+    JSON.stringify({
+      summary: {
+        stepCount: 1,
+        failCount: 0,
+        blockedCount: 1,
+        totalWallMs: 25,
+        maxPeakRssMb: 10,
+        maxCpuMsEstimate: 5,
+      },
+      steps: [
+        {
+          kind: "build",
+          exitCode: 0,
+          rawExitCode: 2,
+          blockedBy: "published-node-types",
+          blockedReason: "published package omits its Node type dependency",
+          wallMs: 25,
+          peakRssMb: 10,
+          cpuMsEstimate: 5,
+          command: "npm run build",
+        },
+      ],
+    }),
+    "utf8",
+  );
+
+  const report = await buildExecutionResultsReport({ resultsDir: dir });
+
+  assert.equal(report.summary.profileBlockedCount, 1);
+  assert.equal(report.summary.blockedCount, 1);
+  assert.equal(report.summary.failCount, 0);
 });
 
 test("execution results handle empty result directories", async () => {
