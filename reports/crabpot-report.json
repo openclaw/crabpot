@@ -616,18 +616,18 @@
     "fixtureCount": 60,
     "highPriorityFixtures": 22,
     "breakageCount": 0,
-    "warningCount": 141,
+    "warningCount": 140,
     "suggestionCount": 259,
     "decisionCount": 424,
-    "logCount": 371,
-    "issueCount": 400,
-    "openIssueCount": 400,
-    "p0IssueCount": 1,
+    "logCount": 372,
+    "issueCount": 399,
+    "openIssueCount": 399,
+    "p0IssueCount": 0,
     "p1IssueCount": 128,
-    "openP0IssueCount": 1,
+    "openP0IssueCount": 0,
     "openP1IssueCount": 128,
-    "liveIssueCount": 1,
-    "liveP0IssueCount": 1,
+    "liveIssueCount": 0,
+    "liveP0IssueCount": 0,
     "compatGapCount": 112,
     "deprecationWarningCount": 48,
     "inspectorGapCount": 157,
@@ -4967,7 +4967,6 @@
         "registerImageGenerationProvider",
         "registerInteractiveHandler",
         "registerMediaUnderstandingProvider",
-        "registerMeetingNotesSourceProvider",
         "registerMemoryCapability",
         "registerMemoryCorpusSupplement",
         "registerMemoryEmbeddingProvider",
@@ -5125,8 +5124,8 @@
         {
           "name": "registerDetachedTaskRuntime",
           "file": "plugins/kitchen-sink/scripts/sync-surface.mjs",
-          "line": 162,
-          "ref": "plugins/kitchen-sink/scripts/sync-surface.mjs:162"
+          "line": 155,
+          "ref": "plugins/kitchen-sink/scripts/sync-surface.mjs:155"
         },
         {
           "name": "registerDetachedTaskRuntime",
@@ -5231,12 +5230,6 @@
           "ref": "plugins/kitchen-sink/src/kitchen-runtime.js:70"
         },
         {
-          "name": "registerMeetingNotesSourceProvider",
-          "file": "plugins/kitchen-sink/scripts/sync-surface.mjs",
-          "line": 165,
-          "ref": "plugins/kitchen-sink/scripts/sync-surface.mjs:165"
-        },
-        {
           "name": "registerMemoryCapability",
           "file": "plugins/kitchen-sink/src/generated-registrars.js",
           "line": 27,
@@ -5323,8 +5316,8 @@
         {
           "name": "registerNodeCliFeature",
           "file": "plugins/kitchen-sink/scripts/sync-surface.mjs",
-          "line": 171,
-          "ref": "plugins/kitchen-sink/scripts/sync-surface.mjs:171"
+          "line": 161,
+          "ref": "plugins/kitchen-sink/scripts/sync-surface.mjs:161"
         },
         {
           "name": "registerNodeCliFeature",
@@ -5479,8 +5472,8 @@
         {
           "name": "registerTranscriptSourceProvider",
           "file": "plugins/kitchen-sink/scripts/sync-surface.mjs",
-          "line": 168,
-          "ref": "plugins/kitchen-sink/scripts/sync-surface.mjs:168"
+          "line": 158,
+          "ref": "plugins/kitchen-sink/scripts/sync-surface.mjs:158"
         },
         {
           "name": "registerTranscriptSourceProvider",
@@ -5596,7 +5589,7 @@
           "path": "plugins/kitchen-sink/openclaw.plugin.json",
           "id": "openclaw-kitchen-sink-fixture",
           "name": "OpenClaw Kitchen Sink",
-          "version": "0.2.10",
+          "version": "0.2.12",
           "keys": [
             "activation",
             "channelConfigs",
@@ -5670,7 +5663,7 @@
       "package": {
         "path": "plugins/kitchen-sink/package.json",
         "name": "@openclaw/kitchen-sink",
-        "version": "0.2.10",
+        "version": "0.2.12",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -5741,7 +5734,7 @@
         {
           "path": "plugins/kitchen-sink/package.json",
           "name": "@openclaw/kitchen-sink",
-          "version": "0.2.10",
+          "version": "0.2.12",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -35416,15 +35409,6 @@
     },
     {
       "fixture": "kitchen-sink",
-      "code": "unknown-registration-name",
-      "level": "warning",
-      "message": "fixture calls api.register* methods that are not present in the target OpenClaw plugin API builder",
-      "evidence": [
-        "registerMeetingNotesSourceProvider @ plugins/kitchen-sink/scripts/sync-surface.mjs:165"
-      ]
-    },
-    {
-      "fixture": "kitchen-sink",
       "code": "sdk-export-missing",
       "level": "warning",
       "message": "fixture imports plugin SDK aliases that are not exported by the target OpenClaw package",
@@ -36981,7 +36965,7 @@
         "registerConfigMigration @ plugins/kitchen-sink/src/generated-registrars.js:14",
         "registerContextEngine @ plugins/kitchen-sink/src/generated-registrars.js:15",
         "registerContextEngine @ plugins/kitchen-sink/src/kitchen-runtime.js:104",
-        "registerDetachedTaskRuntime @ plugins/kitchen-sink/scripts/sync-surface.mjs:162",
+        "registerDetachedTaskRuntime @ plugins/kitchen-sink/scripts/sync-surface.mjs:155",
         "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/generated-registrars.js:17",
         "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/kitchen-runtime.js:92",
         "registerGatewayDiscoveryService @ plugins/kitchen-sink/src/generated-registrars.js:19",
@@ -36993,7 +36977,6 @@
         "registerHttpRoute @ plugins/kitchen-sink/src/kitchen-runtime.js:114",
         "registerInteractiveHandler @ plugins/kitchen-sink/src/generated-registrars.js:25",
         "registerInteractiveHandler @ plugins/kitchen-sink/src/kitchen-runtime.js:56",
-        "registerMeetingNotesSourceProvider @ plugins/kitchen-sink/scripts/sync-surface.mjs:165",
         "registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:27",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:28",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:98",
@@ -37002,7 +36985,7 @@
         "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:32",
         "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:120",
         "registerMemoryRuntime @ plugins/kitchen-sink/src/generated-registrars.js:33",
-        "registerNodeCliFeature @ plugins/kitchen-sink/scripts/sync-surface.mjs:171",
+        "registerNodeCliFeature @ plugins/kitchen-sink/scripts/sync-surface.mjs:161",
         "registerNodeCliFeature @ plugins/kitchen-sink/src/generated-registrars.js:37",
         "registerNodeHostCommand @ plugins/kitchen-sink/src/generated-registrars.js:38",
         "registerNodeInvokePolicy @ plugins/kitchen-sink/src/generated-registrars.js:39",
@@ -39279,25 +39262,6 @@
     }
   ],
   "issues": [
-    {
-      "id": "CRABPOT-62B675E9",
-      "fixture": "kitchen-sink",
-      "severity": "P0",
-      "owner": "core",
-      "code": "unknown-registration-name",
-      "decision": "core-compat-adapter",
-      "status": "blocking",
-      "issueClass": "live-issue",
-      "live": true,
-      "deprecated": false,
-      "compatStatus": "none",
-      "title": "kitchen-sink: fixture calls a registrar missing from target OpenClaw",
-      "evidence": [
-        "registerMeetingNotesSourceProvider @ plugins/kitchen-sink/scripts/sync-surface.mjs:165"
-      ],
-      "compatRecord": null,
-      "runtimeCoverage": null
-    },
     {
       "id": "CRABPOT-DC39E00B",
       "fixture": "a2a-gateway",
@@ -44340,7 +44304,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-AC477AE9",
+      "id": "CRABPOT-A5536A0C",
       "fixture": "kitchen-sink",
       "severity": "P2",
       "owner": "inspector",
@@ -44364,7 +44328,7 @@
         "registerConfigMigration @ plugins/kitchen-sink/src/generated-registrars.js:14",
         "registerContextEngine @ plugins/kitchen-sink/src/generated-registrars.js:15",
         "registerContextEngine @ plugins/kitchen-sink/src/kitchen-runtime.js:104",
-        "registerDetachedTaskRuntime @ plugins/kitchen-sink/scripts/sync-surface.mjs:162",
+        "registerDetachedTaskRuntime @ plugins/kitchen-sink/scripts/sync-surface.mjs:155",
         "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/generated-registrars.js:17",
         "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/kitchen-runtime.js:92",
         "registerGatewayDiscoveryService @ plugins/kitchen-sink/src/generated-registrars.js:19",
@@ -44376,7 +44340,6 @@
         "registerHttpRoute @ plugins/kitchen-sink/src/kitchen-runtime.js:114",
         "registerInteractiveHandler @ plugins/kitchen-sink/src/generated-registrars.js:25",
         "registerInteractiveHandler @ plugins/kitchen-sink/src/kitchen-runtime.js:56",
-        "registerMeetingNotesSourceProvider @ plugins/kitchen-sink/scripts/sync-surface.mjs:165",
         "registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:27",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:28",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:98",
@@ -44385,7 +44348,7 @@
         "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:32",
         "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:120",
         "registerMemoryRuntime @ plugins/kitchen-sink/src/generated-registrars.js:33",
-        "registerNodeCliFeature @ plugins/kitchen-sink/scripts/sync-surface.mjs:171",
+        "registerNodeCliFeature @ plugins/kitchen-sink/scripts/sync-surface.mjs:161",
         "registerNodeCliFeature @ plugins/kitchen-sink/src/generated-registrars.js:37",
         "registerNodeHostCommand @ plugins/kitchen-sink/src/generated-registrars.js:38",
         "registerNodeInvokePolicy @ plugins/kitchen-sink/src/generated-registrars.js:39",
@@ -48070,7 +48033,7 @@
         "registerConfigMigration @ plugins/kitchen-sink/src/generated-registrars.js:14",
         "registerContextEngine @ plugins/kitchen-sink/src/generated-registrars.js:15",
         "registerContextEngine @ plugins/kitchen-sink/src/kitchen-runtime.js:104",
-        "registerDetachedTaskRuntime @ plugins/kitchen-sink/scripts/sync-surface.mjs:162",
+        "registerDetachedTaskRuntime @ plugins/kitchen-sink/scripts/sync-surface.mjs:155",
         "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/generated-registrars.js:17",
         "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/kitchen-runtime.js:92",
         "registerGatewayDiscoveryService @ plugins/kitchen-sink/src/generated-registrars.js:19",
@@ -48082,7 +48045,6 @@
         "registerHttpRoute @ plugins/kitchen-sink/src/kitchen-runtime.js:114",
         "registerInteractiveHandler @ plugins/kitchen-sink/src/generated-registrars.js:25",
         "registerInteractiveHandler @ plugins/kitchen-sink/src/kitchen-runtime.js:56",
-        "registerMeetingNotesSourceProvider @ plugins/kitchen-sink/scripts/sync-surface.mjs:165",
         "registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:27",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:28",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:98",
@@ -48091,7 +48053,7 @@
         "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:32",
         "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:120",
         "registerMemoryRuntime @ plugins/kitchen-sink/src/generated-registrars.js:33",
-        "registerNodeCliFeature @ plugins/kitchen-sink/scripts/sync-surface.mjs:171",
+        "registerNodeCliFeature @ plugins/kitchen-sink/scripts/sync-surface.mjs:161",
         "registerNodeCliFeature @ plugins/kitchen-sink/src/generated-registrars.js:37",
         "registerNodeHostCommand @ plugins/kitchen-sink/src/generated-registrars.js:38",
         "registerNodeInvokePolicy @ plugins/kitchen-sink/src/generated-registrars.js:39",
@@ -51911,7 +51873,7 @@
       "fixture": "kitchen-sink",
       "code": "seam-inventory",
       "level": "log",
-      "message": "observed 39 hooks, 56 registrations, and 22 manifest contracts",
+      "message": "observed 39 hooks, 55 registrations, and 22 manifest contracts",
       "evidence": [
         "hook:after_compaction",
         "hook:after_tool_call",
@@ -51975,7 +51937,6 @@
         "registration:registerImageGenerationProvider",
         "registration:registerInteractiveHandler",
         "registration:registerMediaUnderstandingProvider",
-        "registration:registerMeetingNotesSourceProvider",
         "registration:registerMemoryCapability",
         "registration:registerMemoryCorpusSupplement",
         "registration:registerMemoryEmbeddingProvider",
@@ -52081,6 +52042,69 @@
     },
     {
       "fixture": "kitchen-sink",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerAgentEventSubscription",
+        "registerAgentHarness",
+        "registerAgentToolResultMiddleware",
+        "registerAutoEnableProbe",
+        "registerChannel",
+        "registerCli",
+        "registerCliBackend",
+        "registerCodexAppServerExtensionFactory",
+        "registerCommand",
+        "registerCompactionProvider",
+        "registerConfigMigration",
+        "registerContextEngine",
+        "registerControlUiDescriptor",
+        "registerDetachedTaskRuntime",
+        "registerEmbeddingProvider",
+        "registerGatewayDiscoveryService",
+        "registerGatewayMethod",
+        "registerHook",
+        "registerHostedMediaResolver",
+        "registerHttpRoute",
+        "registerImageGenerationProvider",
+        "registerInteractiveHandler",
+        "registerMediaUnderstandingProvider",
+        "registerMemoryCapability",
+        "registerMemoryCorpusSupplement",
+        "registerMemoryEmbeddingProvider",
+        "registerMemoryFlushPlan",
+        "registerMemoryPromptSection",
+        "registerMemoryPromptSupplement",
+        "registerMemoryRuntime",
+        "registerMigrationProvider",
+        "registerModelCatalogProvider",
+        "registerMusicGenerationProvider",
+        "registerNodeCliFeature",
+        "registerNodeHostCommand",
+        "registerNodeInvokePolicy",
+        "registerProvider",
+        "registerRealtimeTranscriptionProvider",
+        "registerRealtimeVoiceProvider",
+        "registerReload",
+        "registerRuntimeLifecycle",
+        "registerSecurityAuditCollector",
+        "registerService",
+        "registerSessionAction",
+        "registerSessionExtension",
+        "registerSessionSchedulerJob",
+        "registerSpeechProvider",
+        "registerTextTransforms",
+        "registerTool",
+        "registerToolMetadata",
+        "registerTranscriptSourceProvider",
+        "registerTrustedToolPolicy",
+        "registerVideoGenerationProvider",
+        "registerWebFetchProvider",
+        "registerWebSearchProvider"
+      ]
+    },
+    {
+      "fixture": "kitchen-sink",
       "code": "manifest-fields-checked",
       "level": "log",
       "message": "plugin manifest fields were compared with target OpenClaw manifest types",
@@ -52096,7 +52120,7 @@
       "evidence": [
         "plugins/kitchen-sink/package.json",
         "@openclaw/kitchen-sink",
-        "version:0.2.10"
+        "version:0.2.12"
       ]
     },
     {
@@ -56327,7 +56351,7 @@
       "decision": "inspector-follow-up",
       "seam": "registration-capture",
       "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
-      "evidence": "registerAutoEnableProbe, registerChannel, registerCommand, registerCompactionProvider, registerConfigMigration, registerContextEngine, registerDetachedTaskRuntime, registerGatewayDiscoveryService, registerGatewayMethod, registerHook, registerHostedMediaResolver, registerHttpRoute, registerInteractiveHandler, registerMeetingNotesSourceProvider, registerMemoryCapability, registerMemoryCorpusSupplement, registerMemoryFlushPlan, registerMemoryPromptSection, registerMemoryPromptSupplement, registerMemoryRuntime, registerNodeCliFeature, registerNodeHostCommand, registerNodeInvokePolicy, registerReload, registerSecurityAuditCollector, registerService"
+      "evidence": "registerAutoEnableProbe, registerChannel, registerCommand, registerCompactionProvider, registerConfigMigration, registerContextEngine, registerDetachedTaskRuntime, registerGatewayDiscoveryService, registerGatewayMethod, registerHook, registerHostedMediaResolver, registerHttpRoute, registerInteractiveHandler, registerMemoryCapability, registerMemoryCorpusSupplement, registerMemoryFlushPlan, registerMemoryPromptSection, registerMemoryPromptSupplement, registerMemoryRuntime, registerNodeCliFeature, registerNodeHostCommand, registerNodeInvokePolicy, registerReload, registerSecurityAuditCollector, registerService"
     },
     {
       "fixture": "kitchen-sink",

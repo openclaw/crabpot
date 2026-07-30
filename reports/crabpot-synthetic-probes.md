@@ -7,14 +7,14 @@ Generated: deterministic
 | Metric              | Value |
 | ------------------- | ----- |
 | Fixtures            | 60    |
-| Probes              | 517   |
+| Probes              | 516   |
 | Hook probes         | 130   |
-| Registration probes | 387   |
-| Ready               | 508   |
+| Registration probes | 386   |
+| Ready               | 507   |
 | Blocked             | 9     |
 | Direct execution    | 203   |
 | Opt-in execution    | 31    |
-| Metadata-only       | 153   |
+| Metadata-only       | 152   |
 
 ## Probe Inventory
 
@@ -225,7 +225,7 @@ Generated: deterministic
 | kitchen-sink           | registration | registerContextEngine                  | ready   | metadata-only    | plugins/kitchen-sink/src/generated-registrars.js:15                              | context engine id is stable; factory metadata is captured                                       |
 | kitchen-sink           | registration | registerContextEngine                  | ready   | metadata-only    | plugins/kitchen-sink/src/kitchen-runtime.js:104                                  | context engine id is stable; factory metadata is captured                                       |
 | kitchen-sink           | registration | registerControlUiDescriptor            | ready   | metadata-only    | plugins/kitchen-sink/src/generated-registrars.js:16                              | registration arguments are captured                                                             |
-| kitchen-sink           | registration | registerDetachedTaskRuntime            | ready   | metadata-only    | plugins/kitchen-sink/scripts/sync-surface.mjs:162                                | registration arguments are captured                                                             |
+| kitchen-sink           | registration | registerDetachedTaskRuntime            | ready   | metadata-only    | plugins/kitchen-sink/scripts/sync-surface.mjs:155                                | registration arguments are captured                                                             |
 | kitchen-sink           | registration | registerDetachedTaskRuntime            | ready   | metadata-only    | plugins/kitchen-sink/src/generated-registrars.js:17                              | registration arguments are captured                                                             |
 | kitchen-sink           | registration | registerDetachedTaskRuntime            | ready   | metadata-only    | plugins/kitchen-sink/src/kitchen-runtime.js:92                                   | registration arguments are captured                                                             |
 | kitchen-sink           | registration | registerEmbeddingProvider              | ready   | metadata-only    | plugins/kitchen-sink/src/generated-registrars.js:18                              | registration arguments are captured                                                             |
@@ -243,7 +243,6 @@ Generated: deterministic
 | kitchen-sink           | registration | registerInteractiveHandler             | ready   | direct           | plugins/kitchen-sink/src/kitchen-runtime.js:56                                   | handler id is stable; interaction payload and response shape are captured                       |
 | kitchen-sink           | registration | registerMediaUnderstandingProvider     | ready   | metadata-only    | plugins/kitchen-sink/src/generated-registrars.js:26                              | registration arguments are captured                                                             |
 | kitchen-sink           | registration | registerMediaUnderstandingProvider     | ready   | metadata-only    | plugins/kitchen-sink/src/kitchen-runtime.js:70                                   | registration arguments are captured                                                             |
-| kitchen-sink           | registration | registerMeetingNotesSourceProvider     | ready   | metadata-only    | plugins/kitchen-sink/scripts/sync-surface.mjs:165                                | registration arguments are captured                                                             |
 | kitchen-sink           | registration | registerMemoryCapability               | ready   | metadata-only    | plugins/kitchen-sink/src/generated-registrars.js:27                              | registration arguments are captured                                                             |
 | kitchen-sink           | registration | registerMemoryCorpusSupplement         | ready   | metadata-only    | plugins/kitchen-sink/src/generated-registrars.js:28                              | registration arguments are captured                                                             |
 | kitchen-sink           | registration | registerMemoryCorpusSupplement         | ready   | metadata-only    | plugins/kitchen-sink/src/kitchen-runtime.js:98                                   | registration arguments are captured                                                             |
@@ -258,7 +257,7 @@ Generated: deterministic
 | kitchen-sink           | registration | registerModelCatalogProvider           | ready   | metadata-only    | plugins/kitchen-sink/src/generated-registrars.js:35                              | registration arguments are captured                                                             |
 | kitchen-sink           | registration | registerMusicGenerationProvider        | ready   | metadata-only    | plugins/kitchen-sink/src/generated-registrars.js:36                              | registration arguments are captured                                                             |
 | kitchen-sink           | registration | registerMusicGenerationProvider        | ready   | metadata-only    | plugins/kitchen-sink/src/kitchen-runtime.js:83                                   | registration arguments are captured                                                             |
-| kitchen-sink           | registration | registerNodeCliFeature                 | ready   | metadata-only    | plugins/kitchen-sink/scripts/sync-surface.mjs:171                                | registration arguments are captured                                                             |
+| kitchen-sink           | registration | registerNodeCliFeature                 | ready   | metadata-only    | plugins/kitchen-sink/scripts/sync-surface.mjs:161                                | registration arguments are captured                                                             |
 | kitchen-sink           | registration | registerNodeCliFeature                 | ready   | metadata-only    | plugins/kitchen-sink/src/generated-registrars.js:37                              | registration arguments are captured                                                             |
 | kitchen-sink           | registration | registerNodeHostCommand                | ready   | metadata-only    | plugins/kitchen-sink/src/generated-registrars.js:38                              | registration arguments are captured                                                             |
 | kitchen-sink           | registration | registerNodeInvokePolicy               | ready   | metadata-only    | plugins/kitchen-sink/src/generated-registrars.js:39                              | registration arguments are captured                                                             |
@@ -284,7 +283,7 @@ Generated: deterministic
 | kitchen-sink           | registration | registerTool                           | ready   | direct           | plugins/kitchen-sink/src/kitchen-runtime.js:60                                   | tool name is stable; input schema is captured; result shape metadata is captured                |
 | kitchen-sink           | registration | registerTool                           | ready   | direct           | plugins/kitchen-sink/src/kitchen-runtime.js:61                                   | tool name is stable; input schema is captured; result shape metadata is captured                |
 | kitchen-sink           | registration | registerToolMetadata                   | ready   | metadata-only    | plugins/kitchen-sink/src/generated-registrars.js:53                              | registration arguments are captured                                                             |
-| kitchen-sink           | registration | registerTranscriptSourceProvider       | ready   | metadata-only    | plugins/kitchen-sink/scripts/sync-surface.mjs:168                                | registration arguments are captured                                                             |
+| kitchen-sink           | registration | registerTranscriptSourceProvider       | ready   | metadata-only    | plugins/kitchen-sink/scripts/sync-surface.mjs:158                                | registration arguments are captured                                                             |
 | kitchen-sink           | registration | registerTranscriptSourceProvider       | ready   | metadata-only    | plugins/kitchen-sink/src/generated-registrars.js:54                              | registration arguments are captured                                                             |
 | kitchen-sink           | registration | registerTrustedToolPolicy              | ready   | metadata-only    | plugins/kitchen-sink/src/generated-registrars.js:55                              | registration arguments are captured                                                             |
 | kitchen-sink           | registration | registerVideoGenerationProvider        | ready   | metadata-only    | plugins/kitchen-sink/src/generated-registrars.js:56                              | registration arguments are captured                                                             |

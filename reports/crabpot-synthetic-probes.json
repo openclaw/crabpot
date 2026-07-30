@@ -2,14 +2,14 @@
   "generatedAt": "deterministic",
   "summary": {
     "fixtureCount": 60,
-    "probeCount": 517,
+    "probeCount": 516,
     "hookProbeCount": 130,
-    "registrationProbeCount": 387,
-    "readyCount": 508,
+    "registrationProbeCount": 386,
+    "readyCount": 507,
     "blockedCount": 9,
     "directExecutionCount": 203,
     "optInExecutionCount": 31,
-    "metadataOnlyCount": 153
+    "metadataOnlyCount": 152
   },
   "probes": [
     {
@@ -5441,7 +5441,7 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:16"
     },
     {
-      "id": "registration.registerDetachedTaskRuntime:kitchen-sink:plugins-kitchen-sink-scripts-sync-surface-mjs-162",
+      "id": "registration.registerDetachedTaskRuntime:kitchen-sink:plugins-kitchen-sink-scripts-sync-surface-mjs-155",
       "fixture": "kitchen-sink",
       "kind": "registration",
       "seam": "registerDetachedTaskRuntime",
@@ -5458,7 +5458,7 @@
         "callableProperties": [],
         "reason": "detached task runtimes are captured as registration metadata before async task execution"
       },
-      "source": "plugins/kitchen-sink/scripts/sync-surface.mjs:162"
+      "source": "plugins/kitchen-sink/scripts/sync-surface.mjs:155"
     },
     {
       "id": "registration.registerDetachedTaskRuntime:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-17",
@@ -5857,26 +5857,6 @@
       "source": "plugins/kitchen-sink/src/kitchen-runtime.js:70"
     },
     {
-      "id": "registration.registerMeetingNotesSourceProvider:kitchen-sink:plugins-kitchen-sink-scripts-sync-surface-mjs-165",
-      "fixture": "kitchen-sink",
-      "kind": "registration",
-      "seam": "registerMeetingNotesSourceProvider",
-      "status": "ready",
-      "blocker": null,
-      "assertions": [
-        "registration arguments are captured"
-      ],
-      "syntheticArguments": [
-        {}
-      ],
-      "execution": {
-        "mode": "metadata-only",
-        "callableProperties": [],
-        "reason": "meeting notes source providers are captured as registration metadata before source discovery"
-      },
-      "source": "plugins/kitchen-sink/scripts/sync-surface.mjs:165"
-    },
-    {
       "id": "registration.registerMemoryCapability:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-27",
       "fixture": "kitchen-sink",
       "kind": "registration",
@@ -6165,7 +6145,7 @@
       "source": "plugins/kitchen-sink/src/kitchen-runtime.js:83"
     },
     {
-      "id": "registration.registerNodeCliFeature:kitchen-sink:plugins-kitchen-sink-scripts-sync-surface-mjs-171",
+      "id": "registration.registerNodeCliFeature:kitchen-sink:plugins-kitchen-sink-scripts-sync-surface-mjs-161",
       "fixture": "kitchen-sink",
       "kind": "registration",
       "seam": "registerNodeCliFeature",
@@ -6182,7 +6162,7 @@
         "callableProperties": [],
         "reason": "node CLI features are captured as registration metadata before host CLI integration"
       },
-      "source": "plugins/kitchen-sink/scripts/sync-surface.mjs:171"
+      "source": "plugins/kitchen-sink/scripts/sync-surface.mjs:161"
     },
     {
       "id": "registration.registerNodeCliFeature:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-37",
@@ -6767,7 +6747,7 @@
       "source": "plugins/kitchen-sink/src/generated-registrars.js:53"
     },
     {
-      "id": "registration.registerTranscriptSourceProvider:kitchen-sink:plugins-kitchen-sink-scripts-sync-surface-mjs-168",
+      "id": "registration.registerTranscriptSourceProvider:kitchen-sink:plugins-kitchen-sink-scripts-sync-surface-mjs-158",
       "fixture": "kitchen-sink",
       "kind": "registration",
       "seam": "registerTranscriptSourceProvider",
@@ -6784,7 +6764,7 @@
         "callableProperties": [],
         "reason": "transcript source providers are captured as registration metadata before transcript provider runtime execution"
       },
-      "source": "plugins/kitchen-sink/scripts/sync-surface.mjs:168"
+      "source": "plugins/kitchen-sink/scripts/sync-surface.mjs:158"
     },
     {
       "id": "registration.registerTranscriptSourceProvider:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-54",

@@ -310,7 +310,6 @@
           "registerImageGenerationProvider",
           "registerInteractiveHandler",
           "registerMediaUnderstandingProvider",
-          "registerMeetingNotesSourceProvider",
           "registerMemoryCapability",
           "registerMemoryCorpusSupplement",
           "registerMemoryEmbeddingProvider",

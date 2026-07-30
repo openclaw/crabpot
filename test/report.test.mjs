@@ -12,6 +12,8 @@ test("compatibility report classifies current fixture seams", async () => {
   const report = await buildReport(testReportOptions());
   const hasTargetOpenClaw = report.targetOpenClaw.status === "ok";
   const hasSdkExportGap = report.issues.some((issue) => issue.code === "sdk-export-missing");
+  const agentchatChannelEnvVarsAreSupported =
+    report.targetOpenClaw.manifestFields?.includes("channelEnvVars") === true;
   const p0Issues = report.issues.filter((issue) => issue.severity === "P0");
   const liveIssues = report.issues.filter((issue) => issue.live);
   const liveP0Issues = liveIssues.filter((issue) => issue.severity === "P0");
@@ -87,13 +89,21 @@ test("compatibility report classifies current fixture seams", async () => {
     assertHasIssueClass(report.issues, "live-issue", "unknown-registration-name");
   }
   if (hasTargetOpenClaw) {
-    assertMissingFixtureFinding(report.warnings, "agentchat", "manifest-unknown-fields");
+    if (agentchatChannelEnvVarsAreSupported) {
+      assertMissingFixtureFinding(report.warnings, "agentchat", "manifest-unknown-fields");
+    } else {
+      assertHasFinding(report.warnings, "agentchat", "manifest-unknown-fields");
+    }
     if (hasSdkExportGap) {
       assertHasIssue(report.issues, "P1", "sdk-export-missing");
       assertHasIssueClass(report.issues, "compat-gap", "sdk-export-missing");
     }
     assertHasIssue(report.issues, "P2", "manifest-unknown-fields");
-    assertMissingProbePrefix(report.contractProbes, "manifest.schema.top-level-fields:agentchat");
+    if (agentchatChannelEnvVarsAreSupported) {
+      assertMissingProbePrefix(report.contractProbes, "manifest.schema.top-level-fields:agentchat");
+    } else {
+      assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:agentchat");
+    }
     assertHasProbe(report.contractProbes, "manifest.schema.top-level-fields:memos-cloud");
   }
   assertHasProbe(report.contractProbes, "api.capture.runtime-registrars:wecom");

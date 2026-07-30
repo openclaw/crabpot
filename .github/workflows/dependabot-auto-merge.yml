@@ -44,9 +44,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Resolve OpenClaw track
+      - name: Resolve pinned OpenClaw Default Track
         id: openclaw-track
-        run: node scripts/resolve-openclaw-track.mjs --branch "${{ github.event.pull_request.base.ref }}" --github-output
+        run: node scripts/openclaw-pin.mjs --github-output
 
       - name: Checkout OpenClaw
         uses: actions/checkout@v6
@@ -118,7 +118,7 @@ jobs:
           node scripts/compare-runtime-profile.mjs
           node scripts/check-ci-policy.mjs
           node scripts/write-ci-summary.mjs --mode dependabot --openclaw-label "${{ steps.openclaw-track.outputs.label }}"
-          node scripts/update-track-metadata.mjs
+          node scripts/update-track-metadata.mjs --default-pin-openclaw ./openclaw
           baseline_args=()
           if [ -f .crabpot/baseline/main-dashboard-data.json ]; then
             baseline_args=(--baseline-data .crabpot/baseline/main-dashboard-data.json)

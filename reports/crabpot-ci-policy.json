@@ -22,18 +22,10 @@
   "summary": {
     "checkCount": 314,
     "failCount": 0,
-    "warnCount": 308,
-    "passCount": 6
+    "warnCount": 307,
+    "passCount": 7
   },
   "checks": [
-    {
-      "id": "compatibility-report.live-p0-issues",
-      "action": "warn",
-      "message": "1 live P0 issues tracked",
-      "evidence": [
-        "kitchen-sink:unknown-registration-name:none"
-      ]
-    },
     {
       "id": "execution-results.audit-findings",
       "action": "warn",
@@ -3644,6 +3636,12 @@
         "zalouser:channel-contract-probe",
         "zalouser:package-dependency-install-required"
       ]
+    },
+    {
+      "id": "compatibility-report.live-p0-issues",
+      "action": "pass",
+      "message": "0 live P0 issues tracked",
+      "evidence": []
     },
     {
       "id": "compatibility-report.p1-issues",
