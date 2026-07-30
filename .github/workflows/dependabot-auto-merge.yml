@@ -118,7 +118,7 @@ jobs:
           node scripts/compare-runtime-profile.mjs
           node scripts/check-ci-policy.mjs
           node scripts/write-ci-summary.mjs --mode dependabot --openclaw-label "${{ steps.openclaw-track.outputs.label }}"
-          node scripts/update-track-metadata.mjs
+          node scripts/update-track-metadata.mjs --default-pin-openclaw ./openclaw
           baseline_args=()
           if [ -f .crabpot/baseline/main-dashboard-data.json ]; then
             baseline_args=(--baseline-data .crabpot/baseline/main-dashboard-data.json)
