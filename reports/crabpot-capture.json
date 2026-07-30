@@ -8,12 +8,12 @@
   },
   "summary": {
     "fixtureCount": 60,
-    "registrationCount": 387,
+    "registrationCount": 386,
     "hookCount": 130,
     "sdkImportCount": 2565,
     "packageEntrypointCount": 108,
     "issueProbeCount": 275,
-    "inspectorShimRequiredCount": 224,
+    "inspectorShimRequiredCount": 223,
     "compatAliasRequiredCount": 2
   },
   "fixtures": [
@@ -3526,10 +3526,10 @@
           ]
         },
         {
-          "id": "registration.registerDetachedTaskRuntime:kitchen-sink:plugins-kitchen-sink-scripts-sync-surface-mjs-162",
+          "id": "registration.registerDetachedTaskRuntime:kitchen-sink:plugins-kitchen-sink-scripts-sync-surface-mjs-155",
           "fixture": "kitchen-sink",
           "registrar": "registerDetachedTaskRuntime",
-          "ref": "plugins/kitchen-sink/scripts/sync-surface.mjs:162",
+          "ref": "plugins/kitchen-sink/scripts/sync-surface.mjs:155",
           "support": "inspector-shim-required",
           "assertions": [
             "registration arguments are captured"
@@ -3794,19 +3794,6 @@
           ]
         },
         {
-          "id": "registration.registerMeetingNotesSourceProvider:kitchen-sink:plugins-kitchen-sink-scripts-sync-surface-mjs-165",
-          "fixture": "kitchen-sink",
-          "registrar": "registerMeetingNotesSourceProvider",
-          "ref": "plugins/kitchen-sink/scripts/sync-surface.mjs:165",
-          "support": "inspector-shim-required",
-          "assertions": [
-            "registration arguments are captured"
-          ],
-          "syntheticArguments": [
-            {}
-          ]
-        },
-        {
           "id": "registration.registerMemoryCapability:kitchen-sink:plugins-kitchen-sink-src-generated-registrars-js-27",
           "fixture": "kitchen-sink",
           "registrar": "registerMemoryCapability",
@@ -3997,10 +3984,10 @@
           ]
         },
         {
-          "id": "registration.registerNodeCliFeature:kitchen-sink:plugins-kitchen-sink-scripts-sync-surface-mjs-171",
+          "id": "registration.registerNodeCliFeature:kitchen-sink:plugins-kitchen-sink-scripts-sync-surface-mjs-161",
           "fixture": "kitchen-sink",
           "registrar": "registerNodeCliFeature",
-          "ref": "plugins/kitchen-sink/scripts/sync-surface.mjs:171",
+          "ref": "plugins/kitchen-sink/scripts/sync-surface.mjs:161",
           "support": "inspector-shim-required",
           "assertions": [
             "registration arguments are captured"
@@ -4389,10 +4376,10 @@
           ]
         },
         {
-          "id": "registration.registerTranscriptSourceProvider:kitchen-sink:plugins-kitchen-sink-scripts-sync-surface-mjs-168",
+          "id": "registration.registerTranscriptSourceProvider:kitchen-sink:plugins-kitchen-sink-scripts-sync-surface-mjs-158",
           "fixture": "kitchen-sink",
           "registrar": "registerTranscriptSourceProvider",
-          "ref": "plugins/kitchen-sink/scripts/sync-surface.mjs:168",
+          "ref": "plugins/kitchen-sink/scripts/sync-surface.mjs:158",
           "support": "target-captured",
           "assertions": [
             "registration arguments are captured"
@@ -40511,7 +40498,7 @@
         "registerConfigMigration @ plugins/kitchen-sink/src/generated-registrars.js:14",
         "registerContextEngine @ plugins/kitchen-sink/src/generated-registrars.js:15",
         "registerContextEngine @ plugins/kitchen-sink/src/kitchen-runtime.js:104",
-        "registerDetachedTaskRuntime @ plugins/kitchen-sink/scripts/sync-surface.mjs:162",
+        "registerDetachedTaskRuntime @ plugins/kitchen-sink/scripts/sync-surface.mjs:155",
         "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/generated-registrars.js:17",
         "registerDetachedTaskRuntime @ plugins/kitchen-sink/src/kitchen-runtime.js:92",
         "registerGatewayDiscoveryService @ plugins/kitchen-sink/src/generated-registrars.js:19",
@@ -40523,7 +40510,6 @@
         "registerHttpRoute @ plugins/kitchen-sink/src/kitchen-runtime.js:114",
         "registerInteractiveHandler @ plugins/kitchen-sink/src/generated-registrars.js:25",
         "registerInteractiveHandler @ plugins/kitchen-sink/src/kitchen-runtime.js:56",
-        "registerMeetingNotesSourceProvider @ plugins/kitchen-sink/scripts/sync-surface.mjs:165",
         "registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:27",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:28",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:98",
@@ -40532,7 +40518,7 @@
         "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:32",
         "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:120",
         "registerMemoryRuntime @ plugins/kitchen-sink/src/generated-registrars.js:33",
-        "registerNodeCliFeature @ plugins/kitchen-sink/scripts/sync-surface.mjs:171",
+        "registerNodeCliFeature @ plugins/kitchen-sink/scripts/sync-surface.mjs:161",
         "registerNodeCliFeature @ plugins/kitchen-sink/src/generated-registrars.js:37",
         "registerNodeHostCommand @ plugins/kitchen-sink/src/generated-registrars.js:38",
         "registerNodeInvokePolicy @ plugins/kitchen-sink/src/generated-registrars.js:39",
