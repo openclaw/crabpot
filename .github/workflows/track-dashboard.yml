@@ -168,7 +168,7 @@ jobs:
           fi
           node scripts/check-ci-policy.mjs
           node scripts/write-ci-summary.mjs --mode "track:${{ matrix.track }}" --openclaw-label "${{ steps.openclaw-track.outputs.label }}"
-          node scripts/update-track-metadata.mjs --track "${{ matrix.track }}"
+          node scripts/update-track-metadata.mjs --track "${{ matrix.track }}" --openclaw ./openclaw
           baseline_args=()
           if [ -f .crabpot/baseline/main-dashboard-data.json ]; then
             baseline_args=(--baseline-data .crabpot/baseline/main-dashboard-data.json)
