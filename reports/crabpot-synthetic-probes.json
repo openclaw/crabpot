@@ -11815,7 +11815,7 @@
       "source": "plugins/openclaw-weixin/.crabpot-package/index.ts:17"
     },
     {
-      "id": "registration.createChatChannelPlugin:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-channel-js-45",
+      "id": "registration.createChatChannelPlugin:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-channel-js-47",
       "fixture": "lightclawbot",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -11840,7 +11840,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/lightclawbot/.crabpot-package/dist/src/channel.js:45"
+      "source": "plugins/lightclawbot/.crabpot-package/dist/src/channel.js:47"
     },
     {
       "id": "registration.defineChannelPluginEntry:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js-25",

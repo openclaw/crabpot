@@ -6,17 +6,17 @@
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 140,
-    "suggestions": 259,
-    "issues": 399,
+    "warnings": 107,
+    "suggestions": 251,
+    "issues": 358,
     "p0Issues": 0,
-    "p1Issues": 128,
+    "p1Issues": 119,
     "liveIssues": 0,
     "liveP0Issues": 0,
-    "compatGaps": 112,
-    "deprecationWarnings": 48,
+    "compatGaps": 103,
+    "deprecationWarnings": 40,
     "inspectorGaps": 157,
-    "upstreamIssues": 82,
+    "upstreamIssues": 58,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -29,26 +29,18 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 3065,
-    "importLoopP95Ms": 3067,
+    "importLoopP50Ms": 2925,
+    "importLoopP95Ms": 3013,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 124,
-    "importLoopOpenClawActivationP50Ms": 0.4,
+    "importLoopOpenClawImportP50Ms": 126.3,
+    "importLoopOpenClawActivationP50Ms": 0.3,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 3.7,
-    "importLoopMaxCpuMs": 72,
-    "importLoopRssSampleCount": 361,
-    "importLoopCpuSampleCount": 361
+    "importLoopMaxRssMb": 11.3,
+    "importLoopMaxCpuMs": 240,
+    "importLoopRssSampleCount": 349,
+    "importLoopCpuSampleCount": 349
   },
   "topIssues": [
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "a2a-gateway",
-      "code": "missing-compat-record",
-      "title": "a2a-gateway: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
     {
       "severity": "P1",
       "issueClass": "compat-gap",
@@ -108,14 +100,6 @@
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "clawmetry",
-      "code": "missing-compat-record",
-      "title": "clawmetry: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
       "fixture": "clawrouter",
       "code": "missing-compat-record",
       "title": "clawrouter: compat-dependent behavior lacks registry coverage",
@@ -148,22 +132,6 @@
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "codex-app-server",
-      "code": "missing-compat-record",
-      "title": "codex-app-server: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "composio",
-      "code": "missing-compat-record",
-      "title": "composio: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
       "fixture": "connectclaw",
       "code": "missing-compat-record",
       "title": "connectclaw: compat-dependent behavior lacks registry coverage",
@@ -199,6 +167,38 @@
       "fixture": "ddingtalk",
       "code": "missing-compat-record",
       "title": "ddingtalk: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "diagnostics-otel",
+      "code": "missing-compat-record",
+      "title": "diagnostics-otel: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "diagnostics-prometheus",
+      "code": "missing-compat-record",
+      "title": "diagnostics-prometheus: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "diffs",
+      "code": "missing-compat-record",
+      "title": "diffs: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "dingtalk-connector",
+      "code": "missing-compat-record",
+      "title": "dingtalk-connector: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
     }
   ],
@@ -439,20 +439,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 404.8% over baseline",
+      "message": "p95WallMs regressed 474.9% over baseline",
       "baseline": 1273,
-      "current": 6426,
-      "delta": 5153,
-      "percent": 404.8
+      "current": 7319,
+      "delta": 6046,
+      "percent": 474.9
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 392.29999999999995 over baseline",
+      "message": "maxPeakRssMb regressed 494.1 over baseline",
       "baseline": 65.1,
-      "current": 457.4,
-      "delta": 392.29999999999995
+      "current": 559.2,
+      "delta": 494.1
     }
   ],
   "artifacts": {

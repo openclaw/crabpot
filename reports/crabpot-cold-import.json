@@ -7,13 +7,13 @@
   },
   "summary": {
     "fixtureCount": 60,
-    "entrypointCount": 108,
-    "readyCount": 4,
-    "blockedCount": 104,
+    "entrypointCount": 121,
+    "readyCount": 8,
+    "blockedCount": 113,
     "tsLoaderRequiredCount": 20,
     "buildRequiredCount": 15,
-    "dependencyInstallRequiredCount": 53,
-    "sdkAliasRequiredCount": 3
+    "dependencyInstallRequiredCount": 65,
+    "sdkAliasRequiredCount": 0
   },
   "fixtures": [
     {
@@ -476,22 +476,11 @@
           "kind": "extension",
           "specifier": "./src/index.js",
           "path": "plugins/kitchen-sink/src/index.js",
-          "status": "sdk-alias-required",
-          "blockers": [
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-ingress @ plugins/kitchen-sink/src/generated-sdk-imports.ts:53"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/qa-live-transport-scenarios @ plugins/kitchen-sink/src/generated-sdk-imports.ts:230"
-            }
-          ],
+          "status": "ready",
+          "blockers": [],
           "assertions": [
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim"
+            "entrypoint can be imported by Node without fixture credentials",
+            "registration capture shim receives plugin registrations"
           ]
         },
         {
@@ -501,22 +490,11 @@
           "kind": "runtimeExtension",
           "specifier": "./src/index.js",
           "path": "plugins/kitchen-sink/src/index.js",
-          "status": "sdk-alias-required",
-          "blockers": [
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-ingress @ plugins/kitchen-sink/src/generated-sdk-imports.ts:53"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/qa-live-transport-scenarios @ plugins/kitchen-sink/src/generated-sdk-imports.ts:230"
-            }
-          ],
+          "status": "ready",
+          "blockers": [],
           "assertions": [
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim"
+            "entrypoint can be imported by Node without fixture credentials",
+            "registration capture shim receives plugin registrations"
           ]
         },
         {
@@ -526,22 +504,11 @@
           "kind": "setupEntry",
           "specifier": "./src/setup.js",
           "path": "plugins/kitchen-sink/src/setup.js",
-          "status": "sdk-alias-required",
-          "blockers": [
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-ingress @ plugins/kitchen-sink/src/generated-sdk-imports.ts:53"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/qa-live-transport-scenarios @ plugins/kitchen-sink/src/generated-sdk-imports.ts:230"
-            }
-          ],
+          "status": "ready",
+          "blockers": [],
           "assertions": [
-            "target OpenClaw exports the imported SDK alias or provides a migration shim",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim"
+            "entrypoint can be imported by Node without fixture credentials",
+            "registration capture shim receives plugin registrations"
           ]
         }
       ]
@@ -600,6 +567,20 @@
           ],
           "assertions": [
             "plugin package metadata points at an existing OpenClaw entrypoint"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeSetupEntry:bluebubbles:plugins-bluebubbles-crabpot-package-dist-setup-entry-js",
+          "fixture": "bluebubbles",
+          "packagePath": "plugins/bluebubbles/.crabpot-package/package.json",
+          "kind": "runtimeSetupEntry",
+          "specifier": "./dist/setup-entry.js",
+          "path": "plugins/bluebubbles/.crabpot-package/dist/setup-entry.js",
+          "status": "ready",
+          "blockers": [],
+          "assertions": [
+            "entrypoint can be imported by Node without fixture credentials",
+            "registration capture shim receives plugin registrations"
           ]
         }
       ]
@@ -695,6 +676,25 @@
           "fixture": "discord",
           "packagePath": "plugins/discord/.crabpot-package/package.json",
           "kind": "setupEntry",
+          "specifier": "./dist/setup-entry.js",
+          "path": "plugins/discord/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@discordjs/voice, discord-api-types, libopus-wasm, typebox, undici, ws"
+            }
+          ],
+          "assertions": [
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeSetupEntry:discord:plugins-discord-crabpot-package-dist-setup-entry-js",
+          "fixture": "discord",
+          "packagePath": "plugins/discord/.crabpot-package/package.json",
+          "kind": "runtimeSetupEntry",
           "specifier": "./dist/setup-entry.js",
           "path": "plugins/discord/.crabpot-package/dist/setup-entry.js",
           "status": "dependency-install-required",
@@ -877,6 +877,25 @@
           "assertions": [
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
+        },
+        {
+          "id": "cold-import.runtimeSetupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
+          "fixture": "msteams",
+          "packagePath": "plugins/msteams/.crabpot-package/package.json",
+          "kind": "runtimeSetupEntry",
+          "specifier": "./dist/setup-entry.js",
+          "path": "plugins/msteams/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, typebox"
+            }
+          ],
+          "assertions": [
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
         }
       ]
     },
@@ -940,6 +959,25 @@
           "assertions": [
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
+        },
+        {
+          "id": "cold-import.runtimeSetupEntry:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-dist-setup-entry-js",
+          "fixture": "nextcloud-talk",
+          "packagePath": "plugins/nextcloud-talk/.crabpot-package/package.json",
+          "kind": "runtimeSetupEntry",
+          "specifier": "./dist/setup-entry.js",
+          "path": "plugins/nextcloud-talk/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "zod"
+            }
+          ],
+          "assertions": [
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
         }
       ]
     },
@@ -990,6 +1028,25 @@
           "fixture": "nostr",
           "packagePath": "plugins/nostr/.crabpot-package/package.json",
           "kind": "setupEntry",
+          "specifier": "./dist/setup-entry.js",
+          "path": "plugins/nostr/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "nostr-tools, zod"
+            }
+          ],
+          "assertions": [
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeSetupEntry:nostr:plugins-nostr-crabpot-package-dist-setup-entry-js",
+          "fixture": "nostr",
+          "packagePath": "plugins/nostr/.crabpot-package/package.json",
+          "kind": "runtimeSetupEntry",
           "specifier": "./dist/setup-entry.js",
           "path": "plugins/nostr/.crabpot-package/dist/setup-entry.js",
           "status": "dependency-install-required",
@@ -1110,6 +1167,25 @@
           "assertions": [
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
+        },
+        {
+          "id": "cold-import.runtimeSetupEntry:zalo:plugins-zalo-crabpot-package-dist-setup-entry-js",
+          "fixture": "zalo",
+          "packagePath": "plugins/zalo/.crabpot-package/package.json",
+          "kind": "runtimeSetupEntry",
+          "specifier": "./dist/setup-entry.js",
+          "path": "plugins/zalo/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "zod"
+            }
+          ],
+          "assertions": [
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
         }
       ]
     },
@@ -1160,6 +1236,25 @@
           "fixture": "zalouser",
           "packagePath": "plugins/zalouser/.crabpot-package/package.json",
           "kind": "setupEntry",
+          "specifier": "./dist/setup-entry.js",
+          "path": "plugins/zalouser/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "typebox, zca-js, zod"
+            }
+          ],
+          "assertions": [
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeSetupEntry:zalouser:plugins-zalouser-crabpot-package-dist-setup-entry-js",
+          "fixture": "zalouser",
+          "packagePath": "plugins/zalouser/.crabpot-package/package.json",
+          "kind": "runtimeSetupEntry",
           "specifier": "./dist/setup-entry.js",
           "path": "plugins/zalouser/.crabpot-package/dist/setup-entry.js",
           "status": "dependency-install-required",
@@ -1236,6 +1331,25 @@
           "assertions": [
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
+        },
+        {
+          "id": "cold-import.runtimeSetupEntry:feishu:plugins-feishu-crabpot-package-dist-setup-entry-js",
+          "fixture": "feishu",
+          "packagePath": "plugins/feishu/.crabpot-package/package.json",
+          "kind": "runtimeSetupEntry",
+          "specifier": "./dist/setup-entry.js",
+          "path": "plugins/feishu/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@larksuiteoapi/node-sdk, typebox, zod"
+            }
+          ],
+          "assertions": [
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
         }
       ]
     },
@@ -1299,6 +1413,25 @@
           "assertions": [
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
+        },
+        {
+          "id": "cold-import.runtimeSetupEntry:tlon:plugins-tlon-crabpot-package-dist-setup-entry-js",
+          "fixture": "tlon",
+          "packagePath": "plugins/tlon/.crabpot-package/package.json",
+          "kind": "runtimeSetupEntry",
+          "specifier": "./dist/setup-entry.js",
+          "path": "plugins/tlon/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@aws-sdk/client-s3, @aws-sdk/s3-request-presigner, @tloncorp/tlon-skill, @urbit/aura, zod"
+            }
+          ],
+          "assertions": [
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
         }
       ]
     },
@@ -1349,6 +1482,25 @@
           "fixture": "twitch",
           "packagePath": "plugins/twitch/.crabpot-package/package.json",
           "kind": "setupEntry",
+          "specifier": "./dist/setup-entry.js",
+          "path": "plugins/twitch/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@twurple/api, @twurple/auth, @twurple/chat, zod"
+            }
+          ],
+          "assertions": [
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeSetupEntry:twitch:plugins-twitch-crabpot-package-dist-setup-entry-js",
+          "fixture": "twitch",
+          "packagePath": "plugins/twitch/.crabpot-package/package.json",
+          "kind": "runtimeSetupEntry",
           "specifier": "./dist/setup-entry.js",
           "path": "plugins/twitch/.crabpot-package/dist/setup-entry.js",
           "status": "dependency-install-required",
@@ -1468,6 +1620,25 @@
           "fixture": "synology-chat",
           "packagePath": "plugins/synology-chat/.crabpot-package/package.json",
           "kind": "setupEntry",
+          "specifier": "./dist/setup-entry.js",
+          "path": "plugins/synology-chat/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "zod"
+            }
+          ],
+          "assertions": [
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeSetupEntry:synology-chat:plugins-synology-chat-crabpot-package-dist-setup-entry-js",
+          "fixture": "synology-chat",
+          "packagePath": "plugins/synology-chat/.crabpot-package/package.json",
+          "kind": "runtimeSetupEntry",
           "specifier": "./dist/setup-entry.js",
           "path": "plugins/synology-chat/.crabpot-package/dist/setup-entry.js",
           "status": "dependency-install-required",
@@ -1804,6 +1975,25 @@
           "assertions": [
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
+        },
+        {
+          "id": "cold-import.runtimeSetupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js",
+          "fixture": "openclaw-qqbot",
+          "packagePath": "plugins/openclaw-qqbot/.crabpot-package/package.json",
+          "kind": "runtimeSetupEntry",
+          "specifier": "./dist/setup-entry.js",
+          "path": "plugins/openclaw-qqbot/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "@tencent-connect/qqbot-connector, mpg123-decoder, silk-wasm, ws, zod"
+            }
+          ],
+          "assertions": [
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
         }
       ]
     },
@@ -1854,6 +2044,25 @@
           "fixture": "whatsapp",
           "packagePath": "plugins/whatsapp/.crabpot-package/package.json",
           "kind": "setupEntry",
+          "specifier": "./dist/setup-entry.js",
+          "path": "plugins/whatsapp/.crabpot-package/dist/setup-entry.js",
+          "status": "dependency-install-required",
+          "blockers": [
+            {
+              "code": "dependency-install-required",
+              "message": "package declares runtime dependencies that must be installed before cold import",
+              "evidence": "audio-decode, baileys, typebox"
+            }
+          ],
+          "assertions": [
+            "fixture dependencies are installed in an isolated workspace before cold import"
+          ]
+        },
+        {
+          "id": "cold-import.runtimeSetupEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-entry-js",
+          "fixture": "whatsapp",
+          "packagePath": "plugins/whatsapp/.crabpot-package/package.json",
+          "kind": "runtimeSetupEntry",
           "specifier": "./dist/setup-entry.js",
           "path": "plugins/whatsapp/.crabpot-package/dist/setup-entry.js",
           "status": "dependency-install-required",
