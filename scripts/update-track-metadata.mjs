@@ -31,7 +31,7 @@ async function main() {
   const args = parseArgs(process.argv.slice(2));
   const tracks = args.defaultPinOpenClaw
     ? [await resolveDefaultPinMetadata(args.defaultPinOpenClaw)]
-    : await resolveTrackMetadata();
+    : await resolveTrackMetadata(args.track, args.branch);
   const changed = await updateTrackMetadata({
     branch: args.branch,
     check: args.check,
@@ -99,13 +99,8 @@ function parseArgs(argv) {
   return args;
 }
 
-export async function resolveTrackMetadata() {
-  const [latest, beta, development] = await Promise.all([
-    resolveOpenClawTrack("latest"),
-    resolveOpenClawTrack("beta"),
-    resolveOpenClawTrack("development"),
-  ]);
-  return [latest, beta, development];
+export async function resolveTrackMetadata(track = "auto", branch = "", resolve = resolveOpenClawTrack) {
+  return [await resolve(normalizeTrack(track, branch))];
 }
 
 export async function resolveDefaultPinMetadata(openclawPath, options = {}) {
