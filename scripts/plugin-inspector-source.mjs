@@ -1,10 +1,10 @@
 import { spawnSync } from "node:child_process";
-import { existsSync, mkdirSync, rmSync, statSync } from "node:fs";
+import { existsSync, mkdirSync, rmSync, statSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
 
-export const pluginInspectorRef = "0d97f0659e944598f783867b43e7971903958b9f";
+export const pluginInspectorRef = "c61aeb8890bdf367dfee8dfda5fc7123c4e6737b";
 export const pluginInspectorPackage = "@openclaw/plugin-inspector@0.3.19";
 
 export async function loadPluginInspector() {
@@ -73,27 +73,38 @@ function ensurePinnedInspectorCheckout() {
   const checkoutParent = path.join(repoRoot, ".crabpot", "plugin-inspector");
   const checkoutDir = path.join(checkoutParent, pluginInspectorRef);
   const sourcePath = path.join(checkoutDir, "src", "index.js");
+  const installMarker = path.join(checkoutDir, "node_modules", ".crabpot-install-ready");
 
-  if (existsSync(sourcePath) && readGitHead(checkoutDir) === pluginInspectorRef) {
+  if (isPinnedCheckoutReady(checkoutDir)) {
     return checkoutDir;
   }
 
   mkdirSync(checkoutParent, { recursive: true });
   withCheckoutLock(checkoutParent, () => {
-    if (existsSync(sourcePath) && readGitHead(checkoutDir) === pluginInspectorRef) {
+    if (isPinnedCheckoutReady(checkoutDir)) {
       return;
     }
 
-    rmSync(checkoutDir, { force: true, recursive: true });
-    run("git", ["init", checkoutDir]);
-    run("git", ["-C", checkoutDir, "fetch", "--depth=1", "https://github.com/openclaw/plugin-inspector.git", pluginInspectorRef]);
-    run("git", ["-C", checkoutDir, "checkout", "--detach", "FETCH_HEAD"]);
+    if (!existsSync(sourcePath) || readGitHead(checkoutDir) !== pluginInspectorRef) {
+      rmSync(checkoutDir, { force: true, recursive: true });
+      run("git", ["init", checkoutDir]);
+      run("git", ["-C", checkoutDir, "fetch", "--depth=1", "https://github.com/openclaw/plugin-inspector.git", pluginInspectorRef]);
+      run("git", ["-C", checkoutDir, "checkout", "--detach", "FETCH_HEAD"]);
+    }
+    run(npmCommand(), ["ci", "--omit=dev", "--ignore-scripts", "--no-audit", "--no-fund"], checkoutDir);
+    writeFileSync(installMarker, `${pluginInspectorRef}\n`, "utf8");
   });
 
-  if (readGitHead(checkoutDir) !== pluginInspectorRef) {
-    throw new Error(`plugin-inspector checkout did not resolve to ${pluginInspectorRef}`);
+  if (!isPinnedCheckoutReady(checkoutDir)) {
+    throw new Error(`plugin-inspector checkout did not prepare ${pluginInspectorRef}`);
   }
   return checkoutDir;
+}
+
+export function isPinnedCheckoutReady(checkoutDir, expectedRef = pluginInspectorRef) {
+  const sourcePath = path.join(checkoutDir, "src", "index.js");
+  const installMarker = path.join(checkoutDir, "node_modules", ".crabpot-install-ready");
+  return existsSync(sourcePath) && readGitHead(checkoutDir) === expectedRef && existsSync(installMarker);
 }
 
 function withCheckoutLock(checkoutParent, callback) {
@@ -149,10 +160,11 @@ function readGitHead(checkoutDir) {
   return result.stdout.trim();
 }
 
-function run(command, commandArgs) {
+function run(command, commandArgs, cwd = repoRoot) {
   const result = spawnSync(command, commandArgs, {
-    cwd: repoRoot,
+    cwd,
     encoding: "utf8",
+    shell: process.platform === "win32" && command === npmCommand(),
     stdio: "pipe",
   });
   if (result.error) {

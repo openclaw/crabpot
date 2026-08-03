@@ -1,11 +1,47 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { spawnSync } from "node:child_process";
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import os from "node:os";
+import path from "node:path";
 import { test } from "node:test";
 import {
+  isPinnedCheckoutReady,
   pluginInspectorPackage,
+  pluginInspectorRef,
   resolvePluginInspectorCliInvocation,
   resolvePluginInspectorCliPath,
 } from "../scripts/plugin-inspector-source.mjs";
+
+test("plugin inspector source pin requires an exact prepared checkout", (t) => {
+  assert.equal(pluginInspectorRef, "c61aeb8890bdf367dfee8dfda5fc7123c4e6737b");
+
+  const checkoutDir = mkdtempSync(path.join(os.tmpdir(), "crabpot-plugin-inspector-"));
+  t.after(() => rmSync(checkoutDir, { force: true, recursive: true }));
+  const sourcePath = path.join(checkoutDir, "src", "index.js");
+  const installMarker = path.join(checkoutDir, "node_modules", ".crabpot-install-ready");
+  mkdirSync(path.dirname(sourcePath), { recursive: true });
+  writeFileSync(sourcePath, "export {};\n", "utf8");
+  runGit(checkoutDir, ["init"]);
+  runGit(checkoutDir, ["add", "src/index.js"]);
+  runGit(checkoutDir, [
+    "-c",
+    "user.name=Crabpot Test",
+    "-c",
+    "user.email=crabpot@example.invalid",
+    "commit",
+    "-m",
+    "test fixture",
+  ]);
+  const fixtureRef = runGit(checkoutDir, ["rev-parse", "HEAD"]).stdout.trim();
+
+  assert.equal(isPinnedCheckoutReady(checkoutDir, fixtureRef), false);
+  mkdirSync(path.dirname(installMarker), { recursive: true });
+  writeFileSync(installMarker, `${fixtureRef}\n`, "utf8");
+  assert.equal(isPinnedCheckoutReady(checkoutDir, fixtureRef), true);
+  assert.equal(isPinnedCheckoutReady(checkoutDir, pluginInspectorRef), false);
+  rmSync(installMarker);
+  assert.equal(isPinnedCheckoutReady(checkoutDir, fixtureRef), false);
+});
 
 test("plugin inspector smoke defaults to the published npm package", () => {
   withEnv({}, () => {
@@ -41,13 +77,24 @@ test("plugin inspector smoke can run local source or an explicit binary", () => 
 });
 
 test("plugin inspector smoke uses full default findings output", () => {
+  const sourceScript = readFileSync(new URL("../scripts/plugin-inspector-source.mjs", import.meta.url), "utf8");
   const smokeScript = readFileSync(new URL("../scripts/run-plugin-inspector-smoke.mjs", import.meta.url), "utf8");
 
+  assert.match(
+    sourceScript,
+    /run\(npmCommand\(\), \["ci", "--omit=dev", "--ignore-scripts", "--no-audit", "--no-fund"\], checkoutDir\)/,
+  );
   assert.doesNotMatch(smokeScript, /--include-inspector-gaps/);
   assert.doesNotMatch(smokeScript, /--author-facing/);
   assert.doesNotMatch(smokeScript, /const command =/);
   assert.match(smokeScript, /"report", "--config", configPath, "--out", outDir/);
 });
+
+function runGit(cwd, args) {
+  const result = spawnSync("git", args, { cwd, encoding: "utf8" });
+  assert.equal(result.status, 0, result.stderr);
+  return result;
+}
 
 function withEnv(values, callback) {
   const keys = ["CRABPOT_PLUGIN_INSPECTOR_BIN", "CRABPOT_PLUGIN_INSPECTOR_CLI"];
