@@ -57,6 +57,15 @@ test("track metadata resolves only the selected dashboard track", async () => {
 
   assert.deepEqual(resolved, ["development"]);
   assert.deepEqual(metadata, [tracks[2]]);
+
+  resolved.length = 0;
+  const inferred = await resolveTrackMetadata("auto", "crab-development", async (track) => {
+    resolved.push(track);
+    return tracks.find((candidate) => candidate.track === track);
+  });
+
+  assert.deepEqual(resolved, ["development"]);
+  assert.deepEqual(inferred, [tracks[2]]);
 });
 
 test("track metadata renders GitHub branch switches with resolved version and sha", () => {
