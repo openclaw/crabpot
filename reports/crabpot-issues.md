@@ -14,33 +14,33 @@ Status: PASS
 
 | Metric                     | Value |
 | -------------------------- | ----- |
-| Issue findings             | 399   |
-| Open issue findings        | 399   |
+| Issue findings             | 358   |
+| Open issue findings        | 358   |
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
 | 🔴 P0                      | 0     |
-| 🟠 P1                      | 128   |
+| 🟠 P1                      | 119   |
 | Open 🔴 P0                 | 0     |
-| Open 🟠 P1                 | 128   |
+| Open 🟠 P1                 | 119   |
 | Live issues                | 0     |
 | Live P0 issues             | 0     |
-| Compat gaps                | 112   |
-| Deprecation warnings       | 48    |
+| Compat gaps                | 103   |
+| Deprecation warnings       | 40    |
 | Inspector gaps             | 157   |
 | Open inspector gaps        | 157   |
 | Runtime coverage artifacts | 0     |
-| Upstream metadata          | 82    |
-| Contract probes            | 275   |
+| Upstream metadata          | 58    |
+| Contract probes            | 242   |
 
 ## Triage Overview
 
 | Class               | Count | P0 | Meaning                                                                                                                                                  |
 | ------------------- | ----- | -- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | live-issue          | 0     | 0  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.                                          |
-| compat-gap          | 112   | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
-| deprecation-warning | 48    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
+| compat-gap          | 103   | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
+| deprecation-warning | 40    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
 | inspector-gap       | 157   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
-| upstream-metadata   | 82    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
+| upstream-metadata   | 58    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                                                                    |
 
 ## P0 Live Issues
@@ -58,12 +58,6 @@ _none_
   - state: open · compat:missing
   - evidence:
     - api.capture.runtime-registrars
-
-- 🟠 P1 **a2a-gateway** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: a2a-gateway: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-root-sdk-import
 
 - 🟠 P1 **agentchat** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: agentchat: compat-dependent behavior lacks registry coverage
@@ -95,12 +89,6 @@ _none_
   - evidence:
     - hook.llm-observer.privacy-payload
 
-- 🟠 P1 **clawmetry** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: clawmetry: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-root-sdk-import
-
 - 🟠 P1 **clawrouter** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: clawrouter: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
@@ -118,18 +106,6 @@ _none_
   - state: open · compat:missing
   - evidence:
     - api.capture.runtime-registrars
-
-- 🟠 P1 **codex-app-server** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: codex-app-server: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-root-sdk-import
-
-- 🟠 P1 **composio** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: composio: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-root-sdk-import
 
 - 🟠 P1 **connectclaw** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: connectclaw: compat-dependent behavior lacks registry coverage
@@ -190,12 +166,6 @@ _none_
   - state: open · compat:missing
   - evidence:
     - channel.runtime.envelope-config-metadata
-
-- 🟠 P1 **dingtalk-connector** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: dingtalk-connector: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-root-sdk-import
 
 - 🟠 P1 **dingtalk-doc** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: dingtalk-doc: compat-dependent behavior lacks registry coverage
@@ -263,23 +233,11 @@ _none_
   - evidence:
     - legacy-before-agent-start
 
-- 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-root-sdk-import
-
 - 🟠 P1 **hyperspell** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: hyperspell: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
     - api.capture.runtime-registrars
-
-- 🟠 P1 **hyperspell** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: hyperspell: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-root-sdk-import
 
 - 🟠 P1 **inworld-tts** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: inworld-tts: compat-dependent behavior lacks registry coverage
@@ -310,13 +268,6 @@ _none_
   - state: open · compat:missing
   - evidence:
     - hook.llm-observer.privacy-payload
-
-- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
-  - **sdk-export-missing**: kitchen-sink: plugin SDK import aliases are missing from target package exports
-  - state: open · compat:untracked
-  - evidence:
-    - [openclaw/plugin-sdk/channel-ingress @ generated-sdk-imports.ts:53](https://github.com/openclaw/kitchen-sink/blob/6cbd13515bbb53152b96b16047f2e6eca502858a/src/generated-sdk-imports.ts#L53)
-    - [openclaw/plugin-sdk/qa-live-transport-scenarios @ generated-sdk-imports.ts:230](https://github.com/openclaw/kitchen-sink/blob/6cbd13515bbb53152b96b16047f2e6eca502858a/src/generated-sdk-imports.ts#L230)
 
 - 🟠 P1 **lightclawbot** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: lightclawbot: compat-dependent behavior lacks registry coverage
@@ -419,12 +370,6 @@ _none_
   - state: open · compat:missing
   - evidence:
     - legacy-before-agent-start
-
-- 🟠 P1 **memu-engine** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: memu-engine: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-root-sdk-import
 
 - 🟠 P1 **mocrane-wecom** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: mocrane-wecom: compat-dependent behavior lacks registry coverage
@@ -728,15 +673,6 @@ _none_
 
 ## Deprecation Warnings
 
-- 🟡 P2 **a2a-gateway** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: a2a-gateway: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ types.ts:14](https://github.com/win4r/openclaw-a2a-gateway/blob/fdedad7499c4b6d22b3aa63a7876b9bfa1a92674/src/types.ts#L14)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
-
 - 🟡 P2 **agentchat** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: agentchat: channelEnvVars legacy manifest metadata must stay covered
   - state: open · compat:deprecated · deprecated
@@ -745,16 +681,6 @@ _none_
   - author remediation:
     - Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars
-
-- 🟡 P2 **clawmetry** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: clawmetry: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/src/service.ts#L1)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
 
 - 🟡 P2 **codex** `deprecation-warning` `core-compat-adapter`
   - **sdk-load-session-store**: codex: deprecated whole-store session helper is still used
@@ -775,27 +701,6 @@ _none_
     - Replace deprecated session file-path helpers with session entry and transcript identity APIs.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-session-file-helper
 
-- 🟡 P2 **codex-app-server** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: codex-app-server: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L1)
-    - [openclaw/plugin-sdk @ client.ts:6](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/client.ts#L6)
-    - [openclaw/plugin-sdk @ controller.ts:18](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L18)
-    - [openclaw/plugin-sdk @ types.ts:1](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/types.ts#L1)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
-
-- 🟡 P2 **composio** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: composio: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/ComposioHQ/openclaw-composio-plugin/blob/47025c33224d343d9fbbf67e0a24e56eeaa18fff/index.ts#L1)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
-
 - 🟡 P2 **connectclaw** `deprecation-warning` `core-compat-adapter`
   - **legacy-before-agent-start**: connectclaw: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
@@ -809,10 +714,6 @@ _none_
   - **legacy-root-sdk-import**: connectclaw: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ commands.ts:1](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/commands.ts#L1)
-    - [openclaw/plugin-sdk @ hooks.ts:1](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/hooks.ts#L1)
-    - [openclaw/plugin-sdk @ tools.ts:1](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/tools.ts#L1)
     - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/tools.ts#L2)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
@@ -827,50 +728,11 @@ _none_
     - Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars
 
-- 🟡 P2 **dingtalk-connector** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: dingtalk-connector: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L17)
-    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/channel.ts#L5)
-    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/config/accounts.ts#L2)
-    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/connection.ts#L16)
-    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/provider.ts#L14)
-    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/directory.ts#L1)
-    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L7)
-    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/onboarding.ts#L5)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ card-bridge.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L1)
-    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/utils/agent.ts#L8)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
-
 - 🟡 P2 **dingtalk-doc** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: dingtalk-doc: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:10](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/index.ts#L10)
     - [openclaw/plugin-sdk @ index.ts:11](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/index.ts#L11)
-    - [openclaw/plugin-sdk @ delete-document-block.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/block/delete-document-block.ts#L6)
-    - [openclaw/plugin-sdk @ index.ts:5](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/block/index.ts#L5)
-    - [openclaw/plugin-sdk @ insert-document-block.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/block/insert-document-block.ts#L6)
-    - [openclaw/plugin-sdk @ list-document-blocks.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/block/list-document-blocks.ts#L6)
-    - [openclaw/plugin-sdk @ update-document-block.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/block/update-document-block.ts#L6)
-    - [openclaw/plugin-sdk @ create-document.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/create-document.ts#L6)
-    - [openclaw/plugin-sdk @ get-document-content.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/get-document-content.ts#L6)
-    - [openclaw/plugin-sdk @ get-document-info.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/get-document-info.ts#L6)
-    - [openclaw/plugin-sdk @ index.ts:8](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/index.ts#L8)
-    - [openclaw/plugin-sdk @ search-documents.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/search-documents.ts#L6)
-    - [openclaw/plugin-sdk @ update-document.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/update-document.ts#L6)
-    - [openclaw/plugin-sdk @ commit-uploaded-file.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/commit-uploaded-file.ts#L6)
-    - [openclaw/plugin-sdk @ create-file.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/create-file.ts#L6)
-    - [openclaw/plugin-sdk @ create-folder.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/create-folder.ts#L6)
-    - [openclaw/plugin-sdk @ download-file.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/download-file.ts#L6)
-    - [openclaw/plugin-sdk @ get-file-upload-info.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/get-file-upload-info.ts#L6)
-    - [openclaw/plugin-sdk @ index.ts:5](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/index.ts#L5)
-    - [openclaw/plugin-sdk @ list-nodes.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/list-nodes.ts#L6)
-    - [openclaw/plugin-sdk @ helpers.ts:7](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/helpers.ts#L7)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -965,37 +827,6 @@ _none_
     - Replace the legacy before_agent_start hook with the current prompt/model hooks.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start
 
-- 🟡 P2 **honcho** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: honcho: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/commands/cli.ts#L8)
-    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/hooks/capture.ts#L2)
-    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/hooks/context.ts#L2)
-    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/hooks/gateway.ts#L2)
-    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/hooks/subagent.ts#L2)
-    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/state.ts#L9)
-    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/ask.ts#L3)
-    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/context.ts#L3)
-    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/memory-passthrough.ts#L3)
-    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/message-search.ts#L3)
-    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/search.ts#L3)
-    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/session.ts#L3)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
-
-- 🟡 P2 **hyperspell** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: hyperspell: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L1)
-    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/graph/tools.ts#L2)
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L1)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
-
 - 🟡 P2 **inworld-tts** `deprecation-warning` `core-compat-adapter`
   - **provider-auth-env-vars**: inworld-tts: providerAuthEnvVars legacy manifest metadata must stay covered
   - state: open · compat:deprecated · deprecated
@@ -1065,45 +896,11 @@ _none_
     - Replace the legacy before_agent_start hook with the current prompt/model hooks.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start
 
-- 🟡 P2 **memu-engine** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: memu-engine: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/duxiaoxiong/memu-engine-for-OpenClaw/blob/a5a22c5faf21e30d17a1b47635829e7dd0728ae5/index.ts#L1)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
-
 - 🟡 P2 **mocrane-wecom** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: mocrane-wecom: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L1)
-    - [openclaw/plugin-sdk @ accounts.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/accounts.ts#L1)
-    - [openclaw/plugin-sdk @ handler.ts:9](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/agent/handler.ts#L9)
-    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/channel.ts#L5)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:17](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L17)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:18](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L18)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:19](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L19)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:20](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L20)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:21](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L21)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:22](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L22)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:23](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L23)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:27](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L27)
     - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:30](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L30)
-    - [openclaw/plugin-sdk @ accounts.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/accounts.ts#L5)
-    - [openclaw/plugin-sdk @ media.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/media.ts#L1)
-    - [openclaw/plugin-sdk @ network.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/network.ts#L1)
-    - [openclaw/plugin-sdk @ routing.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/routing.ts#L1)
-    - [openclaw/plugin-sdk @ dynamic-agent.ts:8](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/dynamic-agent.ts#L8)
-    - [openclaw/plugin-sdk @ gateway-monitor.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/gateway-monitor.ts#L5)
-    - [openclaw/plugin-sdk @ monitor.ts:6](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/monitor.ts#L6)
-    - [openclaw/plugin-sdk @ types.ts:2](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/monitor/types.ts#L2)
-    - [openclaw/plugin-sdk @ onboarding.ts:9](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/onboarding.ts#L9)
-    - [openclaw/plugin-sdk @ outbound.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/outbound.ts#L1)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ command-auth.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/shared/command-auth.ts#L1)
-    - [openclaw/plugin-sdk @ ws-adapter.ts:14](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/ws-adapter.ts#L14)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -1157,8 +954,6 @@ _none_
   - **legacy-root-sdk-import**: openclaw-telemetry: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/src/service.ts#L1)
     - [openclaw/plugin-sdk @ service.ts:2](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/src/service.ts#L2)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
@@ -1168,15 +963,8 @@ _none_
   - **legacy-root-sdk-import**: opik-openclaw: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/index.ts#L1)
     - [openclaw/plugin-sdk @ index.ts:2](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/index.ts#L2)
-    - [openclaw/plugin-sdk @ cli.ts:1](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/cli.ts#L1)
-    - [openclaw/plugin-sdk @ configure.ts:2](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/configure.ts#L2)
-    - [openclaw/plugin-sdk @ service.ts:5](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service.ts#L5)
     - [openclaw/plugin-sdk @ service.ts:6](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service.ts#L6)
-    - [openclaw/plugin-sdk @ llm.ts:1](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/llm.ts#L1)
-    - [openclaw/plugin-sdk @ subagent.ts:1](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/subagent.ts#L1)
-    - [openclaw/plugin-sdk @ tool.ts:1](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/tool.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -1185,16 +973,7 @@ _none_
   - **legacy-root-sdk-import**: qqbot: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L1)
     - [openclaw/plugin-sdk @ index.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L2)
-    - [openclaw/plugin-sdk @ api.ts:7](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/api.ts#L7)
-    - [openclaw/plugin-sdk @ approval-handler.ts:12](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/approval-handler.ts#L12)
-    - [openclaw/plugin-sdk @ config.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/config.ts#L2)
-    - [openclaw/plugin-sdk @ onboarding.ts:13](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/onboarding.ts#L13)
-    - [openclaw/plugin-sdk @ proactive.ts:67](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/proactive.ts#L67)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/channel.ts#L1)
-    - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/remind.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -1888,7 +1667,7 @@ _none_
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/lightclawbot/.crabpot-package/dist/src/channel.js:45
+    - createChatChannelPlugin @ plugins/lightclawbot/.crabpot-package/dist/src/channel.js:47
     - defineChannelPluginEntry @ plugins/lightclawbot/.crabpot-package/dist/index.js:25
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
@@ -2555,16 +2334,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **bluebubbles** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: bluebubbles: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.5.7
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **brave-plugin** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: brave-plugin: OpenClaw package install metadata is incomplete
   - state: open · compat:none
@@ -2573,16 +2342,6 @@ _none_
   - author remediation:
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
-
-- 🟡 P2 **brave-plugin** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: brave-plugin: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: clawmetry: OpenClaw package install metadata is incomplete
@@ -2612,16 +2371,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **codex** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: codex: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.5.1-beta.1
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **composio** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: composio: plugin API compatibility range is missing
   - state: open · compat:none
@@ -2649,26 +2398,6 @@ _none_
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
 
-- 🟡 P2 **diagnostics-otel** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: diagnostics-otel: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
-- 🟡 P2 **diagnostics-prometheus** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: diagnostics-prometheus: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **diffs** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: diffs: OpenClaw package install metadata is incomplete
   - state: open · compat:none
@@ -2677,16 +2406,6 @@ _none_
   - author remediation:
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
-
-- 🟡 P2 **diffs** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: diffs: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.30
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **dingtalk-connector** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: dingtalk-connector: manifest uses unsupported top-level fields
@@ -2734,16 +2453,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **discord** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: discord: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.5.26
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **feishu** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: feishu: OpenClaw package install metadata is incomplete
   - state: open · compat:none
@@ -2753,16 +2462,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **feishu** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: feishu: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.5.29
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **google-meet** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: google-meet: OpenClaw package install metadata is incomplete
   - state: open · compat:none
@@ -2771,16 +2470,6 @@ _none_
   - author remediation:
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
-
-- 🟡 P2 **google-meet** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: google-meet: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.20
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **hyperspell** `upstream-metadata` `plugin-upstream-fix`
   - **package-manifest-version-drift**: hyperspell: package and manifest versions drift
@@ -2820,26 +2509,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **lobster** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: lobster: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
-- 🟡 P2 **matrix** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: matrix: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.2
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **mattermost** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-name-missing**: mattermost: manifest display name is missing
   - state: open · compat:none
@@ -2848,16 +2517,6 @@ _none_
   - author remediation:
     - Add a display name to the plugin manifest.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-name-missing
-
-- 🟡 P2 **mattermost** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: mattermost: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.6.9
-    - buildOpenClawVersion:2026.7.2
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **mcp-adapter** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: mcp-adapter: plugin API compatibility range is missing
@@ -2876,16 +2535,6 @@ _none_
   - author remediation:
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
-
-- 🟡 P2 **memory-lancedb** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: memory-lancedb: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.5.31
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **memory-tencentdb** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: memory-tencentdb: plugin API compatibility range is missing
@@ -2950,16 +2599,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **msteams** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: msteams: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **nextcloud-talk** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: nextcloud-talk: OpenClaw package install metadata is incomplete
   - state: open · compat:none
@@ -2968,16 +2607,6 @@ _none_
   - author remediation:
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
-
-- 🟡 P2 **nextcloud-talk** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: nextcloud-talk: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **nostr** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: nostr: OpenClaw package install metadata is incomplete
@@ -2988,16 +2617,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **nostr** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: nostr: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **openclaw-qqbot** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: openclaw-qqbot: OpenClaw package install metadata is incomplete
   - state: open · compat:none
@@ -3006,16 +2625,6 @@ _none_
   - author remediation:
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
-
-- 🟡 P2 **openclaw-qqbot** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: openclaw-qqbot: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **openclaw-telemetry** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-name-missing**: openclaw-telemetry: manifest display name is missing
@@ -3090,16 +2699,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **synology-chat** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: synology-chat: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **tlon** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: tlon: OpenClaw package install metadata is incomplete
   - state: open · compat:none
@@ -3108,16 +2707,6 @@ _none_
   - author remediation:
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
-
-- 🟡 P2 **tlon** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: tlon: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **twitch** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: twitch: OpenClaw package install metadata is incomplete
@@ -3128,16 +2717,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **twitch** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: twitch: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **voice-call** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: voice-call: OpenClaw package install metadata is incomplete
   - state: open · compat:none
@@ -3147,16 +2726,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **voice-call** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: voice-call: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **wecom** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: wecom: plugin API compatibility range is missing
   - state: open · compat:none
@@ -3165,16 +2734,6 @@ _none_
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
-
-- 🟡 P2 **whatsapp** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: whatsapp: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
   - **package-openclaw-unsupported-metadata**: yuanbao: package declares unsupported OpenClaw metadata
@@ -3203,16 +2762,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **zalo** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: zalo: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **zalouser** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: zalouser: OpenClaw package install metadata is incomplete
   - state: open · compat:none
@@ -3221,16 +2770,6 @@ _none_
   - author remediation:
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
-
-- 🟡 P2 **zalouser** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: zalouser: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟢 P3 **clawrouter** `upstream-metadata` `plugin-upstream-fix`
   - **security-manifest-schema-unavailable**: clawrouter: plugin security manifest references an unavailable schema
@@ -3257,12 +2796,6 @@ _none_
   - state: open · compat:missing
   - evidence:
     - api.capture.runtime-registrars
-
-- 🟠 P1 **a2a-gateway** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: a2a-gateway: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-root-sdk-import
 
 - 🟠 P1 **agentchat** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: agentchat: compat-dependent behavior lacks registry coverage
@@ -3300,12 +2833,6 @@ _none_
   - evidence:
     - hook.llm-observer.privacy-payload
 
-- 🟠 P1 **clawmetry** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: clawmetry: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-root-sdk-import
-
 - 🟠 P1 **clawrouter** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: clawrouter: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
@@ -3332,18 +2859,6 @@ _none_
   - state: open · compat:missing
   - evidence:
     - api.capture.runtime-registrars
-
-- 🟠 P1 **codex-app-server** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: codex-app-server: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-root-sdk-import
-
-- 🟠 P1 **composio** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: composio: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-root-sdk-import
 
 - 🟠 P1 **connectclaw** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: connectclaw: compat-dependent behavior lacks registry coverage
@@ -3404,12 +2919,6 @@ _none_
   - state: open · compat:missing
   - evidence:
     - channel.runtime.envelope-config-metadata
-
-- 🟠 P1 **dingtalk-connector** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: dingtalk-connector: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-root-sdk-import
 
 - 🟠 P1 **dingtalk-doc** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: dingtalk-doc: before_tool_call needs terminal/block/approval probes
@@ -3490,23 +2999,11 @@ _none_
   - evidence:
     - legacy-before-agent-start
 
-- 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-root-sdk-import
-
 - 🟠 P1 **hyperspell** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: hyperspell: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
     - api.capture.runtime-registrars
-
-- 🟠 P1 **hyperspell** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: hyperspell: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-root-sdk-import
 
 - 🟠 P1 **inworld-tts** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: inworld-tts: compat-dependent behavior lacks registry coverage
@@ -3551,13 +3048,6 @@ _none_
   - state: open · compat:missing
   - evidence:
     - hook.llm-observer.privacy-payload
-
-- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
-  - **sdk-export-missing**: kitchen-sink: plugin SDK import aliases are missing from target package exports
-  - state: open · compat:untracked
-  - evidence:
-    - [openclaw/plugin-sdk/channel-ingress @ generated-sdk-imports.ts:53](https://github.com/openclaw/kitchen-sink/blob/6cbd13515bbb53152b96b16047f2e6eca502858a/src/generated-sdk-imports.ts#L53)
-    - [openclaw/plugin-sdk/qa-live-transport-scenarios @ generated-sdk-imports.ts:230](https://github.com/openclaw/kitchen-sink/blob/6cbd13515bbb53152b96b16047f2e6eca502858a/src/generated-sdk-imports.ts#L230)
 
 - 🟠 P1 **lightclawbot** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: lightclawbot: compat-dependent behavior lacks registry coverage
@@ -3692,12 +3182,6 @@ _none_
   - state: open · compat:missing
   - evidence:
     - legacy-before-agent-start
-
-- 🟠 P1 **memu-engine** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: memu-engine: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-root-sdk-import
 
 - 🟠 P1 **mocrane-wecom** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: mocrane-wecom: compat-dependent behavior lacks registry coverage
@@ -4037,15 +3521,6 @@ _none_
   - evidence:
     - channel.runtime.envelope-config-metadata
 
-- 🟡 P2 **a2a-gateway** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: a2a-gateway: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ types.ts:14](https://github.com/win4r/openclaw-a2a-gateway/blob/fdedad7499c4b6d22b3aa63a7876b9bfa1a92674/src/types.ts#L14)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
-
 - 🟡 P2 **a2a-gateway** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: a2a-gateway: manifest uses unsupported top-level fields
   - state: open · compat:none
@@ -4210,16 +3685,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **bluebubbles** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: bluebubbles: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.5.7
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **brave-plugin** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: brave-plugin: OpenClaw package install metadata is incomplete
   - state: open · compat:none
@@ -4228,26 +3693,6 @@ _none_
   - author remediation:
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
-
-- 🟡 P2 **brave-plugin** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: brave-plugin: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
-- 🟡 P2 **clawmetry** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: clawmetry: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/src/service.ts#L1)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
 
 - 🟡 P2 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: clawmetry: OpenClaw package install metadata is incomplete
@@ -4343,16 +3788,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **codex** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: codex: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.5.1-beta.1
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: codex: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
@@ -4380,18 +3815,6 @@ _none_
     - Replace deprecated session file-path helpers with session entry and transcript identity APIs.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-session-file-helper
 
-- 🟡 P2 **codex-app-server** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: codex-app-server: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L1)
-    - [openclaw/plugin-sdk @ client.ts:6](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/client.ts#L6)
-    - [openclaw/plugin-sdk @ controller.ts:18](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L18)
-    - [openclaw/plugin-sdk @ types.ts:1](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/types.ts#L1)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
-
 - 🟡 P2 **codex-app-server** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: codex-app-server: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -4412,15 +3835,6 @@ _none_
     - [registerInteractiveHandler @ index.ts:29](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L29)
     - [registerInteractiveHandler @ index.ts:38](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L38)
     - [registerService @ index.ts:12](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L12)
-
-- 🟡 P2 **composio** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: composio: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/ComposioHQ/openclaw-composio-plugin/blob/47025c33224d343d9fbbf67e0a24e56eeaa18fff/index.ts#L1)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
 
 - 🟡 P2 **composio** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: composio: plugin API compatibility range is missing
@@ -4450,10 +3864,6 @@ _none_
   - **legacy-root-sdk-import**: connectclaw: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ commands.ts:1](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/commands.ts#L1)
-    - [openclaw/plugin-sdk @ hooks.ts:1](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/hooks.ts#L1)
-    - [openclaw/plugin-sdk @ tools.ts:1](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/tools.ts#L1)
     - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/tools.ts#L2)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
@@ -4541,31 +3951,11 @@ _none_
     - [@opentelemetry/sdk-trace-base @ package.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/diagnostics-otel/package.json)
     - [@opentelemetry/semantic-conventions @ package.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/diagnostics-otel/package.json)
 
-- 🟡 P2 **diagnostics-otel** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: diagnostics-otel: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **diagnostics-otel** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: diagnostics-otel: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
     - [registerService @ index.js:9](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/diagnostics-otel/dist/index.js#L9)
-
-- 🟡 P2 **diagnostics-prometheus** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: diagnostics-prometheus: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **diagnostics-prometheus** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: diagnostics-prometheus: runtime registrations need capture evidence before final contract judgment
@@ -4593,16 +3983,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **diffs** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: diffs: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.30
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **diffs** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: diffs: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
@@ -4614,25 +3994,6 @@ _none_
   - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L76)
-
-- 🟡 P2 **dingtalk-connector** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: dingtalk-connector: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L17)
-    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/channel.ts#L5)
-    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/config/accounts.ts#L2)
-    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/connection.ts#L16)
-    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/provider.ts#L14)
-    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/directory.ts#L1)
-    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L7)
-    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/onboarding.ts#L5)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ card-bridge.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L1)
-    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/utils/agent.ts#L8)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
 
 - 🟡 P2 **dingtalk-connector** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: dingtalk-connector: manifest uses unsupported top-level fields
@@ -4695,27 +4056,7 @@ _none_
   - **legacy-root-sdk-import**: dingtalk-doc: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:10](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/index.ts#L10)
     - [openclaw/plugin-sdk @ index.ts:11](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/index.ts#L11)
-    - [openclaw/plugin-sdk @ delete-document-block.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/block/delete-document-block.ts#L6)
-    - [openclaw/plugin-sdk @ index.ts:5](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/block/index.ts#L5)
-    - [openclaw/plugin-sdk @ insert-document-block.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/block/insert-document-block.ts#L6)
-    - [openclaw/plugin-sdk @ list-document-blocks.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/block/list-document-blocks.ts#L6)
-    - [openclaw/plugin-sdk @ update-document-block.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/block/update-document-block.ts#L6)
-    - [openclaw/plugin-sdk @ create-document.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/create-document.ts#L6)
-    - [openclaw/plugin-sdk @ get-document-content.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/get-document-content.ts#L6)
-    - [openclaw/plugin-sdk @ get-document-info.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/get-document-info.ts#L6)
-    - [openclaw/plugin-sdk @ index.ts:8](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/index.ts#L8)
-    - [openclaw/plugin-sdk @ search-documents.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/search-documents.ts#L6)
-    - [openclaw/plugin-sdk @ update-document.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/update-document.ts#L6)
-    - [openclaw/plugin-sdk @ commit-uploaded-file.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/commit-uploaded-file.ts#L6)
-    - [openclaw/plugin-sdk @ create-file.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/create-file.ts#L6)
-    - [openclaw/plugin-sdk @ create-folder.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/create-folder.ts#L6)
-    - [openclaw/plugin-sdk @ download-file.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/download-file.ts#L6)
-    - [openclaw/plugin-sdk @ get-file-upload-info.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/get-file-upload-info.ts#L6)
-    - [openclaw/plugin-sdk @ index.ts:5](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/index.ts#L5)
-    - [openclaw/plugin-sdk @ list-nodes.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/list-nodes.ts#L6)
-    - [openclaw/plugin-sdk @ helpers.ts:7](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/helpers.ts#L7)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -4791,16 +4132,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **discord** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: discord: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.5.26
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **feishu** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: feishu: channel runtime needs envelope/config probes
   - state: open · compat:untracked
@@ -4832,16 +4163,6 @@ _none_
   - author remediation:
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
-
-- 🟡 P2 **feishu** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: feishu: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.5.29
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **feishu** `deprecation-warning` `core-compat-adapter`
   - **sdk-load-session-store**: feishu: deprecated whole-store session helper is still used
@@ -4885,16 +4206,6 @@ _none_
   - author remediation:
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
-
-- 🟡 P2 **google-meet** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: google-meet: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.20
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **google-meet** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: google-meet: runtime registrations need capture evidence before final contract judgment
@@ -4981,26 +4292,6 @@ _none_
     - Replace the legacy before_agent_start hook with the current prompt/model hooks.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start
 
-- 🟡 P2 **honcho** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: honcho: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/commands/cli.ts#L8)
-    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/hooks/capture.ts#L2)
-    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/hooks/context.ts#L2)
-    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/hooks/gateway.ts#L2)
-    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/hooks/subagent.ts#L2)
-    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/state.ts#L9)
-    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/ask.ts#L3)
-    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/context.ts#L3)
-    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/memory-passthrough.ts#L3)
-    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/message-search.ts#L3)
-    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/search.ts#L3)
-    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/session.ts#L3)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
-
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: honcho: cold import requires package build output
   - state: open · compat:none
@@ -5020,17 +4311,6 @@ _none_
   - evidence:
     - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/index.ts#L97)
     - [registerMemoryRuntime @ runtime.ts:239](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/runtime.ts#L239)
-
-- 🟡 P2 **hyperspell** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: hyperspell: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L1)
-    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/graph/tools.ts#L2)
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L1)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: hyperspell: cold import requires package build output
@@ -5137,7 +4417,7 @@ _none_
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/lightclawbot/.crabpot-package/dist/src/channel.js:45
+    - createChatChannelPlugin @ plugins/lightclawbot/.crabpot-package/dist/src/channel.js:47
     - defineChannelPluginEntry @ plugins/lightclawbot/.crabpot-package/dist/index.js:25
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
@@ -5180,16 +4460,6 @@ _none_
   - author remediation:
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
-
-- 🟡 P2 **lobster** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: lobster: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: lossless-claw: cold import requires package build output
@@ -5255,16 +4525,6 @@ _none_
     - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/e3eb1121adfb3eef87200d2964f01396e2b6acbc/extensions/matrix/package.json)
     - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e3eb1121adfb3eef87200d2964f01396e2b6acbc/extensions/matrix/package.json)
 
-- 🟡 P2 **matrix** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: matrix: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.2
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: matrix: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
@@ -5310,16 +4570,6 @@ _none_
   - evidence:
     - [ws @ package.json](https://github.com/openclaw/openclaw/blob/e3eb1121adfb3eef87200d2964f01396e2b6acbc/extensions/mattermost/package.json)
     - [zod @ package.json](https://github.com/openclaw/openclaw/blob/e3eb1121adfb3eef87200d2964f01396e2b6acbc/extensions/mattermost/package.json)
-
-- 🟡 P2 **mattermost** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: mattermost: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.6.9
-    - buildOpenClawVersion:2026.7.2
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: mattermost: cold import needs TypeScript source entrypoint support
@@ -5384,16 +4634,6 @@ _none_
   - author remediation:
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
-
-- 🟡 P2 **memory-lancedb** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: memory-lancedb: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.5.31
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **memory-lancedb** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: memory-lancedb: runtime registrations need capture evidence before final contract judgment
@@ -5477,15 +4717,6 @@ _none_
   - evidence:
     - [registerHook @ index.js:732](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/fd4bad4cbe66bb767d33d08d681eaea03ccb353a/index.js#L732)
 
-- 🟡 P2 **memu-engine** `deprecation-warning` `core-compat-adapter`
-  - **legacy-root-sdk-import**: memu-engine: root plugin SDK barrel is still used by fixtures
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/duxiaoxiong/memu-engine-for-OpenClaw/blob/a5a22c5faf21e30d17a1b47635829e7dd0728ae5/index.ts#L1)
-  - author remediation:
-    - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
-
 - 🟡 P2 **memu-engine** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: memu-engine: plugin API compatibility range is missing
   - state: open · compat:none
@@ -5517,32 +4748,7 @@ _none_
   - **legacy-root-sdk-import**: mocrane-wecom: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L1)
-    - [openclaw/plugin-sdk @ accounts.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/accounts.ts#L1)
-    - [openclaw/plugin-sdk @ handler.ts:9](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/agent/handler.ts#L9)
-    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/channel.ts#L5)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:17](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L17)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:18](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L18)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:19](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L19)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:20](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L20)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:21](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L21)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:22](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L22)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:23](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L23)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:27](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L27)
     - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:30](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L30)
-    - [openclaw/plugin-sdk @ accounts.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/accounts.ts#L5)
-    - [openclaw/plugin-sdk @ media.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/media.ts#L1)
-    - [openclaw/plugin-sdk @ network.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/network.ts#L1)
-    - [openclaw/plugin-sdk @ routing.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/routing.ts#L1)
-    - [openclaw/plugin-sdk @ dynamic-agent.ts:8](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/dynamic-agent.ts#L8)
-    - [openclaw/plugin-sdk @ gateway-monitor.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/gateway-monitor.ts#L5)
-    - [openclaw/plugin-sdk @ monitor.ts:6](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/monitor.ts#L6)
-    - [openclaw/plugin-sdk @ types.ts:2](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/monitor/types.ts#L2)
-    - [openclaw/plugin-sdk @ onboarding.ts:9](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/onboarding.ts#L9)
-    - [openclaw/plugin-sdk @ outbound.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/outbound.ts#L1)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ command-auth.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/shared/command-auth.ts#L1)
-    - [openclaw/plugin-sdk @ ws-adapter.ts:14](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/ws-adapter.ts#L14)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -5628,16 +4834,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **msteams** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: msteams: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: nemoclaw: cold import requires package build output
   - state: open · compat:none
@@ -5689,16 +4885,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **nextcloud-talk** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: nextcloud-talk: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nostr: channel runtime needs envelope/config probes
   - state: open · compat:untracked
@@ -5729,16 +4915,6 @@ _none_
   - author remediation:
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
-
-- 🟡 P2 **nostr** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: nostr: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nostr: runtime registrations need capture evidence before final contract judgment
@@ -5774,16 +4950,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **openclaw-qqbot** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: openclaw-qqbot: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **openclaw-qqbot** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: openclaw-qqbot: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
@@ -5803,8 +4969,6 @@ _none_
   - **legacy-root-sdk-import**: openclaw-telemetry: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/src/service.ts#L1)
     - [openclaw/plugin-sdk @ service.ts:2](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/src/service.ts#L2)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
@@ -5889,15 +5053,8 @@ _none_
   - **legacy-root-sdk-import**: opik-openclaw: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/index.ts#L1)
     - [openclaw/plugin-sdk @ index.ts:2](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/index.ts#L2)
-    - [openclaw/plugin-sdk @ cli.ts:1](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/cli.ts#L1)
-    - [openclaw/plugin-sdk @ configure.ts:2](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/configure.ts#L2)
-    - [openclaw/plugin-sdk @ service.ts:5](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service.ts#L5)
     - [openclaw/plugin-sdk @ service.ts:6](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service.ts#L6)
-    - [openclaw/plugin-sdk @ llm.ts:1](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/llm.ts#L1)
-    - [openclaw/plugin-sdk @ subagent.ts:1](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/subagent.ts#L1)
-    - [openclaw/plugin-sdk @ tool.ts:1](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/tool.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -5938,16 +5095,7 @@ _none_
   - **legacy-root-sdk-import**: qqbot: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L1)
     - [openclaw/plugin-sdk @ index.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L2)
-    - [openclaw/plugin-sdk @ api.ts:7](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/api.ts#L7)
-    - [openclaw/plugin-sdk @ approval-handler.ts:12](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/approval-handler.ts#L12)
-    - [openclaw/plugin-sdk @ config.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/config.ts#L2)
-    - [openclaw/plugin-sdk @ onboarding.ts:13](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/onboarding.ts#L13)
-    - [openclaw/plugin-sdk @ proactive.ts:67](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/proactive.ts#L67)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/channel.ts#L1)
-    - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/remind.ts#L1)
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
@@ -6052,16 +5200,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **synology-chat** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: synology-chat: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **telnyx-sms** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: telnyx-sms: channel runtime needs envelope/config probes
   - state: open · compat:untracked
@@ -6115,16 +5253,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **tlon** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: tlon: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **twitch** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: twitch: channel runtime needs envelope/config probes
   - state: open · compat:untracked
@@ -6158,16 +5286,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **twitch** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: twitch: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **voice-call** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: voice-call: channelEnvVars legacy manifest metadata must stay covered
   - state: open · compat:deprecated · deprecated
@@ -6194,16 +5312,6 @@ _none_
   - author remediation:
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
-
-- 🟡 P2 **voice-call** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: voice-call: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **voice-call** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: voice-call: runtime registrations need capture evidence before final contract judgment
@@ -6271,16 +5379,6 @@ _none_
     - [audio-decode @ package.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/whatsapp/package.json)
     - [baileys @ package.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/whatsapp/package.json)
     - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/whatsapp/package.json)
-
-- 🟡 P2 **whatsapp** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: whatsapp: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: yuanbao: channel runtime needs envelope/config probes
@@ -6369,16 +5467,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **zalo** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: zalo: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
-
 - 🟡 P2 **zalouser** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: zalouser: channel runtime needs envelope/config probes
   - state: open · compat:untracked
@@ -6410,16 +5498,6 @@ _none_
   - author remediation:
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
-
-- 🟡 P2 **zalouser** `upstream-metadata` `plugin-upstream-fix`
-  - **package-min-host-version-drift**: zalouser: OpenClaw package minimum host version drifts from build target
-  - state: open · compat:none
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-  - author remediation:
-    - Set the package minimum host version to the OpenClaw version range the plugin was built and tested against.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-min-host-version-drift
 
 - 🟢 P3 **clawrouter** `upstream-metadata` `plugin-upstream-fix`
   - **security-manifest-schema-unavailable**: clawrouter: plugin security manifest references an unavailable schema
@@ -6543,13 +5621,6 @@ _none_
     - [agent_end @ service.ts:581](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service.ts#L581)
     - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/llm.ts#L39)
     - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/llm.ts#L150)
-
-- 🟠 P1 **kitchen-sink** `sdk-alias`
-  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
-  - id: `sdk.import.package-export-cold-import:kitchen-sink`
-  - evidence:
-    - [openclaw/plugin-sdk/channel-ingress @ generated-sdk-imports.ts:53](https://github.com/openclaw/kitchen-sink/blob/6cbd13515bbb53152b96b16047f2e6eca502858a/src/generated-sdk-imports.ts#L53)
-    - [openclaw/plugin-sdk/qa-live-transport-scenarios @ generated-sdk-imports.ts:230](https://github.com/openclaw/kitchen-sink/blob/6cbd13515bbb53152b96b16047f2e6eca502858a/src/generated-sdk-imports.ts#L230)
 
 - 🟡 P2 **a2a-gateway** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -7207,68 +6278,11 @@ _none_
     - package:1.0.3
     - manifest:1.0.1
 
-- 🟡 P2 **a2a-gateway** `sdk-alias`
-  - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
-  - id: `sdk.import.root-barrel-cold-import:a2a-gateway`
-  - evidence:
-    - [openclaw/plugin-sdk @ types.ts:14](https://github.com/win4r/openclaw-a2a-gateway/blob/fdedad7499c4b6d22b3aa63a7876b9bfa1a92674/src/types.ts#L14)
-
-- 🟡 P2 **composio** `sdk-alias`
-  - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
-  - id: `sdk.import.root-barrel-cold-import:composio`
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/ComposioHQ/openclaw-composio-plugin/blob/47025c33224d343d9fbbf67e0a24e56eeaa18fff/index.ts#L1)
-
 - 🟡 P2 **connectclaw** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:connectclaw`
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ commands.ts:1](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/commands.ts#L1)
-    - [openclaw/plugin-sdk @ hooks.ts:1](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/hooks.ts#L1)
-    - [openclaw/plugin-sdk @ tools.ts:1](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/tools.ts#L1)
     - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/tools.ts#L2)
-
-- 🟡 P2 **dingtalk-connector** `sdk-alias`
-  - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
-  - id: `sdk.import.root-barrel-cold-import:dingtalk-connector`
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:17](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L17)
-    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/channel.ts#L5)
-    - [openclaw/plugin-sdk @ accounts.ts:2](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/config/accounts.ts#L2)
-    - [openclaw/plugin-sdk @ connection.ts:16](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/connection.ts#L16)
-    - [openclaw/plugin-sdk @ provider.ts:14](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/core/provider.ts#L14)
-    - [openclaw/plugin-sdk @ directory.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/directory.ts#L1)
-    - [openclaw/plugin-sdk @ gateway-methods.ts:7](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L7)
-    - [openclaw/plugin-sdk @ onboarding.ts:5](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/onboarding.ts#L5)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ card-bridge.ts:1](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L1)
-    - [openclaw/plugin-sdk @ agent.ts:8](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/utils/agent.ts#L8)
-
-- 🟡 P2 **honcho** `sdk-alias`
-  - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
-  - id: `sdk.import.root-barrel-cold-import:honcho`
-  - evidence:
-    - [openclaw/plugin-sdk @ cli.ts:8](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/commands/cli.ts#L8)
-    - [openclaw/plugin-sdk @ capture.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/hooks/capture.ts#L2)
-    - [openclaw/plugin-sdk @ context.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/hooks/context.ts#L2)
-    - [openclaw/plugin-sdk @ gateway.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/hooks/gateway.ts#L2)
-    - [openclaw/plugin-sdk @ subagent.ts:2](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/hooks/subagent.ts#L2)
-    - [openclaw/plugin-sdk @ state.ts:9](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/state.ts#L9)
-    - [openclaw/plugin-sdk @ ask.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/ask.ts#L3)
-    - [openclaw/plugin-sdk @ context.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/context.ts#L3)
-    - [openclaw/plugin-sdk @ memory-passthrough.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/memory-passthrough.ts#L3)
-    - [openclaw/plugin-sdk @ message-search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/message-search.ts#L3)
-    - [openclaw/plugin-sdk @ search.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/search.ts#L3)
-    - [openclaw/plugin-sdk @ session.ts:3](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/tools/session.ts#L3)
-
-- 🟡 P2 **hyperspell** `sdk-alias`
-  - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
-  - id: `sdk.import.root-barrel-cold-import:hyperspell`
-  - evidence:
-    - [openclaw/plugin-sdk @ slash.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L1)
-    - [openclaw/plugin-sdk @ tools.ts:2](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/graph/tools.ts#L2)
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/index.ts#L1)
 
 - 🟡 P2 **memory-tencentdb** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
@@ -7281,69 +6295,26 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:mocrane-wecom`
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L1)
-    - [openclaw/plugin-sdk @ accounts.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/accounts.ts#L1)
-    - [openclaw/plugin-sdk @ handler.ts:9](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/agent/handler.ts#L9)
-    - [openclaw/plugin-sdk @ channel.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/channel.ts#L5)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:17](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L17)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:18](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L18)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:19](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L19)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:20](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L20)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:21](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L21)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:22](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L22)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:23](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L23)
-    - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:27](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L27)
     - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:30](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L30)
-    - [openclaw/plugin-sdk @ accounts.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/accounts.ts#L5)
-    - [openclaw/plugin-sdk @ media.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/media.ts#L1)
-    - [openclaw/plugin-sdk @ network.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/network.ts#L1)
-    - [openclaw/plugin-sdk @ routing.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/config/routing.ts#L1)
-    - [openclaw/plugin-sdk @ dynamic-agent.ts:8](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/dynamic-agent.ts#L8)
-    - [openclaw/plugin-sdk @ gateway-monitor.ts:5](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/gateway-monitor.ts#L5)
-    - [openclaw/plugin-sdk @ monitor.ts:6](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/monitor.ts#L6)
-    - [openclaw/plugin-sdk @ types.ts:2](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/monitor/types.ts#L2)
-    - [openclaw/plugin-sdk @ onboarding.ts:9](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/onboarding.ts#L9)
-    - [openclaw/plugin-sdk @ outbound.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/outbound.ts#L1)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ command-auth.ts:1](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/shared/command-auth.ts#L1)
-    - [openclaw/plugin-sdk @ ws-adapter.ts:14](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/ws-adapter.ts#L14)
 
 - 🟡 P2 **openclaw-telemetry** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:openclaw-telemetry`
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/src/service.ts#L1)
     - [openclaw/plugin-sdk @ service.ts:2](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/src/service.ts#L2)
 
 - 🟡 P2 **opik-openclaw** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:opik-openclaw`
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/index.ts#L1)
     - [openclaw/plugin-sdk @ index.ts:2](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/index.ts#L2)
-    - [openclaw/plugin-sdk @ cli.ts:1](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/cli.ts#L1)
-    - [openclaw/plugin-sdk @ configure.ts:2](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/configure.ts#L2)
-    - [openclaw/plugin-sdk @ service.ts:5](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service.ts#L5)
     - [openclaw/plugin-sdk @ service.ts:6](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service.ts#L6)
-    - [openclaw/plugin-sdk @ llm.ts:1](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/llm.ts#L1)
-    - [openclaw/plugin-sdk @ subagent.ts:1](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/subagent.ts#L1)
-    - [openclaw/plugin-sdk @ tool.ts:1](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/tool.ts#L1)
 
 - 🟡 P2 **qqbot** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:qqbot`
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L1)
     - [openclaw/plugin-sdk @ index.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L2)
-    - [openclaw/plugin-sdk @ api.ts:7](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/api.ts#L7)
-    - [openclaw/plugin-sdk @ approval-handler.ts:12](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/approval-handler.ts#L12)
-    - [openclaw/plugin-sdk @ config.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/config.ts#L2)
-    - [openclaw/plugin-sdk @ onboarding.ts:13](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/onboarding.ts#L13)
-    - [openclaw/plugin-sdk @ proactive.ts:67](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/proactive.ts#L67)
-    - [openclaw/plugin-sdk @ runtime.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/runtime.ts#L1)
-    - [openclaw/plugin-sdk @ channel.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/channel.ts#L1)
-    - [openclaw/plugin-sdk @ remind.ts:1](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/src/tools/remind.ts#L1)
 
 - 🟡 P2 **connectclaw** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
@@ -7563,7 +6534,7 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:lightclawbot`
   - evidence:
-    - createChatChannelPlugin @ plugins/lightclawbot/.crabpot-package/dist/src/channel.js:45
+    - createChatChannelPlugin @ plugins/lightclawbot/.crabpot-package/dist/src/channel.js:47
     - defineChannelPluginEntry @ plugins/lightclawbot/.crabpot-package/dist/index.js:25
 
 - 🟢 P3 **mattermost** `channel-runtime`
@@ -8243,227 +7214,17 @@ _none_
   - evidence:
     - openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec
 
-- 🟢 P3 **bluebubbles** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:bluebubbles`
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.5.7
-
-- 🟢 P3 **brave-plugin** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:brave-plugin`
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **codex** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:codex`
-  - evidence:
-    - minHostVersion:>=2026.5.1-beta.1
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **diagnostics-otel** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:diagnostics-otel`
-  - evidence:
-    - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **diagnostics-prometheus** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:diagnostics-prometheus`
-  - evidence:
-    - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **diffs** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:diffs`
-  - evidence:
-    - minHostVersion:>=2026.4.30
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **discord** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:discord`
-  - evidence:
-    - minHostVersion:>=2026.5.26
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **feishu** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:feishu`
-  - evidence:
-    - minHostVersion:>=2026.5.29
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **google-meet** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:google-meet`
-  - evidence:
-    - minHostVersion:>=2026.4.20
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **lobster** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:lobster`
-  - evidence:
-    - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **matrix** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:matrix`
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.2
-
-- 🟢 P3 **mattermost** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:mattermost`
-  - evidence:
-    - minHostVersion:>=2026.6.9
-    - buildOpenClawVersion:2026.7.2
-
-- 🟢 P3 **memory-lancedb** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:memory-lancedb`
-  - evidence:
-    - minHostVersion:>=2026.5.31
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **msteams** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:msteams`
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **nextcloud-talk** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:nextcloud-talk`
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **nostr** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:nostr`
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **openclaw-qqbot** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:openclaw-qqbot`
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **synology-chat** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:synology-chat`
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **tlon** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:tlon`
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **twitch** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:twitch`
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **voice-call** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:voice-call`
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **whatsapp** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:whatsapp`
-  - evidence:
-    - minHostVersion:>=2026.4.25
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **zalo** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:zalo`
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-
-- 🟢 P3 **zalouser** `package-loader`
-  - contract: Install minimum host version matches the OpenClaw package surface targeted by the plugin.
-  - id: `package.metadata.min-host-version:zalouser`
-  - evidence:
-    - minHostVersion:>=2026.4.10
-    - buildOpenClawVersion:2026.7.1
-
 - 🟢 P3 **codex** `sdk-import`
   - contract: External plugins use documented public SDK subpaths instead of reserved bundled-plugin compatibility shims.
   - id: `sdk.import.reserved-bundled-plugin-boundary:codex`
   - evidence:
     - [openclaw/plugin-sdk/codex-mcp-projection @ thread-lifecycle-qWE88Dn2.js:15](https://github.com/openclaw/openclaw/blob/5e63b365d4d3e62ef600b783fad7c5043b6f4738/extensions/codex/dist/thread-lifecycle-qWE88Dn2.js#L15)
 
-- 🟢 P3 **clawmetry** `sdk-alias`
-  - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
-  - id: `sdk.import.root-barrel-cold-import:clawmetry`
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts#L1)
-    - [openclaw/plugin-sdk @ service.ts:1](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/src/service.ts#L1)
-
-- 🟢 P3 **codex-app-server** `sdk-alias`
-  - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
-  - id: `sdk.import.root-barrel-cold-import:codex-app-server`
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L1)
-    - [openclaw/plugin-sdk @ client.ts:6](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/client.ts#L6)
-    - [openclaw/plugin-sdk @ controller.ts:18](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/controller.ts#L18)
-    - [openclaw/plugin-sdk @ types.ts:1](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/src/types.ts#L1)
-
 - 🟢 P3 **dingtalk-doc** `sdk-alias`
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:dingtalk-doc`
   - evidence:
-    - [openclaw/plugin-sdk @ index.ts:10](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/index.ts#L10)
     - [openclaw/plugin-sdk @ index.ts:11](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/index.ts#L11)
-    - [openclaw/plugin-sdk @ delete-document-block.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/block/delete-document-block.ts#L6)
-    - [openclaw/plugin-sdk @ index.ts:5](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/block/index.ts#L5)
-    - [openclaw/plugin-sdk @ insert-document-block.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/block/insert-document-block.ts#L6)
-    - [openclaw/plugin-sdk @ list-document-blocks.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/block/list-document-blocks.ts#L6)
-    - [openclaw/plugin-sdk @ update-document-block.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/block/update-document-block.ts#L6)
-    - [openclaw/plugin-sdk @ create-document.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/create-document.ts#L6)
-    - [openclaw/plugin-sdk @ get-document-content.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/get-document-content.ts#L6)
-    - [openclaw/plugin-sdk @ get-document-info.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/get-document-info.ts#L6)
-    - [openclaw/plugin-sdk @ index.ts:8](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/index.ts#L8)
-    - [openclaw/plugin-sdk @ search-documents.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/search-documents.ts#L6)
-    - [openclaw/plugin-sdk @ update-document.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/doc/update-document.ts#L6)
-    - [openclaw/plugin-sdk @ commit-uploaded-file.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/commit-uploaded-file.ts#L6)
-    - [openclaw/plugin-sdk @ create-file.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/create-file.ts#L6)
-    - [openclaw/plugin-sdk @ create-folder.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/create-folder.ts#L6)
-    - [openclaw/plugin-sdk @ download-file.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/download-file.ts#L6)
-    - [openclaw/plugin-sdk @ get-file-upload-info.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/get-file-upload-info.ts#L6)
-    - [openclaw/plugin-sdk @ index.ts:5](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/index.ts#L5)
-    - [openclaw/plugin-sdk @ list-nodes.ts:6](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/file/list-nodes.ts#L6)
-    - [openclaw/plugin-sdk @ helpers.ts:7](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/src/tools/helpers.ts#L7)
-
-- 🟢 P3 **memu-engine** `sdk-alias`
-  - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
-  - id: `sdk.import.root-barrel-cold-import:memu-engine`
-  - evidence:
-    - [openclaw/plugin-sdk @ index.ts:1](https://github.com/duxiaoxiong/memu-engine-for-OpenClaw/blob/a5a22c5faf21e30d17a1b47635829e7dd0728ae5/index.ts#L1)
 
 - 🟢 P3 **aiwerk-mcp-bridge** `tool-runtime`
   - contract: Registered runtime tools expose stable names, input schemas, and result metadata.
