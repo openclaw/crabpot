@@ -5,7 +5,12 @@ import os from "node:os";
 import path from "node:path";
 import { test } from "node:test";
 import { normalizeTrack } from "../scripts/resolve-openclaw-track.mjs";
-import { applyTrackMetadata, renderTrackMetadata, resolveDefaultPinMetadata } from "../scripts/update-track-metadata.mjs";
+import {
+  applyTrackMetadata,
+  renderTrackMetadata,
+  resolveDefaultPinMetadata,
+  resolveTrackMetadata,
+} from "../scripts/update-track-metadata.mjs";
 
 const tracks = [
   {
@@ -41,6 +46,26 @@ test("openclaw track resolver maps crabpot branches to tracks", () => {
   assert.equal(normalizeTrack("beta", "main"), "beta");
   assert.equal(normalizeTrack("auto", "feature"), "latest");
   assert.throws(() => normalizeTrack("nightly", "main"), /unknown OpenClaw track/);
+});
+
+test("track metadata resolves only the selected dashboard track", async () => {
+  const resolved = [];
+  const metadata = await resolveTrackMetadata("development", "crab-development", async (track) => {
+    resolved.push(track);
+    return tracks.find((candidate) => candidate.track === track);
+  });
+
+  assert.deepEqual(resolved, ["development"]);
+  assert.deepEqual(metadata, [tracks[2]]);
+
+  resolved.length = 0;
+  const inferred = await resolveTrackMetadata("auto", "crab-development", async (track) => {
+    resolved.push(track);
+    return tracks.find((candidate) => candidate.track === track);
+  });
+
+  assert.deepEqual(resolved, ["development"]);
+  assert.deepEqual(inferred, [tracks[2]]);
 });
 
 test("track metadata renders GitHub branch switches with resolved version and sha", () => {
