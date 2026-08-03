@@ -127,7 +127,10 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.match(workflow, /run_profile_step 240 "OpenClaw runtime profile failed or timed out; falling back to fixture-only runtime profile" node scripts\/profile-contract-runtime\.mjs --openclaw \.\/openclaw --runs 3/);
   assert.match(workflow, /run_profile_step 120 "fixture-only runtime profile failed or timed out; continuing without refreshed runtime metrics" node scripts\/profile-contract-runtime\.mjs --runs 3 \|\| true/);
   assert.match(workflow, /if \[ -f reports\/crabpot-runtime-profile\.json \]; then[\s\S]*node scripts\/compare-runtime-profile\.mjs[\s\S]*Runtime profile was not refreshed; skipping runtime profile diff/);
-  assert.match(workflow, /node scripts\/update-track-metadata\.mjs --track "\$\{\{ matrix\.track \}\}"/);
+  assert.match(
+    workflow,
+    /node scripts\/update-track-metadata\.mjs --track "\$\{\{ matrix\.track \}\}" --openclaw \.\/openclaw/,
+  );
   assert.match(workflow, /origin\/main:reports\/crabpot-dashboard-data\.json/);
   assert.match(workflow, /baseline_args=\(\)/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs "\$\{baseline_args\[@\]\}"/);

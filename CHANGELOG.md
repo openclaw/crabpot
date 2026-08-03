@@ -5,6 +5,7 @@
 - Refreshed plugin fixtures and restored real OpenClaw lifecycle profiling against current diagnostics APIs.
 - Split CI into a required pinned OpenClaw Default Track, an advisory artifact-producing HEAD canary, and a 14-day pin-promotion SLA.
 - Kept each track dashboard independent from unrelated OpenClaw release metadata failures.
+- Recorded dashboard metadata from the exact OpenClaw checkout exercised by the run.
 
 ## 0.2.1 - 2026-07-06
 
