@@ -1416,7 +1416,7 @@
     {
       "fixture": "codex",
       "id": "cold-import.extension:codex:plugins-codex-crabpot-package-index-ts",
-      "status": "missing",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/codex/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1434,7 +1434,7 @@
     {
       "fixture": "codex",
       "id": "cold-import.runtimeExtension:codex:plugins-codex-crabpot-package-dist-index-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/codex/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1488,7 +1488,7 @@
     {
       "fixture": "google-meet",
       "id": "cold-import.extension:google-meet:plugins-google-meet-crabpot-package-index-ts",
-      "status": "missing",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/google-meet/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1506,7 +1506,7 @@
     {
       "fixture": "google-meet",
       "id": "cold-import.runtimeExtension:google-meet:plugins-google-meet-crabpot-package-dist-index-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/google-meet/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1560,7 +1560,7 @@
     {
       "fixture": "memory-lancedb",
       "id": "cold-import.extension:memory-lancedb:plugins-memory-lancedb-crabpot-package-index-ts",
-      "status": "missing",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/memory-lancedb/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1578,7 +1578,7 @@
     {
       "fixture": "memory-lancedb",
       "id": "cold-import.runtimeExtension:memory-lancedb:plugins-memory-lancedb-crabpot-package-dist-index-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/memory-lancedb/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1596,7 +1596,7 @@
     {
       "fixture": "openclaw-qqbot",
       "id": "cold-import.extension:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-index-ts",
-      "status": "missing",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1614,7 +1614,7 @@
     {
       "fixture": "openclaw-qqbot",
       "id": "cold-import.runtimeExtension:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-index-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1632,7 +1632,7 @@
     {
       "fixture": "openclaw-qqbot",
       "id": "cold-import.setupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1650,7 +1650,7 @@
     {
       "fixture": "openclaw-qqbot",
       "id": "cold-import.runtimeSetupEntry:openclaw-qqbot:plugins-openclaw-qqbot-crabpot-package-dist-setup-entry-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/openclaw-qqbot/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
