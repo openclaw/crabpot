@@ -420,6 +420,7 @@ test("readme frame follows compact reporting design and preserves dynamic blocks
   assert.match(framed, /^# 🦀 crabpot/u);
   assert.match(framed, /\*\*Goto: \[Latest Published\]/);
   assert.match(framed, /## Reporting Data/);
+  assert.match(framed, /`main` follows a promoted green OpenClaw source pin plus npm `latest` plugin artifacts/);
   assert.match(framed, /- \*\*Last dashboard update:\*\* Apr 26, 2026, 01:31 UTC/);
   assert.match(framed, /- \*\*Source:\*\* `npm-latest`/);
   assert.match(framed, /## Dashboard/);
