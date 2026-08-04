@@ -1,20 +1,20 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "check",
+  "mode": "dependabot",
   "openclawLabel": "openclaw/openclaw@e3eb1121adfb (Default Track pin 2026-07-18)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 107,
-    "suggestions": 251,
+    "warnings": 108,
+    "suggestions": 250,
     "issues": 358,
     "p0Issues": 0,
-    "p1Issues": 119,
+    "p1Issues": 122,
     "liveIssues": 0,
     "liveP0Issues": 0,
-    "compatGaps": 103,
-    "deprecationWarnings": 40,
+    "compatGaps": 106,
+    "deprecationWarnings": 37,
     "inspectorGaps": 157,
     "upstreamIssues": 58,
     "refDiffFailures": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 3047,
-    "importLoopP95Ms": 3054,
+    "importLoopP50Ms": 2321,
+    "importLoopP95Ms": 2386,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 123.2,
-    "importLoopOpenClawActivationP50Ms": 0.4,
+    "importLoopOpenClawImportP50Ms": 106.9,
+    "importLoopOpenClawActivationP50Ms": 0.3,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 0.9,
-    "importLoopMaxCpuMs": 38,
-    "importLoopRssSampleCount": 361,
-    "importLoopCpuSampleCount": 361
+    "importLoopMaxRssMb": 0,
+    "importLoopMaxCpuMs": 177,
+    "importLoopRssSampleCount": 276,
+    "importLoopCpuSampleCount": 276
   },
   "topIssues": [
     {
@@ -124,6 +124,14 @@
     {
       "severity": "P1",
       "issueClass": "compat-gap",
+      "fixture": "codex",
+      "code": "sdk-export-missing",
+      "title": "codex: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
       "fixture": "codex-app-server",
       "code": "missing-compat-record",
       "title": "codex-app-server: compat-dependent behavior lacks registry coverage",
@@ -191,14 +199,6 @@
       "fixture": "diffs",
       "code": "missing-compat-record",
       "title": "diffs: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "dingtalk-connector",
-      "code": "missing-compat-record",
-      "title": "dingtalk-connector: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
     }
   ],
@@ -439,20 +439,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 446.3% over baseline",
+      "message": "p95WallMs regressed 655.1% over baseline",
       "baseline": 1273,
-      "current": 6954,
-      "delta": 5681,
-      "percent": 446.3
+      "current": 9613,
+      "delta": 8340,
+      "percent": 655.1
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 450.5 over baseline",
+      "message": "maxPeakRssMb regressed 699.5 over baseline",
       "baseline": 65.1,
-      "current": 515.6,
-      "delta": 450.5
+      "current": 764.6,
+      "delta": 699.5
     }
   ],
   "artifacts": {
