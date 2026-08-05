@@ -4,17 +4,17 @@
     "status": "ok",
     "configuredPath": "./openclaw",
     "capturedRegistrarCount": 32,
-    "sdkExportCount": 331
+    "sdkExportCount": 301
   },
   "summary": {
     "fixtureCount": 60,
     "registrationCount": 386,
     "hookCount": 130,
-    "sdkImportCount": 1997,
+    "sdkImportCount": 2074,
     "packageEntrypointCount": 121,
-    "issueProbeCount": 242,
+    "issueProbeCount": 267,
     "inspectorShimRequiredCount": 223,
-    "compatAliasRequiredCount": 0
+    "compatAliasRequiredCount": 14
   },
   "fixtures": [
     {
@@ -518,7 +518,7 @@
           "fixture": "qqbot",
           "specifier": "openclaw/plugin-sdk",
           "ref": "plugins/qqbot/index.ts:2",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -1331,7 +1331,7 @@
           "fixture": "opik-openclaw",
           "specifier": "openclaw/plugin-sdk",
           "ref": "plugins/opik-openclaw/index.ts:2",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -1342,7 +1342,7 @@
           "fixture": "opik-openclaw",
           "specifier": "openclaw/plugin-sdk",
           "ref": "plugins/opik-openclaw/src/service.ts:6",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -1554,7 +1554,7 @@
           "fixture": "openclaw-telemetry",
           "specifier": "openclaw/plugin-sdk",
           "ref": "plugins/openclaw-telemetry/src/service.ts:2",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -1935,7 +1935,7 @@
           "fixture": "connectclaw",
           "specifier": "openclaw/plugin-sdk",
           "ref": "plugins/connectclaw/packages/plugin/src/tools.ts:2",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -5640,7 +5640,7 @@
           "fixture": "bluebubbles",
           "specifier": "openclaw/plugin-sdk/webhook-path",
           "ref": "plugins/bluebubbles/.crabpot-package/dist/webhook-shared-CoiIKIWN.js:2",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -9809,17 +9809,6 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/account-helpers:matrix:plugins-matrix-crabpot-package-src-channel-ts-2",
-          "fixture": "matrix",
-          "specifier": "openclaw/plugin-sdk/account-helpers",
-          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:2",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
           "id": "sdk.openclaw/plugin-sdk/account-id:matrix:plugins-matrix-crabpot-package-doctor-contract-api-ts-5",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/account-id",
@@ -9853,10 +9842,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/account-id:matrix:plugins-matrix-crabpot-package-src-cli-ts-3",
+          "id": "sdk.openclaw/plugin-sdk/account-id:matrix:plugins-matrix-crabpot-package-src-cli-account-ts-2",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/account-id",
-          "ref": "plugins/matrix/.crabpot-package/src/cli.ts:3",
+          "ref": "plugins/matrix/.crabpot-package/src/cli-account.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/account-id:matrix:plugins-matrix-crabpot-package-src-cli-shared-ts-1",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/account-id",
+          "ref": "plugins/matrix/.crabpot-package/src/cli-shared.ts:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10150,10 +10150,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/acp-binding-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-135",
+          "id": "sdk.openclaw/plugin-sdk/acp-binding-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-runtime-ts-35",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/acp-binding-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:135",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-runtime.ts:35",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10172,10 +10172,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-media-payload:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-runtime-api-ts-22",
+          "id": "sdk.openclaw/plugin-sdk/agent-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-1",
           "fixture": "matrix",
-          "specifier": "openclaw/plugin-sdk/agent-media-payload",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/runtime-api.ts:22",
+          "specifier": "openclaw/plugin-sdk/agent-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10183,10 +10183,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/agent-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-1",
+          "id": "sdk.openclaw/plugin-sdk/agent-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-thread-bindings-ts-5",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:1",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/thread-bindings.ts:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10403,10 +10403,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-config-helpers:matrix:plugins-matrix-crabpot-package-src-channel-ts-3",
+          "id": "sdk.openclaw/plugin-sdk/channel-config-helpers:matrix:plugins-matrix-crabpot-package-src-channel-ts-2",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/channel-config-helpers",
-          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:3",
+          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10447,10 +10447,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-core:matrix:plugins-matrix-crabpot-package-src-channel-ts-8",
+          "id": "sdk.openclaw/plugin-sdk/channel-core:matrix:plugins-matrix-crabpot-package-src-channel-ts-10",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/channel-core",
-          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:8",
+          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10473,6 +10473,17 @@
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/channel-core",
           "ref": "plugins/matrix/.crabpot-package/src/session-route.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-dm-policy:matrix:plugins-matrix-crabpot-package-src-setup-dm-policy-ts-2",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/channel-dm-policy",
+          "ref": "plugins/matrix/.crabpot-package/src/setup-dm-policy.ts:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10524,10 +10535,43 @@
           ]
         },
         {
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-context-ts-1",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/channel-inbound",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-context.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ingress-content-ts-1",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/channel-inbound",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-ingress-content.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
           "id": "sdk.openclaw/plugin-sdk/channel-inbound:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-2",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/channel-inbound",
           "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-replies-ts-2",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/channel-inbound",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/replies.ts:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10601,10 +10645,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-outbound:matrix:plugins-matrix-crabpot-package-src-channel-ts-9",
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:matrix:plugins-matrix-crabpot-package-src-channel-message-adapter-ts-1",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/channel-outbound",
-          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:9",
+          "ref": "plugins/matrix/.crabpot-package/src/channel-message-adapter.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:matrix:plugins-matrix-crabpot-package-src-channel-ts-11",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/channel-outbound",
+          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10623,10 +10678,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-outbound:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-10",
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-draft-controller-ts-1",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/channel-outbound",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:10",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-draft-controller.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-reply-dispatcher-ts-1",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/channel-outbound",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-reply-dispatcher.ts:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10649,6 +10715,17 @@
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/channel-outbound",
           "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/preflight-audio.runtime.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-replies-ts-6",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/channel-outbound",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/replies.ts:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10744,10 +10821,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-policy:matrix:plugins-matrix-crabpot-package-src-channel-ts-13",
+          "id": "sdk.openclaw/plugin-sdk/channel-policy:matrix:plugins-matrix-crabpot-package-src-channel-ts-12",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/channel-policy",
-          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:13",
+          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:12",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10781,6 +10858,28 @@
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/channel-secret-basic-runtime",
           "ref": "plugins/matrix/.crabpot-package/src/secret-contract.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-send-result:matrix:plugins-matrix-crabpot-package-src-outbound-ts-6",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/channel-send-result",
+          "ref": "plugins/matrix/.crabpot-package/src/outbound.ts:6",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-setup:matrix:plugins-matrix-crabpot-package-src-setup-core-ts-1",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/channel-setup",
+          "ref": "plugins/matrix/.crabpot-package/src/setup-core.ts:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10832,10 +10931,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/context-visibility-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-26",
+          "id": "sdk.openclaw/plugin-sdk/context-visibility-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-context-ts-6",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/context-visibility-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:26",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-context.ts:6",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/context-visibility-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-6",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/context-visibility-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10854,10 +10964,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/conversation-runtime:matrix:plugins-matrix-crabpot-package-src-channel-ts-18",
+          "id": "sdk.openclaw/plugin-sdk/conversation-runtime:matrix:plugins-matrix-crabpot-package-src-channel-ts-17",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/conversation-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:18",
+          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:17",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10898,10 +11008,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/dangerous-name-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-30",
+          "id": "sdk.openclaw/plugin-sdk/dangerous-name-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-state-ts-1",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/dangerous-name-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:30",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-state.ts:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10909,10 +11019,43 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/directory-runtime:matrix:plugins-matrix-crabpot-package-src-channel-ts-19",
+          "id": "sdk.openclaw/plugin-sdk/directory-runtime:matrix:plugins-matrix-crabpot-package-src-channel-ts-18",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/directory-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:19",
+          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:18",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/error-runtime:matrix:plugins-matrix-crabpot-package-src-channel-account-paths-ts-4",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/channel-account-paths.ts:4",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/error-runtime:matrix:plugins-matrix-crabpot-package-src-cli-account-ts-3",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/cli-account.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/error-runtime:matrix:plugins-matrix-crabpot-package-src-cli-shared-ts-2",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/cli-shared.ts:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10942,6 +11085,17 @@
           ]
         },
         {
+          "id": "sdk.openclaw/plugin-sdk/error-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-delivery-plan-ts-9",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/delivery-plan.ts:9",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
           "id": "sdk.openclaw/plugin-sdk/error-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-deps-ts-5",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/error-runtime",
@@ -10964,6 +11118,39 @@
           ]
         },
         {
+          "id": "sdk.openclaw/plugin-sdk/error-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ingress-content-ts-2",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-ingress-content.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/error-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-startup-verification-ts-5",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/startup-verification.ts:5",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/error-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-status-ts-3",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/status.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
           "id": "sdk.openclaw/plugin-sdk/error-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-probe-ts-2",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/error-runtime",
@@ -10975,10 +11162,98 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/expect-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-verification-manager-ts-8",
+          "id": "sdk.openclaw/plugin-sdk/error-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-ts-3",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/error-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-client-verification-ts-1",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/client-verification.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/error-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-idb-persistence-ts-5",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/idb-persistence.ts:5",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/error-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-recovery-key-store-ts-4",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/recovery-key-store.ts:4",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/error-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-verification-manager-ts-7",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/verification-manager.ts:7",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/error-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-startup-abort-ts-2",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/startup-abort.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/error-runtime:matrix:plugins-matrix-crabpot-package-src-plugin-entry-runtime-ts-1",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/plugin-entry.runtime.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/error-runtime:matrix:plugins-matrix-crabpot-package-src-setup-bootstrap-ts-1",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/setup-bootstrap.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/expect-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-verification-manager-ts-9",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/expect-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/verification-manager.ts:8",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/verification-manager.ts:9",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -10997,10 +11272,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/file-lock:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-idb-persistence-ts-5",
+          "id": "sdk.openclaw/plugin-sdk/file-lock:matrix:plugins-matrix-crabpot-package-src-matrix-crypto-snapshot-doctor-ts-7",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/file-lock",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/idb-persistence.ts:5",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/crypto-snapshot-doctor.ts:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11008,10 +11283,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/gateway-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-status-ts-3",
+          "id": "sdk.openclaw/plugin-sdk/file-lock:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-idb-persistence-ts-6",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/file-lock",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/idb-persistence.ts:6",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/gateway-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-status-ts-4",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/gateway-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/status.ts:3",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/status.ts:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11030,10 +11316,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/interactive-runtime:matrix:plugins-matrix-crabpot-package-src-outbound-ts-3",
+          "id": "sdk.openclaw/plugin-sdk/interactive-runtime:matrix:plugins-matrix-crabpot-package-src-outbound-ts-7",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/interactive-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/outbound.ts:3",
+          "ref": "plugins/matrix/.crabpot-package/src/outbound.ts:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11041,10 +11327,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/json-store:matrix:plugins-matrix-crabpot-package-runtime-api-ts-45",
+          "id": "sdk.openclaw/plugin-sdk/json-store:matrix:plugins-matrix-crabpot-package-runtime-api-ts-47",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/json-store",
-          "ref": "plugins/matrix/.crabpot-package/runtime-api.ts:45",
+          "ref": "plugins/matrix/.crabpot-package/runtime-api.ts:47",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11063,10 +11349,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/json-store:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-startup-verification-ts-5",
+          "id": "sdk.openclaw/plugin-sdk/json-store:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-startup-verification-ts-6",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/json-store",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/startup-verification.ts:5",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/startup-verification.ts:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11074,10 +11360,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/json-store:matrix:plugins-matrix-crabpot-package-src-matrix-thread-bindings-ts-6",
+          "id": "sdk.openclaw/plugin-sdk/json-store:matrix:plugins-matrix-crabpot-package-src-matrix-thread-bindings-ts-7",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/json-store",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/thread-bindings.ts:6",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/thread-bindings.ts:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11107,10 +11393,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/keyed-async-queue:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-31",
+          "id": "sdk.openclaw/plugin-sdk/keyed-async-queue:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-7",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/keyed-async-queue",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:31",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11118,10 +11404,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/keyed-async-queue:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-ts-16",
+          "id": "sdk.openclaw/plugin-sdk/keyed-async-queue:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-client-base-ts-10",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/keyed-async-queue",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk.ts:16",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/client-base.ts:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11140,10 +11426,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/lazy-runtime:matrix:plugins-matrix-crabpot-package-src-channel-ts-24",
+          "id": "sdk.openclaw/plugin-sdk/lazy-runtime:matrix:plugins-matrix-crabpot-package-src-channel-ts-23",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/lazy-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:24",
+          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:23",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11151,10 +11437,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/lazy-runtime:matrix:plugins-matrix-crabpot-package-src-cli-ts-4",
+          "id": "sdk.openclaw/plugin-sdk/lazy-runtime:matrix:plugins-matrix-crabpot-package-src-cli-direct-ts-2",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/lazy-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/cli.ts:4",
+          "ref": "plugins/matrix/.crabpot-package/src/cli-direct.ts:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11217,10 +11503,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/lazy-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-32",
+          "id": "sdk.openclaw/plugin-sdk/lazy-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-runtime-ts-1",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/lazy-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:32",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-runtime.ts:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11283,10 +11569,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/lazy-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-ts-17",
+          "id": "sdk.openclaw/plugin-sdk/lazy-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-client-base-ts-11",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/lazy-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk.ts:17",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/client-base.ts:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11316,10 +11602,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/lazy-runtime:matrix:plugins-matrix-crabpot-package-src-plugin-entry-runtime-ts-3",
+          "id": "sdk.openclaw/plugin-sdk/lazy-runtime:matrix:plugins-matrix-crabpot-package-src-plugin-entry-runtime-ts-4",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/lazy-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/plugin-entry.runtime.ts:3",
+          "ref": "plugins/matrix/.crabpot-package/src/plugin-entry.runtime.ts:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11360,6 +11646,17 @@
           ]
         },
         {
+          "id": "sdk.openclaw/plugin-sdk/media-local-roots:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-runtime-api-ts-22",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/media-local-roots",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/runtime-api.ts:22",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
           "id": "sdk.openclaw/plugin-sdk/media-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-preflight-audio-runtime-ts-2",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/media-runtime",
@@ -11382,10 +11679,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/media-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-send-formatting-ts-2",
+          "id": "sdk.openclaw/plugin-sdk/media-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-send-formatting-ts-3",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/media-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/send/formatting.ts:2",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/send/formatting.ts:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11393,10 +11690,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:matrix:plugins-matrix-crabpot-package-src-cli-ts-5",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:matrix:plugins-matrix-crabpot-package-src-cli-devices-ts-2",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/cli.ts:5",
+          "ref": "plugins/matrix/.crabpot-package/src/cli-devices.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:matrix:plugins-matrix-crabpot-package-src-cli-shared-ts-3",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/number-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/cli-shared.ts:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11437,10 +11745,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-33",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-state-ts-2",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:33",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-state.ts:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11470,10 +11778,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-startup-verification-ts-6",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-startup-verification-ts-7",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/startup-verification.ts:6",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/startup-verification.ts:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11481,10 +11789,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-verification-manager-ts-9",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-verification-manager-ts-10",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/verification-manager.ts:9",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/verification-manager.ts:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11514,10 +11822,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/pair-loop-guard-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-37",
+          "id": "sdk.openclaw/plugin-sdk/pair-loop-guard-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ingress-access-ts-2",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/pair-loop-guard-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:37",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-ingress-access.ts:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11525,21 +11833,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/persistent-dedupe:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-590",
+          "id": "sdk.openclaw/plugin-sdk/persistent-dedupe:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-inbound-dedupe-migration-ts-18",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/persistent-dedupe",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:590",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk/persistent-dedupe:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-inbound-dedupe-migration-ts-17",
-          "fixture": "matrix",
-          "specifier": "openclaw/plugin-sdk/persistent-dedupe",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/inbound-dedupe-migration.ts:17",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/inbound-dedupe-migration.ts:18",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11591,10 +11888,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/plugin-config-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-send-ts-7",
+          "id": "sdk.openclaw/plugin-sdk/plugin-config-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-send-ts-6",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/plugin-config-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/send.ts:7",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/send.ts:6",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/plugin-config-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-send-chunking-ts-3",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/plugin-config-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/send/chunking.ts:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11617,6 +11925,28 @@
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/plugin-entry",
           "ref": "plugins/matrix/.crabpot-package/cli-metadata.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/plugin-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-8",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/plugin-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:8",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/plugin-state-runtime:matrix:plugins-matrix-crabpot-package-src-approval-reactions-ts-4",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/plugin-state-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/approval-reactions.ts:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11657,10 +11987,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-history:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-38",
+          "id": "sdk.openclaw/plugin-sdk/reply-history:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ingress-content-ts-3",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/reply-history",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:38",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-ingress-content.ts:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11668,10 +11998,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-payload:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-39",
+          "id": "sdk.openclaw/plugin-sdk/reply-payload:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-reply-dispatcher-ts-7",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/reply-payload",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:39",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-reply-dispatcher.ts:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11679,10 +12009,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-payload:matrix:plugins-matrix-crabpot-package-src-outbound-ts-7",
+          "id": "sdk.openclaw/plugin-sdk/reply-payload:matrix:plugins-matrix-crabpot-package-src-outbound-ts-11",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/reply-payload",
-          "ref": "plugins/matrix/.crabpot-package/src/outbound.ts:7",
+          "ref": "plugins/matrix/.crabpot-package/src/outbound.ts:11",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/response-limit-runtime:matrix:plugins-matrix-crabpot-package-src-cli-shared-ts-4",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/response-limit-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/cli-shared.ts:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11734,10 +12075,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/routing:matrix:plugins-matrix-crabpot-package-src-approval-reactions-ts-4",
+          "id": "sdk.openclaw/plugin-sdk/routing:matrix:plugins-matrix-crabpot-package-src-approval-reactions-ts-5",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/routing",
-          "ref": "plugins/matrix/.crabpot-package/src/approval-reactions.ts:4",
+          "ref": "plugins/matrix/.crabpot-package/src/approval-reactions.ts:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11756,10 +12097,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/routing:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-44",
+          "id": "sdk.openclaw/plugin-sdk/routing:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-9",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/routing",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:44",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:9",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -11888,6 +12229,17 @@
           ]
         },
         {
+          "id": "sdk.openclaw/plugin-sdk/runtime-env:matrix:plugins-matrix-crabpot-package-src-matrix-client-config-ts-7",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/runtime-env",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/client/config.ts:7",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
           "id": "sdk.openclaw/plugin-sdk/runtime-env:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-preflight-audio-ts-3",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/runtime-env",
@@ -11987,10 +12339,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/secret-input-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-client-config-ts-7",
+          "id": "sdk.openclaw/plugin-sdk/secret-input-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-client-config-ts-8",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/secret-input-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/client/config.ts:7",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/client/config.ts:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12009,10 +12361,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/security-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-45",
+          "id": "sdk.openclaw/plugin-sdk/security-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-10",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/security-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:45",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12020,10 +12372,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/session-binding-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-139",
+          "id": "sdk.openclaw/plugin-sdk/session-binding-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-runtime-ts-39",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/session-binding-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:139",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-runtime.ts:39",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12053,10 +12405,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/session-key-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-thread-bindings-ts-7",
+          "id": "sdk.openclaw/plugin-sdk/session-key-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-thread-bindings-ts-8",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/session-key-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/thread-bindings.ts:7",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/thread-bindings.ts:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12064,10 +12416,43 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/session-store-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-46",
+          "id": "sdk.openclaw/plugin-sdk/session-store-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-context-ts-10",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/session-store-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:46",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-context.ts:10",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/session-store-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-helpers-ts-1",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/session-store-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-helpers.ts:1",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/session-store-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-11",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/session-store-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:11",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/session-store-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-session-store-metadata-ts-3",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/session-store-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/session-store-metadata.ts:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12097,10 +12482,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/setup:matrix:plugins-matrix-crabpot-package-src-onboarding-ts-4",
+          "id": "sdk.openclaw/plugin-sdk/setup:matrix:plugins-matrix-crabpot-package-src-onboarding-ts-3",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/setup",
-          "ref": "plugins/matrix/.crabpot-package/src/onboarding.ts:4",
+          "ref": "plugins/matrix/.crabpot-package/src/onboarding.ts:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12141,10 +12526,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/setup:matrix:plugins-matrix-crabpot-package-src-setup-dm-policy-ts-3",
+          "id": "sdk.openclaw/plugin-sdk/setup:matrix:plugins-matrix-crabpot-package-src-setup-dm-policy-ts-4",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/setup",
-          "ref": "plugins/matrix/.crabpot-package/src/setup-dm-policy.ts:3",
+          "ref": "plugins/matrix/.crabpot-package/src/setup-dm-policy.ts:4",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/sqlite-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-inbound-dedupe-migration-ts-23",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/sqlite-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/inbound-dedupe-migration.ts:23",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12163,10 +12559,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/ssrf-policy:matrix:plugins-matrix-crabpot-package-src-onboarding-ts-15",
+          "id": "sdk.openclaw/plugin-sdk/ssrf-policy:matrix:plugins-matrix-crabpot-package-src-onboarding-ts-13",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/ssrf-policy",
-          "ref": "plugins/matrix/.crabpot-package/src/onboarding.ts:15",
+          "ref": "plugins/matrix/.crabpot-package/src/onboarding.ts:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12174,10 +12570,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:matrix:plugins-matrix-crabpot-package-runtime-api-ts-31",
+          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:matrix:plugins-matrix-crabpot-package-runtime-api-ts-33",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "ref": "plugins/matrix/.crabpot-package/runtime-api.ts:31",
+          "ref": "plugins/matrix/.crabpot-package/runtime-api.ts:33",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12185,10 +12581,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:matrix:plugins-matrix-crabpot-package-src-doctor-contract-ts-8",
+          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:matrix:plugins-matrix-crabpot-package-src-doctor-contract-ts-14",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/doctor-contract.ts:8",
+          "ref": "plugins/matrix/.crabpot-package/src/doctor-contract.ts:14",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12251,10 +12647,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/status-helpers:matrix:plugins-matrix-crabpot-package-src-channel-ts-28",
+          "id": "sdk.openclaw/plugin-sdk/status-helpers:matrix:plugins-matrix-crabpot-package-src-channel-ts-27",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/status-helpers",
-          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:28",
+          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:27",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12317,10 +12713,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-channel-ts-34",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-channel-ts-33",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:34",
+          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:33",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12416,6 +12812,17 @@
           ]
         },
         {
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-direct-room-ts-2",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/direct-room.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
           "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-errors-ts-3",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
@@ -12427,10 +12834,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-format-ts-3",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-format-ts-4",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/format.ts:3",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/format.ts:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12460,6 +12867,17 @@
           ]
         },
         {
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-context-summary-ts-2",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/context-summary.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
           "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-events-ts-2",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
@@ -12471,10 +12889,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-47",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-context-ts-11",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:47",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-context.ts:11",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-reply-dispatcher-ts-11",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-reply-dispatcher.ts:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12504,10 +12933,43 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-replies-ts-2",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-replies-ts-11",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/replies.ts:2",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/replies.ts:11",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-reply-context-ts-2",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/reply-context.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-thread-context-ts-2",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/thread-context.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-verification-events-ts-2",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/verification-events.ts:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12570,10 +13032,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-ts-19",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-ts-4",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk.ts:19",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk.ts:4",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-sdk-client-verification-ts-2",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/client-verification.ts:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12585,6 +13058,17 @@
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
           "ref": "plugins/matrix/.crabpot-package/src/matrix/send/targets.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-session-store-metadata-ts-8",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/session-store-metadata.ts:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12614,10 +13098,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-thread-bindings-ts-8",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-thread-bindings-ts-9",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/thread-bindings.ts:8",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/thread-bindings.ts:9",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12625,10 +13109,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-onboarding-ts-16",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-onboarding-ts-14",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/onboarding.ts:16",
+          "ref": "plugins/matrix/.crabpot-package/src/onboarding.ts:14",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12636,10 +13120,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-plugin-entry-runtime-ts-4",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:matrix:plugins-matrix-crabpot-package-src-plugin-entry-runtime-ts-5",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/plugin-entry.runtime.ts:4",
+          "ref": "plugins/matrix/.crabpot-package/src/plugin-entry.runtime.ts:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12724,10 +13208,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/text-autolink-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-format-ts-4",
+          "id": "sdk.openclaw/plugin-sdk/temp-path:matrix:plugins-matrix-crabpot-package-test-support-ts-4",
           "fixture": "matrix",
-          "specifier": "openclaw/plugin-sdk/text-autolink-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/format.ts:4",
+          "specifier": "openclaw/plugin-sdk/temp-path",
+          "ref": "plugins/matrix/.crabpot-package/test-support.ts:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12735,10 +13219,87 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/text-chunking:matrix:plugins-matrix-crabpot-package-src-channel-ts-38",
+          "id": "sdk.openclaw/plugin-sdk/text-autolink-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-format-ts-5",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/text-autolink-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/format.ts:5",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/text-chunking:matrix:plugins-matrix-crabpot-package-runtime-api-ts-2",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/text-chunking",
-          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:38",
+          "ref": "plugins/matrix/.crabpot-package/runtime-api.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/text-chunking:matrix:plugins-matrix-crabpot-package-src-channel-ts-37",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/text-chunking",
+          "ref": "plugins/matrix/.crabpot-package/src/channel.ts:37",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/text-chunking:matrix:plugins-matrix-crabpot-package-src-matrix-format-profile-ts-3",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/text-chunking",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/format-profile.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/text-chunking:matrix:plugins-matrix-crabpot-package-src-matrix-format-spoiler-ranges-ts-3",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/text-chunking",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/format-spoiler-ranges.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/text-chunking:matrix:plugins-matrix-crabpot-package-src-matrix-format-ts-6",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/text-chunking",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/format.ts:6",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/text-chunking:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-replies-ts-12",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/text-chunking",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/replies.ts:12",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/text-chunking:matrix:plugins-matrix-crabpot-package-src-matrix-send-chunking-ts-4",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/text-chunking",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/send/chunking.ts:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12757,10 +13318,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/text-utility-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-ts-48",
+          "id": "sdk.openclaw/plugin-sdk/text-utility-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-context-ts-12",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/text-utility-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:48",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-context.ts:12",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/text-utility-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-handler-helpers-ts-2",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/text-utility-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-helpers.ts:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12779,10 +13351,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/text-utility-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-reply-context-ts-2",
+          "id": "sdk.openclaw/plugin-sdk/text-utility-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-reply-context-ts-3",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/text-utility-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/reply-context.ts:2",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/reply-context.ts:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12790,10 +13362,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/text-utility-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-thread-context-ts-2",
+          "id": "sdk.openclaw/plugin-sdk/text-utility-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-monitor-thread-context-ts-3",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/text-utility-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/thread-context.ts:2",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/thread-context.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/text-utility-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-probe-ts-6",
+          "fixture": "matrix",
+          "specifier": "openclaw/plugin-sdk/text-utility-runtime",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/probe.ts:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12823,10 +13406,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/thread-bindings-session-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-thread-bindings-ts-9",
+          "id": "sdk.openclaw/plugin-sdk/thread-bindings-session-runtime:matrix:plugins-matrix-crabpot-package-src-matrix-thread-bindings-ts-10",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/thread-bindings-session-runtime",
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/thread-bindings.ts:9",
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/thread-bindings.ts:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -12834,10 +13417,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/time-runtime:matrix:plugins-matrix-crabpot-package-runtime-api-ts-51",
+          "id": "sdk.openclaw/plugin-sdk/time-runtime:matrix:plugins-matrix-crabpot-package-runtime-api-ts-53",
           "fixture": "matrix",
           "specifier": "openclaw/plugin-sdk/time-runtime",
-          "ref": "plugins/matrix/.crabpot-package/runtime-api.ts:51",
+          "ref": "plugins/matrix/.crabpot-package/runtime-api.ts:53",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20368,10 +20951,10 @@
       "priority": "medium",
       "registrations": [
         {
-          "id": "registration.createChatChannelPlugin:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-783",
+          "id": "registration.createChatChannelPlugin:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-919",
           "fixture": "mattermost",
           "registrar": "createChatChannelPlugin",
-          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:783",
+          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:919",
           "support": "inspector-shim-required",
           "assertions": [
             "channel plugin id is stable",
@@ -20467,6 +21050,17 @@
           ]
         },
         {
+          "id": "sdk.openclaw/plugin-sdk/account-id:mattermost:plugins-mattermost-crabpot-package-src-mattermost-read-ts-2",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/account-id",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/read.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
           "id": "sdk.openclaw/plugin-sdk/account-id:mattermost:plugins-mattermost-crabpot-package-src-setup-core-ts-2",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/account-id",
@@ -20489,43 +21083,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/account-resolution:mattermost:plugins-mattermost-crabpot-package-src-mattermost-accounts-ts-7",
-          "fixture": "mattermost",
-          "specifier": "openclaw/plugin-sdk/account-resolution",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/accounts.ts:7",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk/agent-media-payload:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-35",
-          "fixture": "mattermost",
-          "specifier": "openclaw/plugin-sdk/agent-media-payload",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:35",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk/agent-media-payload:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-13",
-          "fixture": "mattermost",
-          "specifier": "openclaw/plugin-sdk/agent-media-payload",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:13",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk/agent-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-ts-2",
+          "id": "sdk.openclaw/plugin-sdk/agent-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-interactions-ts-2",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor.ts:2",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-interactions.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/agent-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-turn-ts-2",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/agent-runtime",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-turn.ts:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20544,10 +21116,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/allow-from:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-68",
+          "id": "sdk.openclaw/plugin-sdk/allow-from:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-67",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/allow-from",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:68",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:67",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20566,10 +21138,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/allow-from:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-14",
+          "id": "sdk.openclaw/plugin-sdk/allow-from:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-13",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/allow-from",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:14",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20588,10 +21160,32 @@
           ]
         },
         {
+          "id": "sdk.openclaw/plugin-sdk/channel-actions:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-2",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/channel-actions",
+          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
           "id": "sdk.openclaw/plugin-sdk/channel-config-helpers:mattermost:plugins-mattermost-crabpot-package-src-channel-config-shared-ts-4",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-config-helpers",
           "ref": "plugins/mattermost/.crabpot-package/src/channel-config-shared.ts:4",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-config-helpers:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-8",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/channel-config-helpers",
+          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:8",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20621,10 +21215,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-core:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-10",
+          "id": "sdk.openclaw/plugin-sdk/channel-core:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-17",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-core",
-          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:10",
+          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:17",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20665,10 +21259,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-feedback:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-54",
+          "id": "sdk.openclaw/plugin-sdk/channel-feedback:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-53",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-feedback",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:54",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:53",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20676,10 +21270,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-feedback:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-18",
+          "id": "sdk.openclaw/plugin-sdk/channel-feedback:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-17",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-feedback",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:18",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:17",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-49",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/channel-inbound",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:49",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20698,10 +21303,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-inbound:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-51",
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-client-ts-2",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-inbound",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:51",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-draft-stream-ts-2",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/channel-inbound",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/draft-stream.ts:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20720,10 +21336,32 @@
           ]
         },
         {
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-draft-delivery-ts-2",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/channel-inbound",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-draft-delivery.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
           "id": "sdk.openclaw/plugin-sdk/channel-inbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-helpers-ts-2",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-inbound",
           "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-helpers.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-posts-ts-2",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/channel-inbound",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-posts.ts:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20742,10 +21380,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-inbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-ts-3",
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-turn-ts-3",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-inbound",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor.ts:3",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-turn.ts:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20753,10 +21391,32 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-inbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-15",
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-reply-delivery-ts-2",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-inbound",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:15",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/reply-delivery.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-14",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/channel-inbound",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:14",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-inbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-send-ts-1",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/channel-inbound",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:1",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20786,6 +21446,17 @@
           ]
         },
         {
+          "id": "sdk.openclaw/plugin-sdk/channel-ingress-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-ts-2",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/channel-ingress-runtime",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
           "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-34",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-outbound",
@@ -20797,10 +21468,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-53",
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-52",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-outbound",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:53",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:52",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20819,10 +21490,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-11",
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-18",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-outbound",
-          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:11",
+          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:18",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20830,10 +21501,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-accounts-ts-8",
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-accounts-ts-7",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-outbound",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/accounts.ts:8",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/accounts.ts:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20841,10 +21512,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-draft-stream-ts-2",
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-draft-stream-ts-3",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-outbound",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/draft-stream.ts:2",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/draft-stream.ts:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20863,10 +21534,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-draft-delivery-ts-2",
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-draft-delivery-ts-6",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-outbound",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-draft-delivery.ts:2",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-draft-delivery.ts:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20885,10 +21556,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-ts-8",
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-turn-ts-7",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-outbound",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor.ts:8",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-turn.ts:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20896,10 +21567,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-17",
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-reply-delivery-ts-6",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-outbound",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:17",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/reply-delivery.ts:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20907,42 +21578,9 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-send-ts-2",
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-16",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-outbound",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:2",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk/channel-pairing:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-52",
-          "fixture": "mattermost",
-          "specifier": "openclaw/plugin-sdk/channel-pairing",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:52",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk/channel-pairing:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-12",
-          "fixture": "mattermost",
-          "specifier": "openclaw/plugin-sdk/channel-pairing",
-          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:12",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk/channel-pairing:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-16",
-          "fixture": "mattermost",
-          "specifier": "openclaw/plugin-sdk/channel-pairing",
           "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:16",
           "support": "target-exported",
           "assertions": [
@@ -20951,10 +21589,54 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-policy:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-13",
+          "id": "sdk.openclaw/plugin-sdk/channel-outbound:mattermost:plugins-mattermost-crabpot-package-src-mattermost-send-ts-3",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/channel-outbound",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-pairing:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-51",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/channel-pairing",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:51",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-pairing:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-19",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/channel-pairing",
+          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:19",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-pairing:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-15",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/channel-pairing",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:15",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-policy:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-20",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-policy",
-          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:13",
+          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:20",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -20984,6 +21666,17 @@
           ]
         },
         {
+          "id": "sdk.openclaw/plugin-sdk/channel-secret-basic-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-ingress-ts-8",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/channel-secret-basic-runtime",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-ingress.ts:8",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
           "id": "sdk.openclaw/plugin-sdk/channel-secret-basic-runtime:mattermost:plugins-mattermost-crabpot-package-src-secret-contract-ts-2",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-secret-basic-runtime",
@@ -20995,10 +21688,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-send-result:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-14",
+          "id": "sdk.openclaw/plugin-sdk/channel-send-result:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-21",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/channel-send-result",
-          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:14",
+          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:21",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/channel-setup:mattermost:plugins-mattermost-crabpot-package-src-setup-core-ts-3",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/channel-setup",
+          "ref": "plugins/mattermost/.crabpot-package/src/setup-core.ts:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21017,10 +21721,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/collection-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-resources-ts-3",
+          "id": "sdk.openclaw/plugin-sdk/collection-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-resources-ts-11",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/collection-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-resources.ts:3",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-resources.ts:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21028,10 +21732,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/collection-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-send-ts-7",
+          "id": "sdk.openclaw/plugin-sdk/collection-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-send-ts-9",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/collection-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:7",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:9",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21050,10 +21754,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/command-auth-native:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-36",
+          "id": "sdk.openclaw/plugin-sdk/command-auth-native:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-35",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/command-auth-native",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:36",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:35",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21072,10 +21776,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/command-auth-native:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-19",
+          "id": "sdk.openclaw/plugin-sdk/command-auth-native:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-18",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/command-auth-native",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:19",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:18",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/context-visibility-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-posts-ts-7",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/context-visibility-runtime",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-posts.ts:7",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21105,10 +21820,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/core:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-40",
+          "id": "sdk.openclaw/plugin-sdk/core:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-39",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/core",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:40",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:39",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21127,10 +21842,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/dangerous-name-runtime:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-48",
+          "id": "sdk.openclaw/plugin-sdk/dangerous-name-runtime:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-47",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/dangerous-name-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:48",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:47",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21138,10 +21853,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/dangerous-name-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-21",
+          "id": "sdk.openclaw/plugin-sdk/dangerous-name-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-20",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/dangerous-name-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:21",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:20",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21160,10 +21875,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/directory-runtime:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-20",
+          "id": "sdk.openclaw/plugin-sdk/directory-runtime:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-27",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/directory-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:20",
+          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:27",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21171,10 +21886,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/error-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-ingress-ts-10",
+          "id": "sdk.openclaw/plugin-sdk/error-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-draft-stream-ts-4",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/error-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-ingress.ts:10",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/draft-stream.ts:4",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/error-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-ingress-ts-9",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-ingress.ts:9",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21193,10 +21919,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/extension-shared:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-21",
+          "id": "sdk.openclaw/plugin-sdk/extension-shared:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-28",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/extension-shared",
-          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:21",
+          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:28",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21204,10 +21930,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/extension-shared:mattermost:plugins-mattermost-crabpot-package-src-mattermost-client-ts-2",
+          "id": "sdk.openclaw/plugin-sdk/extension-shared:mattermost:plugins-mattermost-crabpot-package-src-mattermost-client-ts-3",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/extension-shared",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:2",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:3",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21226,6 +21952,17 @@
           ]
         },
         {
+          "id": "sdk.openclaw/plugin-sdk/fetch-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-client-ts-4",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/fetch-runtime",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:4",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
           "id": "sdk.openclaw/plugin-sdk/gateway-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-slash-ts-2",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/gateway-runtime",
@@ -21237,10 +21974,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/gateway-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-ts-13",
+          "id": "sdk.openclaw/plugin-sdk/gateway-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-websocket-ts-4",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/gateway-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor.ts:13",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-websocket.ts:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21248,20 +21985,20 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/interactive-runtime:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-22",
+          "id": "sdk.openclaw/plugin-sdk/gateway-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-ts-3",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/gateway-runtime",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/interactive-runtime:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-29",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/interactive-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:22",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk/lazy-runtime:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-29",
-          "fixture": "mattermost",
-          "specifier": "openclaw/plugin-sdk/lazy-runtime",
           "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:29",
           "support": "target-exported",
           "assertions": [
@@ -21270,10 +22007,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/markdown-table-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-send-ts-8",
+          "id": "sdk.openclaw/plugin-sdk/lazy-runtime:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-36",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/lazy-runtime",
+          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:36",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/markdown-table-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-send-ts-10",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/markdown-table-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:8",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21281,10 +22029,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/media-runtime:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-79",
+          "id": "sdk.openclaw/plugin-sdk/media-runtime:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-78",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/media-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:79",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:78",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21292,10 +22040,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/media-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-reply-delivery-ts-3",
+          "id": "sdk.openclaw/plugin-sdk/media-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-reply-delivery-ts-12",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/media-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/reply-delivery.ts:3",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/reply-delivery.ts:12",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21303,10 +22051,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/media-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-27",
+          "id": "sdk.openclaw/plugin-sdk/media-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-26",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/media-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:27",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:26",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21314,10 +22062,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/models-provider-runtime:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-41",
+          "id": "sdk.openclaw/plugin-sdk/models-provider-runtime:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-40",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/models-provider-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:41",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:40",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21325,10 +22073,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/models-provider-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-20",
+          "id": "sdk.openclaw/plugin-sdk/models-provider-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-19",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/models-provider-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:20",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:19",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21336,10 +22084,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-client-ts-3",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-client-ts-5",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:3",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21358,10 +22106,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-resources-ts-4",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-resources-ts-13",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-resources.ts:4",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-resources.ts:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21391,10 +22139,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/number-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-41",
+          "id": "sdk.openclaw/plugin-sdk/number-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-40",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:41",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:40",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21413,10 +22161,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/outbound-media:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-55",
+          "id": "sdk.openclaw/plugin-sdk/outbound-media:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-54",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/outbound-media",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:55",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:54",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21424,10 +22172,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/outbound-media:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-28",
+          "id": "sdk.openclaw/plugin-sdk/outbound-media:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-27",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/outbound-media",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:28",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:27",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21435,10 +22183,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/plugin-config-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-send-ts-9",
+          "id": "sdk.openclaw/plugin-sdk/plugin-config-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-send-ts-11",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/plugin-config-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:9",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21446,10 +22194,32 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/provider-http:mattermost:plugins-mattermost-crabpot-package-src-mattermost-client-ts-4",
+          "id": "sdk.openclaw/plugin-sdk/plugin-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-turn-ts-14",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/plugin-runtime",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-turn.ts:14",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/plugin-state-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-thread-participation-ts-3",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/plugin-state-runtime",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/thread-participation.ts:3",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/provider-http:mattermost:plugins-mattermost-crabpot-package-src-mattermost-client-ts-6",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/provider-http",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:4",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21468,10 +22238,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/provider-model-shared:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-83",
+          "id": "sdk.openclaw/plugin-sdk/provider-model-shared:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-82",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/provider-model-shared",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:83",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:82",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21490,10 +22260,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/proxy-capture:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-websocket-ts-4",
+          "id": "sdk.openclaw/plugin-sdk/proxy-capture:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-websocket-ts-5",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/proxy-capture",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-websocket.ts:4",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-websocket.ts:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21501,10 +22271,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-chunking:mattermost:plugins-mattermost-crabpot-package-src-mattermost-draft-stream-ts-3",
+          "id": "sdk.openclaw/plugin-sdk/reply-chunking:mattermost:plugins-mattermost-crabpot-package-src-mattermost-draft-stream-ts-5",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/reply-chunking",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/draft-stream.ts:3",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/draft-stream.ts:5",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21512,10 +22282,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-history:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-60",
+          "id": "sdk.openclaw/plugin-sdk/reply-history:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-59",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/reply-history",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:60",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:59",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21523,10 +22293,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-history:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-31",
+          "id": "sdk.openclaw/plugin-sdk/reply-history:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-30",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/reply-history",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:31",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:30",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21534,10 +22304,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-payload:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-30",
+          "id": "sdk.openclaw/plugin-sdk/reply-payload:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-37",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/reply-payload",
-          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:30",
+          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:37",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21545,10 +22315,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-payload:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-draft-delivery-ts-6",
+          "id": "sdk.openclaw/plugin-sdk/reply-payload:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-draft-delivery-ts-13",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/reply-payload",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-draft-delivery.ts:6",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-draft-delivery.ts:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21567,10 +22337,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-payload:mattermost:plugins-mattermost-crabpot-package-src-mattermost-reply-delivery-ts-4",
+          "id": "sdk.openclaw/plugin-sdk/reply-payload:mattermost:plugins-mattermost-crabpot-package-src-mattermost-reply-delivery-ts-13",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/reply-payload",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/reply-delivery.ts:4",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/reply-delivery.ts:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21578,10 +22348,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/reply-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-ts-14",
+          "id": "sdk.openclaw/plugin-sdk/reply-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-event-plan-ts-2",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/reply-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor.ts:14",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-event-plan.ts:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21600,10 +22370,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/response-limit-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-client-ts-8",
+          "id": "sdk.openclaw/plugin-sdk/response-limit-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-client-ts-10",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/response-limit-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:8",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21611,10 +22381,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/retry-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-client-ts-9",
+          "id": "sdk.openclaw/plugin-sdk/retry-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-client-ts-11",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/retry-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:9",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21622,10 +22392,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/routing:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-67",
+          "id": "sdk.openclaw/plugin-sdk/routing:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-66",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/routing",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:67",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:66",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21644,10 +22414,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/routing:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-ts-15",
+          "id": "sdk.openclaw/plugin-sdk/routing:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-turn-ts-16",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/routing",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor.ts:15",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-turn.ts:16",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21666,10 +22436,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/runtime-group-policy:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-42",
+          "id": "sdk.openclaw/plugin-sdk/runtime-group-policy:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-41",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/runtime-group-policy",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:42",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:41",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21677,10 +22447,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/runtime-group-policy:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-22",
+          "id": "sdk.openclaw/plugin-sdk/runtime-group-policy:mattermost:plugins-mattermost-crabpot-package-src-mattermost-read-ts-4",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/runtime-group-policy",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:22",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/read.ts:4",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/runtime-group-policy:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-21",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/runtime-group-policy",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:21",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21721,10 +22502,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/security-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-ts-16",
+          "id": "sdk.openclaw/plugin-sdk/security-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-posts-ts-11",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/security-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor.ts:16",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-posts.ts:11",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21743,10 +22524,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/session-store-runtime:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-49",
+          "id": "sdk.openclaw/plugin-sdk/session-store-runtime:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-48",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/session-store-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:49",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:48",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21765,10 +22546,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/setup:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-74",
+          "id": "sdk.openclaw/plugin-sdk/setup:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-73",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/setup",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:74",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:73",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21776,10 +22557,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/setup:mattermost:plugins-mattermost-crabpot-package-src-setup-core-ts-5",
+          "id": "sdk.openclaw/plugin-sdk/setup:mattermost:plugins-mattermost-crabpot-package-src-setup-core-ts-9",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/setup",
-          "ref": "plugins/mattermost/.crabpot-package/src/setup-core.ts:5",
+          "ref": "plugins/mattermost/.crabpot-package/src/setup-core.ts:9",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21798,10 +22579,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/setup-runtime:mattermost:plugins-mattermost-crabpot-package-src-setup-core-ts-10",
+          "id": "sdk.openclaw/plugin-sdk/setup-runtime:mattermost:plugins-mattermost-crabpot-package-src-setup-core-ts-14",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/setup-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/setup-core.ts:10",
+          "ref": "plugins/mattermost/.crabpot-package/src/setup-core.ts:14",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21809,10 +22590,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-31",
+          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-38",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:31",
+          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:38",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21831,10 +22612,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-client-ts-10",
+          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-client-ts-12",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:10",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:12",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21853,10 +22634,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-ts-17",
+          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-ts-4",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor.ts:17",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor.ts:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21886,10 +22667,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-send-ts-10",
+          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-read-ts-5",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:10",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/read.ts:5",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/ssrf-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-send-ts-12",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/ssrf-runtime",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:12",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21919,10 +22711,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/status-helpers:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-32",
+          "id": "sdk.openclaw/plugin-sdk/status-helpers:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-39",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/status-helpers",
-          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:32",
+          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:39",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21952,10 +22744,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-36",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-43",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:36",
+          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:43",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21963,10 +22755,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-accounts-ts-17",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-accounts-ts-16",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/accounts.ts:17",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/accounts.ts:16",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -21974,10 +22766,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-client-ts-14",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-client-ts-16",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:14",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:16",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -22062,10 +22854,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-resources-ts-8",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-posts-ts-12",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-resources.ts:8",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-posts.ts:12",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -22073,10 +22865,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-ts-18",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-reactions-ts-2",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor.ts:18",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-reactions.ts:2",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -22084,10 +22876,43 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-send-ts-11",
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-resources-ts-17",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:11",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-resources.ts:17",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-ts-5",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor.ts:5",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-read-ts-6",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/read.ts:6",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/string-coerce-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-send-ts-13",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:13",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -22139,10 +22964,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/text-chunking:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-57",
+          "id": "sdk.openclaw/plugin-sdk/text-chunking:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-56",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/text-chunking",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:57",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:56",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -22161,10 +22986,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/text-chunking:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-37",
+          "id": "sdk.openclaw/plugin-sdk/text-chunking:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-44",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/text-chunking",
-          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:37",
+          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:44",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -22172,10 +22997,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/text-chunking:mattermost:plugins-mattermost-crabpot-package-src-mattermost-send-ts-15",
+          "id": "sdk.openclaw/plugin-sdk/text-chunking:mattermost:plugins-mattermost-crabpot-package-src-mattermost-send-ts-17",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/text-chunking",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:15",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:17",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -22183,10 +23008,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/text-utility-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-draft-stream-ts-4",
+          "id": "sdk.openclaw/plugin-sdk/text-utility-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-draft-stream-ts-6",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/text-utility-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/draft-stream.ts:4",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/draft-stream.ts:6",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -22194,10 +23019,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/text-utility-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-ts-24",
+          "id": "sdk.openclaw/plugin-sdk/text-utility-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-posts-ts-18",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/text-utility-runtime",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor.ts:24",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-posts.ts:18",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/text-utility-runtime:mattermost:plugins-mattermost-crabpot-package-src-mattermost-probe-ts-10",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/text-utility-runtime",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/probe.ts:10",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -22216,10 +23052,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/webhook-ingress:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-56",
+          "id": "sdk.openclaw/plugin-sdk/webhook-ingress:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-55",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/webhook-ingress",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:56",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:55",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -22227,10 +23063,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/webhook-ingress:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-70",
+          "id": "sdk.openclaw/plugin-sdk/webhook-ingress:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-69",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/webhook-ingress",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:70",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:69",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -22249,32 +23085,43 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/webhook-ingress:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-36",
+          "id": "sdk.openclaw/plugin-sdk/webhook-ingress:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-35",
           "fixture": "mattermost",
           "specifier": "openclaw/plugin-sdk/webhook-ingress",
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:36",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk/webhook-targets:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-69",
-          "fixture": "mattermost",
-          "specifier": "openclaw/plugin-sdk/webhook-targets",
-          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:69",
-          "support": "target-exported",
-          "assertions": [
-            "package export exists",
-            "cold import resolves without plugin credentials"
-          ]
-        },
-        {
-          "id": "sdk.openclaw/plugin-sdk/webhook-targets:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-35",
-          "fixture": "mattermost",
-          "specifier": "openclaw/plugin-sdk/webhook-targets",
           "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:35",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/webhook-request-guards:mattermost:plugins-mattermost-crabpot-package-src-mattermost-monitor-model-picker-ts-2",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/webhook-request-guards",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-model-picker.ts:2",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/webhook-targets:mattermost:plugins-mattermost-crabpot-package-runtime-api-ts-68",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/webhook-targets",
+          "ref": "plugins/mattermost/.crabpot-package/runtime-api.ts:68",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/webhook-targets:mattermost:plugins-mattermost-crabpot-package-src-mattermost-runtime-api-ts-34",
+          "fixture": "mattermost",
+          "specifier": "openclaw/plugin-sdk/webhook-targets",
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:34",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -30153,7 +31000,7 @@
           "fixture": "memory-tencentdb",
           "specifier": "openclaw/plugin-sdk",
           "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8466",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -30164,7 +31011,7 @@
           "fixture": "memory-tencentdb",
           "specifier": "openclaw/plugin-sdk",
           "ref": "plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:2190",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -30716,7 +31563,7 @@
           "fixture": "dingtalk-connector",
           "specifier": "openclaw/plugin-sdk/channel-runtime",
           "ref": "plugins/dingtalk-connector/src/reply-dispatcher.ts:21",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -30990,7 +31837,7 @@
           "fixture": "dingtalk-doc",
           "specifier": "openclaw/plugin-sdk",
           "ref": "plugins/dingtalk-doc/index.ts:11",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -31154,7 +32001,7 @@
           "fixture": "mocrane-wecom",
           "specifier": "openclaw/plugin-sdk",
           "ref": "plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:30",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -31775,7 +32622,7 @@
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/channel-runtime",
           "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/process-message.js:3",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -31786,7 +32633,7 @@
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/channel-runtime",
           "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts:4",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -32373,7 +33220,7 @@
           "fixture": "telnyx-sms",
           "specifier": "openclaw/plugin-sdk/direct-dm",
           "ref": "plugins/telnyx-sms/src/inbound.ts:2",
-          "support": "target-exported",
+          "support": "compat-alias-required",
           "assertions": [
             "package export exists",
             "cold import resolves without plugin credentials"
@@ -34283,6 +35130,152 @@
       ]
     },
     {
+      "id": "sdk.import.package-export-cold-import:bluebubbles",
+      "fixture": "bluebubbles",
+      "priority": "P1",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk/webhook-path @ plugins/bluebubbles/.crabpot-package/dist/webhook-shared-CoiIKIWN.js:2"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.package-export-cold-import:connectclaw",
+      "fixture": "connectclaw",
+      "priority": "P1",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/connectclaw/packages/plugin/src/tools.ts:2"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.package-export-cold-import:dingtalk-connector",
+      "fixture": "dingtalk-connector",
+      "priority": "P1",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk/channel-runtime @ plugins/dingtalk-connector/src/reply-dispatcher.ts:21"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.package-export-cold-import:dingtalk-doc",
+      "fixture": "dingtalk-doc",
+      "priority": "P1",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/dingtalk-doc/index.ts:11"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.package-export-cold-import:memory-tencentdb",
+      "fixture": "memory-tencentdb",
+      "priority": "P1",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8466",
+        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:2190"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.package-export-cold-import:mocrane-wecom",
+      "fixture": "mocrane-wecom",
+      "priority": "P1",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:30"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.package-export-cold-import:openclaw-telemetry",
+      "fixture": "openclaw-telemetry",
+      "priority": "P1",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/openclaw-telemetry/src/service.ts:2"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.package-export-cold-import:openclaw-weixin",
+      "fixture": "openclaw-weixin",
+      "priority": "P1",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk/channel-runtime @ plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/process-message.js:3",
+        "openclaw/plugin-sdk/channel-runtime @ plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts:4"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.package-export-cold-import:opik-openclaw",
+      "fixture": "opik-openclaw",
+      "priority": "P1",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/index.ts:2",
+        "openclaw/plugin-sdk @ plugins/opik-openclaw/src/service.ts:6"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.package-export-cold-import:qqbot",
+      "fixture": "qqbot",
+      "priority": "P1",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk @ plugins/qqbot/index.ts:2"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
+      "id": "sdk.import.package-export-cold-import:telnyx-sms",
+      "fixture": "telnyx-sms",
+      "priority": "P1",
+      "target": "sdk-alias",
+      "evidence": [
+        "openclaw/plugin-sdk/direct-dm @ plugins/telnyx-sms/src/inbound.ts:2"
+      ],
+      "assertions": [
+        "package export exists",
+        "migration metadata is visible when alias is missing"
+      ]
+    },
+    {
       "id": "api.capture.runtime-registrars:a2a-gateway",
       "fixture": "a2a-gateway",
       "priority": "P2",
@@ -34851,6 +35844,32 @@
       ]
     },
     {
+      "id": "manifest.schema.top-level-fields:agentchat",
+      "fixture": "agentchat",
+      "priority": "P2",
+      "target": "manifest-loader",
+      "evidence": [
+        "channelEnvVars @ plugins/agentchat/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:ddingtalk",
+      "fixture": "ddingtalk",
+      "priority": "P2",
+      "target": "manifest-loader",
+      "evidence": [
+        "channelEnvVars @ plugins/ddingtalk/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
       "id": "manifest.schema.top-level-fields:dingtalk-connector",
       "fixture": "dingtalk-connector",
       "priority": "P2",
@@ -34865,6 +35884,19 @@
       ]
     },
     {
+      "id": "manifest.schema.top-level-fields:hasdata",
+      "fixture": "hasdata",
+      "priority": "P2",
+      "target": "manifest-loader",
+      "evidence": [
+        "providerAuthEnvVars @ plugins/hasdata/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
       "id": "manifest.schema.top-level-fields:qqbot",
       "fixture": "qqbot",
       "priority": "P2",
@@ -34872,6 +35904,19 @@
       "evidence": [
         "capabilities @ plugins/qqbot/openclaw.plugin.json",
         "extensions @ plugins/qqbot/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:yuanbao",
+      "fixture": "yuanbao",
+      "priority": "P2",
+      "target": "manifest-loader",
+      "evidence": [
+        "channelEnvVars @ plugins/yuanbao/.crabpot-package/openclaw.plugin.json"
       ],
       "assertions": [
         "metadata key is accepted",
@@ -36057,7 +37102,7 @@
       "priority": "P3",
       "target": "channel-runtime",
       "evidence": [
-        "createChatChannelPlugin @ plugins/mattermost/.crabpot-package/src/channel.ts:783"
+        "createChatChannelPlugin @ plugins/mattermost/.crabpot-package/src/channel.ts:919"
       ],
       "assertions": [
         "message envelope is stable",
@@ -36227,32 +37272,6 @@
       "target": "manifest-loader",
       "evidence": [
         "feishu"
-      ],
-      "assertions": [
-        "metadata key is accepted",
-        "migration or compatibility mapping is visible"
-      ]
-    },
-    {
-      "id": "manifest.compat.channel-env-vars:matrix",
-      "fixture": "matrix",
-      "priority": "P3",
-      "target": "manifest-loader",
-      "evidence": [
-        "matrix"
-      ],
-      "assertions": [
-        "metadata key is accepted",
-        "migration or compatibility mapping is visible"
-      ]
-    },
-    {
-      "id": "manifest.compat.channel-env-vars:mattermost",
-      "fixture": "mattermost",
-      "priority": "P3",
-      "target": "manifest-loader",
-      "evidence": [
-        "mattermost"
       ],
       "assertions": [
         "metadata key is accepted",
@@ -36456,12 +37475,181 @@
       ]
     },
     {
+      "id": "manifest.schema.top-level-fields:discord",
+      "fixture": "discord",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "channelEnvVars @ plugins/discord/.crabpot-package/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:feishu",
+      "fixture": "feishu",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "channelEnvVars @ plugins/feishu/.crabpot-package/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:inworld-tts",
+      "fixture": "inworld-tts",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "providerAuthEnvVars @ plugins/inworld-tts/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
       "id": "manifest.schema.top-level-fields:memos-cloud",
       "fixture": "memos-cloud",
       "priority": "P3",
       "target": "manifest-loader",
       "evidence": [
         "main @ plugins/memos-cloud/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:msteams",
+      "fixture": "msteams",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "channelEnvVars @ plugins/msteams/.crabpot-package/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:nextcloud-talk",
+      "fixture": "nextcloud-talk",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "channelEnvVars @ plugins/nextcloud-talk/.crabpot-package/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:nostr",
+      "fixture": "nostr",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "channelEnvVars @ plugins/nostr/.crabpot-package/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:openclaw-qqbot",
+      "fixture": "openclaw-qqbot",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "channelEnvVars @ plugins/openclaw-qqbot/.crabpot-package/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:synology-chat",
+      "fixture": "synology-chat",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "channelEnvVars @ plugins/synology-chat/.crabpot-package/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:telnyx-sms",
+      "fixture": "telnyx-sms",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "channelEnvVars @ plugins/telnyx-sms/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:twitch",
+      "fixture": "twitch",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "channelEnvVars @ plugins/twitch/.crabpot-package/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:voice-call",
+      "fixture": "voice-call",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "channelEnvVars @ plugins/voice-call/.crabpot-package/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:zalo",
+      "fixture": "zalo",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "channelEnvVars @ plugins/zalo/.crabpot-package/openclaw.plugin.json"
+      ],
+      "assertions": [
+        "metadata key is accepted",
+        "migration or compatibility mapping is visible"
+      ]
+    },
+    {
+      "id": "manifest.schema.top-level-fields:zalouser",
+      "fixture": "zalouser",
+      "priority": "P3",
+      "target": "manifest-loader",
+      "evidence": [
+        "channelEnvVars @ plugins/zalouser/.crabpot-package/openclaw.plugin.json"
       ],
       "assertions": [
         "metadata key is accepted",
@@ -37426,18 +38614,6 @@
       "assertions": [
         "entrypoint metadata resolves",
         "cold import failure mode is classified"
-      ]
-    },
-    {
-      "id": "sdk.import.reserved-bundled-plugin-boundary:codex",
-      "fixture": "codex",
-      "priority": "P3",
-      "target": "sdk-import",
-      "evidence": [
-        "openclaw/plugin-sdk/codex-mcp-projection @ plugins/codex/.crabpot-package/dist/thread-lifecycle-qWE88Dn2.js:15"
-      ],
-      "assertions": [
-        "probe has fixture evidence and a target contract"
       ]
     },
     {

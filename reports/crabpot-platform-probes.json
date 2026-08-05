@@ -78,7 +78,7 @@
     {
       "fixture": "qqbot",
       "id": "cold-import.extension:qqbot:plugins-qqbot-preload-cjs",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/qqbot/preload.cjs",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -194,7 +194,7 @@
     {
       "fixture": "opik-openclaw",
       "id": "cold-import.extension:opik-openclaw:plugins-opik-openclaw-index-ts",
-      "status": "ts-loader-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/opik-openclaw/index.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",
@@ -214,7 +214,7 @@
     {
       "fixture": "opik-openclaw",
       "id": "cold-import.runtimeExtension:opik-openclaw:plugins-opik-openclaw-dist-index-js",
-      "status": "build-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/opik-openclaw/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -232,7 +232,7 @@
     {
       "fixture": "openclaw-telemetry",
       "id": "cold-import.extension:openclaw-telemetry:plugins-openclaw-telemetry-index-ts",
-      "status": "ts-loader-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/openclaw-telemetry/index.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",
@@ -270,7 +270,7 @@
     {
       "fixture": "connectclaw",
       "id": "cold-import.extension:connectclaw:plugins-connectclaw-packages-plugin-index-ts",
-      "status": "ts-loader-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/connectclaw/packages/plugin/index.ts",
       "packageManager": "pnpm",
       "loaderSource": "typescript-source",
@@ -400,7 +400,7 @@
     {
       "fixture": "bluebubbles",
       "id": "cold-import.extension:bluebubbles:plugins-bluebubbles-crabpot-package-index-ts",
-      "status": "missing",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/bluebubbles/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -418,7 +418,7 @@
     {
       "fixture": "bluebubbles",
       "id": "cold-import.runtimeExtension:bluebubbles:plugins-bluebubbles-crabpot-package-dist-index-js",
-      "status": "ready",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/bluebubbles/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -436,7 +436,7 @@
     {
       "fixture": "bluebubbles",
       "id": "cold-import.setupEntry:bluebubbles:plugins-bluebubbles-crabpot-package-setup-entry-ts",
-      "status": "missing",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/bluebubbles/.crabpot-package/setup-entry.ts",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -454,7 +454,7 @@
     {
       "fixture": "bluebubbles",
       "id": "cold-import.runtimeSetupEntry:bluebubbles:plugins-bluebubbles-crabpot-package-dist-setup-entry-js",
-      "status": "ready",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/bluebubbles/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1758,7 +1758,7 @@
     {
       "fixture": "memory-tencentdb",
       "id": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-openclaw-plugin-dist-index-js",
-      "status": "build-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/memory-tencentdb/.crabpot-package/openclaw-plugin/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1776,7 +1776,7 @@
     {
       "fixture": "memory-tencentdb",
       "id": "cold-import.extension:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts",
-      "status": "ts-loader-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/memory-tencentdb/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",
@@ -1814,7 +1814,7 @@
     {
       "fixture": "dingtalk-connector",
       "id": "cold-import.extension:dingtalk-connector:plugins-dingtalk-connector-dist-index-mjs",
-      "status": "build-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/dingtalk-connector/dist/index.mjs",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1832,7 +1832,7 @@
     {
       "fixture": "dingtalk-doc",
       "id": "cold-import.extension:dingtalk-doc:plugins-dingtalk-doc-dist-index-mjs",
-      "status": "build-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/dingtalk-doc/dist/index.mjs",
       "packageManager": "pnpm",
       "loaderSource": "native-node",
@@ -1868,7 +1868,7 @@
     {
       "fixture": "mocrane-wecom",
       "id": "cold-import.extension:mocrane-wecom:plugins-mocrane-wecom-index-ts",
-      "status": "ts-loader-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/mocrane-wecom/index.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",
@@ -1924,7 +1924,7 @@
     {
       "fixture": "openclaw-weixin",
       "id": "cold-import.extension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts",
-      "status": "ts-loader-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/openclaw-weixin/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",
@@ -1944,7 +1944,7 @@
     {
       "fixture": "openclaw-weixin",
       "id": "cold-import.runtimeExtension:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-index-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/openclaw-weixin/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1998,7 +1998,7 @@
     {
       "fixture": "telnyx-sms",
       "id": "cold-import.extension:telnyx-sms:plugins-telnyx-sms-dist-index-js",
-      "status": "build-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/telnyx-sms/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -2016,7 +2016,7 @@
     {
       "fixture": "telnyx-sms",
       "id": "cold-import.setupEntry:telnyx-sms:plugins-telnyx-sms-dist-setup-entry-js",
-      "status": "build-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/telnyx-sms/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",

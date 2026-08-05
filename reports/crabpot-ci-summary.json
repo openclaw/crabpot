@@ -2,25 +2,25 @@
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
   "mode": "check",
-  "openclawLabel": "openclaw/openclaw@e3eb1121adfb (Default Track pin 2026-07-18)",
+  "openclawLabel": "openclaw/openclaw@7ae6a950f6b7 (Default Track pin 2026-08-04)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 107,
-    "suggestions": 251,
-    "issues": 358,
-    "p0Issues": 0,
-    "p1Issues": 119,
-    "liveIssues": 0,
-    "liveP0Issues": 0,
-    "compatGaps": 103,
-    "deprecationWarnings": 40,
+    "warnings": 138,
+    "suggestions": 249,
+    "issues": 387,
+    "p0Issues": 6,
+    "p1Issues": 127,
+    "liveIssues": 6,
+    "liveP0Issues": 6,
+    "compatGaps": 112,
+    "deprecationWarnings": 38,
     "inspectorGaps": 157,
-    "upstreamIssues": 58,
+    "upstreamIssues": 74,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
-    "policyWarnings": 307,
+    "policyWarnings": 308,
     "profileFailures": 0,
     "profileWarnings": 2,
     "executionPass": 120,
@@ -29,18 +29,66 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 3047,
-    "importLoopP95Ms": 3054,
-    "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 123.2,
-    "importLoopOpenClawActivationP50Ms": 0.4,
+    "importLoopP50Ms": 118,
+    "importLoopP95Ms": 118,
+    "importLoopOpenClawLifecycleCount": 0,
+    "importLoopOpenClawImportP50Ms": 0,
+    "importLoopOpenClawActivationP50Ms": 0,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 0.9,
-    "importLoopMaxCpuMs": 38,
-    "importLoopRssSampleCount": 361,
-    "importLoopCpuSampleCount": 361
+    "importLoopMaxRssMb": 0.1,
+    "importLoopMaxCpuMs": 9,
+    "importLoopRssSampleCount": 12,
+    "importLoopCpuSampleCount": 12
   },
   "topIssues": [
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "connectclaw",
+      "code": "unknown-hook-name",
+      "title": "connectclaw: fixture uses a hook missing from target OpenClaw",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "honcho",
+      "code": "unknown-hook-name",
+      "title": "honcho: fixture uses a hook missing from target OpenClaw",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "honcho",
+      "code": "unknown-registration-name",
+      "title": "honcho: fixture calls a registrar missing from target OpenClaw",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "kitchen-sink",
+      "code": "unknown-registration-name",
+      "title": "kitchen-sink: fixture calls a registrar missing from target OpenClaw",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "memos-cloud",
+      "code": "unknown-hook-name",
+      "title": "memos-cloud: fixture uses a hook missing from target OpenClaw",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P0",
+      "issueClass": "live-issue",
+      "fixture": "openclaw-telemetry",
+      "code": "unknown-hook-name",
+      "title": "openclaw-telemetry: fixture uses a hook missing from target OpenClaw",
+      "decision": "core-compat-adapter"
+    },
     {
       "severity": "P1",
       "issueClass": "compat-gap",
@@ -71,6 +119,14 @@
       "fixture": "bluebubbles",
       "code": "missing-compat-record",
       "title": "bluebubbles: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "bluebubbles",
+      "code": "sdk-export-missing",
+      "title": "bluebubbles: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
     },
     {
@@ -115,14 +171,6 @@
     },
     {
       "severity": "P1",
-      "issueClass": "upstream-metadata",
-      "fixture": "codex",
-      "code": "reserved-sdk-import",
-      "title": "codex: plugin imports reserved bundled-plugin SDK compatibility subpaths",
-      "decision": "plugin-upstream-fix"
-    },
-    {
-      "severity": "P1",
       "issueClass": "compat-gap",
       "fixture": "codex-app-server",
       "code": "missing-compat-record",
@@ -152,58 +200,23 @@
       "code": "missing-compat-record",
       "title": "connectclaw: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "ddingtalk",
-      "code": "missing-compat-record",
-      "title": "ddingtalk: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "ddingtalk",
-      "code": "missing-compat-record",
-      "title": "ddingtalk: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "diagnostics-otel",
-      "code": "missing-compat-record",
-      "title": "diagnostics-otel: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "diagnostics-prometheus",
-      "code": "missing-compat-record",
-      "title": "diagnostics-prometheus: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "diffs",
-      "code": "missing-compat-record",
-      "title": "diffs: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "dingtalk-connector",
-      "code": "missing-compat-record",
-      "title": "dingtalk-connector: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
     }
   ],
   "refRegressions": [],
   "policyFindings": [
+    {
+      "id": "compatibility-report.live-p0-issues",
+      "action": "warn",
+      "message": "6 live P0 issues tracked",
+      "evidence": [
+        "connectclaw:unknown-hook-name:none",
+        "honcho:unknown-hook-name:none",
+        "honcho:unknown-registration-name:none",
+        "kitchen-sink:unknown-registration-name:none",
+        "memos-cloud:unknown-hook-name:none",
+        "openclaw-telemetry:unknown-hook-name:none"
+      ]
+    },
     {
       "id": "execution-results.audit-findings",
       "action": "warn",
@@ -421,17 +434,6 @@
         "captured registration requires includeLifecycle=true",
         "service-lifecycle-harness"
       ]
-    },
-    {
-      "id": "execution-results.blocked.clawmetry.registerService.6",
-      "action": "warn",
-      "message": "allowed-blocked: captured registration requires includeLifecycle=true",
-      "evidence": [
-        ".crabpot/results/clawmetry/cold-import-runtimeExtension-clawmetry-plugins-clawmetry-clawhub-plugin-dist-index-js.synthetic.json",
-        "registerService",
-        "captured registration requires includeLifecycle=true",
-        "service-lifecycle-harness"
-      ]
     }
   ],
   "profileFindings": [
@@ -439,20 +441,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 446.3% over baseline",
+      "message": "p95WallMs regressed 450.3% over baseline",
       "baseline": 1273,
-      "current": 6954,
-      "delta": 5681,
-      "percent": 446.3
+      "current": 7005,
+      "delta": 5732,
+      "percent": 450.3
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 450.5 over baseline",
+      "message": "maxPeakRssMb regressed 492.1 over baseline",
       "baseline": 65.1,
-      "current": 515.6,
-      "delta": 450.5
+      "current": 557.2,
+      "delta": 492.1
     }
   ],
   "artifacts": {
