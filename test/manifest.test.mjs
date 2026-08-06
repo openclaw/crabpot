@@ -119,6 +119,32 @@ test("manifest validation rejects invalid fixture contracts before CI materializ
   });
 });
 
+test("manifest validation rejects plugins-prefixed path traversal before materialization", () => {
+  const manifest = {
+    version: 1,
+    submoduleRoot: "plugins",
+    fixtures: [
+      {
+        id: "escape",
+        path: "plugins/../../../tmp/crabpot-escape",
+        repo: "https://github.com/openclaw/example.git",
+        priority: "high",
+        seams: ["tool"],
+        execution: { blockedFailures: [{ id: "b", seam: "tool", errorIncludes: "x", reason: "y" }] },
+        expect: { hooks: ["h"] },
+      },
+    ],
+  };
+
+  assert.throws(
+    () => validateManifest(manifest),
+    (error) => {
+      assert.match(error.message, /escape: path must live under plugins\//);
+      return true;
+    },
+  );
+});
+
 function invalidManifest() {
   return {
     version: 2,

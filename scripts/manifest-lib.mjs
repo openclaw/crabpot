@@ -75,7 +75,7 @@ export function validateManifest(manifest) {
     }
     ids.add(fixture.id);
 
-    if (!fixture.path?.startsWith("plugins/")) {
+    if (!fixture.path?.startsWith("plugins/") || fixture.path.includes("..")) {
       errors.push(`${fixture.id}: path must live under plugins/`);
     }
     if (paths.has(fixture.path)) {
