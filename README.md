@@ -10,61 +10,61 @@
 ## Reporting Data
 
 `main` follows a promoted green OpenClaw source pin plus npm `latest` plugin artifacts, with bundled fixtures source-packed from that pinned checkout. `crab-beta` follows beta npm dist-tags for externalized packages and source-packs bundled fixtures. `crab-development` checks `openclaw/openclaw` main against source-packed official plugin artifacts from that same OpenClaw checkout.
-- **Last dashboard update:** Aug 05, 2026, 00:52 UTC
+- **Last dashboard update:** Aug 11, 2026, 21:56 UTC
 <!-- crabpot-tracks:start -->
-- **Source:** `github-default-pin`
-- **OpenClaw version:** `2026.7.2`
-- **OpenClaw SHA:** `7ae6a950f6b7`
-- **Dashboard target:** `openclaw/openclaw@7ae6a950f6b7 + npm latest plugin artifacts`
-- **Plugin artifacts:** `npm latest fixture set plus bundled source-packed fixtures`
-- **GitHub report run:** [30963776305](https://github.com/openclaw/crabpot/actions/runs/30963776305)
+- **Source:** `github-main`
+- **OpenClaw version:** `2026.8.1`
+- **OpenClaw SHA:** `8d034a7b6161`
+- **Dashboard target:** `openclaw/openclaw@main + source-packed @openclaw/*`
+- **Plugin artifacts:** `source-packed from OpenClaw checkout`
+- **GitHub report run:** [31539904588](https://github.com/openclaw/crabpot/actions/runs/31539904588)
 <!-- crabpot-tracks:end -->
 
 <!-- crabpot-summary:start -->
 ## Dashboard
 
-| Metric                 | Result                                                                |
-| ---------------------- | --------------------------------------------------------------------- |
-| Fixtures               | 60                                                                    |
-| Hard breakages         | 0                                                                     |
-| Warnings               | 138                                                                   |
-| Suggestions            | 249                                                                   |
-| Issues                 | 387                                                                   |
-| P0 issues              | [🔴 P0 6](reports/crabpot-issues.md#p0-live-issues)                   |
-| P1 issues              | [🟠 P1 127](reports/crabpot-issues.md#triage-summary)                 |
-| Live issues            | 6 total / 6 P0                                                        |
-| Compat gaps            | 112                                                                   |
-| Deprecation warnings   | 38                                                                    |
-| Inspector gaps         | 157                                                                   |
-| Upstream metadata      | 74                                                                    |
-| Contract probes        | 267                                                                   |
-| Policy failures        | 0                                                                     |
-| Policy warnings        | 308                                                                   |
-| Ref diff failures      | 0                                                                     |
-| Profile failures       | 0                                                                     |
-| Execution probes       | 120 pass / 0 fail / 306 blocked                                       |
-| Synthetic probes       | 507 ready / 9 blocked / 516 total                                     |
-| Cold import            | 6 ready / 115 blocked / 121 entrypoints                               |
-| Workspace plan         | 121 entrypoints / 80 installs / 15 builds                             |
-| Platform risks         | 17 Windows / 17 container                                             |
-| Jiti loader candidates | 20                                                                    |
-| Import loop            | p50 118ms / p95 118ms / plugin delta RSS 0.1MB / plugin delta CPU 9ms |
-| Runtime profile        | p50 6954ms / command p95 7005ms / max RSS 557.2MB / 3 samples/command |
+| Metric                 | Result                                                                                                                                                             |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Fixtures               | 8<br><em>-52 vs main</em>                                                                                                                                          |
+| Hard breakages         | 0<br><em>0 vs main</em>                                                                                                                                            |
+| Warnings               | 12<br><em>-126 vs main</em>                                                                                                                                        |
+| Suggestions            | 27<br><em>-222 vs main</em>                                                                                                                                        |
+| Issues                 | 39<br><em>-348 vs main</em>                                                                                                                                        |
+| P0 issues              | [🔴 P0 0](reports/crabpot-issues.md#p0-live-issues)<br><em>-6 vs main</em>                                                                                         |
+| P1 issues              | [🟠 P1 13](reports/crabpot-issues.md#triage-summary)<br><em>-114 vs main</em>                                                                                      |
+| Live issues            | 0 total<br><em>-6 vs main</em> / 0 P0<br><em>-6 vs main</em>                                                                                                       |
+| Compat gaps            | 12<br><em>-100 vs main</em>                                                                                                                                        |
+| Deprecation warnings   | 0<br><em>-38 vs main</em>                                                                                                                                          |
+| Inspector gaps         | 21<br><em>-136 vs main</em>                                                                                                                                        |
+| Upstream metadata      | 6<br><em>-68 vs main</em>                                                                                                                                          |
+| Contract probes        | 32<br><em>-235 vs main</em>                                                                                                                                        |
+| Policy failures        | 0<br><em>0 vs main</em>                                                                                                                                            |
+| Policy warnings        | 25<br><em>-283 vs main</em>                                                                                                                                        |
+| Ref diff failures      | 0<br><em>0 vs main</em>                                                                                                                                            |
+| Profile failures       | 0<br><em>0 vs main</em>                                                                                                                                            |
+| Execution probes       | 75 pass<br><em>-45 vs main</em> / 0 fail<br><em>0 vs main</em> / 24 blocked<br><em>-282 vs main</em>                                                               |
+| Synthetic probes       | 54 ready<br><em>-453 vs main</em> / 2 blocked<br><em>-7 vs main</em> / 56 total<br><em>-460 vs main</em>                                                           |
+| Cold import            | 0 ready<br><em>-6 vs main</em> / 10 blocked<br><em>-105 vs main</em> / 10 entrypoints<br><em>-111 vs main</em>                                                     |
+| Workspace plan         | 10 entrypoints<br><em>-111 vs main</em> / 8 installs<br><em>-72 vs main</em> / 0 builds<br><em>-15 vs main</em>                                                    |
+| Platform risks         | 0 Windows<br><em>-17 vs main</em> / 0 container<br><em>-17 vs main</em>                                                                                            |
+| Jiti loader candidates | 10<br><em>-10 vs main</em>                                                                                                                                         |
+| Import loop            | p50 110ms<br><em>-8 vs main</em> / p95 121ms<br><em>+3 vs main</em> / plugin delta RSS 0MB<br><em>-0.1 vs main</em> / plugin delta CPU 17ms<br><em>+8 vs main</em> |
+| Runtime profile        | p50 1336ms<br><em>-5618 vs main</em> / command p95 1362ms<br><em>-5643 vs main</em> / max RSS 135.1MB<br><em>-422.1 vs main</em> / 3 samples/command               |
 
 ### Top Discovered Issues
 
-| Severity | Class      | Fixture            | Code                      | Decision            | Title                                                                                                            |
-| -------- | ---------- | ------------------ | ------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| 🔴 P0    | live-issue | connectclaw        | unknown-hook-name         | core-compat-adapter | [connectclaw: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)        |
-| 🔴 P0    | live-issue | honcho             | unknown-hook-name         | core-compat-adapter | [honcho: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)             |
-| 🔴 P0    | live-issue | honcho             | unknown-registration-name | core-compat-adapter | [honcho: fixture calls a registrar missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)       |
-| 🔴 P0    | live-issue | kitchen-sink       | unknown-registration-name | core-compat-adapter | [kitchen-sink: fixture calls a registrar missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues) |
-| 🔴 P0    | live-issue | memos-cloud        | unknown-hook-name         | core-compat-adapter | [memos-cloud: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)        |
-| 🔴 P0    | live-issue | openclaw-telemetry | unknown-hook-name         | core-compat-adapter | [openclaw-telemetry: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues) |
-| 🟠 P1    | compat-gap | a2a-gateway        | missing-compat-record     | core-compat-adapter | [a2a-gateway: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)          |
-| 🟠 P1    | compat-gap | agentchat          | missing-compat-record     | core-compat-adapter | [agentchat: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)            |
-| 🟠 P1    | compat-gap | agentchat          | missing-compat-record     | core-compat-adapter | [agentchat: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)            |
-| 🟠 P1    | compat-gap | bluebubbles        | missing-compat-record     | core-compat-adapter | [bluebubbles: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)          |
+| Severity | Class         | Fixture                | Code                     | Decision            | Title                                                                                                                    |
+| -------- | ------------- | ---------------------- | ------------------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| 🟠 P1    | compat-gap    | codex                  | missing-compat-record    | core-compat-adapter | [codex: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)                        |
+| 🟠 P1    | compat-gap    | codex                  | sdk-export-missing       | core-compat-adapter | [codex: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#compat-gaps)        |
+| 🟠 P1    | compat-gap    | diagnostics-prometheus | missing-compat-record    | core-compat-adapter | [diagnostics-prometheus: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)       |
+| 🟠 P1    | compat-gap    | diffs                  | missing-compat-record    | core-compat-adapter | [diffs: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)                        |
+| 🟠 P1    | compat-gap    | diffs                  | sdk-export-missing       | core-compat-adapter | [diffs: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#compat-gaps)        |
+| 🟠 P1    | compat-gap    | google-meet            | missing-compat-record    | core-compat-adapter | [google-meet: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)                  |
+| 🟠 P1    | compat-gap    | google-meet            | sdk-export-missing       | core-compat-adapter | [google-meet: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#compat-gaps)  |
+| 🟠 P1    | inspector-gap | memory-lancedb         | conversation-access-hook | inspector-follow-up | [memory-lancedb: conversation-access hooks need privacy-boundary probes](reports/crabpot-issues.md#inspector-proof-gaps) |
+| 🟠 P1    | compat-gap    | memory-lancedb         | missing-compat-record    | core-compat-adapter | [memory-lancedb: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)               |
+| 🟠 P1    | compat-gap    | memory-lancedb         | missing-compat-record    | core-compat-adapter | [memory-lancedb: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)               |
 <!-- crabpot-summary:end -->
 ## What this tests
 
