@@ -1058,40 +1058,30 @@
       "id": "openclaw-qqbot",
       "name": "OpenClaw QQ Bot channel plugin",
       "package": {
-        "name": "@openclaw/qqbot",
-        "tag": "beta"
+        "name": "@tencent-connect/openclaw-qqbot",
+        "version": "2.0.1"
       },
       "source": {
-        "repo": "https://github.com/openclaw/openclaw.git",
-        "path": "extensions/qqbot",
-        "ref": "5e63b365d4d3e62ef600b783fad7c5043b6f4738"
+        "repo": "https://github.com/tencent-connect/openclaw-qqbot.git",
+        "path": ".",
+        "ref": "88dee0b0e493469dc8c1684a5beafcbc66aa5bda"
       },
       "path": "plugins/openclaw-qqbot",
       "priority": "medium",
       "seams": [
         "channel",
-        "command",
         "tool",
         "media",
+        "proactive-messaging",
         "npm-artifact"
       ],
       "expect": {
         "registrations": [
-          "registerCommand",
+          "registerChannel",
           "registerTool"
         ]
       },
-      "execution": {
-        "blockedFailures": [
-          {
-            "id": "openclaw-qqbot-command-channel-config-runtime",
-            "seam": "registerCommand",
-            "errorIncludes": "reading 'channels'",
-            "reason": "captured QQ Bot command probe requires host channel configuration"
-          }
-        ]
-      },
-      "why": "Official OpenClaw QQ Bot npm package covering command/tool registration, channel manifest metadata, media-capable messaging, and monorepo source mapping without replacing the external QQBot fixture."
+      "why": "Official externalized QQ Bot npm package covering channel/tool registration, media-capable messaging, proactive delivery, and OpenClaw catalog compatibility without replacing the repository fixture."
     },
     {
       "id": "whatsapp",
