@@ -94,6 +94,38 @@ test("plugin inspector smoke uses full default findings output", () => {
   assert.match(smokeScript, /"report", "--config", configPath, "--out", outDir/);
 });
 
+test("plugin inspector checkout head probe returns instead of blocking when git hangs", (t) => {
+  const hangDir = mkdtempSync(path.join(os.tmpdir(), "crabpot-git-head-hang-"));
+  const checkoutDir = mkdtempSync(path.join(os.tmpdir(), "crabpot-git-head-checkout-"));
+  t.after(() => {
+    rmSync(hangDir, { force: true, recursive: true });
+    rmSync(checkoutDir, { force: true, recursive: true });
+  });
+  const hangGit = path.join(hangDir, process.platform === "win32" ? "git.cmd" : "git");
+  if (process.platform === "win32") {
+    writeFileSync(hangGit, `@echo off\r\n"${process.execPath}" -e "setTimeout(() => {}, 30000)"\r\n`);
+  } else {
+    writeFileSync(hangGit, `#!/bin/sh\nexec "${process.execPath}" -e 'setTimeout(() => {}, 30000)'\n`);
+    chmodSync(hangGit, 0o755);
+  }
+  mkdirSync(path.join(checkoutDir, "src"), { recursive: true });
+  writeFileSync(path.join(checkoutDir, "src", "index.js"), "export {};\n", "utf8");
+  mkdirSync(path.join(checkoutDir, "node_modules"), { recursive: true });
+  writeFileSync(path.join(checkoutDir, "node_modules", ".crabpot-install-ready"), "ready\n", "utf8");
+
+  withEnv({ CRABPOT_GIT_TIMEOUT_MS: "250" }, () => {
+    const startedAt = Date.now();
+    const previousPath = process.env.PATH;
+    process.env.PATH = `${hangDir}${path.delimiter}${previousPath}`;
+    try {
+      assert.throws(() => isPinnedCheckoutReady(checkoutDir, "unused"), /timed out after 250ms/);
+      assert.ok(Date.now() - startedAt < 4_000, "hung git rev-parse must return");
+    } finally {
+      process.env.PATH = previousPath;
+    }
+  });
+});
+
 test("plugin inspector checkout run() returns instead of blocking when the child hangs", () => {
   withEnv({ CRABPOT_GIT_TIMEOUT_MS: "250" }, () => {
     const startedAt = Date.now();

@@ -154,9 +154,17 @@ function npmCommand() {
 }
 
 function readGitHead(checkoutDir) {
+  const timeout = configuredTimeoutMs("CRABPOT_GIT_TIMEOUT_MS", defaultGitTimeoutMs);
   const result = spawnSync("git", ["-C", checkoutDir, "rev-parse", "HEAD"], {
     encoding: "utf8",
+    timeout,
   });
+  if (result.error) {
+    if (result.error.code === "ETIMEDOUT") {
+      throw new Error(`git rev-parse HEAD timed out after ${timeout}ms`);
+    }
+    throw result.error;
+  }
   if (result.status !== 0) {
     return null;
   }
