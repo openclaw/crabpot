@@ -5,7 +5,12 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
-import { loadPluginInspectorPublicApi, resolvePluginInspectorCliInvocation } from "./plugin-inspector-source.mjs";
+import {
+  configuredTimeoutMs,
+  defaultPluginInspectorTimeoutMs,
+  loadPluginInspectorPublicApi,
+  resolvePluginInspectorCliInvocation,
+} from "./plugin-inspector-source.mjs";
 
 const defaultPluginRoot = path.join(repoRoot, ".crabpot/generated-surface-plugin");
 const defaultReportJsonPath = path.join(repoRoot, "reports/crabpot-generated-surface.json");
@@ -458,8 +463,9 @@ export { ${sdkExports.map((_, index) => `sdk${index}`).join(", ")} };
 `;
 }
 
-function runPluginInspector(pluginRoot, { runtime }) {
+export function runPluginInspector(pluginRoot, { runtime }) {
   const invocation = resolvePluginInspectorCliInvocation();
+  const timeout = configuredTimeoutMs("CRABPOT_PLUGIN_INSPECTOR_TIMEOUT_MS", defaultPluginInspectorTimeoutMs);
   const commandArgs = [
     ...invocation.args,
     "check",
@@ -478,7 +484,18 @@ function runPluginInspector(pluginRoot, { runtime }) {
       ...(runtime ? { PLUGIN_INSPECTOR_EXECUTE_ISOLATED: "1" } : {}),
     },
     shell: invocation.shell === true,
+    timeout,
   });
+
+  if (result.error?.code === "ETIMEDOUT") {
+    return {
+      command: displayCommand(invocation.command, commandArgs),
+      status: result.status,
+      stdout: normalizeOutputPaths(result.stdout),
+      stderr: normalizeOutputPaths(result.stderr),
+      failures: [`plugin-inspector ${runtime ? "runtime" : "static"} timed out after ${timeout}ms`],
+    };
+  }
 
   return {
     command: displayCommand(invocation.command, commandArgs),

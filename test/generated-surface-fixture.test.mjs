@@ -1,10 +1,11 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
+import { chmodSync, mkdtempSync, writeFileSync, rmSync } from "node:fs";
 import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { test } from "node:test";
-import { buildGeneratedSurfaceReport } from "../scripts/check-generated-surface-fixture.mjs";
+import { buildGeneratedSurfaceReport, runPluginInspector } from "../scripts/check-generated-surface-fixture.mjs";
 
 test("generated surface fixture verifies target OpenClaw surface", async () => {
   const tempDir = await mkdtemp(path.join(os.tmpdir(), "crabpot-generated-surface-"));
@@ -85,6 +86,36 @@ test("generated surface fixture honors platform-specific CLI shell invocation", 
   const source = await readFile("scripts/check-generated-surface-fixture.mjs", "utf8");
 
   assert.match(source, /shell: invocation\.shell === true/);
+  assert.match(source, /CRABPOT_PLUGIN_INSPECTOR_TIMEOUT_MS/);
+});
+
+test("generated surface inspector returns instead of blocking when the child hangs", () => {
+  const hangDir = mkdtempSync(path.join(os.tmpdir(), "crabpot-generated-surface-hang-"));
+  const hangBin = writeHangCommand(hangDir);
+  const previousBin = process.env.CRABPOT_PLUGIN_INSPECTOR_BIN;
+  const previousTimeout = process.env.CRABPOT_PLUGIN_INSPECTOR_TIMEOUT_MS;
+  process.env.CRABPOT_PLUGIN_INSPECTOR_BIN = hangBin;
+  process.env.CRABPOT_PLUGIN_INSPECTOR_TIMEOUT_MS = "250";
+
+  try {
+    const startedAt = Date.now();
+    const result = runPluginInspector(hangDir, { runtime: false });
+    assert.notEqual(result.status, 0);
+    assert.match(result.failures.join("\n"), /timed out after 250ms/);
+    assert.ok(Date.now() - startedAt < 4_000, "hung generated-surface inspector spawn must return");
+  } finally {
+    rmSync(hangDir, { force: true, recursive: true });
+    if (previousBin === undefined) {
+      delete process.env.CRABPOT_PLUGIN_INSPECTOR_BIN;
+    } else {
+      process.env.CRABPOT_PLUGIN_INSPECTOR_BIN = previousBin;
+    }
+    if (previousTimeout === undefined) {
+      delete process.env.CRABPOT_PLUGIN_INSPECTOR_TIMEOUT_MS;
+    } else {
+      process.env.CRABPOT_PLUGIN_INSPECTOR_TIMEOUT_MS = previousTimeout;
+    }
+  }
 });
 
 test("generated surface fixture refuses plugin roots outside .crabpot", () => {
@@ -100,3 +131,16 @@ test("generated surface fixture refuses plugin roots outside .crabpot", () => {
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /--plugin-root must be inside \.crabpot/);
 });
+
+function writeHangCommand(dir) {
+  if (process.platform === "win32") {
+    const file = path.join(dir, "hang-inspector.cmd");
+    writeFileSync(file, `@echo off\r\n"${process.execPath}" -e "setTimeout(() => {}, 30000)"\r\n`);
+    return file;
+  }
+
+  const file = path.join(dir, "hang-inspector");
+  writeFileSync(file, `#!/bin/sh\nexec "${process.execPath}" -e 'setTimeout(() => {}, 30000)'\n`);
+  chmodSync(file, 0o755);
+  return file;
+}

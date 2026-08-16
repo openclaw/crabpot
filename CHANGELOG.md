@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Time out hung plugin-inspector git fetch, npm ci, smoke, and generated-surface spawnSync calls instead of blocking the static suite.
 - Refreshed compatible plugin fixture pins and npm locks, upgraded plugin-inspector to 0.3.21, and moved CI to current GitHub Actions.
 - Refreshed plugin fixtures and restored real OpenClaw lifecycle profiling against current diagnostics APIs.
 - Split CI into a required pinned OpenClaw Default Track, an advisory artifact-producing HEAD canary, and a 14-day pin-promotion SLA.
